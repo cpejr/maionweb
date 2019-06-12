@@ -113,37 +113,41 @@ const budgetSchema = new mongoose.Schema({
       withdrawal: String,
       delivery: String,
       totalCar: FLoat
-    }],
+    }]
+  },
 
-    services:{
+  services:{
+    clientList: String,
+    safe:{
+      freeField: String,
+      adt: Float,
+      chd: Float,
+      inf: Float,
+      totalSafe: Float
+    },
+    tickets:{
       clientList: String,
-      safe:{
-        freeField: String,
-        adt: Float,
-        chd: Float,
-        inf: Float,
-        totalSafe: Float
-      },
-      tickets:{
-        clientList: String,
-        freeField: String,
-        adt: Float,
-        chd: Float,
-        inf: Float,
-        totalTickets: Float
-      },
-      outhers: {
-        clientList: String,
-        freeField: String,
-        adt: Float,
-        chd: Float,
-        inf: Float,
-        totalOthers: Float
-      }
-
+      freeField: String,
+      adt: Float,
+      chd: Float,
+      inf: Float,
+      totalTickets: Float
+    },
+    outhers: {
+      clientList: String,
+      freeField: String,
+      adt: Float,
+      chd: Float,
+      inf: Float,
+      totalOthers: Float
     }
 
-  }
+  },
+
+  // responsavelViagemEacompanhantes:[{
+  // type: mongoose.Schema.Types.ObjectId,
+  // ref: 'Client'
+  // }],
 
 }, { timestamps: true, static: false });
 
