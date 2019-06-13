@@ -45,14 +45,14 @@ const budgetSchema = new mongoose.Schema({
       destination:String,
       dateDestination: Date,
       hourDestination: String,
-      totalFlight: Float,
+      totalFlight: Number,
       adult:{
-        value: Float,
+        value: Number,
         chd: String,
         inf: String
       },
       txEmb:{
-        value: Float,
+        value: Number,
         chd: String,
         inf: String
       },
@@ -69,18 +69,18 @@ const budgetSchema = new mongoose.Schema({
     city: [String],
     option:[{
       hotel: String,
-      valueApt: Float,
-      numberDaily: Int,
-      numberApt: Int,
-      total: Float
+      valueApt: Number,
+      numberDaily: Number,
+      numberApt: Number,
+      total: Number
     }],
     food: {
       type: String,
-      enum: ['Café', 'Meia Pensão', 'All Inclus', 'Outro']
+      enum: ['Café', 'Meia Pensão', 'All Inclusive', 'Outro']
     },
     food: {
       type: String,
-      enum: ['Café', 'Meia Pensão', 'All Inclus', 'Outro']
+      enum: ['Café', 'Meia Pensão', 'All Inclusive', 'Outro']
     },
     cancellationPeriod: {
       type: String,
