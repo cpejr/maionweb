@@ -20,6 +20,8 @@ router.get('/signup', (req, res) => {
 
 
 
+// POST LOGIN
+
 router.post('/login',(req,res)=> {
    const userData  = req.body.user;
    console.log(req.body.user);
@@ -45,6 +47,9 @@ router.post('/login',(req,res)=> {
    });
  });
 
+
+
+//POST SIGNUP
 
 router.post('/signup', (req,res) => {
   const { user } = req.body;
