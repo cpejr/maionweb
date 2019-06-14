@@ -16,6 +16,7 @@ const session = require('express-session');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const carsRouter = require('./routes/car');
 
 const app = express();
 
@@ -66,11 +67,9 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
-
-
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/cars', carsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
