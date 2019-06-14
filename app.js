@@ -13,6 +13,7 @@ const mongoose = require('mongoose');
 const firebase = require('firebase');
 const flash = require('express-flash');
 const session = require('express-session');
+var carsRouter = require('./routes/car');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -71,6 +72,7 @@ app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/cars', carsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
