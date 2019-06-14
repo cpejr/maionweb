@@ -3,15 +3,23 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
 
 
-  name: {
-    firstname: String,
-    lastname: String
+  fullname: String,
+  birthDate: Date,
+
+  type: {
+    type: String,
+    enum: ['Admin', 'Funcionario'],
+    default: 'Funcionario'
+
   },
 
   register: {
     type: String, // CPF
     unique: true
+
   },
+  adress: String,
+  zipCode: String, //CEP
 
   email: {
     type: String,
@@ -20,14 +28,16 @@ const userSchema = new mongoose.Schema({
   },
 
   phone: String, //residencial
-  cellphone: String //celular
+  cellphone: String, //celular
+  pis: String,
+  workPermit: String //Carteria de Trabalho
 
 }, { timestamps: true, static: false });
 
 const UserModel = mongoose.model('User', userSchema);
 
 class User {
-  
+
   /**
    * Get all Users from database
    * @returns {Array} Array of Users
