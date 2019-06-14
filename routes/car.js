@@ -9,7 +9,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
   Car.getAll().then((cars) => {
     console.log(cars);
-    res.render('cars/index', { title: 'Cars', cars });
+    res.send('oi');
+    // res.render('cars/index', { title: 'Cars', cars });
   }).catch((err) => {
     console.log(err);
   });
@@ -30,7 +31,8 @@ router.post('/', (req, res) => {
   console.log(car);
   Car.create(car).then((id) => {
     console.log(`Created new car with id: ${id}`);
-    res.redirect(`/cars/${id}`);
+    res.send('deu certo essa porra');
+    // res.redirect(`/cars/${id}`);
   }).catch((err) => {
     console.log(err);
     res.redirect('/cars');

@@ -13,10 +13,10 @@ const mongoose = require('mongoose');
 const firebase = require('firebase');
 const flash = require('express-flash');
 const session = require('express-session');
-var carsRouter = require('./routes/car');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const carsRouter = require('./routes/car');
 
 const app = express();
 
@@ -66,9 +66,6 @@ app.use(sassMiddleware({
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
-
-
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
