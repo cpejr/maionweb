@@ -6045,4 +6045,10 @@ body {
 a {
   color: #00B7FF; }
 
+.maion-alert {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  margin-left: 10px; }
+
 /*# sourceMappingURL=style.css.map */
