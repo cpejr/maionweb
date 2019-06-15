@@ -40,7 +40,7 @@ router.post('/login',(req,res)=> {
             break;
           default:
             req.flash('danger', 'Erro indefinido.');
-    }
+          }
     console.log(`Error Code: ${error.code}`);
     console.log(`Error Message: ${error.message}`);
     res.redirect('/login');
