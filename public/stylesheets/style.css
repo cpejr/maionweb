@@ -6040,10 +6040,43 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  background-color: white; }
 
 a {
   color: #00B7FF; }
+
+div {
+  padding: 50px;
+  font: 14px;
+  font-family: "Arial";
+  color: white; }
+
+h1 {
+  font-size: 40px;
+  font-family: sans-serif;
+  font-style: normal; }
+
+h2 {
+  font-size: 14px;
+  font-family: serif;
+  font-style: normal; }
+
+head {
+  font-size: 20px;
+  font-family: cursive;
+  font-style: normal; }
+
+aside {
+  position: relative;
+  margin-left: 250px;
+  font-family: "Arial";
+  font-size: 15px;
+  font-style: oblique;
+  background-color: brown;
+  width: 700px; }
 
 .maion-alert {
   position: fixed;
