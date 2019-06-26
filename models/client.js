@@ -31,7 +31,7 @@ const clientSchema = new mongoose.Schema({
   },
 
   spouseName: String, // Nome do conjuge
-  children: Number, // Número de filhos
+  children: [String], //   filhos
   childrenAge: [Number],
   profession: String,
   spouseProfession: String,

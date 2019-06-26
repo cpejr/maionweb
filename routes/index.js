@@ -26,6 +26,7 @@ router.post('/login',(req,res)=> {
    const userData  = req.body.user;
    console.log(req.body.user);
    firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then(() => {
+     res.redirect('/');
     //espaço para adicionar dentro da funçao
    }).catch((error) => {
        switch (error.code) {
@@ -60,6 +61,20 @@ router.post('/signup', (req,res) => {
   var errorMessage = error.message;
   // ...
 });
+
+
+// GET /logout
+router.get('/logout', auth.isAuthenticated, (req, res, next) => {
+  firebase.auth().signOut().then(() => {
+      delete req.session.fullName;
+      //delete req.session.userId;
+      delete req.session.email;
+      res.redirect('/login');
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('/error');
+    });
+  });
 
 
 });
