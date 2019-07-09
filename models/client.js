@@ -7,8 +7,7 @@ const clientSchema = new mongoose.Schema({
 
   register: { //CPF
     type: String,
-    unique: true
-
+    //unique: false
   },
 
   phone: String, //residencial
@@ -25,14 +24,14 @@ const clientSchema = new mongoose.Schema({
 
   maritalStatus: { //Estado civil
     type: String,
-    enum: ['Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)'],
-    default: 'Solteiro'
+    // enum: ['Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)'],
+    default: 'Solteiro(a)'
 
   },
 
   spouseName: String, // Nome do conjuge
-  children: [String], //   filhos
-  childrenAge: [Number],
+  children: String, //   filhos
+  childrenAge: String,
   profession: String,
   spouseProfession: String,
   instagram: String,
@@ -87,12 +86,12 @@ class Client {
 
   /**
    * Create a new Client
-   * @param {Object} user - User Document Data
-   * @returns {string} - New User Id
+   * @param {Object} client - Client Document Data
+   * @returns {string} - New Client Id
    */
-  static create(user) {
+  static create(client) {
     return new Promise((resolve, reject) => {
-      UserModel.create(user).then((result) => {
+      ClientModel.create(client).then((result) => {
         resolve(result._id);
       }).catch((err) => {
         reject(err);
@@ -103,7 +102,7 @@ class Client {
   /**
    * Update a Client
    * @param {string} id - Client Id
-   * @param {Object} User - Client Document Data
+   * @param {Object} Client - Client Document Data
    * @returns {null}
    */
 
@@ -125,7 +124,7 @@ class Client {
 
   static delete(id) {
     return new Promise((resolve, reject) => {
-      UserModel.findOneAndDelete({_id: id}).then(() => {
+      ClientModel.findOneAndDelete({_id: id}).then(() => {
         resolve();
       }).catch((err) => {
         reject(err);

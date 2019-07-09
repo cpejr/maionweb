@@ -2,6 +2,8 @@ const express = require('express');
 const firebase = require('firebase');
 const User = require('../models/user');
 // const auth = require('./middleware/auth');
+const Client = require ('../models/client');
+
 
 
 
