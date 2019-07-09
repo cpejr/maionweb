@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -6039,7 +6040,6 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #ddd !important; } }
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
@@ -6069,6 +6069,9 @@ head {
   font-family: cursive;
   font-style: normal; }
 
+header .login_page {
+  color: red; }
+
 aside {
   position: relative;
   margin-left: 250px;
@@ -6083,5 +6086,34 @@ aside {
   top: 10px;
   right: 10px;
   margin-left: 10px; }
+
+/*----Front do Login/início----*/
+.login {
+  background-color: #CA9283;
+  width: 100%;
+  height: 41em; }
+
+.form_login {
+  background-color: rgba(255, 255, 255, 0.55);
+  width: 50%;
+  padding: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px; }
+
+.login_page {
+  background-color: #323232;
+  padding: 10px; }
+
+.container_textbox_login {
+  padding: 20px; }
+
+.input-placeholder {
+  border-radius: 8px;
+  padding: 5px; }
+  .input-placeholder header p {
+    color: red; }
+
+/*----Front do Login/fim----*/
 
 /*# sourceMappingURL=style.css.map */
