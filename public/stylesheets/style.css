@@ -6069,9 +6069,6 @@ head {
   font-family: cursive;
   font-style: normal; }
 
-header .login_page {
-  color: red; }
-
 aside {
   position: relative;
   margin-left: 250px;
@@ -6086,7 +6083,6 @@ aside {
   top: 10px;
   right: 10px;
   margin-left: 10px; }
-
 
 /*----Front do Login/início----*/
 .login {
