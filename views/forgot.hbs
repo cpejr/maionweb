@@ -1,17 +1,21 @@
 
+<header class="header-forget"> </header>
   <div class="forgot-box" id="forgot-box">
-      <h2 id="titulo">Esqueci minha senha</h2><br><br><br>
-        <form class="esqueci" action="/forgot" method="post">
-        <br><br>
-        <label class="text1">Digite o endereço de email cadastrado:</label>
-        <div class="email-box ">
-          <input class="cxemail" type="email" name="user[email]" placeholder="email@example.com" required="required">
-        </div>
-        <input class="btn btn-primary" type="submit" name="btn btn-enviar" value="Enviar">
-      </form>
+          <div class="esqueci">
+            <section class="box-border box-forgot">
+              <h2 id="titulo">Esqueci minha senha</h2>
+              <form action="/forgot" method="post">
+              <label class="text1">Digite o endereço de email cadastrado:</label>
+              <div class="email-box ">
+                <input class="cxemail" type="email" name="user[email]" placeholder="email@example.com" required="required">
+              </div>
+              <input class="btn btn-outline-primary" type="submit" name="btn btn-enviar" value="Enviar">
+              <label class="cadstro-forgot">Ainda não tem conta? <p class="btn-cadastro-forgot" onclick="location.href='/pageA'">Cadastre-se já!</p></label>
+            </form>
+        </section>
+      </div>
   </div>
 
-<footer class="footer-forget"> </footer>
 
 
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.min.js'></script>
