@@ -3,17 +3,22 @@ var router = express.Router();
 const Client = require('../models/client');
 
 /* GET pageA. */
-router.get('/', function(req, res, next) {
-  res.render('pageA', { title: 'Geral', layout: 'layoutDashboard'});
+router.get('/pageA', function(req, res, next) {
+  res.render('new/pageA', { title: 'Geral', layout: 'layoutDashboard'});
+});
+
+/* GET pageB. */
+router.get('/pageB', function(req, res) {
+  res.render('new/pageB', { title: 'Geral Page B', layout: 'layoutDashboard.hbs'});
 });
 
 /*POST pageA*/
-router.post('/',(req,res)=>{
+router.post('/pageA',(req,res)=>{
   const  client  = req.body.client;
   console.log(client);
     Client.create(client).then((clientid)=>{
       console.log(clientid);
-      res.redirect('/login');
+      res.redirect('/new/pageB');
     }).catch((error)=>{
       console.log(error);
       res.redirect('error');
