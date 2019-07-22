@@ -2,11 +2,8 @@
 <html>
   <head>
     <title>{{title}}</title>
-
-    <link rel = 'style' href = '/public/stylesheets/style.sass'/>
-    <link rel='stylesheet' href='/public/bootstrap/bootstrap.scss' />
-    <link rel='stylesheet' href='public/stylesheets/style.css' />
-
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <link rel='stylesheet' href='/bootstrap/scss/bootstrap.scss' />
   </head>
   <body>
     {{{body}}}
@@ -17,8 +14,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-
-    <script src="public/javascripts/jquery.js" charset="utf-8"></script>
-    <script src="public/bootstrap/js/bootstrap.bundle.min.js" charset="utf-8"></script>
+    <div class="maion-alert col-12 col-lg-4 col-md-6">
+      {{> messages}}
+    </div>
+    <script src="/javascripts/jquery.js" charset="utf-8"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js" charset="utf-8"></script>
   </body>
 </html>
