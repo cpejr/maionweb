@@ -19,7 +19,7 @@ const usersRouter = require('./routes/users');
 const carsRouter = require('./routes/car');
 const pageARouter = require('./routes/pageA');
 const app = express();
-
+const pageBRouter = require('./routes/pageB');
 
 /**
  *  Database setup
@@ -76,6 +76,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/cars', carsRouter);
 app.use('/pageA', pageARouter);
+app.use('/pageB', pageBRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
