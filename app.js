@@ -18,8 +18,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const carsRouter = require('./routes/car');
 const pageARouter = require('./routes/pageA');
-const app = express();
 const pageBRouter = require('./routes/pageB');
+const app = express();
 
 /**
  *  Database setup

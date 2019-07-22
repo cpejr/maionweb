@@ -30,7 +30,6 @@ router.get('/forgot', (req, res) => {
 });
 
 
-
 // POST LOGIN
 
 router.post('/login',(req,res)=> {

@@ -4,11 +4,10 @@ const Client = require('../models/client');
 
 /* GET pageA. */
 router.get('/', function(req, res, next) {
-  res.render('pageA', { title: 'Geral', layout: 'layoutDashboard.hbs'});
+  res.render('pageA', { title: 'Geral', layout: 'layoutDashboard'});
 });
 
 /*POST pageA*/
-
 router.post('/',(req,res)=>{
   const  client  = req.body.client;
   console.log(client);

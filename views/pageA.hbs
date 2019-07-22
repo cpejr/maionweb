@@ -1,24 +1,68 @@
 <form class="" action="/pageA" method="post">
   <h1> Geral </h1>
-  <div>
-
-    <input type="text" name = "client[fullname]" placeholder= "Nome Completo" required="required">
-    <input type="text" name = "client[register]" placeholder= "CPF" required="required">
-    <input type="text" name = "client[phone]"    placeholder= "Telefone" required="required">
-    <input type="text" name = "client[cellphone]" placeholder= "Celular"  required="required">
-    <input type="text" name = "client[email]" placeholder= "Email" required="required">
-    <input type="text" name = "client[adress]" placeholder= "Endereço" required="required">
-    <input type="text" name = "client[id]" placeholder= "RG" required="required">
-    <input type="text" name = "client[passport]" placeholder= "Passaporte" required="required">
-    <input type="text" name = "client[maritalStatus]" placeholder= "Estado Civil" required="required">
-    <input type="text" name = "client[spouseName]" placeholder= "Conjuge" required="required">
-    <input type="text" name = "client[children]" placeholder= "Filhos" required="required">
-    <input type="text" name = "client[childrenAge]" placeholder= "Idade dos filhos" required="required">
-    <input type="text" name = "client[profession]" placeholder= "Profissão" required="required">
-    <input type="text" name = "client[spouseProfession]" placeholder= "Profissão Conjuge" required="required">
-    <input type="text" name = "client[instagram]" placeholder= "Instagram" required="required">
-    <input type="text" name = "client[facebook]" placeholder= "Facebook" required="required">
-    <button type="submit" class="btn btn-primary">Sign up</button>
+  <div class="form-group">
+    <label for="fullname">Nome Completo</label>
+    <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" placeholder="Nome Completo">
   </div>
+  <div class="form-group">
+    <label for="register">CPF</label>
+    <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF">
+  </div>
+  <div class="form-group">
+    <label for="phone">Telefone</label>
+    <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone">
+  </div>
+  <div class="form-group">
+    <label for="cellphone">Celular</label>
+    <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="adress">Endereço</label>
+    <input type="adress" name = "client[adress]" class="form-control" id="adress" placeholder="Endereço">
+  </div>
+  <div class="form-group">
+    <label for="id">RG</label>
+    <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG">
+  </div>
+  <div class="form-group">
+      <label for="passport">Passaporte</label>
+      <input type="passport" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
+    </div>
+    <div class="form-group">
+      <label for="maritalStatus">Estado Civil</label>
+      <input type="maritalStatus" name = "client[maritalStatus]" class="form-control" id="maritalStatus" placeholder="Estado Civil">
+    </div>
+    <div class="form-group">
+      <label for="spouseName">Conjuge</label>
+      <input type="spouseName" name = "client[spouseName]" class="form-control" id="spouseName" placeholder="Conjuge">
+    </div>
+    <div class="form-group">
+      <label for="children">Filhos</label>
+      <input type="children" name = "client[children]" class="form-control" id="children" placeholder="Filhos">
+    </div>
+    <div class="form-group">
+      <label for="childrenAge">Idade dos Filhos</label>
+      <input type="childrenAge" name = "client[childrenAge]" class="form-control" id="childrenAge" placeholder="Idade dos Filhos">
+    </div>
+    <div class="form-group">
+      <label for="profession">Profissão</label>
+      <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão">
+    </div>
+    <div class="form-group">
+      <label for="spouseProfession">Profissão Conjuge</label>
+      <input type="spouseProfession" name = "client[spouseProfession]" class="form-control" id="spouseProfession" placeholder="Profissão Conjuge">
+    </div>  <div class="form-group">
+        <label for="instagram">Instagram</label>
+        <input type="instagram" name = "client[instagram]" class="form-control" id="instagram" placeholder="Instagram">
+      </div>
+      <div class="form-group">
+        <label for="facebook">Facebook</label>
+        <input type="facebook" name = "client[facebook]" class="form-control" id="facebook" placeholder="Facebook">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign up</button>
 
 </form>
