@@ -6,7 +6,6 @@ const Client = require ('../models/client');
 
 
 
-
 var router = express.Router();
 
 /* GET home page. */
@@ -17,6 +16,11 @@ router.get('/', function(req, res) {
 /* GET login page. */
 router.get('/login', (req, res) => {
   res.render('login', { title: 'Login', layout: 'layout' });
+});
+
+/* GET dashboard page. */
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard', { title: 'homeadmin', layout: 'layout' });
 });
 
 /* GET signup page. */
