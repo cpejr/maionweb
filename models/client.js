@@ -51,7 +51,35 @@ const clientSchema = new mongoose.Schema({
 
   },
 
-  
+
+    fullname: String,
+    birthDate: Date,
+
+    type: {
+      type: String,
+      enum: ['Admin', 'Funcionario'],
+      default: 'Funcionario'
+
+    },
+
+    register: {
+      type: String, // CPF
+      unique: true
+
+    },
+    adress: String,
+    zipCode: String, //CEP
+
+    email: {
+      type: String,
+      lowercase: true
+
+    },
+
+    phone: String, //residencial
+    cellphone: String, //celular
+    pis: String,
+    workPermit: String //Carteria de Trabalho
 
 }, { timestamps: true, static: false });
 
