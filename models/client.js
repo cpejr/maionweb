@@ -48,7 +48,10 @@ const clientSchema = new mongoose.Schema({
     foodPref: String,
     allergies: String
 
+
   },
+
+  
 
 }, { timestamps: true, static: false });
 
