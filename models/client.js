@@ -37,19 +37,16 @@ const clientSchema = new mongoose.Schema({
   instagram: String,
   facebook: String,
 
-  features: {
-    perfil: String,
-    averageBudget: String,
-    travelPreferences: String,
-    adeptResorts: String,
-    travelClass: String,
-    travelSeat: String,
-    sports: String,
-    foodPref: String,
-    allergies: String
 
-
-  },
+  profile: String,
+  averageBudget: String,
+  travelPreferences: String,
+  adeptResorts: String,
+  travelClass: String,
+  travelSeat: String,
+  sports: String,
+  foodPref: String,
+  allergies: String,
 
 
     fullname: String,
