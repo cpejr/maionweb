@@ -40,8 +40,9 @@ router.post('/login',(req,res)=> {
    const userData  = req.body.user;
    console.log(req.body.user);
    firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then(() => {
-     res.redirect('/');
-    //espaço para adicionar dentro da funçao
+     res.redirect('/dashboard');
+
+//espaço para adicionar dentro da funçao
    }).catch((error) => {
        switch (error.code) {
           case 'auth/wrong-password':
