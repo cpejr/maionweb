@@ -37,18 +37,46 @@ const clientSchema = new mongoose.Schema({
   instagram: String,
   facebook: String,
 
-  features: {
-    perfil: String,
-    averageBudget: String,
-    travelPreferences: String,
-    adeptResorts: String,
-    travelClass: String,
-    travelSeat: String,
-    sports: String,
-    foodPref: String,
-    allergies: String
 
-  },
+  profile: String,
+  averageBudget: String,
+  travelPreferences: String,
+  adeptResorts: String,
+  travelClass: String,
+  travelSeat: String,
+  sports: String,
+  foodPref: String,
+  allergies: String,
+
+
+    fullname: String,
+    birthDate: Date,
+
+    type: {
+      type: String,
+      enum: ['Admin', 'Funcionario'],
+      default: 'Funcionario'
+
+    },
+
+    register: {
+      type: String, // CPF
+      unique: true
+
+    },
+    adress: String,
+    zipCode: String, //CEP
+
+    email: {
+      type: String,
+      lowercase: true
+
+    },
+
+    phone: String, //residencial
+    cellphone: String, //celular
+    pis: String,
+    workPermit: String //Carteria de Trabalho
 
 }, { timestamps: true, static: false });
 
