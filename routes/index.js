@@ -1,8 +1,8 @@
 const express = require('express');
 const firebase = require('firebase');
+//const User = require('../models/user');
 // const auth = require('./middleware/auth');
 const Client = require ('../models/client');
-
 
 
 
@@ -16,6 +16,11 @@ router.get('/', function(req, res) {
 /* GET login page. */
 router.get('/login', (req, res) => {
   res.render('login', { title: 'Login', layout: 'layout' });
+});
+
+/* GET dashboard page. */
+router.get('/dashboard', (req, res) => {
+  res.render('dashboard', { title: 'homeadmin', layout: 'layout' });
 });
 
 /* GET signup page. */
@@ -35,8 +40,9 @@ router.post('/login',(req,res)=> {
    const userData  = req.body.user;
    console.log(req.body.user);
    firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then(() => {
-     res.redirect('/');
-    //espaço para adicionar dentro da funçao
+     res.redirect('/dashboard');
+
+//espaço para adicionar dentro da funçao
    }).catch((error) => {
        switch (error.code) {
           case 'auth/wrong-password':
