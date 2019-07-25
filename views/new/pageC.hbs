@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
   navbar
 </header>
@@ -13,27 +14,32 @@
       <input type="text" name="" placeholder="Responsável da viagem" class="form-control">
     </div>
     <div class="form-group">
-      <label>Acompanhante</label>
+      <label id="select_da_idade">Acompanhante</label>
       <select class="form-control" name="">
         <option selected>Selecione a faixa etária</option>
         <option>Adulto</option>
         <option>CHD</option>
         <option>INF</option>
       </select>
+      <div id="add_acompanhantes">
+      </div>
+      <button type="button" id="add-campo-acompanhantes" class="add_buttons"> + Acompanhante</button>
     </div>
     <!-- bloco país-cidade/início -->
     <div class="">
-      <div class="form-group">
-        <label>País</label>
-        <input type="text" name="" placeholder="Nome do país" class="form-control">
-      </div>
+      <label>País</label>
+      <input type="text" name="" placeholder="Nome do país" class="form-control">
+      <button type="button" id="add-campo-paises" class="add_buttons"> + Países</button>
       <div class="form-group">
         <label>Cidade</label>
         <input type="text" name="" placeholder="Nome da cidade da viagem" class="form-control">
+      </div>
+      <button type="button" id="add-campo-cidades" class="add_buttons"> + Cidades</button>
+      <div class="form-group" id="location">
       </div>
     </div>
     <!-- bloco país-cidade/fims -->
   </div>
 </form>
 
-<script type="text/javascript" src="javascripts/replica.js">  </script>
+<script type="text/javascript" src="/javascripts/replica.js">  </script>
