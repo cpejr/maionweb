@@ -6112,25 +6112,6 @@ aside {
     color: red; }
 
 /*----Front do Login/fim----*/
-/*--- Front do Dashboard ----*/
-.dashboard {
-  background-color: #CA9283;
-  width: 100%;
-  height: 41em; }
-
-.form_dashboard {
-  background-color: rgba(255, 255, 255, 0.55);
-  width: 50%;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px; }
-
-.dashboard_page {
-  background-color: #323232;
-  padding: 10px; }
-
-/*--- Fim Dashboard ---*/
 .text1 {
   color: black;
   font-family: Arial; }
@@ -6239,8 +6220,27 @@ aside {
   border-color: #B0AEAF; }
 
 label {
-  color: black; }
+  color: black;
+  /*--- Front do Dashboard ----*/ }
 
+.dashboard {
+  background-color: #CA9283;
+  width: 100%;
+  height: 41em; }
+
+.form_dashboard {
+  background-color: rgba(255, 255, 255, 0.55);
+  width: 50%;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px; }
+
+.dashboard_page {
+  background-color: #323232;
+  padding: 10px; }
+
+/*--- Fim Dashboard ---*/
 #add_acompanhantes {
   padding: 0; }
 
@@ -6252,6 +6252,15 @@ label {
   border-color: #B0AEAF;
   border-radius: 10px;
   color: #323232;
-  /*pages - fim*/ }
+  /*pages - fim*/
+  /*PageG inicio*/ }
+
+.valor {
+  margin-left: auto;
+  margin-right: auto; }
+
+.value {
+  text-align: center;
+  /*PageG fim */ }
 
 /*# sourceMappingURL=style.css.map */
