@@ -29,6 +29,18 @@ router.get('/pageC/:client_id', function(req, res) {
   });
 });
 
+/* GET pageG. */
+router.get('/pageG/:client_id', function(req, res) {
+  Client.getById(req.params.client_id).then((user) =>{
+    console.log(user);
+  res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs'});
+}).catch((error)=>{
+    console.log(error);
+    res.redirect('/error');
+  });
+});
+
+
 /*POST pageA*/
 router.post('/pageA',(req,res)=>{
   const  client  = req.body.client;
