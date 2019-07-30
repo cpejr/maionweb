@@ -37,6 +37,10 @@ router.get('/pageE', function(req, res, next) {
 /* GET pageF. */
 router.get('/pageF', function(req, res, next) {
   res.render('new/pageF', { title: 'pageF', layout: 'layoutDashboard'});
+  
+/* GET pageD. */
+router.get('/pageD', function(req, res, next) {
+  res.render('new/pageD', { title: 'Page D', layout: 'layoutDashboard'});
 });
 
 /* GET pageG. */
@@ -77,6 +81,12 @@ router.post('/pageB/:client_id',(req,res)=>{
   });
 });
 
-
+/*POST pageC*/
+router.post('/pageC',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageD`);
+});
 
 module.exports = router;
