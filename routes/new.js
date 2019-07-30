@@ -29,6 +29,11 @@ router.get('/pageC/:client_id', function(req, res) {
   });
 });
 
+/* GET pageD. */
+router.get('/pageD', function(req, res, next) {
+  res.render('new/pageD', { title: 'Page D', layout: 'layoutDashboard'});
+});
+
 /* GET pageG. */
 router.get('/pageG/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((user) =>{
@@ -67,6 +72,12 @@ router.post('/pageB/:client_id',(req,res)=>{
   });
 });
 
-
+/*POST pageC*/
+router.post('/pageC',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageD`);
+});
 
 module.exports = router;
