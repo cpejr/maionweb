@@ -7,15 +7,15 @@
   <div class="containerPages">
     <div class="form-group">
       <label>Código File</label>
-      <input type="text" name="" placeholder="Código File" class="form-control">
+      <input type="text" name="budget[codFile]" placeholder="Código File" class="form-control">
     </div>
     <div class="form-group">
       <label>Responsável da viagem</label>
-      <input type="text" name="" placeholder="Responsável da viagem" class="form-control">
+      <input type="text" name="budget[responsibleTravel]" placeholder="Responsável da viagem" class="form-control">
     </div>
-    <div class="form-group">
+    <div class="form-group dinamic_spec">
       <label id="select_da_idade">Acompanhante</label>
-      <select class="form-control" name="">
+      <select class="form-control" name="budget[companion]">
         <option selected>Selecione a faixa etária</option>
         <option>Adulto</option>
         <option>CHD</option>
@@ -26,19 +26,19 @@
       <button type="button" id="add-campo-acompanhantes" class="add_buttons"> + Acompanhante</button>
     </div>
     <!-- bloco país-cidade/início -->
-    <div class="">
+    <div class="dinamic_spec">
       <label>País</label>
-      <input type="text" name="" placeholder="Nome do país" class="form-control">
+      <input type="text" name="budget[location][country]" placeholder="Nome do país" class="form-control">
       <button type="button" id="add-campo-paises" class="add_buttons"> + Países</button>
       <div class="form-group">
         <label>Cidade</label>
-        <input type="text" name="" placeholder="Nome da cidade da viagem" class="form-control">
+        <input type="text" name="budget[location][cities]" placeholder="Nome da cidade da viagem" class="form-control">
       </div>
       <button type="button" id="add-campo-cidades" class="add_buttons"> + Cidades</button>
       <div class="form-group" id="location">
       </div>
     </div>
-    <!-- bloco país-cidade/fims -->
+    <!-- bloco país-cidade/fim -->
     <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
   </div>
 </form>
