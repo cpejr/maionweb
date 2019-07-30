@@ -29,6 +29,15 @@ router.get('/pageC/:client_id', function(req, res) {
   });
 });
 
+/* GET pageE. */
+router.get('/pageE', function(req, res, next) {
+  res.render('new/pageE', { title: 'pageE', layout: 'layoutDashboard'});
+});
+
+/* GET pageF. */
+router.get('/pageF', function(req, res, next) {
+  res.render('new/pageF', { title: 'pageF', layout: 'layoutDashboard'});
+  
 /* GET pageD. */
 router.get('/pageD', function(req, res, next) {
   res.render('new/pageD', { title: 'Page D', layout: 'layoutDashboard'});
