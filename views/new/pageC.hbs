@@ -4,6 +4,7 @@
 </header>
 
 <form action="/new/pageC/{{client_id}}" method="post" class="pagesFront">
+  <h1>PageC</h1>
   <div class="containerPages">
     <div class="form-group">
       <label>Código File</label>
@@ -35,10 +36,39 @@
           <label>Cidade</label>
           <input type="text" name="budget[location][cities]" placeholder="Nome da cidade da viagem" class="form-control">
         </div>
+        <table class="table_specs">
+          <tr>
+            <th><input type="text" name="" placeholder="Aeroporto de ida" class="form-control"></th>
+            <th><input type="text" name="" placeholder="Data de ída" class="form-control"></th>
+          </tr>
+          <tr>
+            <th><input type="text" name="" placeholder="Aeroporto de chegada" class="form-control"></th>
+            <th><input type="text" name="" placeholder="Data de de volta" class="form-control"></th>
+          </tr>
+        </table>
         <button type="button" class="add_buttons add-campo-cidades"> + Cidades</button>
       </div>
     </div>
     <!-- bloco país-cidade/fim -->
+
+    <h1>Roteiro:</h1>
+    <div class="roteiro_specs">
+      <table class="tabela_roteiro">
+        <tr>
+          <th><h2 >Dia</h2></th>
+          <th><input type="text" name="" placeholder="Campo livre" class="form-control"></th>
+          <th><input type="text" name="" placeholder="Dicas" class="form-control"></th>
+        </tr>
+      </table>
+      <button type="button" class="add_buttons add_dias"> + Dias</button>
+    </div>
+    <select class="form-control" name="">
+      <option selected>Selecione o tipo de viagem</option>
+      <option>Praia</option>
+      <option>Metrópole</option>
+      <option>Sky</option>
+      <option>Outro</option>
+    </select>
     <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
   </div>
 </form>
