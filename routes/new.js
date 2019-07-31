@@ -37,7 +37,7 @@ router.get('/pageE', function(req, res, next) {
 /* GET pageF. */
 router.get('/pageF', function(req, res, next) {
   res.render('new/pageF', { title: 'pageF', layout: 'layoutDashboard'});
-  
+});
 /* GET pageD. */
 router.get('/pageD', function(req, res, next) {
   res.render('new/pageD', { title: 'Page D', layout: 'layoutDashboard'});
