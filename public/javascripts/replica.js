@@ -9,3 +9,7 @@ $( ".add-campo-paises" ).click(function() {
 $( ".add-campo-cidades" ).click(function() {
   $( ".dinamic_spec" ).append( '<input type="text" name="budget[location][cities]" placeholder="Nome da cidade da viagem" class="form-control">' );
 });
+
+$( ".add_dias" ).click(function() {
+  $( ".tabela_roteiro" ).append( '<tr><th><h2 >Dia</h2></th><th><input type="text" name="" placeholder="Campo livre" class="form-control"></th><th><input type="text" name="" placeholder="Dicas" class="form-control"></th></tr>' );
+});

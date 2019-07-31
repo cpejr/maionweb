@@ -89,4 +89,28 @@ router.post('/pageC',(req,res)=>{
   res.redirect(`/new/pageD`);
 });
 
+/*POST pageD*/
+router.post('/pageD',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageE`);
+});
+
+/*POST pageE*/
+router.post('/pageE',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageF`);
+});
+
+/*POST pageF*/
+router.post('/pageF',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageH`);
+});
+
 module.exports = router;

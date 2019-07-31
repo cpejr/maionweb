@@ -6263,11 +6263,11 @@ label {
   padding: 10px; }
 
 /*--- Fim Dashboard ---*/
-/*Div location - início*/
+/*---pageC--- início*/
 .dinamic_spec {
-  background-color: blue;
+  background-color: #f3ab85;
   border-radius: 5px;
-  width: 80%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5em;
@@ -6277,9 +6277,22 @@ label {
   margin: 0;
   padding: 0; }
 
+.table_specs {
+  margin-left: auto;
+  margin-right: auto; }
 /*Div location - fim*/
 .classPageE {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 5px; }
+
+.roteiro_specs {
+  background-color: #f3ab85;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5em;
+  padding: 25px;
+  /*---pageC--- fim*/ }
 
 /*# sourceMappingURL=style.css.map */
