@@ -1,30 +1,37 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
   navbar
 </header>
 <form action="/new/pageF" method="post" class="pagesFront">
     <div class="containerPages">
-      <div class="classe1">
-        <label for="responsable">1</label>
-        <input class="form-check-input" type="checkbox">
-        <input placeholder="Responsável">
-      </div>
-      <div class="classe1">
-        <label for="companion1">2</label>
-        <input class="form-check-input" type="checkbox">
-        <input placeholder="Acompanhante 1">
-      </div>
-      <div class="classe1">
-        <label for="companion2">3</label>
-        <input class="form-check-input" type="checkbox">
-        <input placeholder="Acompanhante 2">
-      </div>
-      <div class="classe1">
-        <label for="companion3">4</label>
-        <input class="form-check-input" type="checkbox">
-        <input placeholder="Acompanhante 3">
-      </div>
-      <h1>Translado 1</h1>
-      <div class="classPageE">
+      <div class="form-group">
+
+          <label> Passageiros </label><br>
+          <input class="form-check-input" type="checkbox">
+          <input placeholder="Responsável">
+          <br><br>
+          <input class="form-check-input" type="checkbox">
+          <input placeholder="Acompanhante">
+
+          <div id="add_acompanhantesvoo">
+          </div>
+          <br>
+          <button type="button" id="add-acompanhantes-voo" class="add_buttons"> + Acompanhantes</button>
+          <br><br>
+      <div>
+       <label> Translado 1</label>
+       <br>
+       <input type="text" placeholder="De" class="date start-date"/>
+       <input type="text" placeholder="Para" class="date start-date"/>
+       <br><br>
+       <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+       <input type="text" placeholder="Horário" class="date start-date"/>
+       <br><br>
+       <i class="fa fa-calendar"></i>
+       <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+       <input type="text" placeholder="Horário" class="date start-date"/>
+       <br><br><br><br>
+      <!-- <div class="classPageE">
         <label for="from">De</label>
         <input class="form-control" placeholder="De">
       </div>
@@ -47,7 +54,7 @@
       <div class="classPageE">
         <label for="time">Hora</label>
         <input class="form-control" placeholder="Hora">
-      </div>
+      </div> -->
       <div class="classPageE">
         <label for="adult_price">Valor Adulto</label>
         <input class="form-control" placeholder="Valor Adulto">
@@ -61,11 +68,11 @@
         <input class="form-control" placeholder="INF">
       </div>
         <button type="submit" class="btn btn-primary" id="buttonPages" >+ Translado</button>
-        <h1>Carro 1</h1>
+      <br><br><br>  <label> Carros 1 </label><br>
         <div class="form-group">
                 <label for="cancelation_lim">Tipo</label>
                 <select required="required" class="form-control">
-                  <option selected>Selecione</option>
+                  <option style="display:none">Selecione</option>
                   <option>Luxo</option>
                   <option>Van</option>
                   <option>Conversível</option>
@@ -77,7 +84,7 @@
               <div class="form-group">
                       <label for="cancelation_lim">Transmissão</label>
                       <select required="required" class="form-control">
-                        <option selected>Selecione</option>
+                        <option style="display:none">Selecione</option>
                         <option>Manual</option>
                         <option>Automático</option>
                       </select>
@@ -105,3 +112,4 @@
                       <button type="submit" class="btn btn-primary" id="buttonPages" >+ Carro</button>
     </div>
 </form>
+<script type="text/javascript" src="/javascripts/replica.js">  </script>
