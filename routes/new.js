@@ -29,6 +29,11 @@ router.get('/pageC/:client_id', function(req, res) {
   });
 });
 
+/* GET pageD. */
+router.get('/pageD', function(req, res, next) {
+  res.render('new/pageD', { title: 'Page D', layout: 'layoutDashboard'});
+});
+
 /* GET pageG. */
 router.get('/pageG/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((user) =>{
@@ -67,5 +72,36 @@ router.post('/pageB/:client_id',(req,res)=>{
   });
 });
 
+/*POST pageC*/
+router.post('/pageC',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageD`);
+});
+
+/*POST pageD*/
+router.post('/pageD',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageE`);
+});
+
+/*POST pageE*/
+router.post('/pageE',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageF`);
+});
+
+/*POST pageF*/
+router.post('/pageF',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageH`);
+});
 
 module.exports = router;

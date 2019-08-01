@@ -2,20 +2,20 @@
 <header class="login_page">
   navbar
 </header>
-
 <form action="/new/pageC/{{client_id}}" method="post" class="pagesFront">
   <div class="containerPages">
+      <h1>PageC</h1>
     <div class="form-group">
       <label>Código File</label>
-      <input type="text" name="" placeholder="Código File" class="form-control">
+      <input type="text" name="budget[codFile]" placeholder="Código File" class="form-control">
     </div>
     <div class="form-group">
       <label>Responsável da viagem</label>
-      <input type="text" name="" placeholder="Responsável da viagem" class="form-control">
+      <input type="text" name="budget[responsibleTravel]" placeholder="Responsável da viagem" class="form-control">
     </div>
-    <div class="form-group">
+    <div class="form-group dinamic_spec">
       <label id="select_da_idade">Acompanhante</label>
-      <select class="form-control" name="">
+      <select class="form-control" name="budget[companion]">
         <option selected>Selecione a faixa etária</option>
         <option>Adulto</option>
         <option>CHD</option>
@@ -26,19 +26,49 @@
       <button type="button" id="add-campo-acompanhantes" class="add_buttons"> + Acompanhante</button>
     </div>
     <!-- bloco país-cidade/início -->
-    <div class="">
-      <label>País</label>
-      <input type="text" name="" placeholder="Nome do país" class="form-control">
-      <button type="button" id="add-campo-paises" class="add_buttons"> + Países</button>
-      <div class="form-group">
-        <label>Cidade</label>
-        <input type="text" name="" placeholder="Nome da cidade da viagem" class="form-control">
-      </div>
-      <button type="button" id="add-campo-cidades" class="add_buttons"> + Cidades</button>
-      <div class="form-group" id="location">
+    <div class="location">
+      <div class="dinamic_spec">
+        <label>País</label>
+        <input type="text" name="budget[location][country]" placeholder="Nome do país" class="form-control">
+        <button type="button" class="add_buttons add-campo-paises"> + Países</button>
+        <div class="form-group">
+          <label>Cidade</label>
+          <input type="text" name="budget[location][cities]" placeholder="Nome da cidade da viagem" class="form-control">
+        </div>
+        <table class="table_specs">
+          <tr>
+            <th><input type="text" name="" placeholder="Aeroporto de ida" class="form-control"></th>
+            <th><input type="text" name="" placeholder="Data de ída" class="form-control"></th>
+          </tr>
+          <tr>
+            <th><input type="text" name="" placeholder="Aeroporto de chegada" class="form-control"></th>
+            <th><input type="text" name="" placeholder="Data de de volta" class="form-control"></th>
+          </tr>
+        </table>
+        <button type="button" class="add_buttons add-campo-cidades"> + Cidades</button>
       </div>
     </div>
-    <!-- bloco país-cidade/fims -->
+    <!-- bloco país-cidade/fim -->
+
+    <h1>Roteiro:</h1>
+    <div class="roteiro_specs">
+      <table class="tabela_roteiro">
+        <tr>
+          <th><h2 >Dia</h2></th>
+          <th><input type="text" name="" placeholder="Campo livre" class="form-control"></th>
+          <th><input type="text" name="" placeholder="Dicas" class="form-control"></th>
+        </tr>
+      </table>
+      <button type="button" class="add_buttons add_dias"> + Dias</button>
+    </div>
+    <select class="form-control" name="">
+      <option selected>Selecione o tipo de viagem</option>
+      <option>Praia</option>
+      <option>Metrópole</option>
+      <option>Sky</option>
+      <option>Outro</option>
+    </select>
+    <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
   </div>
 </form>
 

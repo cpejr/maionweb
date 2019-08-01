@@ -6220,27 +6220,8 @@ aside {
   border-color: #B0AEAF; }
 
 label {
-  color: black;
-  /*--- Front do Dashboard ----*/ }
+  color: black; }
 
-.dashboard {
-  background-color: #CA9283;
-  width: 100%;
-  height: 41em; }
-
-.form_dashboard {
-  background-color: rgba(255, 255, 255, 0.55);
-  width: 50%;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px; }
-
-.dashboard_page {
-  background-color: #323232;
-  padding: 10px; }
-
-/*--- Fim Dashboard ---*/
 #add_acompanhantes {
   padding: 0; }
 
@@ -6260,7 +6241,54 @@ label {
   margin-right: auto; }
 
 .value {
-  text-align: center;
-  /*PageG fim */ }
+  text-align: center; }
+
+/*PageG fim */
+/*--- Front do Dashboard ----*/
+.dashboard {
+  background-color: #CA9283;
+  width: 100%;
+  height: 41em; }
+
+.form_dashboard {
+  background-color: rgba(255, 255, 255, 0.55);
+  width: 50%;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px; }
+
+.dashboard_page {
+  background-color: #323232;
+  padding: 10px; }
+
+/*--- Fim Dashboard ---*/
+/*---pageC--- início*/
+.dinamic_spec {
+  background-color: #f3ab85;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5em;
+  padding: 25px; }
+
+.location {
+  margin: 0;
+  padding: 0; }
+
+.table_specs {
+  margin-left: auto;
+  margin-right: auto; }
+
+.roteiro_specs {
+  background-color: #f3ab85;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5em;
+  padding: 25px;
+  /*---pageC--- fim*/ }
 
 /*# sourceMappingURL=style.css.map */
