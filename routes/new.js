@@ -7,6 +7,12 @@ router.get('/pageA', function(req, res, next) {
   res.render('new/pageA', { title: 'Geral', layout: 'layoutDashboard'});
 });
 
+/* GET pageD. */
+router.get('/pageD', function(req, res, next) {
+  res.render('new/pageD', { title: 'Geral', layout: 'layoutDashboard'});
+});
+
+
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((user) =>{
