@@ -1,89 +1,84 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
   navbar
 </header>
 <form action="/new/pageE" method="post" class="pagesFront">
   <div class="containerPages">
-  <div class="classPageE">
-    <label for="responsable">1</label>
-    <input class="form-check-input" type="checkbox">
-    <input placeholder="Responsável">
-  </div>
-  <div class="classe1">
-    <label for="companion1">2</label>
-    <input class="form-check-input" type="checkbox">
-    <input placeholder="Acompanhante 1">
-  </div>
-  <div class="classe1">
-    <label for="companion2">3</label>
-    <input class="form-check-input" type="checkbox">
-    <input placeholder="Acompanhante 2">
-  </div>
-  <div class="classe1">
-    <label for="companion3">4</label>
-    <input class="form-check-input" type="checkbox">
-    <input placeholder="Acompanhante 3">
-  </div>
-  <div class="classPageE">
+    <div class="form-group">
+
+        <label> Passageiros </label><br>
+        <input class="form-check-input" type="checkbox">
+        <input placeholder="Responsável">
+        <br><br>
+        <input class="form-check-input" type="checkbox">
+        <input placeholder="Acompanhante">
+
+        <div id="add_acompanhantesvoo">
+        </div>
+        <br>
+        <button type="button" id="add-acompanhantes-voo" class="add_buttons"> + Acompanhantes</button>
+        <br><br>
+  <div class="form-group">
     <label for="city">Cidade:</label>
     <input class="form-control" placeholder="Cidade">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="option1">Opção 1</label>
     <input class="form-control" placeholder="Opção 1">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="ap_cost1">Valor do Apartamento</label>
     <input class="form-control" placeholder="Valor Apto">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="days1">Número de Diárias</label>
     <input class="form-control" placeholder="Número de diárias">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="ap_number1">Número de Apartamentos</label>
     <input class="form-control" placeholder="Número de Apartamentos">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="total1">Total</label>
     <input class="form-control" placeholder="Total">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="option2">Opção 2</label>
     <input class="form-control" placeholder="Opção 2">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="ap_cost2">Valor do Apartamento</label>
     <input class="form-control" placeholder="Valor Apto">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="days2">Número de Diárias</label>
     <input class="form-control" placeholder="Número de diárias">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="ap_number2">Número de Apartamentos</label>
     <input class="form-control" placeholder="Número de Apartamentos">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="total2">Total</label>
     <input class="form-control" placeholder="Total">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="option3">Opção 3</label>
     <input class="form-control" placeholder="Opção 3">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="ap_cost3">Valor do Apartamento</label>
     <input class="form-control" placeholder="Valor Apto">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="days3">Número de Diárias</label>
     <input class="form-control" placeholder="Número de diárias">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="ap_number3">Número de Apartamentos</label>
     <input class="form-control" placeholder="Número de Apartamentos">
   </div>
-  <div class="classPageE">
+  <div class="form-group">
     <label for="total3">Total</label>
     <input class="form-control" placeholder="Total">
   </div>
@@ -109,3 +104,4 @@
       <button type="submit" class="btn btn-primary" id="buttonPages" >+ Hotéis/ Cidades</button>
     </div>
 </form>
+<script type="text/javascript" src="/javascripts/replica.js">  </script>

@@ -6279,9 +6279,16 @@ label {
   padding: 0; }
 
 /*Div location - fim*/
-.classPageE {
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 5px; }
+.date {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #111;
+  max-width: 135px;
+  min-height: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: #222;
+  position: relative;
+  border-radius: 4px; }
 
 #select_da_idade {
   margin-top: 30px; }
