@@ -6278,21 +6278,7 @@ label {
   margin: 0;
   padding: 0; }
 
-.table_specs {
-  margin-left: auto;
-  margin-right: auto; }
 /*Div location - fim*/
-.date {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #111;
-  max-width: 135px;
-  min-height: 32px;
-  text-align: center;
-  font-size: 14px;
-  color: #222;
-  position: relative;
-  border-radius: 4px; }
-
 #select_da_idade {
   margin-top: 30px; }
 
@@ -6311,7 +6297,6 @@ label {
   /*PageG inicio*/ }
 
 .valor {
-.table_specs {
   margin-left: auto;
   margin-right: auto; }
 
@@ -6324,6 +6309,10 @@ label {
   margin-bottom: 5em;
   padding: 25px;
   /*---pageC--- fim*/ }
+
+.value {
+  text-align: center;
+  /*PageG fim */ }
 
 /*PageD início */
 .date {
@@ -6373,5 +6362,26 @@ label {
   color: #555; }
 
 /*PageD fim */
+.date {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #111;
+  max-width: 135px;
+  min-height: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: #222;
+  position: relative;
+  border-radius: 4px; }
+
+.date {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #111;
+  max-width: 135px;
+  min-height: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: #222;
+  position: relative;
+  border-radius: 4px; }
 
 /*# sourceMappingURL=style.css.map */
