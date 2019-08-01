@@ -13,3 +13,26 @@ $( ".add-campo-cidades" ).click(function() {
 $( ".add_dias" ).click(function() {
   $( ".tabela_roteiro" ).append( '<tr><th><h2 >Dia</h2></th><th><input type="text" name="" placeholder="Campo livre" class="form-control"></th><th><input type="text" name="" placeholder="Dicas" class="form-control"></th></tr>' );
 });
+
+$( "#add-acompanhantes-voo" ).click(function() {
+  $( "#add_acompanhantesvoo" ).append('<br>');
+  $( "#add_acompanhantesvoo" ).append('<input class="form-check-input" type="checkbox">');
+  $( "#add_acompanhantesvoo" ).append('<input placeholder="Acompanhante">');
+  $( "#add_acompanhantesvoo" ).append('<br>');
+});
+
+$( "#add-voo" ).click(function() {
+  $( "#add_voo" ).append('<br><br><br>');
+  $( "#add_voo" ).append('<input class="form-check-input" type="checkbox">');
+  $( "#add_voo").append('<input placeholder="Acompanhante">');
+  $( "#add_voo" ).append('<br><br><br>');
+  $( "#add_voo" ).append('<input type="text" placeholder="Origem" class="date start-date"/>');
+  $( "#add_voo" ).append('<i class="fa fa-plane"></i>');
+  $( "#add_voo" ).append('<input type="text" placeholder="Destino" class="date start-date"/><br><br>');
+  $( "#add_voo" ).append('<input type="date" placeholder="dd/mm/aa" class="date start-date"/>');
+  $( "#add_voo" ).append('<i class="fa fa-calendar"></i>');
+  $( "#add_voo" ).append('   <input type="date" placeholder="dd/mm/aa" class="date start-date"/><br><br><br>');
+  $( "#add_voo" ).append('Adulto: <input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/><i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
+  $( "#add_voo" ).append('CHD :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
+  $( "#add_voo" ).append('INF :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
+});
