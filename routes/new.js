@@ -7,6 +7,12 @@ router.get('/pageA', function(req, res, next) {
   res.render('new/pageA', { title: 'Geral', layout: 'layoutDashboard'});
 });
 
+/* GET pageD. */
+router.get('/pageD', function(req, res, next) {
+  res.render('new/pageD', { title: 'Geral', layout: 'layoutDashboard'});
+});
+
+
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((user) =>{
@@ -87,6 +93,30 @@ router.post('/pageC',(req,res)=>{
   console.log(budget);
   console.log("Ta passando aqui");
   res.redirect(`/new/pageD`);
+});
+
+/*POST pageD*/
+router.post('/pageD',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageE`);
+});
+
+/*POST pageE*/
+router.post('/pageE',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageF`);
+});
+
+/*POST pageF*/
+router.post('/pageF',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageH`);
 });
 
 module.exports = router;
