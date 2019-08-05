@@ -7,7 +7,7 @@ $( ".add-campo-paises" ).click(function() {
 });
 
 $( ".add-campo-cidades" ).click(function() {
-  $( ".dinamic_spec" ).append( '<input type="text" name="budget[location][cities]" placeholder="Nome da cidade da viagem" class="form-control">' );
+  $( ".location_cidades" ).append( '<input type="text" name="budget[location][cities]" placeholder="Nome da cidade da viagem" class="form-control">' );
 });
 
 $( ".add_dias" ).click(function() {
