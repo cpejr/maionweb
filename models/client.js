@@ -10,8 +10,11 @@ const clientSchema = new mongoose.Schema({
     //unique: false
   },
 
-  phone: String, //residencial
-  cellphone: String, //celular
+  phone:{
+    fixed: String,//residencial
+    cell: String, //celular
+    others: String
+  },
 
   email: {
     type: String,
