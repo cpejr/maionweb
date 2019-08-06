@@ -4,8 +4,10 @@
 <form action="/new/pageG/{{client_id}}" method="post" class="pagesFront">
   <div class="containerPages">
     <h1> PageG </h1>
+    <div class="box1">
+
       <div class="form-group">
-              <label for="exampleInputPassword1">Seguro:</label>
+              <label id="titleG" for="exampleInputPassword1">Seguro:</label>
               <input type="text" placeholder= "Qual seguro será utilizado?" required="required" class="form-control">
             </div>
       <div class="form-group">
@@ -21,11 +23,9 @@
           <input type="text" placeholder= "Preço por infatos" required="required" class="form-control">
         </div>
       <button type="" class="btn btn-primary" id="buttonPages" >+Seguros</button>
+    </div>
+    <div class="box2">
 
-      <div class="form-group col-md-3 valor">
-          <label for="exampleInputPassword1">Valor total de seguro:</label>
-          <input type="text" class="form-control value" placeholder="Valor (R$)">
-        </div>
       <div class="form-group">
           <label for="exampleInputPassword1">Nome do responsável:</label>
           <input type="text" placeholder= "" required="required" class="form-control">
@@ -51,11 +51,18 @@
       </div>
       <button type="" class="btn btn-primary" id="buttonPages" >+Acompanhantes</button>
 
+    </div>
+    <div class="form-group col-md-3 valor">
+      <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
+      <input type="text" class="form-control value1" placeholder="Valor (R$)">
+    </div>
   </div>
   <br><br>
   <div class="containerPages">
+    <div class="box1">
+
     <div class="form-group">
-            <label for="exampleInputPassword1">Tickets/Ingressos:</label>
+            <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos:</label>
             <input type="text" placeholder= "" required="required" class="form-control">
           </div>
     <div class="form-group">
@@ -72,10 +79,9 @@
       </div>
 
     <button type="" class="btn btn-primary" id="buttonPages" >+Ingressos</button>
-    <div class="form-group col-md-3 valor">
-        <label for="exampleInputPassword1">Valor total de Ingressos:</label>
-        <input type="text" class="form-control value" placeholder="Valor (R$)">
-      </div>
+  </div>
+  <div class="box2">
+
 
     <div class="form-group">
         <label for="exampleInputPassword1">Nome do responsável:</label>
@@ -102,10 +108,17 @@
     </div>
     <button type="" class="btn btn-primary" id="buttonPages" >+Acompanhantes</button>
   </div>
+  <div class="form-group col-md-3 valor">
+    <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
+    <input type="text" class="form-control value1" placeholder="Valor (R$)">
+  </div>
+  </div>
   <br><br>
   <div class="containerPages">
+    <div class="box1">
+
     <div class="form-group">
-            <label for="exampleInputPassword1">Outros:</label>
+            <label id="titleG" for="exampleInputPassword1">Outros:</label>
             <input type="text" placeholder= "" required="required" class="form-control">
           </div>
     <div class="form-group">
@@ -122,10 +135,8 @@
       </div>
 
     <button type="" class="btn btn-primary" id="buttonPages" >+Outros</button>
-    <div class="form-group col-md-3 valor">
-        <label for="exampleInputPassword1">Valor total de outros:</label>
-        <input type="text" class="form-control value" placeholder="Valor (R$)">
-      </div>
+  </div>
+<div class="box2">
 
     <div class="form-group">
         <label for="exampleInputPassword1">Nome do responsável:</label>
@@ -151,5 +162,13 @@
       </label>
     </div>
     <button type="" class="btn btn-primary" id="buttonPages" >+Acompanhantes</button>
+  </div>
+  <div class="form-group col-md-3 valor">
+    <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>
+    <input type="text" class="form-control value1" placeholder="Valor (R$)">
+    </div>
+    <button type="submit" class="btn btn-primary" id="buttonPages">Enviar</button>
+  </div>
+  </div>
   </div>
 </form>
