@@ -4,40 +4,51 @@
 </header>
 <form action="/new/pageC/{{client_id}}" method="post" class="pagesFront">
   <div class="containerPages">
-      <h1>PageC</h1>
-    <div class="form-group">
-      <input type="text" name="budget[codFile]" placeholder="Código File" class="form-control" required="required">
-    </div>
-    <div class="form-group">
-      <input type="text" name="budget[responsibleTravel]" placeholder="Digite o nome do responsável da viagem" class="form-control" required="required">
-    </div>
-
-    <!-- bloco acompanhantes/início -->
-    <div class="dinamic_spec">
-      <div class="row row_acompanhantes">
-        <div class="col-sm col_acompanhantes">
-          <input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">
-        </div>
-        <div class="col-sm col_acompanhantes">
-          <select class="form-control" name="budget[companion][age]">
-            <option selected>Idade do acompanhante</option>
-            <option>Adulto</option>
-            <option>CHD</option>
-            <option>INF</option>
-          </select>
+    <h1>PageC</h1>
+    <div class="row row_acompanhantes">
+      <!-- Codigo + Nome do responsável/início -->
+      <div class="col-sm col_acompanhantes">
+        <div class="dinamic_spec">
+          <div class="form-group">
+            <input type="text" name="budget[codFile]" placeholder="Código File" class="form-control" required="required">
+          </div>
+          <div class="form-group">
+            <input type="text" name="budget[responsibleTravel]" placeholder="Digite o nome do responsável da viagem" class="form-control" required="required">
+          </div>
         </div>
       </div>
-      <div id="add_acompanhantes">
+      <!-- Codigo + Nome do responsável/início -->
+      <div class="col-sm col_acompanhantes">
+        <!-- bloco acompanhantes/início -->
+        <div class="dinamic_spec">
+          <div class="row row_acompanhantes">
+            <div class="col-sm col_acompanhantes">
+              <input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">
+            </div>
+            <div class="col-sm col_acompanhantes">
+              <select class="form-control" name="budget[companion][age]">
+                <option selected>Idade do acompanhante</option>
+                <option>Adulto</option>
+                <option>CHD</option>
+                <option>INF</option>
+              </select>
+            </div>
+          </div>
+          <div id="add_acompanhantes">
+          </div>
+          <button type="button" id="add-campo-acompanhantes" class="add_buttons"> + Acompanhante</button>
+        </div>
+        <!-- bloco acompanhantes/fim -->
       </div>
-      <button type="button" id="add-campo-acompanhantes" class="add_buttons"> + Acompanhante</button>
     </div>
-    <!-- bloco acompanhantes/fim -->
 
     <!-- bloco país-cidade/início -->
     <div class="location">
     </div>
     <div class="dinamic_spec">
-      <input type="text" name="budget[location][country]" placeholder="Digite o nome do país" class="form-control" required="required">
+      <div class="form-group location_cidades">
+        <input type="text" name="budget[location][country]" placeholder="Digite o nome do país" class="form-control" required="required">
+      </div>
       <div class="form-group location_cidades">
         <input type="text" name="budget[location][cities]" placeholder="Digite o nome da cidade desejada" class="form-control" required="required">
       </div>
@@ -55,25 +66,29 @@
         <div class="col-sm col_acompanhantes">
           <button type="button" class="add_buttons add-campo-cidades"> + Cidades</button>
         </div>
-      </div>
-      <div class="row row_acompanhantes">
         <div class="col-sm col_acompanhantes">
           <button type="button" class="botao_confirma"> Confirma </button>
         </div>
+        <div class="col-sm col_acompanhantes">
+          <button type="button" class="add_buttons add-campo-paises"> + Países</button>
+        </div>
       </div>
     </div>
-    <button type="button" class="add_buttons add-campo-paises"> + Países</button>
     <!-- bloco país-cidade/fim -->
 
     <h1>Roteiro:</h1>
     <div class="roteiro_specs">
-      <table class="tabela_roteiro">
-        <tr>
-          <th><h2 >Dia</h2></th>
-          <th><input type="text" name="" placeholder="Campo livre" class="form-control" required="required"></th>
-          <th><input type="text" name="" placeholder="Dicas" class="form-control" required="required"></th>
-        </tr>
-      </table>
+      <div class="row row_acompanhantes">
+        <div class="col-sm col_acompanhantes">
+          <h2>Dia</h2>
+        </div>
+        <div class="col-sm col_acompanhantes">
+          <input type="text" name="" placeholder="Campo livre" class="form-control" required="required">
+        </div>
+        <div class="col-sm col_acompanhantes">
+          <input type="text" name="" placeholder="Dicas" class="form-control" required="required">
+        </div>
+      </div>
       <button type="button" class="add_buttons add_dias"> + Dias</button>
     </div>
     <select class="form-control" name="" required="required">
