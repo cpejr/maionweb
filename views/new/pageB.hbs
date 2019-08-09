@@ -1,60 +1,69 @@
 <header class="login_page">
+  navbar
 </header>
 <form action="/new/pageB/{{client_id}}" method="post" class="pagesFront">
-  <div class="containerPages">
-    <h1> PageB </h1>
-
-    <div class="form-group">
-            <label for="exampleInputPassword1">Perfil</label>
-            <select name = "client[profile]" placeholder= "Perfil" required="required" class="form-control">
-              <option selected>Perfil</option>
-              <option>Esporte</option>
-              <option>Refinado</option>
-              <option>Simples</option>
-              <option>Cult</option>
-              <option>Comida</option>
-              <option>Vinhos</option>
-              <option>Outros</option>
-            </select>
-          </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Budget Mínino</label>
-        <select name = "client[averageBudget]" placeholder= "Budget Mínino" required="required" class="form-control">
-          <option selected>Budget Mínimo</option>
-          <option>Até 10k</option>
-          <option>Até 20k</option>
-          <option>Até 50k</option>
-          <option>Até 100k</option>
-          <option>Maior que 100k</option>
-        </select>      </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Preferencias de viagem</label>
-        <input type="text" name = "client[travelPreferences]" placeholder= "Preferencias de viagem" required="required" class="form-control">
-      </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Adepto a resorts</label>
-        <input type="text" name = "client[adeptResorts]" placeholder= "Adepto a resorts" required="required" class="form-control">
-      </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Preferencia de classe no avião"</label>
-        <input type="text" name = "client[travelClass]" placeholder= "Preferencia de classe no avião" required="required" class="form-control">
-      </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Preferencia de assento no avião</label>
-        <input type="text" name = "client[travelSeat]" placeholder= "Preferencia de assento no avião" required="required" class="form-control">
-      </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Preferencia por esportes</label>
-        <input type="text" name = "client[sports]" placeholder= "Preferencia por esportes" required="required" class="form-control">
-      </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Preferencia de alimentação</label>
-        <input type="text" name = "client[foodPref]" placeholder= "Preferencia de alimentação" required="required" class="form-control">
-      </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Alergias</label>
-      <input type="text" name = "client[allergies]" placeholder= "Alergias" required="required" class="form-control">
+    <label> Page B </label><br>
+    <div class="container rowclass">
+  <div class="row rowclass autorow">
+    <div class="col-sm rowclass">
+      <div class="classa">
+              <select name="client[necessities]"required="required" class="form-control">
+                <option style="display:none">Selecione: Necessidade</option>
+                <option>Status</option>
+                <option>Conhecimento</option>
+                <option>Novas experiencias</option>
+                <option>Diversão</option>
+                <option>Bem-estar</option>
+                <option>Exclusividade</option>
+              </select>
+            </div><br>
+      <div class="classa">
+              <select name = "client[profile]" placeholder= "Perfil" required="required" class="form-control">
+                <option style="display:none">Selecione: Perfil</option>
+                <option>Esporte</option>
+                <option>Refinado</option>
+                <option>Simples</option>
+                <option>Cult</option>
+                <option>Comida</option>
+                <option>Vinhos</option>
+                <option>Outros</option>
+              </select>
+            </div><br>
+      <div class="classa">
+          <select name = "client[averageBudget]" placeholder= "Budget Mínino" required="required" class="form-control">
+            <option style="display:none">Selecione: Budget Mínimo</option>
+            <option>Até 10k</option>
+            <option>Até 20k</option>
+            <option>Até 50k</option>
+            <option>Até 100k</option>
+            <option>Maior que 100k</option>
+          </select>      </div><br>
+      <div class="classa">
+          <input type="text" name = "client[travelPreferences]" placeholder= "Preferencias de viagem" required="required" class="form-control">
+        </div><br>
+      <div class="classa">
+          <input type="text" name = "client[adeptResorts]" placeholder= "Adepto a resorts" required="required" class="form-control">
+        </div><br>
     </div>
-    <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
+    <div class="col-sm rowclass">
+      <div class="classa">
+          <input type="text" name = "client[travelClass]" placeholder= "Preferencia de classe no avião" required="required" class="form-control">
+        </div><br>
+      <div class="classa">
+          <input type="text" name = "client[travelSeat]" placeholder= "Preferencia de assento no avião" required="required" class="form-control">
+        </div><br>
+      <div class="classa">
+          <input type="text" name = "client[sports]" placeholder= "Preferencia por esportes" required="required" class="form-control">
+        </div><br>
+      <div class="classa">
+          <input type="text" name = "client[foodPref]" placeholder= "Preferencia de alimentação" required="required" class="form-control">
+        </div><br>
+      <div class="classa">
+        <input type="text" name = "client[allergies]" placeholder= "Alergias" required="required" class="form-control">
+      </div><br>
+    </div>
   </div>
+</div>
+<br>
+    <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
 </form>

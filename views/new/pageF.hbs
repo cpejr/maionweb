@@ -1,118 +1,69 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
+  navbar
 </header>
 <form action="/new/pageF" method="post" class="pagesFront">
-    <div class="containerPages">
-      <div class="form-group">
+    <label> Page F </label><br>
+    <div class="container rowclass">
+  <div class="row rowclass">
+    <div class="col-md-auto rowclass">
+      <label> Passageiros </label><br>
+      <input class="form-check-input" type="checkbox">
+      <input placeholder="Responsável">
+      <br><br>
+      <input class="form-check-input" type="checkbox">
+      <input placeholder="Acompanhante">
 
-          <label> Passageiros </label><br>
-          <input class="form-check-input" type="checkbox">
-          <input placeholder="Responsável">
-          <br><br>
-          <input class="form-check-input" type="checkbox">
-          <input placeholder="Acompanhante">
-
-          <div id="add_acompanhantesvoo">
-          </div>
-          <br>
-          <button type="button" id="add-acompanhantes-voo" class="add_buttons"> + Acompanhantes</button>
-          <br><br>
-      <div>
-       <label> Translado 1</label>
-       <br>
-       <input type="text" placeholder="De" class="date start-date"/>
-       <input type="text" placeholder="Para" class="date start-date"/>
-       <br><br>
-       <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
-       <input type="text" placeholder="Horário" class="date start-date"/>
-       <br><br>
-       <i class="fa fa-calendar"></i>
-       <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
-       <input type="text" placeholder="Horário" class="date start-date"/>
-       <br><br><br><br>
-      <!-- <div class="classPageE">
-        <label for="from">De</label>
-        <input class="form-control" placeholder="De">
+      <div id="add_acompanhantesvoo">
       </div>
-      <div class="classPageE">
-        <label for="date">Data</label>
-        <input class="form-control" placeholder="Data">
-      </div>
-      <div class="classPageE">
-        <label for="time">Hora</label>
-        <input class="form-control" placeholder="Hora">
-      </div>
-      <div class="classPageE">
-        <label for="to">Para</label>
-        <input class="form-control" placeholder="Para">
-      </div>
-      <div class="classPageE">
-        <label for="date">Data</label>
-        <input class="form-control" placeholder="date">
-      </div>
-      <div class="classPageE">
-        <label for="time">Hora</label>
-        <input class="form-control" placeholder="Hora">
-      </div> -->
-      <div class="classPageE">
-        <label for="adult_price">Valor Adulto</label>
-        <input class="form-control" placeholder="Valor Adulto">
-      </div>
-      <div class="classPageE">
-        <label for="CHD">CHD</label>
-        <input class="form-control" placeholder="CHD">
-      </div>
-      <div class="classPageE">
-        <label for="INF">INF</label>
-        <input class="form-control" placeholder="INF">
-      </div>
-        <button type="submit" class="btn btn-primary" id="buttonPages" >+ Translado</button>
-      <br><br><br>  <label> Carros 1 </label><br>
-        <div class="form-group">
-                <label for="cancelation_lim">Tipo</label>
-                <select required="required" class="form-control">
-                  <option style="display:none">Selecione</option>
-                  <option>Luxo</option>
-                  <option>Van</option>
-                  <option>Conversível</option>
-                  <option>Sedan</option>
-                  <option>Hatch</option>
-                  <option>Outro</option>
-                </select>
-              </div>
-              <div class="form-group">
-                      <label for="cancelation_lim">Transmissão</label>
-                      <select required="required" class="form-control">
-                        <option style="display:none">Selecione</option>
-                        <option>Manual</option>
-                        <option>Automático</option>
-                      </select>
-                    </div>
-                    <div class="classPageE">
-                      <label for="insurance">Seguro</label>
-                      <input class="form-control" placeholder="Seguro">
-                    </div>
-                    <div class="classPageE">
-                      <label for="take_out">Retirada</label>
-                      <input class="form-control" placeholder="Retirada">
-                    </div>
-                    <div class="classPageE">
-                      <label for="others">Outros</label>
-                      <input class="form-control" placeholder="Outros">
-                    </div>
-                    <div class="classPageE">
-                      <label for="delivery">Entrega</label>
-                      <input class="form-control" placeholder="Entrega">
-                    </div>
-                    <div class="classPageE">
-                      <label for="value_car1">Valor carro 1</label>
-                      <input class="form-control" placeholder="Valor carro 1">
-                    </div>
-
-                      <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
-=======
-                      <button type="submit" class="btn btn-primary" id="buttonPages" >+ Carro</button>
-
+      <br>
+      <button type="button" id="add-acompanhantes-voo" class="add_buttons"> + Acompanhantes</button>
+      <br>
+  <div>
+   <label> Translado 1</label><br>
+   <input type="text" placeholder="De" class="date start-date"/>
+    <i class="fa fa-plane"></i>
+   <input type="text" placeholder="Para" class="date start-date"/>
+   <br><br>
+   <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+    <i class="fa fa-calendar"></i>
+   <input type="text" placeholder="Horário" class="date start-date"/>
+   <br><br>
+   <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+   <i class="fa fa-calendar"></i>
+   <input type="text" placeholder="Horário" class="date start-date"/>
     </div>
+    </div>
+    <div class="col-sm rowclass">
+      <label>Informações</label><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Valor Adulto">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="CHD">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="INF">
+      </div><br>
+        <button type="submit" class="btn btn-primary" id="buttonPages" >+ Translado</button>
+    </div>
+    <div class="col-sm rowclass">
+            <label> Carros 1 </label><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Retirada">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Outros">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Entrega">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Valor carro 1">
+      </div><br>
+        <button type="submit" class="btn btn-primary" id="buttonPages" >+ Carro</button>
+    </div>
+  </div>
+</div>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
