@@ -6341,7 +6341,18 @@ label {
   /*---pageC--- fim*/ }
 
 .value {
-  text-align: center;
+  text-align: center; }
+
+.classa {
+  padding: 1px; }
+
+.rowclass {
+  padding: 0;
+  /*PageG fim */ }
+
+.autorow {
+  margin-left: auto;
+  margin-right: auto;
   /*PageG fim */ }
 
 /*PageD início */
