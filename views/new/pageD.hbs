@@ -1,13 +1,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
+  navbar
 </header>
-
-<form action="/new/pageD/{{client_id}}" method="post" class="pagesFront">
-
-  <div class="containerPages">
-
-    <div class="form-group">
-
+<form action="/new/pageF" method="post" class="pagesFront">
+    <label> Page F </label><br>
+    <div class="container rowclass">
+  <div class="row rowclass">
+    <div class="col-md-auto rowclass">
       <label> Passageiros </label><br>
       <input class="form-check-input" type="checkbox">
       <input placeholder="Responsável">
@@ -19,60 +18,58 @@
       </div>
       <br>
       <button type="button" id="add-acompanhantes-voo" class="add_buttons"> + Acompanhantes</button>
-      <br><br>
-
-
-      <div>
-        <label> Voo</label>
-        <br>
-        <input type="text" placeholder="Origem" class="date start-date"/>
-        <i class="fa fa-plane"></i>
-        <input type="text" placeholder="Destino" class="date start-date"/>
-        <br><br>
-        <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
-        <i class="fa fa-calendar"></i>
-        <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
-        <br><br><br><br>
-        <label> Valores </label>
-        <br>
-        Adulto:
-        <input type="text" id="num1" onblur="calcular1()" placeholder="Valor ida" class="valor"/>
-        <i class="fa fa-money"></i>
-        <input type="text" id="num2" onblur="calcular1()" placeholder="Valor Volta" class="valor"/>
-        <span>&#61;</span>
-        <input type="text" id="result1" onblur="calcular1()" placeholder="Valor Total" class="valor"/>
-        <span id="result"></span>
-        <br><br>
-
-        CHD :
-        <input type="text" id="num3" onblur="calcular2()" placeholder="Valor ida" class="valor"/>
-        <i class="fa fa-money"></i>
-        <input type="text" id="num4" onblur="calcular2()" placeholder="Valor Volta" class="valor"/>
-        <span>&#61;</span>
-        <input type="text" id="result2" onblur="calcular2()" placeholder="Valor Total" class="valor"/>
-        <span id="result"></span>
-        <br><br>
-
-        INF :
-        <input type="text" id="num5" onblur="calcular3()" placeholder="Valor ida" class="valor"/>
-        <i class="fa fa-money"></i>
-        <input type="text" id="num6" onblur="calcular3()" placeholder="Valor Volta" class="valor"/>
-        <span>&#61;</span>
-        <input type="text" id="result3" onblur="calcular3()" placeholder="Valor Total" class="valor"/>
-        <span id="result"></span>
-        <br><br>
-
-
-        <div id="add_voo">
-          <br>
-        </div>
-        <br>
-        <button type="button" id="add-voo" class="add_buttons"> + Voo </button>
-        <br>
-      </div>
-              <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
+      <br>
+  <div>
+   <label> Translado 1</label><br>
+   <input type="text" placeholder="De" class="date start-date"/>
+    <i class="fa fa-plane"></i>
+   <input type="text" placeholder="Para" class="date start-date"/>
+   <br><br>
+   <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+    <i class="fa fa-calendar"></i>
+   <input type="text" placeholder="Horário" class="date start-date"/>
+   <br><br>
+   <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+   <i class="fa fa-calendar"></i>
+   <input type="text" placeholder="Horário" class="date start-date"/>
     </div>
-  </form>
+    </div>
+    <div class="col-sm rowclass">
+
+Adulto:
+<input type="text" id="num1" onblur="calcular1()" placeholder="Valor ida" class="valor"/>
+<i class="fa fa-money"></i>
+<input type="text" id="num2" onblur="calcular1()" placeholder="Valor Volta" class="valor"/>
+<span>&#61;</span>
+<input type="text" id="result1" onblur="calcular1()" placeholder="Valor Total" class="valor"/>
+<span id="result"></span>
+<br><br>
+
+CHD :
+<input type="text" id="num3" onblur="calcular2()" placeholder="Valor ida" class="valor"/>
+<i class="fa fa-money"></i>
+<input type="text" id="num4" onblur="calcular2()" placeholder="Valor Volta" class="valor"/>
+<span>&#61;</span>
+<input type="text" id="result2" onblur="calcular2()" placeholder="Valor Total" class="valor"/>
+<span id="result"></span>
+<br><br>
+
+INF :
+<input type="text" id="num5" onblur="calcular3()" placeholder="Valor ida" class="valor"/>
+<i class="fa fa-money"></i>
+<input type="text" id="num6" onblur="calcular3()" placeholder="Valor Volta" class="valor"/>
+<span>&#61;</span>
+<input type="text" id="result3" onblur="calcular3()" placeholder="Valor Total" class="valor"/>
+<span id="result"></span>
+<br><br>
+
+<div id="add_voo">
 </div>
+<br>
+<button type="button" id="add-voo" class="add_buttons"> + Voos</button>
+<br>
+
+  </div>
+</div>
+</form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
-<script type="text/javascript" src="/javascripts/operations.js">  </script>
