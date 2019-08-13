@@ -22,16 +22,17 @@ $( "#add-acompanhantes-voo" ).click(function() {
 });
 
 $( "#add-voo" ).click(function() {
-  $( "#add_voo" ).append('<br><br><br>');
+  $( "#add_voo" ).append('<div class="col-2">');
   $( "#add_voo" ).append('<input class="form-check-input" type="checkbox">');
   $( "#add_voo").append('<input placeholder="Acompanhante">');
-  $( "#add_voo" ).append('<br><br><br>');
-  $( "#add_voo" ).append('<input type="text" placeholder="Origem" class="date start-date"/>');
+  $( "#add_voo" ).append('<div class="col-5">');
+  $( "#add_voo" ).append('<input type="text" placeholder="Origem" name="flight[from]" class="date start-date"/>');
   $( "#add_voo" ).append('<i class="fa fa-plane"></i>');
   $( "#add_voo" ).append('<input type="text" placeholder="Destino" class="date start-date"/><br><br>');
   $( "#add_voo" ).append('<input type="date" placeholder="dd/mm/aa" class="date start-date"/>');
   $( "#add_voo" ).append('<i class="fa fa-calendar"></i>');
-  $( "#add_voo" ).append('   <input type="date" placeholder="dd/mm/aa" class="date start-date"/><br><br><br>');
+  $( "#add_voo" ).append('<input type="date" placeholder="dd/mm/aa" class="date start-date"/>');
+  $( "#add_voo" ).append('<div class="col-5">');
   $( "#add_voo" ).append('Adulto: <input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/><i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
   $( "#add_voo" ).append('CHD :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
   $( "#add_voo" ).append('INF :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');

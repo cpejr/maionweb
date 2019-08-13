@@ -258,5 +258,5 @@ class Budget {
 }
 
 
-  
+
 module.exports = Budget;
