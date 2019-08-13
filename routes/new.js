@@ -171,4 +171,5 @@ router.post('/pageG',(req,res)=>{
   console.log("Ta passando aqui");
   res.redirect(`/new/pageH`);
 });
+
 module.exports = router;
