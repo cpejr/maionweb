@@ -6,22 +6,30 @@ const flightSchema = new mongoose.Schema({
     dateFrom:Date,
     destination:String,
     dateDestination: Date,
-    totalValue: Number,
-    adult:{
-      value: Number,
-      chd: Number,
-      inf: Number
-    },
-    txEmb:{
-      value: Number,
-      chd: Number,
-      inf: Number
-    },
-    rav:{
-      value: Number,
-      chd: Number,
-      inf: Number
-    }
+    totalValueCHD: String,
+    goValueCHD: String,
+    returnValueCHD: String,
+    totalValueAdult: String,
+    goValueAdult: String,
+    returnValueAdult: String,
+    totalValueInf: String,
+    goValueInf: String,
+    returnValueInf: String,
+    // adult:{
+    //   value: Number,
+    //   chd: Number,
+    //   inf: Number
+    // },
+    // txEmb:{
+    //   value: Number,
+    //   chd: Number,
+    //   inf: Number
+    // },
+    // rav:{
+    //   value: Number,
+    //   chd: Number,
+    //   inf: Number
+    // }
 
 }, { timestamps: true, static: false });
 
