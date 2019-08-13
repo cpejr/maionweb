@@ -1,6 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
-  navbar
 </header>
 <form action="/new/pageC/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="containerPages">
@@ -27,11 +26,30 @@
           </select>
         </div>
       </div>
-      <div id="add_acompanhantes">
+      <!-- Codigo + Nome do responsável/início -->
+      <div class="col-sm col_acompanhantes">
+        <!-- bloco acompanhantes/início -->
+        <div class="dinamic_spec">
+          <div class="row row_acompanhantes">
+            <div class="col-sm col_acompanhantes">
+              <input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">
+            </div>
+            <div class="col-sm col_acompanhantes">
+              <select class="form-control" name="budget[companion][age]">
+                <option selected>Idade do acompanhante</option>
+                <option>Adulto</option>
+                <option>CHD</option>
+                <option>INF</option>
+              </select>
+            </div>
+          </div>
+          <div id="add_acompanhantes">
+          </div>
+          <button type="button" id="add-campo-acompanhantes" class="add_buttons"> + Acompanhante</button>
+        </div>
+        <!-- bloco acompanhantes/fim -->
       </div>
-      <button type="button" id="add-campo-acompanhantes" class="add_buttons"> + Acompanhante</button>
     </div>
-    <!-- bloco acompanhantes/fim -->
 
     <!-- bloco país-cidade/início -->
     <div class="location">
@@ -55,14 +73,14 @@
         <div class="col-sm col_acompanhantes">
           <button type="button" class="add_buttons add-campo-cidades"> + Cidades</button>
         </div>
-      </div>
-      <div class="row row_acompanhantes">
         <div class="col-sm col_acompanhantes">
           <button type="button" class="botao_confirma"> Confirma </button>
         </div>
+        <div class="col-sm col_acompanhantes">
+          <button type="button" class="add_buttons add-campo-paises"> + Países</button>
+        </div>
       </div>
     </div>
-    <button type="button" class="add_buttons add-campo-paises"> + Países</button>
     <!-- bloco país-cidade/fim -->
 
     <h1>Roteiro:</h1>

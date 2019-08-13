@@ -10,6 +10,7 @@
 
     <div class="form-group">
 
+
       <label> Passageiros </label><br>
       <input class="form-check-input" type="checkbox">
       <input placeholder="Responsável" value="{{budget.file.responsibleTravel}}">
@@ -19,11 +20,6 @@
 
       <div id="add_acompanhantesvoo">
       </div>
-      <br>
-      <button type="button" id="add-acompanhantes-voo" class="add_buttons"> + Acompanhantes</button>
-      <br><br>
-
-
       <div>
         <label> Voo</label>
         <br>
@@ -45,26 +41,28 @@
         <input name="flight[totalValueAdult]" type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/>
         <span id="result"></span>
         <br><br>
-
         CHD  :
-        <input name="flight[goValueCHD]" type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>
+        <input name="flight[goValueCHD]" type="text" id="num3" onblur="calcular2()" placeholder="Valor ida" class="valor"/>
         <i class="fa fa-money"></i>
-        <input name="flight[returnValueCHD]" type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/>
+        <input name="flight[returnValueCHD]" type="text" id="num4" onblur="calcular2()" placeholder="Valor Volta" class="valor"/>
         <span>&#61;</span>
-        <input name="flight[totalValueCHD]" type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/>
+        <input name="flight[totalValueCHD]" type="text" id="result2" onblur="calcular2()" placeholder="Valor Total" class="valor"/>
         <span id="result"></span>
         <br><br>
 
         INF   :
-        <input name="flight[goValueInf]" type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>
+        <input name="flight[goValueInf]" type="text" id="num5" onblur="calcular3()" placeholder="Valor ida" class="valor"/>
         <i class="fa fa-money"></i>
-        <input name="flight[returnValueInf]" type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/>
+        <input name="flight[returnValueInf]" type="text" id="num6" onblur="calcular3()" placeholder="Valor Volta" class="valor"/>
         <span>&#61;</span>
-        <input name="flight[totalValueInf]" type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/>
+        <input name="flight[totalValueInf]" type="text" id="result3" onblur="calcular3()" placeholder="Valor Total" class="valor"/>
         <span id="result"></span>
         <br><br>
-
-
+<div id="add_voo">
+</div>
+<br>
+<button type="button" id="add-voo" class="add_buttons"> + Voos</button>
+<br>
         <div id="add_voo">
           <br>
         </div>
@@ -79,5 +77,5 @@
     </div>
   </form>
 </div>
+</form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
-<script type="text/javascript" src="/javascripts/operations.js">  </script>

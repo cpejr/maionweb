@@ -16,13 +16,22 @@ const clientSchema = new mongoose.Schema({
     others: String
   },
 
-  email: {
-    type: String,
-    lowercase: true
-  },
+  email: [{
+      type: String,
+      lowercase: true
+    }],
+
+    email1: [{
+      type: String,
+      lowercase: true
+    }],
 
   adress: String,
-  id: String, //Número identidade, RG
+  adress: String,
+  rg:{
+    uf: String,
+    number: String
+  }, //Número identidade, RG
   passportNumber: String,
 
   maritalStatus: { //Estado civil
