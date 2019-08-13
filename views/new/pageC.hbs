@@ -13,30 +13,16 @@
 
     <!-- bloco acompanhantes/início -->
     <div class="dinamic_spec">
-      <div class="row row_acompanhantes">
-        <div class="col-sm col_acompanhantes">
-          <input class="form-control" type="text" name="budget[file][companion][name]" placeholder="Nome do acompanhante">
-        </div>
-        <div class="col-sm col_acompanhantes">
-          <select class="form-control" name="budget[file][companion][age]">
-            <option selected>Idade do acompanhante</option>
-            <option>Adulto</option>
-            <option>CHD</option>
-            <option>INF</option>
-          </select>
-        </div>
-      </div>
-      <!-- Codigo + Nome do responsável/início -->
+
       <div class="col-sm col_acompanhantes">
-        <!-- bloco acompanhantes/início -->
         <div class="dinamic_spec">
           <div class="row row_acompanhantes">
-            <div class="col-sm col_acompanhantes">
+            <div class="col-sm col_acompanhantes" id="name_acomp">
               <input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">
             </div>
-            <div class="col-sm col_acompanhantes">
+            <div class="col-sm col_acompanhantes " id="age_acomp">
               <select class="form-control" name="budget[companion][age]">
-                <option selected>Idade do acompanhante</option>
+                <option selected>Faixa etária do acompanhante</option>
                 <option>Adulto</option>
                 <option>CHD</option>
                 <option>INF</option>
@@ -52,35 +38,46 @@
     </div>
 
     <!-- bloco país-cidade/início -->
-    <div class="location">
-    </div>
     <div class="dinamic_spec">
-      <input type="text" name="budget[file][location][country]" placeholder="Digite o nome do país" class="form-control" required="required">
-      <div class="form-group location_cidades">
-        <input type="text" name="budget[file][location][cities]" placeholder="Digite o nome da cidade desejada" class="form-control" required="required">
+        <div class="row country_row">
+
+          <!-- coluna dos botões/início -->
+          <div class="col-2 no_padding">
+            <div class="header">
+              <button type="button" name="button" id="button_day_original" class="add_buttons"> +Cidades </button>
+              <button type="button" name="button" id="add_country" class="add_buttons"> +países </button>
+              <button type="button" name="button" id="increasing" class="move add_buttons"> país anterior </button>
+              <button type="button" name="button" id="decreasing" class="move add_buttons"> próximo país </button>
+            </div>
+          </div>
+          <!-- coluna dos botões/fim -->
+
+          <!-- coluna com os países/inicio-->
+          <div class="col-sm no_padding">
+            <div class="parent" id="button_space">
+              <div id="in_country_days1" class="testeReplicaBox Selected">
+                <div class="days_input">
+                  <input placeholder="Nome do país" class="form-control" name="budget[location][country]"></input>
+                </div>
+                <div class="days_input">
+                  <input placeholder="Aeroporto de ída" class="form-control" name="budget[airportExit]"></input>
+                  <input placeholder="Aeroporto de chegada" class="form-control" name="budget[airportArrival]"></input>
+                </div>
+                <div class="days_input">
+                  <input placeholder="data de ída" class="form-control" name="budget[shipmentDate]"></input>
+                  <input placeholder="data de chegada" class="form-control" name="budget[returnDate]"></input>
+                  <div class="days_input">
+                    <input placeholder="Nome da cidade" class="form-control" name="budget[location][cities]">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- coluna com os países/fim-->
+
       </div>
-      <div class="row row_acompanhantes">
-        <div class="col-sm col_acompanhantes">
-          <input type="text" name="budget[file][airportGo]" placeholder="Aeroporto de ida" class="form-control" required="required">
-          <input type="text" name="budget[file][goDate]" placeholder="Data de ída" class="form-control" required="required">
-        </div>
-        <div class="col-sm col_acompanhantes">
-          <input type="text" name="budget[file][airportArrival]" placeholder="Aeroporto de chegada" class="form-control" required="required">
-          <input type="text" name="budget[file][returnDate]" placeholder="Data de de volta" class="form-control" required="required">
-        </div>
-      </div>
-      <div class="row row_acompanhantes">
-        <div class="col-sm col_acompanhantes">
-          <button type="button" class="add_buttons add-campo-cidades"> + Cidades</button>
-        </div>
-        <div class="col-sm col_acompanhantes">
-          <button type="button" class="botao_confirma"> Confirma </button>
-        </div>
-        <div class="col-sm col_acompanhantes">
-          <button type="button" class="add_buttons add-campo-paises"> + Países</button>
-        </div>
-      </div>
-    </div>
+
     <!-- bloco país-cidade/fim -->
 
     <h1>Roteiro:</h1>
