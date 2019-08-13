@@ -18,6 +18,7 @@ const budgetSchema = new mongoose.Schema({
       country: String,
       cities: [String]
     }],
+
     goDate : String,
     returnDate : String,
     airportGo: String,
@@ -36,18 +37,23 @@ const budgetSchema = new mongoose.Schema({
       }
     }
   },
-  flights:[{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Flight'
-  }],
-  client:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Client'
-  },
-  hotels:[{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Hotel'
-  }],
+
+
+      flights:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Flight'
+    }],
+
+    client:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Client'
+    },
+
+      hotels:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Hotel'
+    }],
+
   transportCar:{
     trasnport:[{
       type: mongoose.Schema.Types.ObjectId,
@@ -78,6 +84,7 @@ const budgetSchema = new mongoose.Schema({
   payment: {
     type: String
   }
+
 }, { timestamps: true, static: false });
 const BudgetModel = mongoose.model('Budget', budgetSchema);
 class Budget {
@@ -109,10 +116,12 @@ class Budget {
     });
   }
   /**
-  * Create a new User
-  * @param {Object} budget - User Document Data
-  * @returns {string} - New User Id
-  */
+
+   * Create a new User
+   * @param {Object} budget - User Document Data
+   * @returns {string} - New User Id
+   */
+
   static create(budget) {
     return new Promise((resolve, reject) => {
       BudgetModel.create(budget).then((result) => {
@@ -197,8 +206,55 @@ class Budget {
 
 
 
+  // /**
+  //  * Add client to budget
+  //  * @param {string} id - client Id
+  //  * @param {string} flight - budget Id
+  //  * @returns {null}
+  //  */
+  // static addFlight(id, flight) {
+  //   return new Promise((resolve, reject) => {
+  //     ClientModel.findByIdAndUpdate(id, { $push: { flights: flight } }).catch((err) => {
+  //       reject(err);
+  //     });
+  //   });
+  // }
+
+  /**
+   * Add flight to budget
+   * @param {string} id - budget Id
+   * @param {string} budget - flight Id
+   * @returns {null}
+   */
+  static addFlight(id, flight) {
+    return new Promise((resolve, reject) => {
+      BudgetModel.findByIdAndUpdate(id, { $push: { flights: flight } }).then(()=>{
+        resolve();
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
+
+  /**
+   * Add hotel to budget
+   * @param {string} id - budget Id
+   * @param {string} budget - hotel Id
+   * @returns {null}
+   */
+  static addHotel(id, Hotel) {
+    return new Promise((resolve, reject) => {
+      BudgetModel.findByIdAndUpdate(id, { $push: { hotels: hotel } }).then(()=>{
+        resolve();
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
 
 
+
+}
 
 
   
