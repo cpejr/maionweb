@@ -1,18 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const Client = require('../models/client');
-
+const Flight = require('../models/flight');
+const Hotel = require('../models/hotel');
+const Budget = require('../models/budget');
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
   res.render('new/pageA', { title: 'Geral', layout: 'layoutDashboard'});
 });
-
-/* GET pageD. */
-router.get('/pageD', function(req, res, next) {
-  res.render('new/pageD', { title: 'Geral', layout: 'layoutDashboard'});
-});
-
-
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((user) =>{
@@ -23,31 +18,49 @@ router.get('/pageB/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
-
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
-  Client.getById(req.params.client_id).then((user) =>{
+  Client.getById(req.params.client_id).then((client) =>{
+    console.log(client);
+  res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id});
+}).catch((error)=>{
+    console.log(error);
+    res.redirect('/error');
+  });
+});
+/* GET pageD. */
+router.get('/pageD/:client_id/:budget_id', function(req, res) {
+  Flight.getById(req.params.client_id , req.params.budget_id).then((user) =>{
     console.log(user);
-  res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs'});
+  res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id});
+}).catch((error)=>{
+    console.log(error);
+    res.redirect('/error');
+  });
+});
+/* GET pageE. */
+router.get('/pageE/:client_id/:budget_id', function(req, res) {
+  Hotel.getById(req.params.client_id).then((user) =>{
+    console.log(user);
+  res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');
   });
 });
 
-/* GET pageE. */
-router.get('/pageE', function(req, res, next) {
-  res.render('new/pageE', { title: 'pageE', layout: 'layoutDashboard'});
-});
 
 /* GET pageF. */
-router.get('/pageF', function(req, res, next) {
-  res.render('new/pageF', { title: 'pageF', layout: 'layoutDashboard'});
+router.get('/pageF/:client_id/:budget_id', function(req, res) {
+  Budget.getById(req.params.client_id).then((user) =>{
+    console.log(user);
+  res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
+}).catch((error)=>{
+    console.log(error);
+    res.redirect('/error');
+  });
 });
-/* GET pageD. */
-router.get('/pageD', function(req, res, next) {
-  res.render('new/pageD', { title: 'Page D', layout: 'layoutDashboard'});
-});
+
 
 /* GET pageG. */
 router.get('/pageG/:client_id', function(req, res) {
@@ -59,8 +72,6 @@ router.get('/pageG/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
-
-
 /*POST pageA*/
 router.post('/pageA',(req,res)=>{
   const  client  = req.body.client;
@@ -73,8 +84,6 @@ router.post('/pageA',(req,res)=>{
       res.redirect('error');
     });
   });
-
-
 /*POST pageB*/
 router.post('/pageB/:client_id',(req,res)=>{
   const  client  = req.body.client;
@@ -86,30 +95,58 @@ router.post('/pageB/:client_id',(req,res)=>{
     res.redirect('error');
   });
 });
-
 /*POST pageC*/
-router.post('/pageC',(req,res)=>{
-  const budget = req.body.budget;
-  console.log(budget);
-  console.log("Ta passando aqui");
-  res.redirect(`/new/pageD`);
+router.post('/pageC/:client_id',(req,res)=>{
+  const  budget = req.body.budget;
+  const  client_id = req.params.client_id;
+  Budget.create(budget).then((budget_id)=>{
+    Client.addBudget(client_id, budget_id).then(() => {
+        res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+      }).catch((error)=>{
+        console.log(error);
+        res.redirect('error');
+      });
+  }).catch((error)=>{
+    console.log(error);
+    res.redirect('error');
+  });
 });
-
 /*POST pageD*/
-router.post('/pageD',(req,res)=>{
-  const budget = req.body.budget;
-  console.log(budget);
-  console.log("Ta passando aqui");
-  res.redirect(`/new/pageE`);
+router.post('/pageD/:client_id/:budget_id',(req,res)=>{
+  const  flight = req.body.flight;
+  const  budget_id = req.params.budget_id;
+  const  client_id = req.params.client_id;
+  Flight.create(flight).then((flight_id)=>{
+    Budget.addFlight(budget_id, flight_id).then(() => {
+        res.redirect(`/new/pageE/${client_id}/${budget_id}`);
+      }).catch((error)=>{
+        console.log(error);
+        res.redirect('error');
+      });
+  }).catch((error)=>{
+    console.log(error);
+    res.redirect('error');
+  });
 });
 
 /*POST pageE*/
-router.post('/pageE',(req,res)=>{
-  const budget = req.body.budget;
-  console.log(budget);
-  console.log("Ta passando aqui");
-  res.redirect(`/new/pageF`);
+router.post('/pageE/:client_id/:budget_id',(req,res)=>{
+  const  hotel = req.body.hotel;
+  const  budget_id = req.params.budget_id;
+  const  client_id = req.params.client_id;
+  Hotel.create(hotel).then((hotel_id)=>{
+    Budget.addHotel(budget_id, hotel_id).then(() => {
+        res.redirect(`/new/pageF/${client_id}/${budget_id}`);
+      }).catch((error)=>{
+        console.log(error);
+        res.redirect('error');
+      });
+  }).catch((error)=>{
+    console.log(error);
+    res.redirect('error');
+  });
 });
+
 
 /*POST pageF*/
 router.post('/pageF',(req,res)=>{
@@ -118,5 +155,11 @@ router.post('/pageF',(req,res)=>{
   console.log("Ta passando aqui");
   res.redirect(`/new/pageH`);
 });
-
+/*POST pageG*/
+router.post('/pageG',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageH`);
+});
 module.exports = router;
