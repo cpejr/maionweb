@@ -1,8 +1,9 @@
 <header class="login_page">
   navbar
 </header>
+<body class="bodydash">
 <form action="/new/pageA" method="post" class="pagesFront">
-  <label>Page A</label>
+  <label>Geral/ dados</label>
   <div class="container rowclass">
   <div class="row rowclass">
     <div class="col-sm rowclass">
@@ -10,13 +11,13 @@
         <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" placeholder="Nome Completo"  required="required">
       </div><br>
       <div class="classa">
-        <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  required="required">
+        <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  required="required" onkeypress="$(this).mask('000.000.000-00');">
       </div><br>
       <div class="classa">
-        <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  required="required">
+        <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  required="required"  onkeypress="$(this).mask('(00) 0000-0000')">
       </div><br>
       <div class="classa">
-        <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  required="required">
+        <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  required="required"  onkeypress="$(this).mask('(00) 90000-0000')">
       </div><br>
       <div class="classa">
         <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email"  required="required">
@@ -78,3 +79,4 @@
         <button type="submit" class="btn btn-primary" id="buttonPages">Sign up</button>
 
 </form>
+</body>
