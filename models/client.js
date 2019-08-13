@@ -88,7 +88,14 @@ const clientSchema = new mongoose.Schema({
     phone: String, //residencial
     cellphone: String, //celular
     pis: String,
-    workPermit: String //Carteria de Trabalho
+    workPermit: String, //Carteria de Trabalho
+
+    budgets:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Budget'
+          }]
+
+
 
 }, { timestamps: true, static: false });
 
@@ -171,6 +178,39 @@ class Client {
       });
    });
  }
+
+
+ /**
+  * Add flight to clients
+  * @param {string} id - client Id
+  * @param {string} flight - flight Id
+  * @returns {null}
+  */
+ static addFlight(id, flight) {
+   return new Promise((resolve, reject) => {
+     ClientModel.findByIdAndUpdate(id, { $push: { flights: flight } }).catch((err) => {
+       reject(err);
+     });
+   });
+ }
+
+ /**
+  * Add budget to clients
+  * @param {string} id - client Id
+  * @param {string} budget - budget Id
+  * @returns {null}
+  */
+ static addBudget(id, budget) {
+   return new Promise((resolve, reject) => {
+     ClientModel.findByIdAndUpdate(id, { $push: { budgets: budget } }).then(()=>{
+       resolve();
+     }).catch((err) => {
+       reject(err);
+     });
+   });
+ }
+
+
 
 }
 
