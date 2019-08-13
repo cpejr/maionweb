@@ -1,31 +1,23 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
-  navbar
 </header>
 
 <form action="/new/pageD/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
 
-  <div class="containerPages">
+  <div class="container rowclass">
+    <div class="row">
+      <div class="col-2">
 
-    <div class="form-group">
-      <div class="container rowclass">
-      <div class="row rowclass autorow">
-      <div class="col-sm rowclass">
 
-      <div class="classa">
-      <label> Passageiros </label><br>
-      <input class="form-check-input" type="checkbox">
-      <input placeholder="Responsável" value="{{budget.file.responsibleTravel}}">
-      <br><br>
-      <input class="form-check-input" type="checkbox">
-      <input placeholder="Acompanhante" >
+        <label> Passageiros </label><br>
+        <input class="form-check-input" type="checkbox">
+        <input placeholder="Responsável" value="{{budget.file.responsibleTravel}}">
+        <br><br>
+        <input class="form-check-input" type="checkbox">
+        <input placeholder="Acompanhante" >
       </div>
-
-      <div class="classa">
-      <div id="add_acompanhantesvoo">
-      </div>
-      <div class="classa">
+      <div class="col-5">
         <label> Voo</label>
         <br>
         <input type="text" placeholder="Origem" name="flight[from]" class="date start-date"/>
@@ -35,7 +27,11 @@
         <input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="date start-date"/>
         <i class="fa fa-calendar"></i>
         <input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="date start-date"/>
-        <br><br><br><br>
+        <br><br>
+      </div>
+
+      <div class="col-5">
+
         <label> Valores </label>
         <br>
         Adulto:
@@ -62,25 +58,19 @@
         <span>&#61;</span>
         <input name="flight[totalValueInf]" type="text" id="result3" onblur="calcular3()" placeholder="Valor Total" class="valor"/>
         <span id="result"></span>
-        <br><br>
-<div id="add_voo">
-</div>
-<br>
-<button type="button" id="add-voo" class="add_buttons"> + Voos</button>
-<br>
-        <div id="add_voo">
-          <br>
-        </div>
-        <br>
-        <button type="button" id="add-voo" class="add_buttons"> + Voo </button>
-        <br>
-
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
-  </div>
+    <div id="add_voo">
     </div>
-  </form>
+  </div>
+  <button type="button" id="add-voo" class="add_buttons"> + Voo </button>
+  <br><br>
+
+</div>
+<button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
+
+
+</form>
 </div>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
