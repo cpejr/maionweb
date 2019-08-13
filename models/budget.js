@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const budgetSchema = new mongoose.Schema({
+
   clientList: {
     responsable:String,
     companion1: [String]
@@ -258,5 +259,4 @@ class Budget {
 
 
   
-}
 module.exports = Budget;

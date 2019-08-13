@@ -66,7 +66,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
     console.log(error);
     res.redirect('/error');
   });
-
+});
 
 
 /* GET pageG. */
@@ -79,7 +79,7 @@ router.get('/pageG/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
-  
+
 /*POST pageA*/
 router.post('/pageA',(req,res)=>{
   const  client  = req.body.client;
@@ -171,4 +171,5 @@ router.post('/pageG',(req,res)=>{
   console.log("Ta passando aqui");
   res.redirect(`/new/pageH`);
 });
+
 module.exports = router;
