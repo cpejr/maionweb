@@ -10,8 +10,6 @@ router.get('/pageA', function(req, res, next) {
   res.render('new/pageA', { title: 'Geral', layout: 'layoutDashboard'});
 });
 
-
-
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((user) =>{
@@ -40,12 +38,12 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
     console.log(budget);
     console.log(budget.file.responsibleTravel);
   res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, budget});
+
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');
   });
 });
-
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Hotel.getById(req.params.client_id).then((user) =>{
@@ -59,9 +57,17 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 
 
 /* GET pageF. */
-router.get('/pageF', function(req, res, next) {
-  res.render('new/pageF', { title: 'pageF', layout: 'layoutDashboard'});
-});
+
+router.get('/pageF/:client_id/:budget_id', function(req, res) {
+  Budget.getById(req.params.client_id).then((user) =>{
+    console.log(user);
+  res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
+}).catch((error)=>{
+    console.log(error);
+    res.redirect('/error');
+  });
+
+
 
 /* GET pageG. */
 router.get('/pageG/:client_id', function(req, res) {
@@ -73,8 +79,7 @@ router.get('/pageG/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
-
-
+  
 /*POST pageA*/
 router.post('/pageA',(req,res)=>{
   const  client  = req.body.client;
@@ -87,8 +92,6 @@ router.post('/pageA',(req,res)=>{
       res.redirect('error');
     });
   });
-
-
 /*POST pageB*/
 router.post('/pageB/:client_id',(req,res)=>{
   const  client  = req.body.client;
@@ -100,7 +103,6 @@ router.post('/pageB/:client_id',(req,res)=>{
     res.redirect('error');
   });
 });
-
 /*POST pageC*/
 router.post('/pageC/:client_id',(req,res)=>{
   const  budget = req.body.budget;
@@ -117,7 +119,6 @@ router.post('/pageC/:client_id',(req,res)=>{
     res.redirect('error');
   });
 });
-
 /*POST pageD*/
 router.post('/pageD/:client_id/:budget_id',(req,res)=>{
   const  flight = req.body.flight;
@@ -138,12 +139,23 @@ router.post('/pageD/:client_id/:budget_id',(req,res)=>{
 
 
 /*POST pageE*/
-router.post('/pageE',(req,res)=>{
-  const budget = req.body.budget;
-  console.log(budget);
-  console.log("Ta passando aqui");
-  res.redirect(`/new/pageF`);
+router.post('/pageE/:client_id/:budget_id',(req,res)=>{
+  const  hotel = req.body.hotel;
+  const  budget_id = req.params.budget_id;
+  const  client_id = req.params.client_id;
+  Hotel.create(hotel).then((hotel_id)=>{
+    Budget.addHotel(budget_id, hotel_id).then(() => {
+        res.redirect(`/new/pageF/${client_id}/${budget_id}`);
+      }).catch((error)=>{
+        console.log(error);
+        res.redirect('error');
+      });
+  }).catch((error)=>{
+    console.log(error);
+    res.redirect('error');
+  });
 });
+
 
 /*POST pageF*/
 router.post('/pageF',(req,res)=>{
@@ -152,5 +164,11 @@ router.post('/pageF',(req,res)=>{
   console.log("Ta passando aqui");
   res.redirect(`/new/pageH`);
 });
-
+/*POST pageG*/
+router.post('/pageG',(req,res)=>{
+  const budget = req.body.budget;
+  console.log(budget);
+  console.log("Ta passando aqui");
+  res.redirect(`/new/pageH`);
+});
 module.exports = router;
