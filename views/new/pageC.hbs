@@ -5,7 +5,7 @@
   <div class="containerPages">
       <h1>PageC</h1>
     <div class="form-group">
-      <input type="text" name="budget[file][codFile]" placeholder="Código File" class="form-control" required="required">
+      <input type="text" name="budget[codFile]" placeholder="Código File" class="form-control" required="required">
     </div>
 
     <div class="dinamic_spec">
@@ -27,17 +27,17 @@
             <div class="parent" id="button_space">
               <div id="in_country_days1" class="testeReplicaBox Selected">
                 <div class="days_input">
-                  <input placeholder="Nome do país" class="form-control" name="budget[location][country]"></input>
+                  <input placeholder="Nome do país" class="form-control" name="budget[country]"></input>
                 </div>
                 <div class="days_input">
-                  <input placeholder="Aeroporto de ída" class="form-control" name="budget[airportExit]"></input>
-                  <input placeholder="Aeroporto de chegada" class="form-control" name="budget[airportArrival]"></input>
+                  <input placeholder="Aeroporto de ída" class="form-control" name="budget[airportGo]"></input>
+                  <input placeholder="Aeroporto de chegada" class="form-control" name="budget[airportReturn]"></input>
                 </div>
                 <div class="days_input">
-                  <input placeholder="data de ída" class="form-control" name="budget[shipmentDate]"></input>
+                  <input placeholder="data de ída" class="form-control" name="budget[goDate]"></input>
                   <input placeholder="data de chegada" class="form-control" name="budget[returnDate]"></input>
                   <div class="days_input">
-                    <input placeholder="Nome da cidade" class="form-control" name="budget[location][cities]">
+                    <input placeholder="Nome da cidade" class="form-control" name="budget[cities]">
                   </div>
                 </div>
               </div>
@@ -55,19 +55,12 @@
       <table class="tabela_roteiro">
         <tr>
           <th><h2 >Dia</h2></th>
-          <th><input type="text" name="budget[file][scripts][day][freeField]" placeholder="Campo livre" class="form-control" required="required"></th>
-          <th><input type="text" name="budget[file][scripts][day][tips]" placeholder="Dicas" class="form-control" required="required"></th>
+          <th><input type="text" name="budget[freeField]" placeholder="Campo livre" class="form-control" required="required"></th>
+          <th><input type="text" name="budget[tips]" placeholder="Dicas" class="form-control" required="required"></th>
         </tr>
       </table>
       <button type="button" class="add_buttons add_dias"> + Dias</button>
     </div>
-    <select class="form-control" name="" required="required">
-      <option selected>Selecione o tipo de viagem</option>
-      <option>Praia</option>
-      <option>Metrópole</option>
-      <option>Sky</option>
-      <option>Outro</option>
-    </select>
     <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
   </div>
 </form>
