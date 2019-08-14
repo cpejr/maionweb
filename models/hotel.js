@@ -22,7 +22,7 @@ const hotelSchema = new mongoose.Schema({
 
 }, { timestamps: true, static: false });
 
-const HotelSchema = mongoose.model('Hotel', hotelSchema);
+const HotelSchema = mongoose.model('hotel', hotelSchema);
 
 class Hotel {
   /**
@@ -56,7 +56,7 @@ class Hotel {
 
   /**
    * Create a new User
-   * @param {Object} Hotel - User Document Data
+   * @param {Object} hotel - User Document Data
    * @returns {string} - New User Id
    */
   static create(hotel) {

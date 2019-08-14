@@ -43,6 +43,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
     res.redirect('/error');
   });
 });
+
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Hotel.getById(req.params.client_id).then((user) =>{
@@ -144,7 +145,7 @@ router.post('/pageE/:client_id/:budget_id',(req,res)=>{
   const  client_id = req.params.client_id;
   Hotel.create(hotel).then((hotel_id)=>{
     Budget.addHotel(budget_id, hotel_id).then(() => {
-        res.redirect(`/new/pageF/${client_id}/${budget_id}`);
+      res.redirect(`/new/pageF/${client_id}/${budget_id}`);
       }).catch((error)=>{
         console.log(error);
         res.redirect('error');

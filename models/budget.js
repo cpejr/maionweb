@@ -184,7 +184,7 @@ class Budget {
   * @param {string} budget - hotel Id
   * @returns {null}
   */
-  static addHotel(id, Hotel) {
+  static addHotel(id, hotel) {
     return new Promise((resolve, reject) => {
       BudgetModel.findByIdAndUpdate(id, { $push: { hotels: hotel } }).then(()=>{
         resolve();
@@ -232,15 +232,7 @@ class Budget {
    * @param {string} budget - hotel Id
    * @returns {null}
    */
-  static addHotel(id, Hotel) {
-    return new Promise((resolve, reject) => {
-      BudgetModel.findByIdAndUpdate(id, { $push: { hotels: hotel } }).then(()=>{
-        resolve();
-      }).catch((err) => {
-        reject(err);
-      });
-    });
-  }
+
 
 
 
