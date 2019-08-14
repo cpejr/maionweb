@@ -1,57 +1,143 @@
 <header class="login_page">
   navbar
 </header>
-<body class="bodydash">
 <form action="/new/pageA" method="post" class="pagesFront">
   <label>Geral/ dados</label>
-  <div class="container rowclass">
-  <div class="row rowclass">
-    <div class="col-sm rowclass">
-      <div class="classa">
-        <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" placeholder="Nome Completo"  required="required">
-      </div><br>
-      <div class="classa">
-        <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  required="required" onkeypress="$(this).mask('000.000.000-00');">
-      </div><br>
-      <div class="classa">
-        <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  required="required"  onkeypress="$(this).mask('(00) 0000-0000')">
-      </div><br>
-      <div class="classa">
-        <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  required="required"  onkeypress="$(this).mask('(00) 90000-0000')">
-      </div><br>
-      <div class="classa">
-        <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email"  required="required">
-      </div><br>
-      <div class="classa">
-        <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Email">
-      </div><br>
-    </div>
-    <div class="col-sm rowclass">
-      <div class="classa">
-        <input type="adress" name = "client[adress]" class="form-control" id="adress" placeholder="Endereço"  required="required">
-      </div><br>
-      <div class="classa">
-        <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG"  required="required">
-      </div><br>
-      <div class="classa">
-          <input type="passport" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte"  required="required">
-        </div><br>
-        <div class="classa">
-          <input type="maritalStatus" name = "client[maritalStatus]" class="form-control" id="maritalStatus" placeholder="Estado Civil"  required="required">
-        </div><br>
+  <div class="dinamic_spec">
+    <h1> Cadastro </h1>
+    <div class="container rowclass">
+ <div class="row rowclass">
+   <div class="col-sm pageA-padding">
+     <div class="classa">
+       <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" placeholder="Nome Completo"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Email">
+     </div><br>
+     <div class="classa">
+<input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  required="required" onkeypress="$(this).mask('000.000.000-00');">
+</div><br>
+<div class="classa">
+  <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG"  required="required">
+</div><br>
+   </div>
+   <div class="col-sm pageA-padding">
+     <div class="classa">
+       <input type="fullname" name = "client[birthday]" class="form-control" id="birthday" placeholder="Data de Nascimento"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  required="required"  onkeypress="$(this).mask('(00) 0000-0000')">
+     </div><br>
+     <div class="classa">
+       <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  required="required"  onkeypress="$(this).mask('(00) 90000-0000')">
+     </div><br>
+     <div class="classa">
+       <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  required="required"  onkeypress="$(this).mask('(00) 90000-0000')">
+     </div><br>
+   </div>
+ </div>
+</div>
+<div class="container rowclass">
+ <div class="row rowclass">
+   <div class="col-sm pageA-padding">
+     <div class="classa">
+       <input type="fullname" name = "client[street]" class="form-control" id="street" placeholder="Rua/ Av./ etc"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="fullname" name = "client[neighbourhood]" class="form-control" id="neighbourhood" placeholder="Bairro"  required="required">
+     </div><br>
+   </div>
+   <div class="col-sm pageA-padding">
+     <div class="classa">
+       <input type="fullname" name = "client[complement]" class="form-control" id="complement" placeholder="Complemento"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="fullname" name = "client[city]" class="form-control" id="city" placeholder="Cidade"  required="required">
+     </div><br>
+   </div>
+   <div class="col-sm pageA-padding">
+     <div class="classa">
+       <input type="fullname" name = "client[cep]" class="form-control" id="cep" placeholder="CEP"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="fullname" name = "client[state]" class="form-control" id="state" placeholder="Estado"  required="required">
+     </div><br>
+     <div class="classa">
+             <select name="client[state] "required="required" class="form-control">
+               <option style="display:none">Selecione: Estado</option>
+               <option>AC</option>
+               <option>AL</option>
+               <option>AP</option>
+               <option>AM</option>
+               <option>BA</option>
+               <option>CE</option>
+               <option>DF</option>
+               <option>ES</option>
+               <option>GO</option>
+               <option>MA</option>
+               <option>MT</option>
+               <option>MS</option>
+               <option>MG</option>
+               <option>PA</option>
+               <option>PB</option>
+               <option>PR</option>
+               <option>PE</option>
+               <option>PI</option>
+               <option>RJ</option>
+               <option>RN</option>
+               <option>RS</option>
+               <option>RO</option>
+               <option>RR</option>
+               <option>SC</option>
+               <option>SP</option>
+               <option>SE</option>
+               <option>TO</option>
+             </select>
+           </div><br>
+   </div>
+ </div>
+</div>
+<div class="container rowclass">
+ <div class="row rowclass">
+   <div class="col-sm pageA-padding">
+     <div class="classa">
+             <select name="client[maritalStatus] "required="required" class="form-control">
+               <option style="display:none">Selecione: Estado Civil</option>
+               <option>Casado</option>
+               <option>Solteiro</option>
+               <option>Viuvo</option>
+               <option>Noivo</option>
+             </select>
+           </div><br>
+     <div class="classa">
+       <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão"  required="required">
+     </div><br>
+   </div>
+   <div class="col-sm pageA-padding">
+     <div class="classa">
+       <input type="fullname" name = "client[wedding_anniversary]" class="form-control" id="wedding_anniversary" placeholder="Aniversário de Casamento"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte"  required="required">
+     </div><br>
+     <div class="classa">
+       <input type="fullname" name = "client[passportvalidation]" class="form-control" id="passportvalidation" placeholder="Validade Passaporte"  required="required">
+     </div><br>
+   </div>
+ </div>
+</div>
+        </div>
         <div class="classa">
           <input type="spouseName" name = "client[spouseName]" class="form-control" id="spouseName" placeholder="Conjuge"  required="required">
         </div><br>
         <div class="classa">
           <input type="children" name = "client[children]" class="form-control" id="children" placeholder="Filhos"  required="required">
         </div><br>
-    </div>
-    <div class="col-sm rowclass">
       <div class="classa">
         <input type="childrenAge" name = "client[childrenAge]" class="form-control" id="childrenAge" placeholder="Idade dos Filhos"  required="required">
-      </div><br>
-      <div class="classa">
-        <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão"  required="required">
       </div><br>
       <div class="classa">
         <input type="spouseProfession" name = "client[spouseProfession]" class="form-control" id="spouseProfession" placeholder="Profissão Conjuge"  required="required">
@@ -72,11 +158,8 @@
                   <option>Outros</option>
                 </select>
               </div><br>
-    </div>
-  </div>
-</div>
 <br>
         <button type="submit" class="btn btn-primary" id="buttonPages">Sign up</button>
 
+
 </form>
-</body>
