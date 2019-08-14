@@ -10,11 +10,10 @@ const clientSchema = new mongoose.Schema({
     //unique: false
   },
 
-  phone:{
-    fixed: String,//residencial
-    cell: String, //celular
-    others: String
-  },
+  //phone
+  phoneFixed: String,
+  phoneCell: String,
+  phoneOthers: String,
 
   email: [{
       type: String,
@@ -28,10 +27,11 @@ const clientSchema = new mongoose.Schema({
 
   adress: String,
   adress: String,
-  rg:{
-    uf: String,
-    number: String
-  }, //Número identidade, RG
+
+  //Número identidade, RG
+rgUf: String,
+rgNumber: String,
+
   passportNumber: String,
 
   maritalStatus: { //Estado civil

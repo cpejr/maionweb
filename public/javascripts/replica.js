@@ -30,7 +30,15 @@ $( "#add-voo" ).click(function() {
   $( "#add_voo" ).append('INF :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
 });
 
+$( "#add-filhos" ).click(function() {
+  $( "#familypageA" ).append('<br><br><div class="container rowclass"><div class="row rowclass"><div class="col-sm pageA-padding"><div class="classa"><input type="sondaughter" name = "client[sondaughter]" class="form-control" id="sondaughter" placeholder="Filho/a"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[birthday]" class="form-control" id="birthday" placeholder="Data de Nascimento"  required="required"></div><br></div><div class="col-sm pageA-padding"><div class="classa"><input type="fullname" name = "client[passport1]" class="form-control" id="passport1" placeholder="Passaporte"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[passportvalidation2]" class="form-control" id="passportvalidation2" placeholder="Validade Passaporte"  required="required"></div><br></div></div></div>');
 
+$( "#add-companion" ).click(function(){
+  $( "#acompanhantespageA").append('');
+  console.log('ta pegando');
+});
+
+})
 // js de replica funcional - início
 var num = 2;
 var day = 1;

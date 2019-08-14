@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
   navbar
 </header>
@@ -131,89 +132,94 @@
     </div>
   </div>
   <div class="dinamic_spec">
-    <h1>Família</h1>
-    <div class="container rowclass">
-      <div class="row rowclass">
-        <div class="col-sm pageA-padding">
-          <div class="classa">
-            <input type="spouseName" name = "client[spouseName]" class="form-control" id="spouseName" placeholder="Conjuge"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="email" name = "client[email2]" class="form-control" id="email" placeholder="Email"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="profession2" name = "client[profession2]" class="form-control" id="profession2" placeholder="Profissão"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="phone1" name = "client[phone1]" class="form-control" id="phone1" placeholder="Telefone Fixo"  required="required"  onkeypress="$(this).mask('(00) 0000-0000')">
-          </div><br>
-        </div>
-        <div class="col-sm pageA-padding">
-          <div class="classa">
-            <input type="fullname" name = "client[birthday]" class="form-control" id="birthday" placeholder="Data de Nascimento"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[passportvalidation1]" class="form-control" id="passportvalidation1" placeholder="Validade Passaporte"  required="required">
-          </div><br>
-        </div>
-      </div>
-    </div>
-    <div class="container rowclass">
-      <div class="row rowclass">
-        <div class="col-sm pageA-padding">
-          <div class="classa">
-            <input type="sondaughter" name = "client[sondaughter]" class="form-control" id="sondaughter" placeholder="Filho/a"  required="required"  onkeypress="$(this).mask('(00) 0000-0000')">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[birthday]" class="form-control" id="birthday" placeholder="Data de Nascimento"  required="required">
-          </div><br>
-        </div>
+    <div id="familypageA">
 
-        <div class="col-sm pageA-padding">
-          <div class="classa">
-            <input type="fullname" name = "client[passport1]" class="form-control" id="passport1" placeholder="Passaporte"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[passportvalidation2]" class="form-control" id="passportvalidation2" placeholder="Validade Passaporte"  required="required">
-          </div><br>
+      <h1>Família</h1>
+      <div class="container rowclass">
+        <div class="row rowclass">
+          <div class="col-sm pageA-padding">
+            <div class="classa">
+              <input type="spouseName" name = "client[spouseName]" class="form-control" id="spouseName" placeholder="Conjuge"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="email" name = "client[email2]" class="form-control" id="email" placeholder="Email"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="profession2" name = "client[profession2]" class="form-control" id="profession2" placeholder="Profissão"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="phone1" name = "client[phone1]" class="form-control" id="phone1" placeholder="Telefone Fixo"  required="required"  onkeypress="$(this).mask('(00) 0000-0000')">
+            </div><br>
+          </div>
+          <div class="col-sm pageA-padding">
+            <div class="classa">
+              <input type="fullname" name = "client[birthday]" class="form-control" id="birthday" placeholder="Data de Nascimento"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[passportvalidation1]" class="form-control" id="passportvalidation1" placeholder="Validade Passaporte"  required="required">
+            </div><br>
+          </div>
+        </div>
+      </div>
+      <div class="container rowclass">
+        <div class="row rowclass">
+          <div class="col-sm pageA-padding">
+            <div class="classa">
+              <input type="sondaughter" name = "client[sondaughter]" class="form-control" id="sondaughter" placeholder="Filho/a"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[birthday]" class="form-control" id="birthday" placeholder="Data de Nascimento"  required="required">
+            </div><br>
+          </div>
+
+          <div class="col-sm pageA-padding">
+            <div class="classa">
+              <input type="fullname" name = "client[passport1]" class="form-control" id="passport1" placeholder="Passaporte"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[passportvalidation2]" class="form-control" id="passportvalidation2" placeholder="Validade Passaporte"  required="required">
+            </div><br>
+          </div>
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="buttonPages">+ Filhos</button>
+    <button type="button" class="add_buttons" id="add-filhos">+ Filhos</button>
   </div>
 
   <div class="dinamic_spec">
-    <h1> Acompanhantes </h1>
-    <div class="container rowclass">
-      <div class="row rowclass">
-        <div class="col-sm pageA-padding">
-          <div class="classa">
-            <input type="fullname" name = "client[fullname1]" class="form-control" id="fullname" placeholder="Nome Completo"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[email3]" class="form-control" id="email3" placeholder="Email"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[cellphone2]" class="form-control" id="cellphone2" placeholder="Celular"  required="required">
-          </div><br>
-        </div>
-        <div class="col-sm pageA-padding">
-          <div class="classa">
-            <input type="fullname" name = "client[birthday1]" class="form-control" id="birthday1" placeholder="Data de Nascimento"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[passport3]" class="form-control" id="passport3" placeholder="Passaporte"  required="required">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[passportvalidation3]" class="form-control" id="passportvalidation3" placeholder="Validade Passaporte"  required="required">
-          </div><br>
+    <div id="acompanhantespageA">
+      <h1> Acompanhantes </h1>
+      <div class="container rowclass">
+        <div class="row rowclass">
+          <div class="col-sm pageA-padding">
+            <div class="classa">
+              <input type="fullname" name = "client[fullname1]" class="form-control" id="fullname" placeholder="Nome Completo"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[email3]" class="form-control" id="email3" placeholder="Email"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[cellph2]" class="form-control" id="cellph2" placeholder="Celular"  required="required">
+            </div><br>
+          </div>
+          <div class="col-sm pageA-padding">
+            <div class="classa">
+              <input type="fullname" name = "client[birthday1]" class="form-control" id="birthday1" placeholder="Data de Nascimento"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[passport3]" class="form-control" id="passport3" placeholder="Passaporte"  required="required">
+            </div><br>
+            <div class="classa">
+              <input type="fullname" name = "client[passportvalidation3]" class="form-control" id="passportvalidation3" placeholder="Validade Passaporte"  required="required">
+            </div><br>
+          </div>
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="buttonPages">+ Acompanhantes</button>
+    <button type="button" class="add_buttons" id="add-companion">+ Acompanhantes</button>
   </div>
   <div class="dinamic_spec">
     <h1>Redes Sociais</h1>
@@ -245,5 +251,7 @@
         </div>
       </div>
     </div>
+    <button type="submit" class="btn btn-primary" id="buttonPages">Submit</button>
   </div>
 </form>
+<script type="text/javascript" src="/javascripts/replica.js">  </script>
