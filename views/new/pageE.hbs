@@ -12,9 +12,9 @@
     <input placeholder="Acompanhante">
     <div id="add_acompanhantesvoo">
     </div><br>
-    <div class="container rowclass">
+    <div class="dinamic_spec">
       <div class="row rowclass">
-        <div class="col-sm rowclass">
+        <div class="col-sm box_hotel_left" id="landing-hotel-col1">
           <div class="classa">
             <input class="form-control" placeholder="Cidade" name="hotel[city]">
           </div><br>
@@ -35,11 +35,11 @@
               <option>Outro</option>
             </select>
           </div><br>
-        </div>
-        <div class="col-sm rowclass">
           <div class="classa">
             <input class="form-control" placeholder="Hotel 1" name="hotel[option][hotel]">
           </div><br>
+        </div>
+        <div class="col-sm box_hotel_right" id="landing-hotel-col2">
           <div class="classa">
             <input class="form-control" placeholder="Valor Apto" name="hotel[option][valueApt]">
           </div><br>
@@ -54,8 +54,9 @@
           </div><br>
         </div>
       </div>
+      <button type="button" name="" class="add_buttons" id="add-hotel">+Hoteis/Cidades</button>
+      <br><br>
     </div>
     <button type="submit" class="btn btn-primary" id="buttonPages" >submit</button>
   </form>
   <script type="text/javascript" src="/javascripts/replica.js">  </script>
-  
