@@ -10,11 +10,7 @@ const budgetSchema = new mongoose.Schema({
       type: String,
       //required: true
     },
-    responsibleTravel: String,
-    companion: [{
-      name: String,
-      age: String
-    }],
+    
     location: [{
       country: String,
       cities: [String]
