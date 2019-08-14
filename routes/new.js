@@ -36,7 +36,6 @@ router.get('/pageC/:client_id', function(req, res) {
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
   Budget.getById(req.params.budget_id).then((budget) =>{
     console.log(budget);
-    console.log(budget.file.responsibleTravel);
   res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, budget});
 
 }).catch((error)=>{

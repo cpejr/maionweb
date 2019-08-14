@@ -1,39 +1,32 @@
 const mongoose = require('mongoose');
 const budgetSchema = new mongoose.Schema({
 
-  clientList: {
+
     responsable:String,
-    companion1: [String]
-  },
-  file: {
+    companion1: [String],
+
     codFile: {
       type: String,
       //required: true
     },
-    
-    location: [{
-      country: String,
-      cities: [String]
-    }],
 
+
+    country: String,
+
+    airportGo: String,
+    airportReturn: String,
     goDate : String,
     returnDate : String,
-    airportGo: String,
-    airportArrival: String,
-    scripts: {
-      day:[{
-        date: String,
-        dayWeek: String,
-        city: String,
-        freeField: String,
-        tips: String
-      }],
-      typeTravel: {
-        type: String,
-        //enum: ['Praia', 'Metropole', 'Campo', 'SKY', 'Outro']
-      }
-    }
-  },
+
+    cities: [String],
+
+    date: String,
+    dayWeek: String,
+    city: String,
+    freeField: String,
+    tips: String,
+
+
 
 
       flights:[{
