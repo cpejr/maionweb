@@ -1,8 +1,8 @@
 // page c - início
-$( "#add-campo-acompanhantes" ).click(function() {
-  $( "#name_acomp" ).append( '<input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">' );
-  $( "#age_acomp" ).append( '<select class="form-control" name="budget[companion][age]"><option selected>Faixa etária do acompanhante</option><option>Adulto</option><option>CHD</option><option>INF</option></select>' );
-});
+// $( "#add-campo-acompanhantes" ).click(function() {
+//   $( "#name_acomp" ).append( '<input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">' );
+//   $( "#age_acomp" ).append( '<select class="form-control" name="budget[companion][age]"><option selected>Faixa etária do acompanhante</option><option>Adulto</option><option>CHD</option><option>INF</option></select>' );
+// });
 
 $( ".add_dias" ).click(function() {
   $( ".tabela_roteiro" ).append( '<tr><th><h2 >Dia</h2></th><th><input type="text" name="" placeholder="Campo livre" class="form-control"></th><th><input type="text" name="" placeholder="Dicas" class="form-control"></th></tr>' );
@@ -12,7 +12,7 @@ var num = 2;
 var day = 1;
 
 $('#add_country').on('click', function() {
-  $("#button_space").append('<div id="in_country_days'+num+'" class="testeReplicaBox"><div class="days_input"><input placeholder="Nome do país" class="form-control" name="budget[location][country]"></input></div>   <div class="days_input"><input placeholder="Aeroporto de ída" class="form-control" name="budget[airportExit]"></input><input placeholder="Aeroporto de chegada" class="form-control" name="budget[airportArrival]"></input></div>   <div class="days_input"><input placeholder="data de ída" class="form-control" name="budget[shipmentDate]"></input><input placeholder="data de chegada" class="form-control" name="budget[returnDate]"></input></div>   <div class="days_input"><input placeholder="Nome da cidade" class="form-control" name="budget[location][cities]"></input></div>   </div>');
+  $("#button_space").append('<div id="in_country_days'+num+'" class="testeReplicaBox"><div class="days_input"><input placeholder="Nome do país" class="form-control" name="budget[country][]"></input></div>   <div class="days_input"><input placeholder="Aeroporto de ída" class="form-control" name="budget[airportGo][]"></input><input placeholder="Aeroporto de chegada" class="form-control" name="budget[airportReturn][]"></input></div>   <div class="days_input"><input placeholder="data de ída" class="form-control" name="budget[goDate][]"></input><input placeholder="data de chegada" class="form-control" name="budget[returnDate][]"></input></div>   <div class="days_input"><input placeholder="Nome da cidade" class="form-control" name="budget[cities][]"></input></div>   </div>');
   day = num;
   num++;
   $(".testeReplicaBox").removeClass("Selected");
@@ -20,7 +20,7 @@ $('#add_country').on('click', function() {
 });
 
 $("#button_day_original").on("click", function(){
-  var newDia = '<div class="days_input"><input placeholder="Nova cidade" class="form-control" name="budget[location][cities]"></input></div>';
+  var newDia = '<div class="days_input"><input placeholder="Nova cidade" class="form-control" name="budget[cities][]"></input></div>';
   $(`#in_country_days${day}`).append(newDia);
 });
 
@@ -68,6 +68,7 @@ $( "#add-voo" ).click(function() {
   $( "#add_voo" ).append('INF :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
 });
 
+// Page A - INÍCIO
 $( "#add-filhos" ).click(function() {
   $( "#familypageA" ).append('<br><br><div class="container rowclass"><div class="row rowclass"><div class="col-sm pageA-padding"><div class="classa"><input type="sondaughter" name = "client[sondaughter]" class="form-control" id="sondaughter" placeholder="Filho/a"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[birthday]" class="form-control" id="birthday" placeholder="Data de Nascimento"  required="required"></div><br></div><div class="col-sm pageA-padding"><div class="classa"><input type="fullname" name = "client[passport1]" class="form-control" id="passport1" placeholder="Passaporte"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[passportvalidation2]" class="form-control" id="passportvalidation2" placeholder="Validade Passaporte"  required="required"></div><br></div></div></div>');
 });
@@ -76,6 +77,7 @@ $( "#add-companion" ).click(function(){
   $( "#acompanhantespageA").append('');
   console.log('ta pegando');
 });
+// Page A - FIM
 
 // page E - INICIO
 var numhotel = 2;
