@@ -11,20 +11,24 @@ const budgetSchema = new mongoose.Schema({
     },
 
 
-    country: String,
+    country: [String],
 
-    airportGo: String,
-    airportReturn: String,
-    goDate : String,
-    returnDate : String,
+    airportGo: [String],
+    airportReturn: [String],
+    goDate : [String],
+    returnDate : [String],
 
     cities: [String],
 
-    date: String,
-    dayWeek: String,
-    city: String,
-    freeField: String,
-    tips: String,
+    // cities: [{
+    //   city: [String],
+    // }],
+
+    date: [String],
+    dayWeek: [String],
+    city: [String],
+    freeField: [String],
+    tips: [String],
 
 
 
