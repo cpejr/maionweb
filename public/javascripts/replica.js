@@ -77,7 +77,7 @@ $( "#add-filhos" ).click(function() {
 });
 
 $( "#add-companion" ).click(function(){
-  $( "#acompanhantespageA").append('');
+  $( "#acompanhantespageA").append('<div class="container rowclass"><div class="row rowclass"><div class="col-sm pageA-padding"><div class="classa"><input type="fullname" name = "client[fullname1]" class="form-control" id="fullname" placeholder="Nome Completo"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[email3]" class="form-control" id="email3" placeholder="Email"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[cellph2]" class="form-control" id="cellph2" placeholder="Celular"  required="required"></div><br></div><div class="col-sm pageA-padding"><div class="classa"><input type="fullname" name = "client[birthday1]" class="form-control" id="birthday1" placeholder="Data de Nascimento"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[passport3]" class="form-control" id="passport3" placeholder="Passaporte"  required="required"></div><br><div class="classa"><input type="fullname" name = "client[passportvalidation3]" class="form-control" id="passportvalidation3" placeholder="Validade Passaporte"  required="required"></div><br></div></div></div>');
   console.log('ta pegando');
 });
 // Page A - FIM

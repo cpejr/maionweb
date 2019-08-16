@@ -32,7 +32,6 @@ const clientSchema = new mongoose.Schema({
 rgUf: String,
 rgNumber: String,
 
-  passportNumber: String,
 
   maritalStatus: { //Estado civil
     type: String,
@@ -40,14 +39,37 @@ rgNumber: String,
     default: 'Solteiro(a)'
 
   },
+  //Passaporte
 
-  spouseName: String, // Nome do conjuge
-  children: String, //   filhos
-  childrenAge: String,
+  passport: String,
+  passportValidation: String,
   profession: String,
-  spouseProfession: String,
+
+  //conjuge
+  spouseName: String, // Nome do conjuge
+  wedding_anniversary: String, //aniversario de Casamento
+  spouseProfession: String, //profissao do conjuge
+  spousePassport: String, //passaporte do conjuge
+  spousePassportValidation: String, //validade do passaporte do conjuge
+
+  //filhos
+  children: String,
+  birthDateChildren: String,
+  childrenPassport: String,
+  childrenPassportValidation: String,
+
+  //acompanhantes
+  companionFullname: String,
+  companionEmail: String,
+  companionCellphone: String,
+  companionPassport: String,
+  companionPassportValidation: String,
+
+  //redes sociais
   instagram: String,
   facebook: String,
+  funil: String,
+  others: String,
 
 
   profile: String,
@@ -63,6 +85,9 @@ rgNumber: String,
 
     fullname: String,
     birthDate: Date,
+    birthDateSpouse: Date,
+    birthDateSon: Date,
+    birthDateCompanion: Date,
 
     type: {
       type: String,
@@ -76,8 +101,15 @@ rgNumber: String,
       unique: true
 
     },
-    adress: String,
-    zipCode: String, //CEP
+
+    //endereço
+    street: String, //rua
+    neighbourhood: String, //bairro
+    complement: String, //complemento
+    city: String, //cidade
+    zipcode: String, //cep
+    state: String, //estado
+
 
     email: {
       type: String,
@@ -87,6 +119,8 @@ rgNumber: String,
 
     phone: String, //residencial
     cellphone: String, //celular
+    cellphone1: String,
+    phoneFamily: String,
     pis: String,
     workPermit: String, //Carteria de Trabalho
 
