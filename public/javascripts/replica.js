@@ -4,8 +4,11 @@
 //   $( "#age_acomp" ).append( '<select class="form-control" name="budget[companion][age]"><option selected>Faixa etária do acompanhante</option><option>Adulto</option><option>CHD</option><option>INF</option></select>' );
 // });
 
+var planned_day = 2;
+
 $( ".add_dias" ).click(function() {
-  $( ".tabela_roteiro" ).append( '<tr><th><h2 >Dia</h2></th><th><input type="text" name="" placeholder="Campo livre" class="form-control"></th><th><input type="text" name="" placeholder="Dicas" class="form-control"></th></tr>' );
+  $( ".tabela_roteiro" ).append( '<tr><th><h2 >Dia '+planned_day+'</h2></th><th><input type="text" name="budget[freeField]" placeholder="Campo livre" class="form-control"></th><th><input type="text" name="budget[tips]" placeholder="Dicas" class="form-control"></th></tr>' );
+  planned_day ++;
 });
 
 var num = 2;
