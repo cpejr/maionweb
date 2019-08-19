@@ -4,12 +4,10 @@ const Car = require('../models/car.js');
 const router = express.Router();
 
 /**
- * GET Index - Show all Products
+ * GET Index - Show all Cars
  */
 router.get('/', (req, res) => {
   Car.getAll().then((cars) => {
-    console.log(cars);
-    res.send('oi');
     // res.render('cars/index', { title: 'Cars', cars });
   }).catch((err) => {
     console.log(err);
@@ -17,22 +15,21 @@ router.get('/', (req, res) => {
 });
 
 /**
- * GET New - Show form to create new product
+ * GET New - Show form to create new car
  */
 router.get('/new', (req, res) => {
-  res.render('products/new', { title: 'New Product' });
+  res.render('car/new', { title: 'Novo Carro' });
 });
 
 /**
- * POST Create - Add new product to DB
+ * POST Create - Add new car to DB
  */
 router.post('/', (req, res) => {
   const { car } = req.body;
   console.log(car);
   Car.create(car).then((id) => {
     console.log(`Created new car with id: ${id}`);
-    res.send('deu certo essa porra');
-    // res.redirect(`/cars/${id}`);
+    // res.redirect(`/car/${id}`);
   }).catch((err) => {
     console.log(err);
     res.redirect('/cars');
@@ -40,62 +37,62 @@ router.post('/', (req, res) => {
 });
 
 /**
- * GET Show - Show details of a product
+ * GET Show - Show details of a car
  */
 router.get('/:id', (req, res) => {
-  Product.getById(req.params.id).then((product) => {
-    if (product) {
-      console.log(product);
-      res.render('products/show', { title: product.name, id: req.params.id, ...product });
+  Car.getById(req.params.id).then((car) => {
+    if (car) {
+      console.log(car);
+      res.render('car/show', { title: car.name, id: req.params.id, ...car });
     }
     else {
-      console.log('Product not found!');
-      res.redirect('/products');
+      console.log('Car not found!');
+      res.redirect('/car');
     }
   }).catch((err) => {
     console.log(err);
-    res.redirect('/products');
+    res.redirect('/');
   });
 });
 
 /**
- * GET Edit - Show the product edit form
+ * GET Edit - Show the car edit form
  */
 router.get('/:id/edit', (req, res) => {
-  Product.getById(req.params.id).then((product) => {
-    if (product) {
-      console.log(product);
-      res.render('products/edit', { title: `Edit ${product.name}`, id: req.params.id, ...product });
+  Car.getById(req.params.id).then((car) => {
+    if (car) {
+      console.log(car);
+      res.render('car/edit', { title: `Editar ${car.name}`, id: req.params.id, ...car });
     }
     else {
-      console.log('Product not found!');
+      console.log('Car not found!');
       res.redirect('/');
     }
   }).catch((err) => {
     console.log(err);
-    res.redirect('/products');
+    res.redirect('/');
   });
 });
 
 /**
- * PUT Update - Update a product in the database
+ * PUT Update - Update a car in the database
  */
 router.put('/:id', (req, res) => {
-  const { product } = req.body;
-  Product.update(req.params.id, product).catch((err) => {
+  const { car } = req.body;
+  Car.update(req.params.id, car).catch((err) => {
     console.log(err);
   });
-  res.redirect(`/products/${req.params.id}`);
+  res.redirect(`/car/${req.params.id}`);
 });
 
 /**
- * DELETE Destroy - Removes a product from the databse
+ * DELETE Destroy - Removes a car from the databse
  */
 router.delete('/:id', (req, res) => {
-  Product.delete(req.params.id).catch((err) => {
+  Car.delete(req.params.id).catch((err) => {
     console.log(err);
   });
-  res.redirect('/products');
+  res.redirect('/car');
 });
 
 module.exports = router;

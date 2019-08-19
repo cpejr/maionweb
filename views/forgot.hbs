@@ -1,21 +1,26 @@
 
-<header class="header-forget"> </header>
-  <div class="forgot-box" id="forgot-box">
-          <div class="esqueci">
-            <section class="box-border box-forgot">
-              <h2 id="titulo">Esqueci minha senha</h2>
-              <form action="/forgot" method="post">
-              <label class="text1">Digite o endereço de email cadastrado:</label>
-              <div class="email-box ">
-                <input class="cxemail" type="email" name="user[email]" placeholder="email@example.com" required="required">
-              </div>
-              <input class="btn btn-outline-primary" type="submit" name="btn btn-enviar" value="Enviar">
-              <label class="cadstro-forgot">Ainda não tem conta? <p class="btn-cadastro-forgot" onclick="location.href='/pageA'">Cadastre-se já!</p></label>
-            </form>
-        </section>
-      </div>
+<header class="login_page">
+  <p class="header_login"> &copy Nome-da-Empresa </p>
+</header>
+
+<div class="login">
+  <div>
+    <div class="form_login">
+      <form action="/forgot" method="post">
+        <h1 class="mt-2"> Esqueci minha senha </h1>
+        <div class="col-8 centered p-3">
+          <label for="email">Digite o endereço de email cadastrado:</label>
+          <input type="email" class="form-control" name="user[email]" required>
+        </div>
+        <input class="btn btn-login mt-2" type="submit" value="Enviar" id="login-btn">
+      </form>
+    </div>
   </div>
-
-
+</div>
 
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.min.js'></script>
+<script src="/javascripts/login.js"></script>
+
+<footer class="login_page">
+  <p>&copy Nome-da-Empresa </p>
+</footer>
