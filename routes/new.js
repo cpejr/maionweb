@@ -95,6 +95,7 @@ router.post('/pageB/:client_id',(req,res) => {
   const  client  = req.body.client;
   const  client_id = req.params.client_id;
   Client.update(client_id, client).then(() => {
+    console.log(client);
     res.redirect(`/new/pageC/${client_id}`);
   }).catch((error) => {
     console.log(error);
