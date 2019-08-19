@@ -145,6 +145,7 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  client_id = req.params.client_id;
   Hotel.create(hotel).then((hotel_id) => {
     Budget.addHotel(budget_id, hotel_id).then(() => {
+      console.log(hotel);
       res.redirect(`/new/pageF/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
