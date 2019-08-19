@@ -7,15 +7,15 @@ const Budget = require('../models/budget');
 
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
-  res.render('new/pageA', { title: 'Geral', layout: 'layoutDashboard'});
+  res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
 });
 
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
-  Client.getById(req.params.client_id).then((user) =>{
+  Client.getById(req.params.client_id).then((user) => {
     console.log(user);
-  res.render('new/pageB', { title: 'Geral Page B', layout: 'layoutDashboard.hbs', client_id: req.params.client_id});
-}).catch((error)=>{
+    res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id});
+}).catch((error) => {
     console.log(error);
     res.redirect('/error');
   });
@@ -23,10 +23,10 @@ router.get('/pageB/:client_id', function(req, res) {
 
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
-  Client.getById(req.params.client_id).then((client) =>{
+  Client.getById(req.params.client_id).then((client) => {
     console.log(client);
-  res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id});
-}).catch((error)=>{
+    res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id});
+}).catch((error) => {
     console.log(error);
     res.redirect('/error');
   });
@@ -34,11 +34,10 @@ router.get('/pageC/:client_id', function(req, res) {
 
 /* GET pageD. */
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
-  Budget.getById(req.params.budget_id).then((budget) =>{
+  Budget.getById(req.params.budget_id).then((budget) => {
     console.log(budget);
-  res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, budget});
-
-}).catch((error)=>{
+    res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, budget});
+}).catch((error) => {
     console.log(error);
     res.redirect('/error');
   });
@@ -46,22 +45,21 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
-  Hotel.getById(req.params.client_id).then((user) =>{
+  Hotel.getById(req.params.client_id).then((user) => {
     console.log(user);
-  res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
-}).catch((error)=>{
+    res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
+}).catch((error) => {
     console.log(error);
     res.redirect('/error');
   });
 });
 
-
 /* GET pageF. */
 
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
-  Budget.getById(req.params.client_id).then((user) =>{
+  Budget.getById(req.params.client_id).then((user) => {
     console.log(user);
-  res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
+    res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');
@@ -71,9 +69,9 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
 
 /* GET pageG. */
 router.get('/pageG/:client_id', function(req, res) {
-  Client.getById(req.params.client_id).then((user) =>{
+  Client.getById(req.params.client_id).then((user) => {
     console.log(user);
-  res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs'});
+    res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs'});
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');
@@ -81,57 +79,59 @@ router.get('/pageG/:client_id', function(req, res) {
 });
 
 /*POST pageA*/
-router.post('/pageA',(req,res)=>{
+router.post('/pageA',(req,res) => {
   const  client  = req.body.client;
-  console.log(client);
-    Client.create(client).then((client_id)=>{
-      console.log(client_id);
-      res.redirect(`/new/pageB/${client_id}`);
-    }).catch((error)=>{
-      console.log(error);
-      res.redirect('error');
-    });
-  });
-/*POST pageB*/
-router.post('/pageB/:client_id',(req,res)=>{
-  const  client  = req.body.client;
-  const  client_id = req.params.client_id;
-  Client.update(client_id, client).then(()=>{
-    res.redirect(`/new/pageC/${client_id}`);
-  }).catch((error)=>{
+  Client.create(client).then((client_id) => {
+    console.log(client_id);
+    res.redirect(`/new/pageB/${client_id}`);
+  }).catch((error) => {
     console.log(error);
     res.redirect('error');
   });
 });
+
+/*POST pageB*/
+router.post('/pageB/:client_id',(req,res) => {
+  const  client  = req.body.client;
+  const  client_id = req.params.client_id;
+  Client.update(client_id, client).then(() => {
+    res.redirect(`/new/pageC/${client_id}`);
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('error');
+  });
+});
+
 /*POST pageC*/
-router.post('/pageC/:client_id',(req,res)=>{
+router.post('/pageC/:client_id',(req,res) => {
   const  budget = req.body.budget;
   const  client_id = req.params.client_id;
-  Budget.create(budget).then((budget_id)=>{
+  Budget.create(budget).then((budget_id) => {
     Client.addBudget(client_id, budget_id).then(() => {
         res.redirect(`/new/pageD/${client_id}/${budget_id}`);
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error);
         res.redirect('error');
       });
-  }).catch((error)=>{
+  }).catch((error) => {
     console.log(error);
     res.redirect('error');
   });
 });
+
 /*POST pageD*/
-router.post('/pageD/:client_id/:budget_id',(req,res)=>{
+router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const  flight = req.body.flight;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Flight.create(flight).then((flight_id)=>{
+  Flight.create(flight).then((flight_id) => {
     Budget.addFlight(budget_id, flight_id).then(() => {
-        res.redirect(`/new/pageE/${client_id}/${budget_id}`);
-      }).catch((error)=>{
-        console.log(error);
-        res.redirect('error');
-      });
-  }).catch((error)=>{
+      res.redirect(`/new/pageE/${client_id}/${budget_id}`);
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('error');
+    });
+  }).catch((error) => {
     console.log(error);
     res.redirect('error');
   });
@@ -139,33 +139,33 @@ router.post('/pageD/:client_id/:budget_id',(req,res)=>{
 
 
 /*POST pageE*/
-router.post('/pageE/:client_id/:budget_id',(req,res)=>{
+router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  hotel = req.body.hotel;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Hotel.create(hotel).then((hotel_id)=>{
+  Hotel.create(hotel).then((hotel_id) => {
     Budget.addHotel(budget_id, hotel_id).then(() => {
       res.redirect(`/new/pageF/${client_id}/${budget_id}`);
-      }).catch((error)=>{
-        console.log(error);
-        res.redirect('error');
-      });
-  }).catch((error)=>{
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('error');
+    });
+  }).catch((error) => {
     console.log(error);
     res.redirect('error');
   });
 });
 
-
 /*POST pageF*/
-router.post('/pageF',(req,res)=>{
+router.post('/pageF',(req,res) => {
   const budget = req.body.budget;
   console.log(budget);
   console.log("Ta passando aqui");
   res.redirect(`/new/pageH`);
 });
+
 /*POST pageG*/
-router.post('/pageG',(req,res)=>{
+router.post('/pageG',(req,res) => {
   const budget = req.body.budget;
   console.log(budget);
   console.log("Ta passando aqui");

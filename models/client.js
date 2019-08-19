@@ -29,18 +29,17 @@ const clientSchema = new mongoose.Schema({
   adress: String,
 
   //Número identidade, RG
-rgUf: String,
-rgNumber: String,
+  rgUf: String,
+  rgNumber: String,
 
 
   maritalStatus: { //Estado civil
     type: String,
     // enum: ['Solteiro(a)', 'Casado(a)', 'Divorciado(a)', 'Viúvo(a)'],
     default: 'Solteiro(a)'
-
   },
-  //Passaporte
 
+  //Passaporte
   passport: String,
   passportValidation: String,
   profession: String,
@@ -71,7 +70,6 @@ rgNumber: String,
   funil: String,
   others: String,
 
-
   profile: String,
   averageBudget: String,
   travelPreferences: String,
@@ -82,55 +80,46 @@ rgNumber: String,
   foodPref: String,
   allergies: String,
 
+  fullname: String,
+  birthDate: Date,
+  birthDateSpouse: Date,
+  birthDateSon: Date,
+  birthDateCompanion: Date,
 
-    fullname: String,
-    birthDate: Date,
-    birthDateSpouse: Date,
-    birthDateSon: Date,
-    birthDateCompanion: Date,
+  type: {
+    type: String,
+    enum: ['Admin', 'Funcionario'],
+    default: 'Funcionario'
+  },
 
-    type: {
-      type: String,
-      enum: ['Admin', 'Funcionario'],
-      default: 'Funcionario'
+  register: {
+    type: String, // CPF
+    unique: true
+  },
 
-    },
+  //endereço
+  street: String, //rua
+  neighbourhood: String, //bairro
+  complement: String, //complemento
+  city: String, //cidade
+  zipcode: String, //cep
+  state: String, //estado
 
-    register: {
-      type: String, // CPF
-      unique: true
+  email: {
+    type: String,
+    lowercase: true
+  },
 
-    },
+  phone: String, //residencial
+  cellphone: String, //celular
+  cellphone1: String,
+  phoneFamily: String,
+  pis: String,
+  workPermit: String, //Carteria de Trabalho
 
-    //endereço
-    street: String, //rua
-    neighbourhood: String, //bairro
-    complement: String, //complemento
-    city: String, //cidade
-    zipcode: String, //cep
-    state: String, //estado
-
-
-    email: {
-      type: String,
-      lowercase: true
-
-    },
-
-    phone: String, //residencial
-    cellphone: String, //celular
-    cellphone1: String,
-    phoneFamily: String,
-    pis: String,
-    workPermit: String, //Carteria de Trabalho
-
-    budgets:[{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Budget'
-          }]
-
-
-
+  budgets:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Budget'}]
 }, { timestamps: true, static: false });
 
 const ClientModel = mongoose.model('Client', clientSchema);
@@ -243,9 +232,6 @@ class Client {
      });
    });
  }
-
-
-
 }
 
 module.exports = Client;

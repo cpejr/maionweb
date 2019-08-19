@@ -3,14 +3,11 @@ const firebase = require('firebase');
 //const User = require('../models/user');
 // const auth = require('./middleware/auth');
 const Client = require ('../models/client');
-
-
-
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('login', { title: 'Login', layout: 'layout' });
 });
 
 /* GET login page. */
@@ -33,16 +30,28 @@ router.get('/forgot', (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
-
 // POST LOGIN
 
-router.post('/login',(req,res)=> {
-   const userData  = req.body.user;
-   console.log(req.body.user);
-   firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then(() => {
-     res.redirect('/dashboard');
-
-//espaço para adicionar dentro da funçao
+router.post('/login', (req,res) => {
+  const userData  = req.body.user;
+  firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then((user) => {
+  // User.getByUid(user.uid).then((currentLogged) => {
+  //     if (currentLogged) {
+  //       req.session.userType = currentLogged.type;
+  //       req.session.fullName = currentLogged.fullName;
+  //       req.session.userId = currentLogged._id;
+  //       req.session.userUid = user.uid;
+  //       req.session.email = currentLogged.email;
+        res.redirect('/dashboard');
+    //   }
+    //   else {
+    //     console.log('User not found');
+    //     res.redirect('/error');
+    //   }
+    // }).catch((error) => {
+    //   console.log(error);
+    //   res.redirect('/error');
+    // });
    }).catch((error) => {
        switch (error.code) {
           case 'auth/wrong-password':
@@ -63,10 +72,7 @@ router.post('/login',(req,res)=> {
    });
  });
 
-
-
 //POST SIGNUP
-
   router.post('/signup', (req,res) => {
     const user = req.body.user;
     console.log(user);
@@ -78,14 +84,10 @@ router.post('/login',(req,res)=> {
   });
 });
 
-
 //POST ESQUECI MINHA SENHA
-
 router.post('/forgot', (req, res) => {
   const emailAddress = req.body.user;
-  console.log(emailAddress);
   firebase.auth().sendPasswordResetEmail(emailAddress.email).then(function() {
-    console.log("enviado");
     res.redirect('/login');
     req.flash('success', 'Email enviado com sucesso!');
   }).catch((error)=>{
@@ -107,11 +109,5 @@ router.get('/logout', (req, res, next) => {
       res.redirect('/error');
     });
   });
-
-
-
-
-
-
 
 module.exports = router;
