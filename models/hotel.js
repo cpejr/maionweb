@@ -2,22 +2,17 @@ const mongoose = require('mongoose');
 
 const hotelSchema = new mongoose.Schema({
 
-  city: String,
-  option:[{
-    hotel: String,
-    valueApt: Number,
-    numberDaily: Number,
-    numberApt: Number,
-    total: Number
-  }],
-  food: {
-    type: String,
-    //: ['Café', 'Meia Pensão', 'All Inclus', 'Outro']
-  },
-  cancellationPeriod: {
-    type: String,
-    // enum: ['Sem Prazo', 'Com Prazo', 'Outro']
-  }
+  city: [String],
+
+  hotel: [String],
+  valueApt: [Number],
+  numberDaily: [Number],
+  numberApt: [Number],
+  total: [Number],
+
+  food: [String],//: ['Café', 'Meia Pensão', 'All Inclus', 'Outro']
+
+  cancellationPeriod:[String],// enum: ['Sem Prazo', 'Com Prazo', 'Outro']
 
 
 }, { timestamps: true, static: false });
