@@ -4,6 +4,7 @@ const Client = require('../models/client');
 const Flight = require('../models/flight');
 const Hotel = require('../models/hotel');
 const Budget = require('../models/budget');
+const Car = require('../models/car');
 
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
@@ -161,9 +162,9 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
 /*POST pageF*/
 router.post('/pageF',(req,res) => {
   const budget = req.body.budget;
-  console.log(budget);
-  console.log("Ta passando aqui");
-  res.redirect(`/new/pageH`);
+  console.log(car);
+
+  res.redirect(`/new/pageA`);
 });
 
 /*POST pageG*/
