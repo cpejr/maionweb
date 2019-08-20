@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 
 const carSchema = new mongoose.Schema({
 
-    city: String,
-    typeCar: String,
-    shift:{
+    withdrawal: [String],
+    others: [String],
+    delivery: [String],
+    totalCar: [Number],
+    city: [String],
+    typeCar: [String],
+    shift:[{
       type: String,
       enum:['Manual', 'Automático']
-    },
-    safe: String,
-    others: String,
-    withdrawal: String,
-    delivery: String,
-    totalCar: Number
+    }],
+    safe: [String]
 
 
 }, { timestamps: true, static: false });

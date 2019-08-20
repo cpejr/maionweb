@@ -3,87 +3,98 @@
   navbar
 </header>
 <form action="/new/pageF" method="post" class="pagesFront">
-    <label> Translado/ carro </label><br>
-    <div class="container rowclass">
-  <div class="row rowclass">
-    <div class="col-md-auto rowclass">
-    <br><br><br>  <label> Passageiros </label><br>
-      <input class="form-check-input" type="checkbox">
-      <input placeholder="Responsável">
-      <br><br>
-      <input class="form-check-input" type="checkbox">
-      <input placeholder="Acompanhante">
+  <label> Translado/ carro </label><br>
+  <div class="container rowclass">
+    <div class="row rowclass">
 
-      <div id="add_acompanhantesvoo">
+      <!-- coluna 1 -->
+      <div class="col-sm-auto" id="PageF_Col1">
+        <br><br><br>  <label> Passageiros </label><br>
+        <input class="form-check-input" type="checkbox">
+        <input placeholder="Responsável">
+        <br><br>
+        <input class="form-check-input" type="checkbox">
+        <input placeholder="Acompanhante">
+        <div id="add_acompanhantesvoo"></div>
+        <br>
       </div>
-      <br>
-    </div>
-    <div class="col-sm rowclass">
-      <div>
-       <label> Translado 1</label><br>
-       <input type="text" placeholder="De" class="date start-date"/>
-        <i class="fa fa-plane"></i>
-       <input type="text" placeholder="Para" class="date start-date"/>
-       <br><br>
-       <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
-        <i class="fa fa-calendar"></i>
-       <input type="text" placeholder="Horário" class="date start-date"/>
-       <br><br>
-       <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
-       <i class="fa fa-calendar"></i>
-       <input type="text" placeholder="Horário" class="date start-date"/>
+
+      <!-- coluna 2 -->
+      <div class="col-sm-6" id="PageF_Col2">
+        <div class="dinamic_spec">
+          <div>
+            <label> Translado 1</label><br>
+            <input type="text" placeholder="De" class="date start-date"/>
+            <i class="fa fa-plane"></i>
+            <input type="text" placeholder="Para" class="date start-date"/>
+            <br><br>
+            <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+            <i class="fa fa-calendar"></i>
+            <input type="text" placeholder="Horário" class="date start-date"/>
+            <br><br>
+            <input type="date" placeholder="dd/mm/aa" class="date start-date"/>
+            <i class="fa fa-calendar"></i>
+            <input type="text" placeholder="Horário" class="date start-date"/>
+          </div>
+          <label>Informações</label><br>
+          <div class="container rowclass classF-input">
+            <div class="row rowclass">
+              <div class="col-sm rowclass">
+                <div class="classa rowclass col-lg-11">
+                  <input class="form-control" placeholder="Valor Adulto">
+                </div>
+              </div>
+              <div class="col-sm rowclass">
+                <div class="classa rowclass col-lg-11">
+                  <input class="form-control" placeholder="CHD">
+                </div>
+              </div>
+              <div class="col-sm rowclass">
+                <div class="classa rowclass col-lg-11">
+                  <input class="form-control" placeholder="INF">
+                </div><br>
+              </div>
+            </div>
+          </div>
+        </div>
+       <button type="button" class="add_buttons" id="add_translado">+Translado</button>
      </div>
-      <label>Informações</label><br>
-      <div class="container rowclass classF-input">
- <div class="row rowclass">
-   <div class="col-sm rowclass">
-     <div class="classa rowclass col-lg-11">
-       <input class="form-control" placeholder="Valor Adulto">
-     </div>
-   </div>
-   <div class="col-sm rowclass">
-     <div class="classa rowclass col-lg-11">
-       <input class="form-control" placeholder="CHD">
-     </div>
-   </div>
-   <div class="col-sm rowclass">
-     <div class="classa rowclass col-lg-11">
-       <input class="form-control" placeholder="INF">
-     </div><br>
-   </div>
- </div>
-</div>
-        <button type="submit" class="btn btn-primary" id="buttonPages" >+ Translado</button>
-    </div>
-    <div class="col-sm rowclass">
-            <br><br><label> Carros 1 </label><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Retirada">
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Outros">
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Entrega">
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Valor carro 1">
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Cidade">
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Tipo">
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Transmissão">
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Seguros">
-      </div><br>
-        <button type="submit" class="btn btn-primary" id="buttonPages" >+ Carro</button>
+
+    <!-- coluna 3 -->
+    <div class="col-md-auto ">
+      <div class="dinamic_spec">
+        <br><br><label> Carros 1 </label><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Retirada" name="car[withdrawal]">
+        </div><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Outros" name="car[others]">
+        </div><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Entrega" name="car[delivery]">
+        </div><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Valor carro 1" name="car[totalCar]">
+        </div><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Cidade" name="car[city]">
+        </div><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Tipo" name="car[typeCar]">
+        </div><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Transmissão" name="car[shift]">
+        </div><br>
+        <div class="classa">
+          <input class="form-control" placeholder="Seguros" name="car[safe]">
+        </div><br>
+      </div>
+      <div class="rowclass" id="PageF_Col3"></div>
+      <button type="button" class="add_buttons" id="add_car">+Carro</button>
+      </div>
+
     </div>
   </div>
-</div>
+  <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
