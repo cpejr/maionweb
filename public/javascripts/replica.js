@@ -93,13 +93,21 @@ $("#add-hotel").click(function() {
 
 // Page F - INÍCIO
 var pageFNumCar = 2;
+var pageFNumTranslado = 2;
 // '+pageFNum+'
 $("#add_translado").click(function(){
   console.log('olha o translado');
-  $("#PageF_Col2").append("");
+  $("#PageF_Col2").append('<div class="dinamic_spec"><div><label> Translado '+pageFNumTranslado+'</label><br><input type="text" placeholder="De" class="date start-date"/><i class="fa fa-plane"></i><input type="text" placeholder="Para" class="date start-date"/><br><br><input type="date" placeholder="dd/mm/aa" class="date start-date"/><i class="fa fa-calendar"></i><input type="text" placeholder="Horário" class="date start-date"/><br><br><input type="date" placeholder="dd/mm/aa" class="date start-date"/><i class="fa fa-calendar"></i><input type="text" placeholder="Horário" class="date start-date"/></div><label>Informações</label><br><div class="container rowclass classF-input"><div class="row rowclass"><div class="col-sm rowclass"><div class="classa rowclass col-lg-11"><input class="form-control" placeholder="Valor Adulto"></div></div><div class="col-sm rowclass"><div class="classa rowclass col-lg-11"><input class="form-control" placeholder="CHD"></div></div><div class="col-sm rowclass"><div class="classa rowclass col-lg-11"><input class="form-control" placeholder="INF"></div><br></div></div></div></div>');
+  pageFNumTranslado++;
 });
 $("#add_car").click(function(){
   $("#PageF_Col3").append('<div class="dinamic_spec"><br><br><label> Carros '+pageFNumCar+' </label><br><div class="classa"><input class="form-control" placeholder="Retirada" name="car[withdrawal]"></div><br><div class="classa"><input class="form-control" placeholder="Outros" name="car[others]"></div><br><div class="classa"><input class="form-control" placeholder="Entrega" name="car[delivery]"></div><br><div class="classa"><input class="form-control" placeholder="Valor carro '+pageFNumCar+'" name="car[totalCar]"></div><br><div class="classa"><input class="form-control" placeholder="Cidade" name="car[city]"></div><br><div class="classa"><input class="form-control" placeholder="Tipo" name="car[typeCar]"></div><br><div class="classa"><input class="form-control" placeholder="Transmissão" name="car[shift]"></div><br><div class="classa"><input class="form-control" placeholder="Seguros" name="car[safe]"></div><br></div>');
   pageFNumCar++;
 });
 // Page F - FIM
+
+// Page G - INIÍCIO
+$("#").click(function() {// Modelo da função de replicar
+  $("#").append('');
+});
+// Page G - FIM
