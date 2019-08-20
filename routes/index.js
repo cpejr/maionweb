@@ -1,7 +1,7 @@
 const express = require('express');
 const firebase = require('firebase');
 //const User = require('../models/user');
-// const auth = require('./middleware/auth');
+const auth = require('./middleware/auth');
 const Client = require ('../models/client');
 var router = express.Router();
 
@@ -30,28 +30,31 @@ router.get('/forgot', (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
-// POST LOGIN
+// GET Logout Request
+router.get('/logout', (req,res) => {
+  firebase.auth().signOut().then(() => {
+    delete req.session.email;
+    delete req.session.userUid;
+    res.redirect('/login');
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('/error');
+  });
+});
 
+// POST LOGIN
 router.post('/login', (req,res) => {
   const userData  = req.body.user;
-  firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then((user) => {
-  // User.getByUid(user.uid).then((currentLogged) => {
-  //     if (currentLogged) {
-  //       req.session.userType = currentLogged.type;
-  //       req.session.fullName = currentLogged.fullName;
-  //       req.session.userId = currentLogged._id;
-  //       req.session.userUid = user.uid;
-  //       req.session.email = currentLogged.email;
+  firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then((currentLogged) => {
+      if (currentLogged) {
+        req.session.userUid = currentLogged.user.uid;
+        req.session.email = currentLogged.user.email;
         res.redirect('/dashboard');
-    //   }
-    //   else {
-    //     console.log('User not found');
-    //     res.redirect('/error');
-    //   }
-    // }).catch((error) => {
-    //   console.log(error);
-    //   res.redirect('/error');
-    // });
+      }
+      else {
+        console.log('User not found');
+        res.redirect('/error');
+      }
    }).catch((error) => {
        switch (error.code) {
           case 'auth/wrong-password':
