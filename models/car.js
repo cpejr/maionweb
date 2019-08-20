@@ -2,6 +2,15 @@ const mongoose = require('mongoose');
 
 const carSchema = new mongoose.Schema({
 
+    from: String,
+    to: String,
+    dateFrom: String,
+    timeFrom: String,
+    dateTo: String,
+    timeTo: String,
+    valueADT: String,
+    valueCHD: String,
+    valueINF: String,
     withdrawal: [String],
     others: [String],
     delivery: [String],
