@@ -48,21 +48,21 @@ const budgetSchema = new mongoose.Schema({
       ref: 'Hotel'
     }],
 
-  transportCar:{
+
     trasnport:[{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Transport'
     }],
-    car:[{
+    cars:[{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Car'
-    }]
-  },
-  services:{
+    }],
+
     safes:[{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Safe'
     }],
+
     tickets:[{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Ticket'
@@ -70,8 +70,8 @@ const budgetSchema = new mongoose.Schema({
     others: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Other'
-    }]
-  },
+    }],
+
   totalValue:{
     type: Number
   },
@@ -217,7 +217,7 @@ class Budget {
   /**
    * Add flight to budget
    * @param {string} id - budget Id
-   * @param {string} budget - flight Id
+   * @param {string} flight - flight Id
    * @returns {null}
    */
   static addFlight(id, flight) {
@@ -231,11 +231,36 @@ class Budget {
   }
 
   /**
-   * Add hotel to budget
-   * @param {string} id - budget Id
-   * @param {string} budget - hotel Id
-   * @returns {null}
-   */
+  * Add car to budget
+  * @param {string} id - budget Id
+  * @param {string} car - car Id
+  * @returns {null}
+  */
+  static addCar(id, car) {
+    return new Promise((resolve, reject) => {
+      BudgetModel.findByIdAndUpdate(id, { $push: { cars: car } }).then(()=>{
+        resolve();
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
+
+  /**
+  * Add safe to budget
+  * @param {string} id - budget Id
+  * @param {string} safe - safe Id
+  * @returns {null}
+  */
+  static addSafe(id, safe) {
+    return new Promise((resolve, reject) => {
+      BudgetModel.findByIdAndUpdate(id, { $push: { safes: safe } }).then(()=>{
+        resolve();
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
 
 
 
