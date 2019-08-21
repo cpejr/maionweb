@@ -5,6 +5,7 @@ const Flight = require('../models/flight');
 const Hotel = require('../models/hotel');
 const Budget = require('../models/budget');
 const Car = require('../models/car');
+const Safe = require('../models/safe');
 
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
@@ -46,7 +47,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
-  Hotel.getById(req.params.client_id).then((user) => {
+  Budget.getById(req.params.client_id).then((user) => {
     console.log(user);
     res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
 }).catch((error) => {
@@ -69,15 +70,17 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
 
 
 /* GET pageG. */
-router.get('/pageG/:client_id', function(req, res) {
-  Client.getById(req.params.client_id).then((user) => {
+
+router.get('/pageG/:client_id/:budget_id', function(req, res) {
+  Budget.getById(req.params.client_id).then((user) => {
     console.log(user);
-    res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs'});
+    res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id});
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');
   });
 });
+
 
 /*POST pageA*/
 router.post('/pageA',(req,res) => {
@@ -160,19 +163,43 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
 });
 
 /*POST pageF*/
-router.post('/pageF',(req,res) => {
-  const budget = req.body.budget;
-  console.log(car);
-
-  res.redirect(`/new/pageA`);
+router.post('/pageF/:client_id/:budget_id',(req,res) => {
+  const  car = req.body.car;
+  const  budget_id = req.params.budget_id;
+  const  client_id = req.params.client_id;
+  Car.create(car).then((car_id) => {
+    Budget.addCar(budget_id, car_id).then(() => {
+      console.log(car);
+      res.redirect(`/new/pageG/${client_id}/${budget_id}`);
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('error');
+    });
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('error');
+  });
 });
 
 /*POST pageG*/
-router.post('/pageG',(req,res) => {
-  const budget = req.body.budget;
-  console.log(budget);
-  console.log("Ta passando aqui");
-  res.redirect(`/new/pageH`);
+router.post('/pageG/:client_id/:budget_id',(req,res) => {
+  const  safe = req.body.safe;
+  const  budget_id = req.params.budget_id;
+  const  client_id = req.params.client_id;
+  Safe.create(safe).then((safe_id) => {
+    console.log("entrou AQUI ");
+    Budget.addSafe(budget_id, safe_id).then(() => {
+      console.log("entrou AQUI 2");
+      res.redirect(`/dashboard`);
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('error');
+    });
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('error');
+  });
 });
+
 
 module.exports = router;

@@ -19,7 +19,7 @@ const carSchema = new mongoose.Schema({
     typeCar: [String],
     shift:[{
       type: String,
-      enum:['Manual', 'Automático']
+      // enum:['Manual', 'Automático']
     }],
     safe: [String]
 
