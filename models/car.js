@@ -11,6 +11,9 @@ const carSchema = new mongoose.Schema({
     valueADT: String,
     valueCHD: String,
     valueINF: String,
+
+
+    
     withdrawal: [String],
     others: [String],
     delivery: [String],
