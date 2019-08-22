@@ -1,15 +1,14 @@
-///////////////PAGE E CERTAAA
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
 
 <form action="/new/pageD/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
-
+  <div class="dinamic_spec">
+  <title>Voo</title>
   <div class="container rowclass">
-    <div class="row">
-      <div class="col-2">
+
+    <div class="row rowclass">
+      <div class="col colD">
 
 
         <label> Passageiros </label><br>
@@ -19,7 +18,8 @@
         <input class="form-check-input" type="checkbox">
         <input placeholder="Acompanhante" >
       </div>
-      <div class="col-5">
+
+      <div class="col colD">
         <label> Voo</label>
         <br>
         <input type="text" placeholder="Origem" name="flight[from]" class="date start-date"/>
@@ -32,36 +32,54 @@
         <br><br>
       </div>
 
-      <div class="col-5">
+      <div class="col-l">
 
         <label> Valores </label>
         <br>
+
         Adulto:
-        <input name="flight[goValueAdult]" type="text" id="num1" onblur="calcular1()" placeholder="Valor ida" class="valor"/>
+        <input name="flight[tariffValueAdult]" type="text" id="num1" onblur="calcular1()" placeholder="Tarifa" class="valor"/>
         <i class="fa fa-money"></i>
-        <input name="flight[returnValueAdult]" type="text" id="num2" onblur="calcular1()" placeholder="Valor Volta" class="valor"/>
+        <input name="flight[taxValueAdult]" type="text" id="num2" onblur="calcular1()" placeholder="Tx Embarque" class="valor"/>
+        <i class="fa fa-money"></i>
+        <input name="flight[ravValueAdult]" type="text" id="num3" onblur="calcular1()" placeholder="Valor RAV" class="valor"/>
         <span>&#61;</span>
-        <input name="flight[totalValueAdult]" type="text" id="result1" onblur="calcular1()" placeholder="Valor Total" class="valor"/>
+        <input name="flight[totalValueAdult]" type="text" id="result1" onblur="calcular1()" placeholder="Total" class="valor"/>
+
         <span id="result"></span>
         <br><br>
+
         CHD  :
-        <input name="flight[goValueCHD]" type="text" id="num3" onblur="calcular2()" placeholder="Valor ida" class="valor"/>
+        <input name="flight[tariffValueCHD]" type="text" id="num4" onblur="calcular2()" placeholder="Tarifa" class="valor"/>
         <i class="fa fa-money"></i>
-        <input name="flight[returnValueCHD]" type="text" id="num4" onblur="calcular2()" placeholder="Valor Volta" class="valor"/>
+        <input name="flight[taxValueCHD]" type="text" id="num5" onblur="calcular2()" placeholder="Tx Embarque" class="valor"/>
+        <i class="fa fa-money"></i>
+        <input name="flight[ravValueCHD]" type="text" id="num6" onblur="calcular2()" placeholder="Valor RAV" class="valor"/>
         <span>&#61;</span>
-        <input name="flight[totalValueCHD]" type="text" id="result2" onblur="calcular2()" placeholder="Valor Total" class="valor"/>
+        <input name="flight[totalValueCHD]" type="text" id="result2" onblur="calcular2()" placeholder="Total" class="valor"/>
+
         <span id="result"></span>
         <br><br>
 
         INF   :
-        <input name="flight[goValueInf]" type="text" id="num5" onblur="calcular3()" placeholder="Valor ida" class="valor"/>
+        <input name="flight[tariffValueInf]" type="text" id="num7" onblur="calcular3()" placeholder="Tarifa" class="valor"/>
         <i class="fa fa-money"></i>
-        <input name="flight[returnValueInf]" type="text" id="num6" onblur="calcular3()" placeholder="Valor Volta" class="valor"/>
+        <input name="flight[taxValueInf]" type="text" id="num8" onblur="calcular3()" placeholder="Tx Embarque" class="valor"/>
+        <i class="fa fa-money"></i>
+        <input name="flight[ravValueInf]" type="text" id="num9" onblur="calcular3()" placeholder="Valor RAV" class="valor"/>
         <span>&#61;</span>
-        <input name="flight[totalValueInf]" type="text" id="result3" onblur="calcular3()" placeholder="Valor Total" class="valor"/>
+        <input name="flight[totalValueInf]" type="text" id="result3" onblur="calcular3()" placeholder="Total" class="valor"/>
         <span id="result"></span>
       </div>
+      <div class="col colD">
+        <br>
+        Total:
+        <i class="fa fa-group" style="font-size:20px;color:grey"></i>
+        <input name="flight[finalValueInf]" type="text" id="result4" onblur="calcular4()" placeholder="Total" class="valor"/>
+        <br>
+
     </div>
+
     <div id="add_voo">
     </div>
   </div>
@@ -70,6 +88,7 @@
 </div>
 <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
 <br><br><br>
+</div>
 
 </form>
 </div>
