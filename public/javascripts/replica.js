@@ -54,7 +54,7 @@ $('.move').on('click', function() {
 
 // page c - fim
 
-
+// Page D - inicio
 $( "#add-acompanhantes-voo" ).click(function() {
   $( "#add_acompanhantesvoo" ).append('<br>');
   $( "#add_acompanhantesvoo" ).append('<input class="form-check-input" type="checkbox">');
@@ -77,6 +77,8 @@ $( "#add-voo" ).click(function() {
   $( "#add_voo" ).append('CHD :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
   $( "#add_voo" ).append('INF :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
 });
+
+// Page D - fim
 
 
 // page E - INICIO
