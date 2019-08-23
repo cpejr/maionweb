@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 
 const transportSchema = new mongoose.Schema({
 
-    from:String,
-    dateFrom:Date,
-    destination:String,
-    dateDestination:Date,
-    totalTrans: Number,
+    from:[String],
+    dateFrom:[Date],
+    destination:[String],
+    dateDestination:[Date],
+    totalTrans: [Number],
     value: {
-      adult: Number,
-      chd: Number,
-      inf: Number
-    }
+      adult:[Number],
+      chd:[Number],
+      inf:[Number]
+    },
+    totalTranslado: [Number]
 
 }, { timestamps: true, static: false });
 
