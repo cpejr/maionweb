@@ -7,11 +7,9 @@ const transportSchema = new mongoose.Schema({
     destination:[String],
     dateDestination:[Date],
     totalTrans: [Number],
-    value: {
-      adult:[Number],
-      chd:[Number],
-      inf:[Number]
-    },
+    valueADT:[Number],
+    valueCHD:[Number],
+    valueINF:[Number],
     totalTranslado: [Number]
 
 }, { timestamps: true, static: false });
