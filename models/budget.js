@@ -23,11 +23,12 @@ const budgetSchema = new mongoose.Schema({
     // cities: [{
     //   city: [String],
     // }],
-
+    //Roteiro page C
     date: [String],
     dayWeek: [String],
     city: [String],
     freeField: [String],
+    scriptCountrie: [String],
     tips: [String],
 
 
