@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 
 const carSchema = new mongoose.Schema({
 
-    from: String,
-    to: String,
-    dateFrom: String,
-    timeFrom: String,
-    dateTo: String,
-    timeTo: String,
-    valueADT: String,
-    valueCHD: String,
-    valueINF: String,
+    from: [String],
+    to: [String],
+    dateFrom: [String],
+    timeFrom: [String],
+    dateTo: [String],
+    timeTo: [String],
+    valueADT: [String],
+    valueCHD: [String],
+    valueINF: [String],
+    totalTranslado: [Number],
 
 
-    
     withdrawal: [String],
     others: [String],
     delivery: [String],
