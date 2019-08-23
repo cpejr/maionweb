@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
 <form action="/new/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
@@ -113,8 +114,9 @@
   </div>
   <br><br>
   <div class="containerPages1">
-    <div class="box1">
 
+    <div class="box1">
+    <div id="add_outros1">
     <div class="form-group">
             <label id="titleG" for="exampleInputPassword1">Outros:</label>
             <input name="safe[otherName]" type="text" placeholder= "" required="required" class="form-control">
@@ -131,8 +133,8 @@
         <label for="exampleInputPassword1">Infantos:</label>
         <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
       </div>
-
-    <button type="button" class="add_buttons" id="add_translado">+Outros</button>
+    </div>
+    <button type="button" class="add_buttons" id="add_outros">+Outros</button>
   </div>
 <div class="box2">
 
@@ -171,3 +173,4 @@
   </div>
   <br><br>
 </form>
+<script type="text/javascript" src="/javascripts/replica.js">  </script>

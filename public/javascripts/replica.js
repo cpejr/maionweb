@@ -112,4 +112,8 @@ $("#add_car").click(function(){
 $("#").click(function() {// Modelo da função de replicar
   $("#").append('');
 });
+
+$("#add_outros").click(function() {
+  $("#add_outros1").append('<div class="form-group"><label id="titleG" for="exampleInputPassword1">Outros:</label><input name="safe[otherName]" type="text" placeholder= "" required="required" class="form-control"></di<div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control"></div>');
+});
 // Page G - FIM
