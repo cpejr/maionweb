@@ -4,11 +4,17 @@ const hotelSchema = new mongoose.Schema({
 
   city: [String],
 
-  hotel: [String],
-  valueApt: [Number],
+  hotel1: [String],
+  hotel2: [String],
+  hotel3: [String],
+  valueApt1: [Number],
+  valueApt2: [Number],
+  valueApt3: [Number],
   numberDaily: [Number],
   numberApt: [Number],
-  total: [Number],
+  total1: [Number],
+  total2: [Number],
+  total3: [Number],
 
   food: [String],//: ['Café', 'Meia Pensão', 'All Inclus', 'Outro']
 
