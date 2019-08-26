@@ -6431,6 +6431,28 @@ label {
   /*PageG fim */ }
 
 /*PageD início */
+.PageDColLeft {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin: 20px 0 20px 20px;
+  padding: 2px;
+  height: 17em; }
+
+.PageDColMidle {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 20px 0 20px 0;
+  padding: 2px;
+  height: 17em; }
+
+.PageDColRight {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 20px 20px 20px 0;
+  padding: 2px;
+  height: 17em; }
+
 .date {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #111;
