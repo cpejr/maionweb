@@ -2,175 +2,136 @@
 <header class="login_page">
 </header>
 <form action="/new/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
-  <div class="containerPages">
+  <div class="dinamic_spec">
     <h1> Serviços </h1>
-    <div class="box1">
-
-      <div class="form-group">
-              <label id="titleG" for="exampleInputPassword1">Seguro:</label>
-              <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" required="required" class="form-control">
-            </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Adultos:</label>
-          <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
-              </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Crianças:</label>
-          <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+    <div class="row rowclass">
+      <div class="col-sm-auto rowclass" id="landing-seguro-col1">
+        <div class="boxLeftPageG">
+          <div class="form-group">
+            <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
+            <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" required="required" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Adultos:</label>
+            <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Crianças:</label>
+            <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Infantos:</label>
+            <input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+          </div>
         </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Infantos:</label>
-          <input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+      </div>
+      <div class="col-sm-auto rowclass" id="landing-seguro-col2">
+        <div class="boxRightPageG">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Nome do responsável:</label>
+            <input type="text" placeholder= "" required="required" class="form-control">
+          </div>
+          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Acompanhante 1
+            </label>
+          </div>
+          <div class="form-group col-md-3 valor">
+            <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
+            <input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
+          </div>
         </div>
-      <button type="button" class="add_buttons" id="add_translado">+Seguros</button>
-    </div>
-    <div class="box2">
-
-      <div class="form-group">
-          <label for="exampleInputPassword1">Nome do responsável:</label>
-          <input type="text" placeholder= "" required="required" class="form-control">
-        </div>
-        <label for="exampleInputPassword1">Selecione os acompanhantes</label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-          Acompanhante 1
-        </label>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox"   id="exampleRadios2" value="option2">
-        <label class="form-check-label" for="exampleRadios2">
-          Acompanhante 2
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox"   id="exampleRadios3" value="option3">
-        <label class="form-check-label" for="exampleRadios3">
-          Acompanhante 3
-        </label>
-      </div>
-
     </div>
-    <div class="form-group col-md-3 valor">
-      <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
-      <input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
-    </div>
-  </div>
-  <br><br>
-  <div class="containerPages1">
-    <div class="box1">
+    <button type="button" class="add_buttons" id="add_seguros">+Seguros</button>
+    <br><br><br>
 
-    <div class="form-group">
-            <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos:</label>
+    <div class="row rowclass">
+      <div class="col-sm-auto rowclass" id="landing-ticket-col1">
+        <div class="boxLeftPageG">
+          <div class="form-group">
+            <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
             <input name="safe[ticketsName]" type="text" placeholder= "" required="required" class="form-control">
           </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Adultos:</label>
-        <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
-            </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Crianças:</label>
-        <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Adultos:</label>
+            <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Crianças:</label>
+            <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Infantos:</label>
+            <input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+          </div>
+        </div>
       </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Infantos:</label>
-        <input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+      <div class="col-sm-auto rowclass" id="landing-ticket-col2">
+        <div class="boxRightPageG">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Nome do responsável:</label>
+            <input type="text" placeholder= "" required="required" class="form-control">
+          </div>
+          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">Acompanhante 1</label>
+          </div>
+          <div class="form-group col-md-3 valor">
+            <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
+            <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
+          </div>
+        </div>
       </div>
-
-    <button type="button" class="add_buttons" id="add_translado">+Ingressos</button>
-  </div>
-  <div class="box2">
-
-
-    <div class="form-group">
-        <label for="exampleInputPassword1">Nome do responsável:</label>
-        <input type="text" placeholder= "" required="required" class="form-control">
-      </div>
-      <label for="exampleInputPassword1">Selecione os acompanhantes</label>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
-      <label class="form-check-label" for="exampleRadios1">
-        Acompanhante 1
-      </label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"   id="exampleRadios2" value="option2">
-      <label class="form-check-label" for="exampleRadios2">
-        Acompanhante 2
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"   id="exampleRadios3" value="option3">
-      <label class="form-check-label" for="exampleRadios3">
-        Acompanhante 3
-      </label>
-    </div>
-    <button type="button" class="add_buttons" id="add_translado">+Acompanhantes</button>
-  </div>
-  <div class="form-group col-md-3 valor">
-    <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
-    <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
-  </div>
-  </div>
-  <br><br>
-  <div class="containerPages1">
+    <button type="button" class="add_buttons" id="add_ticket">+Ingressos</button>
+    <br><br><br>
 
-    <div class="box1">
-    <div id="add_outros1">
-    <div class="form-group">
-            <label id="titleG" for="exampleInputPassword1">Outros:</label>
+    <div class="row rowclass">
+      <div class="col-sm-auto rowclass" id="landing-outros-col1">
+        <div class="boxLeftPageG">
+          <div class="form-group">
+            <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
             <input name="safe[otherName]" type="text" placeholder= "" required="required" class="form-control">
           </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Adultos:</label>
-        <input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
-            </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Crianças:</label>
-        <input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Adultos:</label>
+            <input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Crianças:</label>
+            <input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Infantos:</label>
+            <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+          </div>
+        </div>
       </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Infantos:</label>
-        <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+      <div class="col-sm-auto rowclass" id="landing-outros-col2">
+        <div class="boxRightPageG">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Nome do responsável:</label>
+            <input type="text" placeholder= "" required="required" class="form-control">
+          </div>
+          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">Acompanhante 1 </label>
+          </div>
+          <div class="form-group col-md-3 valor">
+            <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>
+            <input name="safe[otherTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
+          </div>
+        </div>
       </div>
     </div>
     <button type="button" class="add_buttons" id="add_outros">+Outros</button>
   </div>
-<div class="box2">
-
-    <div class="form-group">
-        <label for="exampleInputPassword1">Nome do responsável:</label>
-        <input type="text" placeholder= "" required="required" class="form-control">
-      </div>
-      <label for="exampleInputPassword1">Selecione os acompanhantes</label>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
-      <label class="form-check-label" for="exampleRadios1">
-        Acompanhante 1
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"   id="exampleRadios2" value="option2">
-      <label class="form-check-label" for="exampleRadios2">
-        Acompanhante 2
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox"   id="exampleRadios3" value="option3">
-      <label class="form-check-label" for="exampleRadios3">
-        Acompanhante 3
-      </label>
-    </div>
-    <button type="button" class="add_buttons" id="add_translado">+Acompanhantes</button>
-  </div>
-  <div class="form-group col-md-3 valor">
-    <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>
-    <input name="safe[otherTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
-    </div>
-    <button type="submit" class="btn btn-primary" id="buttonPages">Submit</button>
-  </div>
-  </div>
-  </div>
   <br><br>
+  <button type="submit" class="btn btn-primary" id="buttonPages">Submit</button>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
