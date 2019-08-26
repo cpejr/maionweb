@@ -55,27 +55,13 @@ $('.move').on('click', function() {
 // page c - fim
 
 // Page D - inicio
-$( "#add-acompanhantes-voo" ).click(function() {
-  $( "#add_acompanhantesvoo" ).append('<br>');
-  $( "#add_acompanhantesvoo" ).append('<input class="form-check-input" type="checkbox">');
-  $( "#add_acompanhantesvoo" ).append('<input placeholder="Acompanhante">');
-  $( "#add_acompanhantesvoo" ).append('<br>');
-});
+var numVoo = 2;
 
 $( "#add-voo" ).click(function() {
-  $( "#add_voo" ).append('<br><br><br>');
-  $( "#add_voo" ).append('<input class="form-check-input" type="checkbox">');
-  $( "#add_voo").append('<input placeholder="Acompanhante">');
-  $( "#add_voo" ).append('<br><br><br>');
-  $( "#add_voo" ).append('<input type="text" placeholder="Origem" class="date start-date"/>');
-  $( "#add_voo" ).append('<i class="fa fa-plane"></i>');
-  $( "#add_voo" ).append('<input type="text" placeholder="Destino" class="date start-date"/><br><br>');
-  $( "#add_voo" ).append('<input type="date" placeholder="dd/mm/aa" class="date start-date"/>');
-  $( "#add_voo" ).append('<i class="fa fa-calendar"></i>');
-  $( "#add_voo" ).append('   <input type="date" placeholder="dd/mm/aa" class="date start-date"/><br><br><br>');
-  $( "#add_voo" ).append('Adulto: <input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/><i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
-  $( "#add_voo" ).append('CHD :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
-  $( "#add_voo" ).append('INF :<input type="text" id="num1" onblur="calcular()" placeholder="Valor ida" class="valor"/>  <i class="fa fa-money"></i><input type="text" id="num2" onblur="calcular()" placeholder="Valor Volta" class="valor"/><span>&#61;</span><input type="text" id="result" onblur="calcular()" placeholder="Valor Total" class="valor"/><span id="result"></span><br><br>');
+  $("#PageD_Col1").append('<div class="PageDColLeft"><label> Passageiros </label><br><br><input class="date start-date" placeholder="Responsável" value="{{budget.file.responsibleTravel}}"><br><br><input class="date start-date" placeholder="Acompanhante" ><br><br></div>');
+  $("#PageD_Col2").append('<div class="PageDColMidle"><label> Voo '+numVoo+'</label><br><br><input type="text" placeholder="Origem" name="flight[from]" class="date start-date"/><i class="fa fa-plane"></i><input type="text" placeholder="Destino" name="flight[destination]" class="date start-date"/><br><br><input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="date start-date"/><i class="fa fa-calendar"></i><input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="date start-date"/><br><br></div>');
+  $("#PageD_Col3").append('<div class="PageDColRight"><label> Valores '+numVoo+'</label><br><br>Adulto:<input name="flight[tariffValueAdult]" type="text" id="num1" onblur="calcular1()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueAdult]" type="text" id="num2" onblur="calcular1()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueAdult]" type="text" id="num3" onblur="calcular1()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueAdult]" type="text" id="result1" onblur="calcular1()" placeholder="Total" class="valor"/><span id="result"></span><br><br>CHD  :<input name="flight[tariffValueCHD]" type="text" id="num4" onblur="calcular2()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueCHD]" type="text" id="num5" onblur="calcular2()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueCHD]" type="text" id="num6" onblur="calcular2()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueCHD]" type="text" id="result2" onblur="calcular2()" placeholder="Total" class="valor"/><span id="result"></span><br><br>INF   :<input name="flight[tariffValueInf]" type="text" id="num7" onblur="calcular3()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueInf]" type="text" id="num8" onblur="calcular3()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueInf]" type="text" id="num9" onblur="calcular3()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueInf]" type="text" id="result3" onblur="calcular3()" placeholder="Total" class="valor"/><span id="result"></span><br><br>Total:<i class="fa fa-group" style="font-size:20px;color:grey"></i><input name="flight[finalValueInf]" type="text" id="result4" onblur="calcular4()" placeholder="Total" class="valor"/><br></div>');
+  numVoo++;
 });
 
 // Page D - fim
