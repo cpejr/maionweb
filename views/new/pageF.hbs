@@ -4,24 +4,25 @@
 </header>
 <form action="/new/pageF/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <label> Translado/ carro </label><br>
-  <div class="container rowclass">
+  <div class="dinamic_spec">
     <div class="row rowclass">
-
       <!-- coluna 1 -->
-      <div class="col-sm-auto" id="PageF_Col1">
-        <br><br><br>  <label> Passageiros </label><br>
-        <input class="form-check-input" type="checkbox">
-        <input placeholder="Responsável">
-        <br><br>
-        <input class="form-check-input" type="checkbox">
-        <input placeholder="Acompanhante">
-        <div id="add_acompanhantesvoo"></div>
-        <br>
+      <div class="col-sm-6 rowclass" id="PageF_Col1">
+        <div class="boxLeftPageF">
+          <br><br><br>  <label> Passageiros </label><br>
+          <input class="form-check-input" type="checkbox">
+          <input placeholder="Responsável">
+          <br><br>
+          <input class="form-check-input" type="checkbox">
+          <input placeholder="Acompanhante">
+          <div id="add_acompanhantesvoo"></div>
+          <br>
+        </div>
       </div>
 
       <!-- coluna 2 -->
-      <div class="col-sm-6">
-        <div class="dinamic_spec">
+      <div class="col-sm-6 rowclass">
+        <div class="boxRightPageF">
           <div>
             <label> Translado 1</label><br>
             <input name="car[from]" type="text" placeholder="De" class="date start-date"/>
@@ -61,43 +62,41 @@
           </div>
         </div>
         <div class="rowclass" id="PageF_Col2"></div>
-       <button type="button" class="add_buttons" id="add_translado">+Translado</button>
      </div>
-
-    <!-- coluna 3 -->
-    <div class="col-md-auto ">
-      <div class="dinamic_spec">
-        <br><br><label> Carros 1 </label><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Retirada" name="car[withdrawal]">
-        </div><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Outros" name="car[others]">
-        </div><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Entrega" name="car[delivery]">
-        </div><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Valor carro 1" name="car[totalCar]">
-        </div><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Cidade" name="car[city]">
-        </div><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Tipo" name="car[typeCar]">
-        </div><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Transmissão" name="car[shift]">
-        </div><br>
-        <div class="classa">
-          <input class="form-control" placeholder="Seguros" name="car[safe]">
-        </div><br>
-      </div>
-      <div class="rowclass" id="PageF_Col3"></div>
-      <button type="button" class="add_buttons" id="add_car">+Carro</button>
-      </div>
-
     </div>
+    <button type="button" class="add_buttons" id="add_translado">+Translado</button>
+  <!-- coluna 3 -->
+    <div class="col-sm-auto ">
+    <div class="boxCarsPageF">
+      <br><br><label> Carros 1 </label><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Retirada" name="car[withdrawal]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Outros" name="car[others]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Entrega" name="car[delivery]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Valor carro 1" name="car[totalCar]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Cidade" name="car[city]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Tipo" name="car[typeCar]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Transmissão" name="car[shift]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Seguros" name="car[safe]">
+      </div><br>
+    </div>
+    <div class="rowclass" id="PageF_Col3"></div>
+    <button type="button" class="add_buttons" id="add_car">+Carro</button>
+  </div>
   </div>
   <button type="submit" class="btn btn-primary" id="buttonPages" >Submit</button>
 </form>
