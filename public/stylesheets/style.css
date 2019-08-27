@@ -6591,4 +6591,25 @@ label {
   margin: 0;
   padding: 0; }
 
+.boxLeftPageF {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin: 20px 0 20px 50px;
+  height: 380px;
+  padding: 2px; }
+
+.boxRightPageF {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 20px 50px 20px 0;
+  height: 380px;
+  padding: 2px; }
+
+.boxCarsPageF {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 20px; }
+
 /*# sourceMappingURL=style.css.map */
