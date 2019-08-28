@@ -104,6 +104,7 @@ router.post('/pageA',(req,res) => {
   const  client  = req.body.client;
   Client.create(client).then((client_id) => {
     console.log(client_id);
+    console.log(client);
     res.redirect(`/new/pageB/${client_id}`);
   }).catch((error) => {
     console.log(error);

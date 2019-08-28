@@ -54,17 +54,17 @@ const clientSchema = new mongoose.Schema({
   spousePassportValidation: String, //validade do passaporte do conjuge
 
   //filhos
-  children: String,
-  birthDateChildren: String,
-  childrenPassport: String,
-  childrenPassportValidation: String,
+  children: [String],
+  birthDateChildren: [String],
+  childrenPassport: [String],
+  childrenPassportValidation: [String],
 
   //acompanhantes
-  companionFullname: String,
-  companionEmail: String,
-  companionCellphone: String,
-  companionPassport: String,
-  companionPassportValidation: String,
+  companionFullname: [String],
+  companionEmail: [String],
+  companionCellphone: [String],
+  companionPassport: [String],
+  companionPassportValidation: [String],
 
   //redes sociais
   instagram: String,
@@ -87,7 +87,7 @@ const clientSchema = new mongoose.Schema({
   birthDate: Date,
   birthDateSpouse: Date,
   birthDateSon: Date,
-  birthDateCompanion: Date,
+  birthDateCompanion: [Date],
 
   type: {
     type: String,
