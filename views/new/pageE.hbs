@@ -36,10 +36,10 @@
             <div id="companion_camp">
               <label> Passageiros </label><br>
               <input class="form-check-input" type="checkbox">
-              <input placeholder="Responsável" value="{{budget.file.responsibleTravel}}">
+              <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
               <br><br>
               <input class="form-check-input" type="checkbox">
-              <input placeholder="Acompanhante">
+              <input placeholder="Acompanhante" value="{{client.companionFullname}}">
             </div><br>
             <div class="classa">
               <select required="required" placeholder="Selecione" class="form-control" name=hotel[food]>
