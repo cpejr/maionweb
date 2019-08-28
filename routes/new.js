@@ -9,14 +9,19 @@ const Safe = require('../models/safe');
 
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
-  res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
+  Client.getById(req.params.client_id).then((client) =>{
+    res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
+  }).catch((error) => {
+      console.log(error);
+      res.redirect('/error');
+    });
 });
 
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
-  Client.getById(req.params.client_id).then((user) => {
-    console.log(user);
-    res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id});
+  Client.getById(req.params.client_id).then((client) => {
+    console.log(client);
+    res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -26,8 +31,8 @@ router.get('/pageB/:client_id', function(req, res) {
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log(client);
-    res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id});
+      console.log(client);
+      res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -36,9 +41,9 @@ router.get('/pageC/:client_id', function(req, res) {
 
 /* GET pageD. */
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
-  Budget.getById(req.params.budget_id).then((budget) => {
-    console.log(budget);
-    res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, budget});
+      Client.getById(req.params.client_id).then((client) => {
+        console.log(client);
+        res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -47,9 +52,9 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
-  Budget.getById(req.params.client_id).then((budget) => {
-    console.log(budget);
-    res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget});
+  Client.getById(req.params.client_id).then((client) => {
+    console.log(client);
+    res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -59,9 +64,9 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 /* GET pageF. */
 
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
-  Budget.getById(req.params.client_id).then((budget) => {
-    console.log(budget);
-    res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget});
+  Client.getById(req.params.client_id).then((client) => {
+    console.log(client);
+    res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');
@@ -72,9 +77,9 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
 /* GET pageG. */
 
 router.get('/pageG/:client_id/:budget_id', function(req, res) {
-  Budget.getById(req.params.client_id).then((budget) => {
-    console.log(budget);
-    res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget});
+  Client.getById(req.params.client_id).then((client) => {
+    console.log(client);
+    res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');

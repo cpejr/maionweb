@@ -70,6 +70,7 @@ const clientSchema = new mongoose.Schema({
   instagram: String,
   facebook: String,
   funil: String,
+  funil1:String,
   others: String,
 
   profile: String,
