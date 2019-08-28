@@ -78,7 +78,12 @@ const budgetSchema = new mongoose.Schema({
   },
   payment: {
     type: String
-  }
+  },
+
+  planDate: [Date],
+  planCountry: [String],
+  planCity: [String],
+  planFreeField: [String]
 
 }, { timestamps: true, static: false });
 const BudgetModel = mongoose.model('Budget', budgetSchema);

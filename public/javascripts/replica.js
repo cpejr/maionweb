@@ -12,10 +12,12 @@ $( "#add-companion" ).click(function(){
 
 // page c - início
 var planned_day = 2;
-$( ".add_dias" ).click(function() {
-  $( ".tabela_roteiro" ).append( '<tr><th><h2 >Dia '+planned_day+'</h2></th><th><input type="text" name="budget[freeField]" placeholder="Campo livre" class="form-control"></th><th><input type="text" name="budget[tips]" placeholder="Dicas" class="form-control"></th></tr>' );
+$( "#add_dias" ).click(function() {
+  $( "#testedacamila" ).append( '<div id="testedacamila" class="rowclass"><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto ">Dia '+planned_day+'</div><div class="col-sm-auto "><input placeholder="Data" name="planDate" class= "form-control classCinput2"></div><div class="col-sm-auto"><input placeholder="País" name="planCountry" class= "form-control classCinput2"></div><div class="col-sm-auto"><input placeholder="Cidade" name="planCity" class= "form-control classCinput2"></div></div><div class="form-group"><textarea class="form-control" placeholder="Campo Livre" name="planFreeField" rows="3"></textarea></div></div></div>' );
   planned_day ++;
+  console.log('add dias ta pegando');
 });
+
 
 // $( "#add-campo-acompanhantes" ).click(function() {
   //   $( "#name_acomp" ).append( '<input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">' );
