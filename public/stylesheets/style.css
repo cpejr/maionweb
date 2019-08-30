@@ -6041,7 +6041,7 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #ddd !important; } }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Raleway", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   background-color: white; }
@@ -6052,12 +6052,12 @@ a {
 div {
   padding: 50px;
   font: 14px;
-  font-family: "Arial";
+  font-family: "Raleway";
   color: white; }
 
 h1 {
   font-size: 40px;
-  font-family: sans-serif;
+  font-family: "Raleway";
   font-style: normal; }
 
 h2 {
