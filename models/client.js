@@ -31,6 +31,7 @@ const clientSchema = new mongoose.Schema({
   adress: String,
 
   //Número identidade, RG
+  id: String,
   rgUf: String,
   rgNumber: String,
 
@@ -52,6 +53,7 @@ const clientSchema = new mongoose.Schema({
   spouseProfession: String, //profissao do conjuge
   spousePassport: String, //passaporte do conjuge
   spousePassportValidation: String, //validade do passaporte do conjuge
+  spouseEmail: String,
 
   //filhos
   children: [String],
