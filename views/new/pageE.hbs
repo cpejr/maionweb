@@ -1,16 +1,17 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
 <form action="/new/pageE/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
-  <label> Hotel </label><br>
+  <h1> Hotel </h1><br>
   <div class="form-group">
     <div id="add_acompanhantesvoo">
     </div><br>
     <div class="dinamic_spec">
       <div class="row rowclass">
         <div class="col-sm" id="landing-hotel-col1">
-          <div class="box_hotel_left">
-            <div id="companion_camp"></div><br>
+          <div class="">
+            <div id="companion_camp"></div><br><br><br><br>
             <div class="classa">
               <input class="form-control" placeholder="Cidade 1" name="hotel[city]">
             </div><br><br><br><br>
@@ -32,15 +33,15 @@
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col2">
-          <div class="box_hotel_midle">
+          <div class="">
             <div id="companion_camp">
-              <label> Passageiros </label><br>
+              <h1> Passageiros </h1><br>
               <input class="form-check-input" type="checkbox">
               <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
               <br><br>
               <input class="form-check-input" type="checkbox">
               <input placeholder="Acompanhante" value="{{client.companionFullname}}">
-            </div><br>
+            </div><br><br><br><br>
             <div class="classa">
               <select required="required" placeholder="Selecione" class="form-control" name=hotel[food]>
                 <option style="display:none">Regime de Alimentação</option>
@@ -68,8 +69,8 @@
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col3">
-          <div class="box_hotel_right">
-            <div id="companion_camp"></div><br>
+          <div class="">
+            <div id="companion_camp"></div><br><br><br><br>
             <div class="classa">
               <select required="required" class="form-control" name="hotel[cancellationPeriod]">
                 <option style="display:none">Prazo de Cancelamento</option>
