@@ -2,7 +2,40 @@ const mongoose = require('mongoose');
 
 const clientSchema = new mongoose.Schema({
 
-  profile_type: [],
+  profile_need: {
+    need: [],
+    other_need: String,
+  },
+  profile_type: {
+    type: [],
+    other_type: String,
+  },
+  profile_hotel: {
+    hotel: [],
+    other_hotel: String,
+  },
+  profile_resort: [],
+  profile_sports: {
+    sports: [],
+    other_sports: String,
+  },
+  profile_food_diet: {
+    diet: [],
+    other_diet: String,
+  },
+  profile_smoke: [],
+  profile_allergy: {
+    which_allergy: String,
+    allergy: [],
+  },
+  profile_disabled_person:{
+    which_disable: String,
+    disable: [],
+  },
+  profile_food: {
+    which_food: String,
+    restriction: [],
+  },
 
   codClient: String,
   fullName: String,
@@ -71,8 +104,8 @@ const clientSchema = new mongoose.Schema({
   //redes sociais
   instagram: String,
   facebook: String,
-  funil: String,
-  funil1:String,
+  plane_classs: String,
+  plane_seat_pref:String,
   others: String,
 
   profile: String,
