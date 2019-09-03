@@ -6454,13 +6454,13 @@ label {
   border-bottom-left-radius: 8px;
   margin: 20px 0 20px 20px;
   padding: 2px;
-  height: 17em; }
+  height: 20em; }
 
 .PageDColMidle {
   background-color: rgba(0, 0, 0, 0.2);
   margin: 20px 0 20px 0;
   padding: 2px;
-  height: 17em; }
+  height: 20em; }
 
 .PageDColRight {
   background-color: rgba(0, 0, 0, 0.2);
@@ -6468,7 +6468,7 @@ label {
   border-bottom-right-radius: 8px;
   margin: 20px 20px 20px 0;
   padding: 2px;
-  height: 17em; }
+  height: 20em; }
 
 .date {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -6613,7 +6613,7 @@ label {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin: 20px 0 20px 50px;
-  height: 380px;
+  height: 420px;
   padding: 2px; }
 
 .boxRightPageF {
@@ -6621,7 +6621,7 @@ label {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   margin: 20px 50px 20px 0;
-  height: 380px;
+  height: 420px;
   padding: 2px; }
 
 .boxCarsPageF {

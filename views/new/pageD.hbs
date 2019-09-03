@@ -2,16 +2,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
-
 <form action="/new/pageD/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="dinamic_spec">
+      <h1> Aéreo </h1>
   <title>Voo</title>
   <div class="container rowclass">
 
     <div class="row rowclass">
       <div class="col-sm-2 rowclass" id="PageD_Col1">
         <div class="PageDColLeft">
-          <label> Passageiros </label>
+          <h3> Passageiros </h3>
           <br><br>
               <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
               <br><br>
@@ -22,7 +22,7 @@
 
       <div class="col-4 rowclass" id="PageD_Col2">
         <div class="PageDColMidle">
-          <label> Voo 1</label>
+          <h3> Voo 1</h3>
           <br><br>
           <input type="text" placeholder="Origem" name="flight[from]" class="date start-date"/>
           <i class="fa fa-plane"></i>
@@ -37,7 +37,7 @@
 
       <div class="col-6 rowclass" id="PageD_Col3">
         <div class="PageDColRight">
-          <label> Valores 1</label>
+          <h3> Valores 1</h3>
           <br><br>
           Adulto:
           <input name="flight[tariffValueAdult]" type="text" id="num1" onblur="calcular1()" placeholder="Tarifa" class="valor"/>

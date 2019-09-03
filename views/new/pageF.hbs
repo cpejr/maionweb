@@ -4,13 +4,13 @@
   navbar
 </header>
 <form action="/new/pageF/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
-  <label> Translado/ carro </label><br>
+  <h1> Translado/ carro </h1><br>
   <div class="dinamic_spec">
     <div class="row rowclass">
       <!-- coluna 1 -->
       <div class="col-sm-6 rowclass" id="PageF_Col1">
         <div class="boxLeftPageF">
-          <br><br><br>  <label> Passageiros </label><br>
+          <br><br><br>  <h3> Passageiros </h3><br>
           <input class="form-check-input" type="checkbox">
           <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
           <br><br>
@@ -25,7 +25,7 @@
       <div class="col-sm-6 rowclass">
         <div class="boxRightPageF">
           <div>
-            <label> Translado 1</label><br>
+            <h3> Translado 1</h3><br>
             <input name="car[from]" type="text" placeholder="De" class="date start-date"/>
             <i class="fa fa-plane"></i>
             <input name="car[to]" type="text" placeholder="Para" class="date start-date"/>
@@ -38,7 +38,7 @@
             <i class="fa fa-calendar"></i>
             <input name="car[timeTo]" type="text" placeholder="Horário" class="date start-date"/>
           </div>
-          <label>Informações</label><br>
+          <h3>Informações</h3><br>
           <div class="container rowclass classF-input">
             <div class="row rowclass">
               <div class="col-sm rowclass">
@@ -69,7 +69,7 @@
   <!-- coluna 3 -->
     <div class="col-sm-auto ">
     <div class="boxCarsPageF">
-      <br><br><label> Carros 1 </label><br>
+      <br><br><h3> Carros 1 </h3><br>
       <div class="classa">
         <input class="form-control" placeholder="Retirada" name="car[withdrawal]">
       </div><br>
