@@ -18,6 +18,12 @@ function addDashesCPF(f)
 f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f.value.slice(9,11);
 }
 </script>
+<script type="text/javascript">
+function addDashesCep(f)
+{
+f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
+}
+</script>
 <header class="login_page">
   navbar
 </header>
@@ -79,7 +85,7 @@ f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[zipcode]" class="form-control" id="zipcode" placeholder="CEP">
+            <input type="fullname" name = "client[zipcode]" class="form-control" id="zipcode" placeholder="CEP" onblur='addDashesCep(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <select name="client[state]" class="form-control">
@@ -167,7 +173,7 @@ f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="fullname" name = "client[birthDateSpouse]" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento">
+              <input type="fullname" name = "client[birthDateSpouse]" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
               <input type="fullname" name = "client[spousePassport]" class="form-control" id="spousePassport" placeholder="Passaporte">
@@ -185,7 +191,7 @@ f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f
               <input type="sondaughter" name = "client[children]" class="form-control" id="children" placeholder="Filho/a">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[birthDateChildren]" class="form-control" id="birthDateChildren" placeholder="Data de Nascimento">
+              <input type="fullname" name = "client[birthDateChildren]" class="form-control" id="birthDateChildren" placeholder="Data de Nascimento" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
 
@@ -221,7 +227,7 @@ f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="fullname" name = "client[birthDateCompanion]" class="form-control" id="birthDateCompanion" placeholder="Data de Nascimento">
+              <input type="fullname" name = "client[birthDateCompanion]" class="form-control" id="birthDateCompanion" placeholder="Data de Nascimento" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
               <input type="fullname" name = "client[companionPassport]" class="form-control" id="companionPassport" placeholder="Passaporte">
