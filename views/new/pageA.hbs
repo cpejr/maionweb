@@ -1,5 +1,23 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+function addDashes(f)
+{
+f.value = f.value.slice(0,0)+"("+f.value.slice(0,2)+")"+f.value.slice(2,6)+"-"+f.value.slice(6,10);
+}
+</script>
+<script type="text/javascript">
+function addDashesCel(f)
+{
+f.value = f.value.slice(0,0)+"("+f.value.slice(0,2)+")"+f.value.slice(2,7)+"-"+f.value.slice(7,11);
+}
+</script>
+<script type="text/javascript">
+function addDashesCPF(f)
+{
+f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f.value.slice(9,11);
+}
+</script>
 <header class="login_page">
   navbar
 </header>
@@ -19,7 +37,7 @@
             <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Confirme seu email">
           </div><br>
           <div class="classa">
-            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"   onkeypress="$(this).mask('000.000.000-00');">
+            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='11'  onkeypress="$(this).mask('000.000.000-00');">
           </div><br>
           <div class="classa">
             <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG">
@@ -30,13 +48,13 @@
             <input type="fullname" name = "client[birthDate]" class="form-control" id="birthDate" placeholder="Data de Nascimento">
           </div><br>
           <div class="classa">
-            <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onkeypress="$(this).mask('(00) 0000-0000')">
+            <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onblur='addDashes(this)' maxlength='10' onkeypress="$(this).mask('(00) 0000-0000')">
           </div><br>
           <div class="classa">
-            <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"   onkeypress="$(this).mask('(00) 90000-0000')">
+            <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='11' onkeypress="$(this).mask('(00) 90000-0000')">
           </div><br>
           <div class="classa">
-            <input type="cellphone1" name = "client[cellphone1]" class="form-control" id="cellphone1" placeholder="Celular"  onkeypress="$(this).mask('(00) 90000-0000')">
+            <input type="cellphone1" name = "client[cellphone1]" class="form-control" id="cellphone1" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='11' onkeypress="$(this).mask('(00) 90000-0000')">
           </div><br>
         </div>
       </div>
