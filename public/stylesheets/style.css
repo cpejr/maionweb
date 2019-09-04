@@ -6219,10 +6219,10 @@ aside {
   max-width: 350px; }
 
 .classCinput {
-  max-width: 200px; }
+  width: 500px; }
 
 .classCinput2 {
-  max-width: 300px; }
+  width: 200px; }
 
 .marginPageC {
   margin-left: 100px; }
