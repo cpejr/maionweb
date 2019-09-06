@@ -1,29 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-function addDashes(f)
-{
-f.value = f.value.slice(0,0)+"("+f.value.slice(0,2)+")"+f.value.slice(2,6)+"-"+f.value.slice(6,10);
-}
-</script>
-<script type="text/javascript">
-function addDashesCel(f)
-{
-f.value = f.value.slice(0,0)+"("+f.value.slice(0,2)+")"+f.value.slice(2,7)+"-"+f.value.slice(7,11);
-}
-</script>
-<script type="text/javascript">
-function addDashesCPF(f)
-{
-f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f.value.slice(9,11);
-}
-</script>
-<script type="text/javascript">
-function addDashesCep(f)
-{
-f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
-}
-</script>
 <header class="login_page">
   navbar
 </header>
@@ -51,10 +27,10 @@ f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[birthDate]" class="form-control" id="birthDate" placeholder="Data de Nascimento" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="fullname" name = "client[birthDate]" class="form-control" id="birthDate" placeholder="Data de Nascimento"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
-            <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onblur='addDashes(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onblur='addDashesFixo(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='11' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
@@ -140,7 +116,7 @@ f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[wedding_anniversary]" class="form-control" id="wedding_anniversary" placeholder="Aniversário de Casamento">
+            <input type="fullname" name = "client[wedding_anniversary]" class="form-control" id="wedding_anniversary" placeholder="Aniversário de Casamento" onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
@@ -168,12 +144,12 @@ f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
               <input type="profession2" name = "client[spouseProfession]" class="form-control" id="profession2" placeholder="Profissão">
             </div><br>
             <div class="classa">
-              <input type="phoneFamily" name = "client[phoneFamily]" class="form-control" id="phoneFamily" placeholder="Telefone Fixo"  onkeypress="$(this).mask('(00) 0000-0000')">
+              <input type="phoneFamily" name = "client[phoneFamily]" class="form-control" id="phoneFamily" placeholder="Telefone Fixo"  onblur='addDashesFixo(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="fullname" name = "client[birthDateSpouse]" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="fullname" name = "client[birthDateSpouse]" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
               <input type="fullname" name = "client[spousePassport]" class="form-control" id="spousePassport" placeholder="Passaporte">
@@ -191,7 +167,7 @@ f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
               <input type="sondaughter" name = "client[children]" class="form-control" id="children" placeholder="Filho/a">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[birthDateChildren]" class="form-control" id="birthDateChildren" placeholder="Data de Nascimento" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="fullname" name = "client[birthDateChildren]" class="form-control" id="birthDateChildren" placeholder="Data de Nascimento"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
 
@@ -222,12 +198,12 @@ f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
               <input type="fullname" name = "client[companionEmail]" class="form-control" id="companionEmail" placeholder="Email">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[companionCellphone]" class="form-control" id="companionCellphone" placeholder="Celular">
+              <input type="fullname" name = "client[companionCellphone]" class="form-control" id="companionCellphone" placeholder="Celular" onblur='addDashesCel(this)' maxlength='11' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="fullname" name = "client[birthDateCompanion]" class="form-control" id="birthDateCompanion" placeholder="Data de Nascimento" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="fullname" name = "client[birthDateCompanion]" class="form-control" id="birthDateCompanion" placeholder="Data de Nascimento"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
               <input type="fullname" name = "client[companionPassport]" class="form-control" id="companionPassport" placeholder="Passaporte">
@@ -275,3 +251,4 @@ f.value = f.value.slice(0,2)+"."+f.value.slice(2,5)+"-"+f.value.slice(5,8);
   </div>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
+<script type="text/javascript" src="/javascripts/formInputs.js">  </script>
