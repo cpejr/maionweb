@@ -7,6 +7,7 @@ const safeSchema = new mongoose.Schema({
   insuranceCHD: [String],
   insuranceINF: [String],
   insuranceTOT: [String],
+  insuranceCoverage: [String],
 
   ticketsName: [String],
   ticketsADT: [String],

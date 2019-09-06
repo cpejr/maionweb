@@ -2,7 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
-<form action="/new/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
+<form action="/prospection/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="dinamic_spec">
     <h1> Serviços </h1>
     <div class="row rowclass">
@@ -10,19 +10,23 @@
         <div class="boxLeftPageG">
           <div class="form-group">
             <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
-            <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" required="required" class="form-control">
+            <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Cobertura</label>
+            <input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
+            <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+            <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+            <input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" class="form-control">
           </div>
         </div>
       </div>
@@ -30,7 +34,7 @@
         <div class="boxRightPageG">
           <div class="form-group">
             <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" required="required" class="form-control" value="{{client.fullname}}" readonly="readonly">
+            <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
           </div>
           <label for="exampleInputPassword1">Selecione os acompanhantes</label>
           <div class="form-check">
@@ -54,19 +58,19 @@
         <div class="boxLeftPageG">
           <div class="form-group">
             <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
-            <input name="safe[ticketsName]" type="text" placeholder= "" required="required" class="form-control">
+            <input name="safe[ticketsName]" type="text" placeholder= "" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
+            <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+            <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+            <input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" class="form-control">
           </div>
         </div>
       </div>
@@ -74,7 +78,7 @@
         <div class="boxRightPageG">
           <div class="form-group">
             <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" value="{{client.fullname}}" required="required" class="form-control" readonly="readonly">
+            <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
           </div>
           <label for="exampleInputPassword1">Selecione os acompanhantes</label>
           <div class="form-check">
@@ -96,19 +100,19 @@
         <div class="boxLeftPageG">
           <div class="form-group">
             <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
-            <input name="safe[otherName]" type="text" placeholder= "" required="required" class="form-control">
+            <input name="safe[otherName]" type="text" placeholder= "" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" required="required" class="form-control">
+            <input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" required="required" class="form-control">
+            <input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" required="required" class="form-control">
+            <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control">
           </div>
         </div>
       </div>
@@ -116,7 +120,7 @@
         <div class="boxRightPageG">
           <div class="form-group">
             <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" value="{{client.fullname}}" required="required" class="form-control" readonly="readonly">
+            <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
           </div>
           <label for="exampleInputPassword1">Selecione os acompanhantes</label>
           <div class="form-check">
