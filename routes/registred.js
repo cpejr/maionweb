@@ -7,10 +7,15 @@ const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
 
+
+router.get('/pageRegistred', function (req, res) {
+  res.render('registred/pageRegistred', { title: 'Cadastrados', layout: 'layoutDashboard'});
+});
+
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
-    res.render('registred/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
+    res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
   }).catch((error) => {
       console.log(error);
       res.redirect('/error');
@@ -21,18 +26,19 @@ router.get('/pageA', function(req, res, next) {
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     console.log(client);
-    res.render('registred/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
+    res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
   });
 });
 
+
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       console.log(client);
-      res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
+      res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -105,7 +111,7 @@ router.post('/pageA',(req,res) => {
   Client.create(client).then((client_id) => {
     console.log(client_id);
     console.log(client);
-    res.redirect(`/registred/pageB/${client_id}`);
+    res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);
     res.redirect('error');
@@ -118,7 +124,7 @@ router.post('/pageB/:client_id',(req,res) => {
   const  client_id = req.params.client_id;
   Client.update(client_id, client).then(() => {
     console.log(client);
-    res.redirect(`/registred/pageC/${client_id}`);
+    res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);
     res.redirect('error');
@@ -129,7 +135,7 @@ router.post('/pageB/:client_id',(req,res) => {
 router.post('/pageC/:client_id',(req,res) => {
   const  budget = req.body.budget;
   const  client_id = req.params.client_id;
-  Budget.create(budget).then((budget_id) => {
+  Budget.update(budget).then((budget_id) => {
     Client.addBudget(client_id, budget_id).then(() => {
         res.redirect(`/registred/pageD/${client_id}/${budget_id}`);
       }).catch((error) => {
@@ -147,7 +153,7 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const  flight = req.body.flight;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Flight.create(flight).then((flight_id) => {
+  Flight.update(flight).then((flight_id) => {
     Budget.addFlight(budget_id, flight_id).then(() => {
       console.log(flight);
       res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
@@ -167,7 +173,7 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  hotel = req.body.hotel;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Hotel.create(hotel).then((hotel_id) => {
+  Hotel.update(hotel).then((hotel_id) => {
     Budget.addHotel(budget_id, hotel_id).then(() => {
       console.log(hotel);
       res.redirect(`/registred/pageF/${client_id}/${budget_id}`);
@@ -186,7 +192,7 @@ router.post('/pageF/:client_id/:budget_id',(req,res) => {
   const  car = req.body.car;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Car.create(car).then((car_id) => {
+  Car.update(car).then((car_id) => {
     Budget.addCar(budget_id, car_id).then(() => {
       console.log(car);
       res.redirect(`/registred/pageG/${client_id}/${budget_id}`);
@@ -205,7 +211,7 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
   const  safe = req.body.safe;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Safe.create(safe).then((safe_id) => {
+  Safe.update(safe).then((safe_id) => {
     Budget.addSafe(budget_id, safe_id).then(() => {
       res.redirect(`/registred/pageH/${client_id}/${budget_id}`);
     }).catch((error) => {
