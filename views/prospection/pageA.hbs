@@ -3,7 +3,7 @@
 <header class="login_page">
   navbar
 </header>
-<form action="/new/pageA" method="post" class="pagesFront">
+<form action="/prospection/pageA" method="post" class="pagesFront">
   <div class="dinamic_spec">
     <h1> Cadastro </h1>
     <div class="container rowclass">
@@ -19,7 +19,7 @@
             <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Confirme seu email">
           </div><br>
           <div class="classa">
-            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='11'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur="addDashesCPF(this)" maxlength="11"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG">
@@ -27,7 +27,7 @@
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[birthDate]" class="form-control" id="birthDate" placeholder="Data de Nascimento" onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="fullname" name = "client[birthDate]" class="form-control" id="birthDate" placeholder="Data de Nascimento" onblur="addDashesNascimento(this)" maxlength="8" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onblur='addDashesFixo(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
