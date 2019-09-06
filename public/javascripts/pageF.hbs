@@ -1,0 +1,105 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<header class="login_page">
+  navbar
+</header>
+<form action="/new/pageF/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
+
+  <div class="dinamic_spec">
+      <h1> Translado/ carro </h1>
+    <div class="row rowclass">
+      <!-- coluna 1 -->
+      <div class="col-sm-6 rowclass" id="PageF_Col1">
+        <div class="boxLeftPageF">
+          <br><br><br>  <h3> Passageiros </h3><br>
+          <input class="form-check-input" type="checkbox">
+          <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
+          <br><br>
+          <input class="form-check-input" type="checkbox">
+          <input placeholder="Acompanhante" value="{{client.companionFullname}}">
+          <div id="add_acompanhantesvoo"></div>
+          <br>
+        </div>
+      </div>
+
+      <!-- coluna 2 -->
+      <div class="col-sm-6 rowclass">
+        <div class="boxRightPageF">
+          <div>
+            <h3> Translado 1</h3><br>
+            <input name="car[from]" type="text" placeholder="De" class="date start-date"/>
+            <i class="fa fa-plane"></i>
+            <input name="car[to]" type="text" placeholder="Para" class="date start-date"/>
+            <br><br>
+            <input name="car[dateFrom]" type="date" placeholder="dd/mm/aa" class="date start-date"/>
+            <i class="fa fa-calendar"></i>
+            <input name="car[timeFrom]" type="text" placeholder="Horário" class="date start-date"/>
+            <br><br>
+            <input name="car[dateTo]" type="date" placeholder="dd/mm/aa" class="date start-date"/>
+            <i class="fa fa-calendar"></i>
+            <input name="car[timeTo]" type="text" placeholder="Horário" class="date start-date"/>
+          </div>
+          <h3>Informações</h3><br>
+          <div class="container rowclass classF-input">
+            <div class="row rowclass">
+              <div class="col-sm rowclass">
+                <div class="classa rowclass col-lg-11">
+                  <input name="car[valueADT]" class="form-control" placeholder="Val ADT">
+                </div>
+              </div>
+              <div class="col-sm rowclass">
+                <div class="classa rowclass col-lg-11">
+                  <input name="car[valueCHD]" class="form-control" placeholder="Val CHD">
+                </div>
+              </div>
+              <div class="col-sm rowclass">
+                <div class="classa rowclass col-lg-11">
+                  <input name="car[valueINF]" class="form-control" placeholder="Val INF">
+                </div><br>
+              </div>
+              <div class="col-sm rowclass">
+                <input name="car[totalTranslado]" class="form-control" placeholder="Val Total">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rowclass" id="PageF_Col2"></div>
+     </div>
+    </div>
+    <button type="button" class="add_buttons" id="add_translado">+Translado</button>
+  <!-- coluna 3 -->
+    <div class="col-sm-auto ">
+    <div class="boxCarsPageF">
+      <br><br><h3> Carros 1 </h3><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Retirada" name="car[withdrawal]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Outros" name="car[others]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Entrega" name="car[delivery]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Valor carro 1" name="car[totalCar]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Cidade" name="car[city]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Tipo" name="car[typeCar]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Transmissão" name="car[shift]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Seguros" name="car[safe]">
+      </div><br>
+    </div>
+    <div class="rowclass" id="PageF_Col3"></div>
+    <button type="button" class="add_buttons" id="add_car">+Carro</button>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
+</form>
+<script type="text/javascript" src="/javascripts/replica.js">  </script>

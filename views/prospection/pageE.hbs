@@ -1,0 +1,105 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<header class="login_page">
+</header>
+<form action="/new/pageE/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
+  <div class="form-group">
+    <div id="add_acompanhantesvoo">
+    </div>
+    <div class="dinamic_spec">
+        <h1> Hotel </h1>
+      <div class="row rowclass">
+        <div class="col-sm" id="landing-hotel-col1">
+          <div class="box_hotel_left">
+            <div id="companion_camp"></div><br><br><br><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Cidade 1" name="hotel[city]">
+            </div><br><br><br><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Hotel 1" name="hotel[hotel1]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Total" name="hotel[total1]">
+            </div><br>
+          </div>
+        </div>
+        <div class="col-sm" id="landing-hotel-col2">
+          <div class="box_hotel_midle">
+            <div id="companion_camp">
+              <h3> Passageiros </h3><br>
+              <input class="form-check-input" type="checkbox">
+              <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
+              <br><br>
+              <input class="form-check-input" type="checkbox">
+              <input placeholder="Acompanhante" value="{{client.companionFullname}}">
+            </div><br><br><br><br>
+            <div class="classa">
+              <select placeholder="Selecione" class="form-control" name=hotel[food]>
+                <option style="display:none">Regime de Alimentação</option>
+                <option>Café</option>
+                <option>Meia pensão</option>
+                <option>All inclusive</option>
+                <option>Outros</option>
+              </select>
+            </div><br><br><br><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Hotel 2" name="hotel[hotel2]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Total" name="hotel[total2]">
+            </div><br>
+          </div>
+        </div>
+        <div class="col-sm" id="landing-hotel-col3">
+          <div class="box_hotel_right">
+            <div id="companion_camp"></div><br><br><br><br>
+            <div class="classa">
+              <select class="form-control" name="hotel[cancellationPeriod]">
+                <option style="display:none">Prazo de Cancelamento</option>
+                <option>Sem prazo</option>
+                <option>Com prazo</option>
+                <option>Outro</option>
+              </select>
+            </div><br><br><br><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Hotel 3" name="hotel[hotel3]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt]">
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="Total" name="hotel[total3]">
+            </div><br>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="add_buttons" id="add-hotel">+Hoteis/Cidades</button>
+      <br><br>
+    </div>
+    <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
+  </form>
+  <script type="text/javascript" src="/javascripts/replica.js">  </script>
