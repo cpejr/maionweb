@@ -102,14 +102,18 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 /*POST pageA*/
 router.post('/pageA',(req,res) => {
   const  client  = req.body.client;
-  Client.create(client).then((client_id) => {
-    console.log(client_id);
-    console.log(client);
-    res.redirect(`/new/pageB/${client_id}`);
-  }).catch((error) => {
-    console.log(error);
-    res.redirect('error');
-  });
+  if (client.email == client.email1) {
+    Client.create(client).then((client_id) => {
+      console.log(client_id);
+      console.log(client);
+      res.redirect(`/new/pageB/${client_id}`);
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('error');
+    });
+  } else {
+    res.redirect('/new/pageA');
+  }
 });
 
 /*POST pageB*/
