@@ -121,7 +121,6 @@ const clientSchema = new mongoose.Schema({
   fullname: String,
   birthDate: Date,
   birthDateSpouse: Date,
-  birthDateSon: Date,
   birthDateCompanion: [Date],
 
   type: {
