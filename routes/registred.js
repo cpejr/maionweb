@@ -9,13 +9,19 @@ const Safe = require('../models/safe');
 
 
 router.get('/pageRegistred', function (req, res) {
-  res.render('registred/pageRegistred', { title: 'Cadastrados', layout: 'layoutDashboard'});
+  Client.getAll().then((clientes)=>{
+    res.render('registred/pageRegistred', { clientes, title: 'Cadastrados', layout: 'layoutDashboard',...req.session});
+  }).catch((error) => {
+   console.log(error);
+   res.redirect('/error');
+  });
 });
+
 
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
-    res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
+    res.render('registred/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
   }).catch((error) => {
       console.log(error);
       res.redirect('/error');
@@ -26,7 +32,7 @@ router.get('/pageA', function(req, res, next) {
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     console.log(client);
-    res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
+    res.render('registred/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -38,7 +44,7 @@ router.get('/pageB/:client_id', function(req, res) {
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       console.log(client);
-      res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
+      res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -108,7 +114,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 /*POST pageA*/
 router.post('/pageA',(req,res) => {
   const  client  = req.body.client;
-  Client.create(client).then((client_id) => {
+  Client.update(client).then((client_id) => {
     console.log(client_id);
     console.log(client);
     res.redirect(`/registred/pageRegistred`);
