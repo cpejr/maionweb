@@ -119,9 +119,9 @@ const clientSchema = new mongoose.Schema({
   allergies: String,
 
   fullname: String,
-  birthDate: Date,
-  birthDateSpouse: Date,
-  birthDateCompanion: [Date],
+  birthDate: String,
+  birthDateSpouse: String,
+  birthDateCompanion: [String],
 
   type: {
     type: String,
