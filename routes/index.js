@@ -5,6 +5,7 @@ const auth = require('./middleware/auth');
 const Client = require ('../models/client');
 var router = express.Router();
 
+
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('login', { title: 'Login', layout: 'layout' });
@@ -112,5 +113,7 @@ router.get('/logout', (req, res, next) => {
       res.redirect('/error');
     });
   });
+
+
 
 module.exports = router;
