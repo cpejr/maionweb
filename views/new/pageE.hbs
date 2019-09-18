@@ -2,7 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
-<form action="/prospection/pageE/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
+<form action="/new/pageE/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="form-group">
     <div id="add_acompanhantesvoo">
     </div>
@@ -53,11 +53,14 @@
           <div class="box_hotel_midle">
             <div id="companion_camp">
               <h3> Passageiros </h3><br>
-              <input class="form-check-input" type="checkbox">
               <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-              <br><br>
-              <input class="form-check-input" type="checkbox">
-              <input placeholder="Acompanhante" value="{{client.companionFullname}}">
+              <br>
+
+              {{#each client}}
+                  <li>{{companionFullname}} </li>
+              {{/each}}
+
+
 
             </div><br><br>
             <div class="classa">
