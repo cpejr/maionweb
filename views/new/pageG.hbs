@@ -2,7 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
-<form action="/prospection/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
+<form action="/new/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="dinamic_spec">
     <h1> Serviços </h1>
     <div class="row rowclass">
@@ -36,12 +36,10 @@
             <label for="exampleInputPassword1">Nome do responsável:</label>
             <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
           </div>
-          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-              {{client.companionFullname}}
-            </label>
+            {{#each client}}
+                <li>{{companionFullname}} </li>
+            {{/each}}
           </div>
           <div class="form-group col-md-3 valor">
             <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
@@ -80,10 +78,10 @@
             <label for="exampleInputPassword1">Nome do responsável:</label>
             <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
           </div>
-          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1" >{{client.companionFullname}}</label>
+            {{#each client}}
+                <li>{{companionFullname}} </li>
+            {{/each}}
           </div>
           <div class="form-group col-md-3 valor">
             <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
@@ -122,10 +120,10 @@
             <label for="exampleInputPassword1">Nome do responsável:</label>
             <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
           </div>
-          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">{{client.companionFullname}}</label>
+            {{#each client}}
+                <li>{{companionFullname}} </li>
+            {{/each}}
           </div>
           <div class="form-group col-md-3 valor">
             <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>

@@ -15,8 +15,9 @@
           <input class="form-check-input" type="checkbox">
           <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
           <br><br>
-          <input class="form-check-input" type="checkbox">
-          <input placeholder="Acompanhante" value="{{client.companionFullname}}">
+          {{#each client}}
+              <li>{{companionFullname}} </li>
+          {{/each}}
           <div id="add_acompanhantesvoo"></div>
           <br>
         </div>
