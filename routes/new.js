@@ -7,6 +7,9 @@ const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
 
+
+
+
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
     Client.getById(req.params.client_id).then((client) =>{

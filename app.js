@@ -20,6 +20,7 @@ const carsRouter = require('./routes/car');
 const newRouter = require('./routes/new');
 const prospectionRouter = require('./routes/prospection');
 const registredRouter = require('./routes/registred');
+const homeadminRouter = require('./routes/homeadmin');
 const app = express();
 
 /**
@@ -79,6 +80,7 @@ app.use('/cars', carsRouter);
 app.use('/new', newRouter);
 app.use('/prospection', prospectionRouter);
 app.use('/registred', registredRouter);
+app.use('/homeadmin', homeadminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

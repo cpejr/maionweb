@@ -90,7 +90,7 @@ const clientSchema = new mongoose.Schema({
 
   //filhos
   children: [String],
-  birthDateChildren: [String],
+  birthDateChildren: [Date],
   childrenPassport: [String],
   childrenPassportValidation: [String],
 
@@ -119,9 +119,9 @@ const clientSchema = new mongoose.Schema({
   allergies: String,
 
   fullname: String,
-  birthDate: String,
-  birthDateSpouse: String,
-  birthDateCompanion: [String],
+  birthDate: Date,
+  birthDateSpouse: Date,
+  birthDateCompanion: [Date],
 
   type: {
     type: String,
