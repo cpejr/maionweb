@@ -13,7 +13,7 @@ $( "#add-companion" ).click(function(){
 // page c - início
 var planned_day = 2;
 $( "#add_dias" ).click(function() {
-  $( "#testedacamila" ).append( '<div id="testedacamila" class="rowclass"><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto ">Dia '+planned_day+'</div><div class="col-sm-auto "><input placeholder="Data" name="planDate" class= "form-control classCinput2"></div><div class="col-sm-auto"><input placeholder="País" name="planCountry" class= "form-control classCinput2"></div><div class="col-sm-auto"><input placeholder="Cidade" name="planCity" class= "form-control classCinput2"></div></div><div class="form-group"><textarea class="form-control" placeholder="Campo Livre" name="planFreeField" rows="3"></textarea></div></div></div>' );
+  $( "#testedacamila" ).append( '<div id="testedacamila" class="rowclass"><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto-pageC rowclass">Dia '+planned_day+'</div><div class="col-sm-auto-pageC rowclass"><input type="date" placeholder="dd/mm/aa" name="planDate" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="País" name="planCountry" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="Cidade" name="planCity"class= "form-control classCinput2"></div></div><br><div class="form-group"><textarea class="form-control" name="planFreeField" placeholder="Campo Livre" rows="3"></textarea></div></div></div>' );
   planned_day ++;
   console.log('add dias ta pegando');
 });

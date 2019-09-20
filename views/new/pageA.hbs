@@ -122,7 +122,7 @@
             <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte">
+            <input type="fullname" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte" onblur='addDashesPassport(this)' maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
         </div>
       </div>
@@ -155,7 +155,7 @@
               <input type="fullname" name = "client[spousePassport]" class="form-control" id="spousePassport" placeholder="Passaporte">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[spousePassportValidation]" class="form-control" id="spousePassportValidation" placeholder="Validade Passaporte">
+              <input type="fullname" name = "client[spousePassportValidation]" class="form-control" id="spousePassportValidation" placeholder="Validade Passaporte" onblur='addDashesPassport(this)' maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
         </div>
@@ -176,7 +176,7 @@
               <input type="fullname" name = "client[childrenPassport]" class="form-control" id="childrenPassport" placeholder="Passaporte">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[childrenPassportValidation]" class="form-control" id="childrenPassportValidation" placeholder="Validade Passaporte">
+              <input type="fullname" name = "client[childrenPassportValidation]" class="form-control" id="childrenPassportValidation" placeholder="Validade Passaporte" onblur='addDashesPassport(this)' maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
         </div>
@@ -209,7 +209,7 @@
               <input type="fullname" name = "client[companionPassport]" class="form-control" id="companionPassport" placeholder="Passaporte">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[companionPassportValidation]" class="form-control" id="companionPassportValidation" placeholder="Validade Passaporte">
+              <input type="fullname" name = "client[companionPassportValidation]" class="form-control" id="companionPassportValidation" placeholder="Validade Passaporte" onblur='addDashesPassport(this)' maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
         </div>
