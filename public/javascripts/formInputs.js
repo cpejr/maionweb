@@ -18,3 +18,7 @@ function addDashesNascimento(f) //adicionar barras na data de nascimento
 {
 f.value = f.value.slice(0,2)+"/"+f.value.slice(2,4)+"/"+f.value.slice(4,8);
 }
+function addDashesPassport(f) //adicionar barras na data de nascimento
+{
+f.value = f.value.slice(0,2)+"/"+f.value.slice(2,6);
+}
