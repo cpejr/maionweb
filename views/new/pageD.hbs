@@ -4,90 +4,99 @@
 </header>
 <form action="/new/pageD/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="dinamic_spec">
-      <h1> Aéreo </h1>
-  <title>Voo</title>
-  <div class="container rowclass">
-
-    <div class="row rowclass">
-      <div class="col-sm-2 rowclass" id="PageD_Col1">
-        <div class="PageDColLeft">
-          <h3> Passageiros </h3>
-          <br><br>
-              <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-              <br><br>
-              {{#each client}}
-                  <li>{{companionFullname}} </li>
-              {{/each}}
-              <br><br>
+    <h1> Aéreo </h1>
+    <title>Voo</title>
+    <div class="header Selected table-responsive" id=flight1>
+      <table class="table table-striped table-hover" id="in_country_days1">
+        <thead>
+          <tr>
+            <th>Origem</th>
+            <th>Destino</th>
+            <th>Saída</th>
+            <th>Chegada</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <th><input type="text" placeholder="Origem" name="flight[from]" class="form-control"/></th>
+            <th><input type="text" placeholder="Destino" name="flight[destination]" class="form-control"/></th>
+            <th><input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="form-control"/></th>
+            <th><input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="form-control"/></th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="rowclass">
+        <div class="rowclass">
+          <h3>Adulto:</h3>
+          <input name="flight[tariffValueAdult]" type="text" id="adt1" onblur="calcularAdt()" placeholder="Tarifa" class="valor"/>
+          <i class="fa fa-money"></i>
+          <input name="flight[taxValueAdult]" type="text" id="adt2" onblur="calcularAdt()" placeholder="Tx Embarque" class="valor"/>
+          <i class="fa fa-money"></i>
+          <input name="flight[ravValueAdult]" type="text" id="adt3" onblur="calcularAdt()" placeholder="Valor RAV" class="valor"/>
+          <span>&#61;</span>
+          <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor"/>
+          <span id="result"></span>
         </div>
-      </div>
-
-      <div class="col-4 rowclass" id="PageD_Col2">
-        <div class="PageDColMidle">
-          <h3> Voo 1</h3>
-          <br><br>
-          <input type="text" placeholder="Origem" name="flight[from]" class="date start-date"/>
-          <i class="fa fa-plane"></i>
-          <input type="text" placeholder="Destino" name="flight[destination]" class="date start-date"/>
-          <br><br>
-          <input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="date start-date"/>
-          <i class="fa fa-calendar"></i>
-          <input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="date start-date"/>
-          <br><br>
+        <br><br>
+        <div class="rowclass">
+          <h3>CHD  :</h3>
+          <input name="flight[tariffValueCHD]" type="text" id="chd1" onblur="calcularChd()" placeholder="Tarifa" class="valor"/>
+          <i class="fa fa-money"></i>
+          <input name="flight[taxValueCHD]" type="text" id="chd2" onblur="calcularChd()" placeholder="Tx Embarque" class="valor"/>
+          <i class="fa fa-money"></i>
+          <input name="flight[ravValueCHD]" type="text" id="chd3" onblur="calcularChd()" placeholder="Valor RAV" class="valor"/>
+          <span>&#61;</span>
+          <input name="flight[totalValueCHD]" type="text" id="chdResult1" onblur="calcularChd()" placeholder="Total chd" class="valor"/>
+          <span id="result"></span>
         </div>
-      </div>
-
-      <div class="col-6 rowclass" id="PageD_Col3">
-        <div class="PageDColRight">
-          <h3> Valores 1</h3>
-          <br><br>
-          Adulto:
-          <input name="flight[tariffValueAdult]" type="text" id="num1" onblur="calcular1()" placeholder="Tarifa" class="valor"/>
+        <br><br>
+        <div class="rowclass">
+          <h3>INF   :</h3>
+          <input name="flight[tariffValueInf]" type="text" id="inf1" onblur="calcularInf()" placeholder="Tarifa" class="valor"/>
           <i class="fa fa-money"></i>
-          <input name="flight[taxValueAdult]" type="text" id="num2" onblur="calcular1()" placeholder="Tx Embarque" class="valor"/>
+          <input name="flight[taxValueInf]" type="text" id="inf2" onblur="calcularInf()" placeholder="Tx Embarque" class="valor"/>
           <i class="fa fa-money"></i>
-          <input name="flight[ravValueAdult]" type="text" id="num3" onblur="calcular1()" placeholder="Valor RAV" class="valor"/>
+          <input name="flight[ravValueInf]" type="text" id="inf3" onblur="calcularInf()" placeholder="Valor RAV" class="valor"/>
           <span>&#61;</span>
-          <input name="flight[totalValueAdult]" type="text" id="result1" onblur="calcular1()" placeholder="Total" class="valor"/>
+          <input name="flight[totalValueInf]" type="text" id="infResult1" onblur="calcularInf()" placeholder="Total inf" class="valor"/>
           <span id="result"></span>
-          <br><br>
-          CHD  :
-          <input name="flight[tariffValueCHD]" type="text" id="num4" onblur="calcular2()" placeholder="Tarifa" class="valor"/>
-          <i class="fa fa-money"></i>
-          <input name="flight[taxValueCHD]" type="text" id="num5" onblur="calcular2()" placeholder="Tx Embarque" class="valor"/>
-          <i class="fa fa-money"></i>
-          <input name="flight[ravValueCHD]" type="text" id="num6" onblur="calcular2()" placeholder="Valor RAV" class="valor"/>
-          <span>&#61;</span>
-          <input name="flight[totalValueCHD]" type="text" id="result2" onblur="calcular2()" placeholder="Total" class="valor"/>
-          <span id="result"></span>
-          <br><br>
-          INF   :
-          <input name="flight[tariffValueInf]" type="text" id="num7" onblur="calcular3()" placeholder="Tarifa" class="valor"/>
-          <i class="fa fa-money"></i>
-          <input name="flight[taxValueInf]" type="text" id="num8" onblur="calcular3()" placeholder="Tx Embarque" class="valor"/>
-          <i class="fa fa-money"></i>
-          <input name="flight[ravValueInf]" type="text" id="num9" onblur="calcular3()" placeholder="Valor RAV" class="valor"/>
-          <span>&#61;</span>
-          <input name="flight[totalValueInf]" type="text" id="result3" onblur="calcular3()" placeholder="Total" class="valor"/>
-          <span id="result"></span>
-          <br><br>
-          Total:
+        </div>
+        <br><br>
+        <div class="rowclass">
           <i class="fa fa-group" style="font-size:20px;color:grey"></i>
-          <input name="flight[finalValueInf]" type="text" id="result4" onblur="calcular4()" placeholder="Total" class="valor"/>
-          <br>
+          <input name="flight[finalValueInf]" type="text" id="totalResult1" onblur="total()" placeholder="Total" class="valor"/>
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <div class="no_padding" id="button_space">
+    </div>
+
+    <br><br>
+      <div class="header">
+        <div class="row">
+          <div class="col-sm-6">
+            <h3> Passageiros </h3>
+            <br><br>
+            <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
+            <br><br>
+            {{#each client}}
+              <li>{{companionFullname}} </li>
+            {{/each}}
+            <br><br>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" name="button" id="button_day_original" class="add_buttons"> +Escalas </button>
+            <button type="button" name="button" id="add_country" class="add_buttons"> +Voos </button>
+            <button type="button" name="button" id="increasing" class="move add_buttons"> Voo Anterior</button>
+            <button type="button" name="button" id="decreasing" class="move add_buttons"> Próximo voo </button>
+          </div>
         </div>
       </div>
-      <div id="add_voo">
-      </div>
+      <br><br><br>
     </div>
-    <button type="button" id="add-voo" class="add_buttons"> + Voo </button>
-    <br><br><BR>
-    </div>
-  <br><br><br>
-  </div>
-<button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
-</form>
-</div>
+    <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
 <script type="text/javascript" src="/javascripts/operations.js">  </script>
