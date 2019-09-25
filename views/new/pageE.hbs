@@ -55,11 +55,12 @@
               <h3> Passageiros </h3><br>
               <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
               <br>
+              {{#each test1}}
+              <table>
+                 <li>{{name}}</li>
+              </table>
 
-              {{#each client}}
-                  <li>{{companionFullname}} </li>
               {{/each}}
-
 
 
             </div><br><br>
