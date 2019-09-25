@@ -1,7 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
-  navbar
 </header>
 <form action="/new/pageF/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
 
@@ -15,8 +14,8 @@
           <input class="form-check-input" type="checkbox">
           <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
           <br><br>
-          {{#each client}}
-              <li>{{companionFullname}} </li>
+          {{#each test2}}
+                <li>{{name}}</li>
           {{/each}}
           <div id="add_acompanhantesvoo"></div>
           <br>
