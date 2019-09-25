@@ -170,9 +170,13 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
                   res.redirect('/error');
                 });
 });
+
 /* GET pageH. */
+
 router.get('/pageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
+        Budget.getById(req.params.budget_id).then((budget) => {
+
           const test = [];
           const companions = [{
             name: String
