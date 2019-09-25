@@ -2,6 +2,8 @@
  * Authentication Middleware
  */
 const firebase = require('firebase');
+// const router = express.Router();
+// const express = require('express');
 
 module.exports = {
   isAuthenticated: (req, res, next) => {
@@ -13,4 +15,16 @@ module.exports = {
       res.redirect('/login');
     }
   }
+
+  // isAdmin: (req, res, next) => {
+  //   const type = req.session.user;
+  //   if(type === 'Admin'){
+  //     next();
+  //   }
+  //   else{
+  //     res.redirect('/login');
+  //   }
+  // }
+
+
 };

@@ -6,7 +6,6 @@ const Hotel = require('../models/hotel');
 const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
-
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
     Client.getById(req.params.client_id).then((client) =>{
@@ -16,7 +15,6 @@ router.get('/pageA', function(req, res, next) {
         res.redirect('/error');
       });
 });
-
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -27,7 +25,6 @@ router.get('/pageB/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
-
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -38,7 +35,6 @@ router.get('/pageC/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
-
 /* GET pageD. */
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
@@ -72,7 +68,6 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
           res.redirect('/error');
         });
 });
-
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -107,9 +102,7 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
               res.redirect('/error');
             });
 });
-
 /* GET pageF. */
-
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
@@ -143,10 +136,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             res.redirect('/error');
           });
 });
-
-
 /* GET pageG. */
-
 router.get('/pageG/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
@@ -180,13 +170,9 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
                   res.redirect('/error');
                 });
 });
-
 /* GET pageH. */
-
 router.get('/pageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-        Budget.getById(req.params.budget_id).then((budget) => {
-
           const test = [];
           const companions = [{
             name: String
@@ -216,7 +202,6 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                 res.redirect('/error');
             });
 });
-
 
 /*POST pageA*/
 router.post('/pageA',(req,res) => {
