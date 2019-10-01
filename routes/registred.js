@@ -128,8 +128,14 @@ router.post('/pageA',(req,res) => {
 router.post('/pageB/:client_id',(req,res) => {
   const  client  = req.body.client;
   const  client_id = req.params.client_id;
+
+  if(client.profile_Status != 'Status'){
+    client.profile_Status = 'empty';
+  };
+  if(client.profile_Conhecimento != 'Conhecimento'){
+    client.profile_Conhecimento = 'empty';
+  };
   Client.update(client_id, client).then(() => {
-    console.log(client);
     res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);

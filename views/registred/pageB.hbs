@@ -11,12 +11,22 @@
     <h3> Necessidade </h3><br><br>
     <div class="dinamic_White">
       <div class="form-check form-check-inline float-center">
-        <input class="form-check-input" type="checkbox" id="checkbox8" value="Status" name="client[profile_need][need]">
+        {{#compare client.profile_Status "Status"}}
+        <input class="form-check-input" type="checkbox" id="checkbox8" name="client[profile_Status]" value="Status" checked>
         <label class="form-check-label" for="inlineCheckbox1">Status</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox8" name="client[profile_Status]" value="Status">
+          <label class="form-check-label" for="inlineCheckbox1">Status</label>
+        {{/compare}}
       </div>
       <div class="form-check form-check-inline float-center">
-        <input class="form-check-input" type="checkbox" id="checkbox9" value="Conhecimento" name="client[profile_need][need]" placeholder="{{client.profile_need.need}}">
-        <label class="form-check-label" for="inlineCheckbox2">Conhecimento</label>
+        {{#compare client.profile_Conhecimento "Conhecimento"}}
+          <input class="form-check-input" type="checkbox" id="checkbox9" value="Conhecimento" name="client[profile_Conhecimento]" checked>
+          <label class="form-check-label" for="inlineCheckbox2">Conhecimento</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox9" value="Conhecimento" name="client[profile_Conhecimento]">
+          <label class="form-check-label" for="inlineCheckbox2">Conhecimento</label>
+        {{/compare}}
       </div>
       <div class="form-check form-check-inline float-center">
         <input class="form-check-input" type="checkbox" id="checkbox10" value="Novas Experiências" name="client[profile_need][need]">
@@ -314,7 +324,7 @@
 </div>
 </div>
 <br>
-<button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
+<button type="submit" class="btn btn-primary" id="buttonPages" >Concluir alterações</button>
 </div>
 </form>
 </div>
