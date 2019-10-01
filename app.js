@@ -46,13 +46,59 @@ const config = {
 };
 firebase.initializeApp(config);
 
+// //handlebars setup Middleware
+// app.engine('handlebars', exphbs());
+// app.set('view engine', 'handlebars');
+//
+//
+// //handlebars setup routes
+// app.get('/', function(req,res){
+//   res.render('home');
+// });
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.engine('hbs', exphbs({
-  defaultLayout: 'layout',
-  extname: '.hbs',
-  partialsDir: 'views/partials'
+ defaultLayout: 'layout',
+ extname: '.hbs',
+ partialsDir: 'views/partials',
+ helpers: {
+   // Here we're declaring the #section that appears in layout/layout.hbs
+   section(name, options) {
+     if (!this._sections) this._sections = {};
+     this._sections[name] = options.fn(this);
+     return null;
+   },
+   // Compare logic
+   compare(lvalue, rvalue, options) {
+     if (arguments.length < 3) {
+       throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
+     }
+     const operator = options.hash.operator || '==';
+     const operators = {
+       '==': function(l, r) { return l == r; },
+       '===': function(l, r) { return l === r; },
+       '!=': function(l, r) { return l != r; },
+       '<': function(l, r) { return l < r; },
+       '>': function(l, r) { return l > r; },
+       '<=': function(l, r) { return l <= r; },
+       '>=': function(l, r) { return l >= r; },
+       'typeof': function(l, r) { return typeof l == r; }
+     }
+     if (!operators[operator]) {
+       throw new Error(`Handlerbars Helper 'compare' doesn't know the operator ${operator}`);
+     }
+     const result = operators[operator](lvalue, rvalue);
+     if (result) {
+       return options.fn(this);
+     }
+     return options.inverse(this);
+   }
+ }
 }));
 
 app.use(logger('dev'));

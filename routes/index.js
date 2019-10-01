@@ -3,6 +3,7 @@ const firebase = require('firebase');
 //const User = require('../models/user');
 const auth = require('./middleware/auth');
 const Client = require ('../models/client');
+const User = require('../models/user');
 var router = express.Router();
 
 
@@ -16,9 +17,14 @@ router.get('/login', (req, res) => {
   res.render('login', { title: 'Login', layout: 'layout' });
 });
 
-/* GET dashboard page. */
+/* GET dashboard Admin page. */
 router.get('/dashboard', (req, res) => {
   res.render('dashboard', { title: 'homeadmin', layout: 'layout' });
+});
+
+/* GET dashboard Comum page. */
+router.get('/dashboardCom', (req, res) => {
+  res.render('dashboardCom', { title: 'home', layout: 'layout' });
 });
 
 /* GET signup page. */
@@ -47,15 +53,26 @@ router.get('/logout', (req,res) => {
 router.post('/login', (req,res) => {
   const userData  = req.body.user;
   firebase.auth().signInWithEmailAndPassword(userData.email, userData.password).then((currentLogged) => {
+    User.getByUid(currentLogged.user.uid).then((userMongo)=> {
       if (currentLogged) {
         req.session.userUid = currentLogged.user.uid;
         req.session.email = currentLogged.user.email;
-        res.redirect('/dashboard');
+
+        if(userMongo.userType == 'Adm'){
+          res.redirect('/dashboard');
+        }
+        else {
+          res.redirect('/dashboardCom');
+        }
       }
       else {
         console.log('User not found');
         res.redirect('/error');
       }
+    }).catch((error)=>{
+      console.log(error);
+      res.redirect('/error');
+    });
    }).catch((error) => {
        switch (error.code) {
           case 'auth/wrong-password':
