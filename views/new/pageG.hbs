@@ -37,8 +37,8 @@
             <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
           </div>
           <div class="form-check">
-            {{#each client}}
-                <li>{{companionFullname}} </li>
+            {{#each test3}}
+              <li>{{name}}</li>
             {{/each}}
           </div>
           <div class="form-group col-md-3 valor">
@@ -79,10 +79,10 @@
             <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
           </div>
           <div class="form-check">
-            {{#each client}}
-                <li>{{companionFullname}} </li>
+            {{#each test3}}
+              <li>{{name}}</li>
             {{/each}}
-          </div>
+         </div>
           <div class="form-group col-md-3 valor">
             <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
             <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
@@ -121,8 +121,8 @@
             <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
           </div>
           <div class="form-check">
-            {{#each client}}
-                <li>{{companionFullname}} </li>
+            {{#each test3}}
+              <li>{{name}}</li>
             {{/each}}
           </div>
           <div class="form-group col-md-3 valor">

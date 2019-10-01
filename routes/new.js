@@ -39,8 +39,26 @@ router.get('/pageC/:client_id', function(req, res) {
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
           Budget.getById(req.params.budget_id).then((budget)=>{
-                    console.log(client);
-                    res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, budget});
+            const test0 = [];
+            const companions0 = [{
+              name: String
+            }];
+
+
+            console.log(req.session);
+                  for (var i = 0; i < client.companionFullname.length; i++) {
+
+                    const companions0 = {
+                      name: String
+                    };
+
+                    companions0.name = client.companionFullname[i];
+                    test0.push(companions0);
+
+                    console.log(test0[i]);
+
+                  }
+                    res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, budget, companions0, test0});
             }).catch((error) => {
                 console.log(error);
                 res.redirect('/error');
@@ -54,9 +72,27 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
-        Flight.getById(req.params.flight_id).then((flight)=>{
-                console.log(client);
-                res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, flight_id: req.params.flight_id, client, budget, flight});
+        const test1 = [];
+        const companions1 = [{
+          name: String
+        }];
+
+
+        console.log(req.session);
+              for (var i = 0; i < client.companionFullname.length; i++) {
+
+                const companions1 = {
+                  name: String
+                };
+
+                companions1.name = client.companionFullname[i];
+                test1.push(companions1);
+
+                console.log(test1[i]);
+
+              }
+        console.log(req.session);
+                res.render('new/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, budget, ...req.session, companions1, test1});
             }).catch((error) => {
                 console.log(error);
                 res.redirect('/error');
@@ -65,19 +101,32 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
               console.log(error);
               res.redirect('/error');
             });
-        }).catch((error) => {
-          console.log(error);
-          res.redirect('/error');
-        });
 });
 /* GET pageF. */
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
-        Flight.getById(req.params.flight_id).then((flight)=>{
-              Hotel.getById(req.params.hotel_id).then((hotel)=>{
-                console.log(client);
-                res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, flight_id: req.params.flight_id, hotel_id: req.params.hotel_id, client, budget, flight, hotel});
+        const test2 = [];
+        const companions2 = [{
+          name: String
+        }];
+
+
+        console.log(req.session);
+              for (var i = 0; i < client.companionFullname.length; i++) {
+
+                const companions2 = {
+                  name: String
+                };
+
+                companions2.name = client.companionFullname[i];
+                test2.push(companions2);
+
+                console.log(test2[i]);
+
+              }
+                console.log(req.session);
+                res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, budget, ...req.session, companions2, test2});
             }).catch((error)=>{
                 console.log(error);
                 res.redirect('/error');
@@ -86,24 +135,32 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             console.log(error);
             res.redirect('/error');
           });
-      }).catch((error) => {
-        console.log(error);
-        res.redirect('/error');
-      });
-  }).catch((error) => {
-    console.log(error);
-    res.redirect('/error');
-  });
 });
 /* GET pageG. */
 router.get('/pageG/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
-          Flight.getById(req.params.flight_id).then((flight)=>{
-                Hotel.getById(req.params.hotel_id).then((hotel)=>{
-                        Car.getById(req.params.car_id).then((car)=>{
-                    console.log(client);
-                    res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, flight_id: req.params.flight_id, hotel_id: req.params.hotel_id, car_id: req.params.car_id, client, budget, flight, hotel, car});
+        const test3 = [];
+        const companions3 = [{
+          name: String
+        }];
+
+
+        console.log(req.session);
+              for (var i = 0; i < client.companionFullname.length; i++) {
+
+                const companions3 = {
+                  name: String
+                };
+
+                companions3.name = client.companionFullname[i];
+                test3.push(companions3);
+
+                console.log(test3[i]);
+
+              }
+                    console.log(req.session);
+                    res.render('new/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, budget, ...req.session, companions3, test3});
                 }).catch((error)=>{
                     console.log(error);
                     res.redirect('/error');
@@ -112,59 +169,48 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
                   console.log(error);
                   res.redirect('/error');
                 });
-          }).catch((error) => {
-            console.log(error);
-            res.redirect('/error');
-          });
-      }).catch((error) => {
-        console.log(error);
-        res.redirect('/error');
-      });
-  }).catch((error) => {
-    console.log(error);
-    res.redirect('/error');
-  });
 });
+
 /* GET pageH. */
+
 router.get('/pageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
-              Flight.getById(req.params.flight_id).then((flight)=>{
-                    Hotel.getById(req.params.hotel_id).then((hotel)=>{
-                            Car.getById(req.params.car_id).then((car)=>{
-                              Safe.getById(req.params.safe_id).then((safe)=>{
-                        console.log(budget);
-                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, flight_id: req.params.flight_id, hotel_id: req.params.hotel_id, car_id: req.params.car_id, safe_id: req.params.safe_id, budget, client, flight, hotel, car, safe});
+
+          const test = [];
+          const companions = [{
+            name: String
+          }];
+
+
+          console.log(req.session);
+                for (var i = 0; i < client.companionFullname.length; i++) {
+
+                  const companions = {
+                    name: String
+                  };
+
+                  companions.name = client.companionFullname[i];
+                  test.push(companions);
+
+                  console.log(test[i]);
+
+                }
+                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test});
                     }).catch((error)=>{
                         console.log(error);
                         res.redirect('/error');
                       });
-                    }).catch((error)=>{
-                      console.log(error);
-                      res.redirect('/error');
-                    });
-              }).catch((error) => {
+              }).catch((error)=>{
                 console.log(error);
                 res.redirect('/error');
-              });
-        }).catch((error) => {
-          console.log(error);
-          res.redirect('/error');
-        });
-    }).catch((error) => {
-      console.log(error);
-      res.redirect('/error');
-    });
-  }).catch((error) => {
-    console.log(error);
-    res.redirect('/error');
-  });
+            });
 });
 
 /*POST pageA*/
 router.post('/pageA',(req,res) => {
   const  client  = req.body.client;
-  if (client.email == client.email1) {
+  // if (client.email == client.email1) {
     Client.create(client).then((client_id) => {
       console.log(client_id);
       console.log(client);
@@ -173,9 +219,9 @@ router.post('/pageA',(req,res) => {
       console.log(error);
       res.redirect('error');
     });
-  } else {
-    res.redirect('/new/pageA');
-  }
+  // } else {
+  //   res.redirect('/new/pageA');
+  // }
 });
 
 /*POST pageB*/
@@ -210,12 +256,12 @@ router.post('/pageC/:client_id',(req,res) => {
 
 /*POST pageD*/
 router.post('/pageD/:client_id/:budget_id',(req,res) => {
-  const  flight = req.body.flight;
+  const flight = req.body.flight;
+  req.session.flight = flight;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   Flight.create(flight).then((flight_id) => {
     Budget.addFlight(budget_id, flight_id).then(() => {
-      console.log(flight);
       res.redirect(`/new/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -231,6 +277,7 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
 /*POST pageE*/
 router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  hotel = req.body.hotel;
+  req.session.hotel = hotel;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   Hotel.create(hotel).then((hotel_id) => {
@@ -250,6 +297,7 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
 /*POST pageF*/
 router.post('/pageF/:client_id/:budget_id',(req,res) => {
   const  car = req.body.car;
+  req.session.car = car;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   Car.create(car).then((car_id) => {
@@ -269,6 +317,7 @@ router.post('/pageF/:client_id/:budget_id',(req,res) => {
 /*POST pageG*/
 router.post('/pageG/:client_id/:budget_id',(req,res) => {
   const  safe = req.body.safe;
+  req.session.safe = safe;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   Safe.create(safe).then((safe_id) => {

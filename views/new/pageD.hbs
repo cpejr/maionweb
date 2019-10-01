@@ -81,8 +81,11 @@
             <br><br>
             <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
             <br><br>
-            {{#each client}}
-              <li>{{companionFullname}} </li>
+            {{#each test0}}
+              <li>{{name}} <div class="form-check">
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label" for="exampleCheck1">Voo 1</label>
+  </div></li>
             {{/each}}
             <br><br>
           </div>

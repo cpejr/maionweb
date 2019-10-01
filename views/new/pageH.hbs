@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <header class="login_page">
 </header>
 <form action="" method="post" class="pagesFront">
@@ -7,6 +8,13 @@
         <table>
         <label for="exampleInputPassword1">Responsável pela viagem:</label><br>
         <input readonly="readonly "type="text" placeholder= "" value="{{client.fullname}}" readonly="readonly"> <br> <br>
+
+          {{#each test}}
+              <li>{{name}}</li>
+          {{/each}}
+
+
+        <br><br>
         <label for="exampleInputPassword1">De: </label>
         <input readonly="readonly "type="fullname" value="{{budget.dateFrom}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
         <label for="exampleInputPassword1"> Até: </label>
@@ -15,48 +23,114 @@
         </table>
         <br>
 
-        <div class="classa">
-          <select readonly="readonly" name="" class="form-control">
-            <option style="display:none">Selecione: Continente</option>
-            <option>América do Sul</option>
-            <option>América Central</option>
-            <option>América do Norte</option>
-            <option>Europa</option>
-            <option>Ásia</option>
-            <option>África</option>
-            <option>Oceania</option>
-            <option>Antártida</option>
-          </select>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sul-radio" value="option1">
+          <label class="form-check-label" for="inlineRadio1">América do Sul</label>
         </div>
-        <div class="imgPageH">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="central-radio" value="option2">
+          <label class="form-check-label" for="inlineRadio2">América Central</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="norte-radio" value="option1">
+          <label class="form-check-label" for="inlineRadio1">América do Norte</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="europa-radio" value="option2">
+          <label class="form-check-label" for="inlineRadio2">Europa</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="asia-radio" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Ásia</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="africa-radio" value="option2">
+          <label class="form-check-label" for="inlineRadio2">África</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oceania-radio" value="option1">
+          <label class="form-check-label" for="inlineRadio1">Oceania</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="antartida-radio" value="option2">
+          <label class="form-check-label" for="inlineRadio2">Antártida</label>
+        </div>
+
+        <div class="images-form">
+            <div class="sul-imgs" id="sul-imgs">
+              <img src="/images/AMS1.jpg"><br><br>
+              <img src="/images/AMS2.jpg">
+            </div>
+
+            <div class="central-imgs" id="central-imgs">
+              <img src="/images/AC2.jpg"><br><br>
+              <img src="/images/AC1.jpg">
+            </div>
+
+            <div class="norte-imgs" id="norte-imgs">
+              <img src="/images/ANO2.jpg"><br><br>
+              <img src="/images/ANO1.jpg">
+            </div>
+
+            <div class="europa-imgs" id="europa-imgs">
+              <img src="/images/E2.jpg"><br><br>
+              <img src="/images/E1.jpg">
+            </div>
+
+            <div class="asia-imgs" id="asia-imgs">
+              <img src="/images/AS1.jpg"><br><br>
+              <img src="/images/AS2.jpg">
+            </div>
+
+            <div class="africa-imgs" id="africa-imgs">
+              <img src="/images/AF2.jpg"><br><br>
+              <img src="/images/AF1.jpg">
+            </div>
+
+            <div class="oceania-imgs" id="oceania-imgs">
+              <img src="/images/OC1.jpg"><br><br>
+              <img src="/images/OC2.jpg">
+            </div>
+
+            <div class="antartida-imgs" id="antartida-imgs">
+              <img src="/images/ANT1.jpg"><br><br>
+              <img src="/images/ANT2.jpg">
+            </div>
+          </div>
+
+        <!-- <div class="imgPageH">
           <img src="/images/teste.jpg" >
-        </div>
+        </div> -->
 
         <h2 id="titulo_roteiro">Roteiro de dias</h2>
-        {{#each budget }}
-        <table>
-            <div class="col-sm-auto" id="roteiro-dias">
-              <input readonly="readonly "type="date" placeholder="Data" value="{{budget.planDate}}" class= "date start-date form-control classCinput"><br>
-              <input readonly="readonly "placeholder="País" value="{{budget.planCountry}}" class= "form-control classCinput2"><br>
-              <input readonly="readonly "placeholder="Cidade" value="{{budget.planCity}}" class= "form-control classCinput2">
-            </div>
-        </table>
-        {{/each}}
+        <div class="dinamic_spec">
 
-        <!-- each flight -->
-        {{#each budget}}
+          <table>
+              <div class="col-sm-auto" id="roteiro-dias">
+                <input readonly="readonly "type="date" placeholder="Data" value="{{budget.planDate}}" class= "date start-date form-control classCinput"><br>
+                <input readonly="readonly "placeholder="País" value="{{budget.planCountry}}" class= "form-control classCinput2"><br>
+                <input readonly="readonly "placeholder="Cidade" value="{{budget.planCity}}" class= "form-control classCinput2">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="planFreeField" placeholder="Campo Livre" rows="3"></textarea>
+              </div>
+          </table>
+
+
+
+
         <div class="row rowclass">
 
           <div class="col-sm-2 rowclass" id="PageH_Col1">
             <div class="PageHColLeft">
-              <h3> Passageiros </h3>
+              <!-- <h3> Passageiros </h3>
               <br><br>
                   <input readonly="readonly "class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-                  <br><br>
-                  {{#each client}}
+                    <br><br>
+
                       <li>{{companionFullname}} </li>
-                  {{/each}}
-                  <br><br>
+
+                  <br><br> -->
             </div>
           </div>
           <div class="col-4 rowclass" id="PageH_Col2">
@@ -81,12 +155,11 @@
         </div>
 
         </div>
-        {{/each}}
+      </div>
 
 
         <h1> Hotel </h1>
-        <!-- each hotel -->
-        {{#each budget}}
+
         <div class="dinamic_spec" id="vamo">
 
           <div class="row rowclass" >
@@ -132,18 +205,17 @@
             </div>
             <div class="col-sm" id="landing-hotel-col2">
               <div class="box_hotelH_midle">
-                <div id="companion_camp">
+                <!-- <div id="companion_camp">
                   <h3> Passageiros </h3><br>
                   <input readonly="readonly "placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
                   <br>
 
-                  {{#each client}}
+
                       <li>{{companionFullname}} </li>
-                  {{/each}}
 
 
 
-                </div><br><br>
+                </div><br><br> -->
                 <div class="classa">
                   <input readonly="readonly "class="form-control" placeholder="Cidade 1" value="{{hotel.city}}">
                 </div><br>
@@ -227,37 +299,35 @@
             </div>
           </div>
         </div>
-        {{/each}}
 
 
-        <h1> Translado/ carro </h1>
-        <!-- each car -->
-        {{#each budget}}
+
+        <h1> Traslado/ carro </h1>
 
 
           <div class="dinamic_spec" id="vamo">
 
             <div class="row rowclass">
               <!-- coluna 1 -->
-              <div class="col-sm-6 rowclass" id="PageF_Col1">
-                <div class="boxLeftPageH">
-                  <br><br><br>  <h3> Passageiros </h3><br>
+              <!-- <div class="col-sm-6 rowclass" id="PageF_Col1">
+                <div class="boxLeftPageH"> -->
+                  <!-- <br><br><br>  <h3> Passageiros </h3><br>
                   <input class="form-check-input" type="checkbox">
                   <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
                   <br><br>
-                  {{#each client}}
+
                       <li>{{companionFullname}} </li>
-                  {{/each}}
+
                   <div id="add_acompanhantesvoo"></div>
-                  <br>
-                </div>
-              </div>
+                  <br> -->
+                <!-- </div>
+              </div> -->
 
               <!-- coluna 2 -->
-              <div class="col-sm-6 rowclass">
+              <div class="col -12 rowclass" >
                 <div class="boxRightPageH">
                   <div>
-                    <h3> Translado </h3><br>
+                    <h3> Traslado </h3><br>
                     <input readonly="readonly "value="{{car.from}}" type="text" placeholder="De" class="date start-date"/>
                     <i class="fa fa-car" aria-hidden="true"></i>
                     <input readonly="readonly "value="{{car.to}}" type="text" placeholder="Para" class="date start-date"/>
@@ -274,7 +344,7 @@
                   <div class="container rowclass classF-input">
                     <div class="row rowclass">
                       <div class="col-5sm rowclass">
-                        <input readonly="readonly "value="{{car.totalTranslado}}" class="form-control" placeholder="Val Total">
+                        <input readonly="readonly "value="{{car.totalTranslado}}" class="form-control" placeholder="Val Total"><br>
                       </div>
                     </div>
                   </div>
@@ -314,11 +384,10 @@
         </div>
       </div>
 
-        {{/each}}
+
 
         <h1> Serviços </h1>
-        <!-- each safe -->
-        {{#each budget }}
+
         <div class="dinamic_spec" id="vamo">
           <!-- <h1> Serviços </h1> -->
           <div class="row rowclass">
@@ -326,28 +395,28 @@
               <div class="boxLeftPageG" id="vamo">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
-                  <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+                  <input value="{{safe.insuranceName}}" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Cobertura</label>
-                  <input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control">
+                  <input value="{{safe.insuranceCoverage}}" type="text" placeholder= "Cobertura do seguro" class="form-control">
                 </div>
               </div>
             </div>
             <div class="col-sm-auto rowclass" id="landing-seguro-col2">
               <div class="boxRightPageG" id="vamo">
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="exampleInputPassword1">Nome do responsável:</label>
                   <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
                 </div>
                 <div class="form-check">
-                  {{#each client}}
+
                       <li>{{companionFullname}} </li>
-                  {{/each}}
-                </div>
+
+                </div> -->
                 <div class="form-group col-md-3 valor">
                   <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
-                  <input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
+                  <input value="{{safe.insuranceTOT}}" type="text" class="form-control value1" placeholder="Valor (R$)">
                 </div>
               </div>
             </div>
@@ -358,24 +427,24 @@
               <div class="boxLeftPageG" id="vamo">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
-                  <input name="safe[ticketsName]" type="text" placeholder= "" class="form-control">
+                  <input value="{{safe.ticketsName}}" type="text" placeholder= "" class="form-control">
                 </div>
               </div>
             </div>
             <div class="col-sm-auto rowclass" id="landing-ticket-col2">
               <div class="boxRightPageG" id="vamo">
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="exampleInputPassword1">Nome do responsável:</label>
                   <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-check">
-                  {{#each client}}
+
                       <li>{{companionFullname}} </li>
-                  {{/each}}
-                </div>
+
+                </div> -->
                 <div class="form-group col-md-3 valor">
                   <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
-                  <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
+                  <input value="{{safe.ticketsTOT}}" type="text" class="form-control value1" placeholder="Valor (R$)">
                 </div>
               </div>
             </div>
@@ -386,24 +455,24 @@
               <div class="boxLeftPageG" id="vamo">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
-                  <input name="safe[otherName]" type="text" placeholder= "" class="form-control">
+                  <input value="{{safe.otherName}}" type="text" placeholder= "" class="form-control">
                 </div>
               </div>
             </div>
             <div class="col-sm-auto rowclass" id="landing-outros-col2">
               <div class="boxRightPageG" id="vamo">
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="exampleInputPassword1">Nome do responsável:</label>
                   <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-check">
-                  {{#each client}}
+
                       <li>{{companionFullname}} </li>
-                  {{/each}}
-                </div>
+
+                </div> -->
                 <div class="form-group col-md-3 valor">
                   <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>
-                  <input name="safe[otherTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
+                  <input value="{{safe.otherTOT}}" type="text" class="form-control value1" placeholder="Valor (R$)">
                 </div>
               </div>
             </div>
@@ -412,7 +481,7 @@
       </div>
       <br><br><br>
 
-        {{/each}}
+
 
 
 
@@ -421,3 +490,5 @@
   </div>
 
 </form>
+
+<script type="text/javascript" src="/javascripts/images.js">  </script>
