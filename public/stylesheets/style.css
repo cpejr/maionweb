@@ -6747,6 +6747,10 @@ label {
   background-color: #f3ab85;
   border-radius: 8px; }
 
+.icones {
+  height: 10px;
+  width: 10px; }
+
 .newcadas {
   max-width: 200px;
   margin-left: 450px; }
