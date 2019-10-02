@@ -1,24 +1,25 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <header class="login_page">
-
 </header>
-
 <form action="/registred/pageB/{{client_id}}" method="post" class="pagesFront">
   <div class="dinamic_spec">
-    <h1> Características</h1><br><br><br><br>
-
-
-    <h3> Necessidade </h3><br><br>
+    <h1> Características</h1>
+    <br><br><br><br>
+    <h3> Necessidade </h3>
+    <br><br>
     <div class="dinamic_White">
+      <!-- Staus -->
       <div class="form-check form-check-inline float-center">
         {{#compare client.profile_Status "Status"}}
         <input class="form-check-input" type="checkbox" id="checkbox8" name="client[profile_Status]" value="Status" checked>
         <label class="form-check-label" for="inlineCheckbox1">Status</label>
-          {{else}}
-          <input class="form-check-input" type="checkbox" id="checkbox8" name="client[profile_Status]" value="Status">
-          <label class="form-check-label" for="inlineCheckbox1">Status</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox8" name="client[profile_Status]" value="Status">
+        <label class="form-check-label" for="inlineCheckbox1">Status</label>
         {{/compare}}
       </div>
+
+      <!-- Conhecimento -->
       <div class="form-check form-check-inline float-center">
         {{#compare client.profile_Conhecimento "Conhecimento"}}
           <input class="form-check-input" type="checkbox" id="checkbox9" value="Conhecimento" name="client[profile_Conhecimento]" checked>
@@ -28,299 +29,634 @@
           <label class="form-check-label" for="inlineCheckbox2">Conhecimento</label>
         {{/compare}}
       </div>
+
+      <!-- Nova experiência -->
       <div class="form-check form-check-inline float-center">
-        <input class="form-check-input" type="checkbox" id="checkbox10" value="Novas Experiências" name="client[profile_need][need]">
+        {{#compare client.profile_NovasExperiencias "NovasExperiências"}}
+        <input class="form-check-input" type="checkbox" id="checkbox10" value="NovasExperiências" name="client[profile_NovasExperiencias]" checked>
         <label class="form-check-label" for="inlineCheckbox3">Novas Experiências</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox10" value="NovasExperiências" name="client[profile_NovasExperiencias]">
+        <label class="form-check-label" for="inlineCheckbox3">Novas Experiências</label>
+        {{/compare}}
       </div>
+
+      <!-- Divisão -->
       <div class="form-check form-check-inline float-center">
-        <input class="form-check-input" type="checkbox" id="checkbox11" value="Diversão" name="client[profile_need][need]">
+        {{#compare client.profile_Diversao "Diversão"}}
+        <input class="form-check-input" type="checkbox" id="checkbox11" value="Diversão" name="client[profile_Diversao]" checked>
         <label class="form-check-label" for="inlineCheckbox3">Diversão</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox11" value="Diversão" name="client[profile_Diversao]">
+        <label class="form-check-label" for="inlineCheckbox3">Diversão</label>
+        {{/compare}}
       </div>
+
+      <!-- Bem estar -->
       <div class="form-check form-check-inline float-center">
-        <input class="form-check-input" type="checkbox" id="checkbox12" value="Bem Estar" name="client[profile_need][need]">
+        {{#compare client.profile_BemEstar "BemEstar"}}
+        <input class="form-check-input" type="checkbox" id="checkbox12" value="BemEstar" name="client[profile_BemEstar]" checked>
         <label class="form-check-label" for="inlineCheckbox3">Bem-Estar</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox12" value="BemEstar" name="client[profile_BemEstar]">
+        <label class="form-check-label" for="inlineCheckbox3">Bem-Estar</label>
+        {{/compare}}
       </div>
+
+      <!-- Exclusividade -->
       <div class="form-check form-check-inline float-center">
-        <input class="form-check-input" type="checkbox" id="checkbox13" value="Exclusividade" name="client[profile_need][need]">
+        {{#compare client.profile_Exclusividade "Exclusividade"}}
+        <input class="form-check-input" type="checkbox" id="checkbox13" value="Exclusividade" name="client[profile_Exclusividade]" checked>
         <label class="form-check-label" for="inlineCheckbox3">Exclusividade</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox13" value="Exclusividade" name="client[profile_Exclusividade]">
+        <label class="form-check-label" for="inlineCheckbox3">Exclusividade</label>
+        {{/compare}}
       </div>
+
+      <!-- Outra necessidade -->
       <div class="input_outros">
-        <input type="text" name="client[profile_need][other_need]"  id="checkbox14" placeholder="Outros" class="form-control">
+        <input type="text" name="client[profile_OtherNeed]"  id="checkbox14" class="form-control" placeholder="Outros" value="{{client.profile_OtherNeed}}">
       </div>
-      <!-- <br>
-      <div class="input-group mb-3 float-center">
-      <div class="input-group-prepend" type="checkbox" id="checkbox14" value="Outras" name="client[profile_type]">
-      <div class="input-group-text">
-      <input type="checkbox" placeholder="Outras">
+      <br>
     </div>
-  </div>
-  <input type="text" class="form-control" aria-label=>
-</div> -->
-<br>
-</div><br><br>
+    <br><br>
 
+    <h3> Perfil </h3>
+    <br><br>
+    <div class="dinamic_White">
 
+      <!-- Esporte -->
+      <div class="form-check form-check-inline float-center">
+        {{#compare client.profile_Esporte "Esporte"}}
+        <input class="form-check-input" type="checkbox" id="checkbox1" value="Esporte" name="client[profile_Esporte]" checked>
+        <label class="form-check-label" for="inlineCheckbox1">Esporte</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox1" value="Esporte" name="client[profile_Esporte]">
+        <label class="form-check-label" for="inlineCheckbox1">Esporte</label>
+        {{/compare}}
+      </div>
 
-<h3> Perfil </h3><br><br>
-<div class="dinamic_White">
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox1" value="Esporte" name="client[profile_type][type]">
-    <label class="form-check-label" for="inlineCheckbox1">Esporte</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox2" value="Refinado" name="client[profile_type][type]">
-    <label class="form-check-label" for="inlineCheckbox2">Refinado</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox3" value="Simples" name="client[profile_type][type]">
-    <label class="form-check-label" for="inlineCheckbox3">Simples</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox4" value="Cult" name="client[profile_type][type]">
-    <label class="form-check-label" for="inlineCheckbox3">Cult</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox5" value="Comida" name="client[profile_type][type]">
-    <label class="form-check-label" for="inlineCheckbox3">Comida</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox6" value="Vinhos" name="client[profile_type][type]">
-    <label class="form-check-label" for="inlineCheckbox3">Vinhos</label>
-  </div>
-  <div class="input_outros">
-    <input type="text" name="client[profile_type][other_type]"  id="checkbox7" placeholder="Outros" class="form-control">
+      <!-- Refinado -->
+      <div class="form-check form-check-inline float-center">
+        {{#compare client.profile_Refinado "Refinado"}}
+        <input class="form-check-input" type="checkbox" id="checkbox2" value="Refinado" name="client[profile_Refinado]" checked>
+        <label class="form-check-label" for="inlineCheckbox2">Refinado</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox2" value="Refinado" name="client[profile_Refinado]">
+        <label class="form-check-label" for="inlineCheckbox2">Refinado</label>
+        {{/compare}}
+      </div>
+
+      <!-- Simples -->
+      <div class="form-check form-check-inline float-center">
+        {{#compare client.profile_Simples "Simples"}}
+        <input class="form-check-input" type="checkbox" id="checkbox3" value="Simples" name="client[profile_Simples]" checked>
+        <label class="form-check-label" for="inlineCheckbox3">Simples</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox3" value="Simples" name="client[profile_Simples]">
+        <label class="form-check-label" for="inlineCheckbox3">Simples</label>
+        {{/compare}}
+      </div>
+
+      <!-- Cult -->
+      <div class="form-check form-check-inline float-center">
+        {{#compare client.profile_Cult "Cult"}}
+        <input class="form-check-input" type="checkbox" id="checkbox4" value="Cult" name="client[profile_Cult]" checked>
+        <label class="form-check-label" for="inlineCheckbox3">Cult</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox4" value="Cult" name="client[profile_Cult]">
+        <label class="form-check-label" for="inlineCheckbox3">Cult</label>
+        {{/compare}}
+      </div>
+
+      <!-- Comida -->
+      <div class="form-check form-check-inline float-center">
+        {{#compare client.profile_Comida "Comida"}}
+        <input class="form-check-input" type="checkbox" id="checkbox5" value="Comida" name="client[profile_Comida]" checked>
+        <label class="form-check-label" for="inlineCheckbox3">Comida</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox5" value="Comida" name="client[profile_Comida]">
+        <label class="form-check-label" for="inlineCheckbox3">Comida</label>
+        {{/compare}}
+      </div>
+
+      <!-- Vinho -->
+      <div class="form-check form-check-inline float-center">
+        {{#compare client.profile_Vinhos "Vinhos"}}
+        <input class="form-check-input" type="checkbox" id="checkbox6" value="Vinhos" name="client[profile_Vinhos]" checked>
+        <label class="form-check-label" for="inlineCheckbox3">Vinhos</label>
+        {{else}}
+        <input class="form-check-input" type="checkbox" id="checkbox6" value="Vinhos" name="client[profile_Vinhos]">
+        <label class="form-check-label" for="inlineCheckbox3">Vinhos</label>
+        {{/compare}}
+      </div>
+
+      <!-- OtherType -->
+      <div class="input_outros">
+        <input type="text" name="client[profile_OtherType]"  id="checkbox7" class="form-control" placeholder="Outros" value="{{client.profile_OtherType}}">
+      </div>
+      <br>
+    </div>
+    <br><br>
+
+    <h3> Hotéis </h3>
+    <br><br>
+    <div class="dinamic_White">
+        <!-- Contemporâneo -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_Contemporaneo "Contemporâneo"}}
+          <input class="form-check-input" type="checkbox" id="checkbox15" value="Contemporâneo" name="client[profile_Contemporaneo]" checked>
+          <label class="form-check-label" for="inlineCheckbox1">Contemporâneo</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox15" value="Contemporâneo" name="client[profile_Contemporaneo]">
+          <label class="form-check-label" for="inlineCheckbox1">Contemporâneo</label>
+          {{/compare}}
+        </div>
+
+        <!-- Clássico -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_Classico "Clássico"}}
+          <input class="form-check-input" type="checkbox" id="checkbox16" value="Clássico" name="client[profile_Classico]" checked>
+          <label class="form-check-label" for="inlineCheckbox2">Clássico</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox16" value="Clássico" name="client[profile_Classico]">
+          <label class="form-check-label" for="inlineCheckbox2">Clássico</label>
+          {{/compare}}
+        </div>
+
+        <!-- Boutique -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_Boutique "Boutique"}}
+          <input class="form-check-input" type="checkbox" id="checkbox17" value="Boutique" name="client[profile_Boutique]" checked>
+          <label class="form-check-label" for="inlineCheckbox3">Boutique</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox17" value="Boutique" name="client[profile_Boutique]">
+          <label class="form-check-label" for="inlineCheckbox3">Boutique</label>
+          {{/compare}}
+        </div>
+
+        <!-- Simples -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_HotelSimples "Simples"}}
+          <input class="form-check-input" type="checkbox" id="checkbox18" value="Simples" name="client[profile_HotelSimples]" checked>
+          <label class="form-check-label" for="inlineCheckbox3">Simples</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox18" value="Simples" name="client[profile_HotelSimples]">
+          <label class="form-check-label" for="inlineCheckbox3">Simples</label>
+          {{/compare}}
+        </div>
+
+        <!-- Andar Alto -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_AndarAlto "AndarAlto"}}
+          <input class="form-check-input" type="checkbox" id="checkbox19" value="AndarAlto" name="client[profile_AndarAlto]" checked>
+          <label class="form-check-label" for="inlineCheckbox3">Andar Alto</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox19" value="AndarAlto" name="client[profile_AndarAlto]">
+          <label class="form-check-label" for="inlineCheckbox3">Andar Alto</label>
+          {{/compare}}
+        </div>
+
+        <!-- Andar Baixo -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_AndarBaixo "AndarBaixo"}}
+          <input class="form-check-input" type="checkbox" id="checkbox20" value="AndarBaixo" name="client[profile_AndarBaixo]" checked>
+          <label class="form-check-label" for="inlineCheckbox3">Andar Baixo</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox20" value="AndarBaixo" name="client[profile_AndarBaixo]">
+          <label class="form-check-label" for="inlineCheckbox3">Andar Baixo</label>
+          {{/compare}}
+        </div>
+
+        <!-- Other Hotel -->
+        <div class="input_outros">
+          <input type="text" name="client[profile_OtherHotel]"  id="checkbox7" class="form-control" placeholder="Outros" value="{{client.profile_OtherHotel}}">
+        </div>
+        <br>
+      </div>
+    <br><br>
+
+    <h3> Adepto à Resorts </h3>
+    <br><br>
+    <div class="dinamic_White">
+
+        <!-- Sim Resort -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_ResortSim "Sim"}}
+          <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_ResortSim]" checked>
+          <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_ResortSim]">
+          <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+          {{/compare}}
+        </div>
+
+        <!-- Não Resort -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_ResortNao "Não"}}
+          <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_ResortNao]" checked>
+          <label class="form-check-label" for="inlineCheckbox3">Não</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_ResortNao]">
+          <label class="form-check-label" for="inlineCheckbox3">Não</label>
+          {{/compare}}
+        </div>
+
+        <!-- Talvez Resort -->
+        <div class="form-check form-check-inline float-center">
+          {{#compare client.profile_ResortTalvez "Talvez"}}
+          <input class="form-check-input" type="checkbox" id="checkbox23" value="Talvez" name="client[profile_ResortTalvez]" checked>
+          <label class="form-check-label" for="inlineCheckbox3">Talvez</label>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="checkbox23" value="Talvez" name="client[profile_ResortTalvez]">
+          <label class="form-check-label" for="inlineCheckbox3">Talvez</label>
+          {{/compare}}
+        </div>
+      </div>
+    <br><br><br><br>
+
+    <h3> Budget Mínimo </h3>
+    <br><br>
+    <div class="classa">
+      <select name="client[average_Budget]"required="required" class="form-control">
+        <option style = "color:red;">{{client.average_Budget}}</option>
+        <option>Até 10k</option>
+        <option>Até 20k</option>
+        <option>Até 50k</option>
+        <option>Até 100k</option>
+        <option>Maior que 100k</option>
+      </select>
+    </div>
+    <br><br><br><br>
   </div>
   <br>
-  </div>
-<br><br>
 
-<h3> Hotéis </h3><br><br>
-<div class="dinamic_White">
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox15" value="Contemporâneo" name="client[profile_hotel][hotel]">
-    <label class="form-check-label" for="inlineCheckbox1">Contemporâneo</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox16" value="Clássico" name="client[profile_hotel][hotel]">
-    <label class="form-check-label" for="inlineCheckbox2">Clássico</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox17" value="Boutique" name="client[profile_hotel][hotel]">
-    <label class="form-check-label" for="inlineCheckbox3">Boutique</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox18" value="Simples" name="client[profile_hotel][hotel]">
-    <label class="form-check-label" for="inlineCheckbox3">Simples</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox19" value="Andar alto" name="client[profile_hotel][hotel]">
-    <label class="form-check-label" for="inlineCheckbox3">Andar Alto</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox20" value="Andar baixo" name="client[profile_hotel][hotel]">
-    <label class="form-check-label" for="inlineCheckbox3">Andar Baixo</label>
-  </div>
-  <div class="input_outros">
-    <input type="text" name="client[profile_hotel][other_hotel]"  id="checkbox7" placeholder="Outros" class="form-control">
-  </div>
-  <br>
-</div><br><br>
+  <div class="dinamic_spec"><br>
 
-
-<h3> Adepto à Resorts </h3><br><br>
-<div class="dinamic_White">
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_resort]">
-    <label class="form-check-label" for="inlineCheckbox3">Sim</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_resort]">
-    <label class="form-check-label" for="inlineCheckbox3">Não</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox23" value="Talvez" name="client[profile_resort]">
-    <label class="form-check-label" for="inlineCheckbox3">Talvez</label>
-  </div>
-</div><br><br><br><br>
-<div class="classa">
-  <select name = "client[averageBudget]" placeholder= "Budget Mínino" class="form-control">
-    <option style="display:none">Selecione: Budget Mínimo</option>
-    <option>Até 10k</option>
-    <option>Até 20k</option>
-    <option>Até 50k</option>
-    <option>Até 100k</option>
-    <option>Maior que 100k</option>
-  </select>      </div><br>
-</div><br>
-<div class="dinamic_spec"><br>
-  <h3> Necessidade </h3><br><br>
-
-  <select name="client[plane_class] "required="required" class="form-control">
-    <option style="display:none">Classe Avião:</option>
+  <h3>Classe do avião</h3>
+  <br><br>
+  <select name="client[plane_class]" required="required" class="form-control">
+    <option style = "color:red;">{{client.plane_class}}</option>
     <option>Econômica</option>
     <option>Biz</option>
     <option>1st Class</option>
-  </select><br><br><br>
+  </select>
+  <br><br><br>
 
-  <select name="client[plane_seat_pref] "required="required" class="form-control">
-    <option style="display:none">Preferêcia Assento:</option>
+  <h3>Preferência de assento</h3>
+  <br><br>
+  <select name="client[plane_seat_pref]" required="required" class="form-control">
+    <option style = "color:red;">{{client.plane_seat_pref}}</option>
     <option>Janela</option>
     <option>Corredor</option>
     <option>Meio</option>
-  </select><br><br>
+  </select>
+  <br><br>
 
   <h3> Esportes </h3><br><br>
   <div class="dinamic_White">
+
+    <!-- Corrida -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox24" value="Corrida" name="client[profile_sports][sports]">
+      {{#compare client.profile_Corrida "Corrida"}}
+      <input class="form-check-input" type="checkbox" id="checkbox24" value="Corrida" name="client[profile_Corrida]" checked>
       <label class="form-check-label" for="inlineCheckbox1">Corrida</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox24" value="Corrida" name="client[profile_Corrida]">
+      <label class="form-check-label" for="inlineCheckbox1">Corrida</label>
+      {{/compare}}
     </div>
+
+    <!-- Bike -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox25" value="Bike" name="client[profile_sports][sports]">
+      {{#compare client.profile_Bike "Bike"}}
+      <input class="form-check-input" type="checkbox" id="checkbox25" value="Bike" name="client[profile_Bike]" checked>
       <label class="form-check-label" for="inlineCheckbox2">Bike</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox25" value="Bike" name="client[profile_Bike]">
+      <label class="form-check-label" for="inlineCheckbox2">Bike</label>
+      {{/compare}}
     </div>
+
+    <!-- Natação -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox26" value="Natação" name="client[profile_sports][sports]">
+      {{#compare client.profile_Natação "Natação"}}
+      <input class="form-check-input" type="checkbox" id="checkbox26" value="Natação" name="client[profile_Natação]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Natação</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox26" value="Natação" name="client[profile_Natação]">
+      <label class="form-check-label" for="inlineCheckbox3">Natação</label>
+      {{/compare}}
     </div>
+
+    <!-- Corrida Carro -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox27" value="Corrida carro" name="client[profile_sports][sports]">
+      {{#compare client.profile_CoriidaCarro "CorridaCarro"}}
+      <input class="form-check-input" type="checkbox" id="checkbox27" value="CorridaCarro" name="client[profile_CoriidaCarro]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Corrida carro</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox27" value="CorridaCarro" name="client[profile_CoriidaCarro]">
+      <label class="form-check-label" for="inlineCheckbox3">Corrida carro</label>
+      {{/compare}}
     </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox29" value="Musculação" name="client[profile_sports][sports]">
-    <label class="form-check-label" for="inlineCheckbox3">Musculação</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox30" value="Pesca" name="client[profile_sports][sports]">
-    <label class="form-check-label" for="inlineCheckbox3">Pesca</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox31" value="Mergulho" name="client[profile_sports][sports]">
-    <label class="form-check-label" for="inlineCheckbox3">Mergulho</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox32" value="Golf" name="client[profile_sports][sports]">
-    <label class="form-check-label" for="inlineCheckbox3">Golf</label>
-  </div>
-  <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox33" value="Tênis" name="client[profile_sports][sports]">
-    <label class="form-check-label" for="inlineCheckbox3">Tênis</label>
-  </div>
-  <div class="input_outros">
-    <input type="text" name="client[profile_sports][other_sports]"  id="checkbox333" placeholder="Outros" class="form-control">
-  </div>
-  <br>
-</div><br><br>
+
+    <!-- Musculação -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_Musculação "Musculação"}}
+      <input class="form-check-input" type="checkbox" id="checkbox29" value="Musculação" name="client[profile_Musculação]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Musculação</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox29" value="Musculação" name="client[profile_Musculação]">
+      <label class="form-check-label" for="inlineCheckbox3">Musculação</label>
+      {{/compare}}
+    </div>
+
+    <!-- Pesca -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_Pesca "Pesca"}}
+      <input class="form-check-input" type="checkbox" id="checkbox30" value="Pesca" name="client[profile_Pesca]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Pesca</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox30" value="Pesca" name="client[profile_Pesca]">
+      <label class="form-check-label" for="inlineCheckbox3">Pesca</label>
+      {{/compare}}
+    </div>
+
+    <!-- Mergulho -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_Mergulho "Mergulho"}}
+      <input class="form-check-input" type="checkbox" id="checkbox31" value="Mergulho" name="client[profile_Mergulho]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Mergulho</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox31" value="Mergulho" name="client[profile_Mergulho]">
+      <label class="form-check-label" for="inlineCheckbox3">Mergulho</label>
+      {{/compare}}
+    </div>
+
+    <!-- Golf -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_Golf "Golf"}}
+      <input class="form-check-input" type="checkbox" id="checkbox32" value="Golf" name="client[profile_Golf]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Golf</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox32" value="Golf" name="client[profile_Golf]">
+      <label class="form-check-label" for="inlineCheckbox3">Golf</label>
+      {{/compare}}
+    </div>
+
+    <!-- Tênis -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_Tênis "Tênis"}}
+      <input class="form-check-input" type="checkbox" id="checkbox33" value="Tênis" name="client[profile_Tênis]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Tênis</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox33" value="Tênis" name="client[profile_Tênis]">
+      <label class="form-check-label" for="inlineCheckbox3">Tênis</label>
+      {{/compare}}
+    </div>
+
+    <!-- OtherSports -->
+    <div class="input_outros">
+    <input type="text" name="client[profile_OtherSports]"  id="checkbox333" class="form-control" placeholder="Outros" value="{{client.profile_OtherSports}}">
+    </div>
+
+    <br>
+  </div><br><br>
 
 
 <h3> Gastronomia </h3><br><br>
 <div class="dinamic_White">
+
+  <!-- Italiana -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox34" value="Italiana" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_Italiana "Italiana"}}
+    <input class="form-check-input" type="checkbox" id="checkbox34" value="Italiana" name="client[profile_Italiana]" checked>
     <label class="form-check-label" for="inlineCheckbox1">Italiana</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox34" value="Italiana" name="client[profile_Italiana]">
+    <label class="form-check-label" for="inlineCheckbox1">Italiana</label>
+    {{/compare}}
   </div>
+
+  <!-- Japonesa -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox35" value="Japonesa" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_Japonesa "Japonesa"}}
+    <input class="form-check-input" type="checkbox" id="checkbox35" value="Japonesa" name="client[profile_Japonesa]" checked>
     <label class="form-check-label" for="inlineCheckbox2">Japonesa</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox35" value="Japonesa" name="client[profile_Japonesa]">
+    <label class="form-check-label" for="inlineCheckbox2">Japonesa</label>
+    {{/compare}}
   </div>
+
+  <!-- Mediterrânea -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox36" value="Mediterranea" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_Mediterrânea "Mediterranea"}}
+    <input class="form-check-input" type="checkbox" id="checkbox36" value="Mediterranea" name="client[profile_Mediterrânea]" checked>
     <label class="form-check-label" for="inlineCheckbox3">Mediterrânea</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox36" value="Mediterranea" name="client[profile_Mediterrânea]">
+    <label class="form-check-label" for="inlineCheckbox3">Mediterrânea</label>
+    {{/compare}}
   </div>
+
+  <!-- Indiana -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox37" value="Indiana" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_Indiana "Indiana"}}
+    <input class="form-check-input" type="checkbox" id="checkbox37" value="Indiana" name="client[profile_Indiana]" checked>
     <label class="form-check-label" for="inlineCheckbox3">Indiana</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox37" value="Indiana" name="client[profile_Indiana]">
+    <label class="form-check-label" for="inlineCheckbox3">Indiana</label>
+    {{/compare}}
   </div>
+
+  <!-- Asiática -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox38" value="Asiática" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_Asiática "Asiática"}}
+    <input class="form-check-input" type="checkbox" id="checkbox38" value="Asiática" name="client[profile_Asiática]" checked>
     <label class="form-check-label" for="inlineCheckbox3">Asiática</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox38" value="Asiática" name="client[profile_Asiática]">
+    <label class="form-check-label" for="inlineCheckbox3">Asiática</label>
+    {{/compare}}
   </div>
+
+  <!-- Francesa -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox39" value="Francesa" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_Francesa "Francesa"}}
+    <input class="form-check-input" type="checkbox" id="checkbox39" value="Francesa" name="client[profile_Francesa]" checked>
     <label class="form-check-label" for="inlineCheckbox3">Francesa</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox39" value="Francesa" name="client[profile_Francesa]">
+    <label class="form-check-label" for="inlineCheckbox3">Francesa</label>
+    {{/compare}}
   </div>
+
+
+  <!-- Frutos do mar -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox40" value="Frutos do mar" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_FrutosDoMar "FrutosDoMar"}}
+    <input class="form-check-input" type="checkbox" id="checkbox40" value="FrutosDoMar" name="client[profile_FrutosDoMar]" checked>
     <label class="form-check-label" for="inlineCheckbox3">Frutos do mar</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox40" value="FrutosDoMar" name="client[profile_FrutosDoMar]">
+    <label class="form-check-label" for="inlineCheckbox3">Frutos do mar</label>
+    {{/compare}}
   </div>
+
+  <!-- Carnes -->
   <div class="form-check form-check-inline float-center">
-    <input class="form-check-input" type="checkbox" id="checkbox41" value="Carnes" name="client[profile_food_diet][diet]">
+    {{#compare client.profile_Carnes "Carnes"}}
+    <input class="form-check-input" type="checkbox" id="checkbox41" value="Carnes" name="client[profile_Carnes]" checked>
     <label class="form-check-label" for="inlineCheckbox3">Carnes</label>
+    {{else}}
+    <input class="form-check-input" type="checkbox" id="checkbox41" value="Carnes" name="client[profile_Carnes]">
+    <label class="form-check-label" for="inlineCheckbox3">Carnes</label>
+    {{/compare}}
   </div>
+
+  <!-- Other Diet -->
   <div class="input_outros">
-    <input type="text" name="client[profile_food_diet][other_diet]"  id="checkbox422" placeholder="Outros" class="form-control">
+    <input type="text" name="client[profile_OtherDiet]"  id="checkbox422" class="form-control" placeholder="Outros" value="{{client.profile_OtherDiet}}">
   </div>
   <br>
-</div><br><br>
-</div><br>
+</div>
+<br><br>
+</div>
+<br>
+
 <div class="dinamic_spec"><br>
   <h3> Fumante </h3><br><br>
   <div class="dinamic_White">
-    <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_smoke]">
-      <label class="form-check-label" for="inlineCheckbox3">Sim</label>
-    </div>
-    <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_smoke]">
-      <label class="form-check-label" for="inlineCheckbox3">Não</label>
-    </div>
-  </div><br><br>
 
-  <h3> Alergia </h3><br><br>
-  <div class="dinamic_White">
+    <!-- Fumamnte sim -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_allergy][allergy]">
+      {{#compare client.profile_SmokeSim "Sim"}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_SmokeSim]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_SmokeSim]">
+      <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{/compare}}
     </div>
+
+    <!-- Fumante não -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_allergy][allergy]">
+      {{#compare client.profile_SmokeNão "Não"}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_SmokeNão]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_SmokeNão]">
+      <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{/compare}}
     </div>
+  </div>
+  <br><br>
+
+  <h3> Alergia </h3>
+  <br><br>
+  <div class="dinamic_White">
+
+    <!-- Alergia sim -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_AllergySim "Sim"}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_AllergySim]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_AllergySim]">
+      <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{/compare}}
+    </div>
+
+    <!-- Alergia não -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_AllergyNão "Não"}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_AllergyNão]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_AllergyNão]">
+      <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{/compare}}
+    </div>
+
+    <!-- Qual alergia -->
     <div class="input_outros">
-      <input type="text" name="client[profile_allergy][which_allergy]"  id="checkbox333" placeholder="Qual" class="form-control">
+      <input type="text" name="client[profile_WhichAllergy]"  id="checkbox333" placeholder="Qual" class="form-control" value="{{client.profile_WhichAllergy}}">
     </div>
     <br>
-  </div><br><br>
+  </div>
+  <br><br>
 
-  <h3> Dificuldade de Locomoção </h3><br><br>
+  <h3> Dificuldade de Locomoção </h3><
+  <br><br>
   <div class="dinamic_White">
+
+    <!-- Dificuldade de locomoção sim -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_disabled_person][disable]">
+      {{#compare client.profile_DisableSim "Sim"}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_DisableSim]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_DisableSim]">
+      <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{/compare}}
     </div>
+
+    <!-- Dificuldade de locomoção não -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_disabled_person][disable]">
+      {{#compare client.profile_DisableNão "Não"}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_DisableNão]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_DisableNão]">
+      <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{/compare}}
     </div>
+
+    <!-- Qual dificuldade -->
     <div class="input_outros">
-      <input type="text" name="client[profile_disabled_person][which_disable]"  id="checkbox333" placeholder="Qual" class="form-control">
+      <input type="text" name="client[profile_WhichDisable]"  id="checkbox333" placeholder="Qual" class="form-control" value="{{client.profile_WhichDisable}}">
     </div>
     <br>
   </div><br><br>
 
   <h3> Restrição Alimentar </h3><br><br>
   <div class="dinamic_White">
+
+    <!-- Restrição alimentar sim -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_food][restriction]">
+      {{#compare client.profile_FoodSim "Sim"}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_FoodSim]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox21" value="Sim" name="client[profile_FoodSim]">
+      <label class="form-check-label" for="inlineCheckbox3">Sim</label>
+      {{/compare}}
     </div>
+
+    <!-- Restrição alimentar não -->
     <div class="form-check form-check-inline float-center">
-      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_food][restriction]">
+      {{#compare client.profile_FoodNão "Não"}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_FoodNão]" checked>
       <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Não" name="client[profile_FoodNão]">
+      <label class="form-check-label" for="inlineCheckbox3">Não</label>
+      {{/compare}}
     </div>
+
+    <!-- Qual restrição -->
     <div class="input_outros">
-      <input type="text" name="client[profile_food][which_food]"  id="checkbox333" placeholder="Qual" class="form-control">
+      <input type="text" name="client[profile_WhichFood]"  id="checkbox333" placeholder="Qual" class="form-control" value="{{client.profile_WhichFood}}">
     </div>
     <br>
-  </div><br><br>
-
-</div><br><br>
-
-
+  </div>
+  <br><br>
 </div>
-
-
+<br><br>
+</div>
 </div>
 </div>
 <br>
