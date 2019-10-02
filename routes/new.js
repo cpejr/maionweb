@@ -196,6 +196,13 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                   console.log(test[i]);
 
                 }
+
+                // const infoVoos = [];
+                // const voos = [{
+                //
+                // }];
+
+
                         res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test});
                     }).catch((error)=>{
                         console.log(error);
