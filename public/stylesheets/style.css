@@ -6701,19 +6701,19 @@ label {
   background-color: #f3ab85; }
 
 .box_hotelH_left {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #C4694A;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin: 20px 0 20px 20px;
   height: 700px; }
 
 .box_hotelH_midle {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #C4694A;
   margin: 20px 0 20px 0;
   height: 700px; }
 
 .box_hotelH_right {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #C4694A;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   margin: 20px 20px 20px 0;
@@ -6722,7 +6722,7 @@ label {
 .CarsPageH {
   border-radius: 8px;
   margin: 20px;
-  background-color: rgba(0, 0, 0, 0.2); }
+  background-color: #C4694A; }
 
 .boxLeftPageH {
   background-color: rgba(0, 0, 0, 0.2);
@@ -6733,7 +6733,7 @@ label {
   padding: 2px; }
 
 .boxRightPageH {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #C4694A;
   border-radius: 8px;
   margin: 0 auto;
   height: auto;
@@ -6746,6 +6746,9 @@ label {
   padding: 25px;
   background-color: #f3ab85;
   border-radius: 8px; }
+
+.hidden-imgs {
+  display: none; }
 
 .icones {
   height: 10px;
