@@ -9,18 +9,6 @@
     <div class="formInputs">
       <input placeholder="Busca" class="form-control" id="search" name="search">
     </div>
-    <!-- <input type="text" class="form-control" id="oia">
-    <br><br><br><br>
-    <button onClick="change()">Selecionar usuário</button>
-    <br><br><br><br>
-    <a class="link_making" id="linkA">Alterar dados</a>
-    <br><br><br><br>
-    <a class="link_making" id="linkB">Alterar características</a>
-    <br><br><br><br>
-    <a class="link_making" id="linkC">Alterar files</a>
-    <br><br><br><br>
-    <a class="link_making" id="linkC">Novo files</a> -->
-
     <div class="table-responsive">
       <table id="client_table" class="table table-striped table-hover">
         <thead>
@@ -38,10 +26,10 @@
           <tr>
             <th>{{fullname}}</th>
             <th>{{register}}</th>
-            <th><button onClick="location.href='pageA/{{_id}}'" class="fa fa-id-card-o btn m-1"></button></th>
+            <th><button onClick="location.href='pageA'" class="fa fa-id-card-o btn m-1"></button></th>
             <th><button onClick="location.href='pageB/{{_id}}'" class="fa fa-edit btn m-1"></button></th>
             <th><button onClick="location.href='pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
-            <th><button onClick="location.href='/new/pageC/{{_id}}'" class="btn m-1"><i class="material-icons">create_new_folder</i></button></th>
+            <th><button onClick="location.href='/new/pageC/{{_id}}'" class="icone btn m-1"><i class="material-icons">create_new_folder</i></button></th>
           </tr>
           {{/each}}
         </tbody>

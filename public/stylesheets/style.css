@@ -6810,6 +6810,10 @@ label {
 .hidden-imgs {
   display: none; }
 
+.icones {
+  height: 10px;
+  width: 10px; }
+
 .newcadas {
   max-width: 200px;
   margin-left: 450px; }

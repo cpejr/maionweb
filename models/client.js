@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 const clientSchema = new mongoose.Schema({
 
+  profile_Status: String,
+  profile_Conhecimento: String,
+  profile_NovasExperiencias: String,
+  profile_Diversao: String,
+  profile_BemEstar: String,
+  profile_Exclusividade: String,
   profile_need: {
     need: [],
     other_need: String,
