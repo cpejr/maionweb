@@ -116,7 +116,7 @@
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[wedding_anniversary]" class="form-control" id="wedding_anniversary" placeholder="Aniversário de Casamento" onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="text" name = "client[wedding_anniversary]" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="wedding_anniversary" placeholder="Aniversário de Casamento" onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
