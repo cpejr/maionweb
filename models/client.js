@@ -2,47 +2,6 @@ const mongoose = require('mongoose');
 
 const clientSchema = new mongoose.Schema({
 
-  profile_Status: String,
-  profile_Conhecimento: String,
-  profile_NovasExperiencias: String,
-  profile_Diversao: String,
-  profile_BemEstar: String,
-  profile_Exclusividade: String,
-  profile_need: {
-    need: [],
-    other_need: String,
-  },
-  profile_type: {
-    type: [],
-    other_type: String,
-  },
-  profile_hotel: {
-    hotel: [],
-    other_hotel: String,
-  },
-  profile_resort: [],
-  profile_sports: {
-    sports: [],
-    other_sports: String,
-  },
-  profile_food_diet: {
-    diet: [],
-    other_diet: String,
-  },
-  profile_smoke: [],
-  profile_allergy: {
-    which_allergy: String,
-    allergy: [],
-  },
-  profile_disabled_person:{
-    which_disable: String,
-    disable: [],
-  },
-  profile_food: {
-    which_food: String,
-    restriction: [],
-  },
-
   codClient: String,
   fullName: String,
 
@@ -110,12 +69,9 @@ const clientSchema = new mongoose.Schema({
   //redes sociais
   instagram: String,
   facebook: String,
-  plane_classs: String,
-  plane_seat_pref:String,
   others: String,
 
   profile: String,
-  averageBudget: String,
   travelPreferences: String,
   adeptResorts: String,
   travelClass: String,
@@ -162,7 +118,104 @@ const clientSchema = new mongoose.Schema({
 
   budgets:[{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Budget'}]
+    ref: 'Budget'}],
+
+  //Necessidades - início
+  profile_Status: String,
+  profile_Conhecimento: String,
+  profile_NovasExperiencias: String,
+  profile_Diversao: String,
+  profile_BemEstar: String,
+  profile_Exclusividade: String,
+  profile_OtherNeed: String,
+  //Necessidades - fim
+
+  //Perfil - início
+  profile_Esporte: String,
+  profile_Refinado: String,
+  profile_Simples: String,
+  profile_Cult: String,
+  profile_Comida: String,
+  profile_Vinhos: String,
+  profile_OtherType: String,
+  //Perfil - fim
+
+  //Hotéis - início
+  profile_Contemporaneo: String,
+  profile_Classico: String,
+  profile_Boutique: String,
+  profile_HotelSimples: String,
+  profile_AndarAlto: String,
+  profile_AndarBaixo: String,
+  profile_OtherHotel: String,
+  //Hotéis - fim
+
+  //Adepto à resorts - início
+  profile_ResortSim: String,
+  profile_ResortNao: String,
+  profile_ResortTalvez: String,
+  //Adepto à resorts - fim
+
+  // Budget mínimo - início
+  average_Budget: String,
+  // Budget mínimo - fim
+
+  // Classe do avião - início
+  plane_class: String,
+  // Classe do avião - fim
+
+  // Preferência de assento - início
+  plane_seat_pref:String,
+  // Preferência de assento - fim
+
+  //Esportes - início
+  profile_Corrida: String,
+  profile_Bike: String,
+  profile_Natação: String,
+  profile_CoriidaCarro: String,
+  profile_Musculação: String,
+  profile_Pesca: String,
+  profile_Mergulho: String,
+  profile_Golf: String,
+  profile_Tênis: String,
+  profile_OtherSports: String,
+  //Esportes - fim
+
+  //Gastronomia - início
+  profile_Italiana: String,
+  profile_Japonesa: String,
+  profile_Mediterrânea: String,
+  profile_Indiana: String,
+  profile_Asiática: String,
+  profile_Francesa: String,
+  profile_FrutosDoMar: String,
+  profile_Carnes: String,
+  profile_OtherDiet: String,
+  //Gastronomia - início
+
+  //Fumante - início
+  profile_SmokeSim: String,
+  profile_SmokeNão: String,
+  //Fumante - fim
+
+  //Alergia - início
+  profile_AllergySim: String,
+  profile_AllergyNão: String,
+  profile_WhichAllergy: String,
+  //Alergia - fim
+
+  //Dificuldade de locomoção - início
+  profile_DisableSim: String,
+  profile_DisableNão: String,
+  profile_WhichDisable: String,
+  //Dificuldade de locomoção - início
+
+  //Restrição alimentar - início
+  profile_FoodSim: String,
+  profile_FoodNão: String,
+  profile_WhichFood: String,
+  //Restrição alimentar - fim
+  
 }, { timestamps: true, static: false });
 
 const ClientModel = mongoose.model('Client', clientSchema);

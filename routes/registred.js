@@ -129,12 +129,164 @@ router.post('/pageB/:client_id',(req,res) => {
   const  client  = req.body.client;
   const  client_id = req.params.client_id;
 
+  // Necessidades
   if(client.profile_Status != 'Status'){
     client.profile_Status = 'empty';
   };
   if(client.profile_Conhecimento != 'Conhecimento'){
     client.profile_Conhecimento = 'empty';
   };
+  if(client.profile_NovasExperiencias != 'NovasExperiências'){
+    client.profile_NovasExperiencias = 'empty';
+  };
+  if(client.profile_Diversao != 'Diversão'){
+    client.profile_Diversao = 'empty';
+  };
+  if(client.profile_BemEstar != 'BemEstar'){
+    client.profile_BemEstar = 'empty';
+  };
+  if(client.profile_Exclusividade != 'Exclusividade'){
+    client.profile_Exclusividade = 'empty';
+  };
+
+  //Perfil
+  if(client.profile_Esporte != 'Esporte'){
+    client.profile_Esporte = 'empty';
+  };
+  if(client.profile_Refinado != 'Refinado'){
+    client.profile_Refinado = 'empty';
+  };
+  if(client.profile_Simples != 'Simples'){
+    client.profile_Simples = 'empty';
+  };
+  if(client.profile_Cult != 'Cult'){
+    client.profile_Cult = 'empty';
+  };
+  if(client.profile_Comida != 'Comida'){
+    client.profile_Comida = 'empty';
+  };
+  if(client.profile_Vinhos != 'Vinhos'){
+    client.profile_Vinhos = 'empty';
+  };
+
+  //Hotéis
+  if(client.profile_Contemporaneo != 'Contemporâneo'){
+    client.profile_Contemporaneo = 'empty';
+  };
+  if(client.profile_Classico != 'Clássico'){
+    client.profile_Classico = 'empty';
+  };
+  if(client.profile_Boutique != 'Boutique'){
+    client.profile_Boutique = 'empty';
+  };
+  if(client.profile_HotelSimples != 'Simples'){
+    client.profile_HotelSimples = 'empty';
+  };
+  if(client.profile_AndarAlto != 'AndarAlto'){
+    client.profile_AndarAlto = 'empty';
+  };
+  if(client.profile_AndarBaixo != 'AndarBaixo'){
+    client.profile_AndarBaixo = 'empty';
+  };
+
+  //Adepto a resorts
+  if(client.profile_ResortSim != 'Sim'){
+    client.profile_ResortSim = 'empty';
+  };
+  if(client.profile_ResortNao != 'Não'){
+    client.profile_ResortNao = 'empty';
+  };
+  if(client.profile_ResortTalvez != 'Talvez'){
+    client.profile_ResortTalvez = 'empty';
+  };
+
+  //Esportes
+  if(client.profile_Corrida != 'Corrida'){
+    client.profile_Corrida = 'empty';
+  };
+  if(client.profile_Bike != 'Bike'){
+    client.profile_Bike = 'empty';
+  };
+  if(client.profile_Natação != 'Natação'){
+    client.profile_Natação = 'empty';
+  };
+  if(client.profile_CoriidaCarro != 'CorridaCarro'){
+    client.profile_CoriidaCarro = 'empty';
+  };
+  if(client.profile_Musculação != 'Musculação'){
+    client.profile_Musculação = 'empty';
+  };
+  if(client.profile_Pesca != 'Pesca'){
+    client.profile_Pesca = 'empty';
+  };
+  if(client.profile_Mergulho != 'Mergulho'){
+    client.profile_Mergulho = 'empty';
+  };
+  if(client.profile_Golf != 'Golf'){
+    client.profile_Golf = 'empty';
+  };
+  if(client.profile_Tênis != 'Tênis'){
+    client.profile_Tênis = 'empty';
+  };
+
+  //Gastronomia
+  if(client.profile_Italiana != 'Italiana'){
+    client.profile_Italiana = 'empty';
+  };
+  if(client.profile_Japonesa != 'Japonesa'){
+    client.profile_Japonesa = 'empty';
+  };
+  if(client.profile_Mediterrânea != 'Mediterranea'){
+    client.profile_Mediterrânea = 'empty';
+  };
+  if(client.profile_Indiana != 'Indiana'){
+    client.profile_Indiana = 'empty';
+  };
+  if(client.profile_Asiática != 'Asiática'){
+    client.profile_Asiática = 'empty';
+  };
+  if(client.profile_Francesa != 'Francesa'){
+    client.profile_Francesa = 'empty';
+  };
+  if(client.profile_FrutosDoMar != 'FrutosDoMar'){
+    client.profile_FrutosDoMar = 'empty';
+  };
+  if(client.profile_Carnes != 'Carnes'){
+    client.profile_Carnes = 'empty';
+  };
+
+  //Fumante
+  if(client.profile_SmokeSim != 'Sim'){
+    client.profile_SmokeSim = 'empty';
+  };
+  if(client.profile_SmokeNão != 'Não'){
+    client.profile_SmokeNão = 'empty';
+  };
+
+  //Alergia
+  if(client.profile_AllergySim != 'Sim'){
+    client.profile_AllergySim = 'empty';
+  };
+  if(client.profile_AllergyNão != 'Não'){
+    client.profile_AllergyNão = 'empty';
+  };
+
+  //Dificuldade de locomoção
+  if(client.profile_DisableSim != 'Sim'){
+    client.profile_DisableSim = 'empty';
+  };
+  if(client.profile_DisableNão != 'Não'){
+    client.profile_DisableNão = 'empty';
+  };
+
+  //Restrição alimentar
+  if(client.profile_FoodSim != 'Sim'){
+    client.profile_FoodSim = 'empty';
+  };
+  if(client.profile_FoodNão != 'Não'){
+    client.profile_FoodNão = 'empty';
+  };
+
   Client.update(client_id, client).then(() => {
     res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
