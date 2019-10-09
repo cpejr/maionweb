@@ -34,10 +34,10 @@ const budgetSchema = new mongoose.Schema({
 
 
 
-      flights:[{
+      flights:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Flight'
-    }],
+    },
 
     client:{
       type: mongoose.Schema.Types.ObjectId,
@@ -268,7 +268,20 @@ class Budget {
     });
   }
 
-
+  /**
+    * Get the flight from a budget by its id
+    * @param {string} budget_id - budget uid
+    * @returns {Array} - Array of flights
+    */
+   static getAssociatedFlightById(id) {
+     return new Promise((resolve, reject) => {
+       BudgetModel.findById(id).populate({ path: 'flights' }).exec().then((result) => {
+         resolve(result.flights);
+       }).catch((err) => {
+         reject(err);
+       });
+     });
+    }
 
 
 }

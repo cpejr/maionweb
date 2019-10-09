@@ -195,17 +195,14 @@
             </div>
           </div>
 
-        <h2 id="titulo_roteiro">Roteiro de dias</h2>
+        <!-- <h2 id="titulo_roteiro">Roteiro de dias</h2> -->
         <div class="dinamic_spec">
 
           <table>
               <div class="col-sm-auto" id="roteiro-dias">
-                <input readonly="readonly "type="date" placeholder="Data" value="{{budget.planDate}}" class= "date start-date form-control classCinput"><br>
+                <!-- <input readonly="readonly "type="date" placeholder="Data" value="{{budget.planDate}}" class= "date start-date form-control classCinput"><br>
                 <input readonly="readonly "placeholder="País" value="{{budget.planCountry}}" class= "form-control classCinput2"><br>
-                <input readonly="readonly "placeholder="Cidade" value="{{budget.planCity}}" class= "form-control classCinput2">
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="planFreeField" placeholder="Campo Livre" rows="3"></textarea>
+                <input readonly="readonly "placeholder="Cidade" value="{{budget.planCity}}" class= "form-control classCinput2"> -->
               </div>
           </table>
 
@@ -228,25 +225,39 @@
           </div>
           <div class="col-4 rowclass" id="PageH_Col2">
             <div class="PageHColMidle">
-              <h3> Voo </h3>
-              <br><br>
-              <input readonly="readonly "type="text" placeholder="Origem" value="{{flight.from}}" class="date start-date"/>
-              <i class="fa fa-plane"></i>
-              <input readonly="readonly "type="text" placeholder="Destino" value="{{flight.destination}}" class="date start-date"/>
-              <br><br>
-              <input readonly="readonly "type="date" placeholder="dd/mm/aa" value="{{flight.dateFrom}}" class="date start-date"/>
-              <i class="fa fa-calendar"></i>
-              <input readonly="readonly "type="date" placeholder="dd/mm/aa" value="{{flight.dateDestination}}" class="date start-date"/>
-              <br><br>
+              <h3> Voos </h3>
+
+              {{#each infoVoosida}}
+                <label>De:</label>
+                <input type="text" placeholder="Origem" value="{{de}}" class="form-control" readonly="readonly"/>
+              {{/each}}
+              {{#each infoVoospara}}
+                <label>Para:</label>
+                <input type="text" placeholder="Destino" value="{{para}}" class="form-control" readonly="readonly"/>
+              {{/each}}
+              {{#each infoVoosdataida}}
+                <label>Data de ida:</label>
+                <input type="date" placeholder="dd/mm/aa" value="{{dataIda}}" class="form-control" readonly="readonly"/>
+              {{/each}}
+              {{#each infoVoosdatapara}}
+                <label>Data de Chegada:</label>
+                <input type="date" placeholder="dd/mm/aa" value="{{dataPara}}" class="form-control" readonly="readonly"/>
+              {{/each}}
+              {{#each infoVoosvalor}}
+                <label>Valor total:</label>
+                <input type="text" class="form-control" value="{{valortotal}}" readonly="readonly">
+              {{/each}}
+
             </div>
           </div>
+          <!-- {{#each infoVoos}}
         <div class="col-6 rowclass" id="PageH_Col3">
           <div class="PageHColRight">
             <h3>Valor total</h3>
-            <input readonly="readonly "value="{{flight.finalValueInf}}" type="text" id="result4" onblur="calcular4()" placeholder="Total" class="valor"/>
+            <input readonly="readonly "value="{{valorFinal}}" type="text" id="result4" onblur="calcular4()" placeholder="Total" class="valor"/>
           </div>
         </div>
-
+        {{/each}} -->
         </div>
       </div>
 
