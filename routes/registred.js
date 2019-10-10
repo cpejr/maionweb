@@ -8,6 +8,17 @@ const Car = require('../models/car');
 const Safe = require('../models/safe');
 
 
+router.get('/PagePersonal/:client_id', function (req, res) {
+  Client.getAllBudgetsById(req.params.client_id).then((budgets)=>{
+    console.log(budgets);
+    console.log('----//----//----');
+    res.render('registred/PagePersonal', { budgets, title: 'Personal', layout: 'layoutDashboard',...req.session});
+  }).catch((error) => {
+   console.log(error);
+   res.redirect('/error');
+  });
+});
+
 router.get('/pageRegistred', function (req, res) {
   Client.getAll().then((clientes)=>{
     res.render('registred/pageRegistred', { clientes, title: 'Cadastrados', layout: 'layoutDashboard',...req.session});
@@ -41,10 +52,10 @@ router.get('/pageB/:client_id', function(req, res) {
 
 
 /* GET pageC. */
-router.get('/pageC/:client_id', function(req, res) {
-  Client.getById(req.params.client_id).then((client) => {
-      console.log(client);
-      res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
+router.get('/pageC/:budget_id', function(req, res) {
+  Budget.getById(req.params.budget_id).then((budget) => {
+      console.log(budget);
+      res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, budget});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
