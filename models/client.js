@@ -215,7 +215,7 @@ const clientSchema = new mongoose.Schema({
   profile_FoodNão: String,
   profile_WhichFood: String,
   //Restrição alimentar - fim
-  
+
 }, { timestamps: true, static: false });
 
 const ClientModel = mongoose.model('Client', clientSchema);
@@ -328,6 +328,22 @@ class Client {
      });
    });
  }
+
+ /**
+   * Get the flight from a budget by its id
+   * @param {string} budget_id - budget uid
+   * @returns {Array} - Array of flights
+   */
+  static getAllBudgetsById(id) {
+    return new Promise((resolve, reject) => {
+      ClientModel.findById(id).populate({ path: 'budgets' }).exec().then((result) => {
+        resolve(result.budgets);
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+   }
+
 }
 
 module.exports = Client;

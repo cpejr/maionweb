@@ -13,49 +13,9 @@ $( "#add-companion" ).click(function(){
 // page c - início
 var planned_day = 2;
 $( "#add_dias" ).click(function() {
-  $( "#testedacamila" ).append( '<div id="testedacamila" class="rowclass"><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto-pageC rowclass">Dia '+planned_day+'</div><div class="col-sm-auto-pageC rowclass"><input type="date" placeholder="dd/mm/aa" name="planDate" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="País" name="planCountry" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="Cidade" name="planCity"class= "form-control classCinput2"></div></div><br><div class="form-group"><textarea class="form-control" name="planFreeField" placeholder="Campo Livre" rows="3"></textarea></div></div></div>' );
+  $( "#testedacamila" ).append( '<div id="testedacamila" class="rowclass"><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto-pageC rowclass">Dia '+planned_day+'</div><div class="col-sm-auto-pageC rowclass"><input type="date" placeholder="dd/mm/aa" name="budget[planDate]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="País" name="budget[planCountry]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="Cidade" name="budget[planCity]"class= "form-control classCinput2"></div></div><br><div class="form-group"><textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3"></textarea></div></div></div>' );
   planned_day ++;
   console.log('add dias ta pegando');
-});
-
-
-// $( "#add-campo-acompanhantes" ).click(function() {
-  //   $( "#name_acomp" ).append( '<input class="form-control" type="text" name="budget[companion][name]" placeholder="Nome do acompanhante">' );
-  //   $( "#age_acomp" ).append( '<select class="form-control" name="budget[companion][age]"><option selected>Faixa etária do acompanhante</option><option>Adulto</option><option>CHD</option><option>INF</option></select>' );
-  // });
-
-// var num = 2;
-// var day = 1;
-// $('#add_country').on('click', function() {
-//   $("#button_space").append('<div id="in_country_days'+num+'" class="testeReplicaBox"><div class="days_input"><input placeholder="Nome do país" class="form-control" name="budget[country][]"></input></div>   <div class="days_input"><input placeholder="Aeroporto de ída" class="form-control" name="budget[airportGo][]"></input><input placeholder="Aeroporto de chegada" class="form-control" name="budget[airportReturn][]"></input></div>   <div class="days_input"><input placeholder="data de ída" class="form-control" name="budget[goDate][]"></input><input placeholder="data de chegada" class="form-control" name="budget[returnDate][]"></input></div>   <div class="days_input"><input placeholder="Nome da cidade" class="form-control" name="budget[cities][]"></input></div>   </div>');
-//   day = num;
-//   num++;
-//   $(".testeReplicaBox").removeClass("Selected");
-//   $(`#in_country_days${day}`).addClass("Selected");ss
-// });
-//
-// $("#button_day_original").on("click", function(){
-//   var newDia = '<div class="days_input"><input placeholder="Nova cidade" class="form-control" name="budget[cities][]"></input></div>';
-//   $(`#in_country_days${day}`).append(newDia);
-// });
-//
-// $('#increasing').on('click', function() {
-//   if(day > 1){
-//     day--;
-//     $(".testeReplicaBox").removeClass("Selected");
-//     $(`#in_country_days${day}`).addClass("Selected");
-//   }
-// });
-//
-// $('#decreasing').on('click', function() {
-//   if(day < num-1){
-//     day++;
-//     $(".testeReplicaBox").removeClass("Selected");
-//     $(`#in_country_days${day}`).addClass("Selected");
-//   }
-// });
-
-$('.move').on('click', function() {
 });
 
 // page c - fim
