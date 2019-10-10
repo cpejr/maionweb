@@ -54,10 +54,11 @@ router.get('/pageB/:client_id', function(req, res) {
 /* GET pageC. */
 router.get('/pageC/:budget_id', function(req, res) {
   Budget.getById(req.params.budget_id).then((budget) => {
+
     const allScripts = [];
 
     console.log(req.session);
-          for (var i = 0; i < budget.country.length; i++) {
+          for (var i = 0; i < budget.planCountry.length; i++) {
 
             const script = {
               countryName: String,
@@ -66,15 +67,11 @@ router.get('/pageC/:budget_id', function(req, res) {
               freeField: String
             };
 
-            script.countryName = budget.country[i];
+            script.countryName = budget.planCountry[i];
             script.cityName = budget.planCity[i];
             script.scriptDate = budget.planDate[i];
             script.freeField = budget.planFreeField[i]
             allScripts.push(script);
-
-            console.log(allScripts[i]);
-            console.log('------');
-
           }
 
           console.log(allScripts);
