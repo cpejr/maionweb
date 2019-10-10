@@ -44,16 +44,17 @@ const budgetSchema = new mongoose.Schema({
       ref: 'Client'
     },
 
-      hotels:[{
+      hotels:{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Hotel'
-    }],
+      ref: 'hotel'
+    },
 
 
     trasnport:[{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Transport'
     }],
+
     cars:[{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Car'
@@ -282,6 +283,51 @@ class Budget {
        });
      });
     }
+
+    /**
+      * Get the hotel from a budget by its id
+      * @param {string} budget_id - budget uid
+      * @returns {Array} - Array of hotel
+      */
+     static getAssociatedHotelById(id) {
+       return new Promise((resolve, reject) => {
+         BudgetModel.findById(id).populate({ path: 'hotels' }).exec().then((result) => {
+           resolve(result.hotels);
+         }).catch((err) => {
+           reject(err);
+         });
+       });
+      }
+
+      /**
+        * Get the car from a budget by its id
+        * @param {string} budget_id - budget uid
+        * @returns {Array} - Array of car
+        */
+       static getAssociatedCarById(id) {
+         return new Promise((resolve, reject) => {
+           BudgetModel.findById(id).populate({ path: 'cars' }).exec().then((result) => {
+             resolve(result.cars);
+           }).catch((err) => {
+             reject(err);
+           });
+         });
+        }
+
+        /**
+          * Get the safe from a budget by its id
+          * @param {string} budget_id - budget uid
+          * @returns {Array} - Array of hotel
+          */
+         static getAssociatedSafeById(id) {
+           return new Promise((resolve, reject) => {
+             BudgetModel.findById(id).populate({ path: 'safes' }).exec().then((result) => {
+               resolve(result.safes);
+             }).catch((err) => {
+               reject(err);
+             });
+           });
+          }
 
 
 }
