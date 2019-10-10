@@ -179,119 +179,100 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
           Budget.getAssociatedFlightById(req.params.budget_id).then((flights)=>{
-            console.log(flights);
-            
-          const test = [];
-          const companions = [{
-            name: String
-          }];
+              Budget.getAssociatedHotelById(req.params.budget_id).then((hotels)=>{
+                Budget.getAssociatedCarById(req.params.budget_id).then((cars)=>{
+                  Budget.getAssociatedSafeById(req.params.budget_id).then((safes)=>{
+                          console.log(flights);
 
 
-          console.log(req.session);
-                for (var i = 0; i < client.companionFullname.length; i++) {
+                                        const test = [];
+                                        const companions = {
+                                          name: String
+                                        };
 
-                  const companions = {
-                    name: String
-                  };
+                                        console.log(req.session);
+                                              for (var i = 0; i < client.companionFullname.length; i++) {
 
-                  companions.name = client.companionFullname[i];
-                  test.push(companions);
+                                                const companions = {
+                                                  name: String
+                                                };
 
-                  console.log(test[i]);
+                                                companions.name = client.companionFullname[i];
+                                                test.push(companions);
 
-                }
+                                                console.log(test[i]);
 
-                 const infoVoosida = [];
-                 const voos1 = [{
-                   de: String
-                 }];
+                                              }
 
-                 for (var i = 0; i < flights.from.length; i++) {
-                   const voos1= [{
-                     de: String
-                   }];
+                                              const infoVoos = [];
+                                              const voos= [{
+                                                de: String,
+                                                para: String,
+                                                dataIda: String,
+                                                dataPara: String,
+                                                valortotal: String
+                                              }];
 
-                   voos1.de = flights.from[i];
-                   infoVoosida.push(voos1);
-                   console.log(infoVoosida[i]);
-                 }
 
-                 const infoVoospara = [];
-                 const voos2 = [{
-                   para: String
-                 }];
+                                              for (var i = 0; i < flights.from.length; i++) {
+                                                const voos= [{
+                                                  de: String,
+                                                  para: String,
+                                                  dataIda: String,
+                                                  dataPara: String,
+                                                  valortotal: String
+                                                }];
+                                                // console.log("-----------------------------------------------------------------------");
+                                                // console.log(flights.dateFrom[0]);
+                                                //
+                                                //  var testin = String;
+                                                //
+                                                //  for (var l = 0; l < 16; l++) {
+                                                //    testin = flights.dateFrom[i];
+                                                //    console.log(testin);
+                                                //
+                                                //  }
 
-                 for (var i = 0; i < flights.destination.length; i++) {
-                   const voos2= [{
-                     para: String
-                   }];
-
-                   voos2.para = flights.destination[i];
-                   infoVoospara.push(voos2);
-                   console.log(infoVoospara[i]);
-                 }
-
-                 const infoVoosdataida = [];
-                 const voos3 = [{
-                   dataIda: String
-                 }];
-
-                 for (var i = 0; i < flights.dateFrom.length; i++) {
-                   const voos3= [{
-                     dataIda: String
-                   }];
-
-                   voos2.dataIda = flights.dateFrom[i];
-                   infoVoosdataida.push(voos3);
-                   console.log(infoVoosdataida[i]);
-                 }
-
-                 const infoVoosdatapara = [];
-                 const voos4 = [{
-                   dataPara: String
-                 }];
-
-                 for (var i = 0; i < flights.dateDestination.length; i++) {
-                   const voos4= [{
-                     dataPara: String
-                   }];
-
-                   voos4.dataPara = flights.dateDestination[i];
-                   infoVoosdatapara.push(voos4);
-                   console.log(infoVoosdatapara[i]);
-                 }
-
-                 const infoVoosvalor = [];
-                 const voos5 = [{
-                   valortotal: String
-                 }];
-
-                 for (var i = 0; i < flights.finalValue.length; i++) {
-                   const voos5= [{
-                     valortotal: String
-                   }];
-
-                   voos5.valortotal = flights.finalValue[i];
-                   infoVoosvalor.push(voos5);
-                   console.log(infoVoosvalor[i]);
-                 }
+                                                voos.de = flights.from[i];
+                                                voos.para = flights.destination[i];
+                                                voos.dataIda = flights.dateFrom[i];
+                                                voos.dataPara = flights.dateDestination[i];
+                                                voos.valortotal = flights.finalValue[i];
+                                                infoVoos.push(voos);
+                                                console.log(infoVoos[i]);
+                                              }
 
 
 
-
-                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, infoVoosida, voos1, infoVoospara, voos2, infoVoosdataida, voos3, infoVoosdatapara, voos4, infoVoosvalor, voos5});
-                    }).catch((error)=>{
-                        console.log(error);
-                        res.redirect('/error');
-                      });
-              }).catch((error)=>{
+                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, infoVoos, voos});
+                                    }).catch((error)=>{
+                                        console.log(error);
+                                        res.redirect('/error');
+                                      });
+                              }).catch((error)=>{
+                                console.log(error);
+                                res.redirect('/error');
+                            });
+                          }).catch((error)=>{
+                            console.log(error);
+                            res.redirect('/error');
+                          });
+                        }).catch((error)=>{
+                      console.log(error);
+                      res.redirect('/error');
+                    });
+                  }).catch((error)=>{
                 console.log(error);
                 res.redirect('/error');
-            });
-          }).catch((error)=>{
-            console.log(error);
-            res.redirect('/error');
-          });
+              });
+            }).catch((error)=>{
+          console.log(error);
+          res.redirect('/error');
+        });
+
+
+
+
 });
 
 /*POST pageA*/

@@ -227,23 +227,15 @@
             <div class="PageHColMidle">
               <h3> Voos </h3>
 
-              {{#each infoVoosida}}
+              {{#each infoVoos}}
                 <label>De:</label>
                 <input type="text" placeholder="Origem" value="{{de}}" class="form-control" readonly="readonly"/>
-              {{/each}}
-              {{#each infoVoospara}}
                 <label>Para:</label>
                 <input type="text" placeholder="Destino" value="{{para}}" class="form-control" readonly="readonly"/>
-              {{/each}}
-              {{#each infoVoosdataida}}
                 <label>Data de ida:</label>
-                <input type="date" placeholder="dd/mm/aa" value="{{dataIda}}" class="form-control" readonly="readonly"/>
-              {{/each}}
-              {{#each infoVoosdatapara}}
+                <input type="textarea" placeholder="dd/mm/aa" class="form-control" readonly="readonly" value="{{dataIda}}"></input>
                 <label>Data de Chegada:</label>
-                <input type="date" placeholder="dd/mm/aa" value="{{dataPara}}" class="form-control" readonly="readonly"/>
-              {{/each}}
-              {{#each infoVoosvalor}}
+                <input type="text" placeholder="dd/mm/aa" value="{{dataPara}}" class="form-control" readonly="readonly"/>
                 <label>Valor total:</label>
                 <input type="text" class="form-control" value="{{valortotal}}" readonly="readonly">
               {{/each}}
