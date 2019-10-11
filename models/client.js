@@ -93,7 +93,6 @@ const clientSchema = new mongoose.Schema({
 
   register: {
     type: String, // CPF
-    unique: true
   },
 
   //endereço
