@@ -37,6 +37,7 @@ router.get('/pageC/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
+
 /* GET pageD. */
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
@@ -311,7 +312,12 @@ router.post('/pageC/:client_id',(req,res) => {
   const  client_id = req.params.client_id;
   Budget.create(budget).then((budget_id) => {
     Client.addBudget(client_id, budget_id).then(() => {
+      Budget.motherClient(budget_id, client_id).then(() => {
         res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+      }).catch((error) =>{
+        console.log(error);
+        res.redirect('error');
+      });
       }).catch((error) => {
         console.log(error);
         res.redirect('error');

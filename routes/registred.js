@@ -74,9 +74,6 @@ router.get('/pageC/:budget_id', function(req, res) {
             allScripts.push(script);
           }
 
-          console.log(allScripts);
-          console.log('------');
-
     res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, budget, allScripts});
 }).catch((error) => {
     console.log(error);
@@ -87,8 +84,72 @@ router.get('/pageC/:budget_id', function(req, res) {
 /* GET pageD. */
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
-        console.log(client);
-        res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client});
+        Budget.getById(req.params.budget_id).then((budget) => {
+          Flight.getById(budget.flights).then((flights) => {
+
+            const allFlights = [];
+            const allEscalas = [];
+
+
+            for (var i = 0; i < flights.tariffValueCHD.length; i++) {
+
+
+              const flightInfo ={
+
+                // from: String,
+                // destination: String,
+                // dateFrom: Date,
+                // dateDestination: Date,
+                //
+                // tariffValueCHD: Number,
+                // taxValueCHD: Number,
+                // ravValueCHD: Number,
+                // totalValueCHD: Number,
+                //
+                // tariffValueInf: Number,
+                // taxValueInf:Number,
+                // ravValueInf: Number,
+                // totalValueInf: Number,
+                //
+                // tariffValueAdult: Number,
+                // taxValueAdult: Number,
+                // ravValueAdult: Number,
+                // totalValueAdult: Number,
+              };
+
+              // flightInfo.tariffValueCHD=flights.tariffValueCHD[i];
+              // flightInfo.taxValueCHD=flights.taxValueCHD[i];
+              // flightInfo.ravValueCHD=flights.taxValueCHD[i];
+              // flightInfo.totalValueCHD=flights.totalValueCHD[i];
+              //
+              // flightInfo.tariffValueInf=flights.tariffValueInf[i];
+              // flightInfo.taxValueInf=flights.taxValueInf[i];
+              // flightInfo.ravValueInf=flights.ravValueInf[i];
+              // flightInfo.totalValueInf=flights.totalValueInf[i];
+              //
+              // flightInfo.tariffValueAdult=flights.tariffValueAdult[i];
+              // flightInfo.taxValueAdult=flights.taxValueAdult[i];
+              // flightInfo.ravValueAdult=flights.ravValueAdult[i];
+              // flightInfo.totalValueAdult=flights.totalValueAdult[i];
+              //
+              // flightInfo.from=flights.from[i];
+              // flightInfo.destination=flights.destination[i];
+              // flightInfo.dateFrom=flights.dateFrom[i];
+              // flightInfo.dateDestination=flights.dateDestination[i];
+              // console.log(flights.from);
+              //
+              // allFlights.push(flightInfo);
+            }
+            // console.log(allFlights);
+
+            res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, allFlights, flights});
+          }).catch((error) => {
+            console.log(error);
+          });
+        }).catch((error) => {
+          console.log(error);
+          res.redirect('/error');
+        })
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -98,7 +159,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log(client);
+    console.log('passou na E Get =========================================================');
     res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
 }).catch((error) => {
     console.log(error);
@@ -333,7 +394,7 @@ router.post('/pageC/:client_id',(req,res) => {
   const  budget = req.body.budget;
   const  client_id = req.params.client_id;
   Budget.update(budget).then((budget_id) => {
-    Client.addBudget(client_id, budget_id).then(() => {
+    Client.update(client_id, budget_id).then(() => {
         res.redirect(`/registred/pageD/${client_id}/${budget_id}`);
       }).catch((error) => {
         console.log(error);
@@ -352,6 +413,8 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const  client_id = req.params.client_id;
   Flight.update(flight).then((flight_id) => {
     Budget.addFlight(budget_id, flight_id).then(() => {
+      console.log('passou na D post =========================================================');
+
       console.log(flight);
       res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
