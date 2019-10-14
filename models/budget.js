@@ -50,29 +50,29 @@ const budgetSchema = new mongoose.Schema({
     },
 
 
-    trasnport:[{
+    trasnport:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Transport'
-    }],
+    },
 
-    cars:[{
+    cars:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Car'
-    }],
+    },
 
-    safes:[{
+    safes:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Safe'
-    }],
+    },
 
-    tickets:[{
+    tickets:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Ticket'
-    }],
-    others: [{
+    },
+    others: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Other'
-    }],
+    },
 
   totalValue:{
     type: Number

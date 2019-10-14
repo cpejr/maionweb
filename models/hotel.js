@@ -10,8 +10,12 @@ const hotelSchema = new mongoose.Schema({
   valueApt1: [Number],
   valueApt2: [Number],
   valueApt3: [Number],
-  numberDaily: [Number],
-  numberApt: [Number],
+  numberDaily1: [Number],
+  numberDaily2: [Number],
+  numberDaily3: [Number],
+  numberApt1: [Number],
+  numberApt2: [Number],
+  numberApt3: [Number],
   total1: [Number],
   total2: [Number],
   total3: [Number],
@@ -20,7 +24,9 @@ const hotelSchema = new mongoose.Schema({
   category3: [String],
 
 
-  food: [String],//: ['Café', 'Meia Pensão', 'All Inclus', 'Outro']
+  food1: [String],
+  food2: [String],
+  food3: [String],//: ['Café', 'Meia Pensão', 'All Inclus', 'Outro']
 
   cancellationPeriod:[String],// enum: ['Sem Prazo', 'Com Prazo', 'Outro']
   cancellationPeriod2:[String],// enum: ['Sem Prazo', 'Com Prazo', 'Outro']
