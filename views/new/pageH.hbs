@@ -23,10 +23,10 @@
         <label for="exampleInputPassword1"></label>
         </table>
         <br>
-<div class="dinamic_spec">
 
 
   <div id="some-radios" class="some">
+    <div class="dinamic_spec">
     <h3>Continentes</h3>
 
     <div class="form-check form-check-inline">
@@ -115,7 +115,7 @@
         <div class="images-form " id="images-form">
 
             <div class="sul1-imgs hidden-imgs" id="idsul1-imgs">
-              <img src="/images/AMS1.png">
+              <img id="idsul1-imgs" src="/images/AMS1.png">
             </div>
 
             <div class="sul2-imgs hidden-imgs" id="idsul2-imgs">
@@ -240,6 +240,8 @@
                 <input type="text" class="form-control" value="{{valortotal}}" readonly="readonly">
               {{/each}}
 
+
+
             </div>
           </div>
           <!-- {{#each infoVoos}}
@@ -257,140 +259,103 @@
         <h1> Hotel </h1>
 
         <div class="dinamic_spec" id="vamo">
-
+          {{#each infoHoteis}}
           <div class="row rowclass" >
             <div class="col-sm" id="landing-hotel-col1">
               <div class="box_hotelH_left"><br><br><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Hotel 1" value="{{hotel.hotel1}}">
+                  <input readonly="readonly "class="form-control" placeholder="Hotel 1" value="{{hotel_1}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{hotel.category1}}">
+                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria1}}">
                 </div><br>
                 <div class="classa">
-                  <select readonly="readonly" placeholder="Selecione" class="form-control" value="{{hotel.food}}">
-                    <option style="display:none">Regime de Alimentação</option>
-                    <option>Café</option>
-                    <option>Meia pensão</option>
-                    <option>All inclusive</option>
-                    <option>Outros</option>
-                  </select>
+                  <input readonly="readonly" class="form-control" value="{{comida1}}">
+                  </input>
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{hotel.valueApt1}}">
+                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valora pto1}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{hotel.numberDaily}}">
+                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias1}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{hotel.numberApt}}">
+                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto1}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{hotel.total1}}">
+                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_1}}">
                 </div><br>
                 <div class="classa">
-                  <select readonly="readonly" class="form-control" value="{{hotel.cancellationPeriod2}}">
-                    <option style="display:none">Prazo de Cancelamento</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
-                  </select>
+                  <input readonly="readonly" class="form-control" value="{{periodoCancelamento1}}">
+                </input>
                 </div>
               </div>
             </div>
             <div class="col-sm" id="landing-hotel-col2">
               <div class="box_hotelH_midle">
-                <!-- <div id="companion_camp">
-                  <h3> Passageiros </h3><br>
-                  <input readonly="readonly "placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-                  <br>
-
-
-                      <li>{{companionFullname}} </li>
-
-
-
-                </div><br><br> -->
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Cidade 1" value="{{hotel.city}}">
+                  <input readonly="readonly "class="form-control" placeholder="Cidade 1" value="{{cidade}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Hotel 2" value="{{hotel.hotel2}}">
+                  <input readonly="readonly "class="form-control" placeholder="Hotel 2" value="{{hotel_2}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{hotel.category2}}">
+                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria2}}">
                 </div><br>
                 <div class="classa">
-                  <select readonly="readonly" placeholder="Selecione" class="form-control" value="{{hotel.food}}">
-                    <option style="display:none">Regime de Alimentação</option>
-                    <option>Café</option>
-                    <option>Meia pensão</option>
-                    <option>All inclusive</option>
-                    <option>Outros</option>
-                  </select>
+                  <input readonly="readonly" class="form-control" value="{{comida2}}">
+                  </input>
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{hotel.valueApt2}}">
+                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto2}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{hotel.numberDaily}}">
+                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias2}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{hotel.numberApt}}">
+                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto2}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{hotel.total2}}">
+                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_2}}">
                 </div><br>
                 <div class="classa">
-                  <select readonly="readonly" class="form-control" value="{{hotel.cancellationPeriod3}}">
-                    <option style="display:none">Prazo de Cancelamento</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
-                  </select>
+                  <input readonly="readonly" class="form-control" value="{{periodoCancelamento2}}">
+                </input>
                 </div>
               </div>
             </div>
             <div class="col-sm" id="landing-hotel-col3">
               <div class="box_hotelH_right"><br><br><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Hotel 3" value="{{hotel.hotel3}}">
+                  <input readonly="readonly "class="form-control" placeholder="Hotel 3" value="{{hotel_3}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{hotel.category3}}">
+                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria3}}">
                 </div><br>
                 <div class="classa">
-                  <select readonly="readonly" placeholder="Selecione" class="form-control" value="{{hotel.food}}">
-                    <option style="display:none">Regime de Alimentação</option>
-                    <option>Café</option>
-                    <option>Meia pensão</option>
-                    <option>All inclusive</option>
-                    <option>Outros</option>
-                  </select>
+                  <input readonly="readonly" class="form-control" value="{{comida3}}">
+                  </input>
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{hotel.valueApt3}}">
+                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto3}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{hotel.numberDaily}}">
+                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias3}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{hotel.numberApt}}">
+                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto3}}">
                 </div><br>
                 <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{hotel.total3}}">
+                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_3}}">
                 </div><br>
                 <div class="classa">
-                  <select readonly="readonly" class="form-control" value="{{hotel.cancellationPeriod1}}">
-                    <option style="display:none">Prazo de Cancelamento</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
-                  </select>
+                  <input readonly="readonly" class="form-control" value="{{periodoCancelamento3}}">
+                </input>
                 </div>
               </div>
             </div>
           </div>
+          {{/each}}
         </div>
 
 
@@ -401,47 +366,45 @@
           <div class="dinamic_spec" id="vamo">
 
             <div class="row rowclass">
-              <!-- coluna 1 -->
-              <!-- <div class="col-sm-6 rowclass" id="PageF_Col1">
-                <div class="boxLeftPageH"> -->
-                  <!-- <br><br><br>  <h3> Passageiros </h3><br>
-                  <input class="form-check-input" type="checkbox">
-                  <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-                  <br><br>
-
-                      <li>{{companionFullname}} </li>
-
-                  <div id="add_acompanhantesvoo"></div>
-                  <br> -->
-                <!-- </div>
-              </div> -->
-
-              <!-- coluna 2 -->
               <div class="col -12 rowclass" >
                 <div class="boxRightPageH">
                   <div>
                     <h3> Traslado </h3><br>
-                    <input readonly="readonly "value="{{car.from}}" type="text" placeholder="De" class="date start-date"/>
+                    {{#each infoTraslado}}
+                    <input readonly="readonly "value="{{deT}}" type="text" placeholder="De" class="date start-date"/>
                     <i class="fa fa-car" aria-hidden="true"></i>
-                    <input readonly="readonly "value="{{car.to}}" type="text" placeholder="Para" class="date start-date"/>
+                    <input readonly="readonly "value="{{paraT}}" type="text" placeholder="Para" class="date start-date"/>
                     <br><br>
-                    <input readonly="readonly "value="{{car.dateFrom}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
+                    <input readonly="readonly "value="{{dataIdaT}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
                     <i class="fa fa-calendar"></i>
-                    <input readonly="readonly "value="{{car.timeFrom}}" type="text" placeholder="Horário" class="date start-date"/>
+                    <input readonly="readonly "value="{{horaIdaT}}" type="text" placeholder="Horário" class="date start-date"/>
                     <br><br>
-                    <input readonly="readonly "value="{{car.dateTo}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
+                    <input readonly="readonly "value="{{dataParaT}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
                     <i class="fa fa-calendar"></i>
-                    <input readonly="readonly "value="{{car.timeTo}}" type="text" placeholder="Horário" class="date start-date"/>
+                    <input readonly="readonly "value="{{horaParaT}}" type="text" placeholder="Horário" class="date start-date"/>
                   </div>
+                  {{/each}}
                   <h3>Informações</h3><br>
+                  {{#each infoTraslado}}
                   <div class="container rowclass classF-input">
-                    <div class="row rowclass">
-                      <div class="col-5sm rowclass">
-                        <input readonly="readonly "value="{{car.totalTranslado}}" class="form-control" placeholder="Val Total"><br>
+                    <div class="col-sm rowclass">
+                      <div class="classa rowclass col-lg-11">
+                        <input value="{{valorAdtT}}" class="form-control" placeholder="Val ADT"><br>
                       </div>
+                    </div>
+                    <div class="col-sm rowclass">
+                      <div class="classa rowclass col-lg-11">
+                        <input value="{{valorChdT}}" class="form-control" placeholder="Val CHD"><br>
+                      </div>
+                    </div>
+                    <div class="col-sm rowclass">
+                      <div class="classa rowclass col-lg-11">
+                        <input value="{{valorInfT}}" class="form-control" placeholder="Val INF"><br>
+                      </div><br>
                     </div>
                   </div>
                 </div>
+                {{/each}}
                 <div class="rowclass" id="PageF_Col2"></div>
              </div>
             </div>
@@ -449,30 +412,32 @@
             <div class="col-sm-auto " id="nois">
             <div class="CarsPageH">
               <br><br><h3> Carro </h3><br>
+              {{#each infoCarros}}
               <div class="classa">
-                <input class="form-control" placeholder="Retirada" readonly="readonly "value="{{car.withdrawal}}">
+                <input class="form-control" placeholder="Retirada" readonly="readonly "value="{{retirada}}">
               </div><br>
               <div class="classa">
-                <input class="form-control" placeholder="Outros" readonly="readonly "value="{{car.others}}">
+                <input class="form-control" placeholder="Outros" readonly="readonly "value="{{outros}}">
               </div><br>
               <div class="classa">
-                <input class="form-control" placeholder="Entrega" readonly="readonly "value="{{car.delivery}}">
+                <input class="form-control" placeholder="Entrega" readonly="readonly "value="{{entrega}}">
               </div><br>
               <div class="classa">
-                <input class="form-control" placeholder="Valor carro 1" readonly="readonly "value="{{car.totalCar}}">
+                <input class="form-control" placeholder="Valor carro 1" readonly="readonly "value="{{valor}}">
               </div><br>
               <div class="classa">
-                <input class="form-control" placeholder="Cidade" readonly="readonly "value="{{car.city}}">
+                <input class="form-control" placeholder="Cidade" readonly="readonly "value="{{cidade}}">
               </div><br>
               <div class="classa">
-                <input class="form-control" placeholder="Tipo" readonly="readonly "value="{{car.typeCar}}">
+                <input class="form-control" placeholder="Tipo" readonly="readonly "value="{{tipoCarro}}">
               </div><br>
               <div class="classa">
-                <input class="form-control" placeholder="Transmissão" readonly="readonly "value="{{car.shift}}">
+                <input class="form-control" placeholder="Transmissão" readonly="readonly "value="{{transmissao}}">
               </div><br>
               <div class="classa">
-                <input class="form-control" placeholder="Seguros" readonly="readonly "value="{{car.safe}}">
+                <input class="form-control" placeholder="Seguros" readonly="readonly "value="{{seguro}}">
               </div><br>
+              {{/each}}
             </div>
         </div>
       </div>
@@ -482,94 +447,96 @@
         <h1> Serviços </h1>
 
         <div class="dinamic_spec" id="vamo">
-          <!-- <h1> Serviços </h1> -->
+          {{#each infoSeguro}}
           <div class="row rowclass">
             <div class="col-sm-auto rowclass" id="landing-seguro-col1">
               <div class="boxLeftPageG" id="vamo">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
-                  <input value="{{safe.insuranceName}}" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+                  <input value="{{seguro}}" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Cobertura</label>
-                  <input value="{{safe.insuranceCoverage}}" type="text" placeholder= "Cobertura do seguro" class="form-control">
+                  <input value="{{coberturaSeguro}}" type="text" placeholder= "Cobertura do seguro" class="form-control">
                 </div>
               </div>
             </div>
             <div class="col-sm-auto rowclass" id="landing-seguro-col2">
               <div class="boxRightPageG" id="vamo">
-                <!-- <div class="form-group">
-                  <label for="exampleInputPassword1">Nome do responsável:</label>
-                  <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Adultos:</label>
+                  <input value="{{valorAdtS}}" type="text" placeholder= "Preço por adulto" class="form-control">
                 </div>
-                <div class="form-check">
-
-                      <li>{{companionFullname}} </li>
-
-                </div> -->
-                <div class="form-group col-md-3 valor">
-                  <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
-                  <input value="{{safe.insuranceTOT}}" type="text" class="form-control value1" placeholder="Valor (R$)">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Crianças:</label>
+                  <input value="{{valorChdS}}" type="text" placeholder= "Preço por criança" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Infantos:</label>
+                  <input value="{{valorInfS}}" type="text" placeholder= "Preço por infatos" class="form-control">
                 </div>
               </div>
             </div>
           </div>
+          {{/each}}
 
+          {{#each infoTickets}}
           <div class="row rowclass">
             <div class="col-sm-auto rowclass" id="landing-ticket-col1">
               <div class="boxLeftPageG" id="vamo">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
-                  <input value="{{safe.ticketsName}}" type="text" placeholder= "" class="form-control">
+                  <input value="{{tickets}}" type="text" placeholder= "" class="form-control">
                 </div>
               </div>
             </div>
             <div class="col-sm-auto rowclass" id="landing-ticket-col2">
               <div class="boxRightPageG" id="vamo">
-                <!-- <div class="form-group">
-                  <label for="exampleInputPassword1">Nome do responsável:</label>
-                  <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Adultos:</label>
+                  <input value = "{{valorAdtTk}}" type="text" placeholder= "Preço por adulto" class="form-control">
                 </div>
-                <div class="form-check">
-
-                      <li>{{companionFullname}} </li>
-
-                </div> -->
-                <div class="form-group col-md-3 valor">
-                  <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
-                  <input value="{{safe.ticketsTOT}}" type="text" class="form-control value1" placeholder="Valor (R$)">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Crianças:</label>
+                  <input value="{{valorChdTk}}" type="text" placeholder= "Preço por criança" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Infantos:</label>
+                  <input value="{{valorInfTk}}" type="text" placeholder= "Preço por infatos" class="form-control">
                 </div>
               </div>
             </div>
           </div>
+          {{/each}}
 
+          {{#each infoOutros}}
           <div class="row rowclass">
             <div class="col-sm-auto rowclass" id="landing-outros-col1">
               <div class="boxLeftPageG" id="vamo">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
-                  <input value="{{safe.otherName}}" type="text" placeholder= "" class="form-control">
+                  <input value="{{outros}}" type="text" placeholder= "" class="form-control">
                 </div>
               </div>
             </div>
             <div class="col-sm-auto rowclass" id="landing-outros-col2">
               <div class="boxRightPageG" id="vamo">
-                <!-- <div class="form-group">
-                  <label for="exampleInputPassword1">Nome do responsável:</label>
-                  <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Adultos:</label>
+                  <input value="{{valorAdtO}}" type="text" placeholder= "Preço por adulto" class="form-control">
                 </div>
-                <div class="form-check">
-
-                      <li>{{companionFullname}} </li>
-
-                </div> -->
-                <div class="form-group col-md-3 valor">
-                  <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>
-                  <input value="{{safe.otherTOT}}" type="text" class="form-control value1" placeholder="Valor (R$)">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Crianças:</label>
+                  <input value="{{valorChdO}}" type="text" placeholder= "Preço por criança" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Infantos:</label>
+                  <input value="{{valorInfO}}" type="text" placeholder= "Preço por infatos" class="form-control">
                 </div>
               </div>
             </div>
           </div>
+          {{/each}}
         </div>
       </div>
       <br><br><br>
