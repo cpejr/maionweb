@@ -41,10 +41,11 @@
           <tr>
             <th>{{fullname}}</th>
             <th>{{register}}</th>
-            <th><button onClick="location.href='pageA'" class="fa fa-id-card-o btn m-1"></button></th>
-            <th><button onClick="location.href='pageB/{{_id}}'" class="fa fa-edit btn m-1"></button></th>
-            <th><button onClick="location.href='pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
-            <th><button onClick="location.href='/new/pageC/{{_id}}'" class="icone btn m-1"><i class="material-icons">create_new_folder</i></button></th>
+            <th><button onClick="location.href='pageA'" class="fa fa-id-card-o btn m-1 icones"></button></th>
+            <th><button onClick="location.href='pageB/{{_id}}'" class="fa fa-edit btn m-1 icones"></button></th>
+            <th><button onClick="location.href='pageC/{{_id}}'" class="fa fa-info btn m-1 icones"></button></th>
+            <th><button onClick="location.href='/new/pageC/{{_id}}'" class="icone btn m-1 icones"><i class="material-icons">create_new_folder</i></button></th>
+            <th><button onClick="location.href='/registred/PagePersonal/{{_id}}'" class="fa fa-info btn m-1 icones"></button></th>
           </tr>
           {{/each}}
         </tbody>
