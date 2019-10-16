@@ -184,6 +184,28 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                   Budget.getAssociatedSafeById(req.params.budget_id).then((safes)=>{
                           console.log(cars);
                           console.log(flights);
+                                        // const datas = [];
+                                        // const uData = {
+                                        //   pData: String,
+                                        //   uData: String
+                                        // };
+                                        // console.log("###############################################");
+                                        // console.log(budget.planDate);
+                                        // for (var i = 0; i < budget.planDate.length; i++) {
+                                        //   const uData = {
+                                        //     pData: String,
+                                        //     uData: String
+                                        //   };
+                                        //   console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                                        //   if (i=budget.planDate.length) {
+                                        //     uData.pData = budget.planDate[0];
+                                        //     uData.uData = budget.planDate[i];
+                                        //     datas.push(uData);
+                                        //   }
+                                        //   console.log("------------------------------------");
+                                        //   console.log(uData[i]);
+                                        // }
+
 
 
                                         const test = [];
@@ -206,6 +228,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               }
 
                                               const infoVoos = [];
+                                              var v = 0;
                                               const voos= [{
                                                 de: String,
                                                 para: String,
@@ -221,7 +244,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                   para: String,
                                                   dataIda: String,
                                                   dataPara: String,
-                                                  valortotal: String
+                                                  valortotal: String,
+                                                  numero: String
                                                 }];
                                                  console.log("-----------------------------------------------------------------------");
                                                  console.log(flights.dateFrom[0]);
@@ -229,16 +253,20 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
 
+                                                 v++;
+                                                 console.log(v);
                                                 voos.de = flights.from[i];
                                                 voos.para = flights.destination[i];
                                                 voos.dataIda = flights.dateFrom[i];
                                                 voos.dataPara = flights.dateDestination[i];
                                                 voos.valortotal = flights.finalValue[i];
+                                                voos.numero = v;
                                                 infoVoos.push(voos);
                                                 console.log(infoVoos[i]);
                                               }
 
                                                const infoHoteis = [];
+                                               var h = 0;
                                                const hoteis = [{
                                                  cidade: String,
                                                  hotel_1: String,
@@ -264,7 +292,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                  comida3: String,
                                                  periodoCancelamento1: String,
                                                  periodoCancelamento2: String,
-                                                 periodoCancelamento3: String,
+                                                 periodoCancelamento3: String
                                                }];
 
                                                for (var i = 0; i < hotels.city.length; i++) {
@@ -294,8 +322,10 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                    periodoCancelamento1: String,
                                                    periodoCancelamento2: String,
                                                    periodoCancelamento3: String,
+                                                   numero: String
                                                  }];
 
+                                                 h++;
                                                  hoteis.cidade = hotels.city[i];
                                                  hoteis.hotel_1 = hotels.hotel1[i];
                                                  hoteis.hotel_2 = hotels.hotel2[i];
@@ -321,12 +351,14 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                  hoteis.periodoCancelamento1 = hotels.cancellationPeriod[i];
                                                  hoteis.periodoCancelamento2 = hotels.cancellationPeriod2[i];
                                                  hoteis.periodoCancelamento3 = hotels.cancellationPeriod3[i];
+                                                 hoteis.numero = h;
                                                  infoHoteis.push(hoteis);
                                                 console.log(infoHoteis[i]);
 
                                                }
 
                                               const infoTraslado = [];
+                                              var t = 0;
                                               const traslado = [{
                                                 deT: String,
                                                 paraT: String,
@@ -350,9 +382,11 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                   horaParaT: String,
                                                   valorAdtT: String,
                                                   valorChdT: String,
-                                                  valorInfT: String
+                                                  valorInfT: String,
+                                                  numero: String
                                                 }];
 
+                                                t++;
                                                 traslado.deT = cars.from[i];
                                                 traslado.paraT = cars.to[i];
                                                 traslado.dataIdaT = cars.dateFrom[i];
@@ -362,12 +396,14 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 traslado.valorAdtT = cars.valueADT[i];
                                                 traslado.valorChdT = cars.valueCHD[i];
                                                 traslado.valorInfT = cars.valueINF[i];
+                                                traslado.numero = t;
                                                 infoTraslado.push(traslado);
                                                 console.log(infoTraslado[i]);
 
                                               }
 
                                               const infoCarros = [];
+                                              var c = 0;
                                               const carros = [{
                                                 retirada: String,
                                                 outros: String,
@@ -388,9 +424,11 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                   cidade: String,
                                                   tipoCarro: String,
                                                   transmissao: String,
-                                                  seguro: String
+                                                  seguro: String,
+                                                  numero: String
                                                 }];
 
+                                                c++;
                                                 carros.retirada = cars.withdrawal[i];
                                                 carros.outros = cars.others[i];
                                                 carros.entrega = cars.delivery[i];
@@ -399,12 +437,14 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 carros.tipoCarro = cars.typeCar[i];
                                                 carros.transmissao = cars.shift[i];
                                                 carros.seguro = cars.safe[i];
+                                                carros.numero = c;
                                                 infoCarros.push(carros);
                                                 console.log(infoCarros[i]);
 
                                               }
 
                                               const infoSeguro = [];
+                                              var s = 0;
                                               const seguro = [{
                                                 seguro: String,
                                                 coberturaSeguro: String,
@@ -419,14 +459,17 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                   coberturaSeguro: String,
                                                   valorAdtS: String,
                                                   valorChdS: String,
-                                                  valorInfS: String
+                                                  valorInfS: String,
+                                                  numero: String
                                                 }];
 
+                                                s++;
                                                 seguro.seguro = safes.insuranceName[i];
                                                 seguro.coberturaSeguro = safes.insuranceCoverage[i];
                                                 seguro.valorAdtS = safes.insuranceADT[i];
                                                 seguro.valorChdS = safes.insuranceCHD[i];
                                                 seguro.valorInfS = safes.insuranceINF[i];
+                                                seguro.numero = s;
                                                 infoSeguro.push(seguro);
                                                 console.log(infoSeguro[i]);
 
@@ -434,6 +477,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                               const infoTickets = [];
+                                              var ti = 0;
                                               const tickets = [{
                                                 tickets: String,
                                                 valorAdtTk: String,
@@ -446,13 +490,16 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                   tickets: String,
                                                   valorAdtTk: String,
                                                   valorChdTk: String,
-                                                  valorInfTk: String
+                                                  valorInfTk: String,
+                                                  numero: String
                                                 }];
 
+                                                ti++;
                                                 tickets.tickets = safes.ticketsName[i];
                                                 tickets.valorAdtTk = safes.ticketsADT[i];
                                                 tickets.valorChdTk = safes.ticketsCHD[i];
                                                 tickets.valorInfTk = safes.ticketsINF[i];
+                                                tickets.numero = ti;
                                                 infoTickets.push(tickets);
                                                 console.log(infoTickets[i]);
 
@@ -460,6 +507,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                               const infoOutros = [];
+                                              var o = 0;
                                               const outros = [{
                                                 outros: String,
                                                 valorAdtO: String,
@@ -472,13 +520,16 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                   outros: String,
                                                   valorAdtO: String,
                                                   valorChdO: String,
-                                                  valorInfO: String
+                                                  valorInfO: String,
+                                                  numero: String
                                                 }];
 
+                                                o++;
                                                 outros.outros = safes.otherName;
                                                 outros.valorAdtO = safes.otherADT;
                                                 outros.valorChdO = safes.otherCHD;
                                                 outros.valorInfO = safes.otherINF;
+                                                outros.numero = c;
                                                 infoOutros.push(outros);
                                                 console.log(infoOutros[i]);
 
