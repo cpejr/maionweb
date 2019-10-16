@@ -6055,6 +6055,10 @@ div {
   font-family: "Montserrat";
   color: white; }
 
+input {
+  background-color: #CFCFCF;
+  border-width: 0px; }
+
 h1 {
   font-size: 40px;
   font-family: "Montserrat";
