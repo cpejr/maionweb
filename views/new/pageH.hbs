@@ -17,9 +17,9 @@
 
         <br><br>
         <label for="exampleInputPassword1">De: </label>
-        <input readonly="readonly "type="fullname" value="{{budget.dateFrom}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+        <input readonly="readonly "type="fullname" value="{{uData.pData}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
         <label for="exampleInputPassword1"> Até: </label>
-        <input readonly="readonly "type="fullname" value="{{budget.returnDate}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));"> <br>
+        <input readonly="readonly "type="fullname" value="{{uData.uData}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));"> <br>
         <label for="exampleInputPassword1"></label>
         </table>
         <br>
@@ -206,60 +206,38 @@
               </div>
           </table>
 
-
-
-
-        <div class="row rowclass">
-
-          <div class="col-sm-2 rowclass" id="PageH_Col1">
-            <div class="PageHColLeft">
-              <!-- <h3> Passageiros </h3>
-              <br><br>
-                  <input readonly="readonly "class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-                    <br><br>
-
-                      <li>{{companionFullname}} </li>
-
-                  <br><br> -->
-            </div>
-          </div>
-          <div class="col-4 rowclass" id="PageH_Col2">
-            <div class="PageHColMidle">
               <h3> Voos </h3>
 
+          <div class="d-flex  flex-row" id="PageH_Col2">
+
               {{#each infoVoos}}
+              <div class="p-2">
+                <h3>Voo {{numero}}</h3>
                 <label>De:</label>
                 <input type="text" placeholder="Origem" value="{{de}}" class="form-control" readonly="readonly"/>
                 <label>Para:</label>
                 <input type="text" placeholder="Destino" value="{{para}}" class="form-control" readonly="readonly"/>
                 <label>Data de ida:</label>
-                <input type="textarea" placeholder="dd/mm/aa" class="form-control" readonly="readonly" value="{{dataIda}}"></input>
+                <input type="textarea" placeholder="dd/mm/aa" class="form-control" readonly="readonly" value="{{dataIda}}" onclick="reverseString({{dataIda}})"></input>
                 <label>Data de Chegada:</label>
                 <input type="text" placeholder="dd/mm/aa" value="{{dataPara}}" class="form-control" readonly="readonly"/>
                 <label>Valor total:</label>
                 <input type="text" class="form-control" value="{{valortotal}}" readonly="readonly">
+
+              </div>
               {{/each}}
 
 
 
-            </div>
           </div>
-          <!-- {{#each infoVoos}}
-        <div class="col-6 rowclass" id="PageH_Col3">
-          <div class="PageHColRight">
-            <h3>Valor total</h3>
-            <input readonly="readonly "value="{{valorFinal}}" type="text" id="result4" onblur="calcular4()" placeholder="Total" class="valor"/>
-          </div>
-        </div>
-        {{/each}} -->
-        </div>
       </div>
 
 
-        <h1> Hotel </h1>
+
 
         <div class="dinamic_spec" id="vamo">
           {{#each infoHoteis}}
+          <h3>Hoteis {{numero}}</h3>
           <div class="row rowclass" >
             <div class="col-sm" id="landing-hotel-col1">
               <div class="box_hotelH_left"><br><br><br>
@@ -366,11 +344,11 @@
           <div class="dinamic_spec" id="vamo">
 
             <div class="row rowclass">
-              <div class="col -12 rowclass" >
+              <div class="col-12 rowclass" >
                 <div class="boxRightPageH">
                   <div>
-                    <h3> Traslado </h3><br>
                     {{#each infoTraslado}}
+                    <h3> Traslado {{numero}} </h3><br>
                     <input readonly="readonly "value="{{deT}}" type="text" placeholder="De" class="date start-date"/>
                     <i class="fa fa-car" aria-hidden="true"></i>
                     <input readonly="readonly "value="{{paraT}}" type="text" placeholder="Para" class="date start-date"/>
@@ -382,37 +360,39 @@
                     <input readonly="readonly "value="{{dataParaT}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
                     <i class="fa fa-calendar"></i>
                     <input readonly="readonly "value="{{horaParaT}}" type="text" placeholder="Horário" class="date start-date"/>
-                  </div>
                   {{/each}}
-                  <h3>Informações</h3><br>
+                </div>
                   {{#each infoTraslado}}
-                  <div class="container rowclass classF-input">
+                  <h3>Informações {{numero}}</h3>
+                  <div class="container rowclass col-9" id="vaiqcola">
                     <div class="col-sm rowclass">
-                      <div class="classa rowclass col-lg-11">
-                        <input value="{{valorAdtT}}" class="form-control" placeholder="Val ADT"><br>
+                      <div class="rowclass col-lg-11">
+                        <br>
+                        <input value="{{valorAdtT}}" readonly="readonly" class="date start-date " placeholder="Val ADT"><br>
                       </div>
                     </div>
                     <div class="col-sm rowclass">
-                      <div class="classa rowclass col-lg-11">
-                        <input value="{{valorChdT}}" class="form-control" placeholder="Val CHD"><br>
+                      <div class=" rowclass col-lg-11">
+                        <br>
+                        <input value="{{valorChdT}}" readonly="readonly" class="date start-date" placeholder="Val CHD"><br>
                       </div>
                     </div>
                     <div class="col-sm rowclass">
-                      <div class="classa rowclass col-lg-11">
-                        <input value="{{valorInfT}}" class="form-control" placeholder="Val INF"><br>
+                      <div class="rowclass col-lg-11">
+                        <br>
+                        <input value="{{valorInfT}}" class="date start-date" readonly="readonly" placeholder="Val INF"><br>
                       </div><br>
                     </div>
                   </div>
-                </div>
                 {{/each}}
-                <div class="rowclass" id="PageF_Col2"></div>
+              </div>
              </div>
             </div>
           <!-- coluna 3 -->
             <div class="col-sm-auto " id="nois">
             <div class="CarsPageH">
-              <br><br><h3> Carro </h3><br>
               {{#each infoCarros}}
+              <br><br><h3> Carro {{numero}} </h3><br>
               <div class="classa">
                 <input class="form-control" placeholder="Retirada" readonly="readonly "value="{{retirada}}">
               </div><br>
@@ -446,100 +426,76 @@
 
         <h1> Serviços </h1>
 
-        <div class="dinamic_spec" id="vamo">
+        <div class="dinamic_spec d-flex  flex-row" id="vamo">
           {{#each infoSeguro}}
-          <div class="row rowclass">
-            <div class="col-sm-auto rowclass" id="landing-seguro-col1">
-              <div class="boxLeftPageG" id="vamo">
+
+          <div class="p-3">
                 <div class="form-group">
-                  <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
-                  <input value="{{seguro}}" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+                  <label id="titleG" for="exampleInputPassword1">Seguro {{numero}}:</label>
+                  <input value="{{seguro}}" type="text" placeholder= "Qual seguro será utilizado?" readonly="readonly" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Cobertura</label>
-                  <input value="{{coberturaSeguro}}" type="text" placeholder= "Cobertura do seguro" class="form-control">
+                  <input value="{{coberturaSeguro}}" type="text" placeholder= "Cobertura do seguro" readonly="readonly" class="form-control">
                 </div>
-              </div>
-            </div>
-            <div class="col-sm-auto rowclass" id="landing-seguro-col2">
-              <div class="boxRightPageG" id="vamo">
                 <div class="form-group">
                   <label for="exampleInputPassword1">Adultos:</label>
-                  <input value="{{valorAdtS}}" type="text" placeholder= "Preço por adulto" class="form-control">
+                  <input value="{{valorAdtS}}" type="text" placeholder= "Preço por adulto" readonly="readonly" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Crianças:</label>
-                  <input value="{{valorChdS}}" type="text" placeholder= "Preço por criança" class="form-control">
+                  <input value="{{valorChdS}}" type="text" placeholder= "Preço por criança" readonly="readonly" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Infantos:</label>
-                  <input value="{{valorInfS}}" type="text" placeholder= "Preço por infatos" class="form-control">
+                  <input value="{{valorInfS}}" type="text" placeholder= "Preço por infatos" readonly="readonly" class="form-control">
                 </div>
-              </div>
-            </div>
           </div>
           {{/each}}
 
           {{#each infoTickets}}
-          <div class="row rowclass">
-            <div class="col-sm-auto rowclass" id="landing-ticket-col1">
-              <div class="boxLeftPageG" id="vamo">
+
+          <div class="p-3">
                 <div class="form-group">
-                  <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
-                  <input value="{{tickets}}" type="text" placeholder= "" class="form-control">
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-auto rowclass" id="landing-ticket-col2">
-              <div class="boxRightPageG" id="vamo">
-                <div class="form-group">
+                  <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos {{numero}}:</label>
+                  <input value="{{tickets}}" type="text" placeholder= "" class="form-control" readonly="readonly">
+                  <br>
                   <label for="exampleInputPassword1">Adultos:</label>
-                  <input value = "{{valorAdtTk}}" type="text" placeholder= "Preço por adulto" class="form-control">
+                  <input value = "{{valorAdtTk}}" type="text" placeholder= "Preço por adulto" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Crianças:</label>
-                  <input value="{{valorChdTk}}" type="text" placeholder= "Preço por criança" class="form-control">
+                  <input value="{{valorChdTk}}" type="text" placeholder= "Preço por criança" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Infantos:</label>
-                  <input value="{{valorInfTk}}" type="text" placeholder= "Preço por infatos" class="form-control">
+                  <input value="{{valorInfTk}}" type="text" placeholder= "Preço por infatos" class="form-control" readonly="readonly">
                 </div>
-              </div>
-            </div>
           </div>
           {{/each}}
 
           {{#each infoOutros}}
-          <div class="row rowclass">
-            <div class="col-sm-auto rowclass" id="landing-outros-col1">
-              <div class="boxLeftPageG" id="vamo">
+
+          <div class="p-3">
                 <div class="form-group">
-                  <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
-                  <input value="{{outros}}" type="text" placeholder= "" class="form-control">
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-auto rowclass" id="landing-outros-col2">
-              <div class="boxRightPageG" id="vamo">
-                <div class="form-group">
+                  <label id="titleG" for="exampleInputPassword1">Outros {{numero}}:</label>
+                  <input value="{{outros}}" type="text" placeholder= "" class="form-control" readonly="readonly">
+                  <br>
                   <label for="exampleInputPassword1">Adultos:</label>
-                  <input value="{{valorAdtO}}" type="text" placeholder= "Preço por adulto" class="form-control">
+                  <input value="{{valorAdtO}}" type="text" placeholder= "Preço por adulto" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Crianças:</label>
-                  <input value="{{valorChdO}}" type="text" placeholder= "Preço por criança" class="form-control">
+                  <input value="{{valorChdO}}" type="text" placeholder= "Preço por criança" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Infantos:</label>
-                  <input value="{{valorInfO}}" type="text" placeholder= "Preço por infatos" class="form-control">
+                  <input value="{{valorInfO}}" type="text" placeholder= "Preço por infatos" class="form-control" readonly="readonly">
                 </div>
-              </div>
-            </div>
           </div>
           {{/each}}
         </div>
       </div>
-      <br><br><br>
 
 
 
@@ -553,3 +509,4 @@
 
 
 <script type="text/javascript" src="/javascripts/images.js">  </script>
+<script type="text/javascript" src="/javascripts/invert.js">  </script>
