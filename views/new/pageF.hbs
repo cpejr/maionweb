@@ -5,7 +5,7 @@
 <form action="/new/pageF/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
 
   <div class="dinamic_spec">
-      <h1> Traslado/ carro </h1>
+      <h1> Traslado/carro </h1>
     <div class="row rowclass">
       <!-- coluna 1 -->
       <div class="col-sm-6 rowclass" id="PageF_Col1">
@@ -35,9 +35,6 @@
             <i class="fa fa-calendar"></i>
             <input name="car[timeFrom]" type="text" placeholder="Horário" class="date start-date"/>
             <br><br>
-            <input name="car[dateTo]" type="date" placeholder="dd/mm/aa" class="date start-date"/>
-            <i class="fa fa-calendar"></i>
-            <input name="car[timeTo]" type="text" placeholder="Horário" class="date start-date"/>
           </div>
           <h3>Informações</h3><br>
           <div class="container rowclass classF-input">
@@ -72,13 +69,13 @@
     <div class="boxCarsPageF">
       <br><br><h3> Carros 1 </h3><br>
       <div class="classa">
-        <input class="form-control" placeholder="Retirada" name="car[withdrawal]">
+        <input class="form-control" placeholder="Categoria" name="car[typeCar]">
       </div><br>
       <div class="classa">
-        <input class="form-control" placeholder="Outros" name="car[others]">
+        <input class="form-control" placeholder="Cidade de Retirada" name="car[withdrawal]">
       </div><br>
       <div class="classa">
-        <input class="form-control" placeholder="Entrega" name="car[delivery]">
+        <input class="form-control" placeholder="Cidade de Devolução" name="car[delivery]">
       </div><br>
       <div class="classa">
         <input class="form-control" placeholder="Valor carro 1" name="car[totalCar]">
@@ -87,13 +84,13 @@
         <input class="form-control" placeholder="Cidade" name="car[city]">
       </div><br>
       <div class="classa">
-        <input class="form-control" placeholder="Tipo" name="car[typeCar]">
-      </div><br>
-      <div class="classa">
         <input class="form-control" placeholder="Transmissão" name="car[shift]">
       </div><br>
       <div class="classa">
         <input class="form-control" placeholder="Seguros" name="car[safe]">
+      </div><br>
+      <div class="classa">
+        <input class="form-control" placeholder="Outros" name="car[others]">
       </div><br>
     </div>
     <div class="rowclass" id="PageF_Col3"></div>

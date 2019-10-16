@@ -212,6 +212,8 @@ const clientSchema = new mongoose.Schema({
   //Restrição alimentar - início
   profile_FoodSim: String,
   profile_FoodNão: String,
+  profile_FoodVegano: String,
+  profile_FoodVegetariano: String,
   profile_WhichFood: String,
   //Restrição alimentar - fim
 
