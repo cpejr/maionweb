@@ -19,7 +19,7 @@ const flightSchema = new mongoose.Schema({
     taxValueInf: [Number],
     ravValueAdult: [Number],
     finalValue:[Number],
-    numEscalas: [Number]
+    escalas: [Number]
 
     // adult:{
     //   value: Number,
