@@ -6524,6 +6524,9 @@ label {
   vertical-align: middle;
   color: #555; }
 
+.invDiv {
+  display: none; }
+
 /*PageD fim */
 .date {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;

@@ -95,8 +95,10 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
               escala: [0,0,1,1,1,0,1,1,0,0],
             }
             var j = 0;
+            console.log('--------------------------------121212');
+            console.log(flights);
 
-            for (var i = 0; i < testando.escala.length; i++) {
+            for (var i = 0; i < flights.escalas.length; i++) {
               // console.log("loop rodando yeeeet");
               // console.log(testando.vetor[i]);
 
@@ -127,7 +129,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
                 totalValueAdult: Number,
               };
               // é escala
-              if (testando.escala[i] == 1) {
+              if (flights.escalas[i] == 1) {
                 flightInfo.escala = 1;
               }
 
@@ -137,7 +139,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
               }
 
               //Descobre se o é o ultimo antes do próximo Voo
-              if (testando.escala[(i+1)] != 1) {//é final
+              if (flights.escalas[(i+1)] != 1) {//é final
 
                 flightInfo.final = 1
                 if (j > 1) {
@@ -196,8 +198,8 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
                 flightInfo.totalValueAdult = 0;
               }
 
-              flightInfo.from = testando.vetor[i];
-              flightInfo.destination = testando.saino[i];
+              flightInfo.from = flights.from[i];
+              flightInfo.destination = flights.destination[i];
               allFlights.push(flightInfo);
             }
 

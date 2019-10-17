@@ -628,6 +628,7 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const  client_id = req.params.client_id;
   Flight.create(flight).then((flight_id) => {
     Budget.addFlight(budget_id, flight_id).then(() => {
+      console.log(flight);
       res.redirect(`/new/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
