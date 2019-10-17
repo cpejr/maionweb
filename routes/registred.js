@@ -92,7 +92,6 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
             const testando = {
               vetor: ['lala', 'lele', 'lili', 'lolo', 'lulu', 'tata', 'tete', 'titi', 'toto', 'tutu'],
               saino: ['haha', 'hehe', 'hihi', 'hoho', 'huhu', 'papa', 'pepe', 'pipi', 'popo', 'pupu'],
-              numeros: [1,2,3,4,5,6,7,8,9,10],
               escala: [0,0,1,1,1,0,1,1,0,0],
             }
             var j = 0;
