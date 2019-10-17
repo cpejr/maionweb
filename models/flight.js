@@ -5,8 +5,8 @@ const flightSchema = new mongoose.Schema({
     from:[String],
     destination:[String],
 
-    dateFrom:[Date],
-    dateDestination: [Date],
+    dateFrom:[String],
+    dateDestination: [String],
     totalValueCHD: [Number],
     tariffValueCHD: [Number],
     taxValueCHD: [Number],
