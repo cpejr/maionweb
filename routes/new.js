@@ -184,6 +184,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                   Budget.getAssociatedSafeById(req.params.budget_id).then((safes)=>{
                           console.log(cars);
                           console.log(flights);
+                          
                                         // const datas = [];
                                         // const uData = {
                                         //   pData: String,
