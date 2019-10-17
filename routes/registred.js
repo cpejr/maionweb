@@ -72,10 +72,8 @@ router.get('/pageC/:budget_id', function(req, res) {
             script.scriptDate = budget.planDate[i];
             script.freeField = budget.planFreeField[i]
             allScripts.push(script);
+            // console.log(allScripts.countryName);
           }
-
-          console.log(allScripts);
-          console.log('------');
 
     res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, budget, allScripts});
 }).catch((error) => {
@@ -87,8 +85,132 @@ router.get('/pageC/:budget_id', function(req, res) {
 /* GET pageD. */
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
-        console.log(client);
-        res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client});
+        Budget.getById(req.params.budget_id).then((budget) => {
+          Flight.getById(budget.flights).then((flights) => {
+
+            const allFlights = [];
+            const testando = {
+              vetor: ['lala', 'lele', 'lili', 'lolo', 'lulu', 'tata', 'tete', 'titi', 'toto', 'tutu'],
+              saino: ['haha', 'hehe', 'hihi', 'hoho', 'huhu', 'papa', 'pepe', 'pipi', 'popo', 'pupu'],
+              escala: [0,0,1,1,1,0,1,1,0,0],
+            }
+            var j = 0;
+            console.log('--------------------------------121212');
+            console.log(flights);
+
+            for (var i = 0; i < flights.escalas.length; i++) {
+              // console.log("loop rodando yeeeet");
+              // console.log(testando.vetor[i]);
+
+
+              const flightInfo ={
+
+                escala: Number,
+                final: Number,
+
+                from: String,
+                destination: String,
+                dateFrom: Date,
+                dateDestination: Date,
+
+                tariffValueCHD: Number,
+                taxValueCHD: Number,
+                ravValueCHD: Number,
+                totalValueCHD: Number,
+
+                tariffValueInf: Number,
+                taxValueInf:Number,
+                ravValueInf: Number,
+                totalValueInf: Number,
+
+                tariffValueAdult: Number,
+                taxValueAdult: Number,
+                ravValueAdult: Number,
+                totalValueAdult: Number,
+              };
+              // é escala
+              if (flights.escalas[i] == 1) {
+                flightInfo.escala = 1;
+              }
+
+              // não é escala
+              else{
+                flightInfo.escala = 0;
+              }
+
+              //Descobre se o é o ultimo antes do próximo Voo
+              if (flights.escalas[(i+1)] != 1) {//é final
+
+                flightInfo.final = 1
+                if (j > 1) {
+
+                  flightInfo.tariffValueCHD = 0;
+                  flightInfo.taxValueCHD = 1;
+                  flightInfo.ravValueCHD = 2;
+                  flightInfo.totalValueCHD = 3;
+
+                  flightInfo.tariffValueInf = 4;
+                  flightInfo.taxValueInf = 5;
+                  // flightInfo.ravValueInf = flights.ravValueInf[j];
+                  flightInfo.totalValueInf = 7;
+
+                  flightInfo.tariffValueAdult = 8;
+                  flightInfo.taxValueAdult = 9;
+                  flightInfo.ravValueAdult = 10;
+                  flightInfo.totalValueAdult = 11;
+
+                }
+                else {
+
+                  flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
+                  flightInfo.taxValueCHD = flights.taxValueCHD[j];
+                  flightInfo.ravValueCHD = flights.ravValueCHD[j];
+                  flightInfo.totalValueCHD = flights.totalValueCHD[j];
+
+                  flightInfo.tariffValueInf = flights.tariffValueInf[j];
+                  flightInfo.taxValueInf = flights.taxValueInf[j];
+                  // flightInfo.ravValueInf = flights.ravValueInf[j];
+                  flightInfo.totalValueInf = flights.totalValueInf[j];
+
+                  flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
+                  flightInfo.taxValueAdult = flights.taxValueAdult[j];
+                  flightInfo.ravValueAdult = flights.ravValueAdult[j];
+                  flightInfo.totalValueAdult = flights.totalValueAdult[j];
+                }
+                j++;
+
+              }
+
+              else {
+                flightInfo.tariffValueCHD = 0;
+                flightInfo.taxValueCHD = 0;
+                flightInfo.ravValueCHD = 0;
+                flightInfo.totalValueCHD = 0;
+
+                flightInfo.tariffValueInf = 0;
+                flightInfo.taxValueInf = 0;
+                flightInfo.ravValueInf = 0;
+                flightInfo.totalValueInf = 0;
+
+                flightInfo.tariffValueAdult = 0;
+                flightInfo.taxValueAdult = 0;
+                flightInfo.ravValueAdult = 0;
+                flightInfo.totalValueAdult = 0;
+              }
+
+              flightInfo.from = flights.from[i];
+              flightInfo.destination = flights.destination[i];
+              allFlights.push(flightInfo);
+            }
+
+            res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, allFlights, flights});
+          }).catch((error) => {
+            console.log(error);
+          });
+        }).catch((error) => {
+          console.log(error);
+          res.redirect('/error');
+        })
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -98,7 +220,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log(client);
+    console.log('passou na E Get =========================================================');
     res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
 }).catch((error) => {
     console.log(error);
@@ -333,7 +455,7 @@ router.post('/pageC/:client_id',(req,res) => {
   const  budget = req.body.budget;
   const  client_id = req.params.client_id;
   Budget.update(budget).then((budget_id) => {
-    Client.addBudget(client_id, budget_id).then(() => {
+    Client.update(client_id, budget_id).then(() => {
         res.redirect(`/registred/pageD/${client_id}/${budget_id}`);
       }).catch((error) => {
         console.log(error);
@@ -352,6 +474,8 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const  client_id = req.params.client_id;
   Flight.update(flight).then((flight_id) => {
     Budget.addFlight(budget_id, flight_id).then(() => {
+      console.log('passou na D post =========================================================');
+
       console.log(flight);
       res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
