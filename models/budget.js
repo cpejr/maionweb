@@ -328,6 +328,17 @@ class Budget {
              });
            });
           }
+
+          static motherClient(id, client) {
+            return new Promise((resolve, reject) => {
+              BudgetModel.findByIdAndUpdate(id, { $push: { client: client } }).then(()=>{
+                resolve();
+              }).catch((err) => {
+                reject(err);
+              });
+            });
+          }
+
 }
 
 
