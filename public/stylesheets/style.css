@@ -6671,6 +6671,12 @@ label {
   font-size: 17px;
   line-height: 1.42857; }
 
+.title_registed {
+  font-size: 40px;
+  color: #323232;
+  font-weight: 900;
+  padding-left: 9em; }
+
 #roteiro-dias {
   background-color: #f3ab85;
   border-radius: 4px;
