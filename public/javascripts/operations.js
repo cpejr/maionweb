@@ -108,8 +108,9 @@ $('#decreasing').on('click', function() {
     atotalRes++;
   }
 });
-
-
-
-
 /*! fim operations pageD !*/
+
+/*! INICIO OPERATIONS PAGE F !*/
+
+
+/*! FIM OPERATIONS PAGE F !*/

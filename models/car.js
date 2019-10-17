@@ -20,10 +20,7 @@ const carSchema = new mongoose.Schema({
     totalCar: [Number],
     city: [String],
     typeCar: [String],
-    shift:[{
-      type: String,
-      // enum:['Manual', 'Automático']
-    }],
+    shift:[String],
     safe: [String]
 
 

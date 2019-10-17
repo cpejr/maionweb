@@ -6055,6 +6055,10 @@ div {
   font-family: "Montserrat";
   color: white; }
 
+input {
+  background-color: #CFCFCF;
+  border-width: 0px; }
+
 h1 {
   font-size: 40px;
   font-family: "Montserrat";
@@ -6693,7 +6697,6 @@ label {
   background-color: #f3ab85; }
 
 .PageHColMidle {
-  margin: 20px 0 20px 0;
   padding: 2px;
   height: auto;
   padding: 25px;
@@ -6761,9 +6764,14 @@ label {
 .hidden-imgs {
   display: none; }
 
+.hamburguer {
+  width: 300px; }
+
 .icones {
-  height: 10px;
-  width: 10px; }
+  height: 40px;
+  width: 40px;
+  margin-left: auto;
+  margin-right: auto; }
 
 .newcadas {
   max-width: 200px;
