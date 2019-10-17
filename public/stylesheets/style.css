@@ -6770,6 +6770,36 @@ label {
 .hamburguer {
   width: 300px; }
 
+.observacoes {
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.ajustes {
+  height: auto;
+  background-color: #C4694A;
+  border-radius: 5px; }
+
+.dinamic_spec_pageH {
+  background-color: #f3ab85;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  padding: 1em;
+  height: auto; }
+
+.btn-fake {
+  color: white;
+  background-color: #c4694A;
+  border-radius: 5px;
+  border-width: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  width: 80px; }
+
 .icones {
   height: 40px;
   width: 40px;

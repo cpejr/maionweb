@@ -2,7 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
 <header class="login_page">
 </header>
-<form action="" method="post" class="pagesFront">
+<form action="/new/pageH/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="container rowclass">
     <div class="row rowclass">
       <div class="col-sm pageA-padding">
@@ -16,9 +16,9 @@
 
 
         <br><br>
-        <label for="exampleInputPassword1">De: </label>
+        <label>De: </label>
         <input readonly="readonly "type="fullname" value="{{uData.pData}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
-        <label for="exampleInputPassword1"> Até: </label>
+        <label> Até: </label>
         <input readonly="readonly "type="fullname" value="{{uData.uData}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));"> <br>
         <label for="exampleInputPassword1"></label>
         </table>
@@ -235,35 +235,44 @@
 
 
 
-        <div class="dinamic_spec" id="vamo">
+        <div class="dinamic_spec_pageH" id="vamo">
           {{#each infoHoteis}}
           <h3>Hoteis {{numero}}</h3>
+        <div class="ajustes">
           <div class="row rowclass" >
             <div class="col-sm" id="landing-hotel-col1">
               <div class="box_hotelH_left"><br><br><br>
                 <div class="classa">
+                  <label>Nome do Hotel:</label>
                   <input readonly="readonly "class="form-control" placeholder="Hotel 1" value="{{hotel_1}}">
                 </div><br>
                 <div class="classa">
+                  <label>Categoria do Apartaento</label>
                   <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria1}}">
                 </div><br>
                 <div class="classa">
+                  <label>Alimentação</label>
                   <input readonly="readonly" class="form-control" value="{{comida1}}">
                   </input>
                 </div><br>
                 <div class="classa">
+                  <label>Valor do Apartamento</label>
                   <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto1}}">
                 </div><br>
                 <div class="classa">
+                  <label>Número de Diárias</label>
                   <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias1}}">
                 </div><br>
                 <div class="classa">
+                  <label>Número de Apartamentos</label>
                   <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto1}}">
                 </div><br>
                 <div class="classa">
+                  <label>Total</label>
                   <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_1}}">
                 </div><br>
                 <div class="classa">
+                  <label>Período de Cancelamento</label>
                   <input readonly="readonly" class="form-control" value="{{periodoCancelamento1}}">
                 </input>
                 </div>
@@ -272,31 +281,40 @@
             <div class="col-sm" id="landing-hotel-col2">
               <div class="box_hotelH_midle">
                 <div class="classa">
+                  <label>Cidade:</label>
                   <input readonly="readonly "class="form-control" placeholder="Cidade 1" value="{{cidade}}">
                 </div><br>
                 <div class="classa">
+                  <label>Nome do Hotel:</label>
                   <input readonly="readonly "class="form-control" placeholder="Hotel 2" value="{{hotel_2}}">
                 </div><br>
                 <div class="classa">
+                  <label>Categoria do Apartamento:</label>
                   <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria2}}">
                 </div><br>
                 <div class="classa">
+                  <label>Alimentação:</label>
                   <input readonly="readonly" class="form-control" value="{{comida2}}">
                   </input>
                 </div><br>
                 <div class="classa">
+                  <label>Valor do Apartamento:</label>
                   <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto2}}">
                 </div><br>
                 <div class="classa">
+                  <label>Número de Diárias:</label>
                   <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias2}}">
                 </div><br>
                 <div class="classa">
+                  <label>Número de Apartamentos:</label>
                   <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto2}}">
                 </div><br>
                 <div class="classa">
+                  <label>Total:</label>
                   <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_2}}">
                 </div><br>
                 <div class="classa">
+                  <label>Período de Cancelamento:</label>
                   <input readonly="readonly" class="form-control" value="{{periodoCancelamento2}}">
                 </input>
                 </div>
@@ -305,40 +323,49 @@
             <div class="col-sm" id="landing-hotel-col3">
               <div class="box_hotelH_right"><br><br><br>
                 <div class="classa">
+                  <label>Nome do Hotel:</label>
                   <input readonly="readonly "class="form-control" placeholder="Hotel 3" value="{{hotel_3}}">
                 </div><br>
                 <div class="classa">
+                  <labe>Categoria do Apartamento:</label>
                   <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria3}}">
                 </div><br>
                 <div class="classa">
+                  <label>Alimentação</label>
                   <input readonly="readonly" class="form-control" value="{{comida3}}">
                   </input>
                 </div><br>
+                <label>Valor do Apartamento:</label>
                 <div class="classa">
                   <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto3}}">
                 </div><br>
                 <div class="classa">
+                  <label>Número de Diárias</label>
                   <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias3}}">
                 </div><br>
                 <div class="classa">
+                  <label>Número de Apartamentos</label>
                   <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto3}}">
                 </div><br>
                 <div class="classa">
+                  <label>Total:</label>
                   <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_3}}">
                 </div><br>
                 <div class="classa">
+                  <label>Periodo de Cancelamento</label>
                   <input readonly="readonly" class="form-control" value="{{periodoCancelamento3}}">
                 </input>
                 </div>
               </div>
             </div>
           </div>
+          </div>
           {{/each}}
         </div>
 
 
 
-        <h1> Translado/ carro </h1>
+        <h1> Traslado/carro </h1>
 
 
           <div class="dinamic_spec" id="vamo">
@@ -349,16 +376,22 @@
                   <div>
                     {{#each infoTraslado}}
                     <h3> Traslado {{numero}} </h3><br>
+                    <label>De:</label>
                     <input readonly="readonly "value="{{deT}}" type="text" placeholder="De" class="date start-date"/>
                     <i class="fa fa-car" aria-hidden="true"></i>
+                    <label>Para:</label>
                     <input readonly="readonly "value="{{paraT}}" type="text" placeholder="Para" class="date start-date"/>
                     <br><br>
+                    <label>Data de Ida:</label>
                     <input readonly="readonly "value="{{dataIdaT}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
                     <i class="fa fa-calendar"></i>
+                    <label>Hora Ida</label>
                     <input readonly="readonly "value="{{horaIdaT}}" type="text" placeholder="Horário" class="date start-date"/>
                     <br><br>
+                    <label>Data Chegada:</label>
                     <input readonly="readonly "value="{{dataParaT}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
                     <i class="fa fa-calendar"></i>
+                    <label>Hora Chegada:</label>
                     <input readonly="readonly "value="{{horaParaT}}" type="text" placeholder="Horário" class="date start-date"/>
                   {{/each}}
                 </div>
@@ -368,18 +401,21 @@
                     <div class="col-sm rowclass">
                       <div class="rowclass col-lg-11">
                         <br>
+                        <label>Valor por Adulto:</label>
                         <input value="{{valorAdtT}}" readonly="readonly" class="date start-date " placeholder="Val ADT"><br>
                       </div>
                     </div>
                     <div class="col-sm rowclass">
                       <div class=" rowclass col-lg-11">
                         <br>
+                        <label>Valor por Criança:</label>
                         <input value="{{valorChdT}}" readonly="readonly" class="date start-date" placeholder="Val CHD"><br>
                       </div>
                     </div>
                     <div class="col-sm rowclass">
                       <div class="rowclass col-lg-11">
                         <br>
+                        <label>Valor por bebê:</label>
                         <input value="{{valorInfT}}" class="date start-date" readonly="readonly" placeholder="Val INF"><br>
                       </div><br>
                     </div>
@@ -394,27 +430,35 @@
               {{#each infoCarros}}
               <br><br><h3> Carro {{numero}} </h3><br>
               <div class="classa">
+                <label>Local de Retirada:</label>
                 <input class="form-control" placeholder="Retirada" readonly="readonly "value="{{retirada}}">
               </div><br>
               <div class="classa">
+                <label>Outras informações:</label>
                 <input class="form-control" placeholder="Outros" readonly="readonly "value="{{outros}}">
               </div><br>
               <div class="classa">
+                <label>Local de Entrega:</label>
                 <input class="form-control" placeholder="Entrega" readonly="readonly "value="{{entrega}}">
               </div><br>
               <div class="classa">
+                <label>Valor do Carro:</label>
                 <input class="form-control" placeholder="Valor carro 1" readonly="readonly "value="{{valor}}">
               </div><br>
               <div class="classa">
+                <label>Cidade:</label>
                 <input class="form-control" placeholder="Cidade" readonly="readonly "value="{{cidade}}">
               </div><br>
               <div class="classa">
+                <label>Tipo do carro:</label>
                 <input class="form-control" placeholder="Tipo" readonly="readonly "value="{{tipoCarro}}">
               </div><br>
               <div class="classa">
+                <label>Trasmissão do Carro:</label>
                 <input class="form-control" placeholder="Transmissão" readonly="readonly "value="{{transmissao}}">
               </div><br>
               <div class="classa">
+                <label>Qual o Seguro:</label>
                 <input class="form-control" placeholder="Seguros" readonly="readonly "value="{{seguro}}">
               </div><br>
               {{/each}}
@@ -432,6 +476,7 @@
           <div class="p-3">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Seguro {{numero}}:</label>
+                  <label>Qual seguro será utilizado:</label>
                   <input value="{{seguro}}" type="text" placeholder= "Qual seguro será utilizado?" readonly="readonly" class="form-control">
                 </div>
                 <div class="form-group">
@@ -439,15 +484,15 @@
                   <input value="{{coberturaSeguro}}" type="text" placeholder= "Cobertura do seguro" readonly="readonly" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Adultos:</label>
+                  <label for="exampleInputPassword1">Valor Adultos:</label>
                   <input value="{{valorAdtS}}" type="text" placeholder= "Preço por adulto" readonly="readonly" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Crianças:</label>
+                  <label for="exampleInputPassword1">Valor Crianças:</label>
                   <input value="{{valorChdS}}" type="text" placeholder= "Preço por criança" readonly="readonly" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Infantos:</label>
+                  <label for="exampleInputPassword1">Valor Bebês:</label>
                   <input value="{{valorInfS}}" type="text" placeholder= "Preço por infatos" readonly="readonly" class="form-control">
                 </div>
           </div>
@@ -458,17 +503,18 @@
           <div class="p-3">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos {{numero}}:</label>
+                  <label>Nome do Evento:</label>
                   <input value="{{tickets}}" type="text" placeholder= "" class="form-control" readonly="readonly">
                   <br>
-                  <label for="exampleInputPassword1">Adultos:</label>
+                  <label for="exampleInputPassword1">Valor Adultos:</label>
                   <input value = "{{valorAdtTk}}" type="text" placeholder= "Preço por adulto" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Crianças:</label>
+                  <label for="exampleInputPassword1">Valor Crianças:</label>
                   <input value="{{valorChdTk}}" type="text" placeholder= "Preço por criança" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Infantos:</label>
+                  <label for="exampleInputPassword1">Valor Bebês:</label>
                   <input value="{{valorInfTk}}" type="text" placeholder= "Preço por infatos" class="form-control" readonly="readonly">
                 </div>
           </div>
@@ -479,17 +525,19 @@
           <div class="p-3">
                 <div class="form-group">
                   <label id="titleG" for="exampleInputPassword1">Outros {{numero}}:</label>
+                  <br>
+                  <label>O que será:</label>
                   <input value="{{outros}}" type="text" placeholder= "" class="form-control" readonly="readonly">
                   <br>
-                  <label for="exampleInputPassword1">Adultos:</label>
+                  <label for="exampleInputPassword1">Valor Adultos:</label>
                   <input value="{{valorAdtO}}" type="text" placeholder= "Preço por adulto" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Crianças:</label>
+                  <label for="exampleInputPassword1">Valor Crianças:</label>
                   <input value="{{valorChdO}}" type="text" placeholder= "Preço por criança" class="form-control" readonly="readonly">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Infantos:</label>
+                  <label for="exampleInputPassword1">Valor Bebês:</label>
                   <input value="{{valorInfO}}" type="text" placeholder= "Preço por infatos" class="form-control" readonly="readonly">
                 </div>
           </div>
@@ -497,7 +545,14 @@
         </div>
       </div>
 
+      <div class="dinamic_spec">
+        <h3>Observações:</h3> <br>
+        <textarea name="" class="observacoes" rows="10" cols="120"></textarea>
+        <br><br><br>
 
+            <button class="btn-fake" href="../layouts/dashboard.hbs" onclick="return confirm('Deseja concluir sua compra?')">Concluir</button>
+
+      </div>
 
 
 
