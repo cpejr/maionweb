@@ -67,10 +67,10 @@ router.get('/pageC/:budget_id', function(req, res) {
               freeField: String
             };
 
-            script.countryName = budget.planCountry[i];
-            script.cityName = budget.planCity[i];
-            script.scriptDate = budget.planDate[i];
-            script.freeField = budget.planFreeField[i]
+            script.planCountry = budget.planCountry[i];
+            script.planCity = budget.planCity[i];
+            script.planDate = budget.planDate[i];
+            script.planFreeField = budget.planFreeField[i]
             allScripts.push(script);
             // console.log(allScripts.countryName);
           }
@@ -89,14 +89,8 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
           Flight.getById(budget.flights).then((flights) => {
 
             const allFlights = [];
-            const testando = {
-              vetor: ['lala', 'lele', 'lili', 'lolo', 'lulu', 'tata', 'tete', 'titi', 'toto', 'tutu'],
-              saino: ['haha', 'hehe', 'hihi', 'hoho', 'huhu', 'papa', 'pepe', 'pipi', 'popo', 'pupu'],
-              escala: [0,0,1,1,1,0,1,1,0,0],
-            }
+
             var j = 0;
-            console.log('--------------------------------121212');
-            console.log(flights);
 
             for (var i = 0; i < flights.escalas.length; i++) {
               // console.log("loop rodando yeeeet");
@@ -270,8 +264,6 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 router.post('/pageA',(req,res) => {
   const  client  = req.body.client;
   Client.update(client).then((client_id) => {
-    console.log(client_id);
-    console.log(client);
     res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);
@@ -451,16 +443,12 @@ router.post('/pageB/:client_id',(req,res) => {
 });
 
 /*POST pageC*/
-router.post('/pageC/:client_id',(req,res) => {
+router.post('/pageC/:client_id/:budget_id',(req,res) => {
   const  budget = req.body.budget;
+  const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Budget.update(budget).then((budget_id) => {
-    Client.update(client_id, budget_id).then(() => {
+  Budget.update(budget_id, budget).then(() => {
         res.redirect(`/registred/pageD/${client_id}/${budget_id}`);
-      }).catch((error) => {
-        console.log(error);
-        res.redirect('error');
-      });
   }).catch((error) => {
     console.log(error);
     res.redirect('error');
@@ -470,12 +458,10 @@ router.post('/pageC/:client_id',(req,res) => {
 /*POST pageD*/
 router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const  flight = req.body.flight;
-  const  budget_id = req.params.budget_id;
+  // const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Flight.update(flight).then((flight_id) => {
-    Budget.addFlight(budget_id, flight_id).then(() => {
-      console.log('passou na D post =========================================================');
-
+  Budget.getById(req.params.budget_id).then((budget) => {
+    Flight.update(budget.flights, flight).then(() => {
       console.log(flight);
       res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {

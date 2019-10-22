@@ -81,7 +81,7 @@ const budgetSchema = new mongoose.Schema({
     type: String
   },
 
-  planDate: [Date],
+  planDate: [String],
   planCountry: [String],
   planCity: [String],
   planFreeField: [String]
