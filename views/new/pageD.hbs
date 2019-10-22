@@ -39,32 +39,7 @@
         <span>&#61;</span>
         <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor"/>
         <span id="result"></span>
-      </div> -->
-      <div class="container rowclass">
-        <h3>Valor por Adulto Executivo: </h3>
-        <div class="row pageDAuto">
-          <div class="pageDMargin">
-            <label for="Tarifa">Tarifa</label> <br/>
-            <input name="flight[tariffValueAdult]" type="text" id="adt1" onblur="calcularAdt()" placeholder="Tarifa" class="valor"/>
-          </div>
-          <div class=" pageDMargin">
-            <label for="Tarifa">Tx Embarque</label> <br/>
-            <i class="fa fa-money"></i>
-            <input name="flight[taxValueAdult]" type="text" id="adt2" onblur="calcularAdt()" placeholder="Tx Embarque" class="valor"/>
-          </div>
-          <div class="pageDMargin">
-            <label for="Tarifa">Valor Emissão</label> <br/>
-            <i class="fa fa-money"></i>
-            <input name="flight[ravValueAdult]" type="text" id="adt3" onblur="calcularAdt()" placeholder="Valor Emissão" class="valor"/>
-            <span>&#61;</span>
-          </div>
-          <div class="pageDMargin">
-            <label for="Tarifa">Total adt</label> <br/>
-            <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor"/>
-            <span id="result"></span>
-          </div>
-        </div>
-      </div>
+      </div> -->  
       <div class="container rowclass">
         <h3>Valor por Adulto Primeira Classe: </h3>
         <div class="row pageDAuto">
@@ -117,7 +92,59 @@
       </div>
       <br><br>
       <div class="container rowclass">
-        <h3>Valor por Criança: </h3>
+        <h3>Valor por Criança Executivo: </h3>
+        <div class="row pageDAuto">
+          <div class="pageDMargin">
+            <label for="Tarifa">Tarifa</label> <br/>
+            <input name="flight[tariffValueCHD]" type="text" id="chd1" onblur="calcularChd()" placeholder="Tarifa" class="valor"/>
+          </div>
+          <div class=" pageDMargin">
+            <label for="Tarifa">Tx Embarque</label> <br/>
+            <i class="fa fa-money"></i>
+            <input name="flight[taxValueCHD]" type="text" id="chd2" onblur="calcularChd()" placeholder="Tx Embarque" class="valor"/>
+          </div>
+          <div class="pageDMargin">
+            <label for="Tarifa">Valor Emissão</label> <br/>
+            <i class="fa fa-money"></i>
+            <input name="flight[ravValueCHD]" type="text" id="chd3" onblur="calcularChd()" placeholder="Valor Emissão" class="valor"/>
+            <span>&#61;</span>
+          </div>
+          <div class="pageDMargin">
+            <label for="Tarifa">Total adt</label> <br/>
+            <input name="flight[totalValueCHD]" type="text" id="chdResult1" onblur="calcularChd()" placeholder="Total chd" class="valor"/>
+            <span id="result"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container rowclass">
+        <h3>Valor por Criança Primeira Classe: </h3>
+        <div class="row pageDAuto">
+          <div class="pageDMargin">
+            <label for="Tarifa">Tarifa</label> <br/>
+            <input name="flight[tariffValueCHD]" type="text" id="chd1" onblur="calcularChd()" placeholder="Tarifa" class="valor"/>
+          </div>
+          <div class=" pageDMargin">
+            <label for="Tarifa">Tx Embarque</label> <br/>
+            <i class="fa fa-money"></i>
+            <input name="flight[taxValueCHD]" type="text" id="chd2" onblur="calcularChd()" placeholder="Tx Embarque" class="valor"/>
+          </div>
+          <div class="pageDMargin">
+            <label for="Tarifa">Valor Emissão</label> <br/>
+            <i class="fa fa-money"></i>
+            <input name="flight[ravValueCHD]" type="text" id="chd3" onblur="calcularChd()" placeholder="Valor Emissão" class="valor"/>
+            <span>&#61;</span>
+          </div>
+          <div class="pageDMargin">
+            <label for="Tarifa">Total adt</label> <br/>
+            <input name="flight[totalValueCHD]" type="text" id="chdResult1" onblur="calcularChd()" placeholder="Total chd" class="valor"/>
+            <span id="result"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container rowclass">
+        <h3>Valor por Criança Econômico: </h3>
         <div class="row pageDAuto">
           <div class="pageDMargin">
             <label for="Tarifa">Tarifa</label> <br/>
@@ -156,7 +183,59 @@
     </div> -->
     <br><br>
     <div class="container rowclass">
-      <h3>Valor por Bebê: </h3>
+      <h3>Valor por Bebê Executivo: </h3>
+      <div class="row pageDAuto">
+        <div class="pageDMargin">
+          <label for="Tarifa">Tarifa</label> <br/>
+          <input name="flight[tariffValueInf]" type="text" id="inf1" onblur="calcularInf()" placeholder="Tarifa" class="valor"/>
+        </div>
+        <div class=" pageDMargin">
+          <label for="Tarifa">Tx Embarque</label> <br/>
+          <i class="fa fa-money"></i>
+          <input name="flight[taxValueInf]" type="text" id="inf2" onblur="calcularInf()" placeholder="Tx Embarque" class="valor"/>
+        </div>
+        <div class="pageDMargin">
+          <label for="Tarifa">Valor Emissão</label> <br/>
+          <i class="fa fa-money"></i>
+          <input name="flight[ravValueInf]" type="text" id="inf3" onblur="calcularInf()" placeholder="Valor Emissão" class="valor"/>
+          <span>&#61;</span>
+        </div>
+        <div class="pageDMargin">
+          <label for="Tarifa">Total adt</label> <br/>
+          <input name="flight[totalValueInf]" type="text" id="infResult1" onblur="calcularInf()" placeholder="Total inf" class="valor"/>
+          <span id="result"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container rowclass">
+      <h3>Valor por Bebê Primeira Classe: </h3>
+      <div class="row pageDAuto">
+        <div class="pageDMargin">
+          <label for="Tarifa">Tarifa</label> <br/>
+          <input name="flight[tariffValueInf]" type="text" id="inf1" onblur="calcularInf()" placeholder="Tarifa" class="valor"/>
+        </div>
+        <div class=" pageDMargin">
+          <label for="Tarifa">Tx Embarque</label> <br/>
+          <i class="fa fa-money"></i>
+          <input name="flight[taxValueInf]" type="text" id="inf2" onblur="calcularInf()" placeholder="Tx Embarque" class="valor"/>
+        </div>
+        <div class="pageDMargin">
+          <label for="Tarifa">Valor Emissão</label> <br/>
+          <i class="fa fa-money"></i>
+          <input name="flight[ravValueInf]" type="text" id="inf3" onblur="calcularInf()" placeholder="Valor Emissão" class="valor"/>
+          <span>&#61;</span>
+        </div>
+        <div class="pageDMargin">
+          <label for="Tarifa">Total adt</label> <br/>
+          <input name="flight[totalValueInf]" type="text" id="infResult1" onblur="calcularInf()" placeholder="Total inf" class="valor"/>
+          <span id="result"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container rowclass">
+      <h3>Valor por Bebê Econômico: </h3>
       <div class="row pageDAuto">
         <div class="pageDMargin">
           <label for="Tarifa">Tarifa</label> <br/>
