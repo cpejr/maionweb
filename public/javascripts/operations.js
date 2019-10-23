@@ -114,3 +114,38 @@ $('#decreasing').on('click', function() {
 
 
 /*! FIM OPERATIONS PAGE F !*/
+
+/*operations pageE*/
+
+function vHoteis1(){
+        var myBox1 = document.getElementById('vApto1').value;
+        var myBox2 = document.getElementById('nDiarias1').value;
+        var myBox3 = document.getElementById('nAptos1').value;
+        var result = document.getElementById('vTotal1');
+        var myResult = myBox1 * myBox2 * myBox3;
+          document.getElementById('vTotal1').value = myResult;
+
+}
+
+function vHoteis2(){
+        var myBox1 = document.getElementById('vApto2').value;
+        var myBox2 = document.getElementById('nDiarias2').value;
+        var myBox3 = document.getElementById('nAptos2').value;
+        var result = document.getElementById('vTotal2');
+        var myResult = myBox1 * myBox2 * myBox3;
+          document.getElementById('vTotal2').value = myResult;
+
+}
+
+function vHoteis3(){
+        var myBox1 = document.getElementById('vApto3').value;
+        var myBox2 = document.getElementById('nDiarias3').value;
+        var myBox3 = document.getElementById('nAptos3').value;
+        var result = document.getElementById('vTotal3');
+        var myResult = myBox1 * myBox2 * myBox3;
+          document.getElementById('vTotal3').value = myResult;
+
+}
+
+
+/*end operation pageE*/
