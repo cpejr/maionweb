@@ -6,45 +6,50 @@
   <div class="dinamic_spec">
     <h1> Serviços </h1>
     <div class="row rowclass">
-      <div class="col-sm-auto rowclass" id="landing-seguro-col1">
-        <div class="boxLeftPageG">
-          <div class="form-group">
-            <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
-            <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Cobertura</label>
-            <input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" class="form-control">
-          </div>
+      <div class="" id="landing-seguro-col1">
+        <div class="ajustes">
+          <div class=" dinamic_spec--color d-flex  flex-row">
+            <div class="boxLeftPageG">
+              <div class="form-group">
+                <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
+                <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Cobertura</label>
+                <input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Adultos:</label>
+                <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Crianças:</label>
+                <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Bebês:</label>
+                <input name="safe[insuranceINF]" type="text" placeholder= "Preço por bebê" class="form-control">
+              </div>
+            </div>
+
+          <div class="col-sm-auto rowclass" id="landing-seguro-col2">
+            <div class="boxRightPageG">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Nome do responsável:</label>
+                <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
+              </div>
+              <div class="form-check">
+                {{#each test3}}
+                  <li>{{name}}</li>
+                {{/each}}
+              </div>
+              <div class="form-group col-md-3 valor">
+                <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
+                <input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor">
+              </div>
+            </div>
+            </div>
         </div>
-      </div>
-      <div class="col-sm-auto rowclass" id="landing-seguro-col2">
-        <div class="boxRightPageG">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
-          </div>
-          <div class="form-check">
-            {{#each test3}}
-              <li>{{name}}</li>
-            {{/each}}
-          </div>
-          <div class="form-group col-md-3 valor">
-            <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
-            <input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor">
-          </div>
         </div>
       </div>
     </div>
@@ -52,41 +57,45 @@
     <br><br><br>
 
     <div class="row rowclass">
-      <div class="col-sm-auto rowclass" id="landing-ticket-col1">
-        <div class="boxLeftPageG">
-          <div class="form-group">
-            <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
-            <input name="safe[ticketsName]" type="text" placeholder= "" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" class="form-control">
+      <div class="" id="landing-ticket-col1">
+        <div class="ajustes">
+          <div class=" dinamic_spec--color d-flex  flex-row">
+                  <div class="boxLeftPageG">
+                    <div class="form-group">
+                      <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
+                      <input name="safe[ticketsName]" type="text" placeholder= "" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Adultos:</label>
+                      <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Crianças:</label>
+                      <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Bebês:</label>
+                      <input name="safe[ticketsINF]" type="text" placeholder= "Preço por bebê" class="form-control">
+                    </div>
+                  </div>
+                <div class="col-sm-auto rowclass" id="landing-ticket-col2">
+                  <div class="boxRightPageG">
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Nome do responsável:</label>
+                      <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
+                    </div>
+                    <div class="form-check">
+                      {{#each test3}}
+                        <li>{{name}}</li>
+                      {{/each}}
+                   </div>
+                    <div class="form-group col-md-3 valor">
+                      <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
+                      <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor">
+                  </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-auto rowclass" id="landing-ticket-col2">
-        <div class="boxRightPageG">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
-          </div>
-          <div class="form-check">
-            {{#each test3}}
-              <li>{{name}}</li>
-            {{/each}}
-         </div>
-          <div class="form-group col-md-3 valor">
-            <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
-            <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor">
-          </div>
         </div>
       </div>
     </div>
@@ -94,7 +103,9 @@
     <br><br><br>
 
     <div class="row rowclass">
-      <div class="col-sm-auto rowclass" id="landing-outros-col1">
+      <div class="" id="landing-outros-col1">
+        <div class="ajustes">
+          <div class=" dinamic_spec--color d-flex  flex-row">
         <div class="boxLeftPageG">
           <div class="form-group">
             <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
@@ -109,11 +120,10 @@
             <input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control">
+            <label for="exampleInputPassword1">Bebês:</label>
+            <input name="safe[otherINF]" type="text" placeholder= "Preço por bebê" class="form-control">
           </div>
         </div>
-      </div>
       <div class="col-sm-auto rowclass" id="landing-outros-col2">
         <div class="boxRightPageG">
           <div class="form-group">
@@ -131,6 +141,11 @@
           </div>
         </div>
       </div>
+    </div>
+
+    </div>
+  </div>
+
     </div>
     <button type="button" class="add_buttons" id="add_outros">+Outros</button>
   </div>

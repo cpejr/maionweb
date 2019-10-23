@@ -85,6 +85,8 @@ const clientSchema = new mongoose.Schema({
   birthDateSpouse: Date,
   birthDateCompanion: [Date],
 
+  
+
   type: {
     type: String,
     enum: ['Admin', 'Funcionario'],

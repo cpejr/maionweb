@@ -185,28 +185,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                   Budget.getAssociatedSafeById(req.params.budget_id).then((safes)=>{
                           console.log(cars);
                           console.log(flights);
-                          
-                                        // const datas = [];
-                                        // const uData = {
-                                        //   pData: String,
-                                        //   uData: String
-                                        // };
-                                        // console.log("###############################################");
-                                        // console.log(budget.planDate);
-                                        // for (var i = 0; i < budget.planDate.length; i++) {
-                                        //   const uData = {
-                                        //     pData: String,
-                                        //     uData: String
-                                        //   };
-                                        //   console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                                        //   if (i=budget.planDate.length) {
-                                        //     uData.pData = budget.planDate[0];
-                                        //     uData.uData = budget.planDate[i];
-                                        //     datas.push(uData);
-                                        //   }
-                                        //   console.log("------------------------------------");
-                                        //   console.log(uData[i]);
-                                        // }
+
 
 
 
@@ -229,48 +208,128 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               }
 
-                                              const infoVoos = [];
+                                              const allFlights = [];
+
+                                              var j = 0;
                                               var v = 0;
-                                              const voos= [{
-                                                de: String,
-                                                para: String,
-                                                dataIda: String,
-                                                dataPara: String,
-                                                valortotal: String
-                                              }];
 
 
-                                              for (var i = 0; i < flights.from.length; i++) {
-                                                const voos= [{
-                                                  de: String,
-                                                  para: String,
-                                                  dataIda: String,
-                                                  dataPara: String,
-                                                  valortotal: String,
+                                              for (var i = 0; i < flights.escalas.length; i++) {
+                                                // console.log("loop rodando yeeeet");
+                                                // console.log(testando.vetor[i]);
+
+
+                                                const flightInfo ={
+
+                                                  escala: Number,
+                                                  final: Number,
+
+                                                  from: String,
+                                                  destination: String,
+                                                  dateFrom: Date,
+                                                  dateDestination: Date,
+
+                                                  tariffValueCHD: Number,
+                                                  taxValueCHD: Number,
+                                                  ravValueCHD: Number,
+                                                  totalValueCHD: Number,
+
+                                                  tariffValueInf: Number,
+                                                  taxValueInf:Number,
+                                                  ravValueInf: Number,
+                                                  totalValueInf: Number,
+
+                                                  tariffValueAdult: Number,
+                                                  taxValueAdult: Number,
+                                                  ravValueAdult: Number,
+                                                  totalValueAdult: Number,
                                                   numero: String
-                                                }];
-                                                 console.log("-----------------------------------------------------------------------");
-                                                 console.log(flights.dateFrom[0]);
+                                                };
+                                                // é escala
+                                                if (flights.escalas[i] == 1) {
+                                                  flightInfo.escala = 1;
+                                                }
+
+                                                // não é escala
+                                                else{
+                                                  v++;
+                                                  flightInfo.escala = 0;
+                                                }
+
+                                                //Descobre se o é o ultimo antes do próximo Voo
+                                                if (flights.escalas[(i+1)] != 1) {//é final
+
+                                                  flightInfo.final = 1
+                                                  if (j > 1) {
+
+                                                    flightInfo.tariffValueCHD = 0;
+                                                    flightInfo.taxValueCHD = 1;
+                                                    flightInfo.ravValueCHD = 2;
+                                                    flightInfo.totalValueCHD = 3;
+
+                                                    flightInfo.tariffValueInf = 4;
+                                                    flightInfo.taxValueInf = 5;
+                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                                    flightInfo.totalValueInf = 7;
+
+                                                    flightInfo.tariffValueAdult = 8;
+                                                    flightInfo.taxValueAdult = 9;
+                                                    flightInfo.ravValueAdult = 10;
+                                                    flightInfo.totalValueAdult = 11;
+
+                                                  }
+                                                  else {
+
+                                                    flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
+                                                    flightInfo.taxValueCHD = flights.taxValueCHD[j];
+                                                    flightInfo.ravValueCHD = flights.ravValueCHD[j];
+                                                    flightInfo.totalValueCHD = flights.totalValueCHD[j];
+
+                                                    flightInfo.tariffValueInf = flights.tariffValueInf[j];
+                                                    flightInfo.taxValueInf = flights.taxValueInf[j];
+                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                                    flightInfo.totalValueInf = flights.totalValueInf[j];
+
+                                                    flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
+                                                    flightInfo.taxValueAdult = flights.taxValueAdult[j];
+                                                    flightInfo.ravValueAdult = flights.ravValueAdult[j];
+                                                    flightInfo.totalValueAdult = flights.totalValueAdult[j];
+                                                  }
+                                                  j++;
+
+                                                }
+
+                                                else {
+                                                  flightInfo.tariffValueCHD = 0;
+                                                  flightInfo.taxValueCHD = 0;
+                                                  flightInfo.ravValueCHD = 0;
+                                                  flightInfo.totalValueCHD = 0;
+
+                                                  flightInfo.tariffValueInf = 0;
+                                                  flightInfo.taxValueInf = 0;
+                                                  flightInfo.ravValueInf = 0;
+                                                  flightInfo.totalValueInf = 0;
+
+                                                  flightInfo.tariffValueAdult = 0;
+                                                  flightInfo.taxValueAdult = 0;
+                                                  flightInfo.ravValueAdult = 0;
+                                                  flightInfo.totalValueAdult = 0;
+                                                }
 
 
-
-
-                                                 v++;
-                                                 console.log(v);
-                                                voos.de = flights.from[i];
-                                                voos.para = flights.destination[i];
-                                                voos.dataIda = flights.dateFrom[i];
-                                                voos.dataPara = flights.dateDestination[i];
-                                                voos.valortotal = flights.finalValue[i];
-                                                voos.numero = v;
-                                                infoVoos.push(voos);
-                                                console.log(infoVoos[i]);
+                                                flightInfo.numero = v;
+                                                flightInfo.from = flights.from[i];
+                                                flightInfo.destination = flights.destination[i];
+                                                allFlights.push(flightInfo);
                                               }
 
                                                const infoHoteis = [];
                                                var h = 0;
                                                const hoteis = [{
                                                  cidade: String,
+                                                 tipoAcomodacao1: String,
+                                                 tipoAcomodacao2: String,
+                                                 tipoAcomodacao3: String,
                                                  hotel_1: String,
                                                  hotel_2: String,
                                                  hotel_3: String,
@@ -300,6 +359,9 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                for (var i = 0; i < hotels.city.length; i++) {
                                                  const hoteis = [{
                                                    cidade: String,
+                                                   tipoAcomodacao1: String,
+                                                   tipoAcomodacao2: String,
+                                                   tipoAcomodacao3: String,
                                                    hotel_1: String,
                                                    hotel_2: String,
                                                    hotel_3: String,
@@ -329,6 +391,9 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                  h++;
                                                  hoteis.cidade = hotels.city[i];
+                                                 hoteis.tipoAcomodacao1 = hotels.acomodationType1[i];
+                                                 hoteis.tipoAcomodacao2 = hotels.acomodationType2[i];
+                                                 hoteis.tipoAcomodacao3 = hotels.acomodationType3[i];
                                                  hoteis.hotel_1 = hotels.hotel1[i];
                                                  hoteis.hotel_2 = hotels.hotel2[i];
                                                  hoteis.hotel_3 = hotels.hotel3[i];
@@ -538,7 +603,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               }
 
 
-                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, infoVoos, voos, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis});
+                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, allFlights, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis});
                                     }).catch((error)=>{
                                         console.log(error);
                                         res.redirect('/error');
