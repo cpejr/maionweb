@@ -30,7 +30,9 @@ router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       console.log(client.budgets.length);
       const numTravel = client.budgets.length;
-      const codeFile = `${client.register}_${numTravel}`;
+      var now = new Date;
+      var year = now.getFullYear();
+      const codeFile = `${client.register}_${numTravel}_${year}`;
       res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client, codeFile});
 }).catch((error) => {
     console.log(error);
@@ -185,7 +187,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                   Budget.getAssociatedSafeById(req.params.budget_id).then((safes)=>{
                           console.log(cars);
                           console.log(flights);
-                          
+
                                         // const datas = [];
                                         // const uData = {
                                         //   pData: String,
