@@ -89,14 +89,9 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
           Flight.getById(budget.flights).then((flights) => {
 
             const allFlights = [];
-            const testando = {
-              vetor: ['lala', 'lele', 'lili', 'lolo', 'lulu', 'tata', 'tete', 'titi', 'toto', 'tutu'],
-              saino: ['haha', 'hehe', 'hihi', 'hoho', 'huhu', 'papa', 'pepe', 'pipi', 'popo', 'pupu'],
-              escala: [0,0,1,1,1,0,1,1,0,0],
-            }
+          
             var j = 0;
-            console.log('--------------------------------121212');
-            console.log(flights);
+
 
             for (var i = 0; i < flights.escalas.length; i++) {
               // console.log("loop rodando yeeeet");

@@ -31,6 +31,9 @@ const budgetSchema = new mongoose.Schema({
     scriptCountrie: [String],
     tips: [String],
 
+    //Moeda usada
+    coin: String,
+
 
 
 
