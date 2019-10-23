@@ -603,6 +603,7 @@ router.post('/pageC/:client_id',(req,res) => {
   const  budget = req.body.budget;
   const  client_id = req.params.client_id;
   Budget.create(budget).then((budget_id) => {
+    // console.log();
     Client.addBudget(client_id, budget_id).then(() => {
       Budget.motherClient(budget_id, client_id).then(() => {
         res.redirect(`/new/pageD/${client_id}/${budget_id}`);
