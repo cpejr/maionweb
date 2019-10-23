@@ -6044,7 +6044,7 @@ body {
   font: 14px "Montserrat", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
-  background-color: white; }
+  background-color: #EDEDED; }
 
 a {
   color: #00B7FF; }
@@ -6056,7 +6056,19 @@ div {
   color: white; }
 
 input {
-  background-color: #CFCFCF;
+  background-color: #EDEDED !important;
+  border-width: 0px; }
+
+textarea {
+  background-color: #EDEDED !important;
+  border-width: 0px; }
+
+select {
+  background-color: #EDEDED !important;
+  border-width: 0px; }
+
+label {
+  background-color: #EDEDED !important;
   border-width: 0px; }
 
 h1 {
@@ -6265,7 +6277,7 @@ label {
   padding-top: 0; }
 
 .dinamic_White {
-  background-color: white;
+  background-color: #EDEDED;
   border-radius: 5px;
   width: 100%;
   margin-left: auto;
@@ -6424,7 +6436,7 @@ label {
 
 /*---- Page B Beagining ----*/
 .dinamic_White {
-  background-color: white;
+  background-color: #EDEDED;
   border-radius: 5px;
   width: 100%;
   margin-left: auto;
@@ -6526,6 +6538,14 @@ label {
 
 .invDiv {
   display: none; }
+
+.pageDMargin {
+  padding: 0px;
+  margin-right: 0px; }
+
+.pageDAuto {
+  margin-left: 280px;
+  margin-right: auto; }
 
 /*PageD fim */
 .date {
@@ -6671,6 +6691,12 @@ label {
   font-size: 17px;
   line-height: 1.42857; }
 
+.title_registed {
+  font-size: 40px;
+  color: #323232;
+  font-weight: 900;
+  padding-left: 9em; }
+
 #roteiro-dias {
   background-color: #f3ab85;
   border-radius: 4px;
@@ -6803,9 +6829,14 @@ label {
   height: 50px;
   width: 80px; }
 
+
 .companion--radius {
   border-radius: 5px;
   text-align: center; }
+
+.corinputs {
+  color: #EDEDED !important; }
+
 
 .icones {
   height: 40px;
