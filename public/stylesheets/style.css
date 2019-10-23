@@ -6053,7 +6053,7 @@ div {
   padding: 50px;
   font: 14px;
   font-family: "Montserrat";
-  color: white; }
+  color: #EDEDED !important; }
 
 input {
   background-color: #EDEDED !important;
@@ -6068,7 +6068,6 @@ select {
   border-width: 0px; }
 
 label {
-  background-color: #EDEDED !important;
   border-width: 0px; }
 
 h1 {
@@ -6829,14 +6828,12 @@ label {
   height: 50px;
   width: 80px; }
 
-
 .companion--radius {
   border-radius: 5px;
   text-align: center; }
 
 .corinputs {
   color: #EDEDED !important; }
-
 
 .icones {
   height: 40px;
