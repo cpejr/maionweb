@@ -15,7 +15,9 @@
           <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
           <br><br>
           {{#each test2}}
-                <li>{{name}}</li>
+          <table class="col-12" id="companion--box">
+              <input value="{{name}}" class="companion--box companion--radius" ></input>
+            </table>
           {{/each}}
           <div id="add_acompanhantesvoo"></div>
           <br>

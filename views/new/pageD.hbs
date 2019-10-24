@@ -301,10 +301,9 @@
       <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
       <br><br>
       {{#each test0}}
-      <li>{{name}} <div class="form-check">
-        <input type="checkbox" class="form-check-input">
-        <label class="form-check-label" for="exampleCheck1">Voo 1</label>
-      </div></li>
+      <table class="col-12" id="companion--box">
+          <input value="{{name}}" class="companion--box companion--radius" ></input>
+        </table>
       {{/each}}
       <br><br>
     </div>

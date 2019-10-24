@@ -70,9 +70,9 @@
               <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly" required>
               <br><br>
               {{#each test1}}
-              <table>
-                 <th class="companion--center">{{name}}</th>
-              </table>
+              <table class="col-12" id="companion--box">
+                  <input value="{{name}}" class="companion--box companion--radius" ></input>
+                </table>
 
               {{/each}}
 
