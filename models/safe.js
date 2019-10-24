@@ -8,19 +8,21 @@ const safeSchema = new mongoose.Schema({
   insuranceINF: [String],
   insuranceTOT: [String],
   insuranceCoverage: [String],
+  insuranceCoin: [String],
 
   ticketsName: [String],
   ticketsADT: [String],
   ticketsCHD: [String],
   ticketsINF: [String],
   ticketsTOT: [String],
+  ticketsCoin: [String],
 
   otherName: [String],
   otherADT: [String],
   otherCHD: [String],
   otherINF: [String],
-  otherTOT: [String]
-
+  otherTOT: [String],
+  otherCoin: [String]
 
 }, { timestamps: true, static: false });
 

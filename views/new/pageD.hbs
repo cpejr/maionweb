@@ -16,6 +16,7 @@
             <th>Destino</th>
             <th>Saída</th>
             <th>Chegada</th>
+            <th>Moeda Utilizada</th>
           </tr>
         </thead>
         <tbody >
@@ -24,6 +25,13 @@
             <th><input type="text" placeholder="Destino" name="flight[destination]" class="form-control"/></th>
             <th><input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="form-control"/></th>
             <th><input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="form-control"/></th>
+            <th>  <select placeholder="Selecione" class="form-control" name=flight[coin] required>
+                <option style="display:none">Selecione qual moeda:</option>
+                <option>$</option>
+                <option>R$</option>
+                <option>€</option>
+              </select>
+            </th>
             <input type="number" name="flight[escalas]" value="0" class="invDiv">
           </tr>
         </tbody>
@@ -39,7 +47,7 @@
         <span>&#61;</span>
         <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor"/>
         <span id="result"></span>
-      </div> -->  
+      </div> -->
       <div class="container rowclass">
         <h3>Valor por Adulto Primeira Classe: </h3>
         <div class="row pageDAuto">
