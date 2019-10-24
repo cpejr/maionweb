@@ -327,6 +327,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                var h = 0;
                                                const hoteis = [{
                                                  cidade: String,
+                                                 moeda: String,
                                                  tipoAcomodacao1: String,
                                                  tipoAcomodacao2: String,
                                                  tipoAcomodacao3: String,
@@ -359,6 +360,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                for (var i = 0; i < hotels.city.length; i++) {
                                                  const hoteis = [{
                                                    cidade: String,
+                                                   moeda: String,
                                                    tipoAcomodacao1: String,
                                                    tipoAcomodacao2: String,
                                                    tipoAcomodacao3: String,
@@ -391,6 +393,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                  h++;
                                                  hoteis.cidade = hotels.city[i];
+                                                 hoteis.moeda = hotels.coin[i];
                                                  hoteis.tipoAcomodacao1 = hotels.acomodationType1[i];
                                                  hoteis.tipoAcomodacao2 = hotels.acomodationType2[i];
                                                  hoteis.tipoAcomodacao3 = hotels.acomodationType3[i];
@@ -428,6 +431,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var t = 0;
                                               const traslado = [{
                                                 deT: String,
+                                                moedaT: String,
                                                 paraT: String,
                                                 dataIdaT: String,
                                                 horaIdaT: String,
@@ -442,6 +446,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < cars.from.length; i++) {
                                                 const traslado = [{
                                                   deT: String,
+                                                  moedaT: String,
                                                   paraT: String,
                                                   dataIdaT: String,
                                                   horaIdaT: String,
@@ -455,6 +460,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                 t++;
                                                 traslado.deT = cars.from[i];
+                                                traslado.meodaT = cars.coinT[i];
                                                 traslado.paraT = cars.to[i];
                                                 traslado.dataIdaT = cars.dateFrom[i];
                                                 traslado.horaIdaT = cars.timeFrom[i];
@@ -472,6 +478,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               const infoCarros = [];
                                               var c = 0;
                                               const carros = [{
+                                                moedaC: String,
                                                 retirada: String,
                                                 outros: String,
                                                 entrega: String,
@@ -484,6 +491,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               for (var i = 0; i < cars.withdrawal.length; i++) {
                                                 const carros = [{
+                                                  moedaC: String,
                                                   retirada: String,
                                                   outros: String,
                                                   entrega: String,
@@ -496,6 +504,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 }];
 
                                                 c++;
+                                                carros.moedaC = cars.coinC[i];
                                                 carros.retirada = cars.withdrawal[i];
                                                 carros.outros = cars.others[i];
                                                 carros.entrega = cars.delivery[i];
@@ -514,6 +523,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var s = 0;
                                               const seguro = [{
                                                 seguro: String,
+                                                moedaS: String,
                                                 coberturaSeguro: String,
                                                 valorAdtS: String,
                                                 valorChdS: String,
@@ -523,6 +533,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < safes.insuranceName.length; i++) {
                                                 const seguro = [{
                                                   seguro: String,
+                                                  moedaS: String,
                                                   coberturaSeguro: String,
                                                   valorAdtS: String,
                                                   valorChdS: String,
@@ -532,6 +543,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                 s++;
                                                 seguro.seguro = safes.insuranceName[i];
+                                                seguro.moedaS = safes.insuranceCoin[i];
                                                 seguro.coberturaSeguro = safes.insuranceCoverage[i];
                                                 seguro.valorAdtS = safes.insuranceADT[i];
                                                 seguro.valorChdS = safes.insuranceCHD[i];
@@ -547,6 +559,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var ti = 0;
                                               const tickets = [{
                                                 tickets: String,
+                                                moedaT: String,
                                                 valorAdtTk: String,
                                                 valorChdTk: String,
                                                 valorInfTk: String
@@ -555,6 +568,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < safes.ticketsName.length; i++) {
                                                 const tickets = [{
                                                   tickets: String,
+                                                  moedaT: String,
                                                   valorAdtTk: String,
                                                   valorChdTk: String,
                                                   valorInfTk: String,
@@ -563,6 +577,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                 ti++;
                                                 tickets.tickets = safes.ticketsName[i];
+                                                tickets.moedaT = safes.ticketsCoin[i];
                                                 tickets.valorAdtTk = safes.ticketsADT[i];
                                                 tickets.valorChdTk = safes.ticketsCHD[i];
                                                 tickets.valorInfTk = safes.ticketsINF[i];
@@ -577,6 +592,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var o = 0;
                                               const outros = [{
                                                 outros: String,
+                                                moedaO: String,
                                                 valorAdtO: String,
                                                 valorChdO: String,
                                                 valorInfO: String
@@ -585,6 +601,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < safes.otherName.length; i++) {
                                                 const outros = [{
                                                   outros: String,
+                                                  moedaO: String,
                                                   valorAdtO: String,
                                                   valorChdO: String,
                                                   valorInfO: String,
@@ -592,10 +609,11 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 }];
 
                                                 o++;
-                                                outros.outros = safes.otherName;
-                                                outros.valorAdtO = safes.otherADT;
-                                                outros.valorChdO = safes.otherCHD;
-                                                outros.valorInfO = safes.otherINF;
+                                                outros.outros = safes.otherName[i];
+                                                outros.moedaO = safes.otherCoin[i];
+                                                outros.valorAdtO = safes.otherADT[i];
+                                                outros.valorChdO = safes.otherCHD[i];
+                                                outros.valorInfO = safes.otherINF[i];
                                                 outros.numero = c;
                                                 infoOutros.push(outros);
                                                 console.log(infoOutros[i]);

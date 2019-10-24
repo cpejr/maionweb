@@ -12,14 +12,17 @@
       <div class="row rowclass">
         <div class="col-sm" id="landing-hotel-col1">
           <div class="box_hotel_ldateFromeft">
+            <br><br><br><br>
+            <label>Moeda utilizada:</label>
             <div id="companion_camp" >
-              {{#each test1}}
-              <table>
-                 <th><br></th>
-              </table>
-
-              {{/each}}
-            </div><br><br><br><br><br>
+              <select placeholder="Selecione" class="form-control" name=hotel[coin] required>
+                  <option style="display:none">Selecione qual moeda:</option>
+                  <option>$</option>
+                  <option>R$</option>
+                  <option>€</option>
+                </select>
+            </div><br><br>
+            <br><br><br><br><br></br><br><br><br>
             <div class="classa">
               <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType1]" required>
             </div><br>

@@ -4,6 +4,7 @@ const flightSchema = new mongoose.Schema({
 
     from:[String],
     destination:[String],
+    coin:[String],
 
     dateFrom:[String],
     dateDestination: [String],
