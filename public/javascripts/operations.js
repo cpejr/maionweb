@@ -113,6 +113,7 @@ $('#decreasing').on('click', function() {
 /*! INICIO OPERATIONS PAGE F !*/
 
 
+
 /*! FIM OPERATIONS PAGE F !*/
 
 /*operations pageE*/
@@ -147,24 +148,5 @@ function vHoteis3(){
 
 }
 
-<script type="text/javascript">
- var howmanytoadd = 2;
- var rows;
 
- function calc() {
-     var tot = 0;
-     for (var i = 0; i < rows.length; i++) {
-         var linetot = 0;
-         rows[i].getElementsByTagName('input')[howmanytoadd].value = linetot;
-         tot += linetot;
-     }
-     document.getElementById('total').value = tot
- }
- onload = function () {
-     rows = document.getElementById('tab').getElementById('qty1');
-     for (var i = 0; i < rows.length; i++) {
-         rows.getElementsByTagName('input')[i].onkeyup = calc;
-     }
- }
-</script>
 /*end operation pageE*/
