@@ -22,7 +22,7 @@
             <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='11'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
           <div class="classa">
-            <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG" required>
+            <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
@@ -45,10 +45,10 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[street]" class="form-control" id="street" placeholder="Rua/ Av./ etc" required>
+            <input type="fullname" name = "client[street]" class="form-control" id="street" placeholder="Rua/ Av./ etc">
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[neighbourhood]" class="form-control" id="neighbourhood" placeholder="Bairro" required>
+            <input type="fullname" name = "client[neighbourhood]" class="form-control" id="neighbourhood" placeholder="Bairro">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
@@ -56,12 +56,12 @@
             <input type="fullname" name = "client[complement]" class="form-control" id="complement" placeholder="Complemento">
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[city]" class="form-control" id="city" placeholder="Cidade" required>
+            <input type="fullname" name = "client[city]" class="form-control" id="city" placeholder="Cidade">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[zipcode]" class="form-control" id="zipcode" placeholder="CEP" onblur='addDashesCep(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
+            <input type="fullname" name = "client[zipcode]" class="form-control" id="zipcode" placeholder="CEP" onblur='addDashesCep(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <select name="client[state]" class="form-control" required>
@@ -102,7 +102,7 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <select name="client[maritalStatus]" class="form-control" required>
+            <select name="client[maritalStatus]" class="form-control">
               <option style="display:none">Selecione: Estado Civil</option>
               <option>Casado</option>
               <option>Solteiro</option>
