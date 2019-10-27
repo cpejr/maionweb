@@ -251,18 +251,19 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
           hotelsInfo.hotel1 = hotel.hotel1[i];
           hotelsInfo.hotel2 = hotel.hotel2[i];
           hotelsInfo.hotel3 = hotel.hotel3[i];
-          hotelsInfo.valueApt1 = hotel.valueApt1[i];
-          hotelsInfo.valueApt2 = hotel.valueApt2[i];
-          hotelsInfo.valueApt3 = hotel.valueApt3[i];
-          hotelsInfo.numberDaily1 = hotel.numberDaily1[i];
-          hotelsInfo.numberDaily2 = hotel.numberDaily2[i];
-          hotelsInfo.numberDaily3 = hotel.numberDaily3[i];
-          hotelsInfo.numberApt1 = hotel.numberApt1[i];
-          hotelsInfo.numberApt2 = hotel.numberApt2[i];
-          hotelsInfo.numberApt3 = hotel.numberApt3[i];
-          hotelsInfo.total1 = hotel.total1[i];
-          hotelsInfo.total2 = hotel.total2[i];
-          hotelsInfo.total3 = hotel.total3[i];
+          // console.log(hotel.valueApt1[i]);
+          // hotelsInfo.valueApt1 = hotel.valueApt1[i];
+          // hotelsInfo.valueApt2 = hotel.valueApt2[i];
+          // hotelsInfo.valueApt3 = hotel.valueApt3[i];
+          // hotelsInfo.numberDaily1 = hotel.numberDaily1[i];
+          // hotelsInfo.numberDaily2 = hotel.numberDaily2[i];
+          // hotelsInfo.numberDaily3 = hotel.numberDaily3[i];
+          // hotelsInfo.numberApt1 = hotel.numberApt1[i];
+          // hotelsInfo.numberApt2 = hotel.numberApt2[i];
+          // hotelsInfo.numberApt3 = hotel.numberApt3[i];
+          // hotelsInfo.total1 = hotel.total1[i];
+          // hotelsInfo.total2 = hotel.total2[i];
+          // hotelsInfo.total3 = hotel.total3[i];
           hotelsInfo.category1 = hotel.category1[i];
           hotelsInfo.category2 = hotel.category2[i];
           hotelsInfo.category3 = hotel.category3[i];
@@ -296,7 +297,7 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log(client);
+    console.log('OLHA O GET DA F -----------------------------');
     res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
   }).catch((error)=>{
       console.log(error);
@@ -534,9 +535,6 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const budget_id = req.params.budget_id;
   Budget.getById(req.params.budget_id).then((budget) => {
     Flight.update(budget.flights, flight).then(() => {
-      console.log('---------------------------------------------------------------');
-      console.log(budget);
-      console.log(flight);
       res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -555,8 +553,9 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   Budget.getById(budget_id).then((budget) => {
-    Hotel.update(budget.hotels).then(() => {
-      console.log(hotel);
+    Hotel.update(budget.hotels, hotel).then(() => {
+      console.log('OLHA O POSTA DA E -------------------------------------------');
+      // console.log(hotel);
       res.redirect(`/registred/pageF/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log('budget');

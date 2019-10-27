@@ -4,143 +4,145 @@
 </header>
 <form action="/registred/pageE/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <div class="form-group">
-    <div id="add_acompanhantesvoo">
-    </div>
-    <div class="dinamic_spec">
+    {{#each allHotels}}
+      <div class="dinamic_spec">
         <h1> Hotel </h1>
-      <div class="row rowclass">
-        <div class="col-sm" id="landing-hotel-col1">
-          <div class="box_hotel_left">
-            <div id="companion_camp"></div><br><br><br><br><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Hotel 1" name="hotel[hotel1]" value="{{hotel1}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category1]" value="{{category1}}">
-            </div><br>
-            <div class="classa">
-              <select placeholder="Selecione" class="form-control" name=hotel[food1] value="{{food1}}">
-                <option style="display:none">Regime de Alimentação</option>
-                <option>Café</option>
-                <option>Meia pensão</option>
-                <option>All inclusive</option>
-                <option>Outros</option>
-              </select>
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" value="{{valueApt1}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily1]" value="{{numberDaily1}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt1]" value="{{numberApt1}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Total" name="hotel[total1]" value="{{total1}}">
-            </div><br>
-            <div class="classa">
-              <select class="form-control" name="hotel[cancellationPeriod]" value="{{cancellationPeriod}}">
-                <option style="display:none">Prazo de Cancelamento</option>
-                <option>Sem prazo</option>
-                <option>Com prazo</option>
-                <option>Outro</option>
-              </select>
+        <div class="row rowclass">
+          <div class="col-sm" id="landing-hotel-col1">
+            <div class="box_hotel_left">
+              <div id="companion_camp"></div><br><br><br><br><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Hotel 1" name="hotel[hotel1]" value="{{hotel1}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category1]" value="{{category1}}">
+              </div><br>
+              <div class="classa">
+                <select placeholder="Selecione" class="form-control" name=hotel[food1] value="{{food1}}">
+                  <option style="display:none">Regime de Alimentação</option>
+                  <option>Café</option>
+                  <option>Meia pensão</option>
+                  <option>All inclusive</option>
+                  <option>Outros</option>
+                </select>
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" value="{{valueApt1}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily1]" value="{{numberDaily1}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt1]" value="{{numberApt1}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Total" name="hotel[total1]" value="{{total1}}">
+              </div><br>
+              <div class="classa">
+                <select class="form-control" name="hotel[cancellationPeriod]" value="{{cancellationPeriod}}">
+                  <option style="display:none">Prazo de Cancelamento</option>
+                  <option>Sem prazo</option>
+                  <option>Com prazo</option>
+                  <option>Outro</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm" id="landing-hotel-col2">
-          <div class="box_hotel_midle">
-            <div id="companion_camp">
-              <h3> Passageiros </h3><br>
-              <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-              <br>
+          <div class="col-sm" id="landing-hotel-col2">
+            <div class="box_hotel_midle">
+              <div id="companion_camp">
+                <h3> Passageiros </h3><br>
+                <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
+                <br>
 
-            </div><br><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Cidade 1" name="hotel[city]" value="{{city}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Hotel 2" name="hotel[hotel2]" value="{{hotel2}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category2]" value="{{category2}}">
-            </div><br>
-            <div class="classa">
-              <select placeholder="Selecione" class="form-control" name=hotel[food2] value="{{food2}}">
-                <option style="display:none">Regime de Alimentação</option>
-                <option>Café</option>
-                <option>Meia pensão</option>
-                <option>All inclusive</option>
-                <option>Outros</option>
-              </select>
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]" value="{{valueApt2}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily2]" value="{{numberDaily2}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt2]" value="{{numberApt2}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Total" name="hotel[total2]" value="{{total2}}">
-            </div><br>
-            <div class="classa">
-              <select class="form-control" name="hotel[cancellationPeriod2]" value="{{cancellationPeriod2}}">
-                <option style="display:none">Prazo de Cancelamento</option>
-                <option>Sem prazo</option>
-                <option>Com prazo</option>
-                <option>Outro</option>
-              </select>
+              </div><br><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Cidade 1" name="hotel[city]" value="{{city}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Hotel 2" name="hotel[hotel2]" value="{{hotel2}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category2]" value="{{category2}}">
+              </div><br>
+              <div class="classa">
+                <select placeholder="Selecione" class="form-control" name=hotel[food2] value="{{food2}}">
+                  <option style="display:none">Regime de Alimentação</option>
+                  <option>Café</option>
+                  <option>Meia pensão</option>
+                  <option>All inclusive</option>
+                  <option>Outros</option>
+                </select>
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]" value="{{valueApt2}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily2]" value="{{numberDaily2}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt2]" value="{{numberApt2}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Total" name="hotel[total2]" value="{{total2}}">
+              </div><br>
+              <div class="classa">
+                <select class="form-control" name="hotel[cancellationPeriod2]" value="{{cancellationPeriod2}}">
+                  <option style="display:none">Prazo de Cancelamento</option>
+                  <option>Sem prazo</option>
+                  <option>Com prazo</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm" id="landing-hotel-col3">
+            <div class="box_hotel_right">
+              <div id="companion_camp"></div>
+              <br><br><br><br><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Hotel 3" name="hotel[hotel3]" value="{{hotel3}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category3]" value="{{category3}}">
+              </div><br>
+              <div class="classa">
+                <select placeholder="Selecione" class="form-control" name=hotel[food3] value="{{food3}}">
+                  <option style="display:none">Regime de Alimentação</option>
+                  <option>Café</option>
+                  <option>Meia pensão</option>
+                  <option>All inclusive</option>
+                  <option>Outros</option>
+                </select>
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]" value="{{valueApt3}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily3]" value="{{numberDaily3}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt3]" value="{{numberApt3}}">
+              </div><br>
+              <div class="classa">
+                <input class="form-control" placeholder="Total" name="hotel[total3]" value="{{total3}}">
+              </div><br>
+              <div class="classa">
+                <select class="form-control" name="hotel[cancellationPeriod3]" value="{{cancellationPeriod3}}">
+                  <option style="display:none">Prazo de Cancelamento</option>
+                  <option>Sem prazo</option>
+                  <option>Com prazo</option>
+                  <option>Outro</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-sm" id="landing-hotel-col3">
-          <div class="box_hotel_right">
-            <div id="companion_camp"></div>
-          <br><br><br><br><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Hotel 3" name="hotel[hotel3]" value="{{hotel3}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category3]" value="{{category3}}">
-            </div><br>
-            <div class="classa">
-              <select placeholder="Selecione" class="form-control" name=hotel[food3] value="{{food3}}">
-                <option style="display:none">Regime de Alimentação</option>
-                <option>Café</option>
-                <option>Meia pensão</option>
-                <option>All inclusive</option>
-                <option>Outros</option>
-              </select>
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]" value="{{valueApt3}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily3]" value="{{numberDaily3}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt3]" value="{{numberApt3}}">
-            </div><br>
-            <div class="classa">
-              <input class="form-control" placeholder="Total" name="hotel[total3]" value="{{total3}}">
-            </div><br>
-            <div class="classa">
-              <select class="form-control" name="hotel[cancellationPeriod3]" value="{{cancellationPeriod3}}">
-                <option style="display:none">Prazo de Cancelamento</option>
-                <option>Sem prazo</option>
-                <option>Com prazo</option>
-                <option>Outro</option>
-              </select>
-            </div>
-          </div>
-        </div>
+        <br><br>
       </div>
-      <button type="button" class="add_buttons" id="add-hotel">+Hoteis/Cidades</button>
-      <br><br>
+    {{/each}}
+    <button type="button" class="add_buttons" id="add-hotel">+Hoteis/Cidades</button>
+    <div id="add_acompanhantesvoo">
     </div>
     <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
   </form>
