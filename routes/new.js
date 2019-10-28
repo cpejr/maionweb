@@ -28,7 +28,6 @@ router.get('/pageB/:client_id', function(req, res) {
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-      console.log(client.budgets.length);
       const numTravel = client.budgets.length;
       const codeFile = `${client.register}_${numTravel}`;
       res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client, codeFile});
@@ -186,6 +185,27 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                           console.log(cars);
                           console.log(flights);
 
+                                        // const datas = [];
+                                        // const uData = {
+                                        //   pData: String,
+                                        //   uData: String
+                                        // };
+                                        // console.log("###############################################");
+                                        // console.log(budget.planDate);
+                                        // for (var i = 0; i < budget.planDate.length; i++) {
+                                        //   const uData = {
+                                        //     pData: String,
+                                        //     uData: String
+                                        //   };
+                                        //   console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                                        //   if (i=budget.planDate.length) {
+                                        //     uData.pData = budget.planDate[0];
+                                        //     uData.uData = budget.planDate[i];
+                                        //     datas.push(uData);
+                                        //   }
+                                        //   console.log("------------------------------------");
+                                        //   console.log(uData[i]);
+                                        // }
 
 
 
@@ -687,6 +707,7 @@ router.post('/pageC/:client_id',(req,res) => {
   const  budget = req.body.budget;
   const  client_id = req.params.client_id;
   Budget.create(budget).then((budget_id) => {
+    // console.log();
     Client.addBudget(client_id, budget_id).then(() => {
       Budget.motherClient(budget_id, client_id).then(() => {
         res.redirect(`/new/pageD/${client_id}/${budget_id}`);
