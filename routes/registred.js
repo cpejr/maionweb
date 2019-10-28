@@ -251,19 +251,18 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
           hotelsInfo.hotel1 = hotel.hotel1[i];
           hotelsInfo.hotel2 = hotel.hotel2[i];
           hotelsInfo.hotel3 = hotel.hotel3[i];
-          // console.log(hotel.valueApt1[i]);
-          // hotelsInfo.valueApt1 = hotel.valueApt1[i];
-          // hotelsInfo.valueApt2 = hotel.valueApt2[i];
-          // hotelsInfo.valueApt3 = hotel.valueApt3[i];
-          // hotelsInfo.numberDaily1 = hotel.numberDaily1[i];
-          // hotelsInfo.numberDaily2 = hotel.numberDaily2[i];
-          // hotelsInfo.numberDaily3 = hotel.numberDaily3[i];
-          // hotelsInfo.numberApt1 = hotel.numberApt1[i];
-          // hotelsInfo.numberApt2 = hotel.numberApt2[i];
-          // hotelsInfo.numberApt3 = hotel.numberApt3[i];
-          // hotelsInfo.total1 = hotel.total1[i];
-          // hotelsInfo.total2 = hotel.total2[i];
-          // hotelsInfo.total3 = hotel.total3[i];
+          hotelsInfo.valueApt1 = hotel.valueApt1[i];
+          hotelsInfo.valueApt2 = hotel.valueApt2[i];
+          hotelsInfo.valueApt3 = hotel.valueApt3[i];
+          hotelsInfo.numberDaily1 = hotel.numberDaily1[i];
+          hotelsInfo.numberDaily2 = hotel.numberDaily2[i];
+          hotelsInfo.numberDaily3 = hotel.numberDaily3[i];
+          hotelsInfo.numberApt1 = hotel.numberApt1[i];
+          hotelsInfo.numberApt2 = hotel.numberApt2[i];
+          hotelsInfo.numberApt3 = hotel.numberApt3[i];
+          hotelsInfo.total1 = hotel.total1[i];
+          hotelsInfo.total2 = hotel.total2[i];
+          hotelsInfo.total3 = hotel.total3[i];
           hotelsInfo.category1 = hotel.category1[i];
           hotelsInfo.category2 = hotel.category2[i];
           hotelsInfo.category3 = hotel.category3[i];
@@ -297,8 +296,78 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log('OLHA O GET DA F -----------------------------');
-    res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
+    Budget.getById(req.params.budget_id).then((budget) => {
+      Car.getById(budget.cars).then((car) => {
+
+        const allCars = [];
+        const allCarsTraslado = [];
+
+        for (var i = 0; i < car.from.length; i++) {
+
+          const carsTrasladoInfo = {
+
+            from: String,
+            to: String,
+            dateFrom: String,
+            timeFrom: String,
+            dateTo: String,
+            timeTo: String,
+            valueADT: String,
+            valueCHD: String,
+            valueINF: String,
+            totalTranslado: Number,
+          };
+
+          carsTrasladoInfo.from = car.from[i];
+          carsTrasladoInfo.to = car.to[i];
+          carsTrasladoInfo.dateFrom = car.dateFrom[i];
+          carsTrasladoInfo.timeFrom = car.timeFrom[i];
+          carsTrasladoInfo.dateTo = car.dateTo[i];
+          carsTrasladoInfo.timeTo = car.timeTo[i];
+          carsTrasladoInfo.valueADT = car.valueADT[i];
+          carsTrasladoInfo.valueCHD = car.valueCHD[i];
+          carsTrasladoInfo.valueINF = car.valueINF[i];
+          carsTrasladoInfo.totalTranslado = car.totalTranslado[i];
+
+          allCarsTraslado.push(carsTrasladoInfo);
+        }
+
+        for (var j = 0; j < car.typeCar.length; j++) {
+
+          const carsInfo = {
+
+            typeCar: String,
+            withdrawal: String,
+            delivery: String,
+            totalCar: Number,
+            city: String,
+            shift:String,
+            safe: String,
+            others: String
+          };
+
+          carsInfo.typeCar = car.typeCar[j];
+          carsInfo.withdrawal = car.withdrawal[j];
+          carsInfo.delivery = car.delivery[j];
+          carsInfo.totalCar = car.totalCar[j];
+          carsInfo.city = car.city[j];
+          carsInfo.shift = car.shift[j];
+          carsInfo.safe = car.safe[j];
+          carsInfo.others = car.others[j];
+
+          allCars.push(carsInfo);
+        }
+
+        console.log('OLHA O GET DA F -----------------------------');
+        res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado});
+      }).catch((error) => {
+        console.log(error);
+        res.redirect('/error');
+      });
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('/error');
+    });
   }).catch((error)=>{
       console.log(error);
       res.redirect('/error');
@@ -310,8 +379,84 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
 
 router.get('/pageG/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log(client);
-    res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client});
+    Budget.getById(req.params.budget_id).then((budget) => {
+      Safe.getById(budget.safes).then((safe) => {
+
+        const allSafes = [];
+        const allTickets = [];
+        const allOthers = [];
+
+        for (var i = 0; i < safe.insuranceName.length; i++) {
+
+          const safeInfo = {
+
+            insuranceName: String,
+            insuranceADT: String,
+            insuranceCHD: String,
+            insuranceINF: String,
+            insuranceTOT: String,
+            insuranceCoverage: String,
+          };
+
+          safeInfo.insuranceName = safe.insuranceName[i];
+          safeInfo.insuranceADT = safe.insuranceADT[i];
+          safeInfo.insuranceCHD = safe.insuranceCHD[i];
+          safeInfo.insuranceINF = safe.insuranceINF[i];
+          safeInfo.insuranceTOT = safe.insuranceTOT[i];
+          safeInfo.insuranceCoverage = safe.insuranceCoverage[i];
+
+          allSafes.push(safeInfo);
+        }
+
+        for (var j = 0; j < safe.ticketsName.length; j++) {
+
+          const ticketInfo = {
+
+            ticketsName: String,
+            ticketsADT: String,
+            ticketsCHD: String,
+            ticketsINF: String,
+            ticketsTOT: String,
+          };
+
+          ticketInfo.ticketsName = safe.ticketsName[j];
+          ticketInfo.ticketsADT = safe.ticketsADT[j];
+          ticketInfo.ticketsCHD = safe.ticketsCHD[j];
+          ticketInfo.ticketsINF = safe.ticketsINF[j];
+          ticketInfo.ticketsTOT = safe.ticketsTOT[j];
+
+          allTickets.push(ticketInfo);
+        }
+
+        for (var k = 0; k < safe.otherName.length; k++) {
+
+          const otherInfo = {
+
+            otherName: String,
+            otherADT: String,
+            otherCHD: String,
+            otherINF: String,
+            otherTOT: String
+          };
+
+          otherInfo.otherName = safe.otherName[k];
+          otherInfo.otherADT = safe.otherADT[k];
+          otherInfo.otherCHD = safe.otherCHD[k];
+          otherInfo.otherINF = safe.otherINF[k];
+          otherInfo.otherTOT = safe.otherTOT[k];
+
+          allOthers.push(otherInfo);
+        }
+
+        res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allSafes, allOthers, allTickets});
+      }).catch((error) => {
+          console.log(error);
+          res.redirect('/error');
+      });
+    }).catch((error) => {
+        console.log(error);
+        res.redirect('/error');
+    });
 }).catch((error)=>{
     console.log(error);
     res.redirect('/error');
@@ -519,8 +664,7 @@ router.post('/pageC/:client_id/:budget_id',(req,res) => {
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   Budget.update(budget_id, budget).then(() => {
-    console.log('-----------------------------');
-        res.redirect(`/registred/pageD/${client_id}/${budget_id}`);
+    res.redirect(`/registred/pageD/${client_id}/${budget_id}`);
   }).catch((error) => {
     console.log(error);
     res.redirect('error');
@@ -554,8 +698,6 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  client_id = req.params.client_id;
   Budget.getById(budget_id).then((budget) => {
     Hotel.update(budget.hotels, hotel).then(() => {
-      console.log('OLHA O POSTA DA E -------------------------------------------');
-      // console.log(hotel);
       res.redirect(`/registred/pageF/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log('budget');
@@ -574,9 +716,8 @@ router.post('/pageF/:client_id/:budget_id',(req,res) => {
   const  car = req.body.car;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Car.update(car).then((car_id) => {
-    Budget.addCar(budget_id, car_id).then(() => {
-      console.log(car);
+  Budget.getById(budget_id).then((budget) => {
+    Car.update(budget.cars, car).then(() => {
       res.redirect(`/registred/pageG/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -593,8 +734,9 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
   const  safe = req.body.safe;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Safe.update(safe).then((safe_id) => {
-    Budget.addSafe(budget_id, safe_id).then(() => {
+  Budget.getById(budget_id).then((budget) => {
+    Safe.update(budget.safes, safe).then(() => {
+      console.log('OLHA O POSTA DA F -------------------------------------------');
       res.redirect(`/registred/pageH/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
