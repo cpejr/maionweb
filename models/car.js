@@ -12,8 +12,9 @@ const carSchema = new mongoose.Schema({
     valueCHD: [String],
     valueINF: [String],
     totalTranslado: [Number],
+    coinT: [String],
 
-
+    coinC: [String],
     withdrawal: [String],
     others: [String],
     delivery: [String],

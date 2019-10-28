@@ -10,16 +10,16 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" placeholder="Nome Completo">
+            <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" required placeholder="Nome Completo">
           </div><br>
           <div class="classa">
-            <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email">
+            <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email" required>
           </div><br>
           <div class="classa">
-            <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Confirme seu email">
+            <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Confirme seu email" required>
           </div><br>
           <div class="classa">
-            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='11'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='11'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
           <div class="classa">
             <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG">
@@ -27,16 +27,16 @@
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="text" name = "client[birthDate]" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="birthDate" placeholder="Data de Nascimento"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="text" name = "client[birthDate]" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="birthDate" placeholder="Data de Nascimento"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
           <div class="classa">
             <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onblur='addDashesFixo(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
-            <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='11' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='11' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
           <div class="classa">
-            <input type="cellphone1" name = "client[cellphone1]" class="form-control" id="cellphone1" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='11' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="cellphone1" name = "client[cellphone1]" class="form-control" id="cellphone1" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='11' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
         </div>
       </div>
@@ -64,7 +64,7 @@
             <input type="fullname" name = "client[zipcode]" class="form-control" id="zipcode" placeholder="CEP" onblur='addDashesCep(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
-            <select name="client[state]" class="form-control">
+            <select name="client[state]" class="form-control" required>
               <option style="display:none">Selecione: Estado</option>
               <option>AC</option>
               <option>AL</option>
@@ -111,7 +111,7 @@
             </select>
           </div><br>
           <div class="classa">
-            <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão">
+            <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão" required>
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
@@ -119,10 +119,10 @@
             <input type="text" name = "client[wedding_anniversary]" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="wedding_anniversary" placeholder="Aniversário de Casamento" onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
+            <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte" required>
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte" onblur='addDashesPassport(this)' maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="fullname" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte" onblur='addDashesPassport(this)' maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
         </div>
       </div>
@@ -223,7 +223,7 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <select name="client[funil]" class="form-control">
+            <select name="client[funil]" class="form-control" required>
               <option style="display:none">Selecione: Funil Vendas</option>
               <option>Instagram</option>
               <option>Facebook</option>
@@ -242,7 +242,7 @@
             <input type="instagram" name = "client[instagram]" class="form-control" id="instagram" placeholder="Instagram">
           </div>
           <div class="classa">
-            <input type="others" name = "client[others]" class="form-control" id="others" placeholder="Outros">
+            <input type="others" name = "client[others]" class="form-control" id="others" placeholder="Outros" required>
           </div>
         </div>
       </div>
