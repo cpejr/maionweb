@@ -304,8 +304,6 @@
   </select>
   <br><br><br>
 
-  <h3>Preferência de assento</h3>
-  <br><br>
   <select name="client[plane_seat_pref]" required="required" class="form-control">
     <option style = "color:red;">{{client.plane_seat_pref}}</option>
     <option>Janela</option>
@@ -589,7 +587,7 @@
   </div>
   <br><br>
 
-  <h3> Dificuldade de Locomoção </h3><
+  <h3> Dificuldade de Locomoção </h3>
   <br><br>
   <div class="dinamic_White">
 
@@ -647,6 +645,28 @@
       {{/compare}}
     </div>
 
+    <!-- Restrição alimentar Vegano -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_FoodVegano "Vegano"}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Vegano" name="client[profile_FoodVegano]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Vegano</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Vegano" name="client[profile_FoodVegano]">
+      <label class="form-check-label" for="inlineCheckbox3">Vegano</label>
+      {{/compare}}
+    </div>
+
+    <!-- Restrição alimentar Vegetariano -->
+    <div class="form-check form-check-inline float-center">
+      {{#compare client.profile_FoodVegetariano "Vegetariano"}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Vegetariano" name="client[profile_FoodVegetariano]" checked>
+      <label class="form-check-label" for="inlineCheckbox3">Vegetariano</label>
+      {{else}}
+      <input class="form-check-input" type="checkbox" id="checkbox22" value="Vegetariano" name="client[profile_FoodVegetariano]">
+      <label class="form-check-label" for="inlineCheckbox3">Vegetariano</label>
+      {{/compare}}
+    </div>
+
     <!-- Qual restrição -->
     <div class="input_outros">
       <input type="text" name="client[profile_WhichFood]"  id="checkbox333" placeholder="Qual" class="form-control" value="{{client.profile_WhichFood}}">
@@ -656,9 +676,6 @@
   <br><br>
 </div>
 <br><br>
-</div>
-</div>
-</div>
 <br>
 <button type="submit" class="btn btn-primary" id="buttonPages" >Concluir alterações</button>
 </div>
