@@ -1144,6 +1144,14 @@ router.post('/pageB/:client_id',(req,res) => {
   if(client.profile_FoodNão != 'Não'){
     client.profile_FoodNão = 'empty';
   };
+  if(client.profile_FoodVegano != 'Vegano'){
+    client.profile_FoodVegano = 'empty';
+  };
+  if(client.profile_FoodVegetariano != 'Vegetariano'){
+    client.profile_FoodVegetariano = 'empty';
+  };
+  
+
 
   Client.update(client_id, client).then(() => {
     res.redirect(`/registred/pageRegistred`);
