@@ -8,19 +8,18 @@ const Car = require('../models/car');
 const Safe = require('../models/safe');
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
-    Client.getById(req.params.client_id).then((client) =>{
-      res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
-    }).catch((error) => {
-        console.log(error);
-        res.redirect('/error');
-      });
+  Client.getById(req.params.client_id).then((client) =>{
+    res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('/error');
+  });
 });
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log(client);
     res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
-}).catch((error) => {
+  }).catch((error) => {
     console.log(error);
     res.redirect('/error');
   });
@@ -704,13 +703,60 @@ router.post('/pageB/:client_id',(req,res) => {
 
 /*POST pageC*/
 router.post('/pageC/:client_id',(req,res) => {
-  const  budget = req.body.budget;
-  const  client_id = req.params.client_id;
+  const budget = req.body.budget;
+  const client_id = req.params.client_id;
+  const flight = req.body.flight;
+  req.session.flight = flight;
+  const  hotel = req.body.hotel;
+  req.session.hotel = hotel;
+  const  car = req.body.car;
+  req.session.car = car;
+  const  safe = req.body.safe;
+  req.session.safe = safe;
   Budget.create(budget).then((budget_id) => {
-    // console.log();
     Client.addBudget(client_id, budget_id).then(() => {
       Budget.motherClient(budget_id, client_id).then(() => {
-        res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+        Flight.create(flight).then((flight_id) => {
+          Budget.addFlight(budget_id, flight_id).then(() => {
+            Hotel.create(hotel).then((hotel_id) => {
+              Budget.addHotel(budget_id, hotel_id).then(() => {
+                Car.create(car).then((car_id) => {
+                  Budget.addCar(budget_id, car_id).then(() => {
+                    Safe.create(safe).then((safe_id) => {
+                      Budget.addSafe(budget_id, safe_id).then(() => {
+                        res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+                      }).catch((error) =>{
+                        console.log(error);
+                        res.redirect('error');
+                      });
+                    }).catch((error) =>{
+                      console.log(error);
+                      res.redirect('error');
+                    });
+                  }).catch((error) =>{
+                    console.log(error);
+                    res.redirect('error');
+                  });
+                }).catch((error) =>{
+                  console.log(error);
+                  res.redirect('error');
+                });
+              }).catch((error) =>{
+                console.log(error);
+                res.redirect('error');
+              });
+            }).catch((error) =>{
+              console.log(error);
+              res.redirect('error');
+            });
+          }).catch((error) =>{
+            console.log(error);
+            res.redirect('error');
+          });
+        }).catch((error) =>{
+          console.log(error);
+          res.redirect('error');
+        });
       }).catch((error) =>{
         console.log(error);
         res.redirect('error');
@@ -727,13 +773,11 @@ router.post('/pageC/:client_id',(req,res) => {
 
 /*POST pageD*/
 router.post('/pageD/:client_id/:budget_id',(req,res) => {
-  const flight = req.body.flight;
-  req.session.flight = flight;
-  const  budget_id = req.params.budget_id;
+  const  flight = req.body.flight;
   const  client_id = req.params.client_id;
-  Flight.create(flight).then((flight_id) => {
-    Budget.addFlight(budget_id, flight_id).then(() => {
-      console.log(flight);
+  const budget_id = req.params.budget_id;
+  Budget.getById(req.params.budget_id).then((budget) => {
+    Flight.update(budget.flights, flight).then(() => {
       res.redirect(`/new/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -749,19 +793,19 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
 /*POST pageE*/
 router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  hotel = req.body.hotel;
-  req.session.hotel = hotel;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Hotel.create(hotel).then((hotel_id) => {
-    Budget.addHotel(budget_id, hotel_id).then(() => {
-      console.log(hotel);
+  Budget.getById(budget_id).then((budget) => {
+    Hotel.update(budget.hotels, hotel).then(() => {
       res.redirect(`/new/pageF/${client_id}/${budget_id}`);
     }).catch((error) => {
+      console.log('budget');
       console.log(error);
       res.redirect('error');
     });
   }).catch((error) => {
     console.log(error);
+    console.log('hotel');
     res.redirect('error');
   });
 });
@@ -769,12 +813,10 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
 /*POST pageF*/
 router.post('/pageF/:client_id/:budget_id',(req,res) => {
   const  car = req.body.car;
-  req.session.car = car;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Car.create(car).then((car_id) => {
-    Budget.addCar(budget_id, car_id).then(() => {
-      console.log(car);
+  Budget.getById(budget_id).then((budget) => {
+    Car.update(budget.cars, car).then(() => {
       res.redirect(`/new/pageG/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -789,11 +831,10 @@ router.post('/pageF/:client_id/:budget_id',(req,res) => {
 /*POST pageG*/
 router.post('/pageG/:client_id/:budget_id',(req,res) => {
   const  safe = req.body.safe;
-  req.session.safe = safe;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Safe.create(safe).then((safe_id) => {
-    Budget.addSafe(budget_id, safe_id).then(() => {
+  Budget.getById(budget_id).then((budget) => {
+    Safe.update(budget.safes, safe).then(() => {
       res.redirect(`/new/pageH/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);

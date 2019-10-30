@@ -464,15 +464,511 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
 
 /* GET pageH. */
 
+// router.get('/pageH/:client_id/:budget_id', function(req, res) {
+//   Budget.getById(req.params.client_id).then((budget) => {
+//     console.log(budget);
+//     res.render('registred/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget});
+// }).catch((error)=>{
+//     console.log(error);
+//     res.redirect('/error');
+//   });
+// });
+
 router.get('/pageH/:client_id/:budget_id', function(req, res) {
-  Budget.getById(req.params.client_id).then((budget) => {
-    console.log(budget);
-    res.render('registred/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget});
-}).catch((error)=>{
-    console.log(error);
-    res.redirect('/error');
-  });
+  Client.getById(req.params.client_id).then((client) => {
+        Budget.getById(req.params.budget_id).then((budget) => {
+          Budget.getAssociatedFlightById(req.params.budget_id).then((flights)=>{
+              Budget.getAssociatedHotelById(req.params.budget_id).then((hotels)=>{
+                Budget.getAssociatedCarById(req.params.budget_id).then((cars)=>{
+                  Budget.getAssociatedSafeById(req.params.budget_id).then((safes)=>{
+                          console.log(cars);
+                          console.log(flights);
+
+                                        // const datas = [];
+                                        // const uData = {
+                                        //   pData: String,
+                                        //   uData: String
+                                        // };
+                                        // console.log("###############################################");
+                                        // console.log(budget.planDate);
+                                        // for (var i = 0; i < budget.planDate.length; i++) {
+                                        //   const uData = {
+                                        //     pData: String,
+                                        //     uData: String
+                                        //   };
+                                        //   console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                                        //   if (i=budget.planDate.length) {
+                                        //     uData.pData = budget.planDate[0];
+                                        //     uData.uData = budget.planDate[i];
+                                        //     datas.push(uData);
+                                        //   }
+                                        //   console.log("------------------------------------");
+                                        //   console.log(uData[i]);
+                                        // }
+
+
+
+                                        const test = [];
+                                        const companions = {
+                                          name: String
+                                        };
+
+                                        console.log(req.session);
+                                              for (var i = 0; i < client.companionFullname.length; i++) {
+
+                                                const companions = {
+                                                  name: String
+                                                };
+
+                                                companions.name = client.companionFullname[i];
+                                                test.push(companions);
+
+                                                console.log(test[i]);
+
+                                              }
+
+                                              const allFlights = [];
+
+                                              var j = 0;
+                                              var v = 0;
+
+
+                                              for (var i = 0; i < flights.escalas.length; i++) {
+                                                // console.log("loop rodando yeeeet");
+                                                // console.log(testando.vetor[i]);
+
+
+                                                const flightInfo ={
+
+                                                  escala: Number,
+                                                  final: Number,
+
+                                                  from: String,
+                                                  destination: String,
+                                                  dateFrom: Date,
+                                                  dateDestination: Date,
+
+                                                  tariffValueCHD: Number,
+                                                  taxValueCHD: Number,
+                                                  ravValueCHD: Number,
+                                                  totalValueCHD: Number,
+
+                                                  tariffValueInf: Number,
+                                                  taxValueInf:Number,
+                                                  ravValueInf: Number,
+                                                  totalValueInf: Number,
+
+                                                  tariffValueAdult: Number,
+                                                  taxValueAdult: Number,
+                                                  ravValueAdult: Number,
+                                                  totalValueAdult: Number,
+                                                  numero: String
+                                                };
+                                                // é escala
+                                                if (flights.escalas[i] == 1) {
+                                                  flightInfo.escala = 1;
+                                                }
+
+                                                // não é escala
+                                                else{
+                                                  v++;
+                                                  flightInfo.escala = 0;
+                                                }
+
+                                                //Descobre se o é o ultimo antes do próximo Voo
+                                                if (flights.escalas[(i+1)] != 1) {//é final
+
+                                                  flightInfo.final = 1
+                                                  if (j > 1) {
+
+                                                    flightInfo.tariffValueCHD = 0;
+                                                    flightInfo.taxValueCHD = 1;
+                                                    flightInfo.ravValueCHD = 2;
+                                                    flightInfo.totalValueCHD = 3;
+
+                                                    flightInfo.tariffValueInf = 4;
+                                                    flightInfo.taxValueInf = 5;
+                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                                    flightInfo.totalValueInf = 7;
+
+                                                    flightInfo.tariffValueAdult = 8;
+                                                    flightInfo.taxValueAdult = 9;
+                                                    flightInfo.ravValueAdult = 10;
+                                                    flightInfo.totalValueAdult = 11;
+
+                                                  }
+                                                  else {
+
+                                                    flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
+                                                    flightInfo.taxValueCHD = flights.taxValueCHD[j];
+                                                    flightInfo.ravValueCHD = flights.ravValueCHD[j];
+                                                    flightInfo.totalValueCHD = flights.totalValueCHD[j];
+
+                                                    flightInfo.tariffValueInf = flights.tariffValueInf[j];
+                                                    flightInfo.taxValueInf = flights.taxValueInf[j];
+                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                                    flightInfo.totalValueInf = flights.totalValueInf[j];
+
+                                                    flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
+                                                    flightInfo.taxValueAdult = flights.taxValueAdult[j];
+                                                    flightInfo.ravValueAdult = flights.ravValueAdult[j];
+                                                    flightInfo.totalValueAdult = flights.totalValueAdult[j];
+                                                  }
+                                                  j++;
+
+                                                }
+
+                                                else {
+                                                  flightInfo.tariffValueCHD = 0;
+                                                  flightInfo.taxValueCHD = 0;
+                                                  flightInfo.ravValueCHD = 0;
+                                                  flightInfo.totalValueCHD = 0;
+
+                                                  flightInfo.tariffValueInf = 0;
+                                                  flightInfo.taxValueInf = 0;
+                                                  flightInfo.ravValueInf = 0;
+                                                  flightInfo.totalValueInf = 0;
+
+                                                  flightInfo.tariffValueAdult = 0;
+                                                  flightInfo.taxValueAdult = 0;
+                                                  flightInfo.ravValueAdult = 0;
+                                                  flightInfo.totalValueAdult = 0;
+                                                }
+
+
+                                                flightInfo.numero = v;
+                                                flightInfo.from = flights.from[i];
+                                                flightInfo.destination = flights.destination[i];
+                                                allFlights.push(flightInfo);
+                                              }
+
+                                               const infoHoteis = [];
+                                               var h = 0;
+                                               const hoteis = [{
+                                                 cidade: String,
+                                                 moeda: String,
+                                                 tipoAcomodacao1: String,
+                                                 tipoAcomodacao2: String,
+                                                 tipoAcomodacao3: String,
+                                                 hotel_1: String,
+                                                 hotel_2: String,
+                                                 hotel_3: String,
+                                                 valorApto1: String,
+                                                 valorApto2: String,
+                                                 valorApto3: String,
+                                                 numeroDiarias1: String,
+                                                 numeroDiarias2: String,
+                                                 numeroDiarias3: String,
+                                                 numeroApto1: String,
+                                                 numeroApto2: String,
+                                                 numeroApto3: String,
+                                                 total_1: String,
+                                                 total_2: String,
+                                                 total_3: String,
+                                                 categoria1: String,
+                                                 categoria2: String,
+                                                 categoria3: String,
+                                                 comida1: String,
+                                                 comida2: String,
+                                                 comida3: String,
+                                                 periodoCancelamento1: String,
+                                                 periodoCancelamento2: String,
+                                                 periodoCancelamento3: String
+                                               }];
+
+                                               for (var i = 0; i < hotels.city.length; i++) {
+                                                 const hoteis = [{
+                                                   cidade: String,
+                                                   moeda: String,
+                                                   tipoAcomodacao1: String,
+                                                   tipoAcomodacao2: String,
+                                                   tipoAcomodacao3: String,
+                                                   hotel_1: String,
+                                                   hotel_2: String,
+                                                   hotel_3: String,
+                                                   valorApto1: String,
+                                                   valorApto2: String,
+                                                   valorApto3: String,
+                                                   numeroDiarias1: String,
+                                                   numeroDiarias2: String,
+                                                   numeroDiarias3: String,
+                                                   numeroApto1: String,
+                                                   numeroApto2: String,
+                                                   numeroApto3: String,
+                                                   total_1: String,
+                                                   total_2: String,
+                                                   total_3: String,
+                                                   categoria1: String,
+                                                   categoria2: String,
+                                                   categoria3: String,
+                                                   comida1: String,
+                                                   comida2: String,
+                                                   comida3: String,
+                                                   periodoCancelamento1: String,
+                                                   periodoCancelamento2: String,
+                                                   periodoCancelamento3: String,
+                                                   numero: String
+                                                 }];
+
+                                                 h++;
+                                                 hoteis.cidade = hotels.city[i];
+                                                 hoteis.moeda = hotels.coin[i];
+                                                 hoteis.tipoAcomodacao1 = hotels.acomodationType1[i];
+                                                 hoteis.tipoAcomodacao2 = hotels.acomodationType2[i];
+                                                 hoteis.tipoAcomodacao3 = hotels.acomodationType3[i];
+                                                 hoteis.hotel_1 = hotels.hotel1[i];
+                                                 hoteis.hotel_2 = hotels.hotel2[i];
+                                                 hoteis.hotel_3 = hotels.hotel3[i];
+                                                 hoteis.valorapto1 = hotels.valueApt1[i];
+                                                 hoteis.valorapto2 = hotels.valueApt2[i];
+                                                 hoteis.valorapto3 = hotels.valueApt3[i];
+                                                 hoteis.numeroDiarias1 = hotels.numberDaily1[i];
+                                                 hoteis.numeroDiarias2 = hotels.numberDaily2[i];
+                                                 hoteis.numeroDiarias3 = hotels.numberDaily3[i];
+                                                 hoteis.numeroApto1 = hotels.numberApt1[i];
+                                                 hoteis.numeroApto2 = hotels.numberApt2[i];
+                                                 hoteis.numeroApto3 = hotels.numberApt3[i];
+                                                 hoteis.total_1 = hotels. total1[i];
+                                                 hoteis.total_2 = hotels. total2[i];
+                                                 hoteis.total_3 = hotels. total3[i];
+                                                 hoteis.categoria1 = hotels.category1[i];
+                                                 hoteis.categoria2 = hotels.category2[i];
+                                                 hoteis.categoria3 = hotels.category3[i];
+                                                 hoteis.comida1 = hotels.food1[i];
+                                                 hoteis.comida2 = hotels.food2[i];
+                                                 hoteis.comida3 = hotels.food3[i];
+                                                 hoteis.periodoCancelamento1 = hotels.cancellationPeriod[i];
+                                                 hoteis.periodoCancelamento2 = hotels.cancellationPeriod2[i];
+                                                 hoteis.periodoCancelamento3 = hotels.cancellationPeriod3[i];
+                                                 hoteis.numero = h;
+                                                 infoHoteis.push(hoteis);
+                                                console.log(infoHoteis[i]);
+
+                                               }
+
+                                              const infoTraslado = [];
+                                              var t = 0;
+                                              const traslado = [{
+                                                deT: String,
+                                                moedaT: String,
+                                                paraT: String,
+                                                dataIdaT: String,
+                                                horaIdaT: String,
+                                                dataParaT: String,
+                                                horaParaT: String,
+                                                valorAdtT: String,
+                                                valorChdT: String,
+                                                valorInfT: String
+                                              }];
+
+
+                                              for (var i = 0; i < cars.from.length; i++) {
+                                                const traslado = [{
+                                                  deT: String,
+                                                  moedaT: String,
+                                                  paraT: String,
+                                                  dataIdaT: String,
+                                                  horaIdaT: String,
+                                                  dataParaT: String,
+                                                  horaParaT: String,
+                                                  valorAdtT: String,
+                                                  valorChdT: String,
+                                                  valorInfT: String,
+                                                  numero: String
+                                                }];
+
+                                                t++;
+                                                traslado.deT = cars.from[i];
+                                                traslado.meodaT = cars.coinT[i];
+                                                traslado.paraT = cars.to[i];
+                                                traslado.dataIdaT = cars.dateFrom[i];
+                                                traslado.horaIdaT = cars.timeFrom[i];
+                                                traslado.dataParaT = cars.dateTo[i];
+                                                traslado.horaParaT = cars.timeTo[i];
+                                                traslado.valorAdtT = cars.valueADT[i];
+                                                traslado.valorChdT = cars.valueCHD[i];
+                                                traslado.valorInfT = cars.valueINF[i];
+                                                traslado.numero = t;
+                                                infoTraslado.push(traslado);
+                                                console.log(infoTraslado[i]);
+
+                                              }
+
+                                              const infoCarros = [];
+                                              var c = 0;
+                                              const carros = [{
+                                                moedaC: String,
+                                                retirada: String,
+                                                outros: String,
+                                                entrega: String,
+                                                valor: String,
+                                                cidade: String,
+                                                tipoCarro: String,
+                                                transmissao: String,
+                                                seguro: String
+                                              }];
+
+                                              for (var i = 0; i < cars.withdrawal.length; i++) {
+                                                const carros = [{
+                                                  moedaC: String,
+                                                  retirada: String,
+                                                  outros: String,
+                                                  entrega: String,
+                                                  valor: String,
+                                                  cidade: String,
+                                                  tipoCarro: String,
+                                                  transmissao: String,
+                                                  seguro: String,
+                                                  numero: String
+                                                }];
+
+                                                c++;
+                                                carros.moedaC = cars.coinC[i];
+                                                carros.retirada = cars.withdrawal[i];
+                                                carros.outros = cars.others[i];
+                                                carros.entrega = cars.delivery[i];
+                                                carros.valor = cars.totalCar[i];
+                                                carros.cidade = cars.city[i];
+                                                carros.tipoCarro = cars.typeCar[i];
+                                                carros.transmissao = cars.shift[i];
+                                                carros.seguro = cars.safe[i];
+                                                carros.numero = c;
+                                                infoCarros.push(carros);
+                                                console.log(infoCarros[i]);
+
+                                              }
+
+                                              const infoSeguro = [];
+                                              var s = 0;
+                                              const seguro = [{
+                                                seguro: String,
+                                                moedaS: String,
+                                                coberturaSeguro: String,
+                                                valorAdtS: String,
+                                                valorChdS: String,
+                                                valorInfS: String
+                                              }];
+
+                                              for (var i = 0; i < safes.insuranceName.length; i++) {
+                                                const seguro = [{
+                                                  seguro: String,
+                                                  moedaS: String,
+                                                  coberturaSeguro: String,
+                                                  valorAdtS: String,
+                                                  valorChdS: String,
+                                                  valorInfS: String,
+                                                  numero: String
+                                                }];
+
+                                                s++;
+                                                seguro.seguro = safes.insuranceName[i];
+                                                seguro.moedaS = safes.insuranceCoin[i];
+                                                seguro.coberturaSeguro = safes.insuranceCoverage[i];
+                                                seguro.valorAdtS = safes.insuranceADT[i];
+                                                seguro.valorChdS = safes.insuranceCHD[i];
+                                                seguro.valorInfS = safes.insuranceINF[i];
+                                                seguro.numero = s;
+                                                infoSeguro.push(seguro);
+                                                console.log(infoSeguro[i]);
+
+                                              }
+
+
+                                              const infoTickets = [];
+                                              var ti = 0;
+                                              const tickets = [{
+                                                tickets: String,
+                                                moedaT: String,
+                                                valorAdtTk: String,
+                                                valorChdTk: String,
+                                                valorInfTk: String
+                                              }];
+
+                                              for (var i = 0; i < safes.ticketsName.length; i++) {
+                                                const tickets = [{
+                                                  tickets: String,
+                                                  moedaT: String,
+                                                  valorAdtTk: String,
+                                                  valorChdTk: String,
+                                                  valorInfTk: String,
+                                                  numero: String
+                                                }];
+
+                                                ti++;
+                                                tickets.tickets = safes.ticketsName[i];
+                                                tickets.moedaT = safes.ticketsCoin[i];
+                                                tickets.valorAdtTk = safes.ticketsADT[i];
+                                                tickets.valorChdTk = safes.ticketsCHD[i];
+                                                tickets.valorInfTk = safes.ticketsINF[i];
+                                                tickets.numero = ti;
+                                                infoTickets.push(tickets);
+                                                console.log(infoTickets[i]);
+
+                                              }
+
+
+                                              const infoOutros = [];
+                                              var o = 0;
+                                              const outros = [{
+                                                outros: String,
+                                                moedaO: String,
+                                                valorAdtO: String,
+                                                valorChdO: String,
+                                                valorInfO: String
+                                              }];
+
+                                              for (var i = 0; i < safes.otherName.length; i++) {
+                                                const outros = [{
+                                                  outros: String,
+                                                  moedaO: String,
+                                                  valorAdtO: String,
+                                                  valorChdO: String,
+                                                  valorInfO: String,
+                                                  numero: String
+                                                }];
+
+                                                o++;
+                                                outros.outros = safes.otherName[i];
+                                                outros.moedaO = safes.otherCoin[i];
+                                                outros.valorAdtO = safes.otherADT[i];
+                                                outros.valorChdO = safes.otherCHD[i];
+                                                outros.valorInfO = safes.otherINF[i];
+                                                outros.numero = c;
+                                                infoOutros.push(outros);
+                                                console.log(infoOutros[i]);
+
+                                              }
+
+                                              res.render('registred/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget});                                    }).catch((error)=>{
+                                        console.log(error);
+                                        res.redirect('/error');
+                                      });
+                              }).catch((error)=>{
+                                console.log(error);
+                                res.redirect('/error');
+                            });
+                          }).catch((error)=>{
+                            console.log(error);
+                            res.redirect('/error');
+                          });
+                        }).catch((error)=>{
+                      console.log(error);
+                      res.redirect('/error');
+                    });
+                  }).catch((error)=>{
+                console.log(error);
+                res.redirect('/error');
+              });
+            }).catch((error)=>{
+          console.log(error);
+          res.redirect('/error');
+        });
+
+
+
+
 });
+
 
 
 /*POST pageA*/
@@ -673,7 +1169,6 @@ router.post('/pageC/:client_id/:budget_id',(req,res) => {
 /*POST pageD*/
 router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const  flight = req.body.flight;
-  // const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   const budget_id = req.params.budget_id;
   Budget.getById(req.params.budget_id).then((budget) => {
@@ -750,19 +1245,12 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
 router.post('/PagePersonal/:budget_id',(req, res) => {
   const budget_id = req.params.budget_id;
   Budget.getById(budget_id).then((budget) => {
-    console.log("Passou no budget getbyid");
     Flight.delete(budget.flights).then(() => {
-      console.log("Passou no flight delete");
       Hotel.delete(budget.hotels).then(() => {
-        console.log("Passou no hotel delete");
         Car.delete(budget.cars).then(() => {
-          console.log("Passou no car delete");
           Safe.delete(budget.safes).then(() => {
-            console.log("Passou no safe elete");
             Budget.delete(budget_id).then(() => {
-              res.render(`error`, {title: 'Personal', layout: 'layoutDashboard',...req.session});
-              console.log('Deletou o bufasdfghjk');
-
+              res.render(`dashboard`, {title: 'Personal', layout: 'layoutDashboard',...req.session});
             }).catch((error) => {
               console.log(error);
               res.redirect('error');
