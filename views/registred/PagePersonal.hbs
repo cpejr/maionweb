@@ -4,14 +4,22 @@
       <thead>
         <tr>
           <th class = "th-name">CodFile</th>
+          <th class = "th-name">Status</th>
           <th class = "th-name">Alterar File</th>
+          <th class = "th-name">Apagar file</th>
         </tr>
       </thead>
       <tbody>
         {{#each budgets}}
         <tr>
           <th>{{codFile}}</th>
+          <th>status</th>
           <th><button onClick="location.href='/registred/pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
+          <th>
+            <form action="/registred/PagePersonal/{{_id}}" method="post">
+              <button type="submit" class="fa fa-thumbs-up btn btn-success m-1"></button>
+            </form>
+          </th>
         </tr>
         {{/each}}
       </tbody>

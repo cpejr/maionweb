@@ -7,11 +7,9 @@ const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
 
-
+//GET pagePersonal
 router.get('/PagePersonal/:client_id', function (req, res) {
   Client.getAllBudgetsById(req.params.client_id).then((budgets)=>{
-    console.log(budgets);
-    console.log('----//----//----');
     res.render('registred/PagePersonal', { budgets, title: 'Personal', layout: 'layoutDashboard',...req.session});
   }).catch((error) => {
    console.log(error);
@@ -19,6 +17,7 @@ router.get('/PagePersonal/:client_id', function (req, res) {
   });
 });
 
+//GET pageRegistred
 router.get('/pageRegistred', function (req, res) {
   Client.getAll().then((clientes)=>{
     res.render('registred/pageRegistred', { clientes, title: 'Cadastrados', layout: 'layoutDashboard',...req.session});
@@ -736,7 +735,6 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
   const  client_id = req.params.client_id;
   Budget.getById(budget_id).then((budget) => {
     Safe.update(budget.safes, safe).then(() => {
-      console.log('OLHA O POSTA DA F -------------------------------------------');
       res.redirect(`/registred/pageH/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -746,6 +744,51 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
     console.log(error);
     res.redirect('error');
   });
+});
+
+// Post PagePersonal
+router.post('/PagePersonal/:budget_id',(req, res) => {
+  const budget_id = req.params.budget_id;
+  Budget.getById(budget_id).then((budget) => {
+    console.log("Passou no budget getbyid");
+    Flight.delete(budget.flights).then(() => {
+      console.log("Passou no flight delete");
+      Hotel.delete(budget.hotels).then(() => {
+        console.log("Passou no hotel delete");
+        Car.delete(budget.cars).then(() => {
+          console.log("Passou no car delete");
+          Safe.delete(budget.safes).then(() => {
+            console.log("Passou no safe elete");
+            Budget.delete(budget_id).then(() => {
+              res.render(`error`, {title: 'Personal', layout: 'layoutDashboard',...req.session});
+              console.log('Deletou o bufasdfghjk');
+
+            }).catch((error) => {
+              console.log(error);
+              res.redirect('error');
+            });
+          }).catch((error) => {
+            console.log(error);
+            res.redirect('error');
+          });
+        }).catch((error) => {
+          console.log(error);
+          res.redirect('error');
+        });
+      }).catch((error) => {
+        console.log(error);
+        res.redirect('error');
+      });
+
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('error');
+    });
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('error');
+  });
+
 });
 
 
