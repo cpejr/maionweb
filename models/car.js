@@ -98,7 +98,7 @@ class Car {
 
   static delete(id) {
     return new Promise((resolve, reject) => {
-      HotelSchema.findByIdAndDelete(id).then(() => {
+      CarSchema.findByIdAndDelete(id).then(() => {
         resolve();
       }).catch((err) => {
         reject(err);
