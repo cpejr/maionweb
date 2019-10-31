@@ -6053,7 +6053,7 @@ div {
   padding: 50px;
   font: 14px;
   font-family: "Montserrat";
-  color: white; }
+  color: #EDEDED !important; }
 
 input {
   background-color: #EDEDED !important;
@@ -6068,7 +6068,6 @@ select {
   border-width: 0px; }
 
 label {
-  background-color: #EDEDED !important;
   border-width: 0px; }
 
 h1 {
@@ -6582,14 +6581,14 @@ label {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin: 20px 0 20px 20px;
-  height: 450px; }
+  height: auto; }
 
 .boxRightPageG {
   background-color: #C4694A;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   margin: 20px 20px 20px 0;
-  height: 450px; }
+  height: auto; }
 
 #titleG {
   font-weight: 900;
@@ -6610,19 +6609,19 @@ label {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin: 20px 0 20px 20px;
-  height: 700px; }
+  height: auto; }
 
 .box_hotel_midle {
   background-color: #C4694A;
   margin: 20px 0 20px 0;
-  height: 700px; }
+  height: auto; }
 
 .box_hotel_right {
   background-color: #C4694A;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   margin: 20px 20px 20px 0;
-  height: 700px; }
+  height: auto; }
 
 #landing-hotel-col1 {
   padding-right: 0; }
@@ -6635,7 +6634,7 @@ label {
   padding-left: 0; }
 
 #companion_camp {
-  height: 100px;
+  height: auto;
   margin: 0;
   padding: 0; }
 
@@ -6748,19 +6747,19 @@ label {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin: 20px 0 20px 20px;
-  height: 700px; }
+  height: auto; }
 
 .box_hotelH_midle {
   background-color: #C4694A;
   margin: 20px 0 20px 0;
-  height: 700px; }
+  height: auto; }
 
 .box_hotelH_right {
   background-color: #C4694A;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   margin: 20px 20px 20px 0;
-  height: 700px; }
+  height: auto; }
 
 .CarsPageH {
   border-radius: 8px;
@@ -6806,6 +6805,9 @@ label {
   background-color: #C4694A;
   border-radius: 5px; }
 
+.dinamic_spec--color {
+  background-color: #C4694A; }
+
 .dinamic_spec_pageH {
   background-color: #f3ab85;
   border-radius: 5px;
@@ -6826,6 +6828,10 @@ label {
   height: 50px;
   width: 80px; }
 
+.companion--radius {
+  border-radius: 5px;
+  text-align: center; }
+
 .corinputs {
   color: #EDEDED !important; }
 
@@ -6838,5 +6844,31 @@ label {
 .newcadas {
   max-width: 200px;
   margin-left: 450px; }
+
+.form-control--espacoesq {
+  margin-left: 7px; }
+
+.classa--margin {
+  margin-left: -8px;
+  margin-bottom: 15px;
+  width: 935px; }
+
+.form-control--width {
+  width: 110px; }
+
+.gambiarra--esq {
+  margin-left: 100px; }
+
+.break-after {
+  padding: 0px;
+  page-break-after: always; }
+
+.break-after--before {
+  page-break-after: always;
+  page-break-before: always;
+  padding: 0px; }
+
+.letra {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */

@@ -12,8 +12,9 @@ const carSchema = new mongoose.Schema({
     valueCHD: [String],
     valueINF: [String],
     totalTranslado: [Number],
+    coinT: [String],
 
-
+    coinC: [String],
     withdrawal: [String],
     others: [String],
     delivery: [String],
@@ -97,7 +98,7 @@ class Car {
 
   static delete(id) {
     return new Promise((resolve, reject) => {
-      HotelSchema.findByIdAndDelete(id).then(() => {
+      CarSchema.findByIdAndDelete(id).then(() => {
         resolve();
       }).catch((err) => {
         reject(err);

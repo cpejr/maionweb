@@ -1,8 +1,8 @@
-<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
-<form action="/registred/pageD/{{budget.client}}/{{budget._id}}" method="get" class="pagesFront">
+<form action="/registred/pageC/{{budget.client}}/{{budget._id}}" method="post" class="pagesFront">
   <div class="dinamic_spec">
       <h1>File</h1>
     <div class="form-group">
@@ -19,17 +19,17 @@
                 Dia 1
               </div>
               <div class="col-sm-auto">
-                <input type="date" placeholder="Data" name="budget[planDate]" class= "date start-date form-control classCinput" value="{{scriptDate}}">
+                <input type="date" placeholder="Data" name="budget[planDate]" class= "date start-date form-control classCinput" value="{{planDate}}">
               </div>
               <div class="col-sm-auto">
-                <input placeholder="País" name="budget[planCountry]" class= "form-control classCinput2" value="{{countryName}}">
+                <input placeholder="País" name="budget[planCountry]" class= "form-control classCinput2" value="{{planCountry}}">
               </div>
               <div class="col-sm-auto">
-                <input placeholder="Cidade" name="budget[planCity]"class= "form-control classCinput2" value="{{cityName}}">
+                <input placeholder="Cidade" name="budget[planCity]"class= "form-control classCinput2" value="{{planCity}}">
               </div>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3" >{{freeField}}</textarea>
+              <textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3" >{{planFreeField}}</textarea>
             </div>
           </div>
         </div>

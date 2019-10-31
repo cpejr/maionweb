@@ -8,19 +8,18 @@ const Car = require('../models/car');
 const Safe = require('../models/safe');
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
-    Client.getById(req.params.client_id).then((client) =>{
-      res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
-    }).catch((error) => {
-        console.log(error);
-        res.redirect('/error');
-      });
+  Client.getById(req.params.client_id).then((client) =>{
+    res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('/error');
+  });
 });
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-    console.log(client);
     res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
-}).catch((error) => {
+  }).catch((error) => {
     console.log(error);
     res.redirect('/error');
   });
@@ -28,7 +27,6 @@ router.get('/pageB/:client_id', function(req, res) {
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
-      console.log(client.budgets.length);
       const numTravel = client.budgets.length;
       var now = new Date;
       var year = now.getFullYear();
@@ -231,48 +229,129 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               }
 
-                                              const infoVoos = [];
+                                              const allFlights = [];
+
+                                              var j = 0;
                                               var v = 0;
-                                              const voos= [{
-                                                de: String,
-                                                para: String,
-                                                dataIda: String,
-                                                dataPara: String,
-                                                valortotal: String
-                                              }];
 
 
-                                              for (var i = 0; i < flights.from.length; i++) {
-                                                const voos= [{
-                                                  de: String,
-                                                  para: String,
-                                                  dataIda: String,
-                                                  dataPara: String,
-                                                  valortotal: String,
+                                              for (var i = 0; i < flights.escalas.length; i++) {
+                                                // console.log("loop rodando yeeeet");
+                                                // console.log(testando.vetor[i]);
+
+
+                                                const flightInfo ={
+
+                                                  escala: Number,
+                                                  final: Number,
+
+                                                  from: String,
+                                                  destination: String,
+                                                  dateFrom: Date,
+                                                  dateDestination: Date,
+
+                                                  tariffValueCHD: Number,
+                                                  taxValueCHD: Number,
+                                                  ravValueCHD: Number,
+                                                  totalValueCHD: Number,
+
+                                                  tariffValueInf: Number,
+                                                  taxValueInf:Number,
+                                                  ravValueInf: Number,
+                                                  totalValueInf: Number,
+
+                                                  tariffValueAdult: Number,
+                                                  taxValueAdult: Number,
+                                                  ravValueAdult: Number,
+                                                  totalValueAdult: Number,
                                                   numero: String
-                                                }];
-                                                 console.log("-----------------------------------------------------------------------");
-                                                 console.log(flights.dateFrom[0]);
+                                                };
+                                                // é escala
+                                                if (flights.escalas[i] == 1) {
+                                                  flightInfo.escala = 1;
+                                                }
+
+                                                // não é escala
+                                                else{
+                                                  v++;
+                                                  flightInfo.escala = 0;
+                                                }
+
+                                                //Descobre se o é o ultimo antes do próximo Voo
+                                                if (flights.escalas[(i+1)] != 1) {//é final
+
+                                                  flightInfo.final = 1
+                                                  if (j > 1) {
+
+                                                    flightInfo.tariffValueCHD = 0;
+                                                    flightInfo.taxValueCHD = 1;
+                                                    flightInfo.ravValueCHD = 2;
+                                                    flightInfo.totalValueCHD = 3;
+
+                                                    flightInfo.tariffValueInf = 4;
+                                                    flightInfo.taxValueInf = 5;
+                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                                    flightInfo.totalValueInf = 7;
+
+                                                    flightInfo.tariffValueAdult = 8;
+                                                    flightInfo.taxValueAdult = 9;
+                                                    flightInfo.ravValueAdult = 10;
+                                                    flightInfo.totalValueAdult = 11;
+
+                                                  }
+                                                  else {
+
+                                                    flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
+                                                    flightInfo.taxValueCHD = flights.taxValueCHD[j];
+                                                    flightInfo.ravValueCHD = flights.ravValueCHD[j];
+                                                    flightInfo.totalValueCHD = flights.totalValueCHD[j];
+
+                                                    flightInfo.tariffValueInf = flights.tariffValueInf[j];
+                                                    flightInfo.taxValueInf = flights.taxValueInf[j];
+                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                                    flightInfo.totalValueInf = flights.totalValueInf[j];
+
+                                                    flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
+                                                    flightInfo.taxValueAdult = flights.taxValueAdult[j];
+                                                    flightInfo.ravValueAdult = flights.ravValueAdult[j];
+                                                    flightInfo.totalValueAdult = flights.totalValueAdult[j];
+                                                  }
+                                                  j++;
+
+                                                }
+
+                                                else {
+                                                  flightInfo.tariffValueCHD = 0;
+                                                  flightInfo.taxValueCHD = 0;
+                                                  flightInfo.ravValueCHD = 0;
+                                                  flightInfo.totalValueCHD = 0;
+
+                                                  flightInfo.tariffValueInf = 0;
+                                                  flightInfo.taxValueInf = 0;
+                                                  flightInfo.ravValueInf = 0;
+                                                  flightInfo.totalValueInf = 0;
+
+                                                  flightInfo.tariffValueAdult = 0;
+                                                  flightInfo.taxValueAdult = 0;
+                                                  flightInfo.ravValueAdult = 0;
+                                                  flightInfo.totalValueAdult = 0;
+                                                }
 
 
-
-
-                                                 v++;
-                                                 console.log(v);
-                                                voos.de = flights.from[i];
-                                                voos.para = flights.destination[i];
-                                                voos.dataIda = flights.dateFrom[i];
-                                                voos.dataPara = flights.dateDestination[i];
-                                                voos.valortotal = flights.finalValue[i];
-                                                voos.numero = v;
-                                                infoVoos.push(voos);
-                                                console.log(infoVoos[i]);
+                                                flightInfo.numero = v;
+                                                flightInfo.from = flights.from[i];
+                                                flightInfo.destination = flights.destination[i];
+                                                allFlights.push(flightInfo);
                                               }
 
                                                const infoHoteis = [];
                                                var h = 0;
                                                const hoteis = [{
                                                  cidade: String,
+                                                 moeda: String,
+                                                 tipoAcomodacao1: String,
+                                                 tipoAcomodacao2: String,
+                                                 tipoAcomodacao3: String,
                                                  hotel_1: String,
                                                  hotel_2: String,
                                                  hotel_3: String,
@@ -302,6 +381,10 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                for (var i = 0; i < hotels.city.length; i++) {
                                                  const hoteis = [{
                                                    cidade: String,
+                                                   moeda: String,
+                                                   tipoAcomodacao1: String,
+                                                   tipoAcomodacao2: String,
+                                                   tipoAcomodacao3: String,
                                                    hotel_1: String,
                                                    hotel_2: String,
                                                    hotel_3: String,
@@ -331,6 +414,10 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                  h++;
                                                  hoteis.cidade = hotels.city[i];
+                                                 hoteis.moeda = hotels.coin[i];
+                                                 hoteis.tipoAcomodacao1 = hotels.acomodationType1[i];
+                                                 hoteis.tipoAcomodacao2 = hotels.acomodationType2[i];
+                                                 hoteis.tipoAcomodacao3 = hotels.acomodationType3[i];
                                                  hoteis.hotel_1 = hotels.hotel1[i];
                                                  hoteis.hotel_2 = hotels.hotel2[i];
                                                  hoteis.hotel_3 = hotels.hotel3[i];
@@ -365,6 +452,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var t = 0;
                                               const traslado = [{
                                                 deT: String,
+                                                moedaT: String,
                                                 paraT: String,
                                                 dataIdaT: String,
                                                 horaIdaT: String,
@@ -379,6 +467,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < cars.from.length; i++) {
                                                 const traslado = [{
                                                   deT: String,
+                                                  moedaT: String,
                                                   paraT: String,
                                                   dataIdaT: String,
                                                   horaIdaT: String,
@@ -392,6 +481,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                 t++;
                                                 traslado.deT = cars.from[i];
+                                                traslado.meodaT = cars.coinT[i];
                                                 traslado.paraT = cars.to[i];
                                                 traslado.dataIdaT = cars.dateFrom[i];
                                                 traslado.horaIdaT = cars.timeFrom[i];
@@ -409,6 +499,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               const infoCarros = [];
                                               var c = 0;
                                               const carros = [{
+                                                moedaC: String,
                                                 retirada: String,
                                                 outros: String,
                                                 entrega: String,
@@ -421,6 +512,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               for (var i = 0; i < cars.withdrawal.length; i++) {
                                                 const carros = [{
+                                                  moedaC: String,
                                                   retirada: String,
                                                   outros: String,
                                                   entrega: String,
@@ -433,6 +525,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 }];
 
                                                 c++;
+                                                carros.moedaC = cars.coinC[i];
                                                 carros.retirada = cars.withdrawal[i];
                                                 carros.outros = cars.others[i];
                                                 carros.entrega = cars.delivery[i];
@@ -451,6 +544,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var s = 0;
                                               const seguro = [{
                                                 seguro: String,
+                                                moedaS: String,
                                                 coberturaSeguro: String,
                                                 valorAdtS: String,
                                                 valorChdS: String,
@@ -460,6 +554,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < safes.insuranceName.length; i++) {
                                                 const seguro = [{
                                                   seguro: String,
+                                                  moedaS: String,
                                                   coberturaSeguro: String,
                                                   valorAdtS: String,
                                                   valorChdS: String,
@@ -469,6 +564,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                 s++;
                                                 seguro.seguro = safes.insuranceName[i];
+                                                seguro.moedaS = safes.insuranceCoin[i];
                                                 seguro.coberturaSeguro = safes.insuranceCoverage[i];
                                                 seguro.valorAdtS = safes.insuranceADT[i];
                                                 seguro.valorChdS = safes.insuranceCHD[i];
@@ -484,6 +580,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var ti = 0;
                                               const tickets = [{
                                                 tickets: String,
+                                                moedaT: String,
                                                 valorAdtTk: String,
                                                 valorChdTk: String,
                                                 valorInfTk: String
@@ -492,6 +589,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < safes.ticketsName.length; i++) {
                                                 const tickets = [{
                                                   tickets: String,
+                                                  moedaT: String,
                                                   valorAdtTk: String,
                                                   valorChdTk: String,
                                                   valorInfTk: String,
@@ -500,6 +598,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                 ti++;
                                                 tickets.tickets = safes.ticketsName[i];
+                                                tickets.moedaT = safes.ticketsCoin[i];
                                                 tickets.valorAdtTk = safes.ticketsADT[i];
                                                 tickets.valorChdTk = safes.ticketsCHD[i];
                                                 tickets.valorInfTk = safes.ticketsINF[i];
@@ -514,6 +613,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               var o = 0;
                                               const outros = [{
                                                 outros: String,
+                                                moedaO: String,
                                                 valorAdtO: String,
                                                 valorChdO: String,
                                                 valorInfO: String
@@ -522,6 +622,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               for (var i = 0; i < safes.otherName.length; i++) {
                                                 const outros = [{
                                                   outros: String,
+                                                  moedaO: String,
                                                   valorAdtO: String,
                                                   valorChdO: String,
                                                   valorInfO: String,
@@ -529,10 +630,11 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 }];
 
                                                 o++;
-                                                outros.outros = safes.otherName;
-                                                outros.valorAdtO = safes.otherADT;
-                                                outros.valorChdO = safes.otherCHD;
-                                                outros.valorInfO = safes.otherINF;
+                                                outros.outros = safes.otherName[i];
+                                                outros.moedaO = safes.otherCoin[i];
+                                                outros.valorAdtO = safes.otherADT[i];
+                                                outros.valorChdO = safes.otherCHD[i];
+                                                outros.valorInfO = safes.otherINF[i];
                                                 outros.numero = c;
                                                 infoOutros.push(outros);
                                                 console.log(infoOutros[i]);
@@ -540,7 +642,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               }
 
 
-                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, infoVoos, voos, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis});
+                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, allFlights, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis});
                                     }).catch((error)=>{
                                         console.log(error);
                                         res.redirect('/error');
@@ -603,12 +705,60 @@ router.post('/pageB/:client_id',(req,res) => {
 
 /*POST pageC*/
 router.post('/pageC/:client_id',(req,res) => {
-  const  budget = req.body.budget;
-  const  client_id = req.params.client_id;
+  const budget = req.body.budget;
+  const client_id = req.params.client_id;
+  const flight = req.body.flight;
+  req.session.flight = flight;
+  const  hotel = req.body.hotel;
+  req.session.hotel = hotel;
+  const  car = req.body.car;
+  req.session.car = car;
+  const  safe = req.body.safe;
+  req.session.safe = safe;
   Budget.create(budget).then((budget_id) => {
     Client.addBudget(client_id, budget_id).then(() => {
       Budget.motherClient(budget_id, client_id).then(() => {
-        res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+        Flight.create(flight).then((flight_id) => {
+          Budget.addFlight(budget_id, flight_id).then(() => {
+            Hotel.create(hotel).then((hotel_id) => {
+              Budget.addHotel(budget_id, hotel_id).then(() => {
+                Car.create(car).then((car_id) => {
+                  Budget.addCar(budget_id, car_id).then(() => {
+                    Safe.create(safe).then((safe_id) => {
+                      Budget.addSafe(budget_id, safe_id).then(() => {
+                        res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+                      }).catch((error) =>{
+                        console.log(error);
+                        res.redirect('error');
+                      });
+                    }).catch((error) =>{
+                      console.log(error);
+                      res.redirect('error');
+                    });
+                  }).catch((error) =>{
+                    console.log(error);
+                    res.redirect('error');
+                  });
+                }).catch((error) =>{
+                  console.log(error);
+                  res.redirect('error');
+                });
+              }).catch((error) =>{
+                console.log(error);
+                res.redirect('error');
+              });
+            }).catch((error) =>{
+              console.log(error);
+              res.redirect('error');
+            });
+          }).catch((error) =>{
+            console.log(error);
+            res.redirect('error');
+          });
+        }).catch((error) =>{
+          console.log(error);
+          res.redirect('error');
+        });
       }).catch((error) =>{
         console.log(error);
         res.redirect('error');
@@ -625,13 +775,11 @@ router.post('/pageC/:client_id',(req,res) => {
 
 /*POST pageD*/
 router.post('/pageD/:client_id/:budget_id',(req,res) => {
-  const flight = req.body.flight;
-  req.session.flight = flight;
-  const  budget_id = req.params.budget_id;
+  const  flight = req.body.flight;
   const  client_id = req.params.client_id;
-  Flight.create(flight).then((flight_id) => {
-    Budget.addFlight(budget_id, flight_id).then(() => {
-      console.log(flight);
+  const budget_id = req.params.budget_id;
+  Budget.getById(req.params.budget_id).then((budget) => {
+    Flight.update(budget.flights, flight).then(() => {
       res.redirect(`/new/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -647,19 +795,19 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
 /*POST pageE*/
 router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  hotel = req.body.hotel;
-  req.session.hotel = hotel;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Hotel.create(hotel).then((hotel_id) => {
-    Budget.addHotel(budget_id, hotel_id).then(() => {
-      console.log(hotel);
+  Budget.getById(budget_id).then((budget) => {
+    Hotel.update(budget.hotels, hotel).then(() => {
       res.redirect(`/new/pageF/${client_id}/${budget_id}`);
     }).catch((error) => {
+      console.log('budget');
       console.log(error);
       res.redirect('error');
     });
   }).catch((error) => {
     console.log(error);
+    console.log('hotel');
     res.redirect('error');
   });
 });
@@ -667,12 +815,10 @@ router.post('/pageE/:client_id/:budget_id',(req,res) => {
 /*POST pageF*/
 router.post('/pageF/:client_id/:budget_id',(req,res) => {
   const  car = req.body.car;
-  req.session.car = car;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Car.create(car).then((car_id) => {
-    Budget.addCar(budget_id, car_id).then(() => {
-      console.log(car);
+  Budget.getById(budget_id).then((budget) => {
+    Car.update(budget.cars, car).then(() => {
       res.redirect(`/new/pageG/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);
@@ -687,11 +833,10 @@ router.post('/pageF/:client_id/:budget_id',(req,res) => {
 /*POST pageG*/
 router.post('/pageG/:client_id/:budget_id',(req,res) => {
   const  safe = req.body.safe;
-  req.session.safe = safe;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
-  Safe.create(safe).then((safe_id) => {
-    Budget.addSafe(budget_id, safe_id).then(() => {
+  Budget.getById(budget_id).then((budget) => {
+    Safe.update(budget.safes, safe).then(() => {
       res.redirect(`/new/pageH/${client_id}/${budget_id}`);
     }).catch((error) => {
       console.log(error);

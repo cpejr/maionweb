@@ -16,6 +16,7 @@
             <th>Destino</th>
             <th>Saída</th>
             <th>Chegada</th>
+            <th>Moeda Utilizada</th>
           </tr>
         </thead>
         <tbody >
@@ -24,6 +25,13 @@
             <th><input type="text" placeholder="Destino" name="flight[destination]" class="form-control"/></th>
             <th><input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="form-control"/></th>
             <th><input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="form-control"/></th>
+            <th>  <select placeholder="Selecione" class="form-control" name=flight[coin] required>
+                <option style="display:none">Selecione qual moeda:</option>
+                <option>$</option>
+                <option>R$</option>
+                <option>€</option>
+              </select>
+            </th>
             <input type="number" name="flight[escalas]" value="0" class="invDiv">
           </tr>
         </tbody>
@@ -39,28 +47,28 @@
         <span>&#61;</span>
         <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor"/>
         <span id="result"></span>
-      </div> -->  
+      </div> -->
       <div class="container rowclass">
         <h3>Valor por Adulto Primeira Classe: </h3>
         <div class="row pageDAuto">
           <div class="pageDMargin">
             <label for="Tarifa">Tarifa</label> <br/>
-            <input name="flight[tariffValueAdult]" type="text" id="adt1" onblur="calcularAdt()" placeholder="Tarifa" class="valor"/>
+            <input name="flight[tariffValueAdult]" onblur="findTotal()" type="text" name="qty" id="qty1" placeholder="Tarifa" class="valor"/>
           </div>
           <div class=" pageDMargin">
             <label for="Tarifa">Tx Embarque</label> <br/>
             <i class="fa fa-money"></i>
-            <input name="flight[taxValueAdult]" type="text" id="adt2" onblur="calcularAdt()" placeholder="Tx Embarque" class="valor"/>
+            <input name="flight[taxValueAdult]" onblur="findTotal()" type="text" name="qty" id="qty2" placeholder="Tx Embarque" class="valor"/>
           </div>
           <div class="pageDMargin">
             <label for="Tarifa">Valor Emissão</label> <br/>
             <i class="fa fa-money"></i>
-            <input name="flight[ravValueAdult]" type="text" id="adt3" onblur="calcularAdt()" placeholder="Valor Emissão" class="valor"/>
+            <input name="flight[ravValueAdult]" onblur="findTotal()" type="text" name="qty" id="qty3" placeholder="Valor Emissão" class="valor"/>
             <span>&#61;</span>
           </div>
           <div class="pageDMargin">
             <label for="Tarifa">Total adt</label> <br/>
-            <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor"/>
+             <input name="flight[totalValueAdult]"input type="text" name="total" id="total" placeholder="Total adt" class="valor"/>
             <span id="result"></span>
           </div>
         </div>
@@ -293,10 +301,9 @@
       <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
       <br><br>
       {{#each test0}}
-      <li>{{name}} <div class="form-check">
-        <input type="checkbox" class="form-check-input">
-        <label class="form-check-label" for="exampleCheck1">Voo 1</label>
-      </div></li>
+      <table class="col-12" id="companion--box">
+          <input value="{{name}}" class="companion--box companion--radius" ></input>
+        </table>
       {{/each}}
       <br><br>
     </div>
@@ -314,3 +321,15 @@
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
 <script type="text/javascript" src="/javascripts/operations.js">  </script>
+<script type="text/javascript">
+         function findTotal(){
+             var arr = document.getElementsByName('qty');
+             var tot=0;
+             for(var i=0;i<arr.length;i++){
+                 if(parseInt(arr[i].value))
+                     tot += parseInt(arr[i].value);
+             }
+             document.getElementById('total').value = tot;
+         }
+
+             </script>

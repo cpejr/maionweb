@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const hotelSchema = new mongoose.Schema({
 
   city: [String],
-
+  coin: [String],
+  acomodationType1:[String],
+  acomodationType2:[String],
+  acomodationType3:[String],
   hotel1: [String],
   hotel2: [String],
   hotel3: [String],
