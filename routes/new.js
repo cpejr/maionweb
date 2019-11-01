@@ -28,7 +28,9 @@ router.get('/pageB/:client_id', function(req, res) {
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       const numTravel = client.budgets.length;
-      const codeFile = `${client.register}_${numTravel}`;
+      var now = new Date;
+      var year = now.getFullYear();
+      const codeFile = `${client.register}_${numTravel}_${year}`;
       res.render('new/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client, codeFile});
 }).catch((error) => {
     console.log(error);
