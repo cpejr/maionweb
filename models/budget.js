@@ -91,8 +91,8 @@ const budgetSchema = new mongoose.Schema({
 
   finalized: {
     type: String,
-    enum: ['Sim', 'Não'],
-    default: 'Não'
+    enum: ['Concluída', 'Em andamento'],
+    default: 'Em andamento'
   },
 
 }, { timestamps: true, static: false });
