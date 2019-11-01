@@ -2,7 +2,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
 <header class="login_page">
 </header>
-<form action="../views/dashboard" method="get" class="pagesFront">
+<div class="pagesFront">
   <div class="container rowclass">
     <div class="row rowclass">
       <div class="col-sm pageA-padding">
@@ -675,9 +675,10 @@
         <h3>Observações:</h3> <br>
         <textarea name="" class="observacoes" rows="10" cols="120"></textarea>
         <br><br><br>
-
-            <button class="btn-fake" type="submit" onclick="return confirm('Deseja concluir sua compra?')">Concluir</button>
-
+          <form class="" action="/new/pageH/{{client_id}}/{{budget_id}}" method="post">
+            <button class="btn-fake" type="submit" onclick="return confirm('Deseja concluir sua compra?')">Finalizar viagem</button>
+          </form>
+          <button class="btn-fake" onClick="location.href='/dashboard'">Sair sem finalizar</button>
       </div>
 
 
@@ -686,7 +687,7 @@
     </div>
   </div>
 
-</form>
+</div>
 
 
 <script type="text/javascript" src="/javascripts/images.js">  </script>

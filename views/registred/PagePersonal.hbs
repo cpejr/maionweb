@@ -18,7 +18,7 @@
           <th><button onClick="location.href='/registred/pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
           <th>
             <form action="/registred/PagePersonal/{{_id}}" method="post">
-              <button type="submit" class="fa fa-thumbs-up btn btn-success m-1"></button>
+              <button type="submit" class="fa fa-thumbs-up btn btn-success m-1" onclick="return confirm('Deseja mesmo excluir esse plano de viagem?')"></button>
             </form>
           </th>
         </tr>

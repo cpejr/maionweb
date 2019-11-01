@@ -1,95 +1,47 @@
-//Primeira classe saved
-savedAadtNum1_FirstClass = savedAadtNum1_FirstClass + 3;
-savedAadtNum2_FirstClass = savedAadtNum2_FirstClass + 3;
-savedAadtNum3_FirstClass = savedAadtNum3_FirstClass + 3;
-savedAadtRes_FirstClass++;
+//Primeira classe savedA
+var savedAadtNum1_FirstClass;
+var savedAadtNum2_FirstClass;
+var savedAadtNum3_FirstClass;
+var savedAadtRes_FirstClass;
 
-savedAchdNum1_FirstClass = savedAchdNum1_FirstClass + 3;
-savedAchdNum2_FirstClass = savedAchdNum2_FirstClass + 3;
-savedAchdNum3_FirstClass = savedAchdNum3_FirstClass + 3;
-savedAchdRes_FirstClass++;
+var savedAchdNum1_FirstClass;
+var savedAchdNum2_FirstClass;
+var savedAchdNum3_FirstClass;
+var savedAchdRes_FirstClass;
 
-savedAinfNum1_FirstClass = savedAinfNum1_FirstClass + 3;
-savedAinfNum2_FirstClass = savedAinfNum2_FirstClass + 3;
-savedAinfNum3_FirstClass = savedAinfNum3_FirstClass + 3;
-savedAinfRes_FirstClass++;
+var savedAinfNum1_FirstClass;
+var savedAinfNum2_FirstClass;
+var savedAinfNum3_FirstClass;
+var savedAinfRes_FirstClass;
 
-// Executivo saved
-savedAadtNum1_Executive = savedAadtNum1_Executive + 3;
-savedAadtNum2_Executive = savedAadtNum2_Executive + 3;
-savedAadtNum3_Executive = savedAadtNum3_Executive + 3;
-savedAadtRes_Executive++;
+// Executivo savedA
+var savedAadtNum1_Executive;
+var savedAadtNum2_Executive;
+var savedAadtNum3_Executive;
+var savedAadtRes_Executive;
 
-savedAchdNum1_Executive = savedAchdNum1_Executive + 3;
-savedAchdNum2_Executive = savedAchdNum2_Executive + 3;
-savedAchdNum3_Executive = savedAchdNum3_Executive + 3;
-savedAchdRes_Executive++;
+var savedAchdNum1_Executive;
+var savedAchdNum2_Executive;
+var savedAchdNum3_Executive;
+var savedAchdRes_Executive;
 
-savedAinfNum1_Executive = savedAinfNum1_Executive + 3;
-savedAinfNum2_Executive = savedAinfNum2_Executive + 3;
-savedAinfNum3_Executive = savedAinfNum3_Executive + 3;
-savedAinfRes_Executive++;
+var savedAinfNum1_Executive;
+var savedAinfNum2_Executive;
+var savedAinfNum3_Executive;
+var savedAinfRes_Executive;
 
-// Econômico saved
-savedAadtNum1_Economic = savedAadtNum1_Economic + 3;
-savedAadtNum2_Economic = savedAadtNum2_Economic + 3;
-savedAadtNum3_Economic = savedAadtNum3_Economic + 3;
-savedAadtRes_Economic++;
+// Econômico savedA
+var savedAadtNum1_Economic;
+var savedAadtNum2_Economic;
+var savedAadtNum3_Economic;
+var savedAadtRes_Economic;
 
-savedAchdNum1_Economic = savedAchdNum1_Economic + 3;
-savedAchdNum2_Economic = savedAchdNum2_Economic + 3;
-savedAchdNum3_Economic = savedAchdNum3_Economic + 3;
-savedAchdRes_Economic++;
+var savedAchdNum1_Economic;
+var savedAchdNum2_Economic;
+var savedAchdNum3_Economic;
+var savedAchdRes_Economic;
 
-savedAinfNum1_Economic = savedAinfNum1_Economic + 3;
-savedAinfNum2_Economic = savedAinfNum2_Economic + 3;
-savedAinfNum3_Economic = savedAinfNum3_Economic + 3;
-savedAinfRes_Economic++;
-
-//Primeira classe
-aadtNum1_FirstClass = savedAadtNum1_FirstClass;
-aadtNum2_FirstClass = savedAadtNum2_FirstClass;
-aadtNum3_FirstClass = savedAadtNum3_FirstClass;
-aadtRes_FirstClass = savedAadtRes_FirstClass;
-
-achdNum1_FirstClass = savedAchdNum1_FirstClass;
-achdNum2_FirstClass = savedAchdNum2_FirstClass;
-achdNum3_FirstClass = savedAchdNum3_FirstClass;
-achdRes_FirstClass = savedAchdRes_FirstClass;
-
-ainfNum1_FirstClass = savedAinfNum1_FirstClass;
-ainfNum2_FirstClass = savedAinfNum2_FirstClass;
-ainfNum3_FirstClass = savedAinfNum3_FirstClass;
-ainfRes_FirstClass = savedAinfRes_FirstClass;
-
-// Executivo
-aadtNum1_Executive = savedAadtNum1_Executive;
-aadtNum2_Executive = savedAadtNum2_Executive;
-aadtNum3_Executive = savedAadtNum3_Executive;
-aadtRes_Executive = savedAadtRes_Executive;
-
-achdNum1_Executive = savedAchdNum1_Executive;
-achdNum2_Executive = savedAchdNum2_Executive;
-achdNum3_Executive = savedAchdNum3_Executive;
-achdRes_Executive = savedAchdRes_Executive;
-
-ainfNum1_Executive = savedAinfNum1_Executive;
-ainfNum2_Executive = savedAinfNum2_Executive;
-ainfNum3_Executive = savedAinfNum3_Executive;
-ainfRes_Executive = savedAinfRes_Executive;
-
-// Econômico
-aadtNum1_Economic = savedAadtNum1_Economic;
-aadtNum2_Economic = savedAadtNum2_Economic;
-aadtNum3_Economic = savedAadtNum3_Economic;
-aadtRes_Economic = savedAadtRes_Economic;
-
-achdNum1_Economic = savedAchdNum1_Economic;
-achdNum2_Economic = savedAchdNum2_Economic;
-achdNum3_Economic = savedAchdNum3_Economic;
-achdRes_Economic = savedAchdRes_Economic;
-
-ainfNum1_Economic = savedAinfNum1_Economic;
-ainfNum2_Economic = savedAinfNum2_Economic;
-ainfNum3_Economic = savedAinfNum3_Economic;
-ainfRes_Economic = savedAinfRes_Economic;
+var savedAinfNum1_Economic;
+var savedAinfNum2_Economic;
+var savedAinfNum3_Economic;
+var savedAinfRes_Economic;
