@@ -274,8 +274,6 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 
           allHotels.push(hotelsInfo);
         }
-
-        console.log('passou na E Get =========================================================');
         res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, allHotels});
       }).catch((error) => {
           console.log(error);
@@ -357,7 +355,6 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
           allCars.push(carsInfo);
         }
 
-        console.log('OLHA O GET DA F -----------------------------');
         res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado});
       }).catch((error) => {
         console.log(error);
@@ -1150,7 +1147,7 @@ router.post('/pageB/:client_id',(req,res) => {
   if(client.profile_FoodVegetariano != 'Vegetariano'){
     client.profile_FoodVegetariano = 'empty';
   };
-  
+
 
 
   Client.update(client_id, client).then(() => {
