@@ -87,7 +87,13 @@ const budgetSchema = new mongoose.Schema({
   planDate: [String],
   planCountry: [String],
   planCity: [String],
-  planFreeField: [String]
+  planFreeField: [String],
+
+  finalized: {
+    type: String,
+    enum: ['Sim', 'Não'],
+    default: 'Não'
+  },
 
 }, { timestamps: true, static: false });
 const BudgetModel = mongoose.model('Budget', budgetSchema);
