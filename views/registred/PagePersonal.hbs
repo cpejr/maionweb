@@ -1,25 +1,36 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="pagesFront">
   <div class="dinamic_spec">
+    <label>Número de viagens</label>
+    <input class="form-control" type="text" value="{{numDeViagens}}"></input>
+    <br><br><br>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th class = "th-name">CodFile</th>
+          <th class = "th-name">Dia 1</th>
           <th class = "th-name">Status</th>
           <th class = "th-name">Alterar File</th>
           <th class = "th-name">Apagar file</th>
         </tr>
       </thead>
       <tbody>
-        {{#each budgets}}
+        {{#each allBudgets}}
         <tr>
           <th>{{codFile}}</th>
-          <th>status</th>
+          <th>{{planDate}}</th>
+          <th>{{finalized}}</th>
           <th><button onClick="location.href='/registred/pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
           <th>
-            <form action="/registred/PagePersonal/{{_id}}" method="post">
-              <button type="submit" class="fa fa-thumbs-up btn btn-success m-1" onclick="return confirm('Deseja mesmo excluir esse plano de viagem?')"></button>
-            </form>
+            {{#compare finalized "Em andamento"}}
+              <form action="/registred/PagePersonal/{{_id}}" method="post">
+                <button type="submit" class=" btn btn-danger m-1" onclick="return confirm('Deseja mesmo excluir esse plano de viagem?')"><i class="material-icons">delete</i></button>
+              </form>
+              {{else}}
+              <button type="submit" class=" btn m-1 btn-success " onclick="return confirm('Essa viagem foi concluída, não pode mais ser apagada!')"><i class="material-icons ">done_all</i></button>
+
+            {{/compare}}
           </th>
         </tr>
         {{/each}}

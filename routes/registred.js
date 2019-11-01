@@ -9,8 +9,32 @@ const Safe = require('../models/safe');
 
 //GET pagePersonal
 router.get('/PagePersonal/:client_id', function (req, res) {
-  Client.getAllBudgetsById(req.params.client_id).then((budgets)=>{
-    res.render('registred/PagePersonal', { budgets, title: 'Personal', layout: 'layoutDashboard',...req.session});
+  const client_id = req.params.client_id;
+  Client.getAllBudgetsById(client_id).then((budgets)=>{
+
+    const allBudgets = [];
+    var numDeViagens = 0;
+
+    for (var i = 0; i < budgets.length; i++) {
+      const budget = {
+        _id: String,
+        codFile: String,
+        planDate: String,
+        finalized: String,
+      };
+
+      budget._id = budgets[i]._id;
+      budget.codFile = budgets[i].codFile;
+      budget.planDate = budgets[i].planDate[0];
+      budget.finalized = budgets[i].finalized;
+
+      allBudgets.push(budget);
+
+      if(budgets[i].finalized != 'Em andamento'){
+        numDeViagens++;
+      }
+    }
+    res.render('registred/PagePersonal', { budgets, title: 'Personal', layout: 'layoutDashboard',...req.session, allBudgets, numDeViagens});
   }).catch((error) => {
    console.log(error);
    res.redirect('/error');

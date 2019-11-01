@@ -858,7 +858,7 @@ router.post('/pageH/:client_id/:budget_id', (req,res) => {
   const budget = {
     finalized: String
   };
-  budget.finalized = 'Sim';
+  budget.finalized = 'Concluída';
   Budget.update(budget_id, budget).then(() => {
     console.log('chegou aqui no update');
     res.redirect('/dashboard');
