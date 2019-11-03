@@ -244,7 +244,7 @@ $('#add_country').on('click', function() {
 });
 
 $("#button_day_original").on("click", function(){
-  var newDia = '<tr><th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" class="form-control"/></th><th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFrom]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="De" name="flight[from]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" class="form-control"/></th><input type="number" name="flight[escalas]" value="1" class="invDiv"></tr>';
+  var newDia = '<tr><th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" class="form-control"/></th><th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFrom]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="De" name="flight[from]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" class="form-control"/><input type="number" name="flight[escalas]" value="1" class="invDiv"></th></tr>';
   $(`#in_country_days${day}`).append(newDia);
 });
 

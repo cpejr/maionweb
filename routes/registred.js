@@ -114,6 +114,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
             const allFlights = [];
 
             var j = 0;
+            var id_table = 1;
 
             for (var i = 0; i < flights.escalas.length; i++) {
               // console.log("loop rodando yeeeet");
@@ -124,100 +125,261 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 
                 escala: Number,
                 final: Number,
+                inicio: Number,
+                idTable: Number,
 
-                from: String,
-                destination: String,
-                dateFrom: Date,
-                dateDestination: Date,
+                flightNum: String,
+                dateFlight:String,
+                from:String,
+                destination:String,
+                timeOut: String,
+                timeIn: String,
+                coin:String,
 
-                tariffValueCHD: Number,
-                taxValueCHD: Number,
-                ravValueCHD: Number,
-                totalValueCHD: Number,
+                // Primeira classe
+                totalValueCHD_FirstClass: Number,
+                tariffValueCHD_FirstClass: Number,
+                taxValueCHD_FirstClass: Number,
+                ravValueCHD_FirstClass: Number,
+                numCHD_FirstClass: Number,
 
-                tariffValueInf: Number,
-                taxValueInf:Number,
-                ravValueInf: Number,
-                totalValueInf: Number,
+                totalValueAdult_FirstClass: Number,
+                tariffValueAdult_FirstClass: Number,
+                taxValueAdult_FirstClass: Number,
+                ravValueAdult_FirstClass: Number,
+                numADT_FirstClass: Number,
 
-                tariffValueAdult: Number,
-                taxValueAdult: Number,
-                ravValueAdult: Number,
-                totalValueAdult: Number,
+                totalValueInf_FirstClass: Number,
+                tariffValueInf_FirstClass: Number,
+                taxValueInf_FirstClass: Number,
+                ravValueInf_FirstClass: Number,
+                numINF_FirstClass: Number,
+
+                // Executivo
+                totalValueCHD_Executive: Number,
+                tariffValueCHD_Executive: Number,
+                taxValueCHD_Executive: Number,
+                ravValueCHD_Executive: Number,
+                numCHD_Executive: Number,
+
+                totalValueAdult_Executive: Number,
+                tariffValueAdult_Executive: Number,
+                taxValueAdult_Executive: Number,
+                ravValueAdult_Executive: Number,
+                numADT_Executive: Number,
+
+                totalValueInf_Executive: Number,
+                tariffValueInf_Executive: Number,
+                taxValueInf_Executive: Number,
+                ravValueInf_Executive: Number,
+                numINF_Executive: Number,
+
+                // Econômico
+                totalValueCHD_Economic: Number,
+                tariffValueCHD_Economic: Number,
+                taxValueCHD_Economic: Number,
+                ravValueCHD_Economic: Number,
+                numCHD_Economic: Number,
+
+                totalValueAdult_Economic: Number,
+                tariffValueAdult_Economic: Number,
+                taxValueAdult_Economic: Number,
+                ravValueAdult_Economic: Number,
+                numADT_Economic: Number,
+
+                totalValueInf_Economic: Number,
+                tariffValueInf_Economic: Number,
+                taxValueInf_Economic: Number,
+                ravValueInf_Economic: Number,
+                numINF_Economic: Number,
               };
               // é escala
               if (flights.escalas[i] == 1) {
                 flightInfo.escala = 1;
               }
-
               // não é escala
               else{
                 flightInfo.escala = 0;
               }
 
-              //Descobre se o é o ultimo antes do próximo Voo
-              if (flights.escalas[(i+1)] != 1) {//é final
+              //Descobre se o voo atual é o ultimo antes do próximo Voo
+              if (flights.escalas[(i+1)] != 1) {//Se o próximo voo não for uma escala, o voo atual acaba e temos que printar as taxas junto a essa última escala ou voo
 
                 flightInfo.final = 1
                 if (j > 1) {
+                  // Primeira classe
+                  flightInfo.tariffValueCHD_FirstClass = 0;
+                  flightInfo.taxValueCHD_FirstClass = 0;
+                  flightInfo.ravValueCHD_FirstClass = 0;
+                  flightInfo.totalValueCHD_FirstClass = 0;
 
-                  flightInfo.tariffValueCHD = 0;
-                  flightInfo.taxValueCHD = 1;
-                  flightInfo.ravValueCHD = 2;
-                  flightInfo.totalValueCHD = 3;
+                  flightInfo.tariffValueInf_FirstClass = 0;
+                  flightInfo.taxValueInf_FirstClass = 0;
+                  flightInfo.ravValueInf_FirstClass = 0;
+                  flightInfo.totalValueInf_FirstClass = 0;
 
-                  flightInfo.tariffValueInf = 4;
-                  flightInfo.taxValueInf = 5;
-                  // flightInfo.ravValueInf = flights.ravValueInf[j];
-                  flightInfo.totalValueInf = 7;
+                  flightInfo.tariffValueAdult_FirstClass = 0;
+                  flightInfo.taxValueAdult_FirstClass = 0;
+                  flightInfo.ravValueAdult_FirstClass = 0;
+                  flightInfo.totalValueAdult_FirstClass = 0;
 
-                  flightInfo.tariffValueAdult = 8;
-                  flightInfo.taxValueAdult = 9;
-                  flightInfo.ravValueAdult = 10;
-                  flightInfo.totalValueAdult = 11;
+                  // Executivo
+                  flightInfo.tariffValueCHD_Executive = 0;
+                  flightInfo.taxValueCHD_Executive = 0;
+                  flightInfo.ravValueCHD_Executive = 0;
+                  flightInfo.totalValueCHD_Executive = 0;
+
+                  flightInfo.tariffValueInf_Executive = 0;
+                  flightInfo.taxValueInf_Executive = 0;
+                  flightInfo.ravValueInf_Executive = 0;
+                  flightInfo.totalValueInf_Executive = 0;
+
+                  flightInfo.tariffValueAdult_Executive = 0;
+                  flightInfo.taxValueAdult_Executive = 0;
+                  flightInfo.ravValueAdult_Executive = 0;
+                  flightInfo.totalValueAdult_Executive = 0;
+
+                  // Econômico
+                  flightInfo.tariffValueCHD_Economic = 0;
+                  flightInfo.taxValueCHD_Economic = 0;
+                  flightInfo.ravValueCHD_Economic = 0;
+                  flightInfo.totalValueCHD_Economic = 0;
+
+                  flightInfo.tariffValueInf_Economic = 0;
+                  flightInfo.taxValueInf_Economic = 0;
+                  flightInfo.ravValueInf_Economic = 0;
+                  flightInfo.totalValueInf_Economic = 0;
+
+                  flightInfo.tariffValueAdult_Economic = 0;
+                  flightInfo.taxValueAdult_Economic = 0;
+                  flightInfo.ravValueAdult_Economic = 0;
+                  flightInfo.totalValueAdult_Economic = 0;
 
                 }
+
                 else {
+                  // Primeira classe
+                  flightInfo.tariffValueCHD_FirstClass = flights.tariffValueCHD_FirstClass[j];
+                  flightInfo.taxValueCHD_FirstClass = flights.taxValueCHD_FirstClass[j];
+                  flightInfo.ravValueCHD_FirstClass = flights.ravValueCHD_FirstClass[j];
+                  flightInfo.totalValueCHD_FirstClass = flights.totalValueCHD_FirstClass[j];
 
-                  flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
-                  flightInfo.taxValueCHD = flights.taxValueCHD[j];
-                  flightInfo.ravValueCHD = flights.ravValueCHD[j];
-                  flightInfo.totalValueCHD = flights.totalValueCHD[j];
+                  flightInfo.tariffValueInf_FirstClass = flights.tariffValueInf_FirstClass[j];
+                  flightInfo.taxValueInf_FirstClass = flights.taxValueInf_FirstClass[j];
+                  flightInfo.ravValueInf_FirstClass = flights.ravValueInf_FirstClass[j];
+                  flightInfo.totalValueInf_FirstClass = flights.totalValueInf_FirstClass[j];
 
-                  flightInfo.tariffValueInf = flights.tariffValueInf[j];
-                  flightInfo.taxValueInf = flights.taxValueInf[j];
-                  // flightInfo.ravValueInf = flights.ravValueInf[j];
-                  flightInfo.totalValueInf = flights.totalValueInf[j];
+                  flightInfo.tariffValueAdult_FirstClass = flights.tariffValueAdult_FirstClass[j];
+                  flightInfo.taxValueAdult_FirstClass = flights.taxValueAdult_FirstClass[j];
+                  flightInfo.ravValueAdult_FirstClass = flights.ravValueAdult_FirstClass[j];
+                  flightInfo.totalValueAdult_FirstClass = flights.totalValueAdult_FirstClass[j];
 
-                  flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
-                  flightInfo.taxValueAdult = flights.taxValueAdult[j];
-                  flightInfo.ravValueAdult = flights.ravValueAdult[j];
-                  flightInfo.totalValueAdult = flights.totalValueAdult[j];
+                  // Executivo
+                  flightInfo.tariffValueCHD_Executive = flights.tariffValueCHD_Executive[j];
+                  flightInfo.taxValueCHD_Executive = flights.taxValueCHD_Executive[j];
+                  flightInfo.ravValueCHD_Executive = flights.ravValueCHD_Executive[j];
+                  flightInfo.totalValueCHD_Executive = flights.totalValueCHD_Executive[j];
+
+                  flightInfo.tariffValueInf_Executive = flights.tariffValueInf_Executive[j];
+                  flightInfo.taxValueInf_Executive = flights.taxValueInf_Executive[j];
+                  flightInfo.ravValueInf_Executive = flights.ravValueInf_Executive[j];
+                  flightInfo.totalValueInf_Executive = flights.totalValueInf_Executive[j];
+
+                  flightInfo.tariffValueAdult_Executive = flights.tariffValueAdult_Executive[j];
+                  flightInfo.taxValueAdult_Executive = flights.taxValueAdult_Executive[j];
+                  flightInfo.ravValueAdult_Executive = flights.ravValueAdult_Executive[j];
+                  flightInfo.totalValueAdult_Executive = flights.totalValueAdult_Executive[j];
+
+                  // Econômico
+                  flightInfo.tariffValueCHD_Economic = flights.tariffValueCHD_Economic[j];
+                  flightInfo.taxValueCHD_Economic = flights.taxValueCHD_Economic[j];
+                  flightInfo.ravValueCHD_Economic = flights.ravValueCHD_Economic[j];
+                  flightInfo.totalValueCHD_Economic = flights.totalValueCHD_Economic[j];
+
+                  flightInfo.tariffValueInf_Economic = flights.tariffValueInf_Economic[j];
+                  flightInfo.taxValueInf_Economic = flights.taxValueInf_Economic[j];
+                  flightInfo.ravValueInf_Economic = flights.ravValueInf_Economic[j];
+                  flightInfo.totalValueInf_Economic = flights.totalValueInf_Economic[j];
+
+                  flightInfo.tariffValueAdult_Economic = flights.tariffValueAdult_Economic[j];
+                  flightInfo.taxValueAdult_Economic = flights.taxValueAdult_Economic[j];
+                  flightInfo.ravValueAdult_Economic = flights.ravValueAdult_Economic[j];
+                  flightInfo.totalValueAdult_Economic = flights.totalValueAdult_Economic[j];
                 }
                 j++;
 
               }
-
               else {
-                flightInfo.tariffValueCHD = 0;
-                flightInfo.taxValueCHD = 0;
-                flightInfo.ravValueCHD = 0;
-                flightInfo.totalValueCHD = 0;
+                // Primeira classe
+                flightInfo.tariffValueCHD_FirstClass = 0;
+                flightInfo.taxValueCHD_FirstClass = 0;
+                flightInfo.ravValueCHD_FirstClass = 0;
+                flightInfo.totalValueCHD_FirstClass = 0;
 
-                flightInfo.tariffValueInf = 0;
-                flightInfo.taxValueInf = 0;
-                flightInfo.ravValueInf = 0;
-                flightInfo.totalValueInf = 0;
+                flightInfo.tariffValueInf_FirstClass = 0;
+                flightInfo.taxValueInf_FirstClass = 0;
+                flightInfo.ravValueInf_FirstClass = 0;
+                flightInfo.totalValueInf_FirstClass = 0;
 
-                flightInfo.tariffValueAdult = 0;
-                flightInfo.taxValueAdult = 0;
-                flightInfo.ravValueAdult = 0;
-                flightInfo.totalValueAdult = 0;
+                flightInfo.tariffValueAdult_FirstClass = 0;
+                flightInfo.taxValueAdult_FirstClass = 0;
+                flightInfo.ravValueAdult_FirstClass = 0;
+                flightInfo.totalValueAdult_FirstClass = 0;
+
+                // Executivo
+                flightInfo.tariffValueCHD_Executive = 0;
+                flightInfo.taxValueCHD_Executive = 0;
+                flightInfo.ravValueCHD_Executive = 0;
+                flightInfo.totalValueCHD_Executive = 0;
+
+                flightInfo.tariffValueInf_Executive = 0;
+                flightInfo.taxValueInf_Executive = 0;
+                flightInfo.ravValueInf_Executive = 0;
+                flightInfo.totalValueInf_Executive = 0;
+
+                flightInfo.tariffValueAdult_Executive = 0;
+                flightInfo.taxValueAdult_Executive = 0;
+                flightInfo.ravValueAdult_Executive = 0;
+                flightInfo.totalValueAdult_Executive = 0;
+
+                // Econômico
+                flightInfo.tariffValueCHD_Economic = 0;
+                flightInfo.taxValueCHD_Economic = 0;
+                flightInfo.ravValueCHD_Economic = 0;
+                flightInfo.totalValueCHD_Economic = 0;
+
+                flightInfo.tariffValueInf_Economic = 0;
+                flightInfo.taxValueInf_Economic = 0;
+                flightInfo.ravValueInf_Economic = 0;
+                flightInfo.totalValueInf_Economic = 0;
+
+                flightInfo.tariffValueAdult_Economic = 0;
+                flightInfo.taxValueAdult_Economic = 0;
+                flightInfo.ravValueAdult_Economic = 0;
+                flightInfo.totalValueAdult_Economic = 0;
+
               }
 
+              // identifica onde coemeça uma nova tabela
+              if(flightInfo.escala == 0){
+                flightInfo.inicio = 1;
+                flightInfo.idTable = id_table; // Muda o número do id da tabela pra a seleção de bloco funcionar
+                id_table++;
+              }
+
+              else {
+                flightInfo.inicio = 0;
+              }
+
+              flightInfo.flightNum = flights.flightNum[i];
+              flightInfo.dateFlight = flights.dateFlight[i];
               flightInfo.from = flights.from[i];
-              flightInfo.destination = flights.destination[i];
+              flightInfo.timeOut = flights.timeOut[i];
+              flightInfo.timeIn = flights.timeIn[i];
+              flightInfo.coin = flights.coin[i];
+
               allFlights.push(flightInfo);
+              console.log(allFlights.escala);
             }
 
             res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, allFlights, flights});

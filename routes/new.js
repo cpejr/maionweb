@@ -780,7 +780,7 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const budget_id = req.params.budget_id;
   Budget.getById(req.params.budget_id).then((budget) => {
     console.log('------------------------------------------');
-    console.log(flight);
+    console.log(flight.escalas);
     console.log('------------------------------------------');
     Flight.update(budget.flights, flight).then(() => {
       res.redirect(`/new/pageE/${client_id}/${budget_id}`);
