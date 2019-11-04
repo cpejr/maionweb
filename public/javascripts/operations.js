@@ -1,57 +1,116 @@
 /*! inicio operations pageD !*/
-//Primeira classe savedA ------------------------------------
-var savedAadtNum1_FirstClass =1;
-var savedAadtNum2_FirstClass =2;
-var savedAadtNum3_FirstClass =3;
-var savedAadtRes_FirstClass =1;
+var aflight = 1;
+var anumVoo = 2;
 
-var savedAchdNum1_FirstClass =1;
-var savedAchdNum2_FirstClass =2;
-var savedAchdNum3_FirstClass =3;
-var savedAchdRes_FirstClass =1;
-
-var savedAinfNum1_FirstClass =1;
-var savedAinfNum2_FirstClass =2;
-var savedAinfNum3_FirstClass =3;
-var savedAinfRes_FirstClass =1;
-
-// Executivo savedA
-var savedAadtNum1_Executive =1;
-var savedAadtNum2_Executive =2;
-var savedAadtNum3_Executive =3;
-var savedAadtRes_Executive =1;
-
-var savedAchdNum1_Executive =1;
-var savedAchdNum2_Executive =2;
-var savedAchdNum3_Executive =3;
-var savedAchdRes_Executive =1;
-
-var savedAinfNum1_Executive =1;
-var savedAinfNum2_Executive =2;
-var savedAinfNum3_Executive =3;
-var savedAinfRes_Executive =1;
-
-// Econômico savedA
-var savedAadtNum1_Economic =1;
-var savedAadtNum2_Economic =2;
-var savedAadtNum3_Economic =3;
-var savedAadtRes_Economic =1;
-
-var savedAchdNum1_Economic =1;
-var savedAchdNum2_Economic =2;
-var savedAchdNum3_Economic =3;
-var savedAchdRes_Economic =1;
-
-var savedAinfNum1_Economic =1;
-var savedAinfNum2_Economic =2;
-var savedAinfNum3_Economic =3;
-var savedAinfRes_Economic =1;
-
-// Somas da primeira classe
+// Variáveis que serão utilizadas para criar os ids específicos de cada voo - início
+// Primeira classe
 var aadtNum1_FirstClass = 1;
 var aadtNum2_FirstClass = 2;
 var aadtNum3_FirstClass = 3;
 var aadtRes_FirstClass = 1;
+
+var achdNum1_FirstClass = 1;
+var achdNum2_FirstClass = 2;
+var achdNum3_FirstClass = 3;
+var achdRes_FirstClass = 1;
+
+var ainfNum1_FirstClass = 1;
+var ainfNum2_FirstClass = 2;
+var ainfNum3_FirstClass = 3;
+var ainfRes_FirstClass = 1;
+
+
+// Executivo
+var aadtNum1_Executive = 1;
+var aadtNum2_Executive = 2;
+var aadtNum3_Executive = 3;
+var aadtRes_Executive = 1;
+
+var achdNum1_Executive = 1;
+var achdNum2_Executive = 2;
+var achdNum3_Executive = 3;
+var achdRes_Executive = 1;
+
+var ainfNum1_Executive = 1;
+var ainfNum2_Executive = 2;
+var ainfNum3_Executive = 3;
+var ainfRes_Executive = 1;
+
+
+// Economico
+var aadtNum1_Economic = 1;
+var aadtNum2_Economic = 2;
+var aadtNum3_Economic = 3;
+var aadtRes_Economic = 1;
+
+var achdNum1_Economic = 1;
+var achdNum2_Economic = 2;
+var achdNum3_Economic = 3;
+var achdRes_Economic = 1;
+
+var ainfNum1_Economic = 1;
+var ainfNum2_Economic = 2;
+var ainfNum3_Economic = 3;
+var ainfRes_Economic = 1;
+// Variáveis que serão utilizadas para criar os ids específicos de cada voo - fim
+// ----------//----------//----------
+
+
+
+// Variáveis que salvam o número do maior conjunto já criado, para a partir deles, saber quais devem ser os valores dos próximos blocos - início
+// Primeira classe saved
+var savedAadtNum1_FirstClass = 1;
+var savedAadtNum2_FirstClass = 2;
+var savedAadtNum3_FirstClass = 3;
+var savedAadtRes_FirstClass = 1;
+
+var savedAchdNum1_FirstClass = 1;
+var savedAchdNum2_FirstClass = 2;
+var savedAchdNum3_FirstClass = 3;
+var savedAchdRes_FirstClass = 1;
+
+var savedAinfNum1_FirstClass = 1;
+var savedAinfNum2_FirstClass = 2;
+var savedAinfNum3_FirstClass = 3;
+var savedAinfRes_FirstClass = 1;
+
+
+// Executivo saved
+var savedAadtNum1_Executive = 1;
+var savedAadtNum2_Executive = 2;
+var savedAadtNum3_Executive = 3;
+var savedAadtRes_Executive = 1;
+
+var savedAchdNum1_Executive = 1;
+var savedAchdNum2_Executive = 2;
+var savedAchdNum3_Executive = 3;
+var savedAchdRes_Executive = 1;
+
+var savedAinfNum1_Executive = 1;
+var savedAinfNum2_Executive = 2;
+var savedAinfNum3_Executive = 3;
+var savedAinfRes_Executive = 1;
+
+
+// Econômico saved
+var savedAadtNum1_Economic = 1;
+var savedAadtNum2_Economic = 2;
+var savedAadtNum3_Economic = 3;
+var savedAadtRes_Economic = 1;
+
+var savedAchdNum1_Economic = 1;
+var savedAchdNum2_Economic = 2;
+var savedAchdNum3_Economic = 3;
+var savedAchdRes_Economic = 1;
+
+var savedAinfNum1_Economic = 1;
+var savedAinfNum2_Economic = 2;
+var savedAinfNum3_Economic = 3;
+var savedAinfRes_Economic = 1;
+// Variáveis que salvam o número do maior conjunto já criado, para a partir deles, saber quais devem ser os valores dos próximos blocos - fim
+// ----------//----------//----------
+
+// Somas da primeira classe
 function calcularAdt_FirstClass(){
     var adtVal1_FirstClass = parseInt(document.getElementById(`adt${aadtNum1_FirstClass}_FirstClass`).value);
     var adtVal2_FirstClass = parseInt(document.getElementById(`adt${aadtNum2_FirstClass}_FirstClass`).value);
@@ -59,10 +118,6 @@ function calcularAdt_FirstClass(){
     document.getElementById(`adtResult${aadtRes_FirstClass}_FirstClass`).value = adtVal1_FirstClass + adtVal2_FirstClass + adtVal3_FirstClass;
 }
 
-var achdNum1_FirstClass = 1;
-var achdNum2_FirstClass = 2;
-var achdNum3_FirstClass = 3;
-var achdRes_FirstClass = 1;
 function calcularChd_FirstClass(){
     var chdVal1_FirstClass = parseInt(document.getElementById(`chd${achdNum1_FirstClass}_FirstClass`).value);
     var chdVal2_FirstClass = parseInt(document.getElementById(`chd${achdNum2_FirstClass}_FirstClass`).value);
@@ -70,10 +125,6 @@ function calcularChd_FirstClass(){
     document.getElementById(`chdResult${achdRes_FirstClass}_FirstClass`).value = chdVal1_FirstClass + chdVal2_FirstClass + chdVal3_FirstClass;
 }
 
-var ainfNum1_FirstClass = 1;
-var ainfNum2_FirstClass = 2;
-var ainfNum3_FirstClass = 3;
-var ainfRes_FirstClass = 1;
 function calcularInf_FirstClass(){
     var infVal1_FirstClass = parseInt(document.getElementById(`inf${ainfNum1_FirstClass}_FirstClass`).value);
     var infVal2_FirstClass = parseInt(document.getElementById(`inf${ainfNum2_FirstClass}_FirstClass`).value);
@@ -91,10 +142,6 @@ function total(){
 
 
 // Soma do executivo
-var aadtNum1_Executive = 1;
-var aadtNum2_Executive = 2;
-var aadtNum3_Executive = 3;
-var aadtRes_Executive = 1;
 function calcularAdt_Executive(){
     var adtVal1_Executive = parseInt(document.getElementById(`adt${aadtNum1_Executive}_Executive`).value);
     var adtVal2_Executive = parseInt(document.getElementById(`adt${aadtNum2_Executive}_Executive`).value);
@@ -102,10 +149,6 @@ function calcularAdt_Executive(){
     document.getElementById(`adtResult${aadtRes_Executive}_Executive`).value = adtVal1_Executive + adtVal2_Executive + adtVal3_Executive;
 }
 
-var achdNum1_Executive = 1;
-var achdNum2_Executive = 2;
-var achdNum3_Executive = 3;
-var achdRes_Executive = 1;
 function calcularChd_Executive(){
     var chdVal1_Executive = parseInt(document.getElementById(`chd${achdNum1_Executive}_Executive`).value);
     var chdVal2_Executive = parseInt(document.getElementById(`chd${achdNum2_Executive}_Executive`).value);
@@ -113,10 +156,6 @@ function calcularChd_Executive(){
     document.getElementById(`chdResult${achdRes_Executive}_Executive`).value = chdVal1_Executive + chdVal2_Executive + chdVal3_Executive;
 }
 
-var ainfNum1_Executive = 1;
-var ainfNum2_Executive = 2;
-var ainfNum3_Executive = 3;
-var ainfRes_Executive = 1;
 function calcularInf_Executive(){
     var infVal1_Executive = parseInt(document.getElementById(`inf${ainfNum1_Executive}_Executive`).value);
     var infVal2_Executive = parseInt(document.getElementById(`inf${ainfNum2_Executive}_Executive`).value);
@@ -126,10 +165,6 @@ function calcularInf_Executive(){
 
 
 // Soma do econômico
-var aadtNum1_Economic = 1;
-var aadtNum2_Economic = 2;
-var aadtNum3_Economic = 3;
-var aadtRes_Economic = 1;
 function calcularAdt_Economic(){
     var adtVal1_Economic = parseInt(document.getElementById(`adt${aadtNum1_Economic}_Economic`).value);
     var adtVal2_Economic = parseInt(document.getElementById(`adt${aadtNum2_Economic}_Economic`).value);
@@ -137,10 +172,6 @@ function calcularAdt_Economic(){
     document.getElementById(`adtResult${aadtRes_Economic}_Economic`).value = adtVal1_Economic + adtVal2_Economic + adtVal3_Economic;
 }
 
-var achdNum1_Economic = 1;
-var achdNum2_Economic = 2;
-var achdNum3_Economic = 3;
-var achdRes_Economic = 1;
 function calcularChd_Economic(){
     var chdVal1_Economic = parseInt(document.getElementById(`chd${achdNum1_Economic}_Economic`).value);
     var chdVal2_Economic = parseInt(document.getElementById(`chd${achdNum2_Economic}_Economic`).value);
@@ -148,10 +179,6 @@ function calcularChd_Economic(){
     document.getElementById(`chdResult${achdRes_Economic}_Economic`).value = chdVal1_Economic + chdVal2_Economic + chdVal3_Economic;
 }
 
-var ainfNum1_Economic = 1;
-var ainfNum2_Economic = 2;
-var ainfNum3_Economic = 3;
-var ainfRes_Economic = 1;
 function calcularInf_Economic(){
     var infVal1_Economic = parseInt(document.getElementById(`inf${ainfNum1_Economic}_Economic`).value);
     var infVal2_Economic = parseInt(document.getElementById(`inf${ainfNum2_Economic}_Economic`).value);
@@ -159,62 +186,58 @@ function calcularInf_Economic(){
     document.getElementById(`infResult${ainfRes_Economic}_Economic`).value = infVal1_Economic + infVal2_Economic + infVal3_Economic;
 }
 
-
-var anum = 2;
-var aday = 1;
 $('#add_country').on('click', function() {
-  aday = anum;
-  anum++;
+    savedAadtNum1_FirstClass = savedAadtNum1_FirstClass + 3;
+    savedAadtNum2_FirstClass = savedAadtNum2_FirstClass + 3;
+    savedAadtNum3_FirstClass = savedAadtNum3_FirstClass + 3;
+    savedAadtRes_FirstClass++;
 
-  //Primeira classe saved
-  savedAadtNum1_FirstClass = savedAadtNum1_FirstClass + 3;
-  savedAadtNum2_FirstClass = savedAadtNum2_FirstClass + 3;
-  savedAadtNum3_FirstClass = savedAadtNum3_FirstClass + 3;
-  savedAadtRes_FirstClass++;
+    savedAchdNum1_FirstClass = savedAchdNum1_FirstClass + 3;
+    savedAchdNum2_FirstClass = savedAchdNum2_FirstClass + 3;
+    savedAchdNum3_FirstClass = savedAchdNum3_FirstClass + 3;
+    savedAchdRes_FirstClass++;
 
-  savedAchdNum1_FirstClass = savedAchdNum1_FirstClass + 3;
-  savedAchdNum2_FirstClass = savedAchdNum2_FirstClass + 3;
-  savedAchdNum3_FirstClass = savedAchdNum3_FirstClass + 3;
-  savedAchdRes_FirstClass++;
+    savedAinfNum1_FirstClass = savedAinfNum1_FirstClass + 3;
+    savedAinfNum2_FirstClass = savedAinfNum2_FirstClass + 3;
+    savedAinfNum3_FirstClass = savedAinfNum3_FirstClass + 3;
+    savedAinfRes_FirstClass++;
 
-  savedAinfNum1_FirstClass = savedAinfNum1_FirstClass + 3;
-  savedAinfNum2_FirstClass = savedAinfNum2_FirstClass + 3;
-  savedAinfNum3_FirstClass = savedAinfNum3_FirstClass + 3;
-  savedAinfRes_FirstClass++;
 
-  // Executivo saved
-  savedAadtNum1_Executive = savedAadtNum1_Executive + 3;
-  savedAadtNum2_Executive = savedAadtNum2_Executive + 3;
-  savedAadtNum3_Executive = savedAadtNum3_Executive + 3;
-  savedAadtRes_Executive++;
+    // Executivo saved
+    savedAadtNum1_Executive = savedAadtNum1_Executive + 3;
+    savedAadtNum2_Executive = savedAadtNum2_Executive + 3;
+    savedAadtNum3_Executive = savedAadtNum3_Executive + 3;
+    savedAadtRes_Executive++;
 
-  savedAchdNum1_Executive = savedAchdNum1_Executive + 3;
-  savedAchdNum2_Executive = savedAchdNum2_Executive + 3;
-  savedAchdNum3_Executive = savedAchdNum3_Executive + 3;
-  savedAchdRes_Executive++;
+    savedAchdNum1_Executive = savedAchdNum1_Executive + 3;
+    savedAchdNum2_Executive = savedAchdNum2_Executive + 3;
+    savedAchdNum3_Executive = savedAchdNum3_Executive + 3;
+    savedAchdRes_Executive++;
 
-  savedAinfNum1_Executive = savedAinfNum1_Executive + 3;
-  savedAinfNum2_Executive = savedAinfNum2_Executive + 3;
-  savedAinfNum3_Executive = savedAinfNum3_Executive + 3;
-  savedAinfRes_Executive++;
+    savedAinfNum1_Executive = savedAinfNum1_Executive + 3;
+    savedAinfNum2_Executive = savedAinfNum2_Executive + 3;
+    savedAinfNum3_Executive = savedAinfNum3_Executive + 3;
+    savedAinfRes_Executive++;
 
-  // Econômico saved
-  savedAadtNum1_Economic = savedAadtNum1_Economic + 3;
-  savedAadtNum2_Economic = savedAadtNum2_Economic + 3;
-  savedAadtNum3_Economic = savedAadtNum3_Economic + 3;
-  savedAadtRes_Economic++;
 
-  savedAchdNum1_Economic = savedAchdNum1_Economic + 3;
-  savedAchdNum2_Economic = savedAchdNum2_Economic + 3;
-  savedAchdNum3_Economic = savedAchdNum3_Economic + 3;
-  savedAchdRes_Economic++;
+    // Econômico saved
+    savedAadtNum1_Economic = savedAadtNum1_Economic + 3;
+    savedAadtNum2_Economic = savedAadtNum2_Economic + 3;
+    savedAadtNum3_Economic = savedAadtNum3_Economic + 3;
+    savedAadtRes_Economic++;
 
-  savedAinfNum1_Economic = savedAinfNum1_Economic + 3;
-  savedAinfNum2_Economic = savedAinfNum2_Economic + 3;
-  savedAinfNum3_Economic = savedAinfNum3_Economic + 3;
-  savedAinfRes_Economic++;
+    savedAchdNum1_Economic = savedAchdNum1_Economic + 3;
+    savedAchdNum2_Economic = savedAchdNum2_Economic + 3;
+    savedAchdNum3_Economic = savedAchdNum3_Economic + 3;
+    savedAchdRes_Economic++;
 
-  //Primeira classe
+    savedAinfNum1_Economic = savedAinfNum1_Economic + 3;
+    savedAinfNum2_Economic = savedAinfNum2_Economic + 3;
+    savedAinfNum3_Economic = savedAinfNum3_Economic + 3;
+    savedAinfRes_Economic++;
+
+  // Os valores slvos são igualados aos serem postos no novo bloco gerado
+  // Primeira classe
   aadtNum1_FirstClass = savedAadtNum1_FirstClass;
   aadtNum2_FirstClass = savedAadtNum2_FirstClass;
   aadtNum3_FirstClass = savedAadtNum3_FirstClass;
@@ -229,6 +252,7 @@ $('#add_country').on('click', function() {
   ainfNum2_FirstClass = savedAinfNum2_FirstClass;
   ainfNum3_FirstClass = savedAinfNum3_FirstClass;
   ainfRes_FirstClass = savedAinfRes_FirstClass;
+
 
   // Executivo
   aadtNum1_Executive = savedAadtNum1_Executive;
@@ -246,6 +270,7 @@ $('#add_country').on('click', function() {
   ainfNum3_Executive = savedAinfNum3_Executive;
   ainfRes_Executive = savedAinfRes_Executive;
 
+
   // Econômico
   aadtNum1_Economic = savedAadtNum1_Economic;
   aadtNum2_Economic = savedAadtNum2_Economic;
@@ -261,13 +286,13 @@ $('#add_country').on('click', function() {
   ainfNum2_Economic = savedAinfNum2_Economic;
   ainfNum3_Economic = savedAinfNum3_Economic;
   ainfRes_Economic = savedAinfRes_Economic;
-
-
+  anumVoo++;
+  aflight = anumVoo;
 });
-$('#increasing').on('click', function() {
-  if(aday > 1){
-    aday--;
 
+$('#decreasing').on('click', function() {
+  if (aflight > 1) {
+    aflight--;
     aadtNum1_FirstClass = aadtNum1_FirstClass - 3;
     aadtNum2_FirstClass = aadtNum2_FirstClass - 3;
     aadtNum3_FirstClass = aadtNum3_FirstClass - 3;
@@ -317,10 +342,9 @@ $('#increasing').on('click', function() {
   }
 });
 
-$('#decreasing').on('click', function() {
-  if(aday < anum-1){
-    aday++;
-
+$('#increasing').on('click', function(){
+  if (aflight < anumVoo) {
+    aflight++;
     aadtNum1_FirstClass = aadtNum1_FirstClass + 3;
     aadtNum2_FirstClass = aadtNum2_FirstClass + 3;
     aadtNum3_FirstClass = aadtNum3_FirstClass + 3;
@@ -369,6 +393,8 @@ $('#decreasing').on('click', function() {
     ainfRes_Economic++;
   }
 });
+/*! fim operations pageD !*/
+
 /*! fim operations pageD !*/
 
 /*! INICIO OPERATIONS PAGE F !*/

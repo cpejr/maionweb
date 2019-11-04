@@ -70,21 +70,6 @@ const flightSchema = new mongoose.Schema({
     finalValue:[Number],
     escalas: [Number]
 
-    // adult:{
-    //   value: Number,
-    //   chd: Number,
-    //   inf: Number
-    // },
-    // txEmb:{
-    //   value: Number,
-    //   chd: Number,
-    //   inf: Number
-    // },
-    // rav:{
-    //   value: Number,
-    //   chd: Number,
-    //   inf: Number
-    // }
 
 }, { timestamps: true, static: false });
 
