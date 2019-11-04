@@ -10,32 +10,32 @@
     </div>
 
     {{#each allScripts}}
-      <div class="dinamic_spec_pagec">
-        <h1>Roteiro:</h1>
-        <div id="testedacamila" class="rowclass">
-          <div class="container rowclass">
-            <div class="row rowclass marginPageC">
-              <div class="col-sm-auto ">
-                Dia 1
-              </div>
-              <div class="col-sm-auto">
-                <input type="date" placeholder="Data" name="budget[planDate]" class= "date start-date form-control classCinput" value="{{planDate}}">
-              </div>
-              <div class="col-sm-auto">
-                <input placeholder="País" name="budget[planCountry]" class= "form-control classCinput2" value="{{planCountry}}">
-              </div>
-              <div class="col-sm-auto">
-                <input placeholder="Cidade" name="budget[planCity]"class= "form-control classCinput2" value="{{planCity}}">
-              </div>
+    <div class="dinamic_spec_pagec">
+      <h1>Roteiro:</h1>
+        <div class="container rowclass">
+          <div class="row rowclass marginPageC">
+            <div class="col-sm-auto-pageC rowclass">
+              Dia 1
             </div>
-            <div class="form-group">
-              <textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3" >{{planFreeField}}</textarea>
+            <div class="col-sm-auto-pageC rowclass">
+              <input type="date" placeholder="dd/mm/aa" name="budget[planDate]" value="{{planDate}}"class= "form-control classCinput2">
             </div>
+            <div class="col-sm-auto-pageC rowclass">
+              <input placeholder="Cidade" name="budget[planCity]" value="{{planCity}}" class= "form-control classCinput2">
+            </div>
+            <div class="col-sm-auto-pageC rowclass">
+              <input placeholder="País" name="budget[planCountry]" value="{{planCountry}}" class="form-control classCinput2">
+            </div>
+          </div><br>
+          <div class="form-group ">
+            <textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3">{{planFreeField}}</textarea>
           </div>
         </div>
-        <button type="button" class="add_buttons" id="add_dias"> + Dias</button><br><br>
-      </div>
+    </div>
     {{/each}}
+    <div id="testedacamila" class="rowclass">
+    </div>
+    <button type="button" class="add_buttons" id="add_dias"> + Dias</button><br><br>
 
     <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
   </div>

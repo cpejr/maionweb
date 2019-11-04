@@ -101,7 +101,7 @@
                 <th colspan="1"><h5>Criança</h5></th>
                 <th colspan="4"><input name="flight[tariffValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" type="text" name="qty" id="chd{{ageId1}}_FirstClass" placeholder="Tarifa" class="valor"/ value="{{tariffValueCHD_FirstClass}}"></th>
                 <th colspan="1">+</th>
-                <th colspan="4"><input name="flight[taxValueCHD_FirstClass]" onblur="calcularChd_FirstClass)" type="text" name="qty" id="chd{{ageId2}}_FirstClass" placeholder="Embarque" class="valor"/ value="{{taxValueCHD_FirstClass}}"></th>
+                <th colspan="4"><input name="flight[taxValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" type="text" name="qty" id="chd{{ageId2}}_FirstClass" placeholder="Embarque" class="valor"/ value="{{taxValueCHD_FirstClass}}"></th>
                 <th colspan="1">+</th>
                 <th colspan="4"><input name="flight[ravValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" type="text" name="qty" id="chd{{ageId3}}_FirstClass" placeholder="Emissão" class="valor"/ value="{{ravValueCHD_FirstClass}}"></th>
                 <th colspan="1">=</th>
@@ -222,7 +222,7 @@
             </table>
           </div>
           <select placeholder="Selecione" class="form-control" name=flight[coin] required>
-            <option style="display:none">Selecione qual moeda:</option>
+            <option style = "color:red;">{{coin}}</option>
             <option>$</option>
             <option>R$</option>
             <option>€</option>
