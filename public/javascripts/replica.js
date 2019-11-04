@@ -14,7 +14,7 @@ $( "#add-companion" ).click(function(){
 // page c - início
 var planned_day = 2;
 $( "#add_dias" ).click(function() {
-  $( "#testedacamila" ).append( '<div id="testedacamila" class="rowclass"><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto-pageC rowclass">Dia '+planned_day+'</div><div class="col-sm-auto-pageC rowclass"><input type="date" placeholder="dd/mm/aa" name="budget[planDate]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="País" name="budget[planCountry]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="Cidade" name="budget[planCity]"class= "form-control classCinput2"></div></div><br><div class="form-group"><textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3"></textarea></div></div></div>' );
+  $( "#testedacamila" ).append( '<div class="dinamic_spec_pagec"><h1>Roteiro:</h1><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto-pageC rowclass">Dia'+planned_day+' </div><div class="col-sm-auto-pageC rowclass"><input type="date" placeholder="dd/mm/aa" name="budget[planDate]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="Cidade" name="budget[planCity]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="País" name="budget[planCountry]" class="form-control classCinput2"></div></div><br><div class="form-group "><textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3"></textarea></div></div></div>' );
   planned_day ++;
   console.log('add dias ta pegando');
 });
@@ -260,7 +260,7 @@ $('#decreasing').on('click', function() {
 $('#increasing').on('click', function() {
   if(day < num-1){
     day++;
-    
+
     $(".Selected").removeClass("Selected");
     $(`#flight${day}`).addClass("Selected");
   }
@@ -298,29 +298,102 @@ $("#add_car").click(function(){
 // Page F - FIM
 
 // Page G - INÍCIO
-var numSeguro = 2;
-var numTicket = 2;
-var numOutros = 2;
+var numSeguro = 1;
+var numTicket = 1;
+var numOutros = 1;
 
+var savedNumSeguro = 1;
+var savedNumTicket = 1;
+var savedNumOutros = 1;
+
+// lógica dos bloco de seguros - início
 $("#add_seguros").click(function() {// Modelo da função de replicar
-  $("#landing-seguro-col1").append('<div class="boxLeftPageG"><div class="form-group"><label id="titleG" for="exampleInputPassword1">Seguro '+numSeguro+':</label><input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Cobertura</label><input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div></div>');
-  $("#landing-seguro-col2").append('<div class="boxRightPageG"><div class="form-group"><label for="exampleInputPassword1">Nome do responsável:</label><input type="text" placeholder= "" class="form-control"></div><label for="exampleInputPassword1">Selecione os acompanhantes</label><div class="form-check"><input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked><label class="form-check-label" for="exampleRadios1">Acompanhante 1</label></div><div class="form-group col-md-3 valor"><label class="value1" for="exampleInputPassword1">Valor total de seguro:</label><input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor (R$)"></div></div>');
-  numSeguro++;
+  savedNumSeguro++;
+  numSeguro = savedNumSeguro;
+  $("#landing-seguro-col1").append('<div class="boxPageG"><div class="" id="boxSafe'+numSeguro+'"><div class="autorow rowclass"><h1 id="titleG" for="exampleInputPassword1">Seguro '+numSeguro+':</h1></div><div class="form-group"><input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control"></div><div class="form-group"><input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control"></div><div class="rowclass autorow"><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por adulto</th><th colspan="1">Número de adultos</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[insuranceADT]" type="text" id="adt'+numSeguro+'val" onblur="calcSafe()" class="form-control" value="0"></th><th colspan="1"><input name="safe[SafenumADT]" type="text" id="adt'+numSeguro+'mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por criança</th><th colspan="1">Número de crianças</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[insuranceCHD]" type="text" id="chd'+numSeguro+'val" onblur="calcSafe()" class="form-control" value="0"></th><th colspan="1"><input name="safe[SafenumCHD]" type="text" id="chd'+numSeguro+'mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="8">Valor por bebê</th><th colspan="1">Número de bebês</th></tr></thead><tbody><tr><th colspan="8"><input name="safe[insuranceINF]" type="text" id="inf'+numSeguro+'val" onblur="calcSafe()" class="form-control" value="0"></th><th colspan="1"><input name="safe[SafenumINF]" type="text" id="inf'+numSeguro+'mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div></div><div class="rowclass"><table class="autorow"><thead><tr><th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th><th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total de seguro:</label></th></tr></thead><tbody><tr><th><select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin] required><option style="display:none">Moeda:</option><option>$</option><option>R$</option><option>€</option></select></th><th><input name="safe[insuranceTOT]" type="text" id="total'+numSeguro+'" onblur="calcSafe()" class="form-control form-control--width" placeholder="Valor" value="0"></th></tr></tbody></table></div></div></div><br><br>');
+
+  $(".Selected").removeClass("Selected");
+  $(`#boxSafe${numSeguro}`).addClass("Selected");
 });
 
-$("#add_ticket").click(function() {// Modelo da função de replicar
-  $("#landing-ticket-col1").append('<div class="boxLeftPageG"><div class="form-group"><label id="titleG" for="exampleInputPassword1">Tickets/Ingressos '+numTicket+':</label><input name="safe[ticketsName]" type="text" placeholder= "" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div></div>');
-  $("#landing-ticket-col2").append('<div class="boxRightPageG"><div class="form-group"><label for="exampleInputPassword1">Nome do responsável:</label><input type="text" placeholder= "" class="form-control"></div><label for="exampleInputPassword1">Selecione os acompanhantes</label><div class="form-check"><input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked><label class="form-check-label" for="exampleRadios1">Acompanhante 1</label></div><div class="form-group col-md-3 valor"><label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label><input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor (R$)"></div></div>');
-  numTicket++;
+$('#prev_seguro').on('click', function() {
+  if(numSeguro > 1){
+    numSeguro--;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxSafe${numSeguro}`).addClass("Selected");
+  }
 });
 
-$("#add_outros").click(function() {// Modelo da função de replicar
-  $("#landing-outros-col1").append('<div class="boxLeftPageG"><div class="form-group"><label id="titleG" for="exampleInputPassword1">Outros '+numOutros+':</label><input name="safe[otherName]" type="text" placeholder= "" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div></div>');
-  $("#landing-outros-col2").append('<div class="boxRightPageG"><div class="form-group"><label for="exampleInputPassword1">Nome do responsável:</label><input type="text" placeholder= "" class="form-control"></div><label for="exampleInputPassword1">Selecione os acompanhantes</label><div class="form-check"><input class="form-check-input" type="checkbox" id="exampleRadios1" value="option1" checked><label class="form-check-label" for="exampleRadios1">Acompanhante 1 </label></div><div class="form-group col-md-3 valor"><label class="value1" for="exampleInputPassword1">Valor total de outros:</label><input name="safe[otherTOT]" type="text" class="form-control value1" placeholder="Valor (R$)"></div></div>');
-  numOutros++;
+$('#nxt_seguros').on('click', function() {
+  if(numSeguro < savedNumSeguro){
+    numSeguro++;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxSafe${numSeguro}`).addClass("Selected");
+  }
 });
 
-$("#add_outros").click(function() {
-  $("#add_outros1").append('<div class="form-group"><label id="titleG" for="exampleInputPassword1">Outros:</label><input name="safe[otherName]" type="text" placeholder= "" class="form-control"></di<div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div>');
+// lógica dos bloco de seguros - fim
+
+
+// lógica dos bloco de tickets - início
+$("#add_tickets").click(function() {// Modelo da função de replicar
+  savedNumTicket++;
+  numTicket = savedNumTicket;
+  $("#landing-ticket").append('<div class="boxPageG"><div class="Selected" id="boxTicket'+numTicket+'"><div class="autorow rowclass"><h1 id="titleG" for="exampleInputPassword1">Ticket '+numTicket+':</h1></div><div class="form-group"><input name="safe[ticketsName]" type="text" placeholder= "Qual é o ticket a ser comprado?" class="form-control"></div><div class="rowclass autorow"><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por adulto</th><th colspan="1">Número de adultos</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[ticketsADT]" placeholder="Valor por adulto" type="text" id="adt'+numTicket+'valTicket" onblur="calcTicket()" class="form-control" value="0"></th><th colspan="1"><input name="safe[TicketnumADT]" placeholder="Número de adultos" type="text" id="adt'+numTicket+'multTicket" onblur="calcTicket()"class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por criança</th><th colspan="1">Número de crianças</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[ticketsCHD]" placeholder="Valor por criança" type="text" id="chd'+numTicket+'valTicket" onblur="calcTicket()" class="form-control" value="0"></th><th colspan="1"><input name="safe[TicketnumCHD]" placeholder="Número de crianças" type="text" id="chd'+numTicket+'multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="8">Valor por bebê</th><th colspan="1">Número de bebês</th></tr></thead><tbody><tr><th colspan="8"><input name="safe[ticketsINF]" placeholder="Valor por bebê" type="text" id="inf'+numTicket+'valTicket" onblur="calcTicket()" class="form-control" value="0"></th><th colspan="1"><input name="safe[TicketnumINF]" placeholder="Número de bebês" type="text" id="inf'+numTicket+'multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div></div><div class="rowclass"><table class="autorow"><thead><th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th><th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total dos tickets:</label></th></tr></thead><tbody><tr><th><select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin] required><option style="display:none">Moeda:</option><option>$</option><option>R$</option><option>€</option></select></th><th><input name="safe[ticketsTOT]" type="text" id="totalTicket'+numTicket+'" onblur="calcTicket()" class="form-control form-control--width" placeholder="Valor" value="0"></th></tr></tbody></table></div></div></div><br><br>');
+
+  $(".Selected").removeClass("Selected");
+  $(`#boxTicket${numTicket}`).addClass("Selected");
 });
+
+$('#prev_ticket').on('click', function() {
+  if(numTicket > 1){
+    numTicket--;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxTicket${numTicket}`).addClass("Selected");
+  }
+});
+
+$('#nxt_ticket').on('click', function() {
+  if(numTicket < savedNumTicket){
+    numTicket++;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxTicket${numTicket}`).addClass("Selected");
+  }
+});
+// lógica dos bloco de tickets - fim
+
+
+
+// lógica dos bloco de outros - início
+$("#add_others").click(function() {// Modelo da função de replicar
+  savedNumOutros++;
+  numOutros = savedNumOutros;
+  $("#landing-other").append('  <div class="boxPageG"><div class="Selected" id="boxOther'+numOutros+'"><div class="autorow rowclass"><h1 id="titleG" for="exampleInputPassword1">Outro '+numOutros+':</h1></div><div class="form-group"><input name="safe[otherName]" type="text" placeholder= "Qual outro item deseja adicionar?" class="form-control"></div><div class="rowclass autorow"><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por adulto</th><th colspan="1">Número de adultos</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[otherADT]" placeholder="Valor por adulto" type="text" id="adt'+numOutros+'valOther" onblur="calcOther()" class="form-control" value="0"></th><th colspan="1"><input name="safe[OthernumADT]" placeholder="Número de adultos" type="text" id="adt'+numOutros+'multOther" onblur="calcOther()"class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por criança</th><th colspan="1">Número de crianças</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[otherCHD]" placeholder="Valor por criança" type="text" id="chd'+numOutros+'valOther" onblur="calcOther()" class="form-control" value="0"></th><th colspan="1"><input name="safe[OthernumCHD]" placeholder="Número de crianças" type="text" id="chd'+numOutros+'multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="8">Valor por bebê</th><th colspan="1">Número de bebês</th></tr></thead><tbody><tr><th colspan="8"><input name="safe[otherINF]" placeholder="Valor por bebê" type="text" id="inf'+numOutros+'valOther" onblur="calcOther()" class="form-control" value="0"></th><th colspan="1"><input name="safe[OthernumINF]" placeholder="Número de bebês" type="text" id="inf'+numOutros+'multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div></div><div class="rowclass"><table class="autorow"><thead><tr><th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th><th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total:</label></th></tr></thead><tbody><tr><th><select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin] required><option style="display:none">Moeda:</option><option>$</option><option>R$</option><option>€</option></select></th><th><input name="safe[otherTOT]" type="text" id="totalOther'+numOutros+'" onblur="calcOther()" class="form-control form-control--width" placeholder="Valor" value="0"></th></tr></tbody></table></div></div></div><br><br>');
+
+  $(".Selected").removeClass("Selected");
+  $(`#boxOther${numOutros}`).addClass("Selected");
+});
+
+$('#prev_other').on('click', function() {
+  if(numOutros > 1){
+    numOutros--;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxOther${numOutros}`).addClass("Selected");
+  }
+});
+
+$('#nxt_other').on('click', function() {
+  if(numOutros < savedNumOutros){
+    numOutros++;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxOther${numOutros}`).addClass("Selected");
+  }
+});
+// lógica dos bloco de outros - fim
 // Page G - FIM

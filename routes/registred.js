@@ -84,16 +84,17 @@ router.get('/pageC/:budget_id', function(req, res) {
           for (var i = 0; i < budget.planCountry.length; i++) {
 
             const script = {
-              countryName: String,
-              cityName: String,
-              scriptDate: Date,
-              freeField: String
+              planDate: Date,
+              planCity: String,
+              planCountry: String,
+              planFreeField: String
             };
 
-            script.planCountry = budget.planCountry[i];
-            script.planCity = budget.planCity[i];
             script.planDate = budget.planDate[i];
+            script.planCity = budget.planCity[i];
+            script.planCountry = budget.planCountry[i];
             script.planFreeField = budget.planFreeField[i]
+
             allScripts.push(script);
             // console.log(allScripts.countryName);
           }
