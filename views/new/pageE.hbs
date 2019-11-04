@@ -8,26 +8,32 @@
     </div>
     <div class="dinamic_spec">
         <h1> Hotel </h1>
+        <div id="companion_camp">
+          <h3> Passageiros </h3><br>
+          <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly" required>
+          <br><br>
+          {{#each test1}}
+          <table class="col-12" id="companion--box">
+              <input value="{{name}}" class="companion--box companion--radius" ></input>
+            </table>
+
+          {{/each}}
+
+
+        </div><br><br>
     <div class="ajustes">
       <div class="row rowclass">
         <div class="col-sm" id="landing-hotel-col1">
           <div class="box_hotel_ldateFromeft">
-            <br><br><br><br>
-            <label>Moeda utilizada:</label>
-            <div id="companion_camp" >
-              <select placeholder="Selecione" class="form-control" name=hotel[coin] required>
-                  <option style="display:none">Selecione qual moeda:</option>
-                  <option>$</option>
-                  <option>R$</option>
-                  <option>€</option>
-                </select>
-            </div><br><br>
-            <br><br><br><br><br></br><br><br><br>
+                        <br><br>
             <div class="classa">
               <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType1]" required>
             </div><br>
             <div class="classa">
               <input class="form-control" placeholder="Hotel 1" name="hotel[hotel1]" required>
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd1]" required>
             </div><br>
             <div class="classa">
               <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category1]" required>
@@ -65,19 +71,6 @@
         </div>
         <div class="col-sm" id="landing-hotel-col2">
           <div class="box_hotel_midle">
-            <div id="companion_camp">
-              <h3> Passageiros </h3><br>
-              <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly" required>
-              <br><br>
-              {{#each test1}}
-              <table class="col-12" id="companion--box">
-                  <input value="{{name}}" class="companion--box companion--radius" ></input>
-                </table>
-
-              {{/each}}
-
-
-            </div><br><br>
             <div class="classa">
               <input class="form-control" placeholder="Cidade 1" name="hotel[city]" required>
             </div><br>
@@ -86,6 +79,9 @@
             </div><br>
             <div class="classa">
               <input class="form-control" placeholder="Hotel 2" name="hotel[hotel2]" required>
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd2]" required>
             </div><br>
             <div class="classa">
               <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category2]" required>
@@ -119,6 +115,15 @@
                 <option>Outro</option>
               </select>
             </div>
+            <label>Moeda utilizada:</label>
+            <div id="companion_camp" >
+              <select placeholder="Selecione" class="form-control" name=hotel[coin] required>
+                  <option style="display:none">Selecione qual moeda:</option>
+                  <option>$</option>
+                  <option>R$</option>
+                  <option>€</option>
+                </select>
+            </div><br><br>
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col3">
@@ -130,12 +135,14 @@
               </table>
               {{/each}}
             </div>
-          <br><br><br><br><br>
           <div class="classa">
             <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType3]" required>
           </div><br>
             <div class="classa">
               <input class="form-control" placeholder="Hotel 3" name="hotel[hotel3]" required>
+            </div><br>
+            <div class="classa">
+              <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd3]" required>
             </div><br>
             <div class="classa">
               <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category3]" required>
