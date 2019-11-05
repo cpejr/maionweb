@@ -18,6 +18,8 @@
     </div>
     <br><br>
     <div class="row rowclass">
+
+      <!-- Coluna 1 início -->
       <div class="col-sm-4" id="landing-hotel-col1">
         <div class="box_hotel_left box_hotel_left_selected" id="col-left1">
           <div class="rowclass">
@@ -46,19 +48,19 @@
             </div><br>
             <div class="classa">
               <label>Valor apto.</label>
-              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" id="vApto11" value="0">
+              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" id="vApto11" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Número de diárias</label>
-              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily1]" id="nDiarias11" value="0">
+              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily1]" id="nDiarias11" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Número de apartamentos</label>
-              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt1]" id="nAptos11" onblur="vHoteis1()" value="0">
+              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt1]" id="nAptos11" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Total Hotel 1</label>
-              <input class="form-control" placeholder="Total" name="hotel[total1]" id="vTotal11" value="0">
+              <input class="form-control" placeholder="Total" name="hotel[total1]" id="vTotal11" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <select class="form-control" name="hotel[cancellationPeriod]" >
@@ -71,6 +73,10 @@
           </div>
         </div>
       </div>
+      <!-- Coluna 1 fim -->
+
+
+      <!-- Coluna 2 início -->
       <div class="col-sm-4" id="landing-hotel-col2">
         <div class="box_hotel_midle box_hotel_midle_selected" id="col-middle1">
           <div class="rowclass">
@@ -102,19 +108,19 @@
             </div><br>
             <div class="classa">
               <label>Valor apto.</label>
-              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]" id="vApto21" value="0">
+              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]" id="vApto21" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Número de diárias</label>
-              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily2]" id="nDiarias21" value="0">
+              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily2]" id="nDiarias21" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Número de apartamentos</label>
-              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt2]" id="nAptos21" onblur="vHoteis2()" value="0">
+              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt2]" id="nAptos21" onblur="vHoteis2()" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Total Hotel 2</label>
-              <input class="form-control" placeholder="Total" name="hotel[total2]" id="vTotal21" value="0">
+              <input class="form-control" placeholder="Total" name="hotel[total2]" id="vTotal21" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <select class="form-control" name="hotel[cancellationPeriod2]" >
@@ -136,6 +142,10 @@
           </div>
         </div>
       </div>
+      <!-- Coluna 2 fim -->
+
+
+      <!-- Coluna 3 início -->
       <div class="col-sm-4" id="landing-hotel-col3">
         <div class="box_hotel_right box_hotel_right_selected" id="col-right1">
           <div class="rowclass">
@@ -164,19 +174,19 @@
             </div><br>
             <div class="classa">
               <label>Valor apto.</label>
-              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]" id="vApto31" value="0">
+              <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]" id="vApto31" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Número de diárias</label>
-              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily3]" id="nDiarias31" value="0">
+              <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily3]" id="nDiarias31" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Número de apartamentos</label>
-              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt3]" id="nAptos31" onblur="vHoteis3()" value="0">
+              <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt3]" id="nAptos31" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <label>Total Hotel 3</label>
-              <input class="form-control" placeholder="Total" name="hotel[total3]" id="vTotal31" value="0">
+              <input class="form-control" placeholder="Total" name="hotel[total3]" id="vTotal31" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
               <select class="form-control" name="hotel[cancellationPeriod3]" >
@@ -189,6 +199,8 @@
           </div>
         </div>
       </div>
+      <!-- Coluna 3 fim -->
+
     </div>
     <button type="button" class="add_buttons" id="prev_hotel">Hotel/idade anterior</button>
     <button type="button" class="add_buttons" id="add-hotel">+Hoteis/Cidades</button>
