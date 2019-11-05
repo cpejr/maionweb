@@ -393,13 +393,49 @@ $('#increasing').on('click', function(){
     ainfRes_Economic++;
   }
 });
-/*! fim operations pageD !*/
-
-/*! fim operations pageD !*/
 
 /*! INICIO OPERATIONS PAGE F !*/
+var anumTraslado = 1;
+var asavedNumTraslado = 1;
 
+var valueADT;
+var valueCHD;
+var valueINF;
+var numADT;
+var numCHD;
+var numINF;
+var totalTranslado;
 
+// Lógica do traslado - início
+
+$('#add-traslado').on('click', function() {
+  console.log('Adiciona traslado');
+  asavedNumTraslado++;
+  anumTraslado = asavedNumTraslado;
+});
+
+$('#prev_traslado').on('click', function() {
+  if (anumTraslado > 1) {
+    anumTraslado--;
+  }
+});
+
+$('#nxt_traslado').on('click', function() {
+  if (anumTraslado < asavedNumTraslado) {
+    anumTraslado++;
+  }
+});
+
+function calcTraslado(){
+  valueADT = parseInt(document.getElementById(`valueADT${anumTraslado}`).value);
+  numADT = parseInt(document.getElementById(`numADT${anumTraslado}`).value);
+  valueCHD = parseInt(document.getElementById(`valueCHD${anumTraslado}`).value);
+  numCHD = parseInt(document.getElementById(`numCHD${anumTraslado}`).value);
+  valueINF = parseInt(document.getElementById(`valueINF${anumTraslado}`).value);
+  numINF = parseInt(document.getElementById(`numINF${anumTraslado}`).value);
+  totalTranslado = (valueADT*numADT)+(valueCHD*numCHD)+(valueINF*numINF);
+  document.getElementById(`totalTranslado${anumTraslado}`).value = totalTranslado;
+}
 
 /*! FIM OPERATIONS PAGE F !*/
 
