@@ -37,6 +37,7 @@
 
     <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
   </div>
+  <!-- Esse bloco serve pra inializar campos numéricos com 0's, pra garantir que não vai ter nenhum erro nos flow até que eles sejam alterados pelo usuário -->
   <div class="invDiv">
     <!-- PageD - início -->
     <input type="number" name="flight[escalas]" value="0" class="invDiv">
@@ -111,13 +112,39 @@
       <input name="flight[totalValueInf_Economic]"  sinput type="text" name="total" id="infResult1_Economic" placeholder="Total INF" class="valor"/ value="0"></input>
       <input name="flight[numINF_Economic]" input type="text" name="total" placeholder="" class="valor"/ value="0">
 
-      
+
     <!-- PageD - fim -->
 
     <input type="text" placeholder="Origem" name="flight[from]" class="form-control"/>
     <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" id="vApto1">
     <input name="car[from]" type="text" placeholder="De" class="date start-date">
-    <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+
+    <!-- PageG - início -->
+    <input name="safe[insuranceADT]" placeholder="Valor por adulto" type="text" id="adt1val" onblur="calcSafe()" class="form-control" value="0">
+    <input name="safe[SafenumADT]" placeholder="Número de adultos" type="text" id="adt1mult" onblur="calcSafe()"class="form-control form-control--width autorow" value="0">
+    <input name="safe[insuranceCHD]" placeholder="Valor por criança" type="text" id="chd1val" onblur="calcSafe()" class="form-control" value="0">
+    <input name="safe[SafenumCHD]" placeholder="Número de crianças" type="text" id="chd1mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0">
+    <input name="safe[insuranceINF]" placeholder="Valor por bebê" type="text" id="inf1val" onblur="calcSafe()" class="form-control" value="0">
+    <input name="safe[SafenumINF]" placeholder="Número de bebês" type="text" id="inf1mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0">
+    <input name="safe[insuranceTOT]" type="text" id="total1" onblur="calcSafe()" class="form-control form-control--width" placeholder="Valor" value="0">
+
+    <input name="safe[ticketsADT]" placeholder="Valor por adulto" type="text" id="adt1valTicket" onblur="calcTicket()" class="form-control" value="0">
+    <input name="safe[TicketnumADT]" placeholder="Número de adultos" type="text" id="adt1multTicket" onblur="calcTicket()"class="form-control form-control--width autorow" value="0">
+    <input name="safe[ticketsCHD]" placeholder="Valor por criança" type="text" id="chd1valTicket" onblur="calcTicket()" class="form-control" value="0">
+    <input name="safe[TicketnumCHD]" placeholder="Número de crianças" type="text" id="chd1multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0">
+    <input name="safe[ticketsINF]" placeholder="Valor por bebê" type="text" id="inf1valTicket" onblur="calcTicket()" class="form-control" value="0">
+    <input name="safe[TicketnumINF]" placeholder="Número de bebês" type="text" id="inf1multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0">
+    <input name="safe[ticketsTOT]" type="text" id="totalTicket1" onblur="calcTicket()" class="form-control form-control--width" placeholder="Valor" value="0">
+
+    <input name="safe[otherADT]" placeholder="Valor por adulto" type="text" id="adt1valOther" onblur="calcOther()" class="form-control" value="0">
+    <input name="safe[OthernumADT]" placeholder="Número de adultos" type="text" id="adt1multOther" onblur="calcOther()"class="form-control form-control--width autorow" value="0">
+    <input name="safe[otherCHD]" placeholder="Valor por criança" type="text" id="chd1valOther" onblur="calcOther()" class="form-control" value="0">
+    <input name="safe[OthernumCHD]" placeholder="Número de crianças" type="text" id="chd1multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0">
+    <input name="safe[otherINF]" placeholder="Valor por bebê" type="text" id="inf1valOther" onblur="calcOther()" class="form-control" value="0">
+    <input name="safe[OthernumINF]" placeholder="Número de bebês" type="text" id="inf1multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0">
+    <input name="safe[otherTOT]" type="text" id="totalOther1" onblur="calcOther()" class="form-control form-control--width" placeholder="Valor" value="0">
+
+    <!-- PageG - fim -->
   </div>
 </form>
 

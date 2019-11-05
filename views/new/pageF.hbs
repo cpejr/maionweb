@@ -4,118 +4,145 @@
 </header>
 <form action="/new/pageF/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
 
+  <!-- Bloco Traslado - início -->
   <div class="dinamic_spec">
-      <h1> Traslado/carro </h1>
-    <div class="row rowclass">
-      <!-- coluna 1 -->
-      <div class="col-sm-6 rowclass" id="PageF_Col1">
-        <div class="boxLeftPageF">
-          <br><br><br>  <h3> Passageiros </h3><br>
-          <input class="form-check-input" type="checkbox">
-          <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-          <br><br>
-          {{#each test2}}
-          <table class="col-12" id="companion--box">
-              <input value="{{name}}" class="companion--box companion--radius" ></input>
-            </table>
-          {{/each}}
-          <div id="add_acompanhantesvoo"></div>
-          <br>
-        </div>
-      </div>
+    <h1> Traslado/carro </h1>
+    <div class="">
+      <br><br><br>
+      <h3> Passageiros </h3>
+      <br>
+      <input class="form-check-input" type="checkbox">
+      <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
+      <br><br>
+      {{#each test2}}
+      <table class="col-12" id="companion--box">
+        <input value="{{name}}" class="companion--box companion--radius" ></input>
+      </table>
+      {{/each}}
+      <div id="add_acompanhantesvoo"></div>
+      <br>
+    </div>
 
-      <!-- coluna 2 -->
-      <div class="col-sm-6 rowclass">
-        <div class="boxRightPageF">
+
+      <div class="rowclass autorow">
+        <div class="boxPageF boxPageF_Selected" id="box1">
           <div>
             <h3> Traslado 1</h3><br>
-            <input name="car[from]" type="text" placeholder="De" class="date start-date" required/>
+            <input name="car[from]" type="text" placeholder="De" class="date start-date" />
             <i class="fa fa-car" aria-hidden="true"></i>
-            <input name="car[to]" type="text" placeholder="Para" class="date start-date" required/>
+            <input name="car[to]" type="text" placeholder="Para" class="date start-date" />
             <br><br>
-            <input name="car[dateFrom]" type="date" placeholder="dd/mm/aa" class="date start-date" required/>
+            <input name="car[dateFrom]" type="date" placeholder="dd/mm/aa" class="date start-date" />
             <i class="fa fa-calendar"></i>
-            <input name="car[timeFrom]" type="text" placeholder="Horário" class="date start-date" required/>
+            <input name="car[timeFrom]" type="text" placeholder="Horário" class="date start-date" />
             <br><br>
-            <input name="car[timeFrom]" type="text" placeholder="N. de Pessoas" class="date start-date" required/>
+            <input name="car[timeFrom]" type="text" placeholder="N. de Pessoas" class="date start-date" />
           </div>
           <h3>Informações/ Valores</h3><br>
           <div class="container rowclass classF-input">
-            <div class="row rowclass">
-              <div class="col-sm rowclass">
-                <div class="classa rowclass col-lg-11">
-                  <input name="car[valueADT]" class="form-control" placeholder="ADT" required>
-                </div>
-              </div>
-              <div class="col-sm rowclass">
-                <div class="classa rowclass col-lg-11">
-                  <input name="car[valueCHD]" class="form-control" placeholder="CHD" required>
-                </div>
-              </div>
-              <div class="col-sm rowclass">
-                <div class="classa rowclass col-lg-11">
-                  <input name="car[valueINF]" class="form-control" placeholder="INF" required>
-                </div><br>
-              </div>
-              <div class="col-sm rowclass">
-                <input name="car[totalTranslado]" class="form-control" placeholder="Total" required>
-              </div>
-              <div class="col-sm rowclass">
-                <select placeholder="Selecione" class="form-control form-control--espacoesq" name=car[coinT] required>
-                    <option style="display:none">Moeda:</option>
-                    <option>$</option>
-                    <option>R$</option>
-                    <option>€</option>
-                  </select>
-              </div>
-            </div>
+            <table class="rowclass autorow">
+              <thead>
+                <tr>
+                  <th colspan="2"><label>Valor por ADT</label></th>
+                  <th colspan="2"><label>Valor por CHD</label></th>
+                  <th colspan="2"><label>Valor por INF</label></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th colspan="2"><input name="car[valueADT]" onblur="calcTraslado()" id="valueADT1" class="form-control" placeholder="ADT" value="0"></th>
+                  <th colspan="2"><input name="car[valueCHD]" onblur="calcTraslado()" id="valueCHD1" class="form-control" placeholder="CHD" value="0"></th>
+                  <th colspan="2"><input name="car[valueINF]" onblur="calcTraslado()" id="valueINF1" class="form-control" placeholder="INF" value="0"></th>
+                </tr>
+                <tr>
+                  <th colspan="2"><label>Número de ADT's</label></th>
+                  <th colspan="2"><label>Número de CHD's</label></th>
+                  <th colspan="2"><label>Número de INF's</label></th>
+                </tr>
+                <tr>
+                  <th colspan="2"><input name="car[numADT]" onblur="calcTraslado()" id="numADT1" class="form-control" placeholder="numADT" value="0"></th>
+                  <th colspan="2"><input name="car[numCHD]" onblur="calcTraslado()" id="numCHD1" class="form-control" placeholder="numCHD" value="0"></th>
+                  <th colspan="2"><input name="car[numINF]" onblur="calcTraslado()" id="numINF1" class="form-control" placeholder="numINF" value="0"></th>
+                </tr>
+                <tr>
+                  <th colspan="3">
+                    <br>
+                    <div class="rowclass autorow">
+                      <select placeholder="Selecione" class="form-control" name=car[coinT] >
+                        <option style="display:none">Moeda:</option>
+                        <option>$</option>
+                        <option>R$</option>
+                        <option>€</option>
+                      </select>
+                    </div>
+                  </th>
+                  <th colspan="3">
+                    <br>
+                    <input name="car[totalTranslado]" onblur="calcTraslado()" id="totalTranslado1" class="form-control" placeholder="Total" value="0">
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <br>
           </div>
         </div>
-        <div class="rowclass" id="PageF_Col2"></div>
+        <div class="rowclass" id="landing_Traslado">
+        </div>
      </div>
-    </div>
-    <button type="button" class="add_buttons" id="add_translado">+Traslado</button>
-  <!-- coluna 3 -->
-    <div class="col-sm-auto ">
-    <div class="boxCarsPageF">
-      <br><br><h3> Carros 1 </h3><br>
-      <div class="classa">
-        <select placeholder="Selecione" class="form-control" name=car[coinC] required>
-            <option style="display:none">Moeda:</option>
-            <option>$</option>
-            <option>R$</option>
-            <option>€</option>
-          </select>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Categoria" name="car[typeCar]" required>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Cidade de Retirada" name="car[withdrawal]" required>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Cidade de Devolução" name="car[delivery]" required>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Valor carro 1" name="car[totalCar]" required>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Cidade" name="car[city]" required>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Características" name="car[shift]" required>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Seguros" name="car[safe]" required>
-      </div><br>
-      <div class="classa">
-        <input class="form-control" placeholder="Outros" name="car[others]" required>
-      </div><br>
-    </div>
-    <div class="rowclass" id="PageF_Col3"></div>
-    <button type="button" class="add_buttons" id="add_car">+Carro</button>
+
+    <button type="button" class="add_buttons" id="prev_traslado">Traslado anterior</button>
+    <button type="button" class="add_buttons" id="add-traslado">+Traslados</button>
+    <button type="button" class="add_buttons" id="nxt_traslado">Próximo Traslado</button>
   </div>
-  </div>
+  <br><br>
+  <!-- Bloco Traslado - fim -->
+
+
+  <!-- Bloco carros - início -->
+    <div class="dinamic_spec">
+      <div class="autorow">
+        <div class="boxCarsPageF">
+          <br><br><h3> Carros 1 </h3><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Categoria" name="car[typeCar]" >
+          </div><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Cidade de Retirada" name="car[withdrawal]" >
+          </div><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Cidade de Devolução" name="car[delivery]" >
+          </div><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Valor carro 1" name="car[totalCar]" >
+          </div><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Cidade" name="car[city]" >
+          </div><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Características" name="car[shift]" >
+          </div><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Seguros" name="car[safe]" >
+          </div><br>
+          <div class="classa">
+            <input class="form-control" placeholder="Outros" name="car[others]" >
+          </div><br>
+          <div class="classa">
+            <select placeholder="Selecione" class="form-control" name=car[coinC] >
+              <option style="display:none">Moeda:</option>
+              <option>$</option>
+              <option>R$</option>
+              <option>€</option>
+            </select>
+          </div><br>
+        </div>
+        <div class="rowclass" id="landing_car">
+        </div>
+        <button type="button" class="add_buttons" id="add_car">+Carro</button>
+      </div>
+    </div>
+    <!-- Bloco carros - início -->
   <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
+<script type="text/javascript" src="/javascripts/operations.js">  </script>

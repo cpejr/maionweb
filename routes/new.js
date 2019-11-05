@@ -128,7 +128,6 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
                 console.log(test2[i]);
 
               }
-                console.log(req.session);
                 res.render('new/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, budget, ...req.session, companions2, test2});
             }).catch((error)=>{
                 console.log(error);
