@@ -346,6 +346,7 @@ $('#nxt_traslado').on('click', function() {
     $(".boxPageF_Selected").removeClass("boxPageF_Selected");
     $(`#box${numTraslado}`).addClass("boxPageF_Selected");
   }
+
 });
 // Lógica do traslado - fim
 
