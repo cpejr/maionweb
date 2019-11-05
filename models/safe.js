@@ -3,26 +3,35 @@ const mongoose = require('mongoose');
 const safeSchema = new mongoose.Schema({
 
   insuranceName: [String],
-  insuranceADT: [String],
-  insuranceCHD: [String],
-  insuranceINF: [String],
-  insuranceTOT: [String],
   insuranceCoverage: [String],
+  insuranceADT: [String],
+  SafenumADT: [Number],
+  insuranceCHD: [String],
+  SafenumCHD: [Number],
+  insuranceINF: [String],
+  SafenumINF: [Number],
   insuranceCoin: [String],
+  insuranceTOT: [Number],
 
   ticketsName: [String],
   ticketsADT: [String],
+  TicketnumADT: [Number],
   ticketsCHD: [String],
+  TicketnumCHD: [Number],
   ticketsINF: [String],
-  ticketsTOT: [String],
+  TicketnumINF: [Number],
   ticketsCoin: [String],
+  ticketsTOT: [Number],
 
   otherName: [String],
   otherADT: [String],
+  OthernumADT: [Number],
   otherCHD: [String],
+  OthernumCHD: [Number],
   otherINF: [String],
-  otherTOT: [String],
-  otherCoin: [String]
+  OthernumINF: [Number],
+  otherCoin: [String],
+  otherTOT: [Number],
 
 }, { timestamps: true, static: false });
 

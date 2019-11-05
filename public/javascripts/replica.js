@@ -14,7 +14,7 @@ $( "#add-companion" ).click(function(){
 // page c - início
 var planned_day = 2;
 $( "#add_dias" ).click(function() {
-  $( "#testedacamila" ).append( '<div id="testedacamila" class="rowclass"><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto-pageC rowclass">Dia '+planned_day+'</div><div class="col-sm-auto-pageC rowclass"><input type="date" placeholder="dd/mm/aa" name="budget[planDate]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="País" name="budget[planCountry]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="Cidade" name="budget[planCity]"class= "form-control classCinput2"></div></div><br><div class="form-group"><textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3"></textarea></div></div></div>' );
+  $( "#testedacamila" ).append( '<div class="dinamic_spec_pagec"><h1>Roteiro:</h1><div class="container rowclass"><div class="row rowclass marginPageC"><div class="col-sm-auto-pageC rowclass">Dia'+planned_day+' </div><div class="col-sm-auto-pageC rowclass"><input type="date" placeholder="dd/mm/aa" name="budget[planDate]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="Cidade" name="budget[planCity]" class= "form-control classCinput2"></div><div class="col-sm-auto-pageC rowclass"><input placeholder="País" name="budget[planCountry]" class="form-control classCinput2"></div></div><br><div class="form-group "><textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3"></textarea></div></div></div>' );
   planned_day ++;
   console.log('add dias ta pegando');
 });
@@ -24,114 +24,243 @@ $( "#add_dias" ).click(function() {
 // Page D - inicio
 var numVoo = 2;
 
-// $( "#add-voo" ).click(function() {
-//   $("#PageD_Col1").append('<div class="PageDColLeft"><h3> Passageiros </h3><br><br><input class="date start-date" placeholder="Responsável" value="{{budget.file.responsibleTravel}}"><br><br><input class="date start-date" placeholder="Acompanhante" ><br><br></div>');
-//   $("#PageD_Col2").append('<div class="PageDColMidle"><h3> Voo '+numVoo+'</h3><br><br><input type="text" placeholder="Origem" name="flight[from]" class="date start-date"/><i class="fa fa-plane"></i><input type="text" placeholder="Destino" name="flight[destination]" class="date start-date"/><br><br><input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="date start-date"/><i class="fa fa-calendar"></i><input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="date start-date"/><br><br></div>');
-//   $("#PageD_Col3").append('<div class="PageDColRight"><h3> Valores '+numVoo+'</h3><br><br>Adulto:<input name="flight[tariffValueAdult]" type="text" id="num1" onblur="calcular1()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueAdult]" type="text" id="num2" onblur="calcular1()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueAdult]" type="text" id="num3" onblur="calcular1()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueAdult]" type="text" id="result1" onblur="calcular1()" placeholder="Total" class="valor"/><span id="result"></span><br><br>CHD  :<input name="flight[tariffValueCHD]" type="text" id="num4" onblur="calcular2()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueCHD]" type="text" id="num5" onblur="calcular2()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueCHD]" type="text" id="num6" onblur="calcular2()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueCHD]" type="text" id="result2" onblur="calcular2()" placeholder="Total" class="valor"/><span id="result"></span><br><br>INF   :<input name="flight[tariffValueInf]" type="text" id="num7" onblur="calcular3()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueInf]" type="text" id="num8" onblur="calcular3()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueInf]" type="text" id="num9" onblur="calcular3()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueInf]" type="text" id="result3" onblur="calcular3()" placeholder="Total" class="valor"/><span id="result"></span><br><br>Total:<i class="fa fa-group" style="font-size:20px;color:grey"></i><input name="flight[finalValueInf]" type="text" id="result4" onblur="calcular4()" placeholder="Total" class="valor"/><br></div>');
-//   numVoo++;
-//
-//
-// });
-
 var num = 2;
 var day = 1;
 
-var adtNum1 = 1;
-var adtNum2 = 2;
-var adtNum3 = 3;
-var adtRes = 1;
+// Primera classe
+var adtNum1_FirstClass = 1;
+var adtNum2_FirstClass = 2;
+var adtNum3_FirstClass = 3;
+var adtRes_FirstClass = 1;
 
-var chdNum1 = 1;
-var chdNum2 = 2;
-var chdNum3 = 3;
-var chdRes = 1;
+var chdNum1_FirstClass = 1;
+var chdNum2_FirstClass = 2;
+var chdNum3_FirstClass = 3;
+var chdRes_FirstClass = 1;
 
-var infNum1 = 1;
-var infNum2 = 2;
-var infNum3 = 3;
-var infRes = 1;
+var infNum1_FirstClass = 1;
+var infNum2_FirstClass = 2;
+var infNum3_FirstClass = 3;
+var infRes_FirstClass = 1;
 
-var totalRes = 1;
+// Executivo
+var adtNum1_Executive = 1;
+var adtNum2_Executive = 2;
+var adtNum3_Executive = 3;
+var adtRes_Executive = 1;
+
+var chdNum1_Executive = 1;
+var chdNum2_Executive = 2;
+var chdNum3_Executive = 3;
+var chdRes_Executive = 1;
+
+var infNum1_Executive = 1;
+var infNum2_Executive = 2;
+var infNum3_Executive = 3;
+var infRes_Executive = 1;
+
+// Economico
+var adtNum1_Economic = 1;
+var adtNum2_Economic = 2;
+var adtNum3_Economic = 3;
+var adtRes_Economic = 1;
+
+var chdNum1_Economic = 1;
+var chdNum2_Economic = 2;
+var chdNum3_Economic = 3;
+var chdRes_Economic = 1;
+
+var infNum1_Economic = 1;
+var infNum2_Economic = 2;
+var infNum3_Economic = 3;
+var infRes_Economic = 1;
+
+//Primeira classe saved ------------------------------------
+var savedadtNum1_FirstClass=1;
+var savedadtNum2_FirstClass=2;
+var savedadtNum3_FirstClass=3;
+var savedadtRes_FirstClass=1;
+
+var savedchdNum1_FirstClass=1;
+var savedchdNum2_FirstClass=2;
+var savedchdNum3_FirstClass=3;
+var savedchdRes_FirstClass=1;
+
+var savedinfNum1_FirstClass=1;
+var savedinfNum2_FirstClass=2;
+var savedinfNum3_FirstClass=3;
+var savedinfRes_FirstClass=1;
+
+// Executivo saved
+var savedadtNum1_Executive=1;
+var savedadtNum2_Executive=2;
+var savedadtNum3_Executive=3;
+var savedadtRes_Executive=1;
+
+var savedchdNum1_Executive=1;
+var savedchdNum2_Executive=2;
+var savedchdNum3_Executive=3;
+var savedchdRes_Executive=1;
+
+var savedinfNum1_Executive=1;
+var savedinfNum2_Executive=2;
+var savedinfNum3_Executive=3;
+var savedinfRes_Executive=1;
+
+// Econômico saved
+var savedadtNum1_Economic=1;
+var savedadtNum2_Economic=2;
+var savedadtNum3_Economic=3;
+var savedadtRes_Economic=1;
+
+var savedchdNum1_Economic=1;
+var savedchdNum2_Economic=2;
+var savedchdNum3_Economic=3;
+var savedchdRes_Economic=1;
+
+var savedinfNum1_Economic=1;
+var savedinfNum2_Economic=2;
+var savedinfNum3_Economic=3;
+var savedinfRes_Economic=1;
+
 $('#add_country').on('click', function() {
-  adtNum1 = adtNum1 + 3;
-  adtNum2 = adtNum2 + 3;
-  adtNum3 = adtNum3 + 3;
-  adtRes++;
 
-  chdNum1 = chdNum1 + 3;
-  chdNum2 = chdNum2 + 3;
-  chdNum3 = chdNum3 + 3;
-  chdRes++;
+  //Primeira classe saved
+  savedadtNum1_FirstClass = savedadtNum1_FirstClass + 3;
+  savedadtNum2_FirstClass = savedadtNum2_FirstClass + 3;
+  savedadtNum3_FirstClass = savedadtNum3_FirstClass + 3;
+  savedadtRes_FirstClass++;
 
-  infNum1 = infNum1 + 3;
-  infNum2 = infNum2 + 3;
-  infNum3 = infNum3 + 3;
-  infRes++;
+  savedchdNum1_FirstClass = savedchdNum1_FirstClass + 3;
+  savedchdNum2_FirstClass = savedchdNum2_FirstClass + 3;
+  savedchdNum3_FirstClass = savedchdNum3_FirstClass + 3;
+  savedchdRes_FirstClass++;
 
-  totalRes++;
+  savedinfNum1_FirstClass = savedinfNum1_FirstClass + 3;
+  savedinfNum2_FirstClass = savedinfNum2_FirstClass + 3;
+  savedinfNum3_FirstClass = savedinfNum3_FirstClass + 3;
+  savedinfRes_FirstClass++;
+
+  // Executivo saved
+  savedadtNum1_Executive = savedadtNum1_Executive + 3;
+  savedadtNum2_Executive = savedadtNum2_Executive + 3;
+  savedadtNum3_Executive = savedadtNum3_Executive + 3;
+  savedadtRes_Executive++;
+
+  savedchdNum1_Executive = savedchdNum1_Executive + 3;
+  savedchdNum2_Executive = savedchdNum2_Executive + 3;
+  savedchdNum3_Executive = savedchdNum3_Executive + 3;
+  savedchdRes_Executive++;
+
+  savedinfNum1_Executive = savedinfNum1_Executive + 3;
+  savedinfNum2_Executive = savedinfNum2_Executive + 3;
+  savedinfNum3_Executive = savedinfNum3_Executive + 3;
+  savedinfRes_Executive++;
+
+  // Econômico saved
+  savedadtNum1_Economic = savedadtNum1_Economic + 3;
+  savedadtNum2_Economic = savedadtNum2_Economic + 3;
+  savedadtNum3_Economic = savedadtNum3_Economic + 3;
+  savedadtRes_Economic++;
+
+  savedchdNum1_Economic = savedchdNum1_Economic + 3;
+  savedchdNum2_Economic = savedchdNum2_Economic + 3;
+  savedchdNum3_Economic = savedchdNum3_Economic + 3;
+  savedchdRes_Economic++;
+
+  savedinfNum1_Economic = savedinfNum1_Economic + 3;
+  savedinfNum2_Economic = savedinfNum2_Economic + 3;
+  savedinfNum3_Economic = savedinfNum3_Economic + 3;
+  savedinfRes_Economic++;
+
+  //Primeira classe
+  adtNum1_FirstClass = savedadtNum1_FirstClass;
+  adtNum2_FirstClass = savedadtNum2_FirstClass;
+  adtNum3_FirstClass = savedadtNum3_FirstClass;
+  adtRes_FirstClass = savedadtRes_FirstClass;
+
+  chdNum1_FirstClass = savedchdNum1_FirstClass;
+  chdNum2_FirstClass = savedchdNum2_FirstClass;
+  chdNum3_FirstClass = savedchdNum3_FirstClass;
+  chdRes_FirstClass = savedchdRes_FirstClass;
+
+  infNum1_FirstClass = savedinfNum1_FirstClass;
+  infNum2_FirstClass = savedinfNum2_FirstClass;
+  infNum3_FirstClass = savedinfNum3_FirstClass;
+  infRes_FirstClass = savedinfRes_FirstClass;
+
+  // Executivo
+  adtNum1_Executive = savedadtNum1_Executive;
+  adtNum2_Executive = savedadtNum2_Executive;
+  adtNum3_Executive = savedadtNum3_Executive;
+  adtRes_Executive = savedadtRes_Executive;
+
+  chdNum1_Executive = savedchdNum1_Executive;
+  chdNum2_Executive = savedchdNum2_Executive;
+  chdNum3_Executive = savedchdNum3_Executive;
+  chdRes_Executive = savedchdRes_Executive;
+
+  infNum1_Executive = savedinfNum1_Executive;
+  infNum2_Executive = savedinfNum2_Executive;
+  infNum3_Executive = savedinfNum3_Executive;
+  infRes_Executive = savedinfRes_Executive;
+
+  // Econômic
+  adtNum1_Economic = savedadtNum1_Economic;
+  adtNum2_Economic = savedadtNum2_Economic;
+  adtNum3_Economic = savedadtNum3_Economic;
+  adtRes_Economic = savedadtRes_Economic;
+
+  chdNum1_Economic = savedchdNum1_Economic;
+  chdNum2_Economic = savedchdNum2_Economic;
+  chdNum3_Economic = savedchdNum3_Economic;
+  chdRes_Economic = savedchdRes_Economic;
+
+  infNum1_Economic = savedinfNum1_Economic;
+  infNum2_Economic = savedinfNum2_Economic;
+  infNum3_Economic = savedinfNum3_Economic;
+  infRes_Economic = savedinfRes_Economic;
+
+
+
   // $.post('/registred/Replica', {totalRes, infRes}, das => {
   //   result = das;
   // });
-  $("#button_space").append('<br><br><div class="header table-responsive" id="flight'+num+'"><table class="table table-striped table-hover" id="in_country_days'+num+'"><thead><tr><th>Origem</th><th>Destino</th><th>Saída</th><th>Chegada</th><th>Moeda Utilizada:</th></tr></thead><tbody ><tr><th><input type="text" placeholder="Origem" name="flight[from]" class="form-control"/></th><th><input type="text" placeholder="Destino" name="flight[destination]" class="form-control"/></th><th><input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="form-control"/></th><th><input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="form-control"/></th><th><select placeholder="Selecione" class="form-control" name=flight[coin] required><option style="display:none">Selecione qual moeda:</option><option>$</option><option>R$</option><option>€</option></select></th><input type="number" name="flight[escalas]" value="0" class="invDiv"></tr></tbody></table><div class="rowclass"><div class="rowclass"><h3>Adulto:</h3><input name="flight[tariffValueAdult]" type="text" id="adt'+adtNum1+'" onblur="calcularAdt()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueAdult]" type="text" id="adt'+adtNum2+'" onblur="calcularAdt()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueAdult]" type="text" id="adt'+adtNum3+'" onblur="calcularAdt()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueAdult]" type="text" id="adtResult'+adtRes+'" onblur="calcularAdt()" placeholder="Total adt" class="valor"/><span id="result"></span></div><br><br><div class="rowclass"><h3>CHD  :</h3><input name="flight[tariffValueCHD]" type="text" id="chd'+chdNum1+'" onblur="calcularChd()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueCHD]" type="text" id="chd'+chdNum2+'" onblur="calcularChd()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueCHD]" type="text" id="chd'+chdNum3+'" onblur="calcularChd()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueCHD]" type="text" id="chdResult'+chdRes+'" onblur="calcularChd()" placeholder="Total chd" class="valor"/><span id="result"></span></div><br><br><div class="rowclass"><h3>INF   :</h3><input name="flight[tariffValueInf]" type="text" id="inf'+infNum1+'" onblur="calcularInf()" placeholder="Tarifa" class="valor"/><i class="fa fa-money"></i><input name="flight[taxValueInf]" type="text" id="inf'+infNum2+'" onblur="calcularInf()" placeholder="Tx Embarque" class="valor"/><i class="fa fa-money"></i><input name="flight[ravValueInf]" type="text" id="inf'+infNum3+'" onblur="calcularInf()" placeholder="Valor RAV" class="valor"/><span>&#61;</span><input name="flight[totalValueInf]" type="text" id="infResult'+infRes+'" onblur="calcularInf()" placeholder="Total inf" class="valor"/><span id="result"></span></div><br><br><div class="rowclass"><i class="fa fa-group" style="font-size:20px;color:grey"></i><input name="flight[finalValueInf]" type="text" id="totalResult'+totalRes+'" onblur="total()" placeholder="Total" class="valor"/></div><br></div></div>');
+
+  $("#button_space").append('<div class="dinamic_spec"><h1>Voo '+numVoo+'</h1><div class="header Selected table-responsive" id=flight'+numVoo+'><table class="table table-striped table-hover" id="in_country_days'+numVoo+'"><thead><tr><th colspan="1">Voo</th><th colspan="1">Data</th><th colspan="4">De</th><th colspan="4">Para</th><th colspan="2">Saída</th><th colspan="2">Chegada</th></tr></thead><tbody ><tr><th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" class="form-control"/></th><th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="De" name="flight[from]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" class="form-control"/></th><input type="number" name="flight[escalas]" value="0" class="invDiv"></tr></tbody></table><div class="pageDAuto"><table class="pageDAuto"><tr><th colspan="21"><h4>Primeira Classe</h4></th></tr><tr><th colspan="1"></th><th colspan="4">Tarifa</th><th colspan="1"></th><th colspan="4">Embarque</th><th colspan="1"></th><th colspan="4">Emissão</th><th colspan="1"></th><th colspan="4">Total </th><th colspan="1">Número de passagens</th></tr><tr><th colspan="1"><h5>Adulto</h5></th><th colspan="4"><input name="flight[tariffValueAdult_FirstClass]" onblur="calcularAdt_FirstClass()" type="text" name="qty" id="adt'+adtNum1_FirstClass+'_FirstClass" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueAdult_FirstClass]" onblur="calcularAdt_FirstClass()" type="text" name="qty" id="adt'+adtNum2_FirstClass+'_FirstClass" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueAdult_FirstClass]" onblur="calcularAdt_FirstClass()" type="text" name="qty" id="adt'+adtNum3_FirstClass+'_FirstClass" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueAdult_FirstClass]" onblur="calcularAdt_FirstClass()" input type="text" name="total" id="adtResult'+adtRes_FirstClass+'_FirstClass" placeholder="Total ADT" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numADT_FirstClass]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr><tr><th colspan="1"><h5>Criança</h5></th><th colspan="4"><input name="flight[tariffValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" type="text" name="qty" id="chd'+chdNum1_FirstClass+'_FirstClass" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueCHD_FirstClass]" onblur="calcularChd_FirstClass)" type="text" name="qty" id="chd'+chdNum2_FirstClass+'_FirstClass" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" type="text" name="qty" id="chd'+chdNum3_FirstClass+'_FirstClass" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" input type="text" name="total" id="chdResult'+chdRes_FirstClass+'_FirstClass" placeholder="Total CHD" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numCHD_FirstClass]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr><tr><th colspan="1"><h5>Bebê</h5></th><th colspan="4"><input name="flight[tariffValueInf_FirstClass]" onblur="calcularInf_FirstClass()" type="text" name="qty" id="inf'+infNum1_FirstClass+'_FirstClass" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueInf_FirstClass]" onblur="calcularInf_FirstClass()" type="text" name="qty" id="inf'+infNum2_FirstClass+'_FirstClass" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueInf_FirstClass]" onblur="calcularInf_FirstClass()" type="text" name="qty" id="inf'+infNum3_FirstClass+'_FirstClass" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueInf_FirstClass]" onblur="calcularInf_FirstClass()" sinput type="text" name="total" id="infResult'+infRes_FirstClass+'_FirstClass" placeholder="Total INF" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numINF_FirstClass]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr></table><br><table class="pageDAuto"><tr><th colspan="21"><h4>Executivo</h4></th></tr><tr><th colspan="1"></th><th colspan="4">Tarifa</th><th colspan="1"></th><th colspan="4">Embarque</th><th colspan="1"></th><th colspan="4">Emissão</th><th colspan="1"></th><th colspan="4">Total</th><th colspan="1">Número de passagens</th></tr><tr><th colspan="1"><h5>Adulto</h5></th><th colspan="4"><input name="flight[tariffValueAdult_Executive]" onblur="calcularAdt_Executive()" type="text" name="qty" id="adt'+adtNum1_Executive+'_Executive" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueAdult_Executive]" onblur="calcularAdt_Executive()" type="text" name="qty" id="adt'+adtNum2_Executive+'_Executive" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueAdult_Executive]" onblur="calcularAdt_Executive()" type="text" name="qty" id="adt'+adtNum3_Executive+'_Executive" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueAdult_Executive]" onblur="calcularAdt_Executive()" input type="text" name="total" id="adtResult'+adtRes_Executive+'_Executive" placeholder="Total ADT" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numADT_Executive]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr><tr><th colspan="1"><h5>Criança</h5></th><th colspan="4"><input name="flight[tariffValueCHD_Executive]" onblur="calcularChd_Executive()" type="text" name="qty" id="chd'+chdNum1_Executive+'_Executive" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueCHD_Executive]" onblur="calcularChd_Executive()" type="text" name="qty" id="chd'+chdNum2_Executive+'_Executive" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueCHD_Executive]" onblur="calcularChd_Executive()" type="text" name="qty" id="chd'+chdNum3_Executive+'_Executive" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueCHD_Executive]" onblur="calcularChd_Executive()" input type="text" name="total" id="chdResult'+chdRes_Executive+'_Executive" placeholder="Total CHD" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numCHD_Executive]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr><tr><th colspan="1"><h5>Bebê</h5></th><th colspan="4"><input name="flight[tariffValueInf_Executive]" onblur="calcularInf_Executive()" type="text" name="qty" id="inf'+infNum1_Executive+'_Executive" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueInf_Executive]" onblur="calcularInf_Executive()" type="text" name="qty" id="inf'+infNum2_Executive+'_Executive" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueInf_Executive]" onblur="calcularInf_Executive()" type="text" name="qty" id="inf'+infNum3_Executive+'_Executive" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueInf_Executive]" onblur="calcularInf_Executive()" sinput type="text" name="total" id="infResult'+infRes_Executive+'_Executive" placeholder="Total INF" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numINF_Executive]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr></table><br><table class="pageDAuto"><tr><th colspan="21"><h4>Econômico</h4></th></tr><tr><th colspan="1"></th><th colspan="4">Tarifa</th><th colspan="1"></th><th colspan="4">Embarque</th><th colspan="1"></th><th colspan="4">Emissão</th><th colspan="1"></th><th colspan="4">Total</th><th colspan="1">Número de passagens</th></tr><tr><th colspan="1"><h5>Adulto</h5></th><th colspan="4"><input name="flight[tariffValueAdult_Economic]" onblur="calcularAdt_Economic()" type="text" name="qty" id="adt'+adtNum1_Economic+'_Economic" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueAdult_Economic]" onblur="calcularAdt_Economic()" type="text" name="qty" id="adt'+adtNum2_Economic+'_Economic" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueAdult_Economic]" onblur="calcularAdt_Economic()" type="text" name="qty" id="adt'+adtNum3_Economic+'_Economic" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueAdult_Economic]" onblur="calcularAdt_Economic()" input type="text" name="total" id="adtResult'+adtRes_Economic+'_Economic" placeholder="Total ADT" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numADT_Economic]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr><tr><th colspan="1"><h5>Criança</h5></th><th colspan="4"><input name="flight[tariffValueCHD_Economic]" onblur="calcularChd_Economic()" type="text" name="qty" id="chd'+chdNum1_Economic+'_Economic" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueCHD_Economic]" onblur="calcularChd_Economic()" type="text" name="qty" id="chd'+chdNum2_Economic+'_Economic" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueCHD_Economic]" onblur="calcularChd_Economic()" type="text" name="qty" id="chd'+chdNum3_Economic+'_Economic" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueCHD_Economic]" onblur="calcularChd_Economic()" input type="text" name="total" id="chdResult'+chdRes_Economic+'_Economic" placeholder="Total CHD" class="valor"/ value="0"></th><th colspan="1"><input name="flight[numCHD_Economic]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr><tr><th colspan="1"><h5>Bebê</h5></th><th colspan="4"><input name="flight[tariffValueInf_Economic]" onblur="calcularInf_Economic()" type="text" name="qty" id="inf'+infNum1_Economic+'_Economic" placeholder="Tarifa" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[taxValueInf_Economic]" onblur="calcularInf_Economic()" type="text" name="qty" id="inf'+infNum2_Economic+'_Economic" placeholder="Embarque" class="valor"/ value="0"></th><th colspan="1">+</th><th colspan="4"><input name="flight[ravValueInf_Economic]" onblur="calcularInf_Economic()" type="text" name="qty" id="inf'+infNum3_Economic+'_Economic" placeholder="Emissão" class="valor"/ value="0"></th><th colspan="1">=</th><th colspan="4"><input name="flight[totalValueInf_Economic]" onblur="calcularInf_Economic()" sinput type="text" name="total" id="infResult'+infRes_Economic+'_Economic" placeholder="Total INF" class="valor"/ value="0"></input></th><th colspan="1"><input name="flight[numINF_Economic]" input type="text" name="total" placeholder="" class="valor"/ value="0"></th></tr></table></div><select placeholder="Selecione" class="form-control" name=flight[coin] required><option style="display:none">Selecione qual moeda:</option><option>$</option><option>R$</option><option>€</option></select></div></div>');
+
   day = num;
   num++;
+  numVoo++;
+  console.log(adtNum1_Executive);
+  console.log(chdNum2_Executive);
+  console.log(infNum3_Executive);
+
+  console.log(adtNum1_Economic);
+  console.log(chdNum2_Economic);
+  console.log(infNum3_Economic);
   $(".Selected").removeClass("Selected");
   $(`#flight${day}`).addClass("Selected");
-  console.log('criando numero');
-  console.log(day);
 });
 
 $("#button_day_original").on("click", function(){
-  var newDia = '<tr><th><input type="text" placeholder="Origem" name="flight[from]" class="form-control"/></th><th><input type="text" placeholder="Destino" name="flight[destination]" class="form-control"/></th><th><input type="date" placeholder="dd/mm/aa" name="flight[dateFrom]" class="form-control"/></th><th><input type="date" placeholder="dd/mm/aa" name="flight[dateDestination]" class="form-control"/></th><th><input type="number" name="flight[escalas]" value="1" class="invDiv"></th></tr>';
+  var newDia = '<tr><th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" class="form-control"/></th><th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="De" name="flight[from]" class="form-control"/></th><th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" class="form-control"/></th><th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" class="form-control"/><input type="number" name="flight[escalas]" value="1" class="invDiv"></th></tr>';
   $(`#in_country_days${day}`).append(newDia);
-  console.log(day);
 });
 
-$('#increasing').on('click', function() {
+$('#decreasing').on('click', function() {
   if(day > 1){
     day--;
 
-    adtNum1 = adtNum1 - 3;
-    adtNum2 = adtNum2 - 3;
-    adtNum3 = adtNum3 - 3;
-    adtRes--;
-
-    chdNum1 = chdNum1 - 3;
-    chdNum2 = chdNum2 - 3;
-    chdNum3 = chdNum3 - 3;
-    chdRes--;
-
-    infNum1 = infNum1 - 3;
-    infNum2 = infNum2 - 3;
-    infNum3 = infNum3 - 3;
-    infRes--;
-
-    totalRes--;
     $(".Selected").removeClass("Selected");
     $(`#flight${day}`).addClass("Selected");
   }
 });
 
-$('#decreasing').on('click', function() {
+$('#increasing').on('click', function() {
   if(day < num-1){
     day++;
 
-    adtNum1 = adtNum1 + 3;
-    adtNum2 = adtNum2 + 3;
-    adtNum3 = adtNum3 + 3;
-    adtRes++;
-
-    chdNum1 = chdNum1 + 3;
-    chdNum2 = chdNum2 + 3;
-    chdNum3 = chdNum3 + 3;
-    chdRes++;
-
-    infNum1 = infNum1 + 3;
-    infNum2 = infNum2 + 3;
-    infNum3 = infNum3 + 3;
-    infRes++;
-
-    totalRes++;
     $(".Selected").removeClass("Selected");
     $(`#flight${day}`).addClass("Selected");
   }
@@ -144,9 +273,9 @@ $('#decreasing').on('click', function() {
 var numhotel = 2;
 var numcity = 2;
 $("#add-hotel").click(function() {
-  $("#landing-hotel-col1").append(' <div class="box_hotel_left"><br><br><br><br><select placeholder="Selecione" class="form-control" name=hotel[coin] required><div id="companion_camp"><option style="display:none">Selecione qual moeda:</option><option>$</option><option>R$</option><option>€</option></select></div></div><br><br><br><div class="classa"><input class="form-control" placeholder="Hotel 1" name="hotel[hotel1]"></div><br><div class="classa"><input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType1]" required></div><br><div class="classa"><input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category1]"></div><br><div class="classa"><select placeholder="Selecione" class="form-control" name=hotel[food]><option style="display:none">Regime de Alimentação</option><option>Café</option><option>Meia pensão</option><option>All inclusive</option><option>Outros</option></select></div><br><div class="classa"><input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]"></div><br><div class="classa"><input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily]"></div><br><div class="classa"><input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt]"></div><br><div class="classa"><input class="form-control" placeholder="Total" name="hotel[total1]"></div><br><div class="classa"><select class="form-control" name="hotel[cancellationPeriod2]"><option style="display:none">Prazo de Cancelamento</option><option>Sem prazo</option><option>Com prazo</option><option>Outro</option></select></div></div>');
-  $("#landing-hotel-col2").append('<div class="box_hotel_midle"><div id="companion_camp"><br><br><br><div class="classa"><input class="form-control" placeholder="Cidade " name="hotel[city]"></div><br><div class="classa"><input class="form-control" placeholder="Hotel 2" name="hotel[hotel2]"></div><br><div class="classa"><input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType2]" required></div><br><div class="classa"><input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category2]"></div><br><div class="classa"><select placeholder="Selecione" class="form-control" name=hotel[food]><option style="display:none">Regime de Alimentação</option><option>Café</option><option>Meia pensão</option><option>All inclusive</option><option>Outros</option></select></div><br><div class="classa"><input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]"></div><br><div class="classa"><input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily]"></div><br><div class="classa"><input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt]"></div><br><div class="classa"><input class="form-control" placeholder="Total" name="hotel[total2]"></div><br><div class="classa"><select class="form-control" name="hotel[cancellationPeriod3]"><option style="display:none">Prazo de Cancelamento</option><option>Sem prazo</option><option>Com prazo</option><option>Outro</option></select></div></div>');
-  $("#landing-hotel-col3").append('<div class="box_hotel_right"><div id="companion_camp"></div><br><br><br><br><br><br><div id="companion_camp"></div><br><br><br><div class="classa"><input class="form-control" placeholder="Hotel 3" name="hotel[hotel3]"></div><br><div class="classa"><input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType3]" required></div><br><div class="classa"><input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category3]"></div><br><div class="classa"><select placeholder="Selecione" class="form-control" name=hotel[food]><option style="display:none">Regime de Alimentação</option><option>Café</option><option>Meia pensão</option><option>All inclusive</option><option>Outros</option></select></div><br><div class="classa"><input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]"></div><br><div class="classa"><input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily]"></div><br><div class="classa"><input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt]"></div><br><div class="classa"><input class="form-control" placeholder="Total" name="hotel[total3]"></div><br><div class="classa"><select class="form-control" name="hotel[cancellationPeriod1]"><option style="display:none">Prazo de Cancelamento</option><option>Sem prazo</option><option>Com prazo</option><option>Outro</option></select></div></div>');
+  $("#landing-hotel-col1").append(' <div class="box_hotel_ldateFromeft"> <br><br><br><br><br><br><br><br><br><br><br> <div class="classa"> <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType1]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Hotel 1" name="hotel[hotel1]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd1]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category1]" required> </div><br> <div class="classa"> <select placeholder="Selecione" class="form-control" name=hotel[food1] required> <option style="display:none">Regime de Alimentação</option> <option>Com Café da Manhã</option> <option>Sem Café da Manhã</option> <option>Pensão Completa</option> <option>Outros</option> </select> </div><br> <div class="classa"> <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" id="vApto1" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily1]" id="nDiarias1" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt1]" id="nAptos1" onblur="vHoteis1()" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Total" name="hotel[total1]" id="vTotal1" required> </div><br> <div class="classa"> <select class="form-control" name="hotel[cancellationPeriod]" required> <option style="display:none">Prazo de Cancelamento</option> <option>Sem prazo</option> <option>Com prazo</option> <option>Outro</option> </select> </div> </div>');
+  $("#landing-hotel-col2").append('  <div class="box_hotel_midle"> <div class="classa"> <input class="form-control" placeholder="Cidade 1" name="hotel[city]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType2]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Hotel 2" name="hotel[hotel2]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd2]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category2]" required> </div><br> <div class="classa"> <select placeholder="Selecione" class="form-control" name=hotel[food2] required> <option style="display:none">Regime de Alimentação</option> <option>Com Café da Manhã</option> <option>Sem Café da Manhã</option> <option>Pensão Completa</option> <option>Outros</option> </select> </div><br> <div class="classa"> <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]" id="vApto2" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily2]" id="nDiarias2" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt2]" id="nAptos2" onblur="vHoteis2()" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Total" name="hotel[total2]" id="vTotal2" required> </div><br> <div class="classa"> <select class="form-control" name="hotel[cancellationPeriod2]" required> <option style="display:none">Prazo de Cancelamento</option> <option>Sem prazo</option> <option>Com prazo</option> <option>Outro</option> </select> </div> <label>Moeda utilizada:</label> <div id="companion_camp" > <select placeholder="Selecione" class="form-control" name=hotel[coin] required> <option style="display:none">Selecione qual moeda:</option> <option>$</option> <option>R$</option> <option>€</option> </select> </div><br><br> </div>');
+  $("#landing-hotel-col3").append('  <div class="box_hotel_right"><br><br><br><br><br><br><br><br><br><br> <div class="classa"> <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType3]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Hotel 3" name="hotel[hotel3]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd3]" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category3]" required> </div><br> <div class="classa"> <select placeholder="Selecione" class="form-control" name=hotel[food3] required> <option style="display:none">Regime de Alimentação</option> <option>Com Café da Manhã</option> <option>Sem Café da Manhã</option> <option>Pensão Completa</option> <option>Outros</option> </select> </div><br> <div class="classa"> <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]" id="vApto3" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Número de diárias" name="hotel[numberDaily3]" id="nDiarias3" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Número de Apartamentos" name="hotel[numberApt3]" id="nAptos3" onblur="vHoteis3()" required> </div><br> <div class="classa"> <input class="form-control" placeholder="Total" name="hotel[total3]" id="vTotal3" required> </div><br> <div class="classa"> <select class="form-control" name="hotel[cancellationPeriod3]" required> <option style="display:none">Prazo de Cancelamento</option> <option>Sem prazo</option> <option>Com prazo</option> <option>Outro</option> </select> </div> </div>');
   numcity++;
   numhotel++;
 });
@@ -169,29 +298,102 @@ $("#add_car").click(function(){
 // Page F - FIM
 
 // Page G - INÍCIO
-var numSeguro = 2;
-var numTicket = 2;
-var numOutros = 2;
+var numSeguro = 1;
+var numTicket = 1;
+var numOutros = 1;
 
+var savedNumSeguro = 1;
+var savedNumTicket = 1;
+var savedNumOutros = 1;
+
+// lógica dos bloco de seguros - início
 $("#add_seguros").click(function() {// Modelo da função de replicar
-  $("#landing-seguro-col1").append('<div class="boxLeftPageG"><div class="form-group"><label id="titleG" for="exampleInputPassword1">Seguro '+numSeguro+':</label><input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Cobertura</label><input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div></div>');
-  $("#landing-seguro-col2").append('<div class="boxRightPageG"><div class="form-group"><label for="exampleInputPassword1">Nome do responsável:</label><input type="text" placeholder= "" class="form-control"></div><label for="exampleInputPassword1">Selecione os acompanhantes</label><div class="form-check"><input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked><label class="form-check-label" for="exampleRadios1">Acompanhante 1</label></div><div class="form-group col-md-3 valor"><label class="value1" for="exampleInputPassword1">Valor total de seguro:</label><input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor (R$)"></div></div>');
-  numSeguro++;
+  savedNumSeguro++;
+  numSeguro = savedNumSeguro;
+  $("#landing-seguro-col1").append('<div class="boxPageG"><div class="" id="boxSafe'+numSeguro+'"><div class="autorow rowclass"><h1 id="titleG" for="exampleInputPassword1">Seguro '+numSeguro+':</h1></div><div class="form-group"><input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control"></div><div class="form-group"><input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control"></div><div class="rowclass autorow"><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por adulto</th><th colspan="1">Número de adultos</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[insuranceADT]" type="text" id="adt'+numSeguro+'val" onblur="calcSafe()" class="form-control" value="0"></th><th colspan="1"><input name="safe[SafenumADT]" type="text" id="adt'+numSeguro+'mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por criança</th><th colspan="1">Número de crianças</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[insuranceCHD]" type="text" id="chd'+numSeguro+'val" onblur="calcSafe()" class="form-control" value="0"></th><th colspan="1"><input name="safe[SafenumCHD]" type="text" id="chd'+numSeguro+'mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="8">Valor por bebê</th><th colspan="1">Número de bebês</th></tr></thead><tbody><tr><th colspan="8"><input name="safe[insuranceINF]" type="text" id="inf'+numSeguro+'val" onblur="calcSafe()" class="form-control" value="0"></th><th colspan="1"><input name="safe[SafenumINF]" type="text" id="inf'+numSeguro+'mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div></div><div class="rowclass"><table class="autorow"><thead><tr><th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th><th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total de seguro:</label></th></tr></thead><tbody><tr><th><select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin] required><option style="display:none">Moeda:</option><option>$</option><option>R$</option><option>€</option></select></th><th><input name="safe[insuranceTOT]" type="text" id="total'+numSeguro+'" onblur="calcSafe()" class="form-control form-control--width" placeholder="Valor" value="0"></th></tr></tbody></table></div></div></div><br><br>');
+
+  $(".Selected").removeClass("Selected");
+  $(`#boxSafe${numSeguro}`).addClass("Selected");
 });
 
-$("#add_ticket").click(function() {// Modelo da função de replicar
-  $("#landing-ticket-col1").append('<div class="boxLeftPageG"><div class="form-group"><label id="titleG" for="exampleInputPassword1">Tickets/Ingressos '+numTicket+':</label><input name="safe[ticketsName]" type="text" placeholder= "" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div></div>');
-  $("#landing-ticket-col2").append('<div class="boxRightPageG"><div class="form-group"><label for="exampleInputPassword1">Nome do responsável:</label><input type="text" placeholder= "" class="form-control"></div><label for="exampleInputPassword1">Selecione os acompanhantes</label><div class="form-check"><input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked><label class="form-check-label" for="exampleRadios1">Acompanhante 1</label></div><div class="form-group col-md-3 valor"><label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label><input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor (R$)"></div></div>');
-  numTicket++;
+$('#prev_seguro').on('click', function() {
+  if(numSeguro > 1){
+    numSeguro--;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxSafe${numSeguro}`).addClass("Selected");
+  }
 });
 
-$("#add_outros").click(function() {// Modelo da função de replicar
-  $("#landing-outros-col1").append('<div class="boxLeftPageG"><div class="form-group"><label id="titleG" for="exampleInputPassword1">Outros '+numOutros+':</label><input name="safe[otherName]" type="text" placeholder= "" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div></div>');
-  $("#landing-outros-col2").append('<div class="boxRightPageG"><div class="form-group"><label for="exampleInputPassword1">Nome do responsável:</label><input type="text" placeholder= "" class="form-control"></div><label for="exampleInputPassword1">Selecione os acompanhantes</label><div class="form-check"><input class="form-check-input" type="checkbox" id="exampleRadios1" value="option1" checked><label class="form-check-label" for="exampleRadios1">Acompanhante 1 </label></div><div class="form-group col-md-3 valor"><label class="value1" for="exampleInputPassword1">Valor total de outros:</label><input name="safe[otherTOT]" type="text" class="form-control value1" placeholder="Valor (R$)"></div></div>');
-  numOutros++;
+$('#nxt_seguros').on('click', function() {
+  if(numSeguro < savedNumSeguro){
+    numSeguro++;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxSafe${numSeguro}`).addClass("Selected");
+  }
 });
 
-$("#add_outros").click(function() {
-  $("#add_outros1").append('<div class="form-group"><label id="titleG" for="exampleInputPassword1">Outros:</label><input name="safe[otherName]" type="text" placeholder= "" class="form-control"></di<div class="form-group"><label for="exampleInputPassword1">Adultos:</label><input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Crianças:</label><input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control"></div><div class="form-group"><label for="exampleInputPassword1">Infantos:</label><input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control"></div>');
+// lógica dos bloco de seguros - fim
+
+
+// lógica dos bloco de tickets - início
+$("#add_tickets").click(function() {// Modelo da função de replicar
+  savedNumTicket++;
+  numTicket = savedNumTicket;
+  $("#landing-ticket").append('<div class="boxPageG"><div class="Selected" id="boxTicket'+numTicket+'"><div class="autorow rowclass"><h1 id="titleG" for="exampleInputPassword1">Ticket '+numTicket+':</h1></div><div class="form-group"><input name="safe[ticketsName]" type="text" placeholder= "Qual é o ticket a ser comprado?" class="form-control"></div><div class="rowclass autorow"><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por adulto</th><th colspan="1">Número de adultos</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[ticketsADT]" placeholder="Valor por adulto" type="text" id="adt'+numTicket+'valTicket" onblur="calcTicket()" class="form-control" value="0"></th><th colspan="1"><input name="safe[TicketnumADT]" placeholder="Número de adultos" type="text" id="adt'+numTicket+'multTicket" onblur="calcTicket()"class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por criança</th><th colspan="1">Número de crianças</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[ticketsCHD]" placeholder="Valor por criança" type="text" id="chd'+numTicket+'valTicket" onblur="calcTicket()" class="form-control" value="0"></th><th colspan="1"><input name="safe[TicketnumCHD]" placeholder="Número de crianças" type="text" id="chd'+numTicket+'multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="8">Valor por bebê</th><th colspan="1">Número de bebês</th></tr></thead><tbody><tr><th colspan="8"><input name="safe[ticketsINF]" placeholder="Valor por bebê" type="text" id="inf'+numTicket+'valTicket" onblur="calcTicket()" class="form-control" value="0"></th><th colspan="1"><input name="safe[TicketnumINF]" placeholder="Número de bebês" type="text" id="inf'+numTicket+'multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div></div><div class="rowclass"><table class="autorow"><thead><th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th><th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total dos tickets:</label></th></tr></thead><tbody><tr><th><select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin] required><option style="display:none">Moeda:</option><option>$</option><option>R$</option><option>€</option></select></th><th><input name="safe[ticketsTOT]" type="text" id="totalTicket'+numTicket+'" onblur="calcTicket()" class="form-control form-control--width" placeholder="Valor" value="0"></th></tr></tbody></table></div></div></div><br><br>');
+
+  $(".Selected").removeClass("Selected");
+  $(`#boxTicket${numTicket}`).addClass("Selected");
 });
+
+$('#prev_ticket').on('click', function() {
+  if(numTicket > 1){
+    numTicket--;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxTicket${numTicket}`).addClass("Selected");
+  }
+});
+
+$('#nxt_ticket').on('click', function() {
+  if(numTicket < savedNumTicket){
+    numTicket++;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxTicket${numTicket}`).addClass("Selected");
+  }
+});
+// lógica dos bloco de tickets - fim
+
+
+
+// lógica dos bloco de outros - início
+$("#add_others").click(function() {// Modelo da função de replicar
+  savedNumOutros++;
+  numOutros = savedNumOutros;
+  $("#landing-other").append('  <div class="boxPageG"><div class="Selected" id="boxOther'+numOutros+'"><div class="autorow rowclass"><h1 id="titleG" for="exampleInputPassword1">Outro '+numOutros+':</h1></div><div class="form-group"><input name="safe[otherName]" type="text" placeholder= "Qual outro item deseja adicionar?" class="form-control"></div><div class="rowclass autorow"><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por adulto</th><th colspan="1">Número de adultos</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[otherADT]" placeholder="Valor por adulto" type="text" id="adt'+numOutros+'valOther" onblur="calcOther()" class="form-control" value="0"></th><th colspan="1"><input name="safe[OthernumADT]" placeholder="Número de adultos" type="text" id="adt'+numOutros+'multOther" onblur="calcOther()"class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="4">Valor por criança</th><th colspan="1">Número de crianças</th></tr></thead><tbody><tr><th colspan="4"><input name="safe[otherCHD]" placeholder="Valor por criança" type="text" id="chd'+numOutros+'valOther" onblur="calcOther()" class="form-control" value="0"></th><th colspan="1"><input name="safe[OthernumCHD]" placeholder="Número de crianças" type="text" id="chd'+numOutros+'multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div><div class="form-group"><table class="autorow"><thead><tr><th colspan="8">Valor por bebê</th><th colspan="1">Número de bebês</th></tr></thead><tbody><tr><th colspan="8"><input name="safe[otherINF]" placeholder="Valor por bebê" type="text" id="inf'+numOutros+'valOther" onblur="calcOther()" class="form-control" value="0"></th><th colspan="1"><input name="safe[OthernumINF]" placeholder="Número de bebês" type="text" id="inf'+numOutros+'multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0"></th></tr></tbody></table></div></div><div class="rowclass"><table class="autorow"><thead><tr><th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th><th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total:</label></th></tr></thead><tbody><tr><th><select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin] required><option style="display:none">Moeda:</option><option>$</option><option>R$</option><option>€</option></select></th><th><input name="safe[otherTOT]" type="text" id="totalOther'+numOutros+'" onblur="calcOther()" class="form-control form-control--width" placeholder="Valor" value="0"></th></tr></tbody></table></div></div></div><br><br>');
+
+  $(".Selected").removeClass("Selected");
+  $(`#boxOther${numOutros}`).addClass("Selected");
+});
+
+$('#prev_other').on('click', function() {
+  if(numOutros > 1){
+    numOutros--;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxOther${numOutros}`).addClass("Selected");
+  }
+});
+
+$('#nxt_other').on('click', function() {
+  if(numOutros < savedNumOutros){
+    numOutros++;
+
+    $(".Selected").removeClass("Selected");
+    $(`#boxOther${numOutros}`).addClass("Selected");
+  }
+});
+// lógica dos bloco de outros - fim
 // Page G - FIM

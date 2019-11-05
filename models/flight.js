@@ -2,42 +2,74 @@ const mongoose = require('mongoose');
 
 const flightSchema = new mongoose.Schema({
 
+    flightNum: [String],
+    dateFlight:[String],
     from:[String],
     destination:[String],
+    timeOut: [String],
+    timeIn: [String],
     coin:[String],
 
-    dateFrom:[String],
-    dateDestination: [String],
-    totalValueCHD: [Number],
-    tariffValueCHD: [Number],
-    taxValueCHD: [Number],
-    ravValueCHD: [Number],
-    totalValueAdult: [Number],
-    tariffValueAdult: [Number],
-    taxValueAdult: [Number],
-    ravValueAdult: [Number],
-    totalValueInf: [Number],
-    tariffValueInf: [Number],
-    taxValueInf: [Number],
-    ravValueAdult: [Number],
+    // Primeira classe
+    totalValueCHD_FirstClass: [Number],
+    tariffValueCHD_FirstClass: [Number],
+    taxValueCHD_FirstClass: [Number],
+    ravValueCHD_FirstClass: [Number],
+    numCHD_FirstClass: [Number],
+
+    totalValueAdult_FirstClass: [Number],
+    tariffValueAdult_FirstClass: [Number],
+    taxValueAdult_FirstClass: [Number],
+    ravValueAdult_FirstClass: [Number],
+    numADT_FirstClass: [Number],
+
+    totalValueInf_FirstClass: [Number],
+    tariffValueInf_FirstClass: [Number],
+    taxValueInf_FirstClass: [Number],
+    ravValueInf_FirstClass: [Number],
+    numINF_FirstClass: [Number],
+
+    // Executivo
+    totalValueCHD_Executive: [Number],
+    tariffValueCHD_Executive: [Number],
+    taxValueCHD_Executive: [Number],
+    ravValueCHD_Executive: [Number],
+    numCHD_Executive: [Number],
+
+    totalValueAdult_Executive: [Number],
+    tariffValueAdult_Executive: [Number],
+    taxValueAdult_Executive: [Number],
+    ravValueAdult_Executive: [Number],
+    numADT_Executive: [Number],
+
+    totalValueInf_Executive: [Number],
+    tariffValueInf_Executive: [Number],
+    taxValueInf_Executive: [Number],
+    ravValueInf_Executive: [Number],
+    numINF_Executive: [Number],
+
+    // Econômico
+    totalValueCHD_Economic: [Number],
+    tariffValueCHD_Economic: [Number],
+    taxValueCHD_Economic: [Number],
+    ravValueCHD_Economic: [Number],
+    numCHD_Economic: [Number],
+
+    totalValueAdult_Economic: [Number],
+    tariffValueAdult_Economic: [Number],
+    taxValueAdult_Economic: [Number],
+    ravValueAdult_Economic: [Number],
+    numADT_Economic: [Number],
+
+    totalValueInf_Economic: [Number],
+    tariffValueInf_Economic: [Number],
+    taxValueInf_Economic: [Number],
+    ravValueInf_Economic: [Number],
+    numINF_Economic: [Number],
+
     finalValue:[Number],
     escalas: [Number]
 
-    // adult:{
-    //   value: Number,
-    //   chd: Number,
-    //   inf: Number
-    // },
-    // txEmb:{
-    //   value: Number,
-    //   chd: Number,
-    //   inf: Number
-    // },
-    // rav:{
-    //   value: Number,
-    //   chd: Number,
-    //   inf: Number
-    // }
 
 }, { timestamps: true, static: false });
 

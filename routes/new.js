@@ -229,120 +229,120 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               }
 
-                                              const allFlights = [];
-
-                                              var j = 0;
-                                              var v = 0;
-
-
-                                              for (var i = 0; i < flights.escalas.length; i++) {
-                                                // console.log("loop rodando yeeeet");
-                                                // console.log(testando.vetor[i]);
-
-
-                                                const flightInfo ={
-
-                                                  escala: Number,
-                                                  final: Number,
-
-                                                  from: String,
-                                                  destination: String,
-                                                  dateFrom: Date,
-                                                  dateDestination: Date,
-
-                                                  tariffValueCHD: Number,
-                                                  taxValueCHD: Number,
-                                                  ravValueCHD: Number,
-                                                  totalValueCHD: Number,
-
-                                                  tariffValueInf: Number,
-                                                  taxValueInf:Number,
-                                                  ravValueInf: Number,
-                                                  totalValueInf: Number,
-
-                                                  tariffValueAdult: Number,
-                                                  taxValueAdult: Number,
-                                                  ravValueAdult: Number,
-                                                  totalValueAdult: Number,
-                                                  numero: String
-                                                };
-                                                // é escala
-                                                if (flights.escalas[i] == 1) {
-                                                  flightInfo.escala = 1;
-                                                }
-
-                                                // não é escala
-                                                else{
-                                                  v++;
-                                                  flightInfo.escala = 0;
-                                                }
-
-                                                //Descobre se o é o ultimo antes do próximo Voo
-                                                if (flights.escalas[(i+1)] != 1) {//é final
-
-                                                  flightInfo.final = 1
-                                                  if (j > 1) {
-
-                                                    flightInfo.tariffValueCHD = 0;
-                                                    flightInfo.taxValueCHD = 1;
-                                                    flightInfo.ravValueCHD = 2;
-                                                    flightInfo.totalValueCHD = 3;
-
-                                                    flightInfo.tariffValueInf = 4;
-                                                    flightInfo.taxValueInf = 5;
-                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
-                                                    flightInfo.totalValueInf = 7;
-
-                                                    flightInfo.tariffValueAdult = 8;
-                                                    flightInfo.taxValueAdult = 9;
-                                                    flightInfo.ravValueAdult = 10;
-                                                    flightInfo.totalValueAdult = 11;
-
-                                                  }
-                                                  else {
-
-                                                    flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
-                                                    flightInfo.taxValueCHD = flights.taxValueCHD[j];
-                                                    flightInfo.ravValueCHD = flights.ravValueCHD[j];
-                                                    flightInfo.totalValueCHD = flights.totalValueCHD[j];
-
-                                                    flightInfo.tariffValueInf = flights.tariffValueInf[j];
-                                                    flightInfo.taxValueInf = flights.taxValueInf[j];
-                                                    // flightInfo.ravValueInf = flights.ravValueInf[j];
-                                                    flightInfo.totalValueInf = flights.totalValueInf[j];
-
-                                                    flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
-                                                    flightInfo.taxValueAdult = flights.taxValueAdult[j];
-                                                    flightInfo.ravValueAdult = flights.ravValueAdult[j];
-                                                    flightInfo.totalValueAdult = flights.totalValueAdult[j];
-                                                  }
-                                                  j++;
-
-                                                }
-
-                                                else {
-                                                  flightInfo.tariffValueCHD = 0;
-                                                  flightInfo.taxValueCHD = 0;
-                                                  flightInfo.ravValueCHD = 0;
-                                                  flightInfo.totalValueCHD = 0;
-
-                                                  flightInfo.tariffValueInf = 0;
-                                                  flightInfo.taxValueInf = 0;
-                                                  flightInfo.ravValueInf = 0;
-                                                  flightInfo.totalValueInf = 0;
-
-                                                  flightInfo.tariffValueAdult = 0;
-                                                  flightInfo.taxValueAdult = 0;
-                                                  flightInfo.ravValueAdult = 0;
-                                                  flightInfo.totalValueAdult = 0;
-                                                }
-
-
-                                                flightInfo.numero = v;
-                                                flightInfo.from = flights.from[i];
-                                                flightInfo.destination = flights.destination[i];
-                                                allFlights.push(flightInfo);
-                                              }
+                                              // const allFlights = [];
+                                              //
+                                              // var j = 0;
+                                              // var v = 0;
+                                              //
+                                              //
+                                              // for (var i = 0; i < flights.escalas.length; i++) {
+                                              //   // console.log("loop rodando yeeeet");
+                                              //   // console.log(testando.vetor[i]);
+                                              //
+                                              //
+                                              //   const flightInfo ={
+                                              //
+                                              //     escala: Number,
+                                              //     final: Number,
+                                              //
+                                              //     from: String,
+                                              //     destination: String,
+                                              //     dateFrom: Date,
+                                              //     dateDestination: Date,
+                                              //
+                                              //     tariffValueCHD: Number,
+                                              //     taxValueCHD: Number,
+                                              //     ravValueCHD: Number,
+                                              //     totalValueCHD: Number,
+                                              //
+                                              //     tariffValueInf: Number,
+                                              //     taxValueInf:Number,
+                                              //     ravValueInf: Number,
+                                              //     totalValueInf: Number,
+                                              //
+                                              //     tariffValueAdult: Number,
+                                              //     taxValueAdult: Number,
+                                              //     ravValueAdult: Number,
+                                              //     totalValueAdult: Number,
+                                              //     numero: String
+                                              //   };
+                                              //   // é escala
+                                              //   if (flights.escalas[i] == 1) {
+                                              //     flightInfo.escala = 1;
+                                              //   }
+                                              //
+                                              //   // não é escala
+                                              //   else{
+                                              //     v++;
+                                              //     flightInfo.escala = 0;
+                                              //   }
+                                              //
+                                              //   //Descobre se o é o ultimo antes do próximo Voo
+                                              //   if (flights.escalas[(i+1)] != 1) {//é final
+                                              //
+                                              //     flightInfo.final = 1
+                                              //     if (j > 1) {
+                                              //
+                                              //       flightInfo.tariffValueCHD = 0;
+                                              //       flightInfo.taxValueCHD = 1;
+                                              //       flightInfo.ravValueCHD = 2;
+                                              //       flightInfo.totalValueCHD = 3;
+                                              //
+                                              //       flightInfo.tariffValueInf = 4;
+                                              //       flightInfo.taxValueInf = 5;
+                                              //       // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                              //       flightInfo.totalValueInf = 7;
+                                              //
+                                              //       flightInfo.tariffValueAdult = 8;
+                                              //       flightInfo.taxValueAdult = 9;
+                                              //       flightInfo.ravValueAdult = 10;
+                                              //       flightInfo.totalValueAdult = 11;
+                                              //
+                                              //     }
+                                              //     else {
+                                              //
+                                              //       flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
+                                              //       flightInfo.taxValueCHD = flights.taxValueCHD[j];
+                                              //       flightInfo.ravValueCHD = flights.ravValueCHD[j];
+                                              //       flightInfo.totalValueCHD = flights.totalValueCHD[j];
+                                              //
+                                              //       flightInfo.tariffValueInf = flights.tariffValueInf[j];
+                                              //       flightInfo.taxValueInf = flights.taxValueInf[j];
+                                              //       // flightInfo.ravValueInf = flights.ravValueInf[j];
+                                              //       flightInfo.totalValueInf = flights.totalValueInf[j];
+                                              //
+                                              //       flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
+                                              //       flightInfo.taxValueAdult = flights.taxValueAdult[j];
+                                              //       flightInfo.ravValueAdult = flights.ravValueAdult[j];
+                                              //       flightInfo.totalValueAdult = flights.totalValueAdult[j];
+                                              //     }
+                                              //     j++;
+                                              //
+                                              //   }
+                                              //
+                                              //   else {
+                                              //     flightInfo.tariffValueCHD = 0;
+                                              //     flightInfo.taxValueCHD = 0;
+                                              //     flightInfo.ravValueCHD = 0;
+                                              //     flightInfo.totalValueCHD = 0;
+                                              //
+                                              //     flightInfo.tariffValueInf = 0;
+                                              //     flightInfo.taxValueInf = 0;
+                                              //     flightInfo.ravValueInf = 0;
+                                              //     flightInfo.totalValueInf = 0;
+                                              //
+                                              //     flightInfo.tariffValueAdult = 0;
+                                              //     flightInfo.taxValueAdult = 0;
+                                              //     flightInfo.ravValueAdult = 0;
+                                              //     flightInfo.totalValueAdult = 0;
+                                              //   }
+                                              //
+                                              //
+                                              //   flightInfo.numero = v;
+                                              //   flightInfo.from = flights.from[i];
+                                              //   flightInfo.destination = flights.destination[i];
+                                              //   allFlights.push(flightInfo);
+                                              // }
 
                                                const infoHoteis = [];
                                                var h = 0;
@@ -642,7 +642,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               }
 
 
-                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, allFlights, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis});
+                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis});
                                     }).catch((error)=>{
                                         console.log(error);
                                         res.redirect('/error');
@@ -847,6 +847,24 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
     res.redirect('error');
   });
 });
+
+router.post('/pageH/:client_id/:budget_id', (req,res) => {
+  console.log('entrou no post');
+  const  budget_id = req.params.budget_id;
+  const  client_id = req.params.client_id;
+  const budget = {
+    finalized: String
+  };
+  budget.finalized = 'Concluída';
+  Budget.update(budget_id, budget).then(() => {
+    console.log('chegou aqui no update');
+    res.redirect('/dashboard');
+  }).catch((error) => {
+    console.log(error);
+    res.redirect('error');
+  });
+});
+
 
 router.get('/newpageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -1344,6 +1362,7 @@ router.get('/newpageH/:client_id/:budget_id', function(req, res) {
 
 
 });
+
 
 
 module.exports = router;

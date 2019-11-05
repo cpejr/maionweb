@@ -11,31 +11,13 @@ const budgetSchema = new mongoose.Schema({
     },
 
 
-    country: [String],
-
-    airportGo: [String],
-    airportReturn: [String],
-    goDate : [String],
-    returnDate : [String],
-
-    cities: [String],
-
-    // cities: [{
-    //   city: [String],
-    // }],
     //Roteiro page C
-    date: [String],
-    dayWeek: [String],
-    city: [String],
-    freeField: [String],
-    scriptCountrie: [String],
-    tips: [String],
+    planDate: [String],
+    planCity: [String],
+    planCountry: [String],
+    planFreeField : [String],
 
-    //Moeda usada
     coin: String,
-
-
-
 
       flights:{
       type: mongoose.Schema.Types.ObjectId,
@@ -84,10 +66,11 @@ const budgetSchema = new mongoose.Schema({
     type: String
   },
 
-  planDate: [String],
-  planCountry: [String],
-  planCity: [String],
-  planFreeField: [String]
+  finalized: {
+    type: String,
+    enum: ['Concluída', 'Em andamento'],
+    default: 'Em andamento'
+  },
 
 }, { timestamps: true, static: false });
 const BudgetModel = mongoose.model('Budget', budgetSchema);

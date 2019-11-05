@@ -9,8 +9,32 @@ const Safe = require('../models/safe');
 
 //GET pagePersonal
 router.get('/PagePersonal/:client_id', function (req, res) {
-  Client.getAllBudgetsById(req.params.client_id).then((budgets)=>{
-    res.render('registred/PagePersonal', { budgets, title: 'Personal', layout: 'layoutDashboard',...req.session});
+  const client_id = req.params.client_id;
+  Client.getAllBudgetsById(client_id).then((budgets)=>{
+
+    const allBudgets = [];
+    var numDeViagens = 0;
+
+    for (var i = 0; i < budgets.length; i++) {
+      const budget = {
+        _id: String,
+        codFile: String,
+        planDate: String,
+        finalized: String,
+      };
+
+      budget._id = budgets[i]._id;
+      budget.codFile = budgets[i].codFile;
+      budget.planDate = budgets[i].planDate[0];
+      budget.finalized = budgets[i].finalized;
+
+      allBudgets.push(budget);
+
+      if(budgets[i].finalized != 'Em andamento'){
+        numDeViagens++;
+      }
+    }
+    res.render('registred/PagePersonal', { budgets, title: 'Personal', layout: 'layoutDashboard',...req.session, allBudgets, numDeViagens});
   }).catch((error) => {
    console.log(error);
    res.redirect('/error');
@@ -60,16 +84,17 @@ router.get('/pageC/:budget_id', function(req, res) {
           for (var i = 0; i < budget.planCountry.length; i++) {
 
             const script = {
-              countryName: String,
-              cityName: String,
-              scriptDate: Date,
-              freeField: String
+              planDate: Date,
+              planCity: String,
+              planCountry: String,
+              planFreeField: String
             };
 
-            script.planCountry = budget.planCountry[i];
-            script.planCity = budget.planCity[i];
             script.planDate = budget.planDate[i];
+            script.planCity = budget.planCity[i];
+            script.planCountry = budget.planCountry[i];
             script.planFreeField = budget.planFreeField[i]
+
             allScripts.push(script);
             // console.log(allScripts.countryName);
           }
@@ -88,8 +113,19 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
           Flight.getById(budget.flights).then((flights) => {
 
             const allFlights = [];
+            const infoToReplica = {
+              ageId1: Number,
+              ageId2:Number,
+              ageId3: Number,
+              idTable: Number,
+            };
 
             var j = 0;
+            var id_table = 1;
+            var age_id1 = 1;
+            var age_id2 = 2;
+            var age_id3 = 3;
+            var result = 1;
 
             for (var i = 0; i < flights.escalas.length; i++) {
               // console.log("loop rodando yeeeet");
@@ -100,103 +136,196 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 
                 escala: Number,
                 final: Number,
+                inicio: Number,
+                idTable: Number,
+                ageId1: Number,
+                ageId2: Number,
+                ageId3: Number,
+                result: Number,
+                firstflightTable: Number,
 
-                from: String,
-                destination: String,
-                dateFrom: Date,
-                dateDestination: Date,
+                flightNum: String,
+                dateFlight:String,
+                from:String,
+                destination:String,
+                timeOut: String,
+                timeIn: String,
+                coin:String,
 
-                tariffValueCHD: Number,
-                taxValueCHD: Number,
-                ravValueCHD: Number,
-                totalValueCHD: Number,
+                // Primeira classe
+                totalValueCHD_FirstClass: Number,
+                tariffValueCHD_FirstClass: Number,
+                taxValueCHD_FirstClass: Number,
+                ravValueCHD_FirstClass: Number,
+                numCHD_FirstClass: Number,
 
-                tariffValueInf: Number,
-                taxValueInf:Number,
-                ravValueInf: Number,
-                totalValueInf: Number,
+                totalValueAdult_FirstClass: Number,
+                tariffValueAdult_FirstClass: Number,
+                taxValueAdult_FirstClass: Number,
+                ravValueAdult_FirstClass: Number,
+                numADT_FirstClass: Number,
 
-                tariffValueAdult: Number,
-                taxValueAdult: Number,
-                ravValueAdult: Number,
-                totalValueAdult: Number,
+                totalValueInf_FirstClass: Number,
+                tariffValueInf_FirstClass: Number,
+                taxValueInf_FirstClass: Number,
+                ravValueInf_FirstClass: Number,
+                numINF_FirstClass: Number,
+
+                // Executivo
+                totalValueCHD_Executive: Number,
+                tariffValueCHD_Executive: Number,
+                taxValueCHD_Executive: Number,
+                ravValueCHD_Executive: Number,
+                numCHD_Executive: Number,
+
+                totalValueAdult_Executive: Number,
+                tariffValueAdult_Executive: Number,
+                taxValueAdult_Executive: Number,
+                ravValueAdult_Executive: Number,
+                numADT_Executive: Number,
+
+                totalValueInf_Executive: Number,
+                tariffValueInf_Executive: Number,
+                taxValueInf_Executive: Number,
+                ravValueInf_Executive: Number,
+                numINF_Executive: Number,
+
+                // Econômico
+                totalValueCHD_Economic: Number,
+                tariffValueCHD_Economic: Number,
+                taxValueCHD_Economic: Number,
+                ravValueCHD_Economic: Number,
+                numCHD_Economic: Number,
+
+                totalValueAdult_Economic: Number,
+                tariffValueAdult_Economic: Number,
+                taxValueAdult_Economic: Number,
+                ravValueAdult_Economic: Number,
+                numADT_Economic: Number,
+
+                totalValueInf_Economic: Number,
+                tariffValueInf_Economic: Number,
+                taxValueInf_Economic: Number,
+                ravValueInf_Economic: Number,
+                numINF_Economic: Number,
               };
               // é escala
               if (flights.escalas[i] == 1) {
                 flightInfo.escala = 1;
               }
-
               // não é escala
               else{
                 flightInfo.escala = 0;
               }
 
-              //Descobre se o é o ultimo antes do próximo Voo
-              if (flights.escalas[(i+1)] != 1) {//é final
+              //Descobre se o voo atual é o ultimo antes do próximo Voo
+              if (flights.escalas[(i+1)] != 1) {//Se o próximo voo não for uma escala, o voo atual acaba e temos que printar as taxas junto a essa última escala ou voo
 
                 flightInfo.final = 1
-                if (j > 1) {
 
-                  flightInfo.tariffValueCHD = 0;
-                  flightInfo.taxValueCHD = 1;
-                  flightInfo.ravValueCHD = 2;
-                  flightInfo.totalValueCHD = 3;
+                  // Primeira classe
+                  flightInfo.tariffValueCHD_FirstClass = flights.tariffValueCHD_FirstClass[j];
+                  flightInfo.taxValueCHD_FirstClass = flights.taxValueCHD_FirstClass[j];
+                  flightInfo.ravValueCHD_FirstClass = flights.ravValueCHD_FirstClass[j];
+                  flightInfo.totalValueCHD_FirstClass = flights.totalValueCHD_FirstClass[j];
+                  flightInfo.numADT_FirstClass = flights.numADT_FirstClass[j];
 
-                  flightInfo.tariffValueInf = 4;
-                  flightInfo.taxValueInf = 5;
-                  // flightInfo.ravValueInf = flights.ravValueInf[j];
-                  flightInfo.totalValueInf = 7;
+                  flightInfo.tariffValueInf_FirstClass = flights.tariffValueInf_FirstClass[j];
+                  flightInfo.taxValueInf_FirstClass = flights.taxValueInf_FirstClass[j];
+                  flightInfo.ravValueInf_FirstClass = flights.ravValueInf_FirstClass[j];
+                  flightInfo.totalValueInf_FirstClass = flights.totalValueInf_FirstClass[j];
+                  flightInfo.numCHD_FirstClass = flights.numCHD_FirstClass[j];
 
-                  flightInfo.tariffValueAdult = 8;
-                  flightInfo.taxValueAdult = 9;
-                  flightInfo.ravValueAdult = 10;
-                  flightInfo.totalValueAdult = 11;
+                  flightInfo.tariffValueAdult_FirstClass = flights.tariffValueAdult_FirstClass[j];
+                  flightInfo.taxValueAdult_FirstClass = flights.taxValueAdult_FirstClass[j];
+                  flightInfo.ravValueAdult_FirstClass = flights.ravValueAdult_FirstClass[j];
+                  flightInfo.totalValueAdult_FirstClass = flights.totalValueAdult_FirstClass[j];
+                  flightInfo.numINF_FirstClass = flights.numINF_FirstClass[j];
 
-                }
-                else {
+                  // Executivo
+                  flightInfo.tariffValueCHD_Executive = flights.tariffValueCHD_Executive[j];
+                  flightInfo.taxValueCHD_Executive = flights.taxValueCHD_Executive[j];
+                  flightInfo.ravValueCHD_Executive = flights.ravValueCHD_Executive[j];
+                  flightInfo.totalValueCHD_Executive = flights.totalValueCHD_Executive[j];
+                  flightInfo.numADT_Executive = flights.numADT_Executive[j];
 
-                  flightInfo.tariffValueCHD = flights.tariffValueCHD[j];
-                  flightInfo.taxValueCHD = flights.taxValueCHD[j];
-                  flightInfo.ravValueCHD = flights.ravValueCHD[j];
-                  flightInfo.totalValueCHD = flights.totalValueCHD[j];
+                  flightInfo.tariffValueInf_Executive = flights.tariffValueInf_Executive[j];
+                  flightInfo.taxValueInf_Executive = flights.taxValueInf_Executive[j];
+                  flightInfo.ravValueInf_Executive = flights.ravValueInf_Executive[j];
+                  flightInfo.totalValueInf_Executive = flights.totalValueInf_Executive[j];
+                  flightInfo.numCHD_Executive = flights.numCHD_Executive[j];
 
-                  flightInfo.tariffValueInf = flights.tariffValueInf[j];
-                  flightInfo.taxValueInf = flights.taxValueInf[j];
-                  // flightInfo.ravValueInf = flights.ravValueInf[j];
-                  flightInfo.totalValueInf = flights.totalValueInf[j];
+                  flightInfo.tariffValueAdult_Executive = flights.tariffValueAdult_Executive[j];
+                  flightInfo.taxValueAdult_Executive = flights.taxValueAdult_Executive[j];
+                  flightInfo.ravValueAdult_Executive = flights.ravValueAdult_Executive[j];
+                  flightInfo.totalValueAdult_Executive = flights.totalValueAdult_Executive[j];
+                  flightInfo.numINF_Executive = flights.numINF_Executive[j];
 
-                  flightInfo.tariffValueAdult = flights.tariffValueAdult[j];
-                  flightInfo.taxValueAdult = flights.taxValueAdult[j];
-                  flightInfo.ravValueAdult = flights.ravValueAdult[j];
-                  flightInfo.totalValueAdult = flights.totalValueAdult[j];
-                }
+                  // Econômico
+                  flightInfo.tariffValueCHD_Economic = flights.tariffValueCHD_Economic[j];
+                  flightInfo.taxValueCHD_Economic = flights.taxValueCHD_Economic[j];
+                  flightInfo.ravValueCHD_Economic = flights.ravValueCHD_Economic[j];
+                  flightInfo.totalValueCHD_Economic = flights.totalValueCHD_Economic[j];
+                  flightInfo.numADT_Economic = flights.numADT_Economic [j];
+
+                  flightInfo.tariffValueInf_Economic = flights.tariffValueInf_Economic[j];
+                  flightInfo.taxValueInf_Economic = flights.taxValueInf_Economic[j];
+                  flightInfo.ravValueInf_Economic = flights.ravValueInf_Economic[j];
+                  flightInfo.totalValueInf_Economic = flights.totalValueInf_Economic[j];
+                  flightInfo.numCHD_Economic = flights.numCHD_Economic[j];
+
+                  flightInfo.tariffValueAdult_Economic = flights.tariffValueAdult_Economic[j];
+                  flightInfo.taxValueAdult_Economic = flights.taxValueAdult_Economic[j];
+                  flightInfo.ravValueAdult_Economic = flights.ravValueAdult_Economic[j];
+                  flightInfo.totalValueAdult_Economic = flights.totalValueAdult_Economic[j];
+                  flightInfo.numINF_Economic = flights.numINF_Economic[j];
+
+                  flightInfo.ageId1 = age_id1;//Aqui é pra poder fazer a mudança de valor das id's dos campos
+                  flightInfo.ageId2 = age_id2;
+                  flightInfo.ageId3 = age_id3;
+                  flightInfo.result = result;
+                  age_id1 = age_id1 +3;
+                  age_id2 = age_id2 +3;
+                  age_id3 = age_id3 +3;
+                  result++;
                 j++;
 
               }
 
-              else {
-                flightInfo.tariffValueCHD = 0;
-                flightInfo.taxValueCHD = 0;
-                flightInfo.ravValueCHD = 0;
-                flightInfo.totalValueCHD = 0;
 
-                flightInfo.tariffValueInf = 0;
-                flightInfo.taxValueInf = 0;
-                flightInfo.ravValueInf = 0;
-                flightInfo.totalValueInf = 0;
-
-                flightInfo.tariffValueAdult = 0;
-                flightInfo.taxValueAdult = 0;
-                flightInfo.ravValueAdult = 0;
-                flightInfo.totalValueAdult = 0;
+              // identifica onde coemeça uma nova tabela
+              if(flightInfo.escala == 0){
+                flightInfo.inicio = 1;
+                flightInfo.idTable = id_table; // Muda o número do id da tabela pra a seleção de bloco funcionar
+                id_table++;
               }
 
+              else {
+                flightInfo.inicio = 0;
+              }
+
+              if(i == 0){
+                flightInfo.firstflightTable = 1;
+              }
+
+              // Essas informações tem que ser sempre pegas
+              flightInfo.flightNum = flights.flightNum[i];
+              flightInfo.dateFlight = flights.dateFlight[i];
               flightInfo.from = flights.from[i];
               flightInfo.destination = flights.destination[i];
+              flightInfo.timeOut = flights.timeOut[i];
+              flightInfo.timeIn = flights.timeIn[i];
+              flightInfo.coin = flights.coin[i];
+
               allFlights.push(flightInfo);
             }
 
-            res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, allFlights, flights});
+            infoToReplica.ageId1 = age_id1;
+            infoToReplica.ageId2 = age_id2;
+            infoToReplica.ageId3 = age_id3;
+            infoToReplica.idTable = id_table;
+
+            res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, allFlights, infoToReplica, flights});
           }).catch((error) => {
             console.log(error);
           });
@@ -274,8 +403,6 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 
           allHotels.push(hotelsInfo);
         }
-
-        console.log('passou na E Get =========================================================');
         res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, allHotels});
       }).catch((error) => {
           console.log(error);
@@ -357,7 +484,6 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
           allCars.push(carsInfo);
         }
 
-        console.log('OLHA O GET DA F -----------------------------');
         res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado});
       }).catch((error) => {
         console.log(error);
@@ -1150,7 +1276,7 @@ router.post('/pageB/:client_id',(req,res) => {
   if(client.profile_FoodVegetariano != 'Vegetariano'){
     client.profile_FoodVegetariano = 'empty';
   };
-  
+
 
 
   Client.update(client_id, client).then(() => {
