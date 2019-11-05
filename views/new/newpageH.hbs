@@ -1,0 +1,536 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+
+
+
+  <div class="topo">
+
+    <img class="logo" src="/images/logo.png">
+<div class="info1_flex">
+    <input type="text" class="info1" style="width: 200px; display: flex; text-align:center;" value="Rua Marilia de Dirceu, 173" ></input>
+    <input type="text" class="info1" value="30170-090 - Belo Horizonte" style="text-align:center;" ></input>
+    <input type="text" class="info1" value="(31)7070-7070" style="text-align: center;" ></input>
+    <input type="text" class="info1" value="www.anistravel.com.br" style="text-align: center;" ></input>
+    <br><br><br><br>
+    <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem"></input>
+
+  </div>
+  <div class="acompanhantes">
+    <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: flex-start; margin-right: -72px;">Responsável pela viagem:</label><br>
+    <input readonly="readonly" type="text" placeholder= "" value="{{client.fullname}}" style="font-weight: bold; display:flex; " readonly="readonly"><br>
+    <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: center;">Acompanhantes:</label>
+    {{#each test}}
+    <table class="col-12" id="companion--box">
+      <input value="ο  {{name}}" style="font-weight: bold;  " class="companion--box companion--radius companion--left" readonly></input>
+    </table>
+    {{/each}}
+  </div>
+
+
+
+  </div>
+
+  <div id="some-radios" class="some">
+    <div class="pageH_dinamic_spec">
+    <h3>Continentes</h3>
+
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sul1-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">América do Sul 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="central1-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">América Central 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="norte1-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">América do Norte 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="europa1-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Europa 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="asia1-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">Ásia 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="africa1-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">África 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oceania1-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">Oceania 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="caribe1-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Caribe 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="medio1-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Oriente Médio 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ilhas1-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Ilhas 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sul2-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">América do Sul 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="central2-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">América Central 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="norte2-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">América do Norte 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="europa2-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Europa 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="asia2-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">Ásia 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="africa2-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">África 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="oceania2-radio" value="option1">
+      <label class="form-check-label" for="inlineRadio1">Oceania 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="caribe2-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Caribe 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="medio2-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Oriente Médio 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ilhas2-radio" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Ilhas 2</label>
+    </div>
+  </div>
+  </div>
+
+  <div class="images-form " id="images-form">
+
+      <div class="sul1-imgs hidden-imgs imgs--margin" id="idsul1-imgs">
+        <img id="idsul1-imgs" src="/images/AMS1.png">
+      </div>
+
+      <div class="sul2-imgs hidden-imgs imgs--margin" id="idsul2-imgs">
+        <img src="/images/AMS2.png">
+      </div>
+
+      <div class="central1-imgs hidden-imgs imgs--margin" id="idcentral1-imgs">
+        <img src="/images/AC1.png">
+      </div>
+
+      <div class="central2-imgs hidden-imgs imgs--margin" id="idcentral2-imgs">
+        <img src="/images/AC2.png">
+      </div>
+
+      <div class="norte1-imgs hidden-imgs imgs--margin" id="idnorte1-imgs">
+        <img src="/images/AMN1.png">
+      </div>
+
+      <div class="norte2-imgs hidden-imgs imgs--margin" id="idnorte2-imgs">
+        <img src="/images/AMN2.png">
+      </div>
+
+      <div class="europa1-imgs hidden-imgs imgs--margin" id="ideuropa1-imgs">
+        <img src="/images/EU1.png">
+      </div>
+
+      <div class="europa2-imgs hidden-imgs imgs--margin" id="ideuropa2-imgs">
+        <img src="/images/EU2.png">
+      </div>
+
+      <div class="asia1-imgs hidden-imgs imgs--margin" id="idasia1-imgs">
+        <img src="/images/AS1.png">
+      </div>
+
+      <div class="asia2-imgs hidden-imgs imgs--margin" id="idasia2-imgs">
+        <img src="/images/AS2.png">
+      </div>
+
+      <div class="africa1-imgs hidden-imgs imgs--margin" id="idafrica1-imgs">
+        <img src="/images/AF1.png">
+      </div>
+
+      <div class="africa2-imgs hidden-imgs imgs--margin" id="idafrica2-imgs">
+        <img src="/images/AF2.png">
+      </div>
+
+      <div class="oceania1-imgs hidden-imgs imgs--margin" id="idoceania1-imgs">
+        <img src="/images/OC1.png">
+      </div>
+
+      <div class="oceania2-imgs hidden-imgs imgs--margin" id="idoceania2-imgs">
+        <img src="/images/OC2.png">
+      </div>
+
+      <div class="caribe1-imgs hidden-imgs imgs--margin" id="idcaribe1-imgs">
+        <img src="/images/CB1.png">
+      </div>
+
+      <div class="caribe2-imgs hidden-imgs imgs--margin" id="idcaribe2-imgs">
+        <img src="/images/CB2.png">
+      </div>
+
+      <div class="medio1-imgs hidden-imgs imgs--margin" id="idmedio1-imgs">
+        <img src="/images/OM1.png">
+      </div>
+
+      <div class="medio2-imgs hidden-imgs imgs--margin" id="idmedio2-imgs">
+        <img src="/images/OM2.png">
+      </div>
+
+      <div class="ilhas1-imgs hidden-imgs imgs--margin" id="idilhas1-imgs">
+        <img src="/images/IL1.png">
+      </div>
+
+      <div class="ilhas2-imgs hidden-imgs imgs--margin" id="idilhas2-imgs">
+        <img src="/images/IL2.png">
+      </div>
+    </div>
+
+    <div class="pageH_dinamic_spec">
+        <div class="caixatotal caixatotal--obs">
+        <h3 class="hotel_tit">Observações:</h3> <br>
+        <textarea name="" class="observacoes" rows="10" cols="120"></textarea>
+        <br><br><br>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="pageH_dinamic_spec ">
+      {{#each infoHoteis}}
+      <div class="break-after--before caixatotal">
+      <h3 class="hotel_tit">Hotel {{numero}}</h3>
+      <div class="ajustes_new">
+        <div class="hotel_flex">
+        <div class="col-sm" id="landing-hotel-col1">
+          <div class="box_hotelH_newleft">
+            <div class="classaH">
+              <label>Nome do Hotel:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Hotel 1" value="{{hotel_1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Tipo de acomodação:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Categoria do Apartaento</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Alimentação</label>
+              <input readonly="readonly" class="form-control textos" value="{{comida1}}">
+              </input>
+            </div><br>
+            <div class="classaH">
+              <label>Valor do Apartamento</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{valorapto1}}{{moeda}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Diárias</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Apartamentos</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Total</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{total_1}}{{moeda}}">
+            </div><br>
+            <div class="classaH">
+              <label>Período de Cancelamento</label>
+              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento1}}">
+            </input>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm" id="landing-hotel-col2">
+          <div class="box_hotelH_newmidle">
+            <div class="classaH">
+              <label>Cidade:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Cidade 1" value="{{cidade}}">
+            </div><br>
+            <div class="classaH">
+              <label>Nome do Hotel:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Hotel 2" value="{{hotel_2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Tipo de acomodação:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Categoria do Apartamento:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Alimentação:</label>
+              <input readonly="readonly" class="form-control textos" value="{{comida2}}">
+              </input>
+            </div><br>
+            <div class="classaH">
+              <label>Valor do Apartamento:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{valorapto2}}{{moeda}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Diárias:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Apartamentos:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Total:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{total_2}}{{moeda}}">
+            </div><br>
+            <div class="classaH">
+              <label>Período de Cancelamento:</label>
+              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento2}}">
+            </input>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm" id="landing-hotel-col3">
+          <div class="box_hotelH_newright">
+            <div class="classaH">
+              <label>Nome do Hotel:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Hotel 3" value="{{hotel_3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Tipo de acomodação:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao3}}">
+            </div><br>
+            <div class="classaH">
+              <labe>Categoria do Apartamento:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Alimentação</label>
+              <input readonly="readonly" class="form-control textos" value="{{comida3}}">
+              </input>
+            </div><br>
+            <label>Valor do Apartamento:</label>
+            <div class="classaH">
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{valorapto3}}{{moeda}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Diárias</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Apartamentos</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Total:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{total_3}}{{moeda}}">
+            </div><br>
+            <div class="classaH">
+              <label>Periodo de Cancelamento</label>
+              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento3}}">
+            </input>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+        </div>
+      {{/each}}
+    </div>
+
+
+
+
+      <div class="pageH_dinamic_spec ">
+
+        <div class="break-after caixatotal">
+                {{#each infoTraslado}}
+                <div class="traslado_flex">
+                  <div class="traslado">
+                    <h3 class="hotel_tit"> Traslado {{numero}} </h3><br>
+                    <label>De:</label><label class="gambiarra--esq">Para:</label><br>
+                    <input readonly="readonly "value="{{deT}}" type="text" placeholder="De" class="date start-date textos"/>
+                    <i class="fa fa-car" aria-hidden="true"></i>
+                    <input readonly="readonly "value="{{paraT}}" type="text" placeholder="Para" class="date start-date textos"/>
+                    <br><br>
+                    <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
+                    <input readonly="readonly "value="{{dataIdaT}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
+                    <i class="fa fa-calendar"></i>
+                    <input readonly="readonly "value="{{horaIdaT}}" type="text" placeholder="Horário" class="date start-date textos"/>
+                    <br><br>
+                    <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
+                    <input readonly="readonly "value="{{dataParaT}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
+                    <i class="fa fa-calendar"></i>
+                    <input readonly="readonly "value="{{horaParaT}}" type="text" placeholder="Horário" class="date start-date textos"/>
+                  </div>
+
+
+              <div class="info">
+
+
+              <h3 class="hotel_tit">Informações {{numero}}</h3>
+
+                <div class="col-sm rowclass">
+                  <div class="rowclass col-lg-11">
+                    <br>
+                    <label>Valor por Adulto:</label><br>
+                    <input value="{{valorAdtT}}{{moedaT}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
+                  </div>
+                </div>
+                <div class="col-sm rowclass">
+                  <div class=" rowclass col-lg-11">
+                    <br>
+                    <label>Valor por Criança:</label><br>
+                    <input value="{{valorChdT}}{{moedaT}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
+                  </div>
+                </div>
+                <div class="col-sm rowclass">
+                  <div class="rowclass col-lg-11">
+                    <br>
+                    <label>Valor por bebê:</label><br>
+                    <input value="{{valorInfT}}{{moedaT}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
+                  </div><br>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+          <div class="col-sm-auto pageH_dinamic_spec">
+          {{#each infoCarros}}
+          <div class="caixatotal caixatotal--break">
+          <br><br><h3 class="hotel_tit"> Carro {{numero}} </h3><br>
+          <div class="classa">
+            <label>Local de Retirada:</label>
+            <input class="form-control textos textos--caixa" placeholder="Retirada" readonly="readonly "value="{{retirada}}">
+          </div><br>
+          <div class="classa">
+            <label>Outras informações:</label>
+            <input class="form-control textos textos--caixa" placeholder="Outros" readonly="readonly "value="{{outros}}">
+          </div><br>
+          <div class="classa">
+            <label>Local de Entrega:</label>
+            <input class="form-control textos textos--caixa" placeholder="Entrega" readonly="readonly "value="{{entrega}}">
+          </div><br>
+          <div class="classa">
+            <label>Valor do Carro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Valor carro 1" readonly="readonly "value="{{valor}}{{moedaC}}">
+          </div><br>
+          <div class="classa">
+            <label>Cidade:</label>
+            <input class="form-control textos textos--caixa" placeholder="Cidade" readonly="readonly "value="{{cidade}}">
+          </div><br>
+          <div class="classa">
+            <label>Tipo do carro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Tipo" readonly="readonly "value="{{tipoCarro}}">
+          </div><br>
+          <div class="classa">
+            <label>Trasmissão do Carro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Transmissão" readonly="readonly "value="{{transmissao}}">
+          </div><br>
+          <div class="classa">
+            <label>Qual o Seguro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Seguros" readonly="readonly "value="{{seguro}}">
+          </div><br>
+        </div>
+          {{/each}}
+</div>
+
+<div class="pageH_dinamic_spec">
+  <div class="caixatotalS">
+    <div class="servicos_flex">
+
+
+        {{#each infoSeguro}}
+        <div class="break-after--before ">
+        <div class="p-3">
+              <div class="form-group">
+                <label id="titleG" for="exampleInputPassword1">Seguro {{numero}}:</label><br>
+                <label>Qual seguro será utilizado:</label>
+                <input value="{{seguro}}" type="text" placeholder= "Qual seguro será utilizado?" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Cobertura</label>
+                <input value="{{coberturaSeguro}}" type="text" placeholder= "Cobertura do seguro" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Adultos:</label>
+                <input value="{{valorAdtS}}{{moedaS}}" type="text" placeholder= "Preço por adulto" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Crianças:</label>
+                <input value="{{valorChdS}}{{moedaS}}" type="text" placeholder= "Preço por criança" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Bebês:</label>
+                <input value="{{valorInfS}}{{moedaS}}" type="text" placeholder= "Preço por bebê" readonly="readonly" class="form-control textos">
+              </div>
+        </div>
+        </div>
+        {{/each}}
+
+        {{#each infoTickets}}
+        <div class="break-after--before">
+        <div class="p-3">
+              <div class="form-group">
+                <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos {{numero}}:</label><br>
+                <label>Nome do Evento:</label>
+                <input value="{{tickets}}" type="text" placeholder= "" class="form-control textos" readonly="readonly">
+                <br>
+                <label for="exampleInputPassword1">Valor Adultos:</label>
+                <input value = "{{valorAdtTk}}{{moedaT}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Crianças:</label>
+                <input value="{{valorChdTk}}{{moedaT}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Bebês:</label>
+                <input value="{{valorInfTk}}{{moedaT}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
+              </div>
+        </div>
+        </div>
+        {{/each}}
+
+        {{#each infoOutros}}
+        <div class="break-after--before">
+        <div class="p-3">
+              <div class="form-group">
+                <label id="titleG" for="exampleInputPassword1">Outros {{numero}}:</label>
+                <br>
+                <label>O que será:</label>
+                <input value="{{outros}}" type="text" placeholder= "" class="form-control textos" readonly="readonly">
+                <br>
+                <label for="exampleInputPassword1">Valor Adultos:</label>
+                <input value="{{valorAdtO}}{{moedaO}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Crianças:</label>
+                <input value="{{valorChdO}}{{moedaO}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Bebês:</label>
+                <input value="{{valorInfO}}{{moedaO}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
+              </div>
+        </div>
+        </div>
+        {{/each}}
+        </div>
+      </div>
+  </div>
+
+  <script type="text/javascript" src="/javascripts/images.js">  </script>
+  <script type="text/javascript" src="/javascripts/invert.js">  </script>
