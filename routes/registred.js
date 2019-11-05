@@ -427,10 +427,18 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
 
         const allCars = [];
         const allCarsTraslado = [];
+        const carsInfoTofunctions ={
+          cars: Number,
+          traslado: Number,
+        };
+        var cars = 1;
+        var traslado = 1;
 
         for (var i = 0; i < car.from.length; i++) {
 
           const carsTrasladoInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             from: String,
             to: String,
@@ -438,11 +446,19 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             timeFrom: String,
             dateTo: String,
             timeTo: String,
-            valueADT: String,
-            valueCHD: String,
-            valueINF: String,
+            valueADT: Number,
+            numADT: Number,
+            valueCHD: Number,
+            numCHD: Number,
+            valueINF: Number,
+            numINF: Number,
             totalTranslado: Number,
+            coinT: String,
           };
+
+          if (i == 0) {
+            carsTrasladoInfo.isPrimeiro = 1;
+          }
 
           carsTrasladoInfo.from = car.from[i];
           carsTrasladoInfo.to = car.to[i];
@@ -451,9 +467,16 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
           carsTrasladoInfo.dateTo = car.dateTo[i];
           carsTrasladoInfo.timeTo = car.timeTo[i];
           carsTrasladoInfo.valueADT = car.valueADT[i];
+          carsTrasladoInfo.numADT = car.numADT[i];
           carsTrasladoInfo.valueCHD = car.valueCHD[i];
+          carsTrasladoInfo.numCHD = car.numCHD[i];
           carsTrasladoInfo.valueINF = car.valueINF[i];
+          carsTrasladoInfo.numINF = car.numINF[i];
           carsTrasladoInfo.totalTranslado = car.totalTranslado[i];
+          carsTrasladoInfo.coinT = car.coinT[i];
+          carsTrasladoInfo.repNum = (i+1);
+
+          traslado++;
 
           allCarsTraslado.push(carsTrasladoInfo);
         }
@@ -461,6 +484,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
         for (var j = 0; j < car.typeCar.length; j++) {
 
           const carsInfo = {
+            repNum: Number,
 
             typeCar: String,
             withdrawal: String,
@@ -469,6 +493,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             city: String,
             shift:String,
             safe: String,
+            coinC: String,
             others: String
           };
 
@@ -479,12 +504,19 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
           carsInfo.city = car.city[j];
           carsInfo.shift = car.shift[j];
           carsInfo.safe = car.safe[j];
+          carsInfo.coinC = car.coinC[i];
           carsInfo.others = car.others[j];
+          carsInfo.repNum = (j+1);
+
+          cars++;
 
           allCars.push(carsInfo);
         }
 
-        res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado});
+        carsInfoTofunctions.traslado = traslado;
+        carsInfoTofunctions.cars = cars;
+
+        res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado, carsInfoTofunctions});
       }).catch((error) => {
         console.log(error);
         res.redirect('/error');
