@@ -295,6 +295,64 @@ $("#button_day_original").on("click", function(){//Acrescenta mais uma escala
 
 
 $('#increasing').on('click', function() {//Passa pro próximo voo
+  if (firstclick == 0) {//identifica se foi o primeiro botão clicado desde o carregamento da página e pega os valores necessários para o funcionamneto
+    ageId1Replica = parseInt(document.getElementById(`get1`).value);
+    ageId2Replica = parseInt(document.getElementById(`get2`).value);
+    ageId3Replica = parseInt(document.getElementById(`get3`).value);
+    idTableReplica = parseInt(document.getElementById(`get4`).value);
+    firstclick++;
+
+    // Atribui os valores dos maiores blocos às variáveis que salvam o maior conjunto criado
+    //Primeira classe saved
+    savedadtNum1_FirstClass = ageId1Replica - 3;
+    savedadtNum2_FirstClass = ageId2Replica - 3;
+    savedadtNum3_FirstClass = ageId3Replica - 3;
+    savedadtRes_FirstClass = (ageId3Replica/3) - 1;
+
+    savedchdNum1_FirstClass = ageId1Replica - 3;
+    savedchdNum2_FirstClass = ageId2Replica - 3;
+    savedchdNum3_FirstClass = ageId3Replica - 3;
+    savedchdRes_FirstClass = (ageId3Replica/3) - 1;
+
+    savedinfNum1_FirstClass = ageId1Replica - 3;
+    savedinfNum2_FirstClass = ageId2Replica - 3;
+    savedinfNum3_FirstClass = ageId3Replica - 3;
+    savedinfRes_FirstClass = (ageId3Replica/3) - 1;
+
+
+    // Executivo saved
+    savedadtNum1_Executive = ageId1Replica - 3;
+    savedadtNum2_Executive = ageId2Replica - 3;
+    savedadtNum3_Executive = ageId3Replica - 3;
+    savedadtRes_Executive = (ageId3Replica/3) - 1;
+
+    savedchdNum1_Executive = ageId1Replica - 3;
+    savedchdNum2_Executive = ageId2Replica - 3;
+    savedchdNum3_Executive = ageId3Replica - 3;
+    savedchdRes_Executive = (ageId3Replica/3) - 1;
+
+    savedinfNum1_Executive = ageId1Replica - 3;
+    savedinfNum2_Executive = ageId2Replica - 3;
+    savedinfNum3_Executive = ageId3Replica - 3;
+    savedinfRes_Executive = (ageId3Replica/3 - 1);
+
+    // Econômico saved
+    savedadtNum1_Economic = ageId1Replica - 3;
+    savedadtNum2_Economic = ageId2Replica - 3;
+    savedadtNum3_Economic = ageId3Replica - 3;
+    savedadtRes_Economic = (ageId3Replica/3) - 1;
+
+    savedchdNum1_Economic = ageId1Replica - 3;
+    savedchdNum2_Economic = ageId2Replica - 3;
+    savedchdNum3_Economic = ageId3Replica - 3;
+    savedchdRes_Economic = (ageId3Replica/3) - 1;
+
+    savedinfNum1_Economic = ageId1Replica - 3;
+    savedinfNum2_Economic = ageId2Replica - 3;
+    savedinfNum3_Economic = ageId3Replica - 3;
+    savedinfRes_Economic = (ageId3Replica/3) - 1;
+  }
+
   if (flight < numVoo) { // Não permite avançar mais blocos do que existem
     flight++;
     $(".Selected").removeClass("Selected");
@@ -305,6 +363,64 @@ $('#increasing').on('click', function() {//Passa pro próximo voo
 
 
 $('#decreasing').on('click', function() {//volta pro próximo voo
+  if (firstclick == 0) {//identifica se foi o primeiro botão clicado desde o carregamento da página e pega os valores necessários para o funcionamneto
+    ageId1Replica = parseInt(document.getElementById(`get1`).value);
+    ageId2Replica = parseInt(document.getElementById(`get2`).value);
+    ageId3Replica = parseInt(document.getElementById(`get3`).value);
+    idTableReplica = parseInt(document.getElementById(`get4`).value);
+    firstclick++;
+
+    // Atribui os valores dos maiores blocos às variáveis que salvam o maior conjunto criado
+    //Primeira classe saved
+    savedadtNum1_FirstClass = ageId1Replica - 3;
+    savedadtNum2_FirstClass = ageId2Replica - 3;
+    savedadtNum3_FirstClass = ageId3Replica - 3;
+    savedadtRes_FirstClass = (ageId3Replica/3) - 1;
+
+    savedchdNum1_FirstClass = ageId1Replica - 3;
+    savedchdNum2_FirstClass = ageId2Replica - 3;
+    savedchdNum3_FirstClass = ageId3Replica - 3;
+    savedchdRes_FirstClass = (ageId3Replica/3) - 1;
+
+    savedinfNum1_FirstClass = ageId1Replica - 3;
+    savedinfNum2_FirstClass = ageId2Replica - 3;
+    savedinfNum3_FirstClass = ageId3Replica - 3;
+    savedinfRes_FirstClass = (ageId3Replica/3) - 1;
+
+
+    // Executivo saved
+    savedadtNum1_Executive = ageId1Replica - 3;
+    savedadtNum2_Executive = ageId2Replica - 3;
+    savedadtNum3_Executive = ageId3Replica - 3;
+    savedadtRes_Executive = (ageId3Replica/3) - 1;
+
+    savedchdNum1_Executive = ageId1Replica - 3;
+    savedchdNum2_Executive = ageId2Replica - 3;
+    savedchdNum3_Executive = ageId3Replica - 3;
+    savedchdRes_Executive = (ageId3Replica/3) - 1;
+
+    savedinfNum1_Executive = ageId1Replica - 3;
+    savedinfNum2_Executive = ageId2Replica - 3;
+    savedinfNum3_Executive = ageId3Replica - 3;
+    savedinfRes_Executive = (ageId3Replica/3 - 1);
+
+    // Econômico saved
+    savedadtNum1_Economic = ageId1Replica - 3;
+    savedadtNum2_Economic = ageId2Replica - 3;
+    savedadtNum3_Economic = ageId3Replica - 3;
+    savedadtRes_Economic = (ageId3Replica/3) - 1;
+
+    savedchdNum1_Economic = ageId1Replica - 3;
+    savedchdNum2_Economic = ageId2Replica - 3;
+    savedchdNum3_Economic = ageId3Replica - 3;
+    savedchdRes_Economic = (ageId3Replica/3) - 1;
+
+    savedinfNum1_Economic = ageId1Replica - 3;
+    savedinfNum2_Economic = ageId2Replica - 3;
+    savedinfNum3_Economic = ageId3Replica - 3;
+    savedinfRes_Economic = (ageId3Replica/3) - 1;
+  }
+
   if (flight > 1) { // Não permite regressar mais blocos do que existem
     flight--;
     $(".Selected").removeClass("Selected");

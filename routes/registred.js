@@ -79,27 +79,39 @@ router.get('/pageC/:budget_id', function(req, res) {
   Budget.getById(req.params.budget_id).then((budget) => {
 
     const allScripts = [];
+    const dayToFunctions = {
+      day: Number
+    }
+
+    var day = 1;
 
     console.log(req.session);
           for (var i = 0; i < budget.planCountry.length; i++) {
 
             const script = {
+              repNum: Number,
+
               planDate: Date,
               planCity: String,
               planCountry: String,
               planFreeField: String
             };
 
+            script.repNum = (i+1);
             script.planDate = budget.planDate[i];
             script.planCity = budget.planCity[i];
             script.planCountry = budget.planCountry[i];
             script.planFreeField = budget.planFreeField[i]
 
+            day++;
+
             allScripts.push(script);
             // console.log(allScripts.countryName);
           }
 
-    res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, budget, allScripts});
+          dayToFunctions.day = day;
+
+    res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, budget, allScripts, dayToFunctions});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
@@ -346,13 +358,27 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
       Hotel.getById(budget.hotels).then((hotel) => {
 
         const allHotels = [];
+        const hotelsInfoToFunctions = {
+          hotels: Number,
+        };
+        var hotels = 1;
 
         for (var i = 0; i < hotel.hotel1.length; i++) {
           const hotelsInfo = {
+            isPrimeiro: Number,
+            numHotels: Number,
+
             city: String,
+            coin: String,
+            acomodationType1: String,
+            acomodationType2: String,
+            acomodationType3: String,
             hotel1: String,
             hotel2: String,
             hotel3: String,
+            qntd1: String,
+            qntd2: String,
+            qntd3: String,
             valueApt1: Number,
             valueApt2: Number,
             valueApt3: Number,
@@ -365,20 +391,32 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
             total1: Number,
             total2: Number,
             total3: Number,
-            category1: String,
-            category2: String,
-            category3: String,
             food1: String,
             food2: String,
             food3: String,
+            category1: String,
+            category2: String,
+            category3: String,
             cancellationPeriod:String,
             cancellationPeriod2:String,
             cancellationPeriod3:String
           };
+
+          if (i == 0) {
+            hotelsInfo.isPrimeiro = 1;
+          }
+
           hotelsInfo.city = hotel.city[i];
+          hotelsInfo.coin = hotel.coin[i];
+          hotelsInfo.acomodationType1 = hotel.acomodationType1[i];
+          hotelsInfo.acomodationType2 = hotel.acomodationType2[i];
+          hotelsInfo.acomodationType3 = hotel.acomodationType3[i];
           hotelsInfo.hotel1 = hotel.hotel1[i];
           hotelsInfo.hotel2 = hotel.hotel2[i];
           hotelsInfo.hotel3 = hotel.hotel3[i];
+          hotelsInfo.qntd1 = hotel.qntd1[i];
+          hotelsInfo.qntd2 = hotel.qntd2[i];
+          hotelsInfo.qntd3 = hotel.qntd3[i];
           hotelsInfo.valueApt1 = hotel.valueApt1[i];
           hotelsInfo.valueApt2 = hotel.valueApt2[i];
           hotelsInfo.valueApt3 = hotel.valueApt3[i];
@@ -391,19 +429,25 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
           hotelsInfo.total1 = hotel.total1[i];
           hotelsInfo.total2 = hotel.total2[i];
           hotelsInfo.total3 = hotel.total3[i];
-          hotelsInfo.category1 = hotel.category1[i];
-          hotelsInfo.category2 = hotel.category2[i];
-          hotelsInfo.category3 = hotel.category3[i];
           hotelsInfo.food1 = hotel.food1[i];
           hotelsInfo.food2  = hotel.food2[i];
           hotelsInfo.food3 = hotel.food3[i];
+          hotelsInfo.category1 = hotel.category1[i];
+          hotelsInfo.category2 = hotel.category2[i];
+          hotelsInfo.category3 = hotel.category3[i];
           hotelsInfo.cancellationPeriod = hotel.cancellationPeriod[i];
           hotelsInfo.cancellationPeriod2 = hotel.cancellationPeriod2[i];
           hotelsInfo.cancellationPeriod3 = hotel.cancellationPeriod3[i];
+          hotelsInfo.numHotels = (i+1);
+
+          hotels++;
 
           allHotels.push(hotelsInfo);
         }
-        res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, allHotels});
+
+        hotelsInfoToFunctions.hotels = hotels;
+
+        res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, allHotels, hotelsInfoToFunctions});
       }).catch((error) => {
           console.log(error);
           res.redirect('/error');
@@ -427,10 +471,18 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
 
         const allCars = [];
         const allCarsTraslado = [];
+        const carsInfoTofunctions ={
+          cars: Number,
+          traslado: Number,
+        };
+        var cars = 1;
+        var traslado = 1;
 
         for (var i = 0; i < car.from.length; i++) {
 
           const carsTrasladoInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             from: String,
             to: String,
@@ -438,11 +490,19 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             timeFrom: String,
             dateTo: String,
             timeTo: String,
-            valueADT: String,
-            valueCHD: String,
-            valueINF: String,
+            valueADT: Number,
+            numADT: Number,
+            valueCHD: Number,
+            numCHD: Number,
+            valueINF: Number,
+            numINF: Number,
             totalTranslado: Number,
+            coinT: String,
           };
+
+          if (i == 0) {
+            carsTrasladoInfo.isPrimeiro = 1;
+          }
 
           carsTrasladoInfo.from = car.from[i];
           carsTrasladoInfo.to = car.to[i];
@@ -451,9 +511,16 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
           carsTrasladoInfo.dateTo = car.dateTo[i];
           carsTrasladoInfo.timeTo = car.timeTo[i];
           carsTrasladoInfo.valueADT = car.valueADT[i];
+          carsTrasladoInfo.numADT = car.numADT[i];
           carsTrasladoInfo.valueCHD = car.valueCHD[i];
+          carsTrasladoInfo.numCHD = car.numCHD[i];
           carsTrasladoInfo.valueINF = car.valueINF[i];
+          carsTrasladoInfo.numINF = car.numINF[i];
           carsTrasladoInfo.totalTranslado = car.totalTranslado[i];
+          carsTrasladoInfo.coinT = car.coinT[i];
+          carsTrasladoInfo.repNum = (i+1);
+
+          traslado++;
 
           allCarsTraslado.push(carsTrasladoInfo);
         }
@@ -461,6 +528,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
         for (var j = 0; j < car.typeCar.length; j++) {
 
           const carsInfo = {
+            repNum: Number,
 
             typeCar: String,
             withdrawal: String,
@@ -469,6 +537,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             city: String,
             shift:String,
             safe: String,
+            coinC: String,
             others: String
           };
 
@@ -479,12 +548,19 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
           carsInfo.city = car.city[j];
           carsInfo.shift = car.shift[j];
           carsInfo.safe = car.safe[j];
+          carsInfo.coinC = car.coinC[i];
           carsInfo.others = car.others[j];
+          carsInfo.repNum = (j+1);
+
+          cars++;
 
           allCars.push(carsInfo);
         }
 
-        res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado});
+        carsInfoTofunctions.traslado = traslado;
+        carsInfoTofunctions.cars = cars;
+
+        res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado, carsInfoTofunctions});
       }).catch((error) => {
         console.log(error);
         res.redirect('/error');
@@ -510,25 +586,51 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         const allSafes = [];
         const allTickets = [];
         const allOthers = [];
+        const safesInfoToFunctions = {
+          insurance: Number,
+          ticket: Number,
+          outros: Number,
+        };
+
+        var insurance = 1;
+        var ticket = 1;
+        var outros = 1;
 
         for (var i = 0; i < safe.insuranceName.length; i++) {
 
           const safeInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             insuranceName: String,
-            insuranceADT: String,
-            insuranceCHD: String,
-            insuranceINF: String,
-            insuranceTOT: String,
             insuranceCoverage: String,
+            insuranceADT: Number,
+            SafenumADT: Number,
+            insuranceCHD: Number,
+            SafenumCHD: Number,
+            insuranceINF: Number,
+            SafenumINF: Number,
+            insuranceTOT: Number,
+            insuranceCoin: String,
           };
 
+          if (i == 0) {
+            safeInfo.isPrimeiro = 1;
+          }
+
           safeInfo.insuranceName = safe.insuranceName[i];
-          safeInfo.insuranceADT = safe.insuranceADT[i];
-          safeInfo.insuranceCHD = safe.insuranceCHD[i];
-          safeInfo.insuranceINF = safe.insuranceINF[i];
-          safeInfo.insuranceTOT = safe.insuranceTOT[i];
           safeInfo.insuranceCoverage = safe.insuranceCoverage[i];
+          safeInfo.insuranceADT = safe.insuranceADT[i];
+          safeInfo.SafenumADT = safe.SafenumADT[i];
+          safeInfo.insuranceCHD = safe.insuranceCHD[i];
+          safeInfo.SafenumCHD = safe.SafenumCHD[i];
+          safeInfo.insuranceINF = safe.insuranceINF[i];
+          safeInfo.SafenumINF = safe.SafenumINF[i];
+          safeInfo.insuranceTOT = safe.insuranceTOT[i];
+          safeInfo.insuranceCoin = safe.insuranceCoin[i];
+          safeInfo.repNum = (i+1);
+
+          insurance++;
 
           allSafes.push(safeInfo);
         }
@@ -536,19 +638,36 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         for (var j = 0; j < safe.ticketsName.length; j++) {
 
           const ticketInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             ticketsName: String,
-            ticketsADT: String,
-            ticketsCHD: String,
-            ticketsINF: String,
-            ticketsTOT: String,
+            ticketsADT: Number,
+            TicketnumADT: Number,
+            ticketsCHD: Number,
+            TicketnumCHD: Number,
+            ticketsINF: Number,
+            TicketnumINF: Number,
+            ticketsTOT: Number,
+            ticketsCoin: String,
           };
+
+          if (j == 0) {
+            ticketInfo.isPrimeiro = 1;
+          }
 
           ticketInfo.ticketsName = safe.ticketsName[j];
           ticketInfo.ticketsADT = safe.ticketsADT[j];
+          ticketInfo.TicketnumADT = safe.TicketnumADT[j];
           ticketInfo.ticketsCHD = safe.ticketsCHD[j];
+          ticketInfo.TicketnumCHD = safe.TicketnumCHD[j];
           ticketInfo.ticketsINF = safe.ticketsINF[j];
+          ticketInfo.TicketnumINF = safe.TicketnumINF[j];
           ticketInfo.ticketsTOT = safe.ticketsTOT[j];
+          ticketInfo.ticketsCoin = safe.ticketsCoin[j];
+          ticketInfo.repNum = (j+1);
+
+          ticket++;
 
           allTickets.push(ticketInfo);
         }
@@ -556,24 +675,45 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         for (var k = 0; k < safe.otherName.length; k++) {
 
           const otherInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             otherName: String,
-            otherADT: String,
+            otherADT: Number,
+            OthernumADT: Number,
             otherCHD: String,
-            otherINF: String,
-            otherTOT: String
+            OthernumCHD: Number,
+            otherINF: Number,
+            OthernumINF: Number,
+            otherTOT: Number,
+            otherCoin: String,
           };
+
+          if (k == 0) {
+            otherInfo.isPrimeiro = 1;
+          }
 
           otherInfo.otherName = safe.otherName[k];
           otherInfo.otherADT = safe.otherADT[k];
+          otherInfo.OthernumADT = safe.OthernumADT[k];
           otherInfo.otherCHD = safe.otherCHD[k];
+          otherInfo.OthernumCHD = safe.OthernumCHD[k];
           otherInfo.otherINF = safe.otherINF[k];
+          otherInfo.OthernumINF = safe.OthernumINF[k];
           otherInfo.otherTOT = safe.otherTOT[k];
+          otherInfo.otherCoin = safe.otherCoin[k];
+          otherInfo.repNum = (k+1);
+
+          outros++;
 
           allOthers.push(otherInfo);
         }
 
-        res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allSafes, allOthers, allTickets});
+        safesInfoToFunctions.insurance = insurance;
+        safesInfoToFunctions.ticket = ticket;
+        safesInfoToFunctions.outros = outros;
+
+        res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allSafes, allOthers, allTickets, safesInfoToFunctions});
       }).catch((error) => {
           console.log(error);
           res.redirect('/error');

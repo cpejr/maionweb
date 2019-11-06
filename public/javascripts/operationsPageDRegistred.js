@@ -353,6 +353,67 @@ $('#add_country').on('click', function() {
 });
 
 $('#decreasing').on('click', function() {
+  if (afirstclick == 0) {
+    ageId1Operation = parseInt(document.getElementById(`get1`).value);
+    ageId2Operation = parseInt(document.getElementById(`get2`).value);
+    ageId3Operation = parseInt(document.getElementById(`get3`).value);
+    afirstclick++;
+
+    console.log('=--------------');
+    console.log(ageId1Operation);
+    console.log(ageId2Operation);
+    console.log(ageId3Operation);
+
+    // Atribui os valores dos maiores blocos às variáveis que salvam o maior conjunto criado
+    // Primeira classe saved
+    savedAadtNum1_FirstClass = ageId1Operation - 3;
+    savedAadtNum2_FirstClass = ageId2Operation - 3;
+    savedAadtNum3_FirstClass = ageId3Operation - 3;
+    savedAadtRes_FirstClass = (ageId3Operation/3) - 1;
+
+    savedAchdNum1_FirstClass = ageId1Operation - 3;
+    savedAchdNum2_FirstClass = ageId2Operation - 3;
+    savedAchdNum3_FirstClass = ageId3Operation - 3;
+    savedAchdRes_FirstClass = (ageId3Operation/3) - 1;
+
+    savedAinfNum1_FirstClass = ageId1Operation - 3;
+    savedAinfNum2_FirstClass = ageId2Operation - 3;
+    savedAinfNum3_FirstClass = ageId3Operation - 3;
+    savedAinfRes_FirstClass = (ageId3Operation/3) - 1;
+
+
+    // Executivo saved
+    savedAadtNum1_Executive = ageId1Operation - 3;
+    savedAadtNum2_Executive = ageId2Operation - 3;
+    savedAadtNum3_Executive = ageId3Operation - 3;
+    savedAadtRes_Executive = (ageId3Operation/3) - 1;
+
+    savedAchdNum1_Executive = ageId1Operation - 3;
+    savedAchdNum2_Executive = ageId2Operation - 3;
+    savedAchdNum3_Executive = ageId3Operation - 3;
+    savedAchdRes_Executive = (ageId3Operation/3) - 1;
+
+    savedAinfNum1_Executive = ageId1Operation - 3;
+    savedAinfNum2_Executive = ageId2Operation - 3;
+    savedAinfNum3_Executive = ageId3Operation - 3;
+    savedAinfRes_Executive = (ageId3Operation/3) - 1;
+
+    // Econômico saved
+    savedAadtNum1_Economic = ageId1Operation - 3;
+    savedAadtNum2_Economic = ageId2Operation - 3;
+    savedAadtNum3_Economic = ageId3Operation - 3;
+    savedAadtRes_Economic = (ageId3Operation/3) - 1;
+
+    savedAchdNum1_Economic = ageId1Operation - 3;
+    savedAchdNum2_Economic = ageId2Operation - 3;
+    savedAchdNum3_Economic = ageId3Operation - 3;
+    savedAchdRes_Economic = (ageId3Operation/3) - 1;
+
+    savedAinfNum1_Economic = ageId1Operation - 3;
+    savedAinfNum2_Economic = ageId2Operation - 3;
+    savedAinfNum3_Economic = ageId3Operation - 3;
+    savedAinfRes_Economic = (ageId3Operation/3) - 1;
+  }
   if (aflight > 1) {
     aflight--;
     aadtNum1_FirstClass = aadtNum1_FirstClass - 3;
@@ -405,6 +466,67 @@ $('#decreasing').on('click', function() {
 });
 
 $('#increasing').on('click', function(){
+  if (afirstclick == 0) {
+    ageId1Operation = parseInt(document.getElementById(`get1`).value);
+    ageId2Operation = parseInt(document.getElementById(`get2`).value);
+    ageId3Operation = parseInt(document.getElementById(`get3`).value);
+    afirstclick++;
+
+    console.log('=--------------');
+    console.log(ageId1Operation);
+    console.log(ageId2Operation);
+    console.log(ageId3Operation);
+
+    // Atribui os valores dos maiores blocos às variáveis que salvam o maior conjunto criado
+    // Primeira classe saved
+    savedAadtNum1_FirstClass = ageId1Operation - 3;
+    savedAadtNum2_FirstClass = ageId2Operation - 3;
+    savedAadtNum3_FirstClass = ageId3Operation - 3;
+    savedAadtRes_FirstClass = (ageId3Operation/3) - 1;
+
+    savedAchdNum1_FirstClass = ageId1Operation - 3;
+    savedAchdNum2_FirstClass = ageId2Operation - 3;
+    savedAchdNum3_FirstClass = ageId3Operation - 3;
+    savedAchdRes_FirstClass = (ageId3Operation/3) - 1;
+
+    savedAinfNum1_FirstClass = ageId1Operation - 3;
+    savedAinfNum2_FirstClass = ageId2Operation - 3;
+    savedAinfNum3_FirstClass = ageId3Operation - 3;
+    savedAinfRes_FirstClass = (ageId3Operation/3) - 1;
+
+
+    // Executivo saved
+    savedAadtNum1_Executive = ageId1Operation - 3;
+    savedAadtNum2_Executive = ageId2Operation - 3;
+    savedAadtNum3_Executive = ageId3Operation - 3;
+    savedAadtRes_Executive = (ageId3Operation/3) - 1;
+
+    savedAchdNum1_Executive = ageId1Operation - 3;
+    savedAchdNum2_Executive = ageId2Operation - 3;
+    savedAchdNum3_Executive = ageId3Operation - 3;
+    savedAchdRes_Executive = (ageId3Operation/3) - 1;
+
+    savedAinfNum1_Executive = ageId1Operation - 3;
+    savedAinfNum2_Executive = ageId2Operation - 3;
+    savedAinfNum3_Executive = ageId3Operation - 3;
+    savedAinfRes_Executive = (ageId3Operation/3) - 1;
+
+    // Econômico saved
+    savedAadtNum1_Economic = ageId1Operation - 3;
+    savedAadtNum2_Economic = ageId2Operation - 3;
+    savedAadtNum3_Economic = ageId3Operation - 3;
+    savedAadtRes_Economic = (ageId3Operation/3) - 1;
+
+    savedAchdNum1_Economic = ageId1Operation - 3;
+    savedAchdNum2_Economic = ageId2Operation - 3;
+    savedAchdNum3_Economic = ageId3Operation - 3;
+    savedAchdRes_Economic = (ageId3Operation/3) - 1;
+
+    savedAinfNum1_Economic = ageId1Operation - 3;
+    savedAinfNum2_Economic = ageId2Operation - 3;
+    savedAinfNum3_Economic = ageId3Operation - 3;
+    savedAinfRes_Economic = (ageId3Operation/3) - 1;
+  }
   if (aflight < anumVoo) {
     aflight++;
     aadtNum1_FirstClass = aadtNum1_FirstClass + 3;
