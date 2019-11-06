@@ -33,7 +33,7 @@ $('#prev_traslado').on('click', function() {
     atrasladoToReplica = parseInt(document.getElementById(`get2`).value);
     afirstclick++;
 
-    asavedNumTraslado = atrasladoToReplica;
+    asavedNumTraslado = atrasladoToReplica-1;
   }
   if (anumTraslado > 1) {
     anumTraslado--;
@@ -45,7 +45,7 @@ $('#nxt_traslado').on('click', function() {
     atrasladoToReplica = parseInt(document.getElementById(`get2`).value);
     afirstclick++;
 
-    asavedNumTraslado = atrasladoToReplica;
+    asavedNumTraslado = atrasladoToReplica-1;
   }
   if (anumTraslado < asavedNumTraslado) {
     anumTraslado++;

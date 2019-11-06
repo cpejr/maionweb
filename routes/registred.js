@@ -574,25 +574,51 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         const allSafes = [];
         const allTickets = [];
         const allOthers = [];
+        const safesInfoToFunctions = {
+          insurance: Number,
+          ticket: Number,
+          outros: Number,
+        };
+
+        var insurance = 1;
+        var ticket = 1;
+        var outros = 1;
 
         for (var i = 0; i < safe.insuranceName.length; i++) {
 
           const safeInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             insuranceName: String,
-            insuranceADT: String,
-            insuranceCHD: String,
-            insuranceINF: String,
-            insuranceTOT: String,
             insuranceCoverage: String,
+            insuranceADT: Number,
+            SafenumADT: Number,
+            insuranceCHD: Number,
+            SafenumCHD: Number,
+            insuranceINF: Number,
+            SafenumINF: Number,
+            insuranceTOT: Number,
+            insuranceCoin: String,
           };
 
+          if (i == 0) {
+            safeInfo.isPrimeiro = 1;
+          }
+
           safeInfo.insuranceName = safe.insuranceName[i];
-          safeInfo.insuranceADT = safe.insuranceADT[i];
-          safeInfo.insuranceCHD = safe.insuranceCHD[i];
-          safeInfo.insuranceINF = safe.insuranceINF[i];
-          safeInfo.insuranceTOT = safe.insuranceTOT[i];
           safeInfo.insuranceCoverage = safe.insuranceCoverage[i];
+          safeInfo.insuranceADT = safe.insuranceADT[i];
+          safeInfo.SafenumADT = safe.SafenumADT[i];
+          safeInfo.insuranceCHD = safe.insuranceCHD[i];
+          safeInfo.SafenumCHD = safe.SafenumCHD[i];
+          safeInfo.insuranceINF = safe.insuranceINF[i];
+          safeInfo.SafenumINF = safe.SafenumINF[i];
+          safeInfo.insuranceTOT = safe.insuranceTOT[i];
+          safeInfo.insuranceCoin = safe.insuranceCoin[i];
+          safeInfo.repNum = (i+1);
+
+          insurance++;
 
           allSafes.push(safeInfo);
         }
@@ -600,19 +626,36 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         for (var j = 0; j < safe.ticketsName.length; j++) {
 
           const ticketInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             ticketsName: String,
-            ticketsADT: String,
-            ticketsCHD: String,
-            ticketsINF: String,
-            ticketsTOT: String,
+            ticketsADT: Number,
+            TicketnumADT: Number,
+            ticketsCHD: Number,
+            TicketnumCHD: Number,
+            ticketsINF: Number,
+            TicketnumINF: Number,
+            ticketsTOT: Number,
+            ticketsCoin: String,
           };
+
+          if (j == 0) {
+            ticketInfo.isPrimeiro = 1;
+          }
 
           ticketInfo.ticketsName = safe.ticketsName[j];
           ticketInfo.ticketsADT = safe.ticketsADT[j];
+          ticketInfo.TicketnumADT = safe.TicketnumADT[j];
           ticketInfo.ticketsCHD = safe.ticketsCHD[j];
+          ticketInfo.TicketnumCHD = safe.TicketnumCHD[j];
           ticketInfo.ticketsINF = safe.ticketsINF[j];
+          ticketInfo.TicketnumINF = safe.TicketnumINF[j];
           ticketInfo.ticketsTOT = safe.ticketsTOT[j];
+          ticketInfo.ticketsCoin = safe.ticketsCoin[j];
+          ticketInfo.repNum = (j+1);
+
+          ticket++;
 
           allTickets.push(ticketInfo);
         }
@@ -620,24 +663,45 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         for (var k = 0; k < safe.otherName.length; k++) {
 
           const otherInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
             otherName: String,
-            otherADT: String,
+            otherADT: Number,
+            OthernumADT: Number,
             otherCHD: String,
-            otherINF: String,
-            otherTOT: String
+            OthernumCHD: Number,
+            otherINF: Number,
+            OthernumINF: Number,
+            otherTOT: Number,
+            otherCoin: String,
           };
+
+          if (k == 0) {
+            otherInfo.isPrimeiro = 1;
+          }
 
           otherInfo.otherName = safe.otherName[k];
           otherInfo.otherADT = safe.otherADT[k];
+          otherInfo.OthernumADT = safe.OthernumADT[k];
           otherInfo.otherCHD = safe.otherCHD[k];
+          otherInfo.OthernumCHD = safe.OthernumCHD[k];
           otherInfo.otherINF = safe.otherINF[k];
+          otherInfo.OthernumINF = safe.OthernumINF[k];
           otherInfo.otherTOT = safe.otherTOT[k];
+          otherInfo.otherCoin = safe.otherCoin[k];
+          otherInfo.repNum = (k+1);
+
+          outros++;
 
           allOthers.push(otherInfo);
         }
 
-        res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allSafes, allOthers, allTickets});
+        safesInfoToFunctions.insurance = insurance;
+        safesInfoToFunctions.ticket = ticket;
+        safesInfoToFunctions.outros = outros;
+
+        res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allSafes, allOthers, allTickets, safesInfoToFunctions});
       }).catch((error) => {
           console.log(error);
           res.redirect('/error');
