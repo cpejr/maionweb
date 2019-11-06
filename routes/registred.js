@@ -79,27 +79,39 @@ router.get('/pageC/:budget_id', function(req, res) {
   Budget.getById(req.params.budget_id).then((budget) => {
 
     const allScripts = [];
+    const dayToFunctions = {
+      day: Number
+    }
+
+    var day = 1;
 
     console.log(req.session);
           for (var i = 0; i < budget.planCountry.length; i++) {
 
             const script = {
+              repNum: Number,
+
               planDate: Date,
               planCity: String,
               planCountry: String,
               planFreeField: String
             };
 
+            script.repNum = (i+1);
             script.planDate = budget.planDate[i];
             script.planCity = budget.planCity[i];
             script.planCountry = budget.planCountry[i];
             script.planFreeField = budget.planFreeField[i]
 
+            day++;
+
             allScripts.push(script);
             // console.log(allScripts.countryName);
           }
 
-    res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, budget, allScripts});
+          dayToFunctions.day = day;
+
+    res.render('registred/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, budget, allScripts, dayToFunctions});
 }).catch((error) => {
     console.log(error);
     res.redirect('/error');
