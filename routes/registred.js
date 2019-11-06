@@ -346,13 +346,27 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
       Hotel.getById(budget.hotels).then((hotel) => {
 
         const allHotels = [];
+        const hotelsInfoToFunctions = {
+          hotels: Number,
+        };
+        var hotels = 1;
 
         for (var i = 0; i < hotel.hotel1.length; i++) {
           const hotelsInfo = {
+            isPrimeiro: Number,
+            numHotels: Number,
+
             city: String,
+            coin: String,
+            acomodationType1: String,
+            acomodationType2: String,
+            acomodationType3: String,
             hotel1: String,
             hotel2: String,
             hotel3: String,
+            qntd1: String,
+            qntd2: String,
+            qntd3: String,
             valueApt1: Number,
             valueApt2: Number,
             valueApt3: Number,
@@ -365,20 +379,32 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
             total1: Number,
             total2: Number,
             total3: Number,
-            category1: String,
-            category2: String,
-            category3: String,
             food1: String,
             food2: String,
             food3: String,
+            category1: String,
+            category2: String,
+            category3: String,
             cancellationPeriod:String,
             cancellationPeriod2:String,
             cancellationPeriod3:String
           };
+
+          if (i == 0) {
+            hotelsInfo.isPrimeiro = 1;
+          }
+
           hotelsInfo.city = hotel.city[i];
+          hotelsInfo.coin = hotel.coin[i];
+          hotelsInfo.acomodationType1 = hotel.acomodationType1[i];
+          hotelsInfo.acomodationType2 = hotel.acomodationType2[i];
+          hotelsInfo.acomodationType3 = hotel.acomodationType3[i];
           hotelsInfo.hotel1 = hotel.hotel1[i];
           hotelsInfo.hotel2 = hotel.hotel2[i];
           hotelsInfo.hotel3 = hotel.hotel3[i];
+          hotelsInfo.qntd1 = hotel.qntd1[i];
+          hotelsInfo.qntd2 = hotel.qntd2[i];
+          hotelsInfo.qntd3 = hotel.qntd3[i];
           hotelsInfo.valueApt1 = hotel.valueApt1[i];
           hotelsInfo.valueApt2 = hotel.valueApt2[i];
           hotelsInfo.valueApt3 = hotel.valueApt3[i];
@@ -391,19 +417,25 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
           hotelsInfo.total1 = hotel.total1[i];
           hotelsInfo.total2 = hotel.total2[i];
           hotelsInfo.total3 = hotel.total3[i];
-          hotelsInfo.category1 = hotel.category1[i];
-          hotelsInfo.category2 = hotel.category2[i];
-          hotelsInfo.category3 = hotel.category3[i];
           hotelsInfo.food1 = hotel.food1[i];
           hotelsInfo.food2  = hotel.food2[i];
           hotelsInfo.food3 = hotel.food3[i];
+          hotelsInfo.category1 = hotel.category1[i];
+          hotelsInfo.category2 = hotel.category2[i];
+          hotelsInfo.category3 = hotel.category3[i];
           hotelsInfo.cancellationPeriod = hotel.cancellationPeriod[i];
           hotelsInfo.cancellationPeriod2 = hotel.cancellationPeriod2[i];
           hotelsInfo.cancellationPeriod3 = hotel.cancellationPeriod3[i];
+          hotelsInfo.numHotels = (i+1);
+
+          hotels++;
 
           allHotels.push(hotelsInfo);
         }
-        res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, allHotels});
+
+        hotelsInfoToFunctions.hotels = hotels;
+
+        res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, allHotels, hotelsInfoToFunctions});
       }).catch((error) => {
           console.log(error);
           res.redirect('/error');

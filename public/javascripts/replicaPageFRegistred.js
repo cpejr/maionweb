@@ -32,7 +32,7 @@ $('#prev_traslado').on('click', function() {
     trasladoToReplica = parseInt(document.getElementById(`get2`).value);
     firstclick++;
 
-    savedNumTraslado = trasladoToReplica;
+    savedNumTraslado = trasladoToReplica-1;
     numCar = carsToReplica-1;
   }
 
@@ -50,7 +50,7 @@ $('#nxt_traslado').on('click', function() {
     trasladoToReplica = parseInt(document.getElementById(`get2`).value);
     firstclick++;
 
-    savedNumTraslado = trasladoToReplica;
+    savedNumTraslado = trasladoToReplica-1;
     numCar = carsToReplica-1;
   }
 
