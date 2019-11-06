@@ -53,9 +53,70 @@ router.get('/pageRegistred', function (req, res) {
 
 
 /* GET pageA. */
-router.get('/pageA', function(req, res, next) {
+router.get('/pageA/:client_id', function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
-    res.render('registred/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
+
+    const allFamily = [];
+    const allCompanions = [];
+    const clientInfoToFunctions = {
+      family: Number,
+      companions: Number,
+    };
+    var family = 1;
+    var companions = 1;
+
+    for (var i = 0; i < client.children.length; i++) {
+      const familyInfo = {
+        repNum: Number,
+
+        children: String,
+        birthDateChildren: Date,
+        childrenPassport: String,
+        childrenPassportValidation: String,
+      };
+
+      familyInfo.children = client.children[i];
+      familyInfo.birthDateChildren = client.birthDateChildren[i];
+      familyInfo.childrenPassport = client.childrenPassport[i];
+      familyInfo.childrenPassportValidation = client.childrenPassportValidation[i];
+      familyInfo.repNum = (i+1);
+
+      family++;
+
+      allFamily.push(familyInfo);
+    }
+
+    for (var j = 0; j < client.companionFullname.length; j++) {
+      const companionsInfo = {
+        repNum: Number,
+
+        companionFullname: String,
+        companionEmail: String,
+        companionCellphone: String,
+        companionPassport: String,
+        companionPassportValidation: String,
+      };
+
+      companionsInfo.companionFullname = client.companionFullname[j];
+      companionsInfo.companionEmail = client.companionEmail[j];
+      companionsInfo.companionCellphone = client.companionCellphone[j];
+      companionsInfo.companionPassport = client.companionPassport[j];
+      companionsInfo.companionPassportValidation = client.companionPassportValidation[j];
+      companionsInfo.repNum = (j+1);
+
+      companions++;
+
+      allCompanions.push(companionsInfo);
+    }
+
+    clientInfoToFunctions.family = family;
+    clientInfoToFunctions.companions = companions;
+    console.log('-------');
+    console.log(client.children.length);
+    console.log(client.companionFullname.length);
+    console.log(client);
+
+    res.render('registred/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard', clientInfoToFunctions, allCompanions, allFamily, client});
   }).catch((error) => {
       console.log(error);
       res.redirect('/error');
@@ -1238,9 +1299,9 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
 /*POST pageA*/
-router.post('/pageA',(req,res) => {
+router.post('/pageA/:client_id',(req,res) => {
   const  client  = req.body.client;
-  Client.update(client).then((client_id) => {
+  Client.update(req.params.client_id, client).then(() => {
     res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);
