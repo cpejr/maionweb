@@ -6,74 +6,155 @@
   <div class="dinamic_spec">
       <h1>File</h1>
     <div class="form-group">
-      <input type="text" name="budget[codFile]" placeholder="Código File" class="form-control" required="required">
+      <input type="text" name="budget[codFile]" placeholder="Código File" class="form-control" required="required" value="{{codeFile}}">
     </div>
-
-    <!-- <div class="">
-        <div class="row country_row">
-
-          <div class="col-2 no_padding">
-            <div class="header">
-              <button type="button" name="button" id="button_day_original" class="add_buttons"> +Cidades </button>
-              <button type="button" name="button" id="add_country" class="add_buttons"> +países </button>
-              <button type="button" name="button" id="increasing" class="move add_buttons"> país anterior </button>
-              <button type="button" name="button" id="decreasing" class="move add_buttons"> próximo país </button>
-            </div>
-          </div>
-
-          <div class="col-sm no_padding">
-            <div class="parent" id="button_space">
-              <div id="in_country_days1" class="testeReplicaBox Selected">
-                <div class="days_input">
-                  <input placeholder="Nome do país" class="form-control" name="budget[country]"></input>
-                </div>
-                <div class="days_input">
-                  <input placeholder="Aeroporto de ída" class="form-control" name="budget[airportGo]"></input>
-                  <input placeholder="Aeroporto de chegada" class="form-control" name="budget[airportReturn]"></input>
-                </div>
-                <div class="days_input">
-                  <input placeholder="data de ída" class="form-control" name="budget[goDate]"></input>
-                  <input placeholder="data de chegada" class="form-control" name="budget[returnDate]"></input>
-                  <div class="days_input">
-                    <input placeholder="Nome da cidade" class="form-control" name="budget[cities]">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div> -->
-
-    <!-- bloco país-cidade/fim -->
     <div class="dinamic_spec_pagec">
-    <h1>Roteiro:</h1>
-  <div id="testedacamila" class="rowclass">
-    <div class="container rowclass">
-      <div class="row rowclass marginPageC">
-        <div class="col-sm-auto ">
-          Dia 1
+      <h1>Roteiro:</h1>
+        <div class="container rowclass">
+          <div class="row rowclass marginPageC">
+            <div class="col-sm-auto-pageC rowclass">
+              Dia 1
+            </div>
+            <div class="col-sm-auto-pageC rowclass">
+              <input type="date" placeholder="dd/mm/aa" name="budget[planDate]" class= "form-control classCinput2">
+            </div>
+            <div class="col-sm-auto-pageC rowclass">
+              <input placeholder="Cidade" name="budget[planCity]" class= "form-control classCinput2">
+            </div>
+            <div class="col-sm-auto-pageC rowclass">
+              <input placeholder="País" name="budget[planCountry]" class= "form-control classCinput2">
+            </div>
+          </div><br>
+          <div class="form-group ">
+            <textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3"></textarea>
+          </div>
         </div>
-        <div class="col-sm-auto">
-          <input type="date" placeholder="Data" name="planDate" class= "date start-date form-control classCinput">
-        </div>
-        <div class="col-sm-auto">
-          <input placeholder="País" name="planCountry" class= "form-control classCinput2">
-        </div>
-        <div class="col-sm-auto">
-          <input placeholder="Cidade" name="planCity"class= "form-control classCinput2">
-        </div>
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" name="planFreeField" placeholder="Campo Livre" rows="3"></textarea>
-      </div>
     </div>
-  </div>
+    <div id="testedacamila" class="rowclass">
+    </div>
     <button type="button" class="add_buttons" id="add_dias"> + Dias</button><br><br>
-  </div>
 
     <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
   </div>
+  <!-- Esse bloco serve pra inializar campos numéricos com 0's, pra garantir que não vai ter nenhum erro nos flow até que eles sejam alterados pelo usuário -->
+  <div class="invDiv">
+    <!-- PageD - início -->
+    <input type="number" name="flight[escalas]" value="0" class="invDiv">
+
+      <!--Adulto-->
+      <input name="flight[tariffValueAdult_FirstClass]" type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueAdult_FirstClass]" type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueAdult_FirstClass]" type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueAdult_FirstClass]" input type="text" name="total"  placeholder="Total ADT" class="valor"/ value="0">
+      <input name="flight[numADT_FirstClass]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+
+      <!--Criança-->
+      <input name="flight[tariffValueCHD_FirstClass]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueCHD_FirstClass]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueCHD_FirstClass]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueCHD_FirstClass]"  input type="text" name="total"  placeholder="Total CHD" class="valor"/ value="0">
+      <input name="flight[numCHD_FirstClass]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+
+      <!--Bebê-->
+      <input name="flight[tariffValueInf_FirstClass]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueInf_FirstClass]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueInf_FirstClass]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueInf_FirstClass]"  sinput type="text" name="total"  placeholder="Total INF" class="valor"/ value="0">
+      <input name="flight[numINF_FirstClass]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+
+      <!--Adulto-->
+      <input name="flight[tariffValueAdult_Executive]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueAdult_Executive]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueAdult_Executive]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueAdult_Executive]"  input type="text" name="total"  placeholder="Total ADT" class="valor"/ value="0">
+      <input name="flight[numADT_Executive]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+
+      <!--Criança-->
+      <input name="flight[tariffValueCHD_Executive]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueCHD_Executive]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueCHD_Executive]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueCHD_Executive]"  input type="text" name="total"  placeholder="Total CHD" class="valor"/ value="0">
+      <input name="flight[numCHD_Executive]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+
+      <!--Bebê-->
+      <input name="flight[tariffValueInf_Executive]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueInf_Executive]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueInf_Executive]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueInf_Executive]"  sinput type="text" name="total"  placeholder="Total INF" class="valor"/ value="0">
+      <input name="flight[numINF_Executive]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+
+      <!--Adulto-->
+      <input name="flight[tariffValueAdult_Economic]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueAdult_Economic]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueAdult_Economic]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueAdult_Economic]"  input type="text" name="total"  placeholder="Total ADT" class="valor"/ value="0">
+      <input name="flight[numADT_Economic]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+
+      <!--Criança-->
+      <input name="flight[tariffValueCHD_Economic]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueCHD_Economic]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueCHD_Economic]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueCHD_Economic]"  input type="text" name="total"  placeholder="Total CHD" class="valor"/ value="0">
+      <input name="flight[numCHD_Economic]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+
+      <!--Bebê-->
+      <input name="flight[tariffValueInf_Economic]"  type="text" name="qty"  placeholder="Tarifa" class="valor"/ value="0">
+      <input name="flight[taxValueInf_Economic]"  type="text" name="qty"  placeholder="Embarque" class="valor"/ value="0">
+      <input name="flight[ravValueInf_Economic]"  type="text" name="qty"  placeholder="Emissão" class="valor"/ value="0">
+      <input name="flight[totalValueInf_Economic]"  sinput type="text" name="total"  placeholder="Total INF" class="valor"/ value="0"></input>
+      <input name="flight[numINF_Economic]" input type="text" name="total" placeholder="" class="valor"/ value="0">
+    <!-- PageD - fim -->
+
+
+    <!-- PageE -->
+    <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" id="vApto1">
+    <!-- PageE -->
+
+
+    <!-- PageF - início -->
+    <th colspan="2"><input name="car[valueADT]"  class="form-control" placeholder="ADT" value="0"></th>
+    <th colspan="2"><input name="car[valueADT]"  class="form-control" placeholder="ADT" value="0"></th>
+    <th colspan="2"><input name="car[valueADT]"  class="form-control" placeholder="ADT" value="0"></th>
+    <th colspan="2"><input name="car[numADT]"  class="form-control" placeholder="numADT" value="0"></th>
+    <th colspan="2"><input name="car[numCHD]"  class="form-control" placeholder="numCHD" value="0"></th>
+    <th colspan="2"><input name="car[numINF]"  class="form-control" placeholder="numINF" value="0"></th>
+    <input name="car[totalTranslado]"  class="form-control" placeholder="Total" value="0">
+    <!-- PageF - fim -->
+
+
+    <!-- PageG - início -->
+    <input name="safe[insuranceADT]" placeholder="Valor por adulto" type="text"  class="form-control" value="0">
+    <input name="safe[SafenumADT]" placeholder="Número de adultos" type="text" class="form-control form-control--width autorow" value="0">
+    <input name="safe[insuranceCHD]" placeholder="Valor por criança" type="text"  class="form-control" value="0">
+    <input name="safe[SafenumCHD]" placeholder="Número de crianças" type="text"  class="form-control form-control--width autorow" value="0">
+    <input name="safe[insuranceINF]" placeholder="Valor por bebê" type="text"  class="form-control" value="0">
+    <input name="safe[SafenumINF]" placeholder="Número de bebês" type="text"  class="form-control form-control--width autorow" value="0">
+    <input name="safe[insuranceTOT]" type="text" id="total1" class="form-control form-control--width" placeholder="Valor" value="0">
+
+    <input name="safe[ticketsADT]" placeholder="Valor por adulto" type="text"  class="form-control" value="0">
+    <input name="safe[TicketnumADT]" placeholder="Número de adultos" type="text" class="form-control form-control--width autorow" value="0">
+    <input name="safe[ticketsCHD]" placeholder="Valor por criança" type="text"  class="form-control" value="0">
+    <input name="safe[TicketnumCHD]" placeholder="Número de crianças" type="text"  class="form-control form-control--width autorow" value="0">
+    <input name="safe[ticketsINF]" placeholder="Valor por bebê" type="text"  class="form-control" value="0">
+    <input name="safe[TicketnumINF]" placeholder="Número de bebês" type="text"  class="form-control form-control--width autorow" value="0">
+    <input name="safe[ticketsTOT]" type="text"  class="form-control form-control--width" placeholder="Valor" value="0">
+
+    <input name="safe[otherADT]" placeholder="Valor por adulto" type="text"  class="form-control" value="0">
+    <input name="safe[OthernumADT]" placeholder="Número de adultos" type="text" class="form-control form-control--width autorow" value="0">
+    <input name="safe[otherCHD]" placeholder="Valor por criança" type="text"  class="form-control" value="0">
+    <input name="safe[OthernumCHD]" placeholder="Número de crianças" type="text"  class="form-control form-control--width autorow" value="0">
+    <input name="safe[otherINF]" placeholder="Valor por bebê" type="text"  class="form-control" value="0">
+    <input name="safe[OthernumINF]" placeholder="Número de bebês" type="text"  class="form-control form-control--width autorow" value="0">
+    <input name="safe[otherTOT]" type="text"  class="form-control form-control--width" placeholder="Valor" value="0">
+
+
 </form>
 
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
