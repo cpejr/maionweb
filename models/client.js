@@ -54,7 +54,7 @@ const clientSchema = new mongoose.Schema({
   spouseEmail: String,
 
 
-  
+
   //filhos
   children: [String],
   birthDateChildren: [Date],
@@ -83,7 +83,7 @@ const clientSchema = new mongoose.Schema({
   allergies: String,
 
   fullname: String,
-  birthDate: Date,
+  birthDate: String,
   birthDateSpouse: Date,
   birthDateCompanion: [Date],
 
