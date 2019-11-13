@@ -37,6 +37,11 @@ router.get('/forgot', (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
+/*Get da cadastro de novo usuario*/
+router.get('/newuser', (req, res)=>{
+  res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
+});
+
 // GET Logout Request
 router.get('/logout', (req,res) => {
   firebase.auth().signOut().then(() => {
