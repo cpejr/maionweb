@@ -112,9 +112,7 @@ router.get('/pageA/:client_id', function(req, res, next) {
     clientInfoToFunctions.family = family;
     clientInfoToFunctions.companions = companions;
     console.log('-------');
-    console.log(client.children.length);
-    console.log(client.companionFullname.length);
-    console.log(client);
+    console.log(client.funil);
 
     res.render('registred/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard', clientInfoToFunctions, allCompanions, allFamily, client});
   }).catch((error) => {
@@ -1302,6 +1300,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 router.post('/pageA/:client_id',(req,res) => {
   const  client  = req.body.client;
   Client.update(req.params.client_id, client).then(() => {
+    console.log('------');
+    console.log(client.funil);
     res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);
