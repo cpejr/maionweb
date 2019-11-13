@@ -15,7 +15,7 @@
         <div class="container rowclass">
           <div class="row rowclass marginPageC">
             <div class="col-sm-auto-pageC rowclass">
-              Dia 1
+              Dia {{repNum}}
             </div>
             <div class="col-sm-auto-pageC rowclass">
               <input type="date" placeholder="dd/mm/aa" name="budget[planDate]" value="{{planDate}}"class= "form-control classCinput2">
@@ -41,4 +41,8 @@
   </div>
 </form>
 
-<script type="text/javascript" src="/javascripts/replica.js">  </script>
+<div class="invDiv">
+  <input value="{{dayToFunctions.day}}" id="get1">
+</div>
+
+<script type="text/javascript" src="/javascripts/replicaPageCRegistred.js">  </script>

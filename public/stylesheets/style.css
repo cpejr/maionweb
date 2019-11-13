@@ -6398,6 +6398,15 @@ label {
   /*pages - fim*/
   /*PageG inicio*/ }
 
+.ticket_selected {
+  background-color: #f3ab85; }
+
+.insurance_selected {
+  background-color: #f3ab85; }
+
+.outros_selected {
+  background-color: #f3ab85; }
+
 .valor {
   margin-left: auto;
   margin-right: auto; }
@@ -6449,10 +6458,12 @@ label {
   padding: 1px; }
 
 .rowclass {
-  padding: 0;
-  /*PageG fim */ }
+  padding: 0; }
 
-.autorow {
+.classD {
+  margin-left: 350px; }
+
+*.autorow {
   margin-left: auto;
   margin-right: auto;
   /*PageG fim */ }
@@ -6598,20 +6609,39 @@ label {
   background-color: #C4694A;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  margin: 20px 0 20px 20px;
-  height: auto; }
+  margin: 20px 0 20px 0;
+  height: 1000px; }
 
 .box_hotel_midle {
   background-color: #C4694A;
   margin: 20px 0 20px 0;
-  height: auto; }
+  height: 1000px; }
 
 .box_hotel_right {
   background-color: #C4694A;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  margin: 20px 20px 20px 0;
-  height: auto; }
+  margin: 20px 0 20px 0;
+  height: 1000px; }
+
+.box_hotel_left_selected {
+  background-color: #f3ab85;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin: 20px 0 20px 0;
+  height: 1000px; }
+
+.box_hotel_midle_selected {
+  background-color: #f3ab85;
+  margin: 20px 0 20px 0;
+  height: 1000px; }
+
+.box_hotel_right_selected {
+  background-color: #f3ab85;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 20px 0 20px 0;
+  height: 1000px; }
 
 #landing-hotel-col1 {
   padding-right: 0; }
@@ -6628,20 +6658,18 @@ label {
   margin: 0;
   padding: 0; }
 
-.boxLeftPageF {
+.boxPageF {
   background-color: #C4694A;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  margin: 20px 0 20px 50px;
-  height: 420px;
+  border-radius: 8px;
+  margin: 20px;
+  height: 600px;
   padding: 2px; }
 
-.boxRightPageF {
-  background-color: #C4694A;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  margin: 20px 50px 20px 0;
-  height: 420px;
+.boxPageF_Selected {
+  background-color: #f3ab85;
+  border-radius: 8px;
+  margin: 20px;
+  height: 600px;
   padding: 2px; }
 
 .boxCarsPageF {

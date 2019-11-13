@@ -3,143 +3,663 @@
 <header class="login_page">
 </header>
 <form action="/registred/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
-  <div class="dinamic_spec">
     <h1> Serviços </h1>
+    <div class="rowclass">
+      <div class="form-group">
+        <label for="exampleInputPassword1">Nome do responsável:</label>
+        <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+      </div>
+      {{#each test3}}
+      <table class="col-12" id="companion--box">
+        <input value="{{name}}" class="companion--box companion--radius" readonly></input>
+      </table>
+      {{/each}}
+    </div>
 
+    <!-- Bloco de seguros - início-->
+    <div class="dinamic_spec">
     {{#each allSafes}}
-      <div class="row rowclass">
-        <div class="col-sm-auto rowclass" id="landing-seguro-col1">
-          <div class="boxLeftPageG">
-            <div class="form-group">
-              <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
-              <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control" value="{{insuranceName}}">
+      {{#compare isPrimeiro "1"}}
+      <div class="autorow">
+        <div class="boxPageG">
+          <div class="insurance_selected" id="boxSafe{{repNum}}">
+            <div class="autorow rowclass">
+              <h1 id="titleG" for="exampleInputPassword1">Seguro {{repNum}}:</h1>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Cobertura</label>
-              <input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control" value="{{insuranceCoverage}}">
+              <input name="safe[insuranceName]" value="{{insuranceName}}" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Adultos:</label>
-              <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" class="form-control" value="{{insuranceADT}}">
+              <input name="safe[insuranceCoverage]" value="{{insuranceCoverage}}" type="text" placeholder= "Cobertura do seguro" class="form-control">
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Crianças:</label>
-              <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" class="form-control" value="{{insuranceCHD}}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Infantos:</label>
-              <input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" class="form-control" value="{{insuranceINF}}">
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-auto rowclass" id="landing-seguro-col2">
-          <div class="boxRightPageG">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Nome do responsável:</label>
-              <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
-            </div>
-            <div class="form-check">
 
+            <div class="rowclass autorow">
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por adulto</th>
+                      <th colspan="1">Número de adultos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[insuranceADT]" placeholder="Valor por adulto" type="text" id="adt{{repNum}}val" onblur="calcSafe()" class="form-control" value="{{insuranceADT}}"></th>
+                      <th colspan="1"><input name="safe[SafenumADT]" placeholder="Número de adultos" type="text" id="adt{{repNum}}mult" onblur="calcSafe()"class="form-control form-control--width autorow" value="{{SafenumADT}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por criança</th>
+                      <th colspan="1">Número de crianças</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[insuranceCHD]" placeholder="Valor por criança" type="text" id="chd{{repNum}}val" onblur="calcSafe()" class="form-control" value="{{insuranceCHD}}"></th>
+                      <th colspan="1"><input name="safe[SafenumCHD]" placeholder="Número de crianças" type="text" id="chd{{repNum}}mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="{{SafenumCHD}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="8">Valor por bebê</th>
+                      <th colspan="1">Número de bebês</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="8"><input name="safe[insuranceINF]" placeholder="Valor por bebê" type="text" id="inf{{repNum}}val" onblur="calcSafe()" class="form-control" value="{{insuranceINF}}"></th>
+                      <th colspan="1"><input name="safe[SafenumINF]" placeholder="Número de bebês" type="text" id="inf{{repNum}}mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="{{SafenumINF}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="form-group col-md-3 valor">
-              <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
-              <input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor" value="{{insuranceTOT}}">
+
+            <div class="rowclass">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                    <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total de seguro:</label></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
+                        <option style = "color:red;">{{insuranceCoin}}</option>
+                        <option>$</option>
+                        <option>R$</option>
+                        <option>€</option>
+                      </select>
+                    </th>
+                    <th>
+                      <input name="safe[insuranceTOT]" type="text" id="total{{repNum}}" onblur="calcSafe()" class="form-control form-control--width" placeholder="Valor" value="{{insuranceTOT}}">
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+        <br><br>
       </div>
-    {{/each}}
+      {{else}}
+      <div class="autorow">
+        <div class="boxPageG">
+          <div class="" id="boxSafe{{repNum}}">
+            <div class="autorow rowclass">
+              <h1 id="titleG" for="exampleInputPassword1">Seguro {{repNum}}:</h1>
+            </div>
+            <div class="form-group">
+              <input name="safe[insuranceName]" value="{{insuranceName}}" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+            </div>
+            <div class="form-group">
+              <input name="safe[insuranceCoverage]" value="{{insuranceCoverage}}" type="text" placeholder= "Cobertura do seguro" class="form-control">
+            </div>
 
+            <div class="rowclass autorow">
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por adulto</th>
+                      <th colspan="1">Número de adultos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[insuranceADT]" placeholder="Valor por adulto" type="text" id="adt{{repNum}}val" onblur="calcSafe()" class="form-control" value="{{insuranceADT}}"></th>
+                      <th colspan="1"><input name="safe[SafenumADT]" placeholder="Número de adultos" type="text" id="adt{{repNum}}mult" onblur="calcSafe()"class="form-control form-control--width autorow" value="{{SafenumADT}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por criança</th>
+                      <th colspan="1">Número de crianças</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[insuranceCHD]" placeholder="Valor por criança" type="text" id="chd{{repNum}}val" onblur="calcSafe()" class="form-control" value="{{insuranceCHD}}"></th>
+                      <th colspan="1"><input name="safe[SafenumCHD]" placeholder="Número de crianças" type="text" id="chd{{repNum}}mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="{{SafenumCHD}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="8">Valor por bebê</th>
+                      <th colspan="1">Número de bebês</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="8"><input name="safe[insuranceINF]" placeholder="Valor por bebê" type="text" id="inf{{repNum}}val" onblur="calcSafe()" class="form-control" value="{{insuranceINF}}"></th>
+                      <th colspan="1"><input name="safe[SafenumINF]" placeholder="Número de bebês" type="text" id="inf{{repNum}}mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="{{SafenumINF}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rowclass">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                    <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total de seguro:</label></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
+                        <option style = "color:red;">{{insuranceCoin}}</option>
+                        <option>$</option>
+                        <option>R$</option>
+                        <option>€</option>
+                      </select>
+                    </th>
+                    <th>
+                      <input name="safe[insuranceTOT]" type="text" id="total{{repNum}}" onblur="calcSafe()" class="form-control form-control--width" placeholder="Valor" value="{{insuranceTOT}}">
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br><br>
+      </div>
+      {{/compare}}
+    {{/each}}
+    <div class="rowclass" id="landing-seguro-col1"><!-- Aqui que replica a primeira coluna -->
+    </div>
+    <button type="button" class="add_buttons" id="prev_seguro">Seguro anterior</button>
     <button type="button" class="add_buttons" id="add_seguros">+Seguros</button>
+    <button type="button" class="add_buttons" id="nxt_seguros">Próximo seguro</button>
+    </div>
+    <!-- Bloco de seguros - fim-->
+
     <br><br><br>
 
 
+    <!-- Bloco de tickets - início-->
+    <div class="dinamic_spec">
+      <div class="rowclass">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nome do responsável:</label>
+          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+        </div>
+        {{#each test3}}
+        <table class="col-12" id="companion--box">
+          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
+        </table>
+        {{/each}}
+      </div>
+    <h1>Tickets</h1>
     {{#each allTickets}}
-      <div class="row rowclass">
-        <div class="col-sm-auto rowclass" id="landing-ticket-col1">
-          <div class="boxLeftPageG">
-            <div class="form-group">
-              <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
-              <input name="safe[ticketsName]" type="text" placeholder= "" class="form-control" value="{{ticketsName}}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Adultos:</label>
-              <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" class="form-control" value="{{ticketsADT}}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Crianças:</label>
-              <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" class="form-control" value="{{ticketsCHD}}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Infantos:</label>
-              <input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" class="form-control" value="{{ticketsINF}}">
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-auto rowclass" id="landing-ticket-col2">
-          <div class="boxRightPageG">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Nome do responsável:</label>
-              <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
-            </div>
-            <div class="form-check">
+      {{#compare isPrimeiro "1"}}
+      <div class="autorow">
 
-           </div>
-            <div class="form-group col-md-3 valor">
-              <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
-              <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor" value="{{ticketsTOT}}">
+        <div class="boxPageG">
+          <div class="ticket_selected" id="boxTicket{{repNum}}">
+            <div class="autorow rowclass">
+              <h1 id="titleG" for="exampleInputPassword1">Ticket {{repNum}}:</h1>
+            </div>
+            <div class="form-group">
+              <input name="safe[ticketsName]" type="text" placeholder= "Qual é o ticket a ser comprado?" class="form-control" value="{{ticketsName}}">
+            </div>
+
+            <div class="rowclass autorow">
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por adulto</th>
+                      <th colspan="1">Número de adultos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[ticketsADT]" placeholder="Valor por adulto" type="text" id="adt{{repNum}}valTicket" onblur="calcTicket()" class="form-control" value="{{ticketsADT}}"></th>
+                      <th colspan="1"><input name="safe[TicketnumADT]" placeholder="Número de adultos" type="text" id="adt{{repNum}}multTicket" onblur="calcTicket()"class="form-control form-control--width autorow" value="{{TicketnumADT}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por criança</th>
+                      <th colspan="1">Número de crianças</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[ticketsCHD]" placeholder="Valor por criança" type="text" id="chd{{repNum}}valTicket" onblur="calcTicket()" class="form-control" value="{{ticketsCHD}}"></th>
+                      <th colspan="1"><input name="safe[TicketnumCHD]" placeholder="Número de crianças" type="text" id="chd{{repNum}}multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="{{TicketnumCHD}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="8">Valor por bebê</th>
+                      <th colspan="1">Número de bebês</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="8"><input name="safe[ticketsINF]" placeholder="Valor por bebê" type="text" id="inf{{repNum}}valTicket" onblur="calcTicket()" class="form-control" value="{{ticketsINF}}"></th>
+                      <th colspan="1"><input name="safe[TicketnumINF]" placeholder="Número de bebês" type="text" id="inf{{repNum}}multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="{{TicketnumINF}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rowclass">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                    <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total dos tickets:</label></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin]>
+                        <option style = "color:red;">{{ticketsCoin}}</option>
+                        <option>$</option>
+                        <option>R$</option>
+                        <option>€</option>
+                      </select>
+                    </th>
+                    <th>
+                      <input name="safe[ticketsTOT]" type="text" id="totalTicket{{repNum}}" onblur="calcTicket()" class="form-control form-control--width" placeholder="Valor" value="{{ticketsTOT}}">
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+        <br><br>
       </div>
-    {{/each}}
+      {{else}}
+      <div class="autorow">
 
-    <button type="button" class="add_buttons" id="add_ticket">+Ingressos</button>
+        <div class="boxPageG">
+          <div class="" id="boxTicket{{repNum}}">
+            <div class="autorow rowclass">
+              <h1 id="titleG" for="exampleInputPassword1">Ticket {{repNum}}:</h1>
+            </div>
+            <div class="form-group">
+              <input name="safe[ticketsName]" type="text" placeholder= "Qual é o ticket a ser comprado?" class="form-control" value="{{ticketsName}}">
+            </div>
+
+            <div class="rowclass autorow">
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por adulto</th>
+                      <th colspan="1">Número de adultos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[ticketsADT]" placeholder="Valor por adulto" type="text" id="adt{{repNum}}valTicket" onblur="calcTicket()" class="form-control" value="{{ticketsADT}}"></th>
+                      <th colspan="1"><input name="safe[TicketnumADT]" placeholder="Número de adultos" type="text" id="adt{{repNum}}multTicket" onblur="calcTicket()"class="form-control form-control--width autorow" value="{{TicketnumADT}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por criança</th>
+                      <th colspan="1">Número de crianças</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[ticketsCHD]" placeholder="Valor por criança" type="text" id="chd{{repNum}}valTicket" onblur="calcTicket()" class="form-control" value="{{ticketsCHD}}"></th>
+                      <th colspan="1"><input name="safe[TicketnumCHD]" placeholder="Número de crianças" type="text" id="chd{{repNum}}multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="{{TicketnumCHD}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="8">Valor por bebê</th>
+                      <th colspan="1">Número de bebês</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="8"><input name="safe[ticketsINF]" placeholder="Valor por bebê" type="text" id="inf{{repNum}}valTicket" onblur="calcTicket()" class="form-control" value="{{ticketsINF}}"></th>
+                      <th colspan="1"><input name="safe[TicketnumINF]" placeholder="Número de bebês" type="text" id="inf{{repNum}}multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="{{TicketnumINF}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rowclass">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                    <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total dos tickets:</label></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin] >
+                        <option style = "color:red;">{{ticketsCoin}}</option>
+                        <option>$</option>
+                        <option>R$</option>
+                        <option>€</option>
+                      </select>
+                    </th>
+                    <th>
+                      <input name="safe[ticketsTOT]" type="text" id="totalTicket{{repNum}}" onblur="calcTicket()" class="form-control form-control--width" placeholder="Valor" value="{{ticketsTOT}}">
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br><br>
+      </div>
+      {{/compare}}
+    {{/each}}
+    <div class="rowclass" id="landing-ticket"><!-- Aqui que replica a primeira coluna -->
+    </div>
+    <button type="button" class="add_buttons" id="prev_ticket">Ticket anterior</button>
+    <button type="button" class="add_buttons" id="add_tickets">+Tickets</button>
+    <button type="button" class="add_buttons" id="nxt_ticket">Próximo Ticket</button>
+  </div>
+  <!-- Bloco de tickets - fim-->
+
     <br><br><br>
 
 
-    {{#each allOthers}}
-      <div class="row rowclass">
-        <div class="col-sm-auto rowclass" id="landing-outros-col1">
-          <div class="boxLeftPageG">
-            <div class="form-group">
-              <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
-              <input name="safe[otherName]" type="text" placeholder= "" class="form-control" value="{{otherName}}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Adultos:</label>
-              <input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" class="form-control" value="{{otherADT}}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Crianças:</label>
-              <input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control" value="{{otherCHD}}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Infantos:</label>
-              <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control" value="{{otherINF}}">
-            </div>
-          </div>
+    <!-- Bloco de outros - início-->
+    <div class="dinamic_spec">
+      <h1>Outros</h1>
+      <div class="rowclass">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nome do responsável:</label>
+          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
         </div>
-        <div class="col-sm-auto rowclass" id="landing-outros-col2">
-          <div class="boxRightPageG">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Nome do responsável:</label>
-              <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
-            </div>
-            <div class="form-check">
-            </div>
-            <div class="form-group col-md-3 valor">
-              <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>
-              <input name="safe[otherTOT]" type="text" class="form-control value1" placeholder="Valor" value="{{otherTOT}}">
-            </div>
-          </div>
-        </div>
+        {{#each test3}}
+        <table class="col-12" id="companion--box">
+          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
+        </table>
+        {{/each}}
       </div>
-    {{/each}}
+    {{#each allOthers}}
+      {{#compare isPrimeiro "1"}}
+      <div class="autorow">
 
-    <button type="button" class="add_buttons" id="add_outros">+Outros</button>
+        <div class="boxPageG">
+          <div class="outros_selected" id="boxOther{{repNum}}">
+            <div class="autorow rowclass">
+              <h1 id="titleG" for="exampleInputPassword1">Outro {{repNum}}:</h1>
+            </div>
+            <div class="form-group">
+              <input name="safe[otherName]" type="text" placeholder= "Qual outro item deseja adicionar?" class="form-control" value="{{otherName}}">
+            </div>
+
+            <div class="rowclass autorow">
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por adulto</th>
+                      <th colspan="1">Número de adultos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[otherADT]" placeholder="Valor por adulto" type="text" id="adt{{repNum}}valOther" onblur="calcOther()" class="form-control" value="{{otherADT}}"></th>
+                      <th colspan="1"><input name="safe[OthernumADT]" placeholder="Número de adultos" type="text" id="adt{{repNum}}multOther" onblur="calcOther()"class="form-control form-control--width autorow" value="{{OthernumADT}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por criança</th>
+                      <th colspan="1">Número de crianças</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[otherCHD]" placeholder="Valor por criança" type="text" id="chd{{repNum}}valOther" onblur="calcOther()" class="form-control" value="{{otherCHD}}"></th>
+                      <th colspan="1"><input name="safe[OthernumCHD]" placeholder="Número de crianças" type="text" id="chd{{repNum}}multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="{{OthernumCHD}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="8">Valor por bebê</th>
+                      <th colspan="1">Número de bebês</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="8"><input name="safe[otherINF]" placeholder="Valor por bebê" type="text" id="inf{{repNum}}valOther" onblur="calcOther()" class="form-control" value="{{otherINF}}"></th>
+                      <th colspan="1"><input name="safe[OthernumINF]" placeholder="Número de bebês" type="text" id="inf{{repNum}}multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="{{OthernumINF}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rowclass">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                    <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total:</label></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin]>
+                        <option style = "color:red;">{{otherCoin}}</option>
+                        <option>$</option>
+                        <option>R$</option>
+                        <option>€</option>
+                      </select>
+                    </th>
+                    <th>
+                      <input name="safe[otherTOT]" type="text" id="totalOther{{repNum}}" onblur="calcOther()" class="form-control form-control--width" placeholder="Valor" value="{{otherTOT}}">
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br><br>
+      </div>
+      {{else}}
+      <div class="autorow">
+
+        <div class="boxPageG">
+          <div class="" id="boxOther{{repNum}}">
+            <div class="autorow rowclass">
+              <h1 id="titleG" for="exampleInputPassword1">Outro {{repNum}}:</h1>
+            </div>
+            <div class="form-group">
+              <input name="safe[otherName]" type="text" placeholder= "Qual outro item deseja adicionar?" class="form-control" value="{{otherName}}">
+            </div>
+
+            <div class="rowclass autorow">
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por adulto</th>
+                      <th colspan="1">Número de adultos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[otherADT]" placeholder="Valor por adulto" type="text" id="adt{{repNum}}valOther" onblur="calcOther()" class="form-control" value="{{otherADT}}"></th>
+                      <th colspan="1"><input name="safe[OthernumADT]" placeholder="Número de adultos" type="text" id="adt{{repNum}}multOther" onblur="calcOther()"class="form-control form-control--width autorow" value="{{OthernumADT}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="4">Valor por criança</th>
+                      <th colspan="1">Número de crianças</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="4"><input name="safe[otherCHD]" placeholder="Valor por criança" type="text" id="chd{{repNum}}valOther" onblur="calcOther()" class="form-control" value="{{otherCHD}}"></th>
+                      <th colspan="1"><input name="safe[OthernumCHD]" placeholder="Número de crianças" type="text" id="chd{{repNum}}multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="{{OthernumCHD}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="form-group">
+                <table class="autorow">
+                  <thead>
+                    <tr>
+                      <th colspan="8">Valor por bebê</th>
+                      <th colspan="1">Número de bebês</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th colspan="8"><input name="safe[otherINF]" placeholder="Valor por bebê" type="text" id="inf{{repNum}}valOther" onblur="calcOther()" class="form-control" value="{{otherINF}}"></th>
+                      <th colspan="1"><input name="safe[OthernumINF]" placeholder="Número de bebês" type="text" id="inf{{repNum}}multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="{{OthernumINF}}"></th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rowclass">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                    <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total:</label></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin]>
+                        <option style = "color:red;">{{otherCoin}}</option>
+                        <option>$</option>
+                        <option>R$</option>
+                        <option>€</option>
+                      </select>
+                    </th>
+                    <th>
+                      <input name="safe[otherTOT]" type="text" id="totalOther{{repNum}}" onblur="calcOther()" class="form-control form-control--width" placeholder="Valor" value="{{otherTOT}}">
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br><br>
+      </div>
+      {{/compare}}
+    {{/each}}
+    <div class="rowclass" id="landing-other"><!-- Aqui que replica a primeira coluna -->
+    </div>
+    <button type="button" class="add_buttons" id="prev_other">Outro anterior</button>
+    <button type="button" class="add_buttons" id="add_others">+Outros</button>
+    <button type="button" class="add_buttons" id="nxt_other">Próximo Outro</button>
   </div>
+  <!-- Bloco de outros - fim-->
+
   <br><br>
   <button type="submit" class="btn btn-primary" id="buttonPages">Próximo</button>
 </form>
-<script type="text/javascript" src="/javascripts/replica.js">  </script>
+<div class="invDiv">
+  <input value="{{safesInfoToFunctions.insurance}}" id="get1">
+  <input value="{{safesInfoToFunctions.ticket}}" id="get2">
+  <input value="{{safesInfoToFunctions.outros}}" id="get3">
+</div>
+<script type="text/javascript" src="/javascripts/replicaPageGRegistred.js">  </script>
+<script type="text/javascript" src="/javascripts/operationsPageGRegistred.js">  </script>

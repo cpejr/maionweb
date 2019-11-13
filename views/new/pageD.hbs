@@ -4,7 +4,19 @@
 </header>
 <form action="/new/pageD/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
   <h1> Aéreo </h1>
+
   <div class="dinamic_spec">
+    <div>
+     <h6> Passageiros </h6>
+     <br><br>
+     <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
+     <br><br>
+     {{#each test0}}
+     <table class="col-12" id="companion--box">
+         <input value="{{name}}" class="companion--box companion--radius" ></input>
+       </table>
+     {{/each}}
+   </div>
     <h1>Voo 1</h1>
     <div class="header Selected table-responsive" id=flight1>
       <table class="table table-striped table-hover" id="in_country_days1">
@@ -192,23 +204,9 @@
 
 <div class="no_padding" id="button_space">
 </div>
-
-<br><br>
 <div class="header">
-  <div class="row">
-    <div class="col-sm-6">
-      <h6> Passageiros </h6>
-      <br><br>
-      <input class="date start-date" placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
-      <br><br>
-      {{#each test0}}
-      <table class="col-12" id="companion--box">
-          <input value="{{name}}" class="companion--box companion--radius" ></input>
-        </table>
-      {{/each}}
-      <br><br>
-    </div>
-    <div class="col-sm-6">
+  <div class="row classD">
+    <div class="col-sm-auto">
       <button type="button" name="button" id="button_day_original" class="add_buttons"> +Escalas </button>
       <button type="button" name="button" id="add_country" class="add_buttons"> +Voos </button>
       <button type="button" name="button" id="decreasing" class="move add_buttons"> Voo Anterior</button>
@@ -216,7 +214,7 @@
     </div>
   </div>
 </div>
-<br><br><br>
+
 </div>
 <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
 </form>

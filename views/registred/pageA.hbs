@@ -3,40 +3,42 @@
 <header class="login_page">
   navbar
 </header>
-<form action="/registred/pageA" method="post" class="pagesFront">
+<form action="/registred/pageA/{{client._id}}" method="post" class="pagesFront">
+
+  <!-- Cadastro - início -->
   <div class="dinamic_spec">
     <h1> Cadastro </h1>
     <div class="container rowclass">
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" placeholder="Nome Completo">
+            <input type="fullname" name = "client[fullname]" value="{{client.fullname}}" class="form-control" id="fullname" placeholder="Nome Completo">
           </div><br>
           <div class="classa">
-            <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email">
+            <input type="email" name = "client[email]" value="{{client.email}}" class="form-control" id="email" placeholder="Email">
           </div><br>
           <div class="classa">
-            <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Confirme seu email">
+            <input type="email" name = "client[email1]" value="{{client.email1}}" class="form-control" id="email" placeholder="Confirme seu email">
           </div><br>
           <div class="classa">
-            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"   onkeypress="$(this).mask('000.000.000-00');">
+            <input type="register" name = "client[register]" value="{{client.register}}" class="form-control" id="register" placeholder="CPF"   onkeypress="$(this).mask('000.000.000-00');">
           </div><br>
           <div class="classa">
-            <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG">
+            <input type="id" name = "client[id]" value="{{client.id}}" class="form-control" id="id" placeholder="RG">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[birthDate]" class="form-control" id="birthDate" placeholder="Data de Nascimento">
+            <input type="fullname" name = "client[birthDate]" value="{{client.birthDate}}" class="form-control" id="birthDate" placeholder="Data de Nascimento">
           </div><br>
           <div class="classa">
-            <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onkeypress="$(this).mask('(00) 0000-0000')">
+            <input type="phone" name = "client[phone]" value="{{client.phone}}" class="form-control" id="phone" placeholder="Telefone Fixo"  onkeypress="$(this).mask('(00) 0000-0000')">
           </div><br>
           <div class="classa">
-            <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"   onkeypress="$(this).mask('(00) 90000-0000')">
+            <input type="cellphone" name = "client[cellphone]" value="{{client.cellphone}}" class="form-control" id="cellphone" placeholder="Celular"   onkeypress="$(this).mask('(00) 90000-0000')">
           </div><br>
           <div class="classa">
-            <input type="cellphone1" name = "client[cellphone1]" class="form-control" id="cellphone1" placeholder="Celular"  onkeypress="$(this).mask('(00) 90000-0000')">
+            <input type="cellphone1" name = "client[cellphone1]" value="{{client.cellphone1}}" class="form-control" id="cellphone1" placeholder="Celular"  onkeypress="$(this).mask('(00) 90000-0000')">
           </div><br>
         </div>
       </div>
@@ -45,27 +47,27 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[street]" class="form-control" id="street" placeholder="Rua/ Av./ etc">
+            <input type="fullname" name = "client[street]" value="{{client.street}}" class="form-control" id="street" placeholder="Rua/ Av./ etc">
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[neighbourhood]" class="form-control" id="neighbourhood" placeholder="Bairro">
-          </div><br>
-        </div>
-        <div class="col-sm pageA-padding">
-          <div class="classa">
-            <input type="fullname" name = "client[complement]" class="form-control" id="complement" placeholder="Complemento">
-          </div><br>
-          <div class="classa">
-            <input type="fullname" name = "client[city]" class="form-control" id="city" placeholder="Cidade">
+            <input type="fullname" name = "client[neighbourhood]" value="{{client.neighbourhood}}" class="form-control" id="neighbourhood" placeholder="Bairro">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[zipcode]" class="form-control" id="zipcode" placeholder="CEP">
+            <input type="fullname" name = "client[complement]" value="{{client.complement}}" class="form-control" id="complement" placeholder="Complemento">
+          </div><br>
+          <div class="classa">
+            <input type="fullname" name = "client[city]" value="{{client.city}}" class="form-control" id="city" placeholder="Cidade">
+          </div><br>
+        </div>
+        <div class="col-sm pageA-padding">
+          <div class="classa">
+            <input type="fullname" name = "client[zipcode]" value="{{client.zipcode}}" class="form-control" id="zipcode" placeholder="CEP">
           </div><br>
           <div class="classa">
             <select name="client[state]" class="form-control">
-              <option style="display:none">Selecione: Estado</option>
+              <option style = "color:red;">{{client.state}}</option>
               <option>AC</option>
               <option>AL</option>
               <option>AP</option>
@@ -103,7 +105,7 @@
         <div class="col-sm pageA-padding">
           <div class="classa">
             <select name="client[maritalStatus]" class="form-control">
-              <option style="display:none">Selecione: Estado Civil</option>
+              <option style = "color:red;">{{client.maritalStatus}}</option>
               <option>Casado</option>
               <option>Solteiro</option>
               <option>Viuvo</option>
@@ -128,95 +130,110 @@
       </div>
     </div>
   </div>
+  <!-- Cadastro - fim -->
+
+
+  <!-- Família - fim -->
   <div class="dinamic_spec">
-    <div id="familypageA">
       <h1>Família</h1>
       <div class="container rowclass">
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="spouseName" name = "client[spouseName]" class="form-control" id="spouseName" placeholder="Cônjuge">
+              <input type="spouseName" name = "client[spouseName]" value="{{client.spouseName}}" class="form-control" id="spouseName" placeholder="Cônjuge">
             </div><br>
             <div class="classa">
-              <input type="email" name = "client[spouseEmail]" class="form-control" id="email" placeholder="Email">
+              <input type="email" name = "client[spouseEmail]" value="{{client.spouseEmail}}" class="form-control" id="email" placeholder="Email">
             </div><br>
             <div class="classa">
-              <input type="profession2" name = "client[spouseProfession]" class="form-control" id="profession2" placeholder="Profissão">
+              <input type="profession2" name = "client[spouseProfession]" value="{{client.spouseProfession}}" class="form-control" id="profession2" placeholder="Profissão">
             </div><br>
             <div class="classa">
-              <input type="phoneFamily" name = "client[phoneFamily]" class="form-control" id="phoneFamily" placeholder="Telefone Fixo"  onkeypress="$(this).mask('(00) 0000-0000')">
+              <input type="phoneFamily" name = "client[phoneFamily]" value="{{client.phoneFamily}}" class="form-control" id="phoneFamily" placeholder="Telefone Fixo"  onkeypress="$(this).mask('(00) 0000-0000')">
             </div><br>
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="fullname" name = "client[birthDateSpouse]" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento">
+              <input type="fullname" name = "client[birthDateSpouse]" value="{{client.birthDateSpouse}}" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[spousePassport]" class="form-control" id="spousePassport" placeholder="Passaporte">
+              <input type="fullname" name = "client[spousePassport]" value="{{client.spousePassport}}" class="form-control" id="spousePassport" placeholder="Passaporte">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[spousePassportValidation]" class="form-control" id="spousePassportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="6" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="fullname" name = "client[spousePassportValidation]" value="{{client.spousePassportValidation}}" class="form-control" id="spousePassportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="6" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
         </div>
       </div>
       <div class="container rowclass">
-        <div class="row rowclass">
-          <div class="col-sm pageA-padding">
-            <div class="classa">
-              <input type="sondaughter" name = "client[children]" class="form-control" id="children" placeholder="Filho/a">
-            </div><br>
-            <div class="classa">
-              <input type="fullname" name = "client[birthDateChildren]" class="form-control" id="birthDateChildren" placeholder="Data de Nascimento">
-            </div><br>
-          </div>
+        {{#each allFamily}}
+          <div class="row rowclass">
+            <div class="col-sm pageA-padding">
+              <div class="classa">
+                <input type="sondaughter" name = "client[children]" value="{{children}}" class="form-control" id="children" placeholder="Filho/a">
+              </div><br>
+              <div class="classa">
+                <input type="fullname" name = "client[birthDateChildren]" value="{{birthDateChildren}}" class="form-control" id="birthDateChildren" placeholder="Data de Nascimento">
+              </div><br>
+            </div>
 
-          <div class="col-sm pageA-padding">
-            <div class="classa">
-              <input type="fullname" name = "client[childrenPassport]" class="form-control" id="childrenPassport" placeholder="Passaporte">
-            </div><br>
-            <div class="classa">
-              <input type="fullname" name = "client[childrenPassportValidation]" class="form-control" id="childrenPassportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="6" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
-            </div><br>
+            <div class="col-sm pageA-padding">
+              <div class="classa">
+                <input type="fullname" name = "client[childrenPassport]" value="{{childrenPassport}}" class="form-control" id="childrenPassport" placeholder="Passaporte">
+              </div><br>
+              <div class="classa">
+                <input type="fullname" name = "client[childrenPassportValidation]" value="{{childrenPassportValidation}}" class="form-control" id="childrenPassportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="6" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              </div><br>
+            </div>
           </div>
-        </div>
+        {{/each}}
       </div>
+    <div id="familypageA">
     </div>
     <button type="button" class="add_buttons" id="add-filhos">+ Filhos</button>
   </div>
+  <!-- Família - fim -->
 
+
+  <!-- Acompanhantes - início -->
   <div class="dinamic_spec">
-    <div id="acompanhantespageA">
+
       <h1> Acompanhantes </h1>
+      {{#each allCompanions}}
       <div class="container rowclass">
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="fullname" name = "client[companionFullname]" class="form-control" id="companionFullname" placeholder="Nome Completo">
+              <input type="fullname" name = "client[companionFullname]" value="{{companionFullname}}" class="form-control" id="companionFullname" placeholder="Nome Completo">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[companionEmail]" class="form-control" id="companionEmail" placeholder="Email">
+              <input type="fullname" name = "client[companionEmail]" value="{{companionEmail}}" class="form-control" id="companionEmail" placeholder="Email">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[companionCellphone]" class="form-control" id="companionCellphone" placeholder="Celular">
+              <input type="fullname" name = "client[companionCellphone]" value="{{companionCellphone}}" class="form-control" id="companionCellphone" placeholder="Celular">
             </div><br>
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="fullname" name = "client[birthDateCompanion]" class="form-control" id="birthDateCompanion" placeholder="Data de Nascimento">
+              <input type="fullname" name = "client[birthDateCompanion]" value="{{birthDateCompanion}}" class="form-control" id="birthDateCompanion" placeholder="Data de Nascimento">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[companionPassport]" class="form-control" id="companionPassport" placeholder="Passaporte">
+              <input type="fullname" name = "client[companionPassport]" value="{{companionPassport}}" class="form-control" id="companionPassport" placeholder="Passaporte">
             </div><br>
             <div class="classa">
-              <input type="fullname" name = "client[companionPassportValidation]" class="form-control" id="companionPassportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="6" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="fullname" name = "client[companionPassportValidation]" value="{{companionPassportValidation}}" class="form-control" id="companionPassportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="6" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
         </div>
       </div>
+      {{/each}}
+    <div id="acompanhantespageA">
     </div>
-    <button type="button" class="add_buttons" id="add-companion">+ Acompanhantes</button>
+  <button type="button" class="add_buttons" id="add-companion">+ Acompanhantes</button>
   </div>
+  <!-- Acompanhantes - fim -->
+
+  <!-- Redes sociais - início -->
   <div class="dinamic_spec">
     <h1>Redes Sociais</h1>
     <div class="container rowclass">
@@ -224,7 +241,7 @@
         <div class="col-sm pageA-padding">
           <div class="classa">
             <select name="client[funil]" class="form-control">
-              <option style="display:none">Selecione: Funil Vendas</option>
+              <option style = "color:red;">{{client.funil}}</option>
               <option>Instagram</option>
               <option>Facebook</option>
               <option>Email</option>
@@ -234,21 +251,28 @@
             </select>
           </div>
           <div class="classa">
-            <input type="facebook" name = "client[facebook]" class="form-control" id="facebook" placeholder="Facebook">
+            <input type="facebook" name = "client[facebook]" value="{{client.facebook}}" class="form-control" id="facebook" placeholder="Facebook">
           </div>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="instagram" name = "client[instagram]" class="form-control" id="instagram" placeholder="Instagram">
+            <input type="instagram" name = "client[instagram]" value="{{client.instagram}}" class="form-control" id="instagram" placeholder="Instagram">
           </div>
           <div class="classa">
-            <input type="others" name = "client[others]" class="form-control" id="others" placeholder="Outros">
+            <input type="others" name = "client[others]" value="{{client.others}}" class="form-control" id="others" placeholder="Outros">
           </div>
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="buttonPages">Próximo</button>
   </div>
+  <!-- Redes sociais - fim -->
+
+  <button type="submit" class="btn btn-primary" id="buttonPages">Próximo</button>
 </form>
-<script type="text/javascript" src="/javascripts/replica.js">  </script>
+
+<div class="invDiv">
+  <input value="{{clientInfoToFunctions.family}}" id="get1">
+  <input value="{{clientInfoToFunctions.companions}}" id="get2">
+</div>
+<script type="text/javascript" src="/javascripts/replicaPageARegistred.js">  </script>
 <script type="text/javascript" src="/javascripts/formInputs.js">  </script>

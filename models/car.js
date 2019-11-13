@@ -8,21 +8,24 @@ const carSchema = new mongoose.Schema({
     timeFrom: [String],
     dateTo: [String],
     timeTo: [String],
-    valueADT: [String],
-    valueCHD: [String],
-    valueINF: [String],
+    valueADT: [Number],
+    numADT:[Number],
+    valueCHD: [Number],
+    numCHD:[Number],
+    valueINF: [Number],
+    numINF:[Number],
     totalTranslado: [Number],
     coinT: [String],
 
-    coinC: [String],
+    typeCar: [String],
     withdrawal: [String],
-    others: [String],
     delivery: [String],
     totalCar: [Number],
     city: [String],
-    typeCar: [String],
     shift:[String],
-    safe: [String]
+    safe: [String],
+    coinC: [String],
+    others: [String],
 
 
 }, { timestamps: true, static: false });

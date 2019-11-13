@@ -2,141 +2,360 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
-<form action="/prospection/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
-  <div class="dinamic_spec">
-    <h1> Serviços </h1>
-    <div class="row rowclass">
-      <div class="col-sm-auto rowclass" id="landing-seguro-col1">
-        <div class="boxLeftPageG">
+<form action="/new/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
+
+  <h1> Serviços </h1>
+  <!-- Bloco de seguros - início-->
+  <div class="dinamic_spec rowclass">
+      <div class="rowclass">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nome do responsável:</label>
+          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+        </div>
+        {{#each test3}}
+        <table class="col-12" id="companion--box">
+          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
+        </table>
+        {{/each}}
+      </div>
+    <div class="autorow">
+
+      <div class="boxPageG">
+        <div class="Selected" id="boxSafe1">
+          <div class="autorow rowclass">
+            <h1 id="titleG" for="exampleInputPassword1">Seguro 1:</h1>
+          </div>
           <div class="form-group">
-            <label id="titleG" for="exampleInputPassword1">Seguro 1:</label>
             <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Cobertura</label>
             <input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control">
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[insuranceADT]" type="text" placeholder= "Preço por adulto" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[insuranceCHD]" type="text" placeholder= "Preço por criança" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[insuranceINF]" type="text" placeholder= "Preço por infatos" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-auto rowclass" id="landing-seguro-col2">
-        <div class="boxRightPageG">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" class="form-control" value="{{client.fullname}}" readonly="readonly">
-          </div>
-          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-              {{client.companionFullname}}
-            </label>
-          </div>
-          <div class="form-group col-md-3 valor">
-            <label class="value1" for="exampleInputPassword1">Valor total de seguro:</label>
-            <input name="safe[insuranceTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
-          </div>
-        </div>
-      </div>
-    </div>
-    <button type="button" class="add_buttons" id="add_seguros">+Seguros</button>
-    <br><br><br>
 
-    <div class="row rowclass">
-      <div class="col-sm-auto rowclass" id="landing-ticket-col1">
-        <div class="boxLeftPageG">
-          <div class="form-group">
-            <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos 1:</label>
-            <input name="safe[ticketsName]" type="text" placeholder= "" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[ticketsADT]" type="text" placeholder= "Preço por adulto" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[ticketsCHD]" type="text" placeholder= "Preço por criança" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[ticketsINF]" type="text" placeholder= "Preço por infatos" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-auto rowclass" id="landing-ticket-col2">
-        <div class="boxRightPageG">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
-          </div>
-          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox"   id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1" >{{client.companionFullname}}</label>
-          </div>
-          <div class="form-group col-md-3 valor">
-            <label class="value1" for="exampleInputPassword1">Valor total de Ingressos:</label>
-            <input name="safe[ticketsTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
-          </div>
-        </div>
-      </div>
-    </div>
-    <button type="button" class="add_buttons" id="add_ticket">+Ingressos</button>
-    <br><br><br>
+          <div class="rowclass autorow">
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="4">Valor por adulto</th>
+                    <th colspan="1">Número de adultos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="4"><input name="safe[insuranceADT]" placeholder="Valor por adulto" type="text" id="adt1val" onblur="calcSafe()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[SafenumADT]" placeholder="Número de adultos" type="text" id="adt1mult" onblur="calcSafe()"class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-    <div class="row rowclass">
-      <div class="col-sm-auto rowclass" id="landing-outros-col1">
-        <div class="boxLeftPageG">
-          <div class="form-group">
-            <label id="titleG" for="exampleInputPassword1">Outros 1:</label>
-            <input name="safe[otherName]" type="text" placeholder= "" class="form-control">
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="4">Valor por criança</th>
+                    <th colspan="1">Número de crianças</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="4"><input name="safe[insuranceCHD]" placeholder="Valor por criança" type="text" id="chd1val" onblur="calcSafe()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[SafenumCHD]" placeholder="Número de crianças" type="text" id="chd1mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="8">Valor por bebê</th>
+                    <th colspan="1">Número de bebês</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="8"><input name="safe[insuranceINF]" placeholder="Valor por bebê" type="text" id="inf1val" onblur="calcSafe()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[SafenumINF]" placeholder="Número de bebês" type="text" id="inf1mult" onblur="calcSafe()" class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Adultos:</label>
-            <input name="safe[otherADT]" type="text" placeholder= "Preço por adulto" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Crianças:</label>
-            <input name="safe[otherCHD]" type="text" placeholder= "Preço por criança" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Infantos:</label>
-            <input name="safe[otherINF]" type="text" placeholder= "Preço por infatos" class="form-control">
+
+          <div class="rowclass">
+            <table class="autorow">
+              <thead>
+                <tr>
+                  <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                  <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total de seguro:</label></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>
+                    <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
+                      <option style="display:none">Moeda:</option>
+                      <option>$</option>
+                      <option>R$</option>
+                      <option>€</option>
+                    </select>
+                  </th>
+                  <th>
+                    <input name="safe[insuranceTOT]" type="text" id="total1" onblur="calcSafe()" class="form-control form-control--width" placeholder="Valor" value="0">
+                  </th>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      <div class="col-sm-auto rowclass" id="landing-outros-col2">
-        <div class="boxRightPageG">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Nome do responsável:</label>
-            <input type="text" placeholder= "" value="{{client.fullname}}" class="form-control" readonly="readonly">
-          </div>
-          <label for="exampleInputPassword1">Selecione os acompanhantes</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">{{client.companionFullname}}</label>
-          </div>
-          <div class="form-group col-md-3 valor">
-            <label class="value1" for="exampleInputPassword1">Valor total de outros:</label>
-            <input name="safe[otherTOT]" type="text" class="form-control value1" placeholder="Valor (R$)">
-          </div>
-        </div>
+      <br><br>
+      <div class="rowclass" id="landing-seguro-col1"><!-- Aqui que replica a primeira coluna -->
       </div>
+      <button type="button" class="add_buttons" id="prev_seguro">Seguro anterior</button>
+      <button type="button" class="add_buttons" id="add_seguros">+Seguros</button>
+      <button type="button" class="add_buttons" id="nxt_seguros">Próximo seguro</button>
     </div>
-    <button type="button" class="add_buttons" id="add_outros">+Outros</button>
   </div>
-  <br><br>
+  <!-- Bloco de seguros - fim-->
+  <br><br><br>
+
+
+  <!-- Bloco de tickets - início-->
+  <div class="dinamic_spec rowclass">
+      <div class="rowclass">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nome do responsável:</label>
+          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+        </div>
+        {{#each test3}}
+        <table class="col-12" id="companion--box">
+          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
+        </table>
+        {{/each}}
+      </div>
+    <div class="autorow">
+
+      <div class="boxPageG">
+        <div class="Selected" id="boxTicket1">
+          <div class="autorow rowclass">
+            <h1 id="titleG" for="exampleInputPassword1">Ticket 1:</h1>
+          </div>
+          <div class="form-group">
+            <input name="safe[ticketsName]" type="text" placeholder= "Qual é o ticket a ser comprado?" class="form-control">
+          </div>
+
+          <div class="rowclass autorow">
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="4">Valor por adulto</th>
+                    <th colspan="1">Número de adultos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="4"><input name="safe[ticketsADT]" placeholder="Valor por adulto" type="text" id="adt1valTicket" onblur="calcTicket()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[TicketnumADT]" placeholder="Número de adultos" type="text" id="adt1multTicket" onblur="calcTicket()"class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="4">Valor por criança</th>
+                    <th colspan="1">Número de crianças</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="4"><input name="safe[ticketsCHD]" placeholder="Valor por criança" type="text" id="chd1valTicket" onblur="calcTicket()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[TicketnumCHD]" placeholder="Número de crianças" type="text" id="chd1multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="8">Valor por bebê</th>
+                    <th colspan="1">Número de bebês</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="8"><input name="safe[ticketsINF]" placeholder="Valor por bebê" type="text" id="inf1valTicket" onblur="calcTicket()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[TicketnumINF]" placeholder="Número de bebês" type="text" id="inf1multTicket" onblur="calcTicket()" class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="rowclass">
+            <table class="autorow">
+              <thead>
+                <tr>
+                  <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                  <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total dos tickets:</label></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>
+                    <select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin] >
+                      <option style="display:none">Moeda:</option>
+                      <option>$</option>
+                      <option>R$</option>
+                      <option>€</option>
+                    </select>
+                  </th>
+                  <th>
+                    <input name="safe[ticketsTOT]" type="text" id="totalTicket1" onblur="calcTicket()" class="form-control form-control--width" placeholder="Valor" value="0">
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="rowclass" id="landing-ticket"><!-- Aqui que replica a primeira coluna -->
+      </div>
+      <button type="button" class="add_buttons" id="prev_ticket">Ticket anterior</button>
+      <button type="button" class="add_buttons" id="add_tickets">+Tickets</button>
+      <button type="button" class="add_buttons" id="nxt_ticket">Próximo Ticket</button>
+    </div>
+  </div>
+  <!-- Bloco de tickets - fim-->
+  <br><br><br>
+
+
+  <!-- Bloco de outros - início-->
+  <div class="dinamic_spec rowclass">
+      <div class="rowclass">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Nome do responsável:</label>
+          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+        </div>
+        {{#each test3}}
+        <table class="col-12" id="companion--box">
+          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
+        </table>
+        {{/each}}
+      </div>
+    <div class="autorow">
+
+      <div class="boxPageG">
+        <div class="Selected" id="boxOther1">
+          <div class="autorow rowclass">
+            <h1 id="titleG" for="exampleInputPassword1">Outro 1:</h1>
+          </div>
+          <div class="form-group">
+            <input name="safe[otherName]" type="text" placeholder= "Qual outro item deseja adicionar?" class="form-control">
+          </div>
+
+          <div class="rowclass autorow">
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="4">Valor por adulto</th>
+                    <th colspan="1">Número de adultos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="4"><input name="safe[otherADT]" placeholder="Valor por adulto" type="text" id="adt1valOther" onblur="calcOther()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[OthernumADT]" placeholder="Número de adultos" type="text" id="adt1multOther" onblur="calcOther()"class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="4">Valor por criança</th>
+                    <th colspan="1">Número de crianças</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="4"><input name="safe[otherCHD]" placeholder="Valor por criança" type="text" id="chd1valOther" onblur="calcOther()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[OthernumCHD]" placeholder="Número de crianças" type="text" id="chd1multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-group">
+              <table class="autorow">
+                <thead>
+                  <tr>
+                    <th colspan="8">Valor por bebê</th>
+                    <th colspan="1">Número de bebês</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="8"><input name="safe[otherINF]" placeholder="Valor por bebê" type="text" id="inf1valOther" onblur="calcOther()" class="form-control" value="0"></th>
+                    <th colspan="1"><input name="safe[OthernumINF]" placeholder="Número de bebês" type="text" id="inf1multOther" onblur="calcOther()" class="form-control form-control--width autorow" value="0"></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="rowclass">
+            <table class="autorow">
+              <thead>
+                <tr>
+                  <th><label class="form-control--width autorow">Qual Moeda Utilizada:</label></th>
+                  <th><label class="form-control--width autorow" for="exampleInputPassword1">Valor total:</label></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>
+                    <select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin] >
+                      <option style="display:none">Moeda:</option>
+                      <option>$</option>
+                      <option>R$</option>
+                      <option>€</option>
+                    </select>
+                  </th>
+                  <th>
+                    <input name="safe[otherTOT]" type="text" id="totalOther1" onblur="calcOther()" class="form-control form-control--width" placeholder="Valor" value="0">
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="rowclass" id="landing-other"><!-- Aqui que replica a primeira coluna -->
+      </div>
+      <button type="button" class="add_buttons" id="prev_other">Outro anterior</button>
+      <button type="button" class="add_buttons" id="add_others">+Outros</button>
+      <button type="button" class="add_buttons" id="nxt_other">Próximo Outro</button>
+    </div>
+  </div>
+  <!-- Bloco de outros - fim-->
+  <br><br><br>
+
   <button type="submit" class="btn btn-primary" id="buttonPages">Próximo</button>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
+<script type="text/javascript" src="/javascripts/operations.js">  </script>
