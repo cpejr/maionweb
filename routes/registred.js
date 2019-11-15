@@ -21,12 +21,14 @@ router.get('/PagePersonal/:client_id', function (req, res) {
         codFile: String,
         planDate: String,
         finalized: String,
+        client:  String,
       };
 
       budget._id = budgets[i]._id;
       budget.codFile = budgets[i].codFile;
       budget.planDate = budgets[i].planDate[0];
       budget.finalized = budgets[i].finalized;
+      budget.client = budgets[i].client;
 
       allBudgets.push(budget);
 
@@ -1580,12 +1582,14 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
 router.post('/PagePersonal/:budget_id',(req, res) => {
   const budget_id = req.params.budget_id;
   Budget.getById(budget_id).then((budget) => {
+    const return_page_personal = budget.client;
     Flight.delete(budget.flights).then(() => {
       Hotel.delete(budget.hotels).then(() => {
         Car.delete(budget.cars).then(() => {
           Safe.delete(budget.safes).then(() => {
             Budget.delete(budget_id).then(() => {
-              res.render(`dashboard`, {title: 'Personal', layout: 'layoutDashboard',...req.session});
+              res.redirect(`${return_page_personal}`);
+              // res.render(`registred/PagePersonal/${return_page_personal}`, {title: 'Personal', layout: 'layoutDashboard',...req.session});
             }).catch((error) => {
               console.log(error);
               res.redirect('error');

@@ -7,7 +7,7 @@ const clientSchema = new mongoose.Schema({
 
   register: { //CPF
     type: String,
-    //unique: false
+    unique: true
   },
 
   //phone
@@ -54,7 +54,7 @@ const clientSchema = new mongoose.Schema({
   spouseEmail: String,
 
 
-  
+
   //filhos
   children: [String],
   birthDateChildren: [Date],
