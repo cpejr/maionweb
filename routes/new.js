@@ -758,12 +758,16 @@ router.post('/pageA',(req,res) => {
       //console.log(client);
       res.redirect(`/new/pageB/${client_id}`);
     }).catch((error) => {
-      //console.log(error);
-      res.redirect('error');
-    });
-  // } else {
-  //   res.redirect('/new/pageA');
-  // }
+    console.log(error);
+    console.log('------------------------');
+    console.log(error.code);
+    console.log('------------------------');
+    if (error.code == '11000') {
+      req.flash('danger', 'CPF já cadastrado!');
+      console.log('ta entrando no case do CPF');
+    }
+    res.redirect('/new/pageA');
+  });
 });
 
 /*POST pageB*/
@@ -791,6 +795,10 @@ router.post('/pageC/:client_id',(req,res) => {
   req.session.car = car;
   const  safe = req.body.safe;
   req.session.safe = safe;
+  const motherClient = {
+    client: String,
+  };
+  motherClient.client = client_id;
   Budget.create(budget).then((budget_id) => {
     Client.addBudget(client_id, budget_id).then(() => {
       Budget.motherClient(budget_id, client_id).then(() => {
@@ -802,7 +810,12 @@ router.post('/pageC/:client_id',(req,res) => {
                   Budget.addCar(budget_id, car_id).then(() => {
                     Safe.create(safe).then((safe_id) => {
                       Budget.addSafe(budget_id, safe_id).then(() => {
-                        res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+                        Budget.update(budget_id, motherClient).then(() => {
+                          res.redirect(`/new/pageD/${client_id}/${budget_id}`);
+                        }).catch((error) =>{
+                          console.log(error);
+                          res.redirect('error');
+                        });
                       }).catch((error) =>{
                         //console.log(error);
                         res.redirect('error');
@@ -933,7 +946,6 @@ router.post('/pageH/:client_id/:budget_id', (req,res) => {
   };
   budget.finalized = 'Concluída';
   Budget.update(budget_id, budget).then(() => {
-    //console.log('chegou aqui no update');
     res.redirect('/dashboard');
   }).catch((error) => {
     //console.log(error);
