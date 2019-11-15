@@ -6458,10 +6458,12 @@ label {
   padding: 1px; }
 
 .rowclass {
-  padding: 0;
-  /*PageG fim */ }
+  padding: 0; }
 
-.autorow {
+.classD {
+  margin-left: 350px; }
+
+*.autorow {
   margin-left: auto;
   margin-right: auto;
   /*PageG fim */ }
@@ -6946,7 +6948,13 @@ label {
   text-align: left; }
 
 .imgs--margin {
-  margin-top: -100px; }
+  margin-top: -100px;
+  border-right: 2px dotted;
+  border-bottom: 2px dotted;
+  border-top: 2px dotted;
+  border-left: 2px dotted;
+  border-color: black;
+  border-radius: 8px; }
 
 .ajustes_new {
   height: auto;
@@ -6966,7 +6974,8 @@ label {
 .traslado_flex {
   display: flex;
   justify-content: flex-start;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-around; }
 
 .textos {
   color: black;
@@ -6979,7 +6988,8 @@ label {
 .servicos_flex {
   display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: space-between; }
 
 .caixatotalS {
   border-right: 2px dotted;
@@ -7003,7 +7013,6 @@ label {
 
 .caixatotal--break {
   page-break-after: always;
-  page-break-before: always;
   padding: 0px; }
 
 .textos--caixa {
@@ -7011,8 +7020,92 @@ label {
   margin-left: auto;
   margin-right: auto; }
 
+.cor {
+  color: black; }
+
+.textosR {
+  color: black;
+  height: 30px;
+  border-width: 1px;
+  border-color: black;
+  text-align: center;
+  border-radius: 5px;
+  width: auto; }
+
+.textosCL {
+  color: black;
+  height: 100px;
+  border-width: 1px;
+  border-color: black; }
+
+.dias-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; }
+
+.roteiro-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -50px; }
+
+.form-control--cor {
+  color: black;
+  border-width: 1px;
+  border-color: black;
+  text-align: center;
+  border-radius: 5px; }
+
+.botoes_flex {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 300px;
+  margin-left: -150px; }
+
+.btn-fake--cursor:hover {
+  cursor: pointer; }
+
+@media print {
+  .botoes_flex {
+    display: none; }
+  .voos--print {
+    margin-top: 300px; }
+  .hotel--print {
+    margin-top: 200px; }
+  .carros--print {
+    margin-top: 300px; }
+  .roteiro--print {
+    margin-top: 100px; } }
+
+.roteiro-flex--table {
+  display: table;
+  page-break-inside: avoid; }
+
+.caixatotalR {
+  border-right: 2px dotted;
+  border-bottom: 2px dotted;
+  border-top: 2px dotted;
+  border-left: 2px dotted;
+  border-color: black;
+  border-radius: 8px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 0px; }
+
 /*FIM NEW PAGE H*/
+
 .letter-collor {
   color: black; }
+
+/* INICIO CADASTRO NOVO USUARIO*/
+.pagesFront-pagtoda {
+  height: 44em; }
+
+/* fim CADASTRO NOVO USUARIO*/
+
 
 /*# sourceMappingURL=style.css.map */
