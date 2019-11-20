@@ -2,22 +2,30 @@
 <header class="login_page">
 
 </header>
-<form action="/new/pageA" method="post" class="pagesFront pagesFront-pagtoda">
+<form action="/newuser" method="post" class="pagesFront pagesFront-pagtoda">
   <div class="dinamic_spec">
     <h1> Cadastro Novo Funcionário </h1>
     <div class="classa">
-      <input type="fullname" name = "new_email" class="form-control newcadas" id="fullname" placeholder="Email">
+      <input type="fullname" name = "user[email]" class="form-control form-control--size" id="fullname" placeholder="Email">
     </div><br>
     <div class="classa">
-      <input type="fullname" name = "password" class="form-control newcadas" id="fullname" placeholder="Senha">
+      <input type="password" name = "user[password]" class="form-control form-control--size" id="fullname" placeholder="Senha">
     </div><br>
     <div class="classa">
-      <input type="fullname" name = "confirmPassword" class="form-control newcadas" id="fullname" placeholder="Confirmar senha">
+      <input type="password" name = "confirmPassword" class="form-control form-control--size" id="fullname" placeholder="Confirmar senha">
+    </div><br>
+    <div class="classa">
+      <select placeholder="Selecione" class="form-control form-control--size" name=user[userType] >
+        <option style="display:none">Tipo de usuário</option>
+        <option>Adm</option>
+        <option>Com</option>
+      </select>
     </div><br>
   </div>
   <br>
-    <button type="button" class="add_buttons" id="" >Admin</button>
-      <button type="button" class="add_buttons" id="" >Comum</button>
+
+
+    <button type="submit" name="" class="btn-fake btn-fake--singup">Sign Up</button>
     <br><br><br><br><br><br><br>
   </form>
   <footer class="login_page">
