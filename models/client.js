@@ -7,7 +7,7 @@ const clientSchema = new mongoose.Schema({
 
   register: { //CPF
     type: String,
-    //unique: false
+    unique: true
   },
 
   //phone

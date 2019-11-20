@@ -7097,6 +7097,10 @@ label {
   margin-left: 0px; }
 
 /*FIM NEW PAGE H*/
+
+.letter-collor {
+  color: black; }
+
 /* INICIO CADASTRO NOVO USUARIO*/
 .pagesFront-pagtoda {
   height: 44em; }
@@ -7113,5 +7117,6 @@ label {
   background-color: rgba(243, 171, 133, 0.6); }
 
 /* fim CADASTRO NOVO USUARIO*/
+
 
 /*# sourceMappingURL=style.css.map */
