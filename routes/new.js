@@ -3625,6 +3625,9 @@ router.get('/newpageH/:client_id/:budget_id', function(req, res) {
                                                  valorApto1: String,
                                                  valorApto2: String,
                                                  valorApto3: String,
+                                                 qntP1: String,
+                                                 qntP2: String,
+                                                 qntP3: String,
                                                  numeroDiarias1: String,
                                                  numeroDiarias2: String,
                                                  numeroDiarias3: String,
@@ -3658,6 +3661,9 @@ router.get('/newpageH/:client_id/:budget_id', function(req, res) {
                                                    valorApto1: String,
                                                    valorApto2: String,
                                                    valorApto3: String,
+                                                   qntP1: String,
+                                                   qntP2: String,
+                                                   qntP3: String,
                                                    numeroDiarias1: String,
                                                    numeroDiarias2: String,
                                                    numeroDiarias3: String,
@@ -3691,6 +3697,9 @@ router.get('/newpageH/:client_id/:budget_id', function(req, res) {
                                                  hoteis.valorapto1 = hotels.valueApt1[i];
                                                  hoteis.valorapto2 = hotels.valueApt2[i];
                                                  hoteis.valorapto3 = hotels.valueApt3[i];
+                                                 hoteis.qntP1 = hotels.qntd1[i];
+                                                 hoteis.qntP2 = hotels.qntd2[i];
+                                                 hoteis.qntP3 = hotels.qntd3[i];
                                                  hoteis.numeroDiarias1 = hotels.numberDaily1[i];
                                                  hoteis.numeroDiarias2 = hotels.numberDaily2[i];
                                                  hoteis.numeroDiarias3 = hotels.numberDaily3[i];
@@ -3900,6 +3909,7 @@ router.get('/newpageH/:client_id/:budget_id', function(req, res) {
                                                 traslado.valorInfT = cars.valueINF[i];
                                                 traslado.numero = t;
 
+
                                                 infoTraslado.push(traslado);
 
 
@@ -4003,8 +4013,7 @@ router.get('/newpageH/:client_id/:budget_id', function(req, res) {
                                                 infoTraslado2.push(traslado);
                                                 //console.log("@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@_@");
                                               //  console.log(infoTraslado2);
-
-
+                                      
 
                                             }else if (i<6) {
 
@@ -4505,7 +4514,7 @@ router.get('/newpageH/:client_id/:budget_id', function(req, res) {
                                                 traslado.valorChdT7 = cars.valueCHD[i];
                                                 traslado.valorInfT7 = cars.valueINF[i];
                                                 traslado.numero7 = t;
-                                                infoTraslado6.push(traslado);
+                                                infoTraslado7.push(traslado);
 
 
                                               }

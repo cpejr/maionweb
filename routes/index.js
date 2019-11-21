@@ -145,9 +145,9 @@ router.post('/newuser', (req,res,next) =>{
 
   console.log(user);
   firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then((firebase) => {
+    user.uid = firebase.user.uid;
     User.create(user).then((user_id)=>{
            console.log(firebase.user.uid);
-            user.uid = firebase.user.uid;
             console.log(user.uid);
             console.log(firebase);
             console.log(user.email);
