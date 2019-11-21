@@ -954,7 +954,13 @@
               <label>Período de Cancelamento</label>
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento1}}">
             </input>
+          </div><br>
+            <label>Nome dos integrantes:</label>
+            {{#each qntP1}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
             </div>
+            {{/each}}
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col2">
@@ -1000,7 +1006,13 @@
               <label>Período de Cancelamento:</label>
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento2}}">
             </input>
+          </div><br>
+            <label>Nome dos integrantes:</label>
+            {{#each qntP2}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
             </div>
+            {{/each}}
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col3">
@@ -1042,12 +1054,18 @@
               <label>Periodo de Cancelamento</label>
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento3}}">
             </input>
-            </div>
+          </div><br>
+            <label>Nome dos integrantes:</label>
+            {{#each qntP3}}
+
+              <input class="form-control textos" placeholder=""></input>
+
+            {{/each}}
           </div>
         </div>
       </div>
       </div>
-        </div>
+    </div><br>
       {{/each}}
     </div>
     <!-- observacoes fim -->
@@ -1055,7 +1073,7 @@
 
 <!-- traslado -->
       <div class="pageH_dinamic_spec ">
-
+      {{#compare traslado.moedaT undefined}}
         <div class="break-after">
                 {{#each infoTraslado}}
                 <div class="caixatotal">
@@ -1110,9 +1128,9 @@
           </div><br>
             {{/each}}
           </div>
+          {{/compare}}
 
-
-
+          {{#compare traslado.moedaT2 undefined}}
           <div class="break-after">
                   {{#each infoTraslado2}}
                   <div class="caixatotal">
@@ -1167,8 +1185,9 @@
             </div><br>
               {{/each}}
             </div>
+            {{/compare}}
 
-            {{#compare infoTraslado3 null}}
+            {{#compare traslado.moedaT3 undefined}}
             <div class="break-after">
                     {{#each infoTraslado3}}
                     <div class="caixatotal">
@@ -1225,7 +1244,7 @@
               </div>
               {{/compare}}
 
-              {{#compare infoTraslado4 null}}
+              {{#compare traslado.moedaT4 undefined}}
               <div class="break-after">
                       {{#each infoTraslado4}}
                       <div class="caixatotal">
@@ -1282,7 +1301,7 @@
                 </div>
                 {{/compare}}
 
-                {{#compare infoTraslado5 null}}
+                {{#compare traslado.moedaT5 undefined}}
                 <div class="break-after">
                         {{#each infoTraslado5}}
                         <div class="caixatotal">
@@ -1339,7 +1358,7 @@
                   </div>
                   {{/compare}}
 
-                  {{#compare infoTraslado6 null}}
+                  {{#compare traslado.moedaT6 undefined}}
                   <div class="break-after">
                           {{#each infoTraslado6}}
                           <div class="caixatotal">
@@ -1396,7 +1415,7 @@
                     </div>
                     {{/compare}}
 
-                    {{#compare infoTraslado7 null}}
+                    {{#compare traslado.moedaT7 undefined}}
                     <div class="break-after">
                             {{#each infoTraslado7}}
                             <div class="caixatotal">
