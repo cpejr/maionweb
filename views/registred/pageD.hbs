@@ -50,8 +50,9 @@
         <th colspan="4"><input type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control"/></th>
         <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control"/></th>
         <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"/></th>
+        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"/>
         <input type="number" name="flight[escalas]" value="0" class="invDiv">
+        </th>
       </tr>
 
       {{else}}
@@ -62,8 +63,9 @@
         <th colspan="4"><input type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control"/></th>
         <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control"/></th>
         <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"/></th>
+        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"/>
         <input type="number" name="flight[escalas]" value="1" class="invDiv">
+        </th>
       </tr>
 
     {{/compare}}
@@ -221,12 +223,18 @@
               </tr>
             </table>
           </div>
-          <select placeholder="Selecione" class="form-control" name=flight[coin] required>
+          <select placeholder="Selecione" class="form-control" name=flight[coin] >
             <option style = "color:red;">{{coin}}</option>
             <option>$</option>
             <option>R$</option>
             <option>€</option>
           </select>
+        </div>
+        <br>
+        <div class="rowclass">
+          <label>Apagar?</label>
+          <input type="radio" name="flight[deleting] type{{idTable2}}" value="1" onclick="return confirm('Deseja mesmo excluir o voo {{idTable2}} ?')">Sim</input>
+          <input type="radio" name="flight[deleting] type{{idTable2}}" value="0" checked>Não</input>
         </div>
       </div>
       {{/compare}}
