@@ -766,6 +766,9 @@ router.post('/pageA',(req,res) => {
       req.flash('danger', 'CPF já cadastrado!');
       console.log('ta entrando no case do CPF');
     }
+    else {
+      req.flash('danger', 'Erro desconhecido');
+    }
     res.redirect('/new/pageA');
   });
 });

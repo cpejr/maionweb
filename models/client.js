@@ -57,7 +57,7 @@ const clientSchema = new mongoose.Schema({
 
   //filhos
   children: [String],
-  birthDateChildren: [Date],
+  birthDateChildren: [String],
   childrenPassport: [String],
   childrenPassportValidation: [String],
 
@@ -84,8 +84,8 @@ const clientSchema = new mongoose.Schema({
 
   fullname: String,
   birthDate: String,
-  birthDateSpouse: Date,
-  birthDateCompanion: [Date],
+  birthDateSpouse: String,
+  birthDateCompanion: [String],
 
 
 

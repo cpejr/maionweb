@@ -135,13 +135,15 @@ function calcularInf_FirstClass(){
     document.getElementById(`infResult${ainfRes_FirstClass}_FirstClass`).value = infVal1_FirstClass + infVal2_FirstClass + infVal3_FirstClass;
 }
 
-var atotalRes = 1;
-function total(){
-  var total1 = parseInt(document.getElementById(`adtResult${aadtRes}`).value);
-  var total2 = parseInt(document.getElementById(`chdResult${achdRes}`).value);
-  var total3 = parseInt(document.getElementById(`infResult${ainfRes}`).value);
-  document.getElementById(`totalResult${atotalRes}`).value = total1 + total2 + total3;
-}
+// var atotalRes = 1;
+// function total(){
+//   var total1 = parseInt(document.getElementById(`adtResult${aadtRes}`).value);
+//   var total2 = parseInt(document.getElementById(`chdResult${achdRes}`).value);
+//   var total3 = parseInt(document.getElementById(`infResult${ainfRes}`).value);
+//   document.getElementById(`chdResult${atotalRes}`).value = total1 + total2 + total3;
+// }
+
+
 
 
 // Soma do executivo
@@ -165,6 +167,8 @@ function calcularInf_Executive(){
     var infVal3_Executive = parseInt(document.getElementById(`inf${ainfNum3_Executive}_Executive`).value);
     document.getElementById(`infResult${ainfRes_Executive}_Executive`).value = infVal1_Executive + infVal2_Executive + infVal3_Executive;
 }
+
+
 
 
 // Soma do econômico
@@ -245,6 +249,8 @@ $('#add_country').on('click', function() {
     savedAinfNum2_Economic = ageId2Operation;
     savedAinfNum3_Economic = ageId3Operation;
     savedAinfRes_Economic = (ageId3Operation/3);
+
+    anumVoo = (ageId3Operation/3);
   }
 
   else {//Caso não seja a primeira vez apertando um botão, as atribuições já terão sido feitas, então, devemos tratar os saves de outras maneiras
@@ -315,7 +321,6 @@ $('#add_country').on('click', function() {
   ainfNum3_FirstClass = savedAinfNum3_FirstClass;
   ainfRes_FirstClass = savedAinfRes_FirstClass;
 
-
   // Executivo
   aadtNum1_Executive = savedAadtNum1_Executive;
   aadtNum2_Executive = savedAadtNum2_Executive;
@@ -331,7 +336,6 @@ $('#add_country').on('click', function() {
   ainfNum2_Executive = savedAinfNum2_Executive;
   ainfNum3_Executive = savedAinfNum3_Executive;
   ainfRes_Executive = savedAinfRes_Executive;
-
 
   // Econômico
   aadtNum1_Economic = savedAadtNum1_Economic;
@@ -358,11 +362,6 @@ $('#decreasing').on('click', function() {
     ageId2Operation = parseInt(document.getElementById(`get2`).value);
     ageId3Operation = parseInt(document.getElementById(`get3`).value);
     afirstclick++;
-
-    console.log('=--------------');
-    console.log(ageId1Operation);
-    console.log(ageId2Operation);
-    console.log(ageId3Operation);
 
     // Atribui os valores dos maiores blocos às variáveis que salvam o maior conjunto criado
     // Primeira classe saved
@@ -413,6 +412,7 @@ $('#decreasing').on('click', function() {
     savedAinfNum2_Economic = ageId2Operation - 3;
     savedAinfNum3_Economic = ageId3Operation - 3;
     savedAinfRes_Economic = (ageId3Operation/3) - 1;
+    anumVoo = (ageId3Operation/3) - 1;
   }
   if (aflight > 1) {
     aflight--;
@@ -466,16 +466,13 @@ $('#decreasing').on('click', function() {
 });
 
 $('#increasing').on('click', function(){
+  console.log(aflight);
+  console.log(anumVoo);
   if (afirstclick == 0) {
     ageId1Operation = parseInt(document.getElementById(`get1`).value);
     ageId2Operation = parseInt(document.getElementById(`get2`).value);
     ageId3Operation = parseInt(document.getElementById(`get3`).value);
     afirstclick++;
-
-    console.log('=--------------');
-    console.log(ageId1Operation);
-    console.log(ageId2Operation);
-    console.log(ageId3Operation);
 
     // Atribui os valores dos maiores blocos às variáveis que salvam o maior conjunto criado
     // Primeira classe saved
@@ -526,8 +523,9 @@ $('#increasing').on('click', function(){
     savedAinfNum2_Economic = ageId2Operation - 3;
     savedAinfNum3_Economic = ageId3Operation - 3;
     savedAinfRes_Economic = (ageId3Operation/3) - 1;
+    anumVoo = (ageId3Operation/3) - 1;
   }
-  if (aflight < anumVoo) {
+  if (aflight < anumVoo - 1) {
     aflight++;
     aadtNum1_FirstClass = aadtNum1_FirstClass + 3;
     aadtNum2_FirstClass = aadtNum2_FirstClass + 3;
