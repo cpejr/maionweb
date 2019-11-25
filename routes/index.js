@@ -137,5 +137,36 @@ router.get('/logout', (req, res, next) => {
   });
 
 
+//POST NOVO USUARIO
+
+router.post('/newuser', (req,res,next) =>{
+  const user = req.body.user;
+  const user_id = req.params.user_id;
+
+  console.log(user);
+  firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then((firebase) => {
+    user.uid = firebase.user.uid;
+    User.create(user).then((user_id)=>{
+           console.log(firebase.user.uid);
+            console.log(user.uid);
+            console.log(firebase);
+            console.log(user.email);
+            console.log(user.password);
+            res.redirect('/dashboard');
+
+          }).catch(function(error) {
+            console.log(error);
+            res.redirect('/error');
+          });
+
+      }).catch(function(error) {
+      console.log(error);
+      res.redirect('/error');
+  });
+
+
+});
+
+
 
 module.exports = router;
