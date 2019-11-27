@@ -217,6 +217,7 @@
     <div class="pageH_dinamic_spec" >
 
                 <h1 class="cor">Roteiro:</h1>
+
                 <div class="caixatotal--break">
                       {{#each dias}}
                       <div class="roteiro-flex roteiro-flex--table caixatotalR">
@@ -239,10 +240,11 @@
                         </div>
                   </div><br>
                     {{/each}}
-                </div>
+                  </div>
+
                 <div class="caixatotal--break">
                     {{#each dias2}}
-                    <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+                    <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
                     <div class="col-sm-auto-pageC rowclass">
                       <h3 class="cor">Dia {{numero2}}</h3>
                     </div>
@@ -263,10 +265,11 @@
                 </div><br>
                   {{/each}}
                 </div>
+
                 {{#compare dias3 null}}
                 <div class="caixatotal--break">
                   {{#each dias3}}
-                  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+                  <div class="roteiro-flex roteiro-flex--table caixatotalR   ">
                   <div class="col-sm-auto-pageC rowclass">
                     <h3 class="cor">Dia {{numero3}}</h3>
                   </div>
@@ -284,7 +287,7 @@
                     <div class="form-group campo-livre">
                       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre3}}</textarea>
                     </div>
-              </div>
+              </div><br>
                 {{/each}}
               </div>
               {{/compare}}
@@ -292,7 +295,7 @@
               {{#compare dias4 null}}
               <div class="caixatotal--break">
                 {{#each dias4}}
-                <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+                <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
                 <div class="col-sm-auto-pageC rowclass">
                   <h3 class="cor">Dia {{numero4}}</h3>
                 </div>
@@ -310,7 +313,7 @@
                   <div class="form-group campo-livre">
                     <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre4}}</textarea>
                   </div>
-            </div>
+            </div><br>
               {{/each}}
             </div>
             {{/compare}}
@@ -318,7 +321,7 @@
             {{#compare dias5 null}}
             <div class="caixatotal--break">
               {{#each dias5}}
-              <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+              <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
               <div class="col-sm-auto-pageC rowclass">
                 <h3 class="cor">Dia {{numero5}}</h3>
               </div>
@@ -336,7 +339,7 @@
                 <div class="form-group campo-livre">
                   <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre5}}</textarea>
                 </div>
-          </div>
+          </div><br>
             {{/each}}
           </div>
           {{/compare}}
@@ -344,7 +347,7 @@
           {{#compare dias6 null}}
           <div class="caixatotal--break">
             {{#each dias6}}
-            <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+            <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
             <div class="col-sm-auto-pageC rowclass">
               <h3 class="cor">Dia {{numero6}}</h3>
             </div>
@@ -362,7 +365,7 @@
               <div class="form-group campo-livre">
                 <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre6}}</textarea>
               </div>
-        </div>
+        </div><br>
           {{/each}}
         </div>
         {{/compare}}
@@ -370,7 +373,7 @@
         {{#compare dias7 null}}
         <div class="caixatotal--break">
           {{#each dias7}}
-          <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+          <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
           <div class="col-sm-auto-pageC rowclass">
             <h3 class="cor">Dia {{numero7}}</h3>
           </div>
@@ -388,7 +391,7 @@
             <div class="form-group campo-livre">
               <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre7}}</textarea>
             </div>
-      </div>
+      </div><br>
         {{/each}}
       </div>
       {{/compare}}
@@ -396,7 +399,7 @@
       {{#compare dias8 null}}
       <div class="caixatotal--break">
         {{#each dias8}}
-        <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+        <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
         <div class="col-sm-auto-pageC rowclass">
           <h3 class="cor">Dia {{numero8}}</h3>
         </div>
@@ -414,7 +417,7 @@
           <div class="form-group campo-livre">
             <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre8}}</textarea>
           </div>
-    </div>
+    </div><br>
       {{/each}}
     </div>
     {{/compare}}
@@ -422,7 +425,7 @@
     {{#compare dias9 null}}
     <div class="caixatotal--break">
       {{#each dias9}}
-      <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+      <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
       <div class="col-sm-auto-pageC rowclass">
         <h3 class="cor">Dia {{numero9}}</h3>
       </div>
@@ -440,7 +443,7 @@
         <div class="form-group campo-livre">
           <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre9}}</textarea>
         </div>
-  </div>
+  </div><br>
     {{/each}}
   </div>
   {{/compare}}
@@ -448,7 +451,7 @@
   {{#compare dias10 null}}
   <div class="caixatotal--break">
     {{#each dias10}}
-    <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+    <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
     <div class="col-sm-auto-pageC rowclass">
       <h3 class="cor">Dia {{numero10}}</h3>
     </div>
@@ -466,7 +469,7 @@
       <div class="form-group campo-livre">
         <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre10}}</textarea>
       </div>
-</div>
+</div><br>
   {{/each}}
 </div>
 {{/compare}}
@@ -474,7 +477,7 @@
 {{#compare dias11 null}}
 <div class="caixatotal--break">
   {{#each dias11}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero11}}</h3>
   </div>
@@ -492,7 +495,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre11}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -500,7 +503,7 @@
 {{#compare dias12 null}}
 <div class="caixatotal--break">
   {{#each dias12}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero12}}</h3>
   </div>
@@ -518,7 +521,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre12}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -526,7 +529,7 @@
 {{#compare dias13 null}}
 <div class="caixatotal--break">
   {{#each dias13}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero13}}</h3>
   </div>
@@ -544,7 +547,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre13}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -552,7 +555,7 @@
 {{#compare dias14 null}}
 <div class="caixatotal--break">
   {{#each dias14}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero14}}</h3>
   </div>
@@ -570,7 +573,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre14}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -578,7 +581,7 @@
 {{#compare dias15 null}}
 <div class="caixatotal--break">
   {{#each dias15}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero15}}</h3>
   </div>
@@ -596,7 +599,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre15}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -604,7 +607,7 @@
 {{#compare dias16 null}}
 <div class="caixatotal--break">
   {{#each dias16}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero16}}</h3>
   </div>
@@ -622,7 +625,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre16}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -630,7 +633,7 @@
 {{#compare dias17 null}}
 <div class="caixatotal--break">
   {{#each dias17}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero17}}</h3>
   </div>
@@ -648,7 +651,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre17}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -656,7 +659,7 @@
 {{#compare dias18 null}}
 <div class="caixatotal--break">
   {{#each dias18}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero18}}</h3>
   </div>
@@ -674,7 +677,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre18}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -682,7 +685,7 @@
 {{#compare dias19 null}}
 <div class="caixatotal--break">
   {{#each dias19}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero19}}</h3>
   </div>
@@ -700,7 +703,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre19}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -708,7 +711,7 @@
 {{#compare dias20 null}}
 <div class="caixatotal--break">
   {{#each dias20}}
-  <div class="roteiro-flex roteiro-flex--table caixatotalR roteiro--print">
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
   <div class="col-sm-auto-pageC rowclass">
     <h3 class="cor">Dia {{numero20}}</h3>
   </div>
@@ -726,7 +729,7 @@
     <div class="form-group campo-livre">
       <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre20}}</textarea>
     </div>
-</div>
+</div><br>
 {{/each}}
 </div>
 {{/compare}}
@@ -821,19 +824,19 @@
                 <tr>
                   <th colspan="1"><h5 class="cor">Adulto</h5></th>
 
-                  <th colspan="4"><input readonly name="flight[totalValueAdult_FirstClass]" onblur="calcularAdt_FirstClass()" input type="text" name="total" id="adtResult{{result}}_FirstClass" placeholder="Total ADT" class="valor form-control--cor"/ value="{{totalValueAdult_FirstClass}}{{coin}}"></th>
+                  <th colspan="4"><input readonly name="flight[totalValueAdult_FirstClass]" onblur="calcularAdt_FirstClass()" input type="text" name="total" id="adtResult{{result}}_FirstClass" placeholder="Total ADT" class="valor form-control--cor"/ value="{{coin}}{{totalValueAdult_FirstClass}}"></th>
                   <th colspan="1"><input readonly name="flight[numADT_FirstClass]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numADT_FirstClass}}"></th>
                 </tr>
                 <tr>
                   <th colspan="1"><h5 class="cor">Criança</h5></th>
 
-                  <th colspan="4"><input readonly name="flight[totalValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" input type="text" name="total" id="chdResult{{result}}_FirstClass" placeholder="Total CHD" class="valor form-control--cor"/ value="{{totalValueCHD_FirstClass}}{{coin}}"></th>
+                  <th colspan="4"><input readonly name="flight[totalValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" input type="text" name="total" id="chdResult{{result}}_FirstClass" placeholder="Total CHD" class="valor form-control--cor"/ value="{{coin}}{{totalValueCHD_FirstClass}}"></th>
                   <th colspan="1"><input readonly name="flight[numCHD_FirstClass]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numCHD_FirstClass}}"></th>
                 </tr>
                 <tr>
                   <th colspan="1"><h5 class="cor">Bebê</h5></th>
 
-                  <th colspan="4"><input readonly name="flight[totalValueInf_FirstClass]" onblur="calcularInf_FirstClass()" sinput type="text" name="total" id="infResult{{result}}_FirstClass" placeholder="Total INF" class="valor form-control--cor"/ value="{{totalValueInf_FirstClass}}{{coin}}"></th>
+                  <th colspan="4"><input readonly name="flight[totalValueInf_FirstClass]" onblur="calcularInf_FirstClass()" sinput type="text" name="total" id="infResult{{result}}_FirstClass" placeholder="Total INF" class="valor form-control--cor"/ value="{{coin}}{{totalValueInf_FirstClass}}"></th>
                   <th colspan="1"><input readonly name="flight[numINF_FirstClass]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numINF_FirstClass}}"></th>
                 </tr>
               </table>
@@ -851,19 +854,19 @@
                 <tr>
                   <th colspan="1"><h5 class="cor">Adulto</h5></th>
 
-                  <th colspan="4"><input readonly name="flight[totalValueAdult_Executive]" onblur="calcularAdt_Executive()" input type="text" name="total" id="adtResult{{result}}_Executive" placeholder="Total ADT" class="valor form-control--cor"/ value="{{totalValueAdult_Executive}}{{coin}}"></th>
+                  <th colspan="4"><input readonly name="flight[totalValueAdult_Executive]" onblur="calcularAdt_Executive()" input type="text" name="total" id="adtResult{{result}}_Executive" placeholder="Total ADT" class="valor form-control--cor"/ value="{{coin}}{{totalValueAdult_Executive}}"></th>
                   <th colspan="1"><input readonly name="flight[numADT_Executive]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numADT_Executive}}"></th>
                 </tr>
                 <tr>
                   <th colspan="1"><h5 class="cor">Criança</h5></th>
 
-                  <th colspan="4"><input readonly name="flight[totalValueCHD_Executive]" onblur="calcularChd_Executive()" input type="text" name="total" id="chdResult{{result}}_Executive" placeholder="Total CHD" class="valor form-control--cor"/ value="{{totalValueCHD_Executive}}{{coin}}"></th>
+                  <th colspan="4"><input readonly name="flight[totalValueCHD_Executive]" onblur="calcularChd_Executive()" input type="text" name="total" id="chdResult{{result}}_Executive" placeholder="Total CHD" class="valor form-control--cor"/ value="{{coin}}{{totalValueCHD_Executive}}"></th>
                   <th colspan="1"><input readonly name="flight[numCHD_Executive]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numCHD_Executive}}"></th>
                 </tr>
                 <tr>
                   <th colspan="1"><h5 class="cor">Bebê</h5></th>
 
-                  <th colspan="4"><input readonly name="flight[totalValueInf_Executive]" onblur="calcularInf_Executive()" sinput type="text" name="total" id="infResult{{result}}_Executive" placeholder="Total INF" class="valor form-control--cor"/ value="{{totalValueInf_Executive}}{{coin}}"></th>
+                  <th colspan="4"><input readonly name="flight[totalValueInf_Executive]" onblur="calcularInf_Executive()" sinput type="text" name="total" id="infResult{{result}}_Executive" placeholder="Total INF" class="valor form-control--cor"/ value="{{coin}}{{totalValueInf_Executive}}"></th>
                   <th colspan="1"><input readonly name="flight[numINF_Executive]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numINF_Executive}}"></th>
                 </tr>
               </table>
@@ -881,19 +884,19 @@
                 <tr>
                   <th colspan="1" class="cor"><h5>Adulto</h5></th>
 
-                  <th colspan="4"><input name="flight[totalValueAdult_Economic]" onblur="calcularAdt_Economic()" input type="text" name="total" id="adtResult{{result}}_Economic" placeholder="Total ADT" class="valor form-control--cor"/ value="{{totalValueAdult_Economic}}{{coin}}"></th>
+                  <th colspan="4"><input name="flight[totalValueAdult_Economic]" onblur="calcularAdt_Economic()" input type="text" name="total" id="adtResult{{result}}_Economic" placeholder="Total ADT" class="valor form-control--cor"/ value="{{coin}}{{totalValueAdult_Economic}}"></th>
                   <th colspan="1"><input name="flight[numADT_Economic]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numADT_Economic}}"></th>
                 </tr>
                 <tr>
                   <th colspan="1"><h5 class="cor">Criança</h5></th>
 
-                  <th colspan="4"><input name="flight[totalValueCHD_Economic]" onblur="calcularChd_Economic()" input type="text" name="total" id="chdResult{{result}}_Economic" placeholder="Total CHD" class="valor form-control--cor"/ value="{{totalValueCHD_Economic}}{{coin}}"></th>
+                  <th colspan="4"><input name="flight[totalValueCHD_Economic]" onblur="calcularChd_Economic()" input type="text" name="total" id="chdResult{{result}}_Economic" placeholder="Total CHD" class="valor form-control--cor"/ value="{{coin}}{{totalValueCHD_Economic}}"></th>
                   <th colspan="1"><input name="flight[numCHD_Economic]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numCHD_Economic}}"></th>
                 </tr>
                 <tr>
                   <th colspan="1"><h5 class="cor">Bebê</h5></th>
 
-                  <th colspan="4"><input name="flight[totalValueInf_Economic]" onblur="calcularInf_Economic()" sinput type="text" name="total" id="infResult{{result}}_Economic" placeholder="Total INF" class="valor form-control--cor"/ value="{{totalValueInf_Economic}}{{coin}}"></input></th>
+                  <th colspan="4"><input name="flight[totalValueInf_Economic]" onblur="calcularInf_Economic()" sinput type="text" name="total" id="infResult{{result}}_Economic" placeholder="Total INF" class="valor form-control--cor"/ value="{{coin}}{{totalValueInf_Economic}}"></input></th>
                   <th colspan="1"><input name="flight[numINF_Economic]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numINF_Economic}}"></th>
                 </tr>
               </table>
@@ -911,7 +914,7 @@
     <!-- hoteis -->
     <div class="pageH_dinamic_spec hotel--print">
       {{#each infoHoteis}}
-      <div class="break-after--before caixatotal">
+      <div class="break-after--before caixatotalH">
       <h3 class="hotel_tit">Hotel {{numero}}</h3>
       <div class="ajustes_new">
         <div class="hotel_flex">
@@ -936,7 +939,7 @@
             </div><br>
             <div class="classaH">
               <label>Valor do Apartamento</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{valorapto1}}{{moeda}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto1}}">
             </div><br>
             <div class="classaH">
               <label>Número de Diárias</label>
@@ -948,19 +951,199 @@
             </div><br>
             <div class="classaH">
               <label>Total</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{total_1}}{{moeda}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_1}}">
             </div><br>
             <div class="classaH">
               <label>Período de Cancelamento</label>
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento1}}">
             </input>
           </div><br>
-            <label>Nome dos integrantes:</label>
-            {{#each qntP1}}
+            <label>Nome dos acompanhantes:</label>
+            {{#compare qntP1 "1"}}
             <div class="classaH">
               <input class="form-control textos" placeholder="" >
             </div>
-            {{/each}}
+            {{/compare}}
+            {{#compare qntP1 "2"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "3"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "4"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "5"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "6"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "7"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "8"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "9"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "10"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col2">
@@ -988,7 +1171,7 @@
             </div><br>
             <div class="classaH">
               <label>Valor do Apartamento:</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{valorapto2}}{{moeda}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto2}}">
             </div><br>
             <div class="classaH">
               <label>Número de Diárias:</label>
@@ -1000,19 +1183,199 @@
             </div><br>
             <div class="classaH">
               <label>Total:</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{total_2}}{{moeda}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_2}}">
             </div><br>
             <div class="classaH">
               <label>Período de Cancelamento:</label>
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento2}}">
             </input>
           </div><br>
-            <label>Nome dos integrantes:</label>
-            {{#each qntP2}}
+            <label>Nome dos acompanhantes:</label>
+            {{#compare qntP2 "1"}}
             <div class="classaH">
               <input class="form-control textos" placeholder="" >
             </div>
-            {{/each}}
+            {{/compare}}
+            {{#compare qntP2 "2"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "3"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "4"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "5"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "6"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "7"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "8"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "9"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "10"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col3">
@@ -1036,7 +1399,7 @@
             </div><br>
             <label>Valor do Apartamento:</label>
             <div class="classaH">
-              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{valorapto3}}{{moeda}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto3}}">
             </div><br>
             <div class="classaH">
               <label>Número de Diárias</label>
@@ -1048,19 +1411,199 @@
             </div><br>
             <div class="classaH">
               <label>Total:</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{total_3}}{{moeda}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_3}}">
             </div><br>
             <div class="classaH">
               <label>Periodo de Cancelamento</label>
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento3}}">
             </input>
           </div><br>
-            <label>Nome dos integrantes:</label>
-            {{#each qntP3}}
-
-              <input class="form-control textos" placeholder=""></input>
-
-            {{/each}}
+            <label>Nome dos acompanhantes:</label>
+            {{#compare qntP3 "1"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "2"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "3"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "4"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "5"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "6"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "7"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "8"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "9"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "10"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
           </div>
         </div>
       </div>
@@ -1074,8 +1617,8 @@
 <!-- traslado -->
       <div class="pageH_dinamic_spec ">
       {{#compare traslado.moedaT undefined}}
-        <div class="break-after">
                 {{#each infoTraslado}}
+                <div class="break-after">
                 <div class="caixatotal">
                 <div class="traslado_flex">
                   <div class="traslado">
@@ -1090,10 +1633,6 @@
                     <i class="fa fa-calendar"></i>
                     <input readonly="readonly "value="{{horaIdaT}}" type="text" placeholder="Horário" class="date start-date textos"/>
                     <br><br>
-                    <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                    <input readonly="readonly "value="{{dataParaT}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                    <i class="fa fa-calendar"></i>
-                    <input readonly="readonly "value="{{horaParaT}}" type="text" placeholder="Horário" class="date start-date textos"/>
                   </div>
 
 
@@ -1106,371 +1645,221 @@
                   <div class="rowclass col-lg-11">
                     <br>
                     <label>Valor por Adulto:</label><br>
-                    <input value="{{valorAdtT}}{{moedaT}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
+                    <input value="{{moedaT}}{{valorAdtT}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
                   </div>
                 </div>
                 <div class="col-sm rowclass">
                   <div class=" rowclass col-lg-11">
                     <br>
                     <label>Valor por Criança:</label><br>
-                    <input value="{{valorChdT}}{{moedaT}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
+                    <input value="{{moedaT}}{{valorChdT}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
                   </div>
                 </div>
                 <div class="col-sm rowclass">
                   <div class="rowclass col-lg-11">
                     <br>
                     <label>Valor por bebê:</label><br>
-                    <input value="{{valorInfT}}{{moedaT}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
+                    <input value="{{moedaT}}{{valorInfT}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
                   </div><br>
                 </div>
               </div>
             </div>
-          </div><br>
-            {{/each}}
-          </div>
-          {{/compare}}
-
-          {{#compare traslado.moedaT2 undefined}}
-          <div class="break-after">
-                  {{#each infoTraslado2}}
-                  <div class="caixatotal">
-                  <div class="traslado_flex">
-                    <div class="traslado">
-                      <h3 class="hotel_tit"> Traslado {{numero2}} </h3><br>
-                      <label>De:</label><label class="gambiarra--esq">Para:</label><br>
-                      <input readonly="readonly "value="{{deT2}}" type="text" placeholder="De" class="date start-date textos"/>
-                      <i class="fa fa-car" aria-hidden="true"></i>
-                      <input readonly="readonly "value="{{paraT2}}" type="text" placeholder="Para" class="date start-date textos"/>
-                      <br><br>
-                      <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
-                      <input readonly="readonly "value="{{dataIdaT2}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                      <i class="fa fa-calendar"></i>
-                      <input readonly="readonly "value="{{horaIdaT2}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                      <br><br>
-                      <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                      <input readonly="readonly "value="{{dataParaT2}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                      <i class="fa fa-calendar"></i>
-                      <input readonly="readonly "value="{{horaParaT2}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                    </div>
-
-
-                <div class="info">
-
-
-                <h3 class="hotel_tit">Informações {{numero2}}</h3>
-
-                  <div class="col-sm rowclass">
-                    <div class="rowclass col-lg-11">
-                      <br>
-                      <label>Valor por Adulto:</label><br>
-                      <input value="{{valorAdtT2}}{{moedaT2}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
-                    </div>
-                  </div>
-                  <div class="col-sm rowclass">
-                    <div class=" rowclass col-lg-11">
-                      <br>
-                      <label>Valor por Criança:</label><br>''
-                      <input value="{{valorChdT2}}{{moedaT2}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
-                    </div>
-                  </div>
-                  <div class="col-sm rowclass">
-                    <div class="rowclass col-lg-11">
-                      <br>
-                      <label>Valor por bebê:</label><br>
-                      <input value="{{valorInfT2}}{{moedaT2}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
-                    </div><br>
-                  </div>
-                </div>
-              </div>
-            </div><br>
-              {{/each}}
-            </div>
-            {{/compare}}
-
-            {{#compare traslado.moedaT3 undefined}}
-            <div class="break-after">
-                    {{#each infoTraslado3}}
-                    <div class="caixatotal">
-                    <div class="traslado_flex">
-                      <div class="traslado">
-                        <h3 class="hotel_tit"> Traslado {{numero3}} </h3><br>
-                        <label>De:</label><label class="gambiarra--esq">Para:</label><br>
-                        <input readonly="readonly "value="{{deT3}}" type="text" placeholder="De" class="date start-date textos"/>
-                        <i class="fa fa-car" aria-hidden="true"></i>
-                        <input readonly="readonly "value="{{paraT3}}" type="text" placeholder="Para" class="date start-date textos"/>
-                        <br><br>
-                        <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
-                        <input readonly="readonly "value="{{dataIdaT3}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                        <i class="fa fa-calendar"></i>
-                        <input readonly="readonly "value="{{horaIdaT3}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                        <br><br>
-                        <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                        <input readonly="readonly "value="{{dataParaT3}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                        <i class="fa fa-calendar"></i>
-                        <input readonly="readonly "value="{{horaParaT3}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                      </div>
-
-
-                  <div class="info">
-
-
-                  <h3 class="hotel_tit">Informações {{numero3}}</h3>
-
-                    <div class="col-sm rowclass">
-                      <div class="rowclass col-lg-11">
-                        <br>
-                        <label>Valor por Adulto:</label><br>
-                        <input value="{{valorAdtT3}}{{moedaT3}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
-                      </div>
-                    </div>
-                    <div class="col-sm rowclass">
-                      <div class=" rowclass col-lg-11">
-                        <br>
-                        <label>Valor por Criança:</label><br>
-                        <input value="{{valorChdT3}}{{moedaT3}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
-                      </div>
-                    </div>
-                    <div class="col-sm rowclass">
-                      <div class="rowclass col-lg-11">
-                        <br>
-                        <label>Valor por bebê:</label><br>
-                        <input value="{{valorInfT3}}{{moedaT3}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
-                      </div><br>
-                    </div>
-                  </div>
-                </div>
-              </div><br>
-                {{/each}}
-              </div>
-              {{/compare}}
-
-              {{#compare traslado.moedaT4 undefined}}
-              <div class="break-after">
-                      {{#each infoTraslado4}}
-                      <div class="caixatotal">
-                      <div class="traslado_flex">
-                        <div class="traslado">
-                          <h3 class="hotel_tit"> Traslado {{numero4}} </h3><br>
-                          <label>De:</label><label class="gambiarra--esq">Para:</label><br>
-                          <input readonly="readonly "value="{{deT4}}" type="text" placeholder="De" class="date start-date textos"/>
-                          <i class="fa fa-car" aria-hidden="true"></i>
-                          <input readonly="readonly "value="{{paraT4}}" type="text" placeholder="Para" class="date start-date textos"/>
-                          <br><br>
-                          <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
-                          <input readonly="readonly "value="{{dataIdaT4}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                          <i class="fa fa-calendar"></i>
-                          <input readonly="readonly "value="{{horaIdaT4}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                          <br><br>
-                          <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                          <input readonly="readonly "value="{{dataParaT4}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                          <i class="fa fa-calendar"></i>
-                          <input readonly="readonly "value="{{horaParaT4}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                        </div>
-
-
-                    <div class="info">
-
-
-                    <h3 class="hotel_tit">Informações {{numero4}}</h3>
-
-                      <div class="col-sm rowclass">
-                        <div class="rowclass col-lg-11">
-                          <br>
-                          <label>Valor por Adulto:</label><br>
-                          <input value="{{valorAdtT4}}{{moedaT4}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
-                        </div>
-                      </div>
-                      <div class="col-sm rowclass">
-                        <div class=" rowclass col-lg-11">
-                          <br>
-                          <label>Valor por Criança:</label><br>
-                          <input value="{{valorChdT4}}{{moedaT4}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
-                        </div>
-                      </div>
-                      <div class="col-sm rowclass">
-                        <div class="rowclass col-lg-11">
-                          <br>
-                          <label>Valor por bebê:</label><br>
-                          <input value="{{valorInfT4}}{{moedaT4}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
-                        </div><br>
-                      </div>
-                    </div>
-                  </div>
-                </div><br>
-                  {{/each}}
-                </div>
-                {{/compare}}
-
-                {{#compare traslado.moedaT5 undefined}}
-                <div class="break-after">
-                        {{#each infoTraslado5}}
-                        <div class="caixatotal">
-                        <div class="traslado_flex">
-                          <div class="traslado">
-                            <h3 class="hotel_tit"> Traslado {{numero5}} </h3><br>
-                            <label>De:</label><label class="gambiarra--esq">Para:</label><br>
-                            <input readonly="readonly "value="{{deT5}}" type="text" placeholder="De" class="date start-date textos"/>
-                            <i class="fa fa-car" aria-hidden="true"></i>
-                            <input readonly="readonly "value="{{paraT5}}" type="text" placeholder="Para" class="date start-date textos"/>
-                            <br><br>
-                            <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
-                            <input readonly="readonly "value="{{dataIdaT5}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                            <i class="fa fa-calendar"></i>
-                            <input readonly="readonly "value="{{horaIdaT5}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                            <br><br>
-                            <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                            <input readonly="readonly "value="{{dataParaT5}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                            <i class="fa fa-calendar"></i>
-                            <input readonly="readonly "value="{{horaParaT5}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                          </div>
-
-
-                      <div class="info">
-
-
-                      <h3 class="hotel_tit">Informações {{numero5}}</h3>
-
-                        <div class="col-sm rowclass">
-                          <div class="rowclass col-lg-11">
-                            <br>
-                            <label>Valor por Adulto:</label><br>
-                            <input value="{{valorAdtT5}}{{moedaT5}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
-                          </div>
-                        </div>
-                        <div class="col-sm rowclass">
-                          <div class=" rowclass col-lg-11">
-                            <br>
-                            <label>Valor por Criança:</label><br>
-                            <input value="{{valorChdT5}}{{moedaT5}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
-                          </div>
-                        </div>
-                        <div class="col-sm rowclass">
-                          <div class="rowclass col-lg-11">
-                            <br>
-                            <label>Valor por bebê:</label><br>
-                            <input value="{{valorInfT5}}{{moedaT5}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
-                          </div><br>
-                        </div>
-                      </div>
-                    </div>
-                  </div><br>
-                    {{/each}}
+            <h3>Acompanhantes:</h3>
+            <div class="companion-flex">
+                <div class="col-adt">
+                  {{#compare qntat "1"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
                   </div>
                   {{/compare}}
+                  {{#compare qntat "2"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "3"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "4"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "5"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                </div>
 
-                  {{#compare traslado.moedaT6 undefined}}
-                  <div class="break-after">
-                          {{#each infoTraslado6}}
-                          <div class="caixatotal">
-                          <div class="traslado_flex">
-                            <div class="traslado">
-                              <h3 class="hotel_tit"> Traslado {{numero6}} </h3><br>
-                              <label>De:</label><label class="gambiarra--esq">Para:</label><br>
-                              <input readonly="readonly "value="{{deT6}}" type="text" placeholder="De" class="date start-date textos"/>
-                              <i class="fa fa-car" aria-hidden="true"></i>
-                              <input readonly="readonly "value="{{paraT6}}" type="text" placeholder="Para" class="date start-date textos"/>
-                              <br><br>
-                              <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
-                              <input readonly="readonly "value="{{dataIdaT6}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                              <i class="fa fa-calendar"></i>
-                              <input readonly="readonly "value="{{horaIdaT6}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                              <br><br>
-                              <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                              <input readonly="readonly "value="{{dataParaT6}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                              <i class="fa fa-calendar"></i>
-                              <input readonly="readonly "value="{{horaParaT6}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                            </div>
+                <div class="col-chd">
+                  {{#compare qntct "1"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "2"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "3"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "4"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "5"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                </div>
 
+                <div class="col-inf">
+                  {{#compare qntbt "1"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "2"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "3"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "4"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "5"}}
+                  <div class="classaH">
+                    <label for="">Nome dos bebês:</label>
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                </div>
+            </div>
+          </div><br>
+        </div>
+            {{/each}}
+          {{/compare}}
 
-                        <div class="info">
-
-
-                        <h3 class="hotel_tit">Informações {{numero6}}</h3>
-
-                          <div class="col-sm rowclass">
-                            <div class="rowclass col-lg-11">
-                              <br>
-                              <label>Valor por Adulto:</label><br>
-                              <input value="{{valorAdtT6}}{{moedaT6}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
-                            </div>
-                          </div>
-                          <div class="col-sm rowclass">
-                            <div class=" rowclass col-lg-11">
-                              <br>
-                              <label>Valor por Criança:</label><br>
-                              <input value="{{valorChdT6}}{{moedaT6}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
-                            </div>
-                          </div>
-                          <div class="col-sm rowclass">
-                            <div class="rowclass col-lg-11">
-                              <br>
-                              <label>Valor por bebê:</label><br>
-                              <input value="{{valorInfT6}}{{moedaT6}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
-                            </div><br>
-                          </div>
-                        </div>
-                      </div>
-                    </div><br>
-                      {{/each}}
-                    </div>
-                    {{/compare}}
-
-                    {{#compare traslado.moedaT7 undefined}}
-                    <div class="break-after">
-                            {{#each infoTraslado7}}
-                            <div class="caixatotal">
-                            <div class="traslado_flex">
-                              <div class="traslado">
-                                <h3 class="hotel_tit"> Traslado {{numero7}} </h3><br>
-                                <label>De:</label><label class="gambiarra--esq">Para:</label><br>
-                                <input readonly="readonly "value="{{deT7}}" type="text" placeholder="De" class="date start-date textos"/>
-                                <i class="fa fa-car" aria-hidden="true"></i>
-                                <input readonly="readonly "value="{{paraT7}}" type="text" placeholder="Para" class="date start-date textos"/>
-                                <br><br>
-                                <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
-                                <input readonly="readonly "value="{{dataIdaT7}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                                <i class="fa fa-calendar"></i>
-                                <input readonly="readonly "value="{{horaIdaT7}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                                <br><br>
-                                <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                                <input readonly="readonly "value="{{dataParaT7}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
-                                <i class="fa fa-calendar"></i>
-                                <input readonly="readonly "value="{{horaParaT7}}" type="text" placeholder="Horário" class="date start-date textos"/>
-                              </div>
-
-
-                          <div class="info">
-
-
-                          <h3 class="hotel_tit">Informações {{numero7}}</h3>
-
-                            <div class="col-sm rowclass">
-                              <div class="rowclass col-lg-11">
-                                <br>
-                                <label>Valor por Adulto:</label><br>
-                                <input value="{{valorAdtT7}}{{moedaT7}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
-                              </div>
-                            </div>
-                            <div class="col-sm rowclass">
-                              <div class=" rowclass col-lg-11">
-                                <br>
-                                <label>Valor por Criança:</label><br>
-                                <input value="{{valorChdT7}}{{moedaT7}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
-                              </div>
-                            </div>
-                            <div class="col-sm rowclass">
-                              <div class="rowclass col-lg-11">
-                                <br>
-                                <label>Valor por bebê:</label><br>
-                                <input value="{{valorInfT7}}{{moedaT7}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
-                              </div><br>
-                            </div>
-                          </div>
-                        </div>
-                      </div><br>
-                        {{/each}}
-                      </div>
-                      {{/compare}}
 
         </div>
         <!-- fim traslado -->
@@ -1494,7 +1883,7 @@
           </div><br>
           <div class="classa">
             <label>Valor do Carro:</label>
-            <input class="form-control textos textos--caixa" placeholder="Valor carro 1" readonly="readonly "value="{{valor}}{{moedaC}}">
+            <input class="form-control textos textos--caixa" placeholder="Valor carro 1" readonly="readonly "value="{{moedaC}}{{valor}}">
           </div><br>
           <div class="classa">
             <label>Cidade:</label>
@@ -1537,15 +1926,15 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Valor Adultos:</label>
-                <input value="{{valorAdtS}}{{moedaS}}" type="text" placeholder= "Preço por adulto" readonly="readonly" class="form-control textos">
+                <input value="{{moedaS}}{{valorAdtS}}" type="text" placeholder= "Preço por adulto" readonly="readonly" class="form-control textos">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Valor Crianças:</label>
-                <input value="{{valorChdS}}{{moedaS}}" type="text" placeholder= "Preço por criança" readonly="readonly" class="form-control textos">
+                <input value="{{moedaS}}{{valorChdS}}" type="text" placeholder= "Preço por criança" readonly="readonly" class="form-control textos">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Valor Bebês:</label>
-                <input value="{{valorInfS}}{{moedaS}}" type="text" placeholder= "Preço por bebê" readonly="readonly" class="form-control textos">
+                <input value="{{moedaS}}{{valorInfS}}" type="text" placeholder= "Preço por bebê" readonly="readonly" class="form-control textos">
               </div>
         </div>
         </div>
@@ -1560,15 +1949,15 @@
                 <input value="{{tickets}}" type="text" placeholder= "" class="form-control textos" readonly="readonly">
                 <br>
                 <label for="exampleInputPassword1">Valor Adultos:</label>
-                <input value = "{{valorAdtTk}}{{moedaT}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
+                <input value = "{{moedaT}}{{valorAdtTk}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Valor Crianças:</label>
-                <input value="{{valorChdTk}}{{moedaT}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
+                <input value="{{moedaT}}{{valorChdTk}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Valor Bebês:</label>
-                <input value="{{valorInfTk}}{{moedaT}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
+                <input value="{{moedaT}}{{valorInfTk}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
               </div>
         </div>
         </div>
@@ -1584,15 +1973,15 @@
                 <input value="{{outros}}" type="text" placeholder= "" class="form-control textos" readonly="readonly">
                 <br>
                 <label for="exampleInputPassword1">Valor Adultos:</label>
-                <input value="{{valorAdtO}}{{moedaO}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
+                <input value="{{moedaO}}{{valorAdtO}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Valor Crianças:</label>
-                <input value="{{valorChdO}}{{moedaO}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
+                <input value="{{moedaO}}{{valorChdO}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Valor Bebês:</label>
-                <input value="{{valorInfO}}{{moedaO}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
+                <input value="{{moedaO}}{{valorInfO}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
               </div>
         </div>
         </div>
