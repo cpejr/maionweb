@@ -31,6 +31,11 @@
             <textarea class="form-control" name="budget[planFreeField]" placeholder="Campo Livre" rows="3">{{planFreeField}}</textarea>
           </div>
         </div>
+        <div class="">
+          <label>Apagar?</label>
+          <input type="radio" name="budget[deleting] type{{repNum}}" value="1" onclick="return confirm('Deseja mesmo excluir o dia {{repNum}} ?')">Sim</input>
+          <input type="radio" name="budget[deleting] type{{repNum}}" value="0" checked>Não</input>
+        </div>
     </div>
     {{/each}}
     <div id="testedacamila" class="rowclass">

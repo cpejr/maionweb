@@ -6,8 +6,6 @@ const carSchema = new mongoose.Schema({
     to: [String],
     dateFrom: [String],
     timeFrom: [String],
-    dateTo: [String],
-    timeTo: [String],
     valueADT: [Number],
     numADT:[Number],
     valueCHD: [Number],
