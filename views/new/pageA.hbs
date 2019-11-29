@@ -4,7 +4,7 @@
 <header class="login_page">
   navbar
 </header>
-<form action="/new/pageA" method="post" class="pagesFront">
+<form action="/new/pageA" method="post" class="pagesFront" onload="getInfo()">
   <h1>{{message}}</h1>
   <div class="dinamic_spec">
     <h1> Cadastro </h1>
@@ -18,7 +18,7 @@
             <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email" required>
           </div><br>
           <div class="classa">
-            <input type="email" name = "client[email1]" class="form-control" id="email" placeholder="Confirme seu email" required>
+            <input type="email" name = "client[email1]" class="form-control" id="email_confirmation" placeholder="Confirme seu email" required>
           </div><br>
           <div class="classa">
             <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='14'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
@@ -249,8 +249,10 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="buttonPages">Próximo</button>
+    <button type="button" class="btn btn-primary buttonPagesClass" id="validation">Conferir dados</button>
+    <button type="submit" class="btn btn-primary sucess invDiv" id="post_button">Próximo</button>
   </div>
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
 <script type="text/javascript" src="/javascripts/formInputs.js">  </script>
+<script type="text/javascript" src="/javascripts/PageAValidation.js">  </script>
