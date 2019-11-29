@@ -1,5 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <header class="login_page">
 </header>
 <form action="/new/pageD/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
@@ -33,11 +34,11 @@
         <tbody >
           <tr>
             <th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" class="form-control"/></th>
-            <th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" class="form-control"/></th>
+            <th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" class="form-control" maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesNascimento(this)' /></th>
             <th colspan="4"><input type="text" placeholder="De" name="flight[from]" class="form-control"/></th>
             <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" class="form-control"/></th>
-            <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" class="form-control"/></th>
-            <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" class="form-control"/></th>
+            <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/></th>
+            <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/></th>
             <input type="number" name="flight[escalas]" value="0" class="invDiv">
           </tr>
         </tbody>
@@ -195,7 +196,7 @@
       </div>
       <select placeholder="Selecione" class="form-control" name=flight[coin] required>
         <option style="display:none">Selecione qual moeda:</option>
-        <option>$</option>
+        <option>USD</option>
         <option>R$</option>
         <option>€</option>
       </select>
@@ -232,3 +233,5 @@
          }
 
              </script>
+             <script type="text/javascript" src="/javascripts/replica.js">  </script>
+             <script type="text/javascript" src="/javascripts/formInputs.js">  </script>
