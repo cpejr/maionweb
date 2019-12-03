@@ -3,7 +3,7 @@
 <header class="login_page">
   navbar
 </header>
-<form action="/registred/pageA/{{client._id}}" method="post" class="pagesFront">
+<form action="/registred/pageA/{{client._id}}" method="post" class="pagesFront" onload="getInfo()">
 
   <!-- Cadastro - início -->
   <div class="dinamic_spec">
@@ -12,19 +12,19 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[fullname]" value="{{client.fullname}}" class="form-control" id="fullname" placeholder="Nome Completo">
+            <input type="fullname" name = "client[fullname]" value="{{client.fullname}}" class="form-control" id="fullname" placeholder="Nome Completo" required>
           </div><br>
           <div class="classa">
-            <input type="email" name = "client[email]" value="{{client.email}}" class="form-control" id="email" placeholder="Email">
+            <input type="email" name = "client[email]" value="{{client.email}}" class="form-control" id="email" placeholder="Email" required>
           </div><br>
           <div class="classa">
-            <input type="email" name = "client[email1]" value="{{client.email1}}" class="form-control" id="email" placeholder="Confirme seu email">
+            <input type="email" name = "client[email1]" value="{{client.email1}}" class="form-control" id="email_confirmation" placeholder="Confirme seu email" required>
           </div><br>
           <div class="classa">
             <input type="register" name = "client[register]" value="{{client.register}}" class="form-control" id="register" placeholder="CPF" onblur='addDashesCPF(this)' maxlength='14'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
-            <input type="id" name = "client[id]" value="{{client.id}}" class="form-control" id="id" placeholder="RG">
+            <input type="id" name = "client[id]" value="{{client.id}}" class="form-control" id="id" placeholder="RG" required>
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
@@ -267,7 +267,8 @@
   </div>
   <!-- Redes sociais - fim -->
 
-  <button type="submit" class="btn btn-primary" id="buttonPages">Próximo</button>
+  <button type="button" class="btn btn-primary buttonPagesClass" id="validation">Conferir Alterações</button>
+  <button type="submit" class="btn btn-primary sucess invDiv" id="post_button">Colcluir Alterações</button>
 </form>
 
 <div class="invDiv">
@@ -276,3 +277,4 @@
 </div>
 <script type="text/javascript" src="/javascripts/replicaPageARegistred.js">  </script>
 <script type="text/javascript" src="/javascripts/formInputs.js">  </script>
+<script type="text/javascript" src="/javascripts/PageAValidation.js">  </script>

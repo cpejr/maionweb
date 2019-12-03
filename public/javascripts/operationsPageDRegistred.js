@@ -466,8 +466,6 @@ $('#decreasing').on('click', function() {
 });
 
 $('#increasing').on('click', function(){
-  console.log(aflight);
-  console.log(anumVoo);
   if (afirstclick == 0) {
     ageId1Operation = parseInt(document.getElementById(`get1`).value);
     ageId2Operation = parseInt(document.getElementById(`get2`).value);
@@ -525,7 +523,7 @@ $('#increasing').on('click', function(){
     savedAinfRes_Economic = (ageId3Operation/3) - 1;
     anumVoo = (ageId3Operation/3) - 1;
   }
-  if (aflight < anumVoo - 1) {
+  if (aflight < anumVoo) {
     aflight++;
     aadtNum1_FirstClass = aadtNum1_FirstClass + 3;
     aadtNum2_FirstClass = aadtNum2_FirstClass + 3;

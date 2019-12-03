@@ -7,6 +7,25 @@ const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
 
+// Get Validation PageA
+router.get('/validation', function(req, res) {
+  Client.getAll().then((clients) => {
+    const cpfs = [];
+    for (var i = 0; i < clients.length; i++) {//Popula um vetor com todos os CPF's Existentes registrados
+      const aux = {
+        cpf: String,
+      };
+      aux.cpf = clients[i].register;
+      cpfs.push(aux.cpf);
+    }
+    console.log(cpfs);
+    return res.send(cpfs);//Vetor sendo enviado
+  }).catch((error) => {
+   console.log(error);
+   res.redirect('/error');
+  });
+});
+
 //GET pagePersonal
 router.get('/PagePersonal/:client_id', function (req, res) {
   const client_id = req.params.client_id;
