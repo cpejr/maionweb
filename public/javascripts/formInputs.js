@@ -44,3 +44,10 @@ function addDashesPassport(f) //adicionar barras na data de nascimento
 
     f.value = f.value.slice(0,2)+"/"+f.value.slice(2,4)+"/"+f.value.slice(4,8);
 }
+
+function addDashesHorario(f) //adicionar barras na data de nascimento
+{
+    f.value = f.value.replace(/\D/g, '');
+
+    f.value = f.value.slice(0,2)+":"+f.value.slice(2,4);
+}

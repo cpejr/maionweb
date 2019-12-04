@@ -1,32 +1,40 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
-<header class="login_page">
-</header>
-<div class="pagesFront">
-  <div class="container rowclass">
-    <div class="row rowclass">
-      <div class="col-sm pageA-padding">
-        <table>
-        <label for="exampleInputPassword1">Responsável pela viagem:</label><br>
-        <input readonly="readonly" type="text" placeholder= "" value="{{client.fullname}}" readonly="readonly"> <br> <br>
-
-          {{#each test}}
-          <table class="col-12" id="companion--box">
-              <input value="{{name}}" class="companion--box companion--radius" ></input>
-            </table>
-          {{/each}}
 
 
-        <br><br>
-        <label>De: </label><label class="gambiarra--esq"> Até: </label><br>
-        <input readonly="readonly "type="fullname" value="{{uData.pData}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
-        <input readonly="readonly "type="fullname" value="{{uData.uData}}"  id="birthDate"  onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));"> <br>
-        </table>
-        <br>
 
+
+
+  <div class="topo">
+
+    <img class="logo" src="/images/logo.png">
+<div class="info1_flex">
+    <input type="text" class="info1" style="width: 200px; display: flex; text-align:center;" value="Av. do Contorno, 7218" readonly></input>
+    <input type="text" class="info1" value="30110-048 - Belo Horizonte" style="text-align:center;" readonly></input>
+    <input type="text" class="info1" value="www.anistravel.com.br" style="text-align: center;" readonly></input>
+    <input type="text" class="info1" value="@anis.travel" style="text-align: center;" readonly></input>
+    <input type="text" class="info1" value="(31)3080-7000" style="text-align: center;" readonly></input>
+    <br><br><br><br>
+    <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem"></input>
+
+  </div>
+  <div class="acompanhantes">
+    <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: flex-start; margin-right: -72px;">Responsável pela viagem:</label><br>
+    <input readonly="readonly" type="text" placeholder= "" value="{{client.fullname}}" style="font-weight: bold; display:flex; " readonly="readonly"><br>
+    <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: center;">Acompanhantes:</label>
+    {{#each test}}
+    <table class="col-12" id="companion--box">
+      <input value="ο  {{name}}" style="font-weight: bold;  " class="companion--box companion--radius companion--left" readonly></input>
+    </table>
+    {{/each}}
+  </div>
+
+
+
+  </div>
 
   <div id="some-radios" class="some">
-    <div class="dinamic_spec">
+    <div class="pageH_dinamic_spec">
     <h3>Continentes</h3>
 
     <div class="form-check form-check-inline">
@@ -110,585 +118,2354 @@
       <label class="form-check-label" for="inlineRadio2">Ilhas 2</label>
     </div>
   </div>
-</div>
-
-        <div class="images-form " id="images-form">
-
-            <div class="sul1-imgs hidden-imgs" id="idsul1-imgs">
-              <img id="idsul1-imgs" src="/images/AMS1.png">
-            </div>
-
-            <div class="sul2-imgs hidden-imgs" id="idsul2-imgs">
-              <img src="/images/AMS2.png">
-            </div>
-
-            <div class="central1-imgs hidden-imgs" id="idcentral1-imgs">
-              <img src="/images/AC1.png">
-            </div>
-
-            <div class="central2-imgs hidden-imgs" id="idcentral2-imgs">
-              <img src="/images/AC2.png">
-            </div>
-
-            <div class="norte1-imgs hidden-imgs" id="idnorte1-imgs">
-              <img src="/images/AMN1.png">
-            </div>
-
-            <div class="norte2-imgs hidden-imgs" id="idnorte2-imgs">
-              <img src="/images/AMN2.png">
-            </div>
-
-            <div class="europa1-imgs hidden-imgs" id="ideuropa1-imgs">
-              <img src="/images/EU1.png">
-            </div>
-
-            <div class="europa2-imgs hidden-imgs" id="ideuropa2-imgs">
-              <img src="/images/EU2.png">
-            </div>
-
-            <div class="asia1-imgs hidden-imgs" id="idasia1-imgs">
-              <img src="/images/AS1.png">
-            </div>
-
-            <div class="asia2-imgs hidden-imgs" id="idasia2-imgs">
-              <img src="/images/AS2.png">
-            </div>
-
-            <div class="africa1-imgs hidden-imgs" id="idafrica1-imgs">
-              <img src="/images/AF1.png">
-            </div>
-
-            <div class="africa2-imgs hidden-imgs" id="idafrica2-imgs">
-              <img src="/images/AF2.png">
-            </div>
-
-            <div class="oceania1-imgs hidden-imgs" id="idoceania1-imgs">
-              <img src="/images/OC1.png">
-            </div>
-
-            <div class="oceania2-imgs hidden-imgs" id="idoceania2-imgs">
-              <img src="/images/OC2.png">
-            </div>
-
-            <div class="caribe1-imgs hidden-imgs" id="idcaribe1-imgs">
-              <img src="/images/CB1.png">
-            </div>
-
-            <div class="caribe2-imgs hidden-imgs" id="idcaribe2-imgs">
-              <img src="/images/CB2.png">
-            </div>
-
-            <div class="medio1-imgs hidden-imgs" id="idmedio1-imgs">
-              <img src="/images/OM1.png">
-            </div>
-
-            <div class="medio2-imgs hidden-imgs" id="idmedio2-imgs">
-              <img src="/images/OM2.png">
-            </div>
-
-            <div class="ilhas1-imgs hidden-imgs" id="idilhas1-imgs">
-              <img src="/images/IL1.png">
-            </div>
-
-            <div class="ilhas2-imgs hidden-imgs" id="idilhas2-imgs">
-              <img src="/images/IL2.png">
-            </div>
-          </div>
-
-        <!-- <h2 id="titulo_roteiro">Roteiro de dias</h2> -->
-        <div class="dinamic_spec">
-
-          <table>
-              <div class="col-sm-auto" id="roteiro-dias">
-                <!-- <input readonly="readonly "type="date" placeholder="Data" value="{{budget.planDate}}" class= "date start-date form-control classCinput"><br>
-                <input readonly="readonly "placeholder="País" value="{{budget.planCountry}}" class= "form-control classCinput2"><br>
-                <input readonly="readonly "placeholder="Cidade" value="{{budget.planCity}}" class= "form-control classCinput2"> -->
-              </div>
-          </table>
-
-
-
-          <!-- <div class="d-flex  flex-row" id="PageH_Col2"> -->
-
-          <table class="table table-striped table-hover break-after" id="in_country_days1">
-            {{#each allFlights}}
-            <div class="break-after--before">
-
-
-              {{#compare escala "0"}}
-                <thead>
-                  <th colspan="16"><h2>Voo {{numero}}</h2></th>
-                  <tr>
-                    <th colspan="4">Origem</th>
-                    <th colspan="4">Destino</th>
-                    <th colspan="4">Saída</th>
-                    <th colspan="4">Chegada</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th colspan="4"><input type="text" placeholder="Origem" name="flight[from]" class="form-control" value="{{from}}"></th>
-                    <th colspan="4"><input type="text" placeholder="Destino" name="flight[destination]" class="form-control" value="{{destination}}"></th>
-                    <th colspan="4"><input type="text" maxlength="15" placeholder="dd/mm/aa" name="flight[dateFrom]" class="form-control" value="{{dateFrom}}"></th>
-                    <th colspan="4"><input type="text" maxlength="15" placeholder="dd/mm/aa" name="flight[dateDestination]" class="form-control" value="{{dateDestination}}"></th>
-                  </tr>
-                </tbody>
-                {{#compare final "1"}}
-                <th colspan="16">
-                  <div class="rowclass">
-                    <div class="rowclass">
-                      <h3>Adulto:</h3>
-                      <input name="flight[tariffValueAdult]" type="text" id="adt1" onblur="calcularAdt()" placeholder="Tarifa" class="valor" value="{{tariffValueAdult}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[taxValueAdult]" type="text" id="adt2" onblur="calcularAdt()" placeholder="Tx Embarque" class="valor" value="{{taxValueAdult}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[ravValueAdult]" type="text" id="adt3" onblur="calcularAdt()" placeholder="Valor RAV" class="valor" value="{{ravValueAdult}}{{moeda}}">
-                      <span>&#61;</span>
-                      <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor" value="{{totalValueAdult}}{{moeda}}">
-                      <span id="result"></span>
-                    </div>
-                    <br><br>
-                    <div class="rowclass">
-                      <h3>Criança:</h3>
-                      <input name="flight[tariffValueCHD]" type="text" id="chd1" onblur="calcularChd()" placeholder="Tarifa" class="valor" value="{{tariffValueCHD}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[taxValueCHD]" type="text" id="chd2" onblur="calcularChd()" placeholder="Tx Embarque" class="valor" value="{{taxValueCHD}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[ravValueCHD]" type="text" id="chd3" onblur="calcularChd()" placeholder="Valor RAV" class="valor" value="{{ravValueCHD}}{{moeda}}">
-                      <span>&#61;</span>
-                      <input name="flight[totalValueCHD]" type="text" id="chdResult1" onblur="calcularChd()" placeholder="Total chd" class="valor" value="{{totalValueCHD}}{{moeda}}">
-                      <span id="result"></span>
-                    </div>
-                    <br><br>
-                    <div class="rowclass">
-                      <h3>Bebê:</h3>
-                      <input name="flight[tariffValueInf]" type="text" id="inf1" onblur="calcularInf()" placeholder="Tarifa" class="valor" value="{{tariffValueInf}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[taxValueInf]" type="text" id="inf2" onblur="calcularInf()" placeholder="Tx Embarque" class="valor" value="{{taxValueInf}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[ravValueInf]" type="text" id="inf3" onblur="calcularInf()" placeholder="Valor RAV" class="valor" value="{{ravValueInf}}{{moeda}}">
-                      <span>&#61;</span>
-                      <input name="flight[totalValueInf]" type="text" id="infResult1" onblur="calcularInf()" placeholder="Total inf" class="valor" value="{{totalValueInf}}{{moeda}}">
-                      <span id="result"></span>
-                    </div>
-                    <br><br>
-                    <br>
-                  </div>
-                </th>
-                {{/compare}}
-
-                {{else}}
-
-                <tbody>
-                  <tr>
-                    <th colspan="4"><input type="text" placeholder="Origem" name="flight[from]" class="form-control" value="{{from}}"></th>
-                    <th colspan="4"><input type="text" placeholder="Destino" name="flight[destination]" class="form-control" value="{{destination}}"></th>
-                    <th colspan="4"><input type="text" maxlength="15" placeholder="dd/mm/aa" name="flight[dateFrom]" class="form-control" value="{{dateFrom}}"></th>
-                    <th colspan="4"><input type="text" maxlength="15" placeholder="dd/mm/aa" name="flight[dateDestination]" class="form-control" value="{{dateDestination}}"></th>
-                  </tr>
-                </tbody>
-                {{#compare final "1"}}
-                <th colspan="16">
-                  <div class="rowclass">
-                    <div class="rowclass">
-                      <h3>Adulto:</h3>
-                      <input name="flight[tariffValueAdult]" type="text" id="adt1" onblur="calcularAdt()" placeholder="Tarifa" class="valor" value="{{tariffValueAdult}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[taxValueAdult]" type="text" id="adt2" onblur="calcularAdt()" placeholder="Tx Embarque" class="valor" value="{{taxValueAdult}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[ravValueAdult]" type="text" id="adt3" onblur="calcularAdt()" placeholder="Valor RAV" class="valor" value="{{ravValueAdult}}{{moeda}}">
-                      <span>&#61;</span>
-                      <input name="flight[totalValueAdult]" type="text" id="adtResult1" onblur="calcularAdt()" placeholder="Total adt" class="valor" value="{{totalValueAdult}}{{moeda}}">
-                      <span id="result"></span>
-                    </div>
-                    <br><br>
-                    <div class="rowclass">
-                      <h3>Criança:</h3>
-                      <input name="flight[tariffValueCHD]" type="text" id="chd1" onblur="calcularChd()" placeholder="Tarifa" class="valor" value="{{tariffValueCHD}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[taxValueCHD]" type="text" id="chd2" onblur="calcularChd()" placeholder="Tx Embarque" class="valor" value="{{taxValueCHD}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[ravValueCHD]" type="text" id="chd3" onblur="calcularChd()" placeholder="Valor RAV" class="valor" value="{{ravValueCHD}}{{moeda}}">
-                      <span>&#61;</span>
-                      <input name="flight[totalValueCHD]" type="text" id="chdResult1" onblur="calcularChd()" placeholder="Total chd" class="valor" value="{{totalValueCHD}}{{moeda}}">
-                      <span id="result"></span>
-                    </div>
-                    <br><br>
-                    <div class="rowclass">
-                      <h3>Bebê:</h3>
-                      <input name="flight[tariffValueInf]" type="text" id="inf1" onblur="calcularInf()" placeholder="Tarifa" class="valor" value="{{tariffValueInf}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[taxValueInf]" type="text" id="inf2" onblur="calcularInf()" placeholder="Tx Embarque" class="valor" value="{{taxValueInf}}{{moeda}}">
-                      <i class="fa fa-money"></i>
-                      <input name="flight[ravValueInf]" type="text" id="inf3" onblur="calcularInf()" placeholder="Valor RAV" class="valor" value="{{ravValueInf}}{{moeda}}">
-                      <span>&#61;</span>
-                      <input name="flight[totalValueInf]" type="text" id="infResult1" onblur="calcularInf()" placeholder="Total inf" class="valor" value="{{totalValueInf}}{{moeda}}">
-                      <span id="result"></span>
-                    </div>
-                    <br><br>
-                    <br>
-                  </div>
-                </th>
-                {{/compare}}
-              {{/compare}}
-              </div>
-            {{/each}}
-          </table>
-
-          <!-- </div> -->
-      </div>
-
-
-
-
-        <div class="dinamic_spec_pageH" id="vamo">
-          {{#each infoHoteis}}
-          <div class="break-after--before">
-          <h3>Hotel {{numero}}</h3>
-          <div class="ajustes">
-          <div class="row rowclass" >
-            <div class="col-sm" id="landing-hotel-col1">
-              <div class="box_hotelH_left">
-                <div class="classa">
-                  <label>Nome do Hotel:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Hotel 1" value="{{hotel_1}}">
-                </div><br>
-                <div class="classa">
-                  <label>Tipo de acomodação:</label>
-                  <input readonly="readonly "class="form-control" placeholder="" value="{{tipoAcomodacao1}}">
-                </div><br>
-                <div class="classa">
-                  <label>Categoria do Apartaento</label>
-                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria1}}">
-                </div><br>
-                <div class="classa">
-                  <label>Alimentação</label>
-                  <input readonly="readonly" class="form-control" value="{{comida1}}">
-                  </input>
-                </div><br>
-                <div class="classa">
-                  <label>Valor do Apartamento</label>
-                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto1}}{{moeda}}">
-                </div><br>
-                <div class="classa">
-                  <label>Número de Diárias</label>
-                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias1}}">
-                </div><br>
-                <div class="classa">
-                  <label>Número de Apartamentos</label>
-                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto1}}">
-                </div><br>
-                <div class="classa">
-                  <label>Total</label>
-                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_1}}{{moeda}}">
-                </div><br>
-                <div class="classa">
-                  <label>Período de Cancelamento</label>
-                  <input readonly="readonly" class="form-control" value="{{periodoCancelamento1}}">
-                </input>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm" id="landing-hotel-col2">
-              <div class="box_hotelH_midle">
-                <div class="classa">
-                  <label>Cidade:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Cidade 1" value="{{cidade}}">
-                </div><br>
-                <div class="classa">
-                  <label>Nome do Hotel:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Hotel 2" value="{{hotel_2}}">
-                </div><br>
-                <div class="classa">
-                  <label>Tipo de acomodação:</label>
-                  <input readonly="readonly "class="form-control" placeholder="" value="{{tipoAcomodacao2}}">
-                </div><br>
-                <div class="classa">
-                  <label>Categoria do Apartamento:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria2}}">
-                </div><br>
-                <div class="classa">
-                  <label>Alimentação:</label>
-                  <input readonly="readonly" class="form-control" value="{{comida2}}">
-                  </input>
-                </div><br>
-                <div class="classa">
-                  <label>Valor do Apartamento:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto2}}{{moeda}}">
-                </div><br>
-                <div class="classa">
-                  <label>Número de Diárias:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias2}}">
-                </div><br>
-                <div class="classa">
-                  <label>Número de Apartamentos:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto2}}">
-                </div><br>
-                <div class="classa">
-                  <label>Total:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_2}}{{moeda}}">
-                </div><br>
-                <div class="classa">
-                  <label>Período de Cancelamento:</label>
-                  <input readonly="readonly" class="form-control" value="{{periodoCancelamento2}}">
-                </input>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm" id="landing-hotel-col3">
-              <div class="box_hotelH_right">
-                <div class="classa">
-                  <label>Nome do Hotel:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Hotel 3" value="{{hotel_3}}">
-                </div><br>
-                <div class="classa">
-                  <label>Tipo de acomodação:</label>
-                  <input readonly="readonly "class="form-control" placeholder="" value="{{tipoAcomodacao3}}">
-                </div><br>
-                <div class="classa">
-                  <labe>Categoria do Apartamento:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Categoria do Apartamento" value="{{categoria3}}">
-                </div><br>
-                <div class="classa">
-                  <label>Alimentação</label>
-                  <input readonly="readonly" class="form-control" value="{{comida3}}">
-                  </input>
-                </div><br>
-                <label>Valor do Apartamento:</label>
-                <div class="classa">
-                  <input readonly="readonly "class="form-control" placeholder="Valor Apto" value="{{valorapto3}}{{moeda}}">
-                </div><br>
-                <div class="classa">
-                  <label>Número de Diárias</label>
-                  <input readonly="readonly "class="form-control" placeholder="Número de diárias" value="{{numeroDiarias3}}">
-                </div><br>
-                <div class="classa">
-                  <label>Número de Apartamentos</label>
-                  <input readonly="readonly "class="form-control" placeholder="Número de Apartamentos" value="{{numeroApto3}}">
-                </div><br>
-                <div class="classa">
-                  <label>Total:</label>
-                  <input readonly="readonly "class="form-control" placeholder="Total" value="{{total_3}}{{moeda}}">
-                </div><br>
-                <div class="classa">
-                  <label>Periodo de Cancelamento</label>
-                  <input readonly="readonly" class="form-control" value="{{periodoCancelamento3}}">
-                </input>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-            </div>
-          {{/each}}
-        </div>
-
-
-
-        <h1> Traslado/carro </h1>
-
-
-          <div class="dinamic_spec" id="vamo">
-
-            <div class="row rowclass">
-              <div class="col-12 rowclass" >
-                <div class="boxRightPageH">
-                  <div>
-                    {{#each infoTraslado}}
-                    <div class="break-after--before">
-                    <h3> Traslado {{numero}} </h3><br>
-                    <label>De:</label><label class="gambiarra--esq">Para:</label><br>
-                    <input readonly="readonly "value="{{deT}}" type="text" placeholder="De" class="date start-date"/>
-                    <i class="fa fa-car" aria-hidden="true"></i>
-                    <input readonly="readonly "value="{{paraT}}" type="text" placeholder="Para" class="date start-date"/>
-                    <br><br>
-                    <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
-                    <input readonly="readonly "value="{{dataIdaT}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
-                    <i class="fa fa-calendar"></i>
-                    <input readonly="readonly "value="{{horaIdaT}}" type="text" placeholder="Horário" class="date start-date"/>
-                    <br><br>
-                    <label>Data Chegada:</label><label class="gambiarra--esq">Hora Chegada:</label><br>
-                    <input readonly="readonly "value="{{dataParaT}}" type="date" placeholder="dd/mm/aa" class="date start-date"/>
-                    <i class="fa fa-calendar"></i>
-                    <input readonly="readonly "value="{{horaParaT}}" type="text" placeholder="Horário" class="date start-date"/>
-                    </div>
-                  {{/each}}
-                </div>
-                  {{#each infoTraslado}}
-                  <div class="break-afer--before">
-                  <h3>Informações {{numero}}</h3>
-                  <div class="container rowclass col-9" id="vaiqcola">
-                    <div class="col-sm rowclass">
-                      <div class="rowclass col-lg-11">
-                        <br>
-                        <label>Valor por Adulto:</label><br>
-                        <input value="{{valorAdtT}}{{moedaT}}" readonly="readonly" class="date start-date " placeholder="Val ADT"><br>
-                      </div>
-                    </div>
-                    <div class="col-sm rowclass">
-                      <div class=" rowclass col-lg-11">
-                        <br>
-                        <label>Valor por Criança:</label><br>
-                        <input value="{{valorChdT}}{{moedaT}}" readonly="readonly" class="date start-date" placeholder="Val CHD"><br>
-                      </div>
-                    </div>
-                    <div class="col-sm rowclass">
-                      <div class="rowclass col-lg-11">
-                        <br>
-                        <label>Valor por bebê:</label><br>
-                        <input value="{{valorInfT}}{{moedaT}}" class="date start-date" readonly="readonly" placeholder="Val INF"><br>
-                      </div><br>
-                    </div>
-                  </div>
-                  </div>
-                {{/each}}
-              </div>
-             </div>
-            </div>
-          <!-- coluna 3 -->
-            <div class="col-sm-auto " id="nois">
-            <div class="CarsPageH">
-              {{#each infoCarros}}
-              <div class="break-after--before">
-              <br><br><h3> Carro {{numero}} </h3><br>
-              <div class="classa">
-                <label>Local de Retirada:</label>
-                <input class="form-control" placeholder="Retirada" readonly="readonly "value="{{retirada}}">
-              </div><br>
-              <div class="classa">
-                <label>Outras informações:</label>
-                <input class="form-control" placeholder="Outros" readonly="readonly "value="{{outros}}">
-              </div><br>
-              <div class="classa">
-                <label>Local de Entrega:</label>
-                <input class="form-control" placeholder="Entrega" readonly="readonly "value="{{entrega}}">
-              </div><br>
-              <div class="classa">
-                <label>Valor do Carro:</label>
-                <input class="form-control" placeholder="Valor carro 1" readonly="readonly "value="{{valor}}{{moedaC}}">
-              </div><br>
-              <div class="classa">
-                <label>Cidade:</label>
-                <input class="form-control" placeholder="Cidade" readonly="readonly "value="{{cidade}}">
-              </div><br>
-              <div class="classa">
-                <label>Tipo do carro:</label>
-                <input class="form-control" placeholder="Tipo" readonly="readonly "value="{{tipoCarro}}">
-              </div><br>
-              <div class="classa">
-                <label>Trasmissão do Carro:</label>
-                <input class="form-control" placeholder="Transmissão" readonly="readonly "value="{{transmissao}}">
-              </div><br>
-              <div class="classa">
-                <label>Qual o Seguro:</label>
-                <input class="form-control" placeholder="Seguros" readonly="readonly "value="{{seguro}}">
-              </div><br>
-                </div>
-              {{/each}}
-            </div>
-        </div>
-      </div>
-
-
-
-        <h1> Serviços </h1>
-
-        <div class="dinamic_spec d-flex  flex-row" id="vamo">
-          {{#each infoSeguro}}
-          <div class="break-after--before">
-          <div class="p-3">
-                <div class="form-group">
-                  <label id="titleG" for="exampleInputPassword1">Seguro {{numero}}:</label>
-                  <label>Qual seguro será utilizado:</label>
-                  <input value="{{seguro}}" type="text" placeholder= "Qual seguro será utilizado?" readonly="readonly" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Cobertura</label>
-                  <input value="{{coberturaSeguro}}" type="text" placeholder= "Cobertura do seguro" readonly="readonly" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Valor Adultos:</label>
-                  <input value="{{valorAdtS}}{{moedaS}}" type="text" placeholder= "Preço por adulto" readonly="readonly" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Valor Crianças:</label>
-                  <input value="{{valorChdS}}{{moedaS}}" type="text" placeholder= "Preço por criança" readonly="readonly" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Valor Bebês:</label>
-                  <input value="{{valorInfS}}{{moedaS}}" type="text" placeholder= "Preço por bebê" readonly="readonly" class="form-control">
-                </div>
-          </div>
-          </div>
-          {{/each}}
-
-          {{#each infoTickets}}
-          <div class="break-after--before">
-          <div class="p-3">
-                <div class="form-group">
-                  <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos {{numero}}:</label>
-                  <label>Nome do Evento:</label>
-                  <input value="{{tickets}}" type="text" placeholder= "" class="form-control" readonly="readonly">
-                  <br>
-                  <label for="exampleInputPassword1">Valor Adultos:</label>
-                  <input value = "{{valorAdtTk}}{{moedaT}}" type="text" placeholder= "Preço por adulto" class="form-control" readonly="readonly">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Valor Crianças:</label>
-                  <input value="{{valorChdTk}}{{moedaT}}" type="text" placeholder= "Preço por criança" class="form-control" readonly="readonly">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Valor Bebês:</label>
-                  <input value="{{valorInfTk}}{{moedaT}}" type="text" placeholder= "Preço por bebê" class="form-control" readonly="readonly">
-                </div>
-          </div>
-          </div>
-          {{/each}}
-
-          {{#each infoOutros}}
-          <div class="break-after--before">
-          <div class="p-3">
-                <div class="form-group">
-                  <label id="titleG" for="exampleInputPassword1">Outros {{numero}}:</label>
-                  <br>
-                  <label>O que será:</label>
-                  <input value="{{outros}}" type="text" placeholder= "" class="form-control" readonly="readonly">
-                  <br>
-                  <label for="exampleInputPassword1">Valor Adultos:</label>
-                  <input value="{{valorAdtO}}{{moedaO}}" type="text" placeholder= "Preço por adulto" class="form-control" readonly="readonly">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Valor Crianças:</label>
-                  <input value="{{valorChdO}}{{moedaO}}" type="text" placeholder= "Preço por criança" class="form-control" readonly="readonly">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Valor Bebês:</label>
-                  <input value="{{valorInfO}}{{moedaO}}" type="text" placeholder= "Preço por bebê" class="form-control" readonly="readonly">
-                </div>
-          </div>
-          </div>
-          {{/each}}
-        </div>
-      </div>
-
-      <div class="dinamic_spec">
-        <h3>Observações:</h3> <br>
-        <textarea name="" class="observacoes" rows="10" cols="120"></textarea>
-        <br><br><br>
-          <form class="" action="/new/pageH/{{client_id}}/{{budget_id}}" method="post">
-            <button class="btn-fake" type="submit" onclick="return confirm('Deseja REALMENTE concluir sua compra?')">Finalizar viagem</button>
-          </form>
-          <button class="btn-fake" onClick="location.href='/dashboard'">Sair sem finalizar</button>
-      </div>
-
-
-
-      </div>
-    </div>
   </div>
 
+  <div class="images-form " id="images-form">
+
+      <div class="sul1-imgs hidden-imgs  imgs-print"  id="idsul1-imgs">
+        <img id="idsul1-imgs" src="/images/AMS1.png">
+      </div>
+
+      <div class="sul2-imgs hidden-imgs  imgs-print" id="idsul2-imgs">
+        <img src="/images/AMS2.png">
+      </div>
+
+      <div class="central1-imgs hidden-imgs  imgs-print" id="idcentral1-imgs">
+        <img src="/images/AC1.png">
+      </div>
+
+      <div class="central2-imgs hidden-imgs imgs-print " id="idcentral2-imgs">
+        <img src="/images/AC2.png">
+      </div>
+
+      <div class="norte1-imgs hidden-imgs imgs-print " id="idnorte1-imgs">
+        <img src="/images/AMN1.png">
+      </div>
+
+      <div class="norte2-imgs hidden-imgs imgs-print " id="idnorte2-imgs">
+        <img src="/images/AMN2.png">
+      </div>
+
+      <div class="europa1-imgs hidden-imgs imgs-print " id="ideuropa1-imgs">
+        <img src="/images/EU1.png">
+      </div>
+
+      <div class="europa2-imgs hidden-imgs imgs-print " id="ideuropa2-imgs">
+        <img src="/images/EU2.png">
+      </div>
+
+      <div class="asia1-imgs hidden-imgs  imgs-print" id="idasia1-imgs">
+        <img src="/images/AS1.png">
+      </div>
+
+      <div class="asia2-imgs hidden-imgs  imgs-print" id="idasia2-imgs">
+        <img src="/images/AS2.png">
+      </div>
+
+      <div class="africa1-imgs hidden-imgs  imgs-print" id="idafrica1-imgs">
+        <img src="/images/AF1.png">
+      </div>
+
+      <div class="africa2-imgs hidden-imgs  imgs-print" id="idafrica2-imgs">
+        <img src="/images/AF2.png">
+      </div>
+
+      <div class="oceania1-imgs hidden-imgs  imgs-print" id="idoceania1-imgs">
+        <img src="/images/OC1.png">
+      </div>
+
+      <div class="oceania2-imgs hidden-imgs  imgs-print" id="idoceania2-imgs">
+        <img src="/images/OC2.png">
+      </div>
+
+      <div class="caribe1-imgs hidden-imgs  imgs-print" id="idcaribe1-imgs">
+        <img src="/images/CB1.png">
+      </div>
+
+      <div class="caribe2-imgs hidden-imgs  imgs-print" id="idcaribe2-imgs">
+        <img src="/images/CB2.png">
+      </div>
+
+      <div class="medio1-imgs hidden-imgs  imgs-print" id="idmedio1-imgs">
+        <img src="/images/OM1.png">
+      </div>
+
+      <div class="medio2-imgs hidden-imgs  imgs-print" id="idmedio2-imgs">
+        <img src="/images/OM2.png">
+      </div>
+
+      <div class="ilhas1-imgs hidden-imgs  imgs-print" id="idilhas1-imgs">
+        <img src="/images/IL1.png">
+      </div>
+
+      <div class="ilhas2-imgs hidden-imgs  imgs-print" id="idilhas2-imgs">
+        <img src="/images/IL2.png">
+      </div>
+    </div>
+ <!-- obersevaçoes  -->
+    <div class="pageH_dinamic_spec">
+        <div class="caixatotal caixatotal--obs">
+        <h3 class="hotel_tit">Observações:</h3> <br>
+        <textarea name="" class="observacoes" rows="10" cols="120"></textarea>
+        <br><br><br>
+      </div>
+    </div>
+    <br><br><br>
+    <!-- observacoes fim -->
+
+    <!-- roteiro -->
+
+    <div class="pageH_dinamic_spec" >
+
+                <h1 class="cor">Roteiro:</h1>
+
+                <div class="caixatotal--break papel">
+                      {{#each dias}}
+                      <div class="roteiro-flex roteiro-flex--table caixatotalR">
+                      <div class="col-sm-auto-pageC rowclass">
+                        <h3 class="cor">Dia {{numero}}</h3>
+                      </div>
+                      <div class="dias-flex">
+                        <div class="col-sm-auto-pageC rowclass">
+                          <input type="date" placeholder="dd/mm/aa" value="{{planDia}}" class= "form-control classCinput textosR" readonly>
+                        </div>
+                        <div class="col-sm-auto-pageC rowclass">
+                          <input placeholder="Cidade" value="{{planCidade}}" class= "form-control classCinput2 textosR" readonly>
+                        </div>
+                        <div class="col-sm-auto-pageC rowclass">
+                          <input placeholder="País" value="{{planPais}}" class= "form-control classCinput2 textosR" readonly>
+                        </div>
+                        </div>
+                        <div class="form-group campo-livre">
+                          <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre}}</textarea>
+                        </div>
+                  </div><br>
+                    {{/each}}
+                  </div>
+
+                <div class="caixatotal--break papel">
+                    {{#each dias2}}
+                    <div class="">
+
+                    </div>
+                    <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+                    <div class="col-sm-auto-pageC rowclass">
+                      <h3 class="cor">Dia {{numero2}}</h3>
+                    </div>
+                    <div class="dias-flex">
+                      <div class="col-sm-auto-pageC rowclass">
+                        <input type="date" placeholder="dd/mm/aa" value="{{planDia2}}" class= "form-control classCinput textosR" readonly>
+                      </div>
+                      <div class="col-sm-auto-pageC rowclass">
+                        <input placeholder="Cidade" value="{{planCidade2}}" class= "form-control classCinput2 textosR" readonly>
+                      </div>
+                      <div class="col-sm-auto-pageC rowclass">
+                        <input placeholder="País" value="{{planPais2}}" class= "form-control classCinput2 textosR" readonly>
+                      </div>
+                      </div>
+                      <div class="form-group campo-livre">
+                        <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre2}}</textarea>
+                      </div>
+                </div><br>
+                  {{/each}}
+                </div>
+
+                {{#compare dias3 null}}
+                <div class="caixatotal--break papel">
+                  {{#each dias3}}
+                  <div class="">
+
+                  </div>
+                  <div class="roteiro-flex roteiro-flex--table caixatotalR   ">
+                  <div class="col-sm-auto-pageC rowclass">
+                    <h3 class="cor">Dia {{numero3}}</h3>
+                  </div>
+                  <div class="dias-flex">
+                    <div class="col-sm-auto-pageC rowclass">
+                      <input type="date" placeholder="dd/mm/aa" value="{{planDia3}}" class= "form-control classCinput textosR" readonly>
+                    </div>
+                    <div class="col-sm-auto-pageC rowclass">
+                      <input placeholder="Cidade" value="{{planCidade3}}" class= "form-control classCinput2 textosR" readonly>
+                    </div>
+                    <div class="col-sm-auto-pageC rowclass">
+                      <input placeholder="País" value="{{planPais3}}" class= "form-control classCinput2 textosR" readonly>
+                    </div>
+                    </div>
+                    <div class="form-group campo-livre">
+                      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre3}}</textarea>
+                    </div>
+              </div><br>
+                {{/each}}
+              </div>
+              {{/compare}}
+
+              {{#compare dias4 null}}
+              <div class="caixatotal--break papel">
+                {{#each dias4}}
+                <div class="">
+
+                </div>
+                <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+                <div class="col-sm-auto-pageC rowclass">
+                  <h3 class="cor">Dia {{numero4}}</h3>
+                </div>
+                <div class="dias-flex">
+                  <div class="col-sm-auto-pageC rowclass">
+                    <input type="date" placeholder="dd/mm/aa" value="{{planDia4}}" class= "form-control classCinput textosR" readonly>
+                  </div>
+                  <div class="col-sm-auto-pageC rowclass">
+                    <input placeholder="Cidade" value="{{planCidade4}}" class= "form-control classCinput2 textosR" readonly>
+                  </div>
+                  <div class="col-sm-auto-pageC rowclass">
+                    <input placeholder="País" value="{{planPais4}}" class= "form-control classCinput2 textosR" readonly>
+                  </div>
+                  </div>
+                  <div class="form-group campo-livre">
+                    <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre4}}</textarea>
+                  </div>
+            </div><br>
+              {{/each}}
+            </div>
+            {{/compare}}
+
+            {{#compare dias5 null}}
+            <div class="caixatotal--break papel">
+              {{#each dias5}}
+              <div class="">
+
+              </div>
+              <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+              <div class="col-sm-auto-pageC rowclass">
+                <h3 class="cor">Dia {{numero5}}</h3>
+              </div>
+              <div class="dias-flex">
+                <div class="col-sm-auto-pageC rowclass">
+                  <input type="date" placeholder="dd/mm/aa" value="{{planDia5}}" class= "form-control classCinput textosR" readonly>
+                </div>
+                <div class="col-sm-auto-pageC rowclass">
+                  <input placeholder="Cidade" value="{{planCidade5}}" class= "form-control classCinput2 textosR" readonly>
+                </div>
+                <div class="col-sm-auto-pageC rowclass">
+                  <input placeholder="País" value="{{planPais5}}" class= "form-control classCinput2 textosR" readonly>
+                </div>
+                </div>
+                <div class="form-group campo-livre">
+                  <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre5}}</textarea>
+                </div>
+          </div><br>
+            {{/each}}
+          </div>
+          {{/compare}}
+
+          {{#compare dias6 null}}
+          <div class="caixatotal--break papel">
+            {{#each dias6}}
+            <div class="">
+
+            </div>
+            <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+            <div class="col-sm-auto-pageC rowclass">
+              <h3 class="cor">Dia {{numero6}}</h3>
+            </div>
+            <div class="dias-flex">
+              <div class="col-sm-auto-pageC rowclass">
+                <input type="date" placeholder="dd/mm/aa" value="{{planDia6}}" class= "form-control classCinput textosR" readonly>
+              </div>
+              <div class="col-sm-auto-pageC rowclass">
+                <input placeholder="Cidade" value="{{planCidade6}}" class= "form-control classCinput2 textosR" readonly>
+              </div>
+              <div class="col-sm-auto-pageC rowclass">
+                <input placeholder="País" value="{{planPais6}}" class= "form-control classCinput2 textosR" readonly>
+              </div>
+              </div>
+              <div class="form-group campo-livre">
+                <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre6}}</textarea>
+              </div>
+        </div><br>
+          {{/each}}
+        </div>
+        {{/compare}}
+
+        {{#compare dias7 null}}
+        <div class="caixatotal--break papel">
+          {{#each dias7}}
+          <div class="">
+
+          </div>
+          <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+          <div class="col-sm-auto-pageC rowclass">
+            <h3 class="cor">Dia {{numero7}}</h3>
+          </div>
+          <div class="dias-flex">
+            <div class="col-sm-auto-pageC rowclass">
+              <input type="date" placeholder="dd/mm/aa" value="{{planDia7}}" class= "form-control classCinput textosR" readonly>
+            </div>
+            <div class="col-sm-auto-pageC rowclass">
+              <input placeholder="Cidade" value="{{planCidade7}}" class= "form-control classCinput2 textosR" readonly>
+            </div>
+            <div class="col-sm-auto-pageC rowclass">
+              <input placeholder="País" value="{{planPais7}}" class= "form-control classCinput2 textosR" readonly>
+            </div>
+            </div>
+            <div class="form-group campo-livre">
+              <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre7}}</textarea>
+            </div>
+      </div><br>
+        {{/each}}
+      </div>
+      {{/compare}}
+
+      {{#compare dias8 null}}
+      <div class="caixatotal--break papel">
+        {{#each dias8}}
+        <div class="">
+
+        </div>
+        <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+        <div class="col-sm-auto-pageC rowclass">
+          <h3 class="cor">Dia {{numero8}}</h3>
+        </div>
+        <div class="dias-flex">
+          <div class="col-sm-auto-pageC rowclass">
+            <input type="date" placeholder="dd/mm/aa" value="{{planDia8}}" class= "form-control classCinput textosR" readonly>
+          </div>
+          <div class="col-sm-auto-pageC rowclass">
+            <input placeholder="Cidade" value="{{planCidade8}}" class= "form-control classCinput2 textosR" readonly>
+          </div>
+          <div class="col-sm-auto-pageC rowclass">
+            <input placeholder="País" value="{{planPais8}}" class= "form-control classCinput2 textosR" readonly>
+          </div>
+          </div>
+          <div class="form-group campo-livre">
+            <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre8}}</textarea>
+          </div>
+    </div><br>
+      {{/each}}
+    </div>
+    {{/compare}}
+
+    {{#compare dias9 null}}
+    <div class="caixatotal--break papel">
+      {{#each dias9}}
+      <div class="">
+
+      </div>
+      <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+      <div class="col-sm-auto-pageC rowclass">
+        <h3 class="cor">Dia {{numero9}}</h3>
+      </div>
+      <div class="dias-flex">
+        <div class="col-sm-auto-pageC rowclass">
+          <input type="date" placeholder="dd/mm/aa" value="{{planDia9}}" class= "form-control classCinput textosR" readonly>
+        </div>
+        <div class="col-sm-auto-pageC rowclass">
+          <input placeholder="Cidade" value="{{planCidade9}}" class= "form-control classCinput2 textosR" readonly>
+        </div>
+        <div class="col-sm-auto-pageC rowclass">
+          <input placeholder="País" value="{{planPais9}}" class= "form-control classCinput2 textosR" readonly>
+        </div>
+        </div>
+        <div class="form-group campo-livre">
+          <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre9}}</textarea>
+        </div>
+  </div><br>
+    {{/each}}
+  </div>
+  {{/compare}}
+
+  {{#compare dias10 null}}
+  <div class="caixatotal--break papel">
+    {{#each dias10}}
+    <div class="">
+
+    </div>
+    <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+    <div class="col-sm-auto-pageC rowclass">
+      <h3 class="cor">Dia {{numero10}}</h3>
+    </div>
+    <div class="dias-flex">
+      <div class="col-sm-auto-pageC rowclass">
+        <input type="date" placeholder="dd/mm/aa" value="{{planDia10}}" class= "form-control classCinput textosR" readonly>
+      </div>
+      <div class="col-sm-auto-pageC rowclass">
+        <input placeholder="Cidade" value="{{planCidade10}}" class= "form-control classCinput2 textosR" readonly>
+      </div>
+      <div class="col-sm-auto-pageC rowclass">
+        <input placeholder="País" value="{{planPais10}}" class= "form-control classCinput2 textosR" readonly>
+      </div>
+      </div>
+      <div class="form-group campo-livre">
+        <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre10}}</textarea>
+      </div>
+</div><br>
+  {{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias11 null}}
+<div class="caixatotal--break papel">
+  {{#each dias11}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero11}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia11}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade11}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais11}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre11}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias12 null}}
+<div class="caixatotal--break papel">
+  {{#each dias12}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero12}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia12}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade12}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais12}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre12}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias13 null}}
+<div class="caixatotal--break papel">
+  {{#each dias13}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero13}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia13}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade13}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais13}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre13}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias14 null}}
+<div class="caixatotal--break papel">
+  {{#each dias14}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero14}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia14}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade14}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais14}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre14}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias15 null}}
+<div class="caixatotal--break papel">
+  {{#each dias15}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero15}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia15}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade15}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais15}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre15}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias16 null}}
+<div class="caixatotal--break papel">
+  {{#each dias16}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero16}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia16}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade16}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais16}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre16}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias17 null}}
+<div class="caixatotal--break papel">
+  {{#each dias17}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero17}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia17}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade17}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais17}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre17}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias18 null}}
+<div class="caixatotal--break papel">
+  {{#each dias18}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero18}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia18}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade18}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais18}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre18}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias19 null}}
+<div class="caixatotal--break papel">
+  {{#each dias19}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero19}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia19}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade19}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais19}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre19}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+{{#compare dias20 null}}
+<div class="caixatotal--break papel">
+  {{#each dias20}}
+  <div class="">
+
+  </div>
+  <div class="roteiro-flex roteiro-flex--table caixatotalR  ">
+  <div class="col-sm-auto-pageC rowclass">
+    <h3 class="cor">Dia {{numero20}}</h3>
+  </div>
+  <div class="dias-flex">
+    <div class="col-sm-auto-pageC rowclass">
+      <input type="date" placeholder="dd/mm/aa" value="{{planDia20}}" class= "form-control classCinput textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="Cidade" value="{{planCidade20}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    <div class="col-sm-auto-pageC rowclass">
+      <input placeholder="País" value="{{planPais20}}" class= "form-control classCinput2 textosR" readonly>
+    </div>
+    </div>
+    <div class="form-group campo-livre">
+      <br><textarea class="form-control textosCL" placeholder="Campo Livre" rows="10" cols="120" readonly>{{planCampoLivre20}}</textarea>
+    </div>
+</div><br>
+{{/each}}
+</div>
+{{/compare}}
+
+
+    </div>
+
+    <!-- fim roteiro -->
+
+    <!-- voos -->
+
+
+    {{#each allFlights}}
+
+      {{#compare inicio "1"}}
+        {{#compare firstflightTable "1"}}
+        <div class="pageH_dinamic_spec papel  papel break-after voos--print">
+          <div class="caixatotal">
+          <h1 class="cor">Voo {{idTable}}</h1>
+          <div class="header Selected table-responsive" id="flight{{idTable}}">
+            <table class="table table-striped table-hover" id="in_country_days{{idTable}}">
+              <thead>
+                <tr>
+                  <th colspan="1" readonly class="cor">Voo</th>
+                  <th colspan="1" readonly class="cor">Data</th>
+                  <th colspan="4" readonly class="cor">De</th>
+                  <th colspan="4" readonly class="cor">Para</th>
+                  <th colspan="2" readonly class="cor">Saída</th>
+                  <th colspan="2" readonly class="cor">Chegada</th>
+                </tr>
+              </thead>
+
+        {{else}}
+
+        <div class="pageH_dinamic_spec  papel break-after voos--print">
+          <div class="caixatotal">
+          <h1 class="cor">Voo {{idTable}}</h1>
+          <div style="background-color: rgba(243 ,171 , 133, 0.8);" class="header table-responsive" id="flight{{idTable}}">
+            <table class="table table-striped table-hover" id="in_country_days{{idTable}}">
+              <thead>
+                <tr>
+                  <th colspan="1" readonly class="cor">Voo</th>
+                  <th colspan="1" readonly class="cor">Data</th>
+                  <th colspan="4" readonly class="cor">De</th>
+                  <th colspan="4" readonly class="cor">Para</th>
+                  <th colspan="2" readonly class="cor">Saída</th>
+                  <th colspan="2" readonly class="cor">Chegada</th>
+                </tr>
+              </thead>
+        {{/compare}}
+      {{/compare}}
+
+      {{#compare escala "0"}}
+        <tr>
+          <th colspan="1"><input readonly type="text" placeholder="Num voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control form-control--cor"/></th>
+          <th colspan="1"><input readonly type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFrom}}" class="form-control form-control--cor"/></th>
+          <th colspan="4"><input readonly type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control form-control--cor"/></th>
+          <th colspan="4"><input readonly type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control form-control--cor"/></th>
+          <th colspan="2"><input readonly type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control form-control--cor"/></th>
+          <th colspan="2"><input readonly type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control form-control--cor"/></th>
+          <input readonly type="number" name="flight[escalas]" value="0" class="invDiv">
+        </tr>
+
+        {{else}}
+
+        <tr>
+          <th colspan="1"><input readonly type="text" placeholder="Num voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control form-control--cor"/></th>
+          <th colspan="1"><input readonly type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFrom}}" class="form-control form-control--cor"/></th>
+          <th colspan="4"><input readonly type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control form-control--cor"/></th>
+          <th colspan="4"><input readonly type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control form-control--cor"/></th>
+          <th colspan="2"><input readonly type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control form-control--cor"/></th>
+          <th colspan="2"><input readonly type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control form-control--cor"/></th>
+          <input readonly type="number" name="flight[escalas]" value="1" class="invDiv">
+        </tr>
+
+      {{/compare}}
+
+        {{#compare final "1"}}
+            </table>
+            <div class="pageDAuto">
+              <table class="pageDAuto">
+                <tr>
+                  <th readonly class="cor" colspan="21"><h4>Primeira Classe</h4></th>
+                </tr>
+                <tr>
+
+
+                  <th colspan="1"></th>
+                  <th colspan="4" class="cor">Total </th>
+                  <th colspan="1" class="cor">Número de passagens</th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Adulto</h5></th>
+
+                  <th colspan="4"><input readonly name="flight[totalValueAdult_FirstClass]" onblur="calcularAdt_FirstClass()" input type="text" name="total" id="adtResult{{result}}_FirstClass" placeholder="Total ADT" class="valor form-control--cor"/ value="{{coin}}{{totalValueAdult_FirstClass}}"></th>
+                  <th colspan="1"><input readonly name="flight[numADT_FirstClass]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numADT_FirstClass}}"></th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Criança</h5></th>
+
+                  <th colspan="4"><input readonly name="flight[totalValueCHD_FirstClass]" onblur="calcularChd_FirstClass()" input type="text" name="total" id="chdResult{{result}}_FirstClass" placeholder="Total CHD" class="valor form-control--cor"/ value="{{coin}}{{totalValueCHD_FirstClass}}"></th>
+                  <th colspan="1"><input readonly name="flight[numCHD_FirstClass]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numCHD_FirstClass}}"></th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Bebê</h5></th>
+
+                  <th colspan="4"><input readonly name="flight[totalValueInf_FirstClass]" onblur="calcularInf_FirstClass()" sinput type="text" name="total" id="infResult{{result}}_FirstClass" placeholder="Total INF" class="valor form-control--cor"/ value="{{coin}}{{totalValueInf_FirstClass}}"></th>
+                  <th colspan="1"><input readonly name="flight[numINF_FirstClass]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numINF_FirstClass}}"></th>
+                </tr>
+              </table>
+              <br>
+              <table class="pageDAuto">
+                <tr>
+                  <th colspan="21"><h4 class="cor">Executivo</h4></th>
+                </tr>
+                <tr>
+
+                  <th colspan="1" class="cor"></th>
+                  <th colspan="4" class="cor">Total</th>
+                  <th colspan="1" class="cor">Número de passagens</th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Adulto</h5></th>
+
+                  <th colspan="4"><input readonly name="flight[totalValueAdult_Executive]" onblur="calcularAdt_Executive()" input type="text" name="total" id="adtResult{{result}}_Executive" placeholder="Total ADT" class="valor form-control--cor"/ value="{{coin}}{{totalValueAdult_Executive}}"></th>
+                  <th colspan="1"><input readonly name="flight[numADT_Executive]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numADT_Executive}}"></th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Criança</h5></th>
+
+                  <th colspan="4"><input readonly name="flight[totalValueCHD_Executive]" onblur="calcularChd_Executive()" input type="text" name="total" id="chdResult{{result}}_Executive" placeholder="Total CHD" class="valor form-control--cor"/ value="{{coin}}{{totalValueCHD_Executive}}"></th>
+                  <th colspan="1"><input readonly name="flight[numCHD_Executive]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numCHD_Executive}}"></th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Bebê</h5></th>
+
+                  <th colspan="4"><input readonly name="flight[totalValueInf_Executive]" onblur="calcularInf_Executive()" sinput type="text" name="total" id="infResult{{result}}_Executive" placeholder="Total INF" class="valor form-control--cor"/ value="{{coin}}{{totalValueInf_Executive}}"></th>
+                  <th colspan="1"><input readonly name="flight[numINF_Executive]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numINF_Executive}}"></th>
+                </tr>
+              </table>
+              <br>
+              <table class="pageDAuto">
+                <tr>
+                  <th colspan="21"><h4 class="cor">Econômico</h4></th>
+                </tr>
+                <tr>
+
+                  <th colspan="1" class="cor"></th>
+                  <th colspan="4" class="cor">Total</th>
+                  <th colspan="1" class="cor">Número de passagens</th>
+                </tr>
+                <tr>
+                  <th colspan="1" class="cor"><h5>Adulto</h5></th>
+
+                  <th colspan="4"><input name="flight[totalValueAdult_Economic]" onblur="calcularAdt_Economic()" input type="text" name="total" id="adtResult{{result}}_Economic" placeholder="Total ADT" class="valor form-control--cor"/ value="{{coin}}{{totalValueAdult_Economic}}"></th>
+                  <th colspan="1"><input name="flight[numADT_Economic]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numADT_Economic}}"></th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Criança</h5></th>
+
+                  <th colspan="4"><input name="flight[totalValueCHD_Economic]" onblur="calcularChd_Economic()" input type="text" name="total" id="chdResult{{result}}_Economic" placeholder="Total CHD" class="valor form-control--cor"/ value="{{coin}}{{totalValueCHD_Economic}}"></th>
+                  <th colspan="1"><input name="flight[numCHD_Economic]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numCHD_Economic}}"></th>
+                </tr>
+                <tr>
+                  <th colspan="1"><h5 class="cor">Bebê</h5></th>
+
+                  <th colspan="4"><input name="flight[totalValueInf_Economic]" onblur="calcularInf_Economic()" sinput type="text" name="total" id="infResult{{result}}_Economic" placeholder="Total INF" class="valor form-control--cor"/ value="{{coin}}{{totalValueInf_Economic}}"></input></th>
+                  <th colspan="1"><input name="flight[numINF_Economic]" input type="text" name="total" placeholder="" class="valor form-control--cor"/ value="{{numINF_Economic}}"></th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        </div>
+        {{/compare}}
+
+    {{/each}}
+
+    <!-- fim voos -->
+
+
+    <!-- hoteis -->
+    <div class="pageH_dinamic_spec hotel--print">
+      {{#each infoHoteis}}
+      <div class=" papel break-after--before caixatotalH">
+      <h3 class="hotel_tit">Hotel {{numero}}</h3>
+      <div class="ajustes_new">
+        <div class="hotel_flex">
+        <div class="col-sm" id="landing-hotel-col1"><br><br><br><br>
+          <div class="box_hotelH_newleft">
+            <div class="classaH">
+              <label>Nome do Hotel:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Hotel 1" value="{{hotel_1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Tipo de acomodação:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Categoria do Apartaento</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Alimentação</label>
+              <input readonly="readonly" class="form-control textos" value="{{comida1}}">
+              </input>
+            </div><br>
+            <div class="classaH">
+              <label>Valor do Apartamento</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Diárias</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Apartamentos</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Total</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_1}}">
+            </div><br>
+            <div class="classaH">
+              <label>Período de Cancelamento</label>
+              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento1}}">
+            </input>
+          </div><br>
+            <label>Nome dos acompanhantes:</label>
+            {{#compare qntP1 "1"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "2"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "3"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "4"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "5"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "6"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "7"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "8"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "9"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP1 "10"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+          </div>
+        </div>
+        <div class="col-sm" id="landing-hotel-col2">
+          <div class="box_hotelH_newmidle">
+            <div class="classaH">
+              <label>Cidade:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Cidade 1" value="{{cidade}}">
+            </div><br>
+            <div class="classaH">
+              <label>Nome do Hotel:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Hotel 2" value="{{hotel_2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Tipo de acomodação:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Categoria do Apartamento:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Alimentação:</label>
+              <input readonly="readonly" class="form-control textos" value="{{comida2}}">
+              </input>
+            </div><br>
+            <div class="classaH">
+              <label>Valor do Apartamento:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Diárias:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Apartamentos:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Total:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_2}}">
+            </div><br>
+            <div class="classaH">
+              <label>Período de Cancelamento:</label>
+              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento2}}">
+            </input>
+          </div><br>
+            <label>Nome dos acompanhantes:</label>
+            {{#compare qntP2 "1"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "2"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "3"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "4"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "5"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "6"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "7"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "8"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "9"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP2 "10"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+          </div>
+        </div>
+        <div class="col-sm" id="landing-hotel-col3">
+          <div class="box_hotelH_newright"><br><br><br><br>
+            <div class="classaH">
+              <label>Nome do Hotel:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Hotel 3" value="{{hotel_3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Tipo de acomodação:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao3}}">
+            </div><br>
+            <div class="classaH">
+              <labe class="cor">Categoria do Apartamento:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Alimentação</label>
+              <input readonly="readonly" class="form-control textos" value="{{comida3}}">
+              </input>
+            </div><br>
+            <label>Valor do Apartamento:</label>
+            <div class="classaH">
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Diárias</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Número de Apartamentos</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Total:</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_3}}">
+            </div><br>
+            <div class="classaH">
+              <label>Periodo de Cancelamento</label>
+              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento3}}">
+            </input>
+          </div><br>
+            <label>Nome dos acompanhantes:</label>
+            {{#compare qntP3 "1"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "2"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "3"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "4"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "5"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "6"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "7"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "8"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "9"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+            {{#compare qntP3 "10"}}
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            <div class="classaH">
+              <input class="form-control textos" placeholder="" >
+            </div>
+            {{/compare}}
+          </div>
+        </div>
+      </div>
+      </div>
+    </div><br>
+      {{/each}}
+    </div>
+    <!-- observacoes fim -->
+
+
+<!-- traslado -->
+      <div class="pageH_dinamic_spec ">
+      {{#compare traslado.moedaT undefined}}
+                {{#each infoTraslado}}
+                <div class="">
+
+                </div>
+                <div class="break-after papel">
+                <div class="caixatotal">
+                <div class="traslado_flex">
+                  <div class="traslado">
+                    <h3 class="hotel_tit"> Traslado {{numero}} </h3><br>
+                    <label>De:</label><label class="gambiarra--esq">Para:</label><br>
+                    <input readonly="readonly "value="{{deT}}" type="text" placeholder="De" class="date start-date textos"/>
+                    <i class="fa fa-car" aria-hidden="true"></i>
+                    <input readonly="readonly "value="{{paraT}}" type="text" placeholder="Para" class="date start-date textos"/>
+                    <br><br>
+                    <label>Data de Ida:</label><label class="gambiarra--esq">Hora Ida</label><br>
+                    <input readonly="readonly "value="{{dataIdaT}}" type="date" placeholder="dd/mm/aa" class="date start-date textos"/>
+                    <i class="fa fa-calendar"></i>
+                    <input readonly="readonly "value="{{horaIdaT}}" type="text" placeholder="Horário" class="date start-date textos"/>
+                    <br><br>
+                  </div>
+
+
+              <div class="info">
+
+
+              <h3 class="hotel_tit">Informações {{numero}}</h3>
+
+                <div class="col-sm rowclass">
+                  <div class="rowclass col-lg-11">
+                    <br>
+                    <label>Valor por Adulto:</label><br>
+                    <input value="{{moedaT}}{{valorAdtT}}" readonly="readonly" class="date start-date textos " placeholder="Val ADT"><br>
+                  </div>
+                </div>
+                <div class="col-sm rowclass">
+                  <div class=" rowclass col-lg-11">
+                    <br>
+                    <label>Valor por Criança:</label><br>
+                    <input value="{{moedaT}}{{valorChdT}}" readonly="readonly" class="date start-date textos" placeholder="Val CHD"><br>
+                  </div>
+                </div>
+                <div class="col-sm rowclass">
+                  <div class="rowclass col-lg-11">
+                    <br>
+                    <label>Valor por bebê:</label><br>
+                    <input value="{{moedaT}}{{valorInfT}}" class="date start-date textos" readonly="readonly" placeholder="Val INF"><br>
+                  </div><br>
+                </div>
+              </div>
+            </div>
+            <h3 class="hotel_tit">Acompanhantes:</h3>
+            <div class="companion-flex">
+                <div class="col-adt">
+                  {{#compare qntat "1"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "2"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "3"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "4"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "5"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "6"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "7"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "8"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "9"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntat "10"}}
+                  <label for="">Nome dos adultos:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+
+                </div>
+
+                <div class="col-chd">
+                  {{#compare qntct "1"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "2"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "3"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "4"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "5"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "6"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "7"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "8"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "9"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntct "10"}}
+                  <label for="">Nome das crianças:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                </div>
+
+                <div class="col-inf">
+                  {{#compare qntbt "1"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "2"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "3"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "4"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "5"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "6"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "7"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "8"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "9"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                  {{#compare qntbt "10"}}
+                  <label for="">Nome dos bebês:</label>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  <div class="classaH">
+                    <input class="form-control textos" placeholder="" >
+                  </div>
+                  {{/compare}}
+                </div>
+            </div>
+          </div><br>
+        </div>
+            {{/each}}
+          {{/compare}}
+
+
+        </div>
+        <!-- fim traslado -->
+        <!-- carros -->
+
+          {{#each infoCarros}}
+          <div class="pageH_dinamic_spec">
+          <div class="caixatotal caixatotal--break papel carros--print">
+          <br><br><h3 class="hotel_tit"> Carro {{numero}} </h3><br>
+          <div class="classa">
+            <label>Local de Retirada:</label>
+            <input class="form-control textos textos--caixa" placeholder="Retirada" readonly="readonly "value="{{retirada}}">
+          </div><br>
+          <div class="classa">
+            <label>Outras informações:</label>
+            <input class="form-control textos textos--caixa" placeholder="Outros" readonly="readonly "value="{{outros}}">
+          </div><br>
+          <div class="classa">
+            <label>Local de Entrega:</label>
+            <input class="form-control textos textos--caixa" placeholder="Entrega" readonly="readonly "value="{{entrega}}">
+          </div><br>
+          <div class="classa">
+            <label>Valor do Carro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Valor carro 1" readonly="readonly "value="{{moedaC}}{{valor}}">
+          </div><br>
+          <div class="classa">
+            <label>Cidade:</label>
+            <input class="form-control textos textos--caixa" placeholder="Cidade" readonly="readonly "value="{{cidade}}">
+          </div><br>
+          <div class="classa">
+            <label>Tipo do carro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Tipo" readonly="readonly "value="{{tipoCarro}}">
+          </div><br>
+          <div class="classa">
+            <label>Trasmissão do Carro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Transmissão" readonly="readonly "value="{{transmissao}}">
+          </div><br>
+          <div class="classa">
+            <label>Qual o Seguro:</label>
+            <input class="form-control textos textos--caixa" placeholder="Seguros" readonly="readonly "value="{{seguro}}">
+          </div><br>
+        </div><br>
+      </div>
+          {{/each}}
+
+<!-- carros fim -->
+<!-- servicos -->
+<div class="pageH_dinamic_spec">
+  <div class="caixatotalS">
+    <div class="servicos_flex">
+
+
+        {{#each infoSeguro}}
+        <div class=" papel break-after--before ">
+        <div class="p-3">
+              <div class="form-group">
+                <label id="titleG" for="exampleInputPassword1">Seguro {{numero}}:</label><br>
+                <label>Qual seguro será utilizado:</label>
+                <input value="{{seguro}}" type="text" placeholder= "Qual seguro será utilizado?" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Cobertura</label>
+                <input value="{{coberturaSeguro}}" type="text" placeholder= "Cobertura do seguro" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Adultos:</label>
+                <input value="{{moedaS}}{{valorAdtS}}" type="text" placeholder= "Preço por adulto" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Crianças:</label>
+                <input value="{{moedaS}}{{valorChdS}}" type="text" placeholder= "Preço por criança" readonly="readonly" class="form-control textos">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Bebês:</label>
+                <input value="{{moedaS}}{{valorInfS}}" type="text" placeholder= "Preço por bebê" readonly="readonly" class="form-control textos">
+              </div>
+        </div>
+        </div>
+        {{/each}}
+
+        {{#each infoTickets}}
+        <div class="  papel break-after--before">
+        <div class="p-3">
+              <div class="form-group">
+                <label id="titleG" for="exampleInputPassword1">Tickets/Ingressos {{numero}}:</label><br>
+                <label>Nome do Evento:</label>
+                <input value="{{tickets}}" type="text" placeholder= "" class="form-control textos" readonly="readonly">
+                <br>
+                <label for="exampleInputPassword1">Valor Adultos:</label>
+                <input value = "{{moedaT}}{{valorAdtTk}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Crianças:</label>
+                <input value="{{moedaT}}{{valorChdTk}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Bebês:</label>
+                <input value="{{moedaT}}{{valorInfTk}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
+              </div>
+        </div>
+        </div>
+        {{/each}}
+
+        {{#each infoOutros}}
+        <div class=" papel break-after--before">
+        <div class="p-3">
+              <div class="form-group">
+                <label id="titleG" for="exampleInputPassword1">Outros {{numero}}:</label>
+                <br>
+                <label>O que será:</label>
+                <input value="{{outros}}" type="text" placeholder= "" class="form-control textos" readonly="readonly">
+                <br>
+                <label for="exampleInputPassword1">Valor Adultos:</label>
+                <input value="{{moedaO}}{{valorAdtO}}" type="text" placeholder= "Preço por adulto" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Crianças:</label>
+                <input value="{{moedaO}}{{valorChdO}}" type="text" placeholder= "Preço por criança" class="form-control textos" readonly="readonly">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Valor Bebês:</label>
+                <input value="{{moedaO}}{{valorInfO}}" type="text" placeholder= "Preço por bebê" class="form-control textos" readonly="readonly">
+              </div>
+        </div>
+        </div>
+        {{/each}}
+        </div>
+      </div>
+
+  <!-- servicos fim -->
+
+</div>
+<div class="botoes_flex">
+  <form class="" action="/new/pageH/{{client_id}}/{{budget_id}}" method="post">
+    <button class="btn-fake btn-fake--cursor" type="submit" onclick="return confirm('Deseja REALMENTE concluir sua compra?')">Finalizar viagem</button>
+  </form>
+  <button class="btn-fake btn-fake--cursor" onClick="location.href='/dashboard'">Sair sem finalizar</button>
+
 </div>
 
-
-<script type="text/javascript" src="/javascripts/images.js">  </script>
-<script type="text/javascript" src="/javascripts/invert.js">  </script>
+  <script type="text/javascript" src="/javascripts/images.js">  </script>
+  <script type="text/javascript" src="/javascripts/quebraPag.js">  </script>
