@@ -801,6 +801,10 @@ router.post('/pageC/:client_id',(req,res) => {
   const motherClient = {
     client: String,
   };
+  console.log(flight);
+  console.log(hotel);
+  console.log(car);
+  console.log(safe);
   motherClient.client = client_id;
   Budget.create(budget).then((budget_id) => {
     Client.addBudget(client_id, budget_id).then(() => {
