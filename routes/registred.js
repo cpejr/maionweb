@@ -116,6 +116,7 @@ router.get('/pageA/:client_id', function(req, res, next) {
         companionCellphone: String,
         companionPassport: String,
         companionPassportValidation: String,
+        birthDateCompanion: String,
       };
 
       companionsInfo.companionFullname = client.companionFullname[j];
@@ -124,6 +125,7 @@ router.get('/pageA/:client_id', function(req, res, next) {
       companionsInfo.companionPassport = client.companionPassport[j];
       companionsInfo.companionPassportValidation = client.companionPassportValidation[j];
       companionsInfo.repNum = (j+1);
+      companionsInfo.birthDateCompanion = client.birthDateCompanion[j];
 
       companions++;
 
@@ -1318,7 +1320,7 @@ router.post('/pageA/:client_id',(req,res) => {
   const  client  = req.body.client;
   Client.update(req.params.client_id, client).then(() => {
     console.log('------');
-    console.log(client.funil);
+    console.log(client);
     res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);
