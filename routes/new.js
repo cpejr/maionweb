@@ -187,6 +187,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                           //console.log(flights);
 
 
+
                                         const dias = [];
                                         const dias2 = [];
                                         const dias3 = [];

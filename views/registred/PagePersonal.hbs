@@ -21,7 +21,12 @@
           <th>{{codFile}}</th>
           <th>{{planDate}}</th>
           <th>{{finalized}}</th>
-          <th><button onClick="location.href='/registred/pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
+            {{#compare finalized "Em andamento"}}
+              <th><button onClick="location.href='/registred/pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
+            {{else}}
+            <!-- Caso a viagem esteja concluída -->
+              <th><button onClick="location.href='/new/pageC/{{client}}/{{_id}}'" class="fa fa-info btn m-1"></button></th>
+            {{/compare}}
           <th>
             {{#compare finalized "Em andamento"}}
               <form action="/registred/PagePersonal/{{_id}}" method="post">
