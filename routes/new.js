@@ -209,7 +209,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                         const dias19 = [];
                                         const dias20 = [];
 
-
+                                        //declaracoes de dias do roteiro
                                         var r = 0;
                                         const roteiro = {
                                           planDia: String,
@@ -314,7 +314,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                           numero20: String
                                         };
 
-
+                                        //for que roda todos os dias do roteiro
                                         for (var i = 0; i < budget.planCity.length; i++) {
                                           if (i<=2) {
 
@@ -420,7 +420,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                             planCampoLivre20: String,
                                             numero20: String
                                           };
-                                          //console.log(i);
+                                          //armazena dias 1 , 2, 3
                                           r++;
                                           roteiro.planDia = budget.planDate[i];
                                           roteiro.planCidade = budget.planCity[i];
@@ -533,7 +533,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                             planCampoLivre20: String,
                                             numero20: String
                                         };
-                                        //console.log(i);
+                                        //armazena dias 4 , 5, 6
                                         r++;
                                         roteiro.planDia2 = budget.planDate[i];
                                         roteiro.planCidade2 = budget.planCity[i];
@@ -562,7 +562,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                         planCampoLivre3: String,
                                         numero3: String
                                       };
-                                      //console.log(i);
+                                      //armazena dias 7, 8, 9
                                       r++;
                                       roteiro.planDia3 = budget.planDate[i];
                                       roteiro.planCidade3 = budget.planCity[i];
@@ -677,7 +677,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                         planCampoLivre20: String,
                                         numero20: String
                                     };
-                                    //console.log(i);
+                                    //armazena dias 10 , 11 , 12
                                     r++;
                                     roteiro.planDia4 = budget.planDate[i];
                                     roteiro.planCidade4 = budget.planCity[i];
@@ -791,7 +791,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 13 , 14 , 15
                                   r++;
                                   roteiro.planDia5 = budget.planDate[i];
                                   roteiro.planCidade5 = budget.planCity[i];
@@ -905,7 +905,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 16 , 17 , 18
                                   r++;
                                   roteiro.planDia6 = budget.planDate[i];
                                   roteiro.planCidade6 = budget.planCity[i];
@@ -1019,7 +1019,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 19 , 20 , 21
                                   r++;
                                   roteiro.planDia7 = budget.planDate[i];
                                   roteiro.planCidade7 = budget.planCity[i];
@@ -1133,7 +1133,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 22 , 23 , 24
                                   r++;
                                   roteiro.planDia8 = budget.planDate[i];
                                   roteiro.planCidade8 = budget.planCity[i];
@@ -1247,7 +1247,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                //armazena dias 25 , 26 , 27
                                   r++;
                                   roteiro.planDia9 = budget.planDate[i];
                                   roteiro.planCidade9 = budget.planCity[i];
@@ -1361,7 +1361,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 28 , 29 , 30
                                   r++;
                                   roteiro.planDia10 = budget.planDate[i];
                                   roteiro.planCidade10 = budget.planCity[i];
@@ -1475,7 +1475,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 31 , 32 , 33
                                   r++;
                                   roteiro.planDia11 = budget.planDate[i];
                                   roteiro.planCidade11 = budget.planCity[i];
@@ -1589,7 +1589,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 34 , 35 , 36
                                   r++;
                                   roteiro.planDia12 = budget.planDate[i];
                                   roteiro.planCidade12 = budget.planCity[i];
@@ -1703,7 +1703,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 37 , 38 , 39
                                   r++;
                                   roteiro.planDia13 = budget.planDate[i];
                                   roteiro.planCidade13 = budget.planCity[i];
@@ -1817,7 +1817,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 40 , 41 , 42
                                   r++;
                                   roteiro.planDia14 = budget.planDate[i];
                                   roteiro.planCidade14 = budget.planCity[i];
@@ -1931,7 +1931,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 43 , 44 , 45
                                   r++;
                                   roteiro.planDia15 = budget.planDate[i];
                                   roteiro.planCidade15 = budget.planCity[i];
@@ -2045,7 +2045,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 46 , 47 , 48
                                   r++;
                                   roteiro.planDia16 = budget.planDate[i];
                                   roteiro.planCidade16 = budget.planCity[i];
@@ -2159,7 +2159,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 49 , 50 , 51
                                   r++;
                                   roteiro.planDia17 = budget.planDate[i];
                                   roteiro.planCidade17 = budget.planCity[i];
@@ -2273,7 +2273,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 52 , 53 , 54
                                   r++;
                                   roteiro.planDia18 = budget.planDate[i];
                                   roteiro.planCidade18 = budget.planCity[i];
@@ -2387,7 +2387,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 55 , 56 , 57
                                   r++;
                                   roteiro.planDia19 = budget.planDate[i];
                                   roteiro.planCidade19 = budget.planCity[i];
@@ -2501,7 +2501,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                       planCampoLivre20: String,
                                       numero20: String
                                   };
-                                  //console.log(i);
+                                  //armazena dias 58 , 59 , 60
                                   r++;
                                   roteiro.planDia20 = budget.planDate[i];
                                   roteiro.planCidade20 = budget.planCity[i];
@@ -2518,13 +2518,13 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
 
-
+                                      //separando os acompanhantes em lista
                                         const test = [];
                                         const companions = {
                                           name: String
                                         };
 
-                                        //console.log(req.session);
+                                              //console.log(req.session);
                                               for (var i = 0; i < client.companionFullname.length; i++) {
 
                                                 const companions = {
@@ -2537,6 +2537,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 //console.log(test[i]);
 
                                               }
+
+
 
                                               const allFlights = [];
                                               const infoToReplica = {
@@ -2819,7 +2821,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 flightInfo.destination = flights.destination[i];
                                                 flightInfo.timeOut = flights.timeOut[i];
                                                 flightInfo.timeIn = flights.timeIn[i];
-                                                flightInfo.coin = flights.coin[i];
+                                                flightInfo.coin = flights.coin[i-1];
 
                                                 allFlights.push(flightInfo);
                                               }
@@ -2834,6 +2836,9 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               //console.log(flightInfo.coin);
                                               //console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
+
+
+                                              //separacao de hoteis em listas
                                                const infoHoteis = [];
                                                var h = 0;
                                                const hoteis = [{
@@ -2947,6 +2952,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                                }
 
+
+                                              //separacao de traslados em listas
                                               const infoTraslado = [];
                                               var t = 0;
                                               const traslado = [{
@@ -3002,6 +3009,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                             }
 
+
+                                            //separa carros em lista
                                               const infoCarros = [];
                                               var c = 0;
                                               const carros = [{
@@ -3046,6 +3055,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               }
 
+                                              //separa seguros em listas
                                               const infoSeguro = [];
                                               var s = 0;
                                               const seguro = [{
@@ -3081,7 +3091,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               }
 
-
+                                              //separa tickets em listas
                                               const infoTickets = [];
                                               var ti = 0;
                                               const tickets = [{
@@ -3114,7 +3124,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
                                               }
 
-
+                                              //separa outros em listas
                                               const infoOutros = [];
                                               var o = 0;
                                               const outros = [{
