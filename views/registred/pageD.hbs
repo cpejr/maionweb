@@ -46,11 +46,11 @@
     {{#compare escala "0"}}
       <tr>
         <th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control"/></th>
-        <th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFlight}}" class="form-control"/></th>
+        <th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFrom}}" class="form-control" maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesNascimento(this)' /></th>
         <th colspan="4"><input type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control"/></th>
         <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"/>
+        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" maxlength='6' onblur='addDashesHorario(this)'/></th>
+        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/>
         <input type="number" name="flight[escalas]" value="0" class="invDiv">
         </th>
       </tr>
@@ -59,11 +59,11 @@
 
       <tr>
         <th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control"/></th>
-        <th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFlight}}" class="form-control"/></th>
+        <th colspan="1"><input type="text" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFrom}}" class="form-control" maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesNascimento(this)'/></th>
         <th colspan="4"><input type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control"/></th>
         <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"/>
+        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/></th>
+        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"  maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/>
         <input type="number" name="flight[escalas]" value="1" class="invDiv">
         </th>
       </tr>
@@ -225,7 +225,7 @@
           </div>
           <select placeholder="Selecione" class="form-control" name=flight[coin] >
             <option style = "color:red;">{{coin}}</option>
-            <option>$</option>
+            <option>USD</option>
             <option>R$</option>
             <option>€</option>
           </select>
@@ -276,3 +276,4 @@
 </form>
 <script type="text/javascript" src="/javascripts/replicaPageDRegistred.js">  </script>
 <script type="text/javascript" src="/javascripts/operationsPageDRegistred.js">  </script>
+   <script type="text/javascript" src="/javascripts/formInputs.js">  </script>
