@@ -560,8 +560,8 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
         var cars = 1;
         var traslado = 1;
 
-        for (var i = 0; i < car.from.length; i++) {
-
+        // Caso traslados
+        if (typeof car.from[0] == "undefined") {
           const carsTrasladoInfo = {
             isPrimeiro: Number,
             repNum: Number,
@@ -580,31 +580,72 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             coinT: String,
           };
 
-          if (i == 0) {
-            carsTrasladoInfo.isPrimeiro = 1;
-          }
-
-          carsTrasladoInfo.from = car.from[i];
-          carsTrasladoInfo.to = car.to[i];
-          carsTrasladoInfo.dateFrom = car.dateFrom[i];
-          carsTrasladoInfo.timeFrom = car.timeFrom[i];
-          carsTrasladoInfo.valueADT = car.valueADT[i];
-          carsTrasladoInfo.numADT = car.numADT[i];
-          carsTrasladoInfo.valueCHD = car.valueCHD[i];
-          carsTrasladoInfo.numCHD = car.numCHD[i];
-          carsTrasladoInfo.valueINF = car.valueINF[i];
-          carsTrasladoInfo.numINF = car.numINF[i];
-          carsTrasladoInfo.totalTranslado = car.totalTranslado[i];
-          carsTrasladoInfo.coinT = car.coinT[i];
-          carsTrasladoInfo.repNum = (i+1);
-
+          console.log('Não tem carro');
+          carsTrasladoInfo.isPrimeiro = 1;
+          carsTrasladoInfo.from = '';
+          carsTrasladoInfo.to = '';
+          carsTrasladoInfo.dateFrom = '';
+          carsTrasladoInfo.timeFrom = '';
+          carsTrasladoInfo.valueADT = 0;
+          carsTrasladoInfo.numADT = 0;
+          carsTrasladoInfo.valueCHD = 0;
+          carsTrasladoInfo.numCHD = 0;
+          carsTrasladoInfo.valueINF = 0;
+          carsTrasladoInfo.numINF = 0;
+          carsTrasladoInfo.totalTranslado = 0;
+          carsTrasladoInfo.coinT = 'Moeda';
+          carsTrasladoInfo.repNum = 1;
           traslado++;
 
           allCarsTraslado.push(carsTrasladoInfo);
         }
+        else {
+          for (var i = 0; i < car.from.length; i++) {
 
-        for (var j = 0; j < car.typeCar.length; j++) {
+            const carsTrasladoInfo = {
+              isPrimeiro: Number,
+              repNum: Number,
 
+              from: String,
+              to: String,
+              dateFrom: String,
+              timeFrom: String,
+              valueADT: Number,
+              numADT: Number,
+              valueCHD: Number,
+              numCHD: Number,
+              valueINF: Number,
+              numINF: Number,
+              totalTranslado: Number,
+              coinT: String,
+            };
+
+            if (i == 0) {
+              carsTrasladoInfo.isPrimeiro = 1;
+            }
+
+            carsTrasladoInfo.from = car.from[i];
+            carsTrasladoInfo.to = car.to[i];
+            carsTrasladoInfo.dateFrom = car.dateFrom[i];
+            carsTrasladoInfo.timeFrom = car.timeFrom[i];
+            carsTrasladoInfo.valueADT = car.valueADT[i];
+            carsTrasladoInfo.numADT = car.numADT[i];
+            carsTrasladoInfo.valueCHD = car.valueCHD[i];
+            carsTrasladoInfo.numCHD = car.numCHD[i];
+            carsTrasladoInfo.valueINF = car.valueINF[i];
+            carsTrasladoInfo.numINF = car.numINF[i];
+            carsTrasladoInfo.totalTranslado = car.totalTranslado[i];
+            carsTrasladoInfo.coinT = car.coinT[i];
+            carsTrasladoInfo.repNum = (i+1);
+
+            traslado++;
+
+            allCarsTraslado.push(carsTrasladoInfo);
+          }
+        }
+
+        // Caso Carros
+        if (typeof car.typeCar[0] == 'undefined') {
           const carsInfo = {
             repNum: Number,
 
@@ -619,20 +660,54 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             others: String
           };
 
-          carsInfo.typeCar = car.typeCar[j];
-          carsInfo.withdrawal = car.withdrawal[j];
-          carsInfo.delivery = car.delivery[j];
-          carsInfo.totalCar = car.totalCar[j];
-          carsInfo.city = car.city[j];
-          carsInfo.shift = car.shift[j];
-          carsInfo.safe = car.safe[j];
-          carsInfo.coinC = car.coinC[i];
-          carsInfo.others = car.others[j];
-          carsInfo.repNum = (j+1);
+          carsInfo.typeCar = '';
+          carsInfo.withdrawal = '';
+          carsInfo.delivery = '';
+          carsInfo.totalCar = '';
+          carsInfo.city = '';
+          carsInfo.shift = '';
+          carsInfo.safe = '';
+          carsInfo.coinC = 'Moeda';
+          carsInfo.others = '';
+          carsInfo.repNum = 1;
 
           cars++;
 
           allCars.push(carsInfo);
+        }
+        else {
+          for (var j = 0; j < car.typeCar.length; j++) {
+
+            const carsInfo = {
+              repNum: Number,
+
+              typeCar: String,
+              withdrawal: String,
+              delivery: String,
+              totalCar: Number,
+              city: String,
+              shift:String,
+              safe: String,
+              coinC: String,
+              others: String
+            };
+
+            carsInfo.typeCar = car.typeCar[j];
+            carsInfo.withdrawal = car.withdrawal[j];
+            carsInfo.delivery = car.delivery[j];
+            carsInfo.totalCar = car.totalCar[j];
+            carsInfo.city = car.city[j];
+            carsInfo.shift = car.shift[j];
+            carsInfo.safe = car.safe[j];
+            carsInfo.coinC = car.coinC[i];
+            carsInfo.others = car.others[j];
+            carsInfo.repNum = (j+1);
+
+            cars++;
+
+            allCars.push(carsInfo);
+          }
+
         }
 
         carsInfoTofunctions.traslado = traslado;
@@ -674,8 +749,80 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         var ticket = 1;
         var outros = 1;
 
-        for (var i = 0; i < safe.insuranceName.length; i++) {
+        // Caso tickets
+        if (typeof safe.ticketsName[0] == 'undefined') {
+          const ticketInfo = {
+            isPrimeiro: Number,
+            repNum: Number,
 
+            ticketsName: String,
+            ticketsADT: Number,
+            TicketnumADT: Number,
+            ticketsCHD: Number,
+            TicketnumCHD: Number,
+            ticketsINF: Number,
+            TicketnumINF: Number,
+            ticketsTOT: Number,
+            ticketsCoin: String,
+          };
+
+          ticketInfo.isPrimeiro = 1;
+          ticketInfo.ticketsName = '';
+          ticketInfo.ticketsADT = 0;
+          ticketInfo.TicketnumADT = 0;
+          ticketInfo.ticketsCHD = 0;
+          ticketInfo.TicketnumCHD = 0;
+          ticketInfo.ticketsINF = 0;
+          ticketInfo.TicketnumINF = 0;
+          ticketInfo.ticketsTOT = 0;
+          ticketInfo.ticketsCoin = 'Moeda';
+          ticketInfo.repNum = 1;
+
+          ticket++;
+
+          allTickets.push(ticketInfo);
+        }
+        else {
+          for (var j = 0; j < safe.ticketsName.length; j++) {
+
+            const ticketInfo = {
+              isPrimeiro: Number,
+              repNum: Number,
+
+              ticketsName: String,
+              ticketsADT: Number,
+              TicketnumADT: Number,
+              ticketsCHD: Number,
+              TicketnumCHD: Number,
+              ticketsINF: Number,
+              TicketnumINF: Number,
+              ticketsTOT: Number,
+              ticketsCoin: String,
+            };
+
+            if (j == 0) {
+              ticketInfo.isPrimeiro = 1;
+            }
+
+            ticketInfo.ticketsName = safe.ticketsName[j];
+            ticketInfo.ticketsADT = safe.ticketsADT[j];
+            ticketInfo.TicketnumADT = safe.TicketnumADT[j];
+            ticketInfo.ticketsCHD = safe.ticketsCHD[j];
+            ticketInfo.TicketnumCHD = safe.TicketnumCHD[j];
+            ticketInfo.ticketsINF = safe.ticketsINF[j];
+            ticketInfo.TicketnumINF = safe.TicketnumINF[j];
+            ticketInfo.ticketsTOT = safe.ticketsTOT[j];
+            ticketInfo.ticketsCoin = safe.ticketsCoin[j];
+            ticketInfo.repNum = (j+1);
+
+            ticket++;
+
+            allTickets.push(ticketInfo);
+          }
+        }
+
+        // Caso seguros
+        if (typeof safe.insuranceName[0] == 'undefined') {
           const safeInfo = {
             isPrimeiro: Number,
             repNum: Number,
@@ -692,66 +839,66 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
             insuranceCoin: String,
           };
 
-          if (i == 0) {
-            safeInfo.isPrimeiro = 1;
-          }
-
-          safeInfo.insuranceName = safe.insuranceName[i];
-          safeInfo.insuranceCoverage = safe.insuranceCoverage[i];
-          safeInfo.insuranceADT = safe.insuranceADT[i];
-          safeInfo.SafenumADT = safe.SafenumADT[i];
-          safeInfo.insuranceCHD = safe.insuranceCHD[i];
-          safeInfo.SafenumCHD = safe.SafenumCHD[i];
-          safeInfo.insuranceINF = safe.insuranceINF[i];
-          safeInfo.SafenumINF = safe.SafenumINF[i];
-          safeInfo.insuranceTOT = safe.insuranceTOT[i];
-          safeInfo.insuranceCoin = safe.insuranceCoin[i];
-          safeInfo.repNum = (i+1);
+          safeInfo.isPrimeiro = 1;
+          safeInfo.insuranceName = '';
+          safeInfo.insuranceCoverage = '';
+          safeInfo.insuranceADT = 0;
+          safeInfo.SafenumADT = 0;
+          safeInfo.insuranceCHD = 0;
+          safeInfo.SafenumCHD = 0;
+          safeInfo.insuranceINF = 0;
+          safeInfo.SafenumINF = 0;
+          safeInfo.insuranceTOT = 0;
+          safeInfo.insuranceCoin = 'Moeda';
+          safeInfo.repNum = 1;
 
           insurance++;
 
           allSafes.push(safeInfo);
         }
+        else {
+          for (var i = 0; i < safe.insuranceName.length; i++) {
 
-        for (var j = 0; j < safe.ticketsName.length; j++) {
+            const safeInfo = {
+              isPrimeiro: Number,
+              repNum: Number,
 
-          const ticketInfo = {
-            isPrimeiro: Number,
-            repNum: Number,
+              insuranceName: String,
+              insuranceCoverage: String,
+              insuranceADT: Number,
+              SafenumADT: Number,
+              insuranceCHD: Number,
+              SafenumCHD: Number,
+              insuranceINF: Number,
+              SafenumINF: Number,
+              insuranceTOT: Number,
+              insuranceCoin: String,
+            };
 
-            ticketsName: String,
-            ticketsADT: Number,
-            TicketnumADT: Number,
-            ticketsCHD: Number,
-            TicketnumCHD: Number,
-            ticketsINF: Number,
-            TicketnumINF: Number,
-            ticketsTOT: Number,
-            ticketsCoin: String,
-          };
+            if (i == 0) {
+              safeInfo.isPrimeiro = 1;
+            }
 
-          if (j == 0) {
-            ticketInfo.isPrimeiro = 1;
+            safeInfo.insuranceName = safe.insuranceName[i];
+            safeInfo.insuranceCoverage = safe.insuranceCoverage[i];
+            safeInfo.insuranceADT = safe.insuranceADT[i];
+            safeInfo.SafenumADT = safe.SafenumADT[i];
+            safeInfo.insuranceCHD = safe.insuranceCHD[i];
+            safeInfo.SafenumCHD = safe.SafenumCHD[i];
+            safeInfo.insuranceINF = safe.insuranceINF[i];
+            safeInfo.SafenumINF = safe.SafenumINF[i];
+            safeInfo.insuranceTOT = safe.insuranceTOT[i];
+            safeInfo.insuranceCoin = safe.insuranceCoin[i];
+            safeInfo.repNum = (i+1);
+
+            insurance++;
+
+            allSafes.push(safeInfo);
           }
-
-          ticketInfo.ticketsName = safe.ticketsName[j];
-          ticketInfo.ticketsADT = safe.ticketsADT[j];
-          ticketInfo.TicketnumADT = safe.TicketnumADT[j];
-          ticketInfo.ticketsCHD = safe.ticketsCHD[j];
-          ticketInfo.TicketnumCHD = safe.TicketnumCHD[j];
-          ticketInfo.ticketsINF = safe.ticketsINF[j];
-          ticketInfo.TicketnumINF = safe.TicketnumINF[j];
-          ticketInfo.ticketsTOT = safe.ticketsTOT[j];
-          ticketInfo.ticketsCoin = safe.ticketsCoin[j];
-          ticketInfo.repNum = (j+1);
-
-          ticket++;
-
-          allTickets.push(ticketInfo);
         }
 
-        for (var k = 0; k < safe.otherName.length; k++) {
-
+        // Caso outros
+        if (typeof safe.otherName[0] == 'undefined') {
           const otherInfo = {
             isPrimeiro: Number,
             repNum: Number,
@@ -767,25 +914,63 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
             otherCoin: String,
           };
 
-          if (k == 0) {
-            otherInfo.isPrimeiro = 1;
-          }
-
-          otherInfo.otherName = safe.otherName[k];
-          otherInfo.otherADT = safe.otherADT[k];
-          otherInfo.OthernumADT = safe.OthernumADT[k];
-          otherInfo.otherCHD = safe.otherCHD[k];
-          otherInfo.OthernumCHD = safe.OthernumCHD[k];
-          otherInfo.otherINF = safe.otherINF[k];
-          otherInfo.OthernumINF = safe.OthernumINF[k];
-          otherInfo.otherTOT = safe.otherTOT[k];
-          otherInfo.otherCoin = safe.otherCoin[k];
-          otherInfo.repNum = (k+1);
+          otherInfo.isPrimeiro = 1;
+          otherInfo.otherName = '';
+          otherInfo.otherADT = 0;
+          otherInfo.OthernumADT = 0;
+          otherInfo.otherCHD = 0;
+          otherInfo.OthernumCHD = 0;
+          otherInfo.otherINF = 0;
+          otherInfo.OthernumINF = 0;
+          otherInfo.otherTOT = 0;
+          otherInfo.otherCoin = 'Moeda';
+          otherInfo.repNum = 1;
 
           outros++;
 
           allOthers.push(otherInfo);
         }
+        else {
+          for (var k = 0; k < safe.otherName.length; k++) {
+
+            const otherInfo = {
+              isPrimeiro: Number,
+              repNum: Number,
+
+              otherName: String,
+              otherADT: Number,
+              OthernumADT: Number,
+              otherCHD: String,
+              OthernumCHD: Number,
+              otherINF: Number,
+              OthernumINF: Number,
+              otherTOT: Number,
+              otherCoin: String,
+            };
+
+            if (k == 0) {
+              otherInfo.isPrimeiro = 1;
+            }
+
+            otherInfo.otherName = safe.otherName[k];
+            otherInfo.otherADT = safe.otherADT[k];
+            otherInfo.OthernumADT = safe.OthernumADT[k];
+            otherInfo.otherCHD = safe.otherCHD[k];
+            otherInfo.OthernumCHD = safe.OthernumCHD[k];
+            otherInfo.otherINF = safe.otherINF[k];
+            otherInfo.OthernumINF = safe.OthernumINF[k];
+            otherInfo.otherTOT = safe.otherTOT[k];
+            otherInfo.otherCoin = safe.otherCoin[k];
+            otherInfo.repNum = (k+1);
+
+            outros++;
+
+            allOthers.push(otherInfo);
+          }
+        }
+
+
+
 
         safesInfoToFunctions.insurance = insurance;
         safesInfoToFunctions.ticket = ticket;
@@ -1573,627 +1758,648 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   console.log('-----------------flight-------------------');
   console.log(flight);
 
-  const escalas = req.body.flight.escalas;
-  const final = req.body.flight.final;
-  const inicio = req.body.flight.inicio;
-  const idTable = req.body.flight.idTable;
-  const ageId1 = req.body.flight.ageId1;
-  const ageId2 = req.body.flight.ageId2;
-  const ageId3 = req.body.flight.ageId3;
-  const result = req.body.flight.result;
-  const firstflightTable = req.body.flight.firstflightTable;
+  if (typeof flight != 'undefined') {
+    const escalas = req.body.flight.escalas;
+    const final = req.body.flight.final;
+    const inicio = req.body.flight.inicio;
+    const idTable = req.body.flight.idTable;
+    const ageId1 = req.body.flight.ageId1;
+    const ageId2 = req.body.flight.ageId2;
+    const ageId3 = req.body.flight.ageId3;
+    const result = req.body.flight.result;
+    const firstflightTable = req.body.flight.firstflightTable;
 
-  const flightNum = req.body.flight.flightNum;
-  const dateFlight = req.body.flight.dateFlight;
-  const from = req.body.flight.from;
-  const destination = req.body.flight.destination;
-  const timeOut = req.body.flight.timeOut;
-  const timeIn = req.body.flight.timeIn;
-  const coin = req.body.flight.coin;
-
-  // Primeira classe
-  const totalValueCHD_FirstClass = req.body.flight.totalValueCHD_FirstClass;
-  const tariffValueCHD_FirstClass = req.body.flight.tariffValueCHD_FirstClass;
-  const taxValueCHD_FirstClass = req.body.flight.taxValueCHD_FirstClass;
-  const ravValueCHD_FirstClass = req.body.flight.ravValueCHD_FirstClass;
-  const numCHD_FirstClass = req.body.flight.numCHD_FirstClass;
-
-  const totalValueAdult_FirstClass = req.body.flight.totalValueAdult_FirstClass;
-  const tariffValueAdult_FirstClass = req.body.flight.tariffValueAdult_FirstClass;
-  const taxValueAdult_FirstClass = req.body.flight.taxValueAdult_FirstClass;
-  const ravValueAdult_FirstClass = req.body.flight.ravValueAdult_FirstClass;
-  const numADT_FirstClass = req.body.flight.numADT_FirstClass;
-
-  const totalValueInf_FirstClass = req.body.flight.totalValueInf_FirstClass;
-  const tariffValueInf_FirstClass = req.body.flight.tariffValueInf_FirstClass;
-  const taxValueInf_FirstClass = req.body.flight.taxValueInf_FirstClass;
-  const ravValueInf_FirstClass = req.body.flight.ravValueInf_FirstClass;
-  const numINF_FirstClass = req.body.flight.numINF_FirstClass;
-
-  // Executivo
-  const totalValueCHD_Executive = req.body.flight.totalValueCHD_Executive;
-  const tariffValueCHD_Executive = req.body.flight.tariffValueCHD_Executive;
-  const taxValueCHD_Executive = req.body.flight.taxValueCHD_Executive;
-  const ravValueCHD_Executive = req.body.flight.ravValueCHD_Executive;
-  const numCHD_Executive = req.body.flight.numCHD_Executive;
-
-  const totalValueAdult_Executive = req.body.flight.totalValueAdult_Executive;
-  const tariffValueAdult_Executive = req.body.flight.tariffValueAdult_Executive;
-  const taxValueAdult_Executive = req.body.flight.taxValueAdult_Executive;
-  const ravValueAdult_Executive = req.body.flight.ravValueAdult_Executive;
-  const numADT_Executive = req.body.flight.numADT_Executive;
-
-  const totalValueInf_Executive = req.body.flight.totalValueInf_Executive;
-  const tariffValueInf_Executive = req.body.flight.tariffValueInf_Executive;
-  const taxValueInf_Executive = req.body.flight.taxValueInf_Executive;
-  const ravValueInf_Executive = req.body.flight.ravValueInf_Executive;
-  const numINF_Executive = req.body.flight.numINF_Executive;
-
-  // Econômico
-  const totalValueCHD_Economic = req.body.flight.totalValueCHD_Economic;
-  const tariffValueCHD_Economic = req.body.flight.tariffValueCHD_Economic;
-  const taxValueCHD_Economic = req.body.flight.taxValueCHD_Economic;
-  const ravValueCHD_Economic = req.body.flight.ravValueCHD_Economic;
-  const numCHD_Economic = req.body.flight.numCHD_Economic;
-
-  const totalValueAdult_Economic = req.body.flight.totalValueAdult_Economic;
-  const tariffValueAdult_Economic = req.body.flight.tariffValueAdult_Economic;
-  const taxValueAdult_Economic = req.body.flight.taxValueAdult_Economic;
-  const ravValueAdult_Economic = req.body.flight.ravValueAdult_Economic;
-  const numADT_Economic = req.body.flight.numADT_Economic;
-
-  const totalValueInf_Economic = req.body.flight.totalValueInf_Economic;
-  const tariffValueInf_Economic = req.body.flight.tariffValueInf_Economic;
-  const taxValueInf_Economic = req.body.flight.taxValueInf_Economic;
-  const ravValueInf_Economic = req.body.flight.ravValueInf_Economic;
-  const numINF_Economic = req.body.flight.numINF_Economic;
-
-  const sendable_flights = {
-    escalas: [Number],
-    flightNum: [String],
-    dateFlight:[String],
-    from:[String],
-    destination:[String],
-    timeOut: [String],
-    timeIn: [String],
-    coin:[String],
+    const flightNum = req.body.flight.flightNum;
+    const dateFlight = req.body.flight.dateFlight;
+    const from = req.body.flight.from;
+    const destination = req.body.flight.destination;
+    const timeOut = req.body.flight.timeOut;
+    const timeIn = req.body.flight.timeIn;
+    const coin = req.body.flight.coin;
 
     // Primeira classe
-    totalValueCHD_FirstClass: [Number],
-    tariffValueCHD_FirstClass: [Number],
-    taxValueCHD_FirstClass: [Number],
-    ravValueCHD_FirstClass: [Number],
-    numCHD_FirstClass: [Number],
+    const totalValueCHD_FirstClass = req.body.flight.totalValueCHD_FirstClass;
+    const tariffValueCHD_FirstClass = req.body.flight.tariffValueCHD_FirstClass;
+    const taxValueCHD_FirstClass = req.body.flight.taxValueCHD_FirstClass;
+    const ravValueCHD_FirstClass = req.body.flight.ravValueCHD_FirstClass;
+    const numCHD_FirstClass = req.body.flight.numCHD_FirstClass;
 
-    totalValueAdult_FirstClass: [Number],
-    tariffValueAdult_FirstClass: [Number],
-    taxValueAdult_FirstClass: [Number],
-    ravValueAdult_FirstClass: [Number],
-    numADT_FirstClass: [Number],
+    const totalValueAdult_FirstClass = req.body.flight.totalValueAdult_FirstClass;
+    const tariffValueAdult_FirstClass = req.body.flight.tariffValueAdult_FirstClass;
+    const taxValueAdult_FirstClass = req.body.flight.taxValueAdult_FirstClass;
+    const ravValueAdult_FirstClass = req.body.flight.ravValueAdult_FirstClass;
+    const numADT_FirstClass = req.body.flight.numADT_FirstClass;
 
-    totalValueInf_FirstClass: [Number],
-    tariffValueInf_FirstClass: [Number],
-    taxValueInf_FirstClass: [Number],
-    ravValueInf_FirstClass: [Number],
-    numINF_FirstClass: [Number],
-
-    // Executivo
-    totalValueCHD_Executive: [Number],
-    tariffValueCHD_Executive: [Number],
-    taxValueCHD_Executive: [Number],
-    ravValueCHD_Executive: [Number],
-    numCHD_Executive: [Number],
-
-    totalValueAdult_Executive: [Number],
-    tariffValueAdult_Executive: [Number],
-    taxValueAdult_Executive: [Number],
-    ravValueAdult_Executive: [Number],
-    numADT_Executive: [Number],
-
-    totalValueInf_Executive: [Number],
-    tariffValueInf_Executive: [Number],
-    taxValueInf_Executive: [Number],
-    ravValueInf_Executive: [Number],
-    numINF_Executive: [Number],
-
-    // Econômico
-    totalValueCHD_Economic: [Number],
-    tariffValueCHD_Economic: [Number],
-    taxValueCHD_Economic: [Number],
-    ravValueCHD_Economic: [Number],
-    numCHD_Economic: [Number],
-
-    totalValueAdult_Economic: [Number],
-    tariffValueAdult_Economic: [Number],
-    taxValueAdult_Economic: [Number],
-    ravValueAdult_Economic: [Number],
-    numADT_Economic: [Number],
-
-    totalValueInf_Economic: [Number],
-    tariffValueInf_Economic: [Number],
-    taxValueInf_Economic: [Number],
-    ravValueInf_Economic: [Number],
-    numINF_Economic: [Number],
-  };
-
-  var j = 0;//Variável pra organizar informação salva
-  var k = 0;//variável pra contar número de blocos a serem apagados na página
-
-  for (var x1 = 0; x1 < flight.deleting.length; x1++) {
-    if (flight.deleting[x1] == 1) {
-      k++;
-    }
-  }//Checa se é pra apagar tudo que tem na página
-
-  if (flight.deleting.length == 1 && flight.deleting[j] != 1) {
-    console.log('------------------ Caso 1 ---------------------');
-    for (var x4 = 0; x4 < flight.escalas.length; x4++) {//1 voo pode ter mias de uma escala, então, para pegar todas as escalas, passamos por esse loop de x4
-      sendable_flights.escalas[j+x4] = escalas[j+x4];
-
-      sendable_flights.flightNum[j+x4] = flightNum[j+x4];
-      sendable_flights.dateFlight[j+x4] = dateFlight[j+x4];
-      sendable_flights.from[j+x4] = from[j+x4];
-      sendable_flights.destination[j+x4] = destination[j+x4];
-      sendable_flights.timeOut[j+x4] = timeOut[j+x4];
-      sendable_flights.timeIn[j+x4] = timeIn[j+x4];
-      sendable_flights.coin[j+x4] = coin[j+x4];
-    }
-
-    // Primeira classe
-    sendable_flights.totalValueCHD_FirstClass[j] = totalValueCHD_FirstClass;
-    sendable_flights.tariffValueCHD_FirstClass[j] = tariffValueCHD_FirstClass;
-    sendable_flights.taxValueCHD_FirstClass[j] = taxValueCHD_FirstClass;
-    sendable_flights.ravValueCHD_FirstClass[j] = ravValueCHD_FirstClass;
-    sendable_flights.numCHD_FirstClass[j] = numCHD_FirstClass;
-
-    sendable_flights.totalValueAdult_FirstClass[j] = totalValueAdult_FirstClass;
-    sendable_flights.tariffValueAdult_FirstClass[j] = tariffValueAdult_FirstClass;
-    sendable_flights.taxValueAdult_FirstClass[j] = taxValueAdult_FirstClass;
-    sendable_flights.ravValueAdult_FirstClass[j] = ravValueAdult_FirstClass;
-    sendable_flights.numADT_FirstClass[j] = numADT_FirstClass;
-
-    sendable_flights.totalValueInf_FirstClass[j] = totalValueInf_FirstClass;
-    sendable_flights.tariffValueInf_FirstClass[j] = tariffValueInf_FirstClass;
-    sendable_flights.taxValueInf_FirstClass[j] = taxValueInf_FirstClass;
-    sendable_flights.ravValueInf_FirstClass[j] = ravValueInf_FirstClass;
-    sendable_flights.numINF_FirstClass[j] = numINF_FirstClass;
+    const totalValueInf_FirstClass = req.body.flight.totalValueInf_FirstClass;
+    const tariffValueInf_FirstClass = req.body.flight.tariffValueInf_FirstClass;
+    const taxValueInf_FirstClass = req.body.flight.taxValueInf_FirstClass;
+    const ravValueInf_FirstClass = req.body.flight.ravValueInf_FirstClass;
+    const numINF_FirstClass = req.body.flight.numINF_FirstClass;
 
     // Executivo
-    sendable_flights.totalValueCHD_Executive[j] = totalValueCHD_Executive;
-    sendable_flights.tariffValueCHD_Executive[j] = tariffValueCHD_Executive;
-    sendable_flights.taxValueCHD_Executive[j] = taxValueCHD_Executive;
-    sendable_flights.ravValueCHD_Executive[j] = ravValueCHD_Executive;
-    sendable_flights.numCHD_Executive[j] = numCHD_Executive;
+    const totalValueCHD_Executive = req.body.flight.totalValueCHD_Executive;
+    const tariffValueCHD_Executive = req.body.flight.tariffValueCHD_Executive;
+    const taxValueCHD_Executive = req.body.flight.taxValueCHD_Executive;
+    const ravValueCHD_Executive = req.body.flight.ravValueCHD_Executive;
+    const numCHD_Executive = req.body.flight.numCHD_Executive;
 
-    sendable_flights.totalValueAdult_Executive[j] = totalValueAdult_Executive;
-    sendable_flights.tariffValueAdult_Executive[j] = tariffValueAdult_Executive;
-    sendable_flights.taxValueAdult_Executive[j] = taxValueAdult_Executive;
-    sendable_flights.ravValueAdult_Executive[j] = ravValueAdult_Executive;
-    sendable_flights.numADT_Executive[j] = numADT_Executive;
+    const totalValueAdult_Executive = req.body.flight.totalValueAdult_Executive;
+    const tariffValueAdult_Executive = req.body.flight.tariffValueAdult_Executive;
+    const taxValueAdult_Executive = req.body.flight.taxValueAdult_Executive;
+    const ravValueAdult_Executive = req.body.flight.ravValueAdult_Executive;
+    const numADT_Executive = req.body.flight.numADT_Executive;
 
-    sendable_flights.totalValueInf_Executive[j] = totalValueInf_Executive;
-    sendable_flights.tariffValueInf_Executive[j] = tariffValueInf_Executive;
-    sendable_flights.taxValueInf_Executive[j] = taxValueInf_Executive;
-    sendable_flights.ravValueInf_Executive[j] = ravValueInf_Executive;
-    sendable_flights.numINF_Executive[j] = numINF_Executive;
-
-    // Econômico
-    sendable_flights.totalValueCHD_Economic[j] = totalValueCHD_Economic;
-    sendable_flights.tariffValueCHD_Economic[j] = tariffValueCHD_Economic;
-    sendable_flights.taxValueCHD_Economic[j] = taxValueCHD_Economic;
-    sendable_flights.ravValueCHD_Economic[j] = ravValueCHD_Economic;
-    sendable_flights.numCHD_Economic[j] = numCHD_Economic;
-
-    sendable_flights.totalValueAdult_Economic[j] = totalValueAdult_Economic;
-    sendable_flights.tariffValueAdult_Economic[j] = tariffValueAdult_Economic;
-    sendable_flights.taxValueAdult_Economic[j] = taxValueAdult_Economic;
-    sendable_flights.ravValueAdult_Economic[j] = ravValueAdult_Economic;
-    sendable_flights.numADT_Economic[j] = numADT_Economic;
-
-    sendable_flights.totalValueInf_Economic[j] = totalValueInf_Economic;
-    sendable_flights.tariffValueInf_Economic[j] = tariffValueInf_Economic;
-    sendable_flights.taxValueInf_Economic[j] = taxValueInf_Economic;
-    sendable_flights.ravValueInf_Economic[j] = ravValueInf_Economic;
-    sendable_flights.numINF_Economic[j] = numINF_Economic;
-  }//Trata o caso de ter somente um bloco na página e que não deve ser apagado
-
-  else if(flight.deleting.length == k){
-    console.log('------------------ Caso 2 ---------------------');
-    sendable_flights.escalas[j] = 0;
-
-    sendable_flights.flightNum[j] = '';
-    sendable_flights.dateFlight[j] = '';
-    sendable_flights.from[j] = '';
-    sendable_flights.destination[j] = '';
-    sendable_flights.timeOut[j] = '';
-    sendable_flights.timeIn[j] = '';
-    sendable_flights.coin[j] = '';
-
-    // Primeira classe
-    sendable_flights.totalValueCHD_FirstClass[j] = 0;
-    sendable_flights.tariffValueCHD_FirstClass[j] = 0;
-    sendable_flights.taxValueCHD_FirstClass[j] = 0;
-    sendable_flights.ravValueCHD_FirstClass[j] = 0;
-    sendable_flights.numCHD_FirstClass[j] = 0;
-
-    sendable_flights.totalValueAdult_FirstClass[j] = 0;
-    sendable_flights.tariffValueAdult_FirstClass[j] = 0;
-    sendable_flights.taxValueAdult_FirstClass[j] = 0;
-    sendable_flights.ravValueAdult_FirstClass[j] = 0;
-    sendable_flights.numADT_FirstClass[j] = 0;
-
-    sendable_flights.totalValueInf_FirstClass[j] = 0;
-    sendable_flights.tariffValueInf_FirstClass[j] = 0;
-    sendable_flights.taxValueInf_FirstClass[j] = 0;
-    sendable_flights.ravValueInf_FirstClass[j] = 0;
-    sendable_flights.numINF_FirstClass[j] = 0;
-
-    // Executivo
-    sendable_flights.totalValueCHD_Executive[j] = 0;
-    sendable_flights.tariffValueCHD_Executive[j] = 0;
-    sendable_flights.taxValueCHD_Executive[j] = 0;
-    sendable_flights.ravValueCHD_Executive[j] = 0;
-    sendable_flights.numCHD_Executive[j] = 0;
-
-    sendable_flights.totalValueAdult_Executive[j] = 0;
-    sendable_flights.tariffValueAdult_Executive[j] = 0;
-    sendable_flights.taxValueAdult_Executive[j] = 0;
-    sendable_flights.ravValueAdult_Executive[j] = 0;
-    sendable_flights.numADT_Executive[j] = 0;
-
-    sendable_flights.totalValueInf_Executive[j] = 0;
-    sendable_flights.tariffValueInf_Executive[j] = 0;
-    sendable_flights.taxValueInf_Executive[j] = 0;
-    sendable_flights.ravValueInf_Executive[j] = 0;
-    sendable_flights.numINF_Executive[j] = 0;
+    const totalValueInf_Executive = req.body.flight.totalValueInf_Executive;
+    const tariffValueInf_Executive = req.body.flight.tariffValueInf_Executive;
+    const taxValueInf_Executive = req.body.flight.taxValueInf_Executive;
+    const ravValueInf_Executive = req.body.flight.ravValueInf_Executive;
+    const numINF_Executive = req.body.flight.numINF_Executive;
 
     // Econômico
-    sendable_flights.totalValueCHD_Economic[j] = 0;
-    sendable_flights.tariffValueCHD_Economic[j] = 0;
-    sendable_flights.taxValueCHD_Economic[j] = 0;
-    sendable_flights.ravValueCHD_Economic[j] = 0;
-    sendable_flights.numCHD_Economic[j] = 0;
+    const totalValueCHD_Economic = req.body.flight.totalValueCHD_Economic;
+    const tariffValueCHD_Economic = req.body.flight.tariffValueCHD_Economic;
+    const taxValueCHD_Economic = req.body.flight.taxValueCHD_Economic;
+    const ravValueCHD_Economic = req.body.flight.ravValueCHD_Economic;
+    const numCHD_Economic = req.body.flight.numCHD_Economic;
 
-    sendable_flights.totalValueAdult_Economic[j] = 0;
-    sendable_flights.tariffValueAdult_Economic[j] = 0;
-    sendable_flights.taxValueAdult_Economic[j] = 0;
-    sendable_flights.ravValueAdult_Economic[j] = 0;
-    sendable_flights.numADT_Economic[j] = 0;
+    const totalValueAdult_Economic = req.body.flight.totalValueAdult_Economic;
+    const tariffValueAdult_Economic = req.body.flight.tariffValueAdult_Economic;
+    const taxValueAdult_Economic = req.body.flight.taxValueAdult_Economic;
+    const ravValueAdult_Economic = req.body.flight.ravValueAdult_Economic;
+    const numADT_Economic = req.body.flight.numADT_Economic;
 
-    sendable_flights.totalValueInf_Economic[j] = 0;
-    sendable_flights.tariffValueInf_Economic[j] = 0;
-    sendable_flights.taxValueInf_Economic[j] = 0;
-    sendable_flights.ravValueInf_Economic[j] = 0;
-    sendable_flights.numINF_Economic[j] = 0;
-  }//Trata o caso de ter que apagar tudo na página
+    const totalValueInf_Economic = req.body.flight.totalValueInf_Economic;
+    const tariffValueInf_Economic = req.body.flight.tariffValueInf_Economic;
+    const taxValueInf_Economic = req.body.flight.taxValueInf_Economic;
+    const ravValueInf_Economic = req.body.flight.ravValueInf_Economic;
+    const numINF_Economic = req.body.flight.numINF_Economic;
 
-  else {
-    console.log('------------------ Caso 3 ---------------------');
-    var lst_escala = 0;
-    var start = 0;
-    var new_start = 0;
-    var saving = 0;
-    // for (var i = 0; i < flight.escalas.length; i++) {
-    //   console.log(flight.escalas[i]);
-    // }
-    // console.log(i+1);
-    for (var i = 0; i < flight.deleting.length; i++) {
-      start = new_start;
-      lst_escala = start;
-      if (flight.escalas[start+1] == 1) {
-        console.log('não é voo único');
-        for (var a = (start+1); flight.escalas[a] == 1 ; a++) {
-          lst_escala++;
-        }
-        new_start = lst_escala + 1;
-        // console.log('vendo onde começa e acaba');
-        // console.log(start);
-        // console.log(lst_escala);
-        // console.log(new_start);
-      }//Determina até onde o voo vai
+    const sendable_flights = {
+      escalas: [Number],
+      flightNum: [String],
+      dateFlight:[String],
+      from:[String],
+      destination:[String],
+      timeOut: [String],
+      timeIn: [String],
+      coin:[String],
 
-      else {
-        console.log('voo único');
-        new_start++;
-        // console.log('vendo onde começa e acaba');
-        // console.log(start);
-        // console.log(lst_escala);
-        // console.log(new_start);
-      }//Caso seja voo sem escalas
+      // Primeira classe
+      totalValueCHD_FirstClass: [Number],
+      tariffValueCHD_FirstClass: [Number],
+      taxValueCHD_FirstClass: [Number],
+      ravValueCHD_FirstClass: [Number],
+      numCHD_FirstClass: [Number],
 
-      if (flight.deleting[i] == 0) {
-        for (var b = start; b <= lst_escala; b++) {
-          sendable_flights.escalas[saving] = escalas[b];
-          sendable_flights.flightNum[saving] = flightNum[b];
-          sendable_flights.dateFlight[saving] = dateFlight[b];
-          sendable_flights.from[saving] = from[b];
-          sendable_flights.destination[saving] = destination[b];
-          sendable_flights.timeOut[saving] = timeOut[b];
-          sendable_flights.timeIn[saving] = timeIn[b];
-          saving++;
-        }
-        // Primeira classe
-        sendable_flights.totalValueCHD_FirstClass[j] = totalValueCHD_FirstClass[i];
-        sendable_flights.tariffValueCHD_FirstClass[j] = tariffValueCHD_FirstClass[i];
-        sendable_flights.taxValueCHD_FirstClass[j] = taxValueCHD_FirstClass[i];
-        sendable_flights.ravValueCHD_FirstClass[j] = ravValueCHD_FirstClass[i];
-        sendable_flights.numCHD_FirstClass[j] = numCHD_FirstClass[i];
+      totalValueAdult_FirstClass: [Number],
+      tariffValueAdult_FirstClass: [Number],
+      taxValueAdult_FirstClass: [Number],
+      ravValueAdult_FirstClass: [Number],
+      numADT_FirstClass: [Number],
 
-        sendable_flights.totalValueAdult_FirstClass[j] = totalValueAdult_FirstClass[i];
-        sendable_flights.tariffValueAdult_FirstClass[j] = tariffValueAdult_FirstClass[i];
-        sendable_flights.taxValueAdult_FirstClass[j] = taxValueAdult_FirstClass[i];
-        sendable_flights.ravValueAdult_FirstClass[j] = ravValueAdult_FirstClass[i];
-        sendable_flights.numADT_FirstClass[j] = numADT_FirstClass[i];
+      totalValueInf_FirstClass: [Number],
+      tariffValueInf_FirstClass: [Number],
+      taxValueInf_FirstClass: [Number],
+      ravValueInf_FirstClass: [Number],
+      numINF_FirstClass: [Number],
 
-        sendable_flights.totalValueInf_FirstClass[j] = totalValueInf_FirstClass[i];
-        sendable_flights.tariffValueInf_FirstClass[j] = tariffValueInf_FirstClass[i];
-        sendable_flights.taxValueInf_FirstClass[j] = taxValueInf_FirstClass[i];
-        sendable_flights.ravValueInf_FirstClass[j] = ravValueInf_FirstClass[i];
-        sendable_flights.numINF_FirstClass[j] = numINF_FirstClass[i];
+      // Executivo
+      totalValueCHD_Executive: [Number],
+      tariffValueCHD_Executive: [Number],
+      taxValueCHD_Executive: [Number],
+      ravValueCHD_Executive: [Number],
+      numCHD_Executive: [Number],
 
-        // Executivo
-        sendable_flights.totalValueCHD_Executive[j] = totalValueCHD_Executive[i];
-        sendable_flights.tariffValueCHD_Executive[j] = tariffValueCHD_Executive[i];
-        sendable_flights.taxValueCHD_Executive[j] = taxValueCHD_Executive[i];
-        sendable_flights.ravValueCHD_Executive[j] = ravValueCHD_Executive[i];
-        sendable_flights.numCHD_Executive[j] = numCHD_Executive[i];
+      totalValueAdult_Executive: [Number],
+      tariffValueAdult_Executive: [Number],
+      taxValueAdult_Executive: [Number],
+      ravValueAdult_Executive: [Number],
+      numADT_Executive: [Number],
 
-        sendable_flights.totalValueAdult_Executive[j] = totalValueAdult_Executive[i];
-        sendable_flights.tariffValueAdult_Executive[j] = tariffValueAdult_Executive[i];
-        sendable_flights.taxValueAdult_Executive[j] = taxValueAdult_Executive[i];
-        sendable_flights.ravValueAdult_Executive[j] = ravValueAdult_Executive[i];
-        sendable_flights.numADT_Executive[j] = numADT_Executive[i];
+      totalValueInf_Executive: [Number],
+      tariffValueInf_Executive: [Number],
+      taxValueInf_Executive: [Number],
+      ravValueInf_Executive: [Number],
+      numINF_Executive: [Number],
 
-        sendable_flights.totalValueInf_Executive[j] = totalValueInf_Executive[i];
-        sendable_flights.tariffValueInf_Executive[j] = tariffValueInf_Executive[i];
-        sendable_flights.taxValueInf_Executive[j] = taxValueInf_Executive[i];
-        sendable_flights.ravValueInf_Executive[j] = ravValueInf_Executive[i];
-        sendable_flights.numINF_Executive[j] = numINF_Executive[i];
+      // Econômico
+      totalValueCHD_Economic: [Number],
+      tariffValueCHD_Economic: [Number],
+      taxValueCHD_Economic: [Number],
+      ravValueCHD_Economic: [Number],
+      numCHD_Economic: [Number],
 
-        // Econômico
-        sendable_flights.totalValueCHD_Economic[j] = totalValueCHD_Economic[i];
-        sendable_flights.tariffValueCHD_Economic[j] = tariffValueCHD_Economic[i];
-        sendable_flights.taxValueCHD_Economic[j] = taxValueCHD_Economic[i];
-        sendable_flights.ravValueCHD_Economic[j] = ravValueCHD_Economic[i];
-        sendable_flights.numCHD_Economic[j] = numCHD_Economic[i];
+      totalValueAdult_Economic: [Number],
+      tariffValueAdult_Economic: [Number],
+      taxValueAdult_Economic: [Number],
+      ravValueAdult_Economic: [Number],
+      numADT_Economic: [Number],
 
-        sendable_flights.totalValueAdult_Economic[j] = totalValueAdult_Economic[i];
-        sendable_flights.tariffValueAdult_Economic[j] = tariffValueAdult_Economic[i];
-        sendable_flights.taxValueAdult_Economic[j] = taxValueAdult_Economic[i];
-        sendable_flights.ravValueAdult_Economic[j] = ravValueAdult_Economic[i];
-        sendable_flights.numADT_Economic[j] = numADT_Economic[i];
+      totalValueInf_Economic: [Number],
+      tariffValueInf_Economic: [Number],
+      taxValueInf_Economic: [Number],
+      ravValueInf_Economic: [Number],
+      numINF_Economic: [Number],
+    };
 
-        sendable_flights.totalValueInf_Economic[j] = totalValueInf_Economic[i];
-        sendable_flights.tariffValueInf_Economic[j] = tariffValueInf_Economic[i];
-        sendable_flights.taxValueInf_Economic[j] = taxValueInf_Economic[i];
-        sendable_flights.ravValueInf_Economic[j] = ravValueInf_Economic[i];
-        sendable_flights.numINF_Economic[j] = numINF_Economic[i];
-        sendable_flights.coin[saving] = coin[i];
-        j++;
+    var j = 0;//Variável pra organizar informação salva
+    var k = 0;//variável pra contar número de blocos a serem apagados na página
+
+    for (var x1 = 0; x1 < flight.deleting.length; x1++) {
+      if (flight.deleting[x1] == 1) {
+        k++;
+      }
+    }//Checa se é pra apagar tudo que tem na página
+
+    if (flight.deleting.length == 1 && flight.deleting[j] != 1) {
+      for (var x4 = 0; x4 < flight.escalas.length; x4++) {//1 voo pode ter mias de uma escala, então, para pegar todas as escalas, passamos por esse loop de x4
+        sendable_flights.escalas[x4] = escalas[x4];
+        sendable_flights.flightNum[x4] = flightNum[x4];
+        sendable_flights.dateFlight[x4] = dateFlight[x4];
+        sendable_flights.from[x4] = from[x4];
+        sendable_flights.destination[x4] = destination[x4];
+        sendable_flights.timeOut[x4] = timeOut[x4];
+        sendable_flights.timeIn[x4] = timeIn[x4];
+        sendable_flights.coin[x4] = coin[x4];
       }
 
-    }//Analisa o que deve ser feito para cada deleting na página
-  }//Trata os demais casos
-  console.log('------------------------sendable_saves------------------------');
-  console.log(sendable_flights);
-  Budget.getById(req.params.budget_id).then((budget) => {
-    Flight.update(budget.flights, sendable_flights).then(() => {
-      res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
-    }).catch((error) => {
-      console.log(error);
-      res.redirect('error');
-    });
-  }).catch((error) => {
-    console.log(error);
-    res.redirect('error');
-  });
+      // Primeira classe
+      sendable_flights.totalValueCHD_FirstClass[j] = totalValueCHD_FirstClass;
+      sendable_flights.tariffValueCHD_FirstClass[j] = tariffValueCHD_FirstClass;
+      sendable_flights.taxValueCHD_FirstClass[j] = taxValueCHD_FirstClass;
+      sendable_flights.ravValueCHD_FirstClass[j] = ravValueCHD_FirstClass;
+      sendable_flights.numCHD_FirstClass[j] = numCHD_FirstClass;
+
+      sendable_flights.totalValueAdult_FirstClass[j] = totalValueAdult_FirstClass;
+      sendable_flights.tariffValueAdult_FirstClass[j] = tariffValueAdult_FirstClass;
+      sendable_flights.taxValueAdult_FirstClass[j] = taxValueAdult_FirstClass;
+      sendable_flights.ravValueAdult_FirstClass[j] = ravValueAdult_FirstClass;
+      sendable_flights.numADT_FirstClass[j] = numADT_FirstClass;
+
+      sendable_flights.totalValueInf_FirstClass[j] = totalValueInf_FirstClass;
+      sendable_flights.tariffValueInf_FirstClass[j] = tariffValueInf_FirstClass;
+      sendable_flights.taxValueInf_FirstClass[j] = taxValueInf_FirstClass;
+      sendable_flights.ravValueInf_FirstClass[j] = ravValueInf_FirstClass;
+      sendable_flights.numINF_FirstClass[j] = numINF_FirstClass;
+
+      // Executivo
+      sendable_flights.totalValueCHD_Executive[j] = totalValueCHD_Executive;
+      sendable_flights.tariffValueCHD_Executive[j] = tariffValueCHD_Executive;
+      sendable_flights.taxValueCHD_Executive[j] = taxValueCHD_Executive;
+      sendable_flights.ravValueCHD_Executive[j] = ravValueCHD_Executive;
+      sendable_flights.numCHD_Executive[j] = numCHD_Executive;
+
+      sendable_flights.totalValueAdult_Executive[j] = totalValueAdult_Executive;
+      sendable_flights.tariffValueAdult_Executive[j] = tariffValueAdult_Executive;
+      sendable_flights.taxValueAdult_Executive[j] = taxValueAdult_Executive;
+      sendable_flights.ravValueAdult_Executive[j] = ravValueAdult_Executive;
+      sendable_flights.numADT_Executive[j] = numADT_Executive;
+
+      sendable_flights.totalValueInf_Executive[j] = totalValueInf_Executive;
+      sendable_flights.tariffValueInf_Executive[j] = tariffValueInf_Executive;
+      sendable_flights.taxValueInf_Executive[j] = taxValueInf_Executive;
+      sendable_flights.ravValueInf_Executive[j] = ravValueInf_Executive;
+      sendable_flights.numINF_Executive[j] = numINF_Executive;
+
+      // Econômico
+      sendable_flights.totalValueCHD_Economic[j] = totalValueCHD_Economic;
+      sendable_flights.tariffValueCHD_Economic[j] = tariffValueCHD_Economic;
+      sendable_flights.taxValueCHD_Economic[j] = taxValueCHD_Economic;
+      sendable_flights.ravValueCHD_Economic[j] = ravValueCHD_Economic;
+      sendable_flights.numCHD_Economic[j] = numCHD_Economic;
+
+      sendable_flights.totalValueAdult_Economic[j] = totalValueAdult_Economic;
+      sendable_flights.tariffValueAdult_Economic[j] = tariffValueAdult_Economic;
+      sendable_flights.taxValueAdult_Economic[j] = taxValueAdult_Economic;
+      sendable_flights.ravValueAdult_Economic[j] = ravValueAdult_Economic;
+      sendable_flights.numADT_Economic[j] = numADT_Economic;
+
+      sendable_flights.totalValueInf_Economic[j] = totalValueInf_Economic;
+      sendable_flights.tariffValueInf_Economic[j] = tariffValueInf_Economic;
+      sendable_flights.taxValueInf_Economic[j] = taxValueInf_Economic;
+      sendable_flights.ravValueInf_Economic[j] = ravValueInf_Economic;
+      sendable_flights.numINF_Economic[j] = numINF_Economic;
+    }//Trata o caso de ter somente um bloco na página e que não deve ser apagado
+
+    else if(flight.deleting.length == k){
+      sendable_flights.escalas[j] = 0;
+
+      sendable_flights.flightNum[j] = '';
+      sendable_flights.dateFlight[j] = '';
+      sendable_flights.from[j] = '';
+      sendable_flights.destination[j] = '';
+      sendable_flights.timeOut[j] = '';
+      sendable_flights.timeIn[j] = '';
+      sendable_flights.coin[j] = '';
+
+      // Primeira classe
+      sendable_flights.totalValueCHD_FirstClass[j] = 0;
+      sendable_flights.tariffValueCHD_FirstClass[j] = 0;
+      sendable_flights.taxValueCHD_FirstClass[j] = 0;
+      sendable_flights.ravValueCHD_FirstClass[j] = 0;
+      sendable_flights.numCHD_FirstClass[j] = 0;
+
+      sendable_flights.totalValueAdult_FirstClass[j] = 0;
+      sendable_flights.tariffValueAdult_FirstClass[j] = 0;
+      sendable_flights.taxValueAdult_FirstClass[j] = 0;
+      sendable_flights.ravValueAdult_FirstClass[j] = 0;
+      sendable_flights.numADT_FirstClass[j] = 0;
+
+      sendable_flights.totalValueInf_FirstClass[j] = 0;
+      sendable_flights.tariffValueInf_FirstClass[j] = 0;
+      sendable_flights.taxValueInf_FirstClass[j] = 0;
+      sendable_flights.ravValueInf_FirstClass[j] = 0;
+      sendable_flights.numINF_FirstClass[j] = 0;
+
+      // Executivo
+      sendable_flights.totalValueCHD_Executive[j] = 0;
+      sendable_flights.tariffValueCHD_Executive[j] = 0;
+      sendable_flights.taxValueCHD_Executive[j] = 0;
+      sendable_flights.ravValueCHD_Executive[j] = 0;
+      sendable_flights.numCHD_Executive[j] = 0;
+
+      sendable_flights.totalValueAdult_Executive[j] = 0;
+      sendable_flights.tariffValueAdult_Executive[j] = 0;
+      sendable_flights.taxValueAdult_Executive[j] = 0;
+      sendable_flights.ravValueAdult_Executive[j] = 0;
+      sendable_flights.numADT_Executive[j] = 0;
+
+      sendable_flights.totalValueInf_Executive[j] = 0;
+      sendable_flights.tariffValueInf_Executive[j] = 0;
+      sendable_flights.taxValueInf_Executive[j] = 0;
+      sendable_flights.ravValueInf_Executive[j] = 0;
+      sendable_flights.numINF_Executive[j] = 0;
+
+      // Econômico
+      sendable_flights.totalValueCHD_Economic[j] = 0;
+      sendable_flights.tariffValueCHD_Economic[j] = 0;
+      sendable_flights.taxValueCHD_Economic[j] = 0;
+      sendable_flights.ravValueCHD_Economic[j] = 0;
+      sendable_flights.numCHD_Economic[j] = 0;
+
+      sendable_flights.totalValueAdult_Economic[j] = 0;
+      sendable_flights.tariffValueAdult_Economic[j] = 0;
+      sendable_flights.taxValueAdult_Economic[j] = 0;
+      sendable_flights.ravValueAdult_Economic[j] = 0;
+      sendable_flights.numADT_Economic[j] = 0;
+
+      sendable_flights.totalValueInf_Economic[j] = 0;
+      sendable_flights.tariffValueInf_Economic[j] = 0;
+      sendable_flights.taxValueInf_Economic[j] = 0;
+      sendable_flights.ravValueInf_Economic[j] = 0;
+      sendable_flights.numINF_Economic[j] = 0;
+    }//Trata o caso de ter que apagar tudo na página
+
+    else {
+      var lst_escala = 0;
+      var start = 0;
+      var new_start = 0;
+      var saving = 0;
+        for (var i = 0; i < flight.deleting.length; i++) {
+          start = new_start;
+          lst_escala = start;
+          if (flight.escalas[start+1] == 1) {
+            console.log('não é voo único');
+            for (var a = (start+1); flight.escalas[a] == 1 ; a++) {
+              lst_escala++;
+            }
+            new_start = lst_escala + 1;
+          }//Determina até onde o voo vai
+
+          else {
+            console.log('voo único');
+            new_start++;
+          }//Caso seja voo sem escalas
+
+          if (flight.deleting[i] == 0) {
+            for (var b = start; b <= lst_escala; b++) {
+              sendable_flights.escalas[saving] = escalas[b];
+              sendable_flights.flightNum[saving] = flightNum[b];
+              sendable_flights.dateFlight[saving] = dateFlight[b];
+              sendable_flights.from[saving] = from[b];
+              sendable_flights.destination[saving] = destination[b];
+              sendable_flights.timeOut[saving] = timeOut[b];
+              sendable_flights.timeIn[saving] = timeIn[b];
+              saving++;
+            }
+            // Primeira classe
+            sendable_flights.totalValueCHD_FirstClass[j] = totalValueCHD_FirstClass[i];
+            sendable_flights.tariffValueCHD_FirstClass[j] = tariffValueCHD_FirstClass[i];
+            sendable_flights.taxValueCHD_FirstClass[j] = taxValueCHD_FirstClass[i];
+            sendable_flights.ravValueCHD_FirstClass[j] = ravValueCHD_FirstClass[i];
+            sendable_flights.numCHD_FirstClass[j] = numCHD_FirstClass[i];
+
+            sendable_flights.totalValueAdult_FirstClass[j] = totalValueAdult_FirstClass[i];
+            sendable_flights.tariffValueAdult_FirstClass[j] = tariffValueAdult_FirstClass[i];
+            sendable_flights.taxValueAdult_FirstClass[j] = taxValueAdult_FirstClass[i];
+            sendable_flights.ravValueAdult_FirstClass[j] = ravValueAdult_FirstClass[i];
+            sendable_flights.numADT_FirstClass[j] = numADT_FirstClass[i];
+
+            sendable_flights.totalValueInf_FirstClass[j] = totalValueInf_FirstClass[i];
+            sendable_flights.tariffValueInf_FirstClass[j] = tariffValueInf_FirstClass[i];
+            sendable_flights.taxValueInf_FirstClass[j] = taxValueInf_FirstClass[i];
+            sendable_flights.ravValueInf_FirstClass[j] = ravValueInf_FirstClass[i];
+            sendable_flights.numINF_FirstClass[j] = numINF_FirstClass[i];
+
+            // Executivo
+            sendable_flights.totalValueCHD_Executive[j] = totalValueCHD_Executive[i];
+            sendable_flights.tariffValueCHD_Executive[j] = tariffValueCHD_Executive[i];
+            sendable_flights.taxValueCHD_Executive[j] = taxValueCHD_Executive[i];
+            sendable_flights.ravValueCHD_Executive[j] = ravValueCHD_Executive[i];
+            sendable_flights.numCHD_Executive[j] = numCHD_Executive[i];
+
+            sendable_flights.totalValueAdult_Executive[j] = totalValueAdult_Executive[i];
+            sendable_flights.tariffValueAdult_Executive[j] = tariffValueAdult_Executive[i];
+            sendable_flights.taxValueAdult_Executive[j] = taxValueAdult_Executive[i];
+            sendable_flights.ravValueAdult_Executive[j] = ravValueAdult_Executive[i];
+            sendable_flights.numADT_Executive[j] = numADT_Executive[i];
+
+            sendable_flights.totalValueInf_Executive[j] = totalValueInf_Executive[i];
+            sendable_flights.tariffValueInf_Executive[j] = tariffValueInf_Executive[i];
+            sendable_flights.taxValueInf_Executive[j] = taxValueInf_Executive[i];
+            sendable_flights.ravValueInf_Executive[j] = ravValueInf_Executive[i];
+            sendable_flights.numINF_Executive[j] = numINF_Executive[i];
+
+            // Econômico
+            sendable_flights.totalValueCHD_Economic[j] = totalValueCHD_Economic[i];
+            sendable_flights.tariffValueCHD_Economic[j] = tariffValueCHD_Economic[i];
+            sendable_flights.taxValueCHD_Economic[j] = taxValueCHD_Economic[i];
+            sendable_flights.ravValueCHD_Economic[j] = ravValueCHD_Economic[i];
+            sendable_flights.numCHD_Economic[j] = numCHD_Economic[i];
+
+            sendable_flights.totalValueAdult_Economic[j] = totalValueAdult_Economic[i];
+            sendable_flights.tariffValueAdult_Economic[j] = tariffValueAdult_Economic[i];
+            sendable_flights.taxValueAdult_Economic[j] = taxValueAdult_Economic[i];
+            sendable_flights.ravValueAdult_Economic[j] = ravValueAdult_Economic[i];
+            sendable_flights.numADT_Economic[j] = numADT_Economic[i];
+
+            sendable_flights.totalValueInf_Economic[j] = totalValueInf_Economic[i];
+            sendable_flights.tariffValueInf_Economic[j] = tariffValueInf_Economic[i];
+            sendable_flights.taxValueInf_Economic[j] = taxValueInf_Economic[i];
+            sendable_flights.ravValueInf_Economic[j] = ravValueInf_Economic[i];
+            sendable_flights.numINF_Economic[j] = numINF_Economic[i];
+            sendable_flights.coin[saving] = coin[i];
+            j++;
+          }
+
+        }//Analisa o que deve ser feito para cada deleting na página
+    }//Trata os demais casos
+
+      Budget.getById(req.params.budget_id).then((budget) => {
+        Flight.update(budget.flights, sendable_flights).then(() => {
+          res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
+        }).catch((error) => {
+          console.log(error);
+          res.redirect('error');
+        });
+      }).catch((error) => {
+        console.log(error);
+        res.redirect('error');
+      });
+  }
+
+  else {
+      Budget.getById(req.params.budget_id).then((budget) => {
+        Flight.update(budget.flights, flight).then(() => {
+          res.redirect(`/registred/pageE/${client_id}/${budget_id}`);
+        }).catch((error) => {
+          console.log(error);
+          res.redirect('error');
+        });
+      }).catch((error) => {
+        console.log(error);
+        res.redirect('error');
+      });
+    }
+
 });
 
 /*POST pageE*/
 router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const hotel = req.body.hotel;
-  const city = req.body.hotel.city;
-  const coin = req.body.hotel.coin;
-  const acomodationType1 = req.body.hotel.acomodationType1;
-  const acomodationType2 = req.body.hotel.acomodationType2;
-  const acomodationType3 = req.body.hotel.acomodationType3;
-  const hotel1 = req.body.hotel.hotel1;
-  const hotel2 = req.body.hotel.hotel2;
-  const hotel3 = req.body.hotel.hotel3;
-  const qntd1 = req.body.hotel.qntd1;
-  const qntd2 = req.body.hotel.qntd2;
-  const qntd3 = req.body.hotel.qntd3;
-  const valueApt1 = req.body.hotel.valueApt1;
-  const valueApt2 = req.body.hotel.valueApt2;
-  const valueApt3 = req.body.hotel.valueApt3;
-  const numberDaily1 = req.body.hotel.numberDaily1;
-  const numberDaily2 = req.body.hotel.numberDaily2;
-  const numberDaily3 = req.body.hotel.numberDaily3;
-  const numberApt1 = req.body.hotel.numberApt1;
-  const numberApt2 = req.body.hotel.numberApt2;
-  const numberApt3 = req.body.hotel.numberApt3;
-  const total1 = req.body.hotel.total1;
-  const total2 = req.body.hotel.total2;
-  const total3 = req.body.hotel.total3;
-  const food1 = req.body.hotel.food1;
-  const food2 = req.body.hotel.food2;
-  const food3 = req.body.hotel.food3;
-  const category1 = req.body.hotel.category1;
-  const category2 = req.body.hotel.category2;
-  const category3 = req.body.hotel.category3;
-  const cancellationPeriod = req.body.hotel.cancellationPeriod;
-  const cancellationPeriod2 = req.body.hotel.cancellationPeriod2;
-  const cancellationPeriod3 = req.body.hotel.cancellationPeriod3;
   const budget_id = req.params.budget_id;
   const client_id = req.params.client_id;
-  const sendable_hotels = {
-    city: [String],
-    coin: [String],
-    acomodationType1: [String],
-    acomodationType2: [String],
-    acomodationType3: [String],
-    hotel1: [String],
-    hotel2: [String],
-    hotel3: [String],
-    qntd1: [String],
-    qntd2: [String],
-    qntd3: [String],
-    valueApt1: [Number],
-    valueApt2: [Number],
-    valueApt3: [Number],
-    numberDaily1: [Number],
-    numberDaily2: [Number],
-    numberDaily3: [Number],
-    numberApt1:[Number],
-    numberApt2: [Number],
-    numberApt3: [Number],
-    total1: [Number],
-    total2: [Number],
-    total3: [Number],
-    food1: [String],
-    food2: [String],
-    food3: [String],
-    category1: [String],
-    category2: [String],
-    category3: [String],
-    cancellationPeriod:[String],
-    cancellationPeriod2:[String],
-    cancellationPeriod3:[String]
-  };
+  console.log('----------------------------');
+  console.log(hotel);
+  if(typeof hotel != 'undefined'){
+    console.log('piruuuuuuu');
+    const city = req.body.hotel.city;
+    const coin = req.body.hotel.coin;
+    const acomodationType1 = req.body.hotel.acomodationType1;
+    const acomodationType2 = req.body.hotel.acomodationType2;
+    const acomodationType3 = req.body.hotel.acomodationType3;
+    const hotel1 = req.body.hotel.hotel1;
+    const hotel2 = req.body.hotel.hotel2;
+    const hotel3 = req.body.hotel.hotel3;
+    const qntd1 = req.body.hotel.qntd1;
+    const qntd2 = req.body.hotel.qntd2;
+    const qntd3 = req.body.hotel.qntd3;
+    const valueApt1 = req.body.hotel.valueApt1;
+    const valueApt2 = req.body.hotel.valueApt2;
+    const valueApt3 = req.body.hotel.valueApt3;
+    const numberDaily1 = req.body.hotel.numberDaily1;
+    const numberDaily2 = req.body.hotel.numberDaily2;
+    const numberDaily3 = req.body.hotel.numberDaily3;
+    const numberApt1 = req.body.hotel.numberApt1;
+    const numberApt2 = req.body.hotel.numberApt2;
+    const numberApt3 = req.body.hotel.numberApt3;
+    const total1 = req.body.hotel.total1;
+    const total2 = req.body.hotel.total2;
+    const total3 = req.body.hotel.total3;
+    const food1 = req.body.hotel.food1;
+    const food2 = req.body.hotel.food2;
+    const food3 = req.body.hotel.food3;
+    const category1 = req.body.hotel.category1;
+    const category2 = req.body.hotel.category2;
+    const category3 = req.body.hotel.category3;
+    const cancellationPeriod = req.body.hotel.cancellationPeriod;
+    const cancellationPeriod2 = req.body.hotel.cancellationPeriod2;
+    const cancellationPeriod3 = req.body.hotel.cancellationPeriod3;
+    const sendable_hotels = {
+      city: [String],
+      coin: [String],
+      acomodationType1: [String],
+      acomodationType2: [String],
+      acomodationType3: [String],
+      hotel1: [String],
+      hotel2: [String],
+      hotel3: [String],
+      qntd1: [String],
+      qntd2: [String],
+      qntd3: [String],
+      valueApt1: [Number],
+      valueApt2: [Number],
+      valueApt3: [Number],
+      numberDaily1: [Number],
+      numberDaily2: [Number],
+      numberDaily3: [Number],
+      numberApt1:[Number],
+      numberApt2: [Number],
+      numberApt3: [Number],
+      total1: [Number],
+      total2: [Number],
+      total3: [Number],
+      food1: [String],
+      food2: [String],
+      food3: [String],
+      category1: [String],
+      category2: [String],
+      category3: [String],
+      cancellationPeriod:[String],
+      cancellationPeriod2:[String],
+      cancellationPeriod3:[String]
+    };
 
-  var j = 0;//Variável pra organizar informação salva
-  var k = 0;//variável pra contar número de blocos a serem apagados na página
+    var j = 0;//Variável pra organizar informação salva
+    var k = 0;//variável pra contar número de blocos a serem apagados na página
 
-  for (var i = 0; i < hotel.deleting.length; i++) {
-    if (hotel.deleting[i] == 1) {
-      k++;
-    }
-  }//Checa se é pra apagar tudo que tem na página
-
-  if (hotel.deleting.length == 1 && hotel.deleting[j] != 1) {
-    sendable_hotels.city[j] = city;
-    sendable_hotels.coin[j] = coin;
-    sendable_hotels.acomodationType1[j] = acomodationType1;
-    sendable_hotels.acomodationType2[j] = acomodationType2;
-    sendable_hotels.acomodationType3[j] = acomodationType3;
-    sendable_hotels.hotel1[j] = hotel1;
-    sendable_hotels.hotel2[j] = hotel2;
-    sendable_hotels.hotel3[j] = hotel3;
-    sendable_hotels.qntd1[j] = qntd1;
-    sendable_hotels.qntd2[j] = qntd2;
-    sendable_hotels.qntd3[j] = qntd3;
-    sendable_hotels.valueApt1[j] = valueApt1;
-    sendable_hotels.valueApt2[j] = valueApt2;
-    sendable_hotels.valueApt3[j] = valueApt3;
-    sendable_hotels.numberDaily1[j] = numberDaily1;
-    sendable_hotels.numberDaily2[j] = numberDaily2;
-    sendable_hotels.numberDaily3[j] = numberDaily3;
-    sendable_hotels.numberApt1[j] = numberApt1;
-    sendable_hotels.numberApt2[j] = numberApt2;
-    sendable_hotels.numberApt3[j] = numberApt3;
-    sendable_hotels.total1[j] = total1;
-    sendable_hotels.total2[j] = total2;
-    sendable_hotels.total3[j] = total3;
-    sendable_hotels.food1[j] = food1;
-    sendable_hotels.food2[j]  = food2;
-    sendable_hotels.food3[j] = food3;
-    sendable_hotels.category1[j] = category1;
-    sendable_hotels.category2[j] = category2;
-    sendable_hotels.category3[j] = category3;
-    sendable_hotels.cancellationPeriod[j] = cancellationPeriod;
-    sendable_hotels.cancellationPeriod2[j] = cancellationPeriod2;
-    sendable_hotels.cancellationPeriod3[j] = cancellationPeriod3;
-  }//Trata o caso de ter somente um bloco na página
-
-  else if(hotel.deleting.length == k){
-    sendable_hotels.city[j] = '';
-    sendable_hotels.coin[j] = 'Selecione qual moeda';
-    sendable_hotels.acomodationType1[j] = '';
-    sendable_hotels.acomodationType2[j] = '';
-    sendable_hotels.acomodationType3[j] = '';
-    sendable_hotels.hotel1[j] = '';
-    sendable_hotels.hotel2[j] = '';
-    sendable_hotels.hotel3[j] = '';
-    sendable_hotels.qntd1[j] = 0;
-    sendable_hotels.qntd2[j] = 0;
-    sendable_hotels.qntd3[j] = 0;
-    sendable_hotels.valueApt1[j] = 0;
-    sendable_hotels.valueApt2[j] = 0;
-    sendable_hotels.valueApt3[j] = 0;
-    sendable_hotels.numberDaily1[j] = 0;
-    sendable_hotels.numberDaily2[j] = 0;
-    sendable_hotels.numberDaily3[j] = 0;
-    sendable_hotels.numberApt1[j] = 0;
-    sendable_hotels.numberApt2[j] = 0;
-    sendable_hotels.numberApt3[j] = 0;
-    sendable_hotels.total1[j] = 0;
-    sendable_hotels.total2[j] = 0;
-    sendable_hotels.total3[j] = 0;
-    sendable_hotels.food1[j] = 'Regime de alimentação';
-    sendable_hotels.food2[j]  = 'Regime de alimentação';
-    sendable_hotels.food3[j] = '';
-    sendable_hotels.category1[j] = '';
-    sendable_hotels.category2[j] = '';
-    sendable_hotels.category3[j] = '';
-    sendable_hotels.cancellationPeriod[j] = 'Prazo de cancelamento';
-    sendable_hotels.cancellationPeriod2[j] = 'Prazo de cancelamento';
-    sendable_hotels.cancellationPeriod3[j] = 'Prazo de cancelamento';
-  }//Trata o caso de ter que apagar tudo na página
-
-  else {
     for (var i = 0; i < hotel.deleting.length; i++) {
-      if (hotel.deleting[i] != 1) {
-        sendable_hotels.city[j] = city[i];
-        sendable_hotels.coin[j] = coin[i];
-        sendable_hotels.acomodationType1[j] = acomodationType1[i];
-        sendable_hotels.acomodationType2[j] = acomodationType2[i];
-        sendable_hotels.acomodationType3[j] = acomodationType3[i];
-        sendable_hotels.hotel1[j] = hotel1[i];
-        sendable_hotels.hotel2[j] = hotel2[i];
-        sendable_hotels.hotel3[j] = hotel3[i];
-        sendable_hotels.qntd1[j] = qntd1[i];
-        sendable_hotels.qntd2[j] = qntd2[i];
-        sendable_hotels.qntd3[j] = qntd3[i];
-        sendable_hotels.valueApt1[j] = valueApt1[i];
-        sendable_hotels.valueApt2[j] = valueApt2[i];
-        sendable_hotels.valueApt3[j] = valueApt3[i];
-        sendable_hotels.numberDaily1[j] = numberDaily1[i];
-        sendable_hotels.numberDaily2[j] = numberDaily2[i];
-        sendable_hotels.numberDaily3[j] = numberDaily3[i];
-        sendable_hotels.numberApt1[j] = numberApt1[i];
-        sendable_hotels.numberApt2[j] = numberApt2[i];
-        sendable_hotels.numberApt3[j] = numberApt3[i];
-        sendable_hotels.total1[j] = total1[i];
-        sendable_hotels.total2[j] = total2[i];
-        sendable_hotels.total3[j] = total3[i];
-        sendable_hotels.food1[j] = food1[i];
-        sendable_hotels.food2[j]  = food2[i];
-        sendable_hotels.food3[j] = food3[i];
-        sendable_hotels.category1[j] = category1[i];
-        sendable_hotels.category2[j] = category2[i];
-        sendable_hotels.category3[j] = category3[i];
-        sendable_hotels.cancellationPeriod[j] = cancellationPeriod[i];
-        sendable_hotels.cancellationPeriod2[j] = cancellationPeriod2[i];
-        sendable_hotels.cancellationPeriod3[j] = cancellationPeriod3[i];
-        j++;
+      if (hotel.deleting[i] == 1) {
+        k++;
       }
-    }
-  }//Trata os demais casos
+    }//Checa se é pra apagar tudo que tem na página
+
+    if (hotel.deleting.length == 1 && hotel.deleting[j] != 1) {
+      sendable_hotels.city[j] = city;
+      sendable_hotels.coin[j] = coin;
+      sendable_hotels.acomodationType1[j] = acomodationType1;
+      sendable_hotels.acomodationType2[j] = acomodationType2;
+      sendable_hotels.acomodationType3[j] = acomodationType3;
+      sendable_hotels.hotel1[j] = hotel1;
+      sendable_hotels.hotel2[j] = hotel2;
+      sendable_hotels.hotel3[j] = hotel3;
+      sendable_hotels.qntd1[j] = qntd1;
+      sendable_hotels.qntd2[j] = qntd2;
+      sendable_hotels.qntd3[j] = qntd3;
+      sendable_hotels.valueApt1[j] = valueApt1;
+      sendable_hotels.valueApt2[j] = valueApt2;
+      sendable_hotels.valueApt3[j] = valueApt3;
+      sendable_hotels.numberDaily1[j] = numberDaily1;
+      sendable_hotels.numberDaily2[j] = numberDaily2;
+      sendable_hotels.numberDaily3[j] = numberDaily3;
+      sendable_hotels.numberApt1[j] = numberApt1;
+      sendable_hotels.numberApt2[j] = numberApt2;
+      sendable_hotels.numberApt3[j] = numberApt3;
+      sendable_hotels.total1[j] = total1;
+      sendable_hotels.total2[j] = total2;
+      sendable_hotels.total3[j] = total3;
+      sendable_hotels.food1[j] = food1;
+      sendable_hotels.food2[j]  = food2;
+      sendable_hotels.food3[j] = food3;
+      sendable_hotels.category1[j] = category1;
+      sendable_hotels.category2[j] = category2;
+      sendable_hotels.category3[j] = category3;
+      sendable_hotels.cancellationPeriod[j] = cancellationPeriod;
+      sendable_hotels.cancellationPeriod2[j] = cancellationPeriod2;
+      sendable_hotels.cancellationPeriod3[j] = cancellationPeriod3;
+    }//Trata o caso de ter somente um bloco na página
+
+    else if(hotel.deleting.length == k){
+      sendable_hotels.city[j] = '';
+      sendable_hotels.coin[j] = 'Selecione qual moeda';
+      sendable_hotels.acomodationType1[j] = '';
+      sendable_hotels.acomodationType2[j] = '';
+      sendable_hotels.acomodationType3[j] = '';
+      sendable_hotels.hotel1[j] = '';
+      sendable_hotels.hotel2[j] = '';
+      sendable_hotels.hotel3[j] = '';
+      sendable_hotels.qntd1[j] = 0;
+      sendable_hotels.qntd2[j] = 0;
+      sendable_hotels.qntd3[j] = 0;
+      sendable_hotels.valueApt1[j] = 0;
+      sendable_hotels.valueApt2[j] = 0;
+      sendable_hotels.valueApt3[j] = 0;
+      sendable_hotels.numberDaily1[j] = 0;
+      sendable_hotels.numberDaily2[j] = 0;
+      sendable_hotels.numberDaily3[j] = 0;
+      sendable_hotels.numberApt1[j] = 0;
+      sendable_hotels.numberApt2[j] = 0;
+      sendable_hotels.numberApt3[j] = 0;
+      sendable_hotels.total1[j] = 0;
+      sendable_hotels.total2[j] = 0;
+      sendable_hotels.total3[j] = 0;
+      sendable_hotels.food1[j] = 'Regime de alimentação';
+      sendable_hotels.food2[j]  = 'Regime de alimentação';
+      sendable_hotels.food3[j] = '';
+      sendable_hotels.category1[j] = '';
+      sendable_hotels.category2[j] = '';
+      sendable_hotels.category3[j] = '';
+      sendable_hotels.cancellationPeriod[j] = 'Prazo de cancelamento';
+      sendable_hotels.cancellationPeriod2[j] = 'Prazo de cancelamento';
+      sendable_hotels.cancellationPeriod3[j] = 'Prazo de cancelamento';
+    }//Trata o caso de ter que apagar tudo na página
+
+    else {
+      for (var i = 0; i < hotel.deleting.length; i++) {
+        if (hotel.deleting[i] != 1) {
+          sendable_hotels.city[j] = city[i];
+          sendable_hotels.coin[j] = coin[i];
+          sendable_hotels.acomodationType1[j] = acomodationType1[i];
+          sendable_hotels.acomodationType2[j] = acomodationType2[i];
+          sendable_hotels.acomodationType3[j] = acomodationType3[i];
+          sendable_hotels.hotel1[j] = hotel1[i];
+          sendable_hotels.hotel2[j] = hotel2[i];
+          sendable_hotels.hotel3[j] = hotel3[i];
+          sendable_hotels.qntd1[j] = qntd1[i];
+          sendable_hotels.qntd2[j] = qntd2[i];
+          sendable_hotels.qntd3[j] = qntd3[i];
+          sendable_hotels.valueApt1[j] = valueApt1[i];
+          sendable_hotels.valueApt2[j] = valueApt2[i];
+          sendable_hotels.valueApt3[j] = valueApt3[i];
+          sendable_hotels.numberDaily1[j] = numberDaily1[i];
+          sendable_hotels.numberDaily2[j] = numberDaily2[i];
+          sendable_hotels.numberDaily3[j] = numberDaily3[i];
+          sendable_hotels.numberApt1[j] = numberApt1[i];
+          sendable_hotels.numberApt2[j] = numberApt2[i];
+          sendable_hotels.numberApt3[j] = numberApt3[i];
+          sendable_hotels.total1[j] = total1[i];
+          sendable_hotels.total2[j] = total2[i];
+          sendable_hotels.total3[j] = total3[i];
+          sendable_hotels.food1[j] = food1[i];
+          sendable_hotels.food2[j]  = food2[i];
+          sendable_hotels.food3[j] = food3[i];
+          sendable_hotels.category1[j] = category1[i];
+          sendable_hotels.category2[j] = category2[i];
+          sendable_hotels.category3[j] = category3[i];
+          sendable_hotels.cancellationPeriod[j] = cancellationPeriod[i];
+          sendable_hotels.cancellationPeriod2[j] = cancellationPeriod2[i];
+          sendable_hotels.cancellationPeriod3[j] = cancellationPeriod3[i];
+          j++;
+        }
+      }
+    }//Trata os demais casos
 
 
-  Budget.getById(budget_id).then((budget) => {
-    Hotel.update(budget.hotels, sendable_hotels).then(() => {
-      res.redirect(`/registred/pageF/${client_id}/${budget_id}`);
+    Budget.getById(budget_id).then((budget) => {
+      Hotel.update(budget.hotels, sendable_hotels).then(() => {
+        res.redirect(`/registred/pageF/${client_id}/${budget_id}`);
+      }).catch((error) => {
+        console.log('budget');
+        console.log(error);
+        res.redirect('error');
+      });
     }).catch((error) => {
-      console.log('budget');
       console.log(error);
+      console.log('hotel');
       res.redirect('error');
     });
-  }).catch((error) => {
-    console.log(error);
-    console.log('hotel');
-    res.redirect('error');
-  });
+  }//Caso tenha conteúdo na página
+
+  else {
+    Budget.getById(budget_id).then((budget) => {
+      Hotel.update(budget.hotels, hotel).then(() => {
+        res.redirect(`/registred/pageF/${client_id}/${budget_id}`);
+      }).catch((error) => {
+        console.log('budget');
+        console.log(error);
+        res.redirect('error');
+      });
+    }).catch((error) => {
+      console.log(error);
+      console.log('hotel');
+      res.redirect('error');
+    });
+  }//Caso nao tenha nada na página
 });
 
 /*POST pageF*/
@@ -2201,6 +2407,18 @@ router.post('/pageF/:client_id/:budget_id',(req,res) => {
   const  car = req.body.car;
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
+  console.log(car);
+  if(typeof car.deletingTraslado !== 'undefined'){
+
+  }
+  // if (typeof req.body.car.deletingTraslado == 'undefined') {
+  //   console.log('--------------------------------------------------------------------------');
+  //   console.log('não existe traslado');
+  // }
+  // if (typeof req.body.car.deletingCar == 'undefined') {
+  //   console.log('--------------------------------------------------------------------------');
+  //   console.log('não existe carro');
+  // }
   const sendable_traslado = {
     from: [String],
     to: [String],

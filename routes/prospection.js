@@ -28,7 +28,7 @@ router.get('/pageB/:client_id', function(req, res) {
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       const numTravel = client.budgets.length;
-      var now = prospection;
+      var now = new Date;
       var year = now.getFullYear();
       const codeFile = `${client.register}_${numTravel}_${year}`;
       res.render('prospection/pageC', { title: 'Geral Page C', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client, codeFile});
@@ -37,7 +37,6 @@ router.get('/pageC/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
-
 /* GET pageD. */
 router.get('/pageD/:client_id/:budget_id', function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
@@ -173,9 +172,7 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
                   res.redirect('/error');
                 });
 });
-
 /* GET pageH. */
-
 router.get('/pageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
