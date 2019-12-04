@@ -161,6 +161,12 @@ router.post('/newuser', (req,res,next) =>{
 
       }).catch(function(error) {
         switch (error.code) {
+          case 'auth/weak-password':
+            req.flash('danger', 'Senha fraca.');
+            break;
+          case 'auth/email-already-in-use':
+            req.flash('danger', 'Email já cadastrado.');
+            break;
            case 'auth/invalid-email':
              req.flash('danger', 'Email mal formatado.');
              break;
@@ -170,7 +176,7 @@ router.post('/newuser', (req,res,next) =>{
            default:
              req.flash('danger', 'Erro indefinido.');
            }
-      console.log(error);
+      console.log(error.code);
       res.redirect('/newuser');
   });
 
