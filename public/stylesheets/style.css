@@ -7077,7 +7077,9 @@ label {
   .voos--print {
     margin-top: 300px; }
   .carros--print {
-    margin-top: 300px; } }
+    margin-top: 300px; }
+  .imgs-print {
+    margin-top: -100px; } }
 
 .roteiro-flex--table {
   display: table;

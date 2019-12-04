@@ -160,8 +160,18 @@ router.post('/newuser', (req,res,next) =>{
           });
 
       }).catch(function(error) {
+        switch (error.code) {
+           case 'auth/invalid-email':
+             req.flash('danger', 'Email mal formatado.');
+             break;
+           case 'auth/network-request-failed':
+             req.flash('danger', 'Falha na internet. Verifique sua conexão de rede.');
+             break;
+           default:
+             req.flash('danger', 'Erro indefinido.');
+           }
       console.log(error);
-      res.redirect('/error');
+      res.redirect('/newuser');
   });
 
 
