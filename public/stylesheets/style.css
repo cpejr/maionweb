@@ -7113,6 +7113,9 @@ label {
 .companion-flex {
   display: flex; }
 
+.topp {
+  margin-top: 70px; }
+
 /*FIM NEW PAGE H*/
 .letter-collor {
   color: black; }
