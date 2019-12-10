@@ -8,6 +8,16 @@
   <div class="topo">
 
     <img class="logo" src="/images/logo.png">
+    <div class="acompanhantes">
+      <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: flex-start; margin-right: -72px;">Responsável pela viagem:</label><br>
+      <input readonly="readonly" type="text" placeholder= "" value="{{client.fullname}}" style="font-weight: bold; display:flex; " readonly="readonly"><br>
+      <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: center;">Acompanhantes:</label>
+      {{#each test}}
+      <table class="col-12" id="companion--box">
+        <input value="ο  {{name}}" style="font-weight: bold;  " class="companion--box companion--radius companion--left" readonly></input>
+      </table>
+      {{/each}}
+    </div>
 <div class="info1_flex">
     <input type="text" class="info1" style="width: 200px; display: flex; text-align:center;" value="Av. do Contorno, 7218" readonly></input>
     <input type="text" class="info1" value="30110-048 - Belo Horizonte" style="text-align:center;" readonly></input>
@@ -15,18 +25,8 @@
     <input type="text" class="info1" value="@anis.travel" style="text-align: center;" readonly></input>
     <input type="text" class="info1" value="(31)3080-7000" style="text-align: center;" readonly></input>
     <br><br><br><br>
-    <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem"></input>
 
-  </div>
-  <div class="acompanhantes">
-    <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: flex-start; margin-right: -72px;">Responsável pela viagem:</label><br>
-    <input readonly="readonly" type="text" placeholder= "" value="{{client.fullname}}" style="font-weight: bold; display:flex; " readonly="readonly"><br>
-    <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: center;">Acompanhantes:</label>
-    {{#each test}}
-    <table class="col-12" id="companion--box">
-      <input value="ο  {{name}}" style="font-weight: bold;  " class="companion--box companion--radius companion--left" readonly></input>
-    </table>
-    {{/each}}
+
   </div>
 
 
@@ -123,90 +123,110 @@
   <div class="images-form " id="images-form">
 
       <div class="sul1-imgs hidden-imgs  imgs-print"  id="idsul1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img id="idsul1-imgs" src="/images/AMS1.png">
       </div>
 
       <div class="sul2-imgs hidden-imgs  imgs-print" id="idsul2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AMS2.png">
       </div>
 
       <div class="central1-imgs hidden-imgs  imgs-print" id="idcentral1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AC1.png">
       </div>
 
       <div class="central2-imgs hidden-imgs imgs-print " id="idcentral2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AC2.png">
       </div>
 
       <div class="norte1-imgs hidden-imgs imgs-print " id="idnorte1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AMN1.png">
       </div>
 
       <div class="norte2-imgs hidden-imgs imgs-print " id="idnorte2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AMN2.png">
       </div>
 
       <div class="europa1-imgs hidden-imgs imgs-print " id="ideuropa1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/EU1.png">
       </div>
 
       <div class="europa2-imgs hidden-imgs imgs-print " id="ideuropa2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/EU2.png">
       </div>
 
       <div class="asia1-imgs hidden-imgs  imgs-print" id="idasia1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AS1.png">
       </div>
 
       <div class="asia2-imgs hidden-imgs  imgs-print" id="idasia2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AS2.png">
       </div>
 
       <div class="africa1-imgs hidden-imgs  imgs-print" id="idafrica1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AF1.png">
       </div>
 
       <div class="africa2-imgs hidden-imgs  imgs-print" id="idafrica2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/AF2.png">
       </div>
 
       <div class="oceania1-imgs hidden-imgs  imgs-print" id="idoceania1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/OC1.png">
       </div>
 
       <div class="oceania2-imgs hidden-imgs  imgs-print" id="idoceania2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/OC2.png">
       </div>
 
       <div class="caribe1-imgs hidden-imgs  imgs-print" id="idcaribe1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/CB1.png">
       </div>
 
       <div class="caribe2-imgs hidden-imgs  imgs-print" id="idcaribe2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/CB2.png">
       </div>
 
       <div class="medio1-imgs hidden-imgs  imgs-print" id="idmedio1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/OM1.png">
       </div>
 
       <div class="medio2-imgs hidden-imgs  imgs-print" id="idmedio2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/OM2.png">
       </div>
 
       <div class="ilhas1-imgs hidden-imgs  imgs-print" id="idilhas1-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
         <img src="/images/IL1.png">
       </div>
 
       <div class="ilhas2-imgs hidden-imgs  imgs-print" id="idilhas2-imgs">
+        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br>
         <img src="/images/IL2.png">
       </div>
     </div>
  <!-- obersevaçoes  -->
     <div class="pageH_dinamic_spec">
         <div class="caixatotal caixatotal--obs">
-        <h3 class="hotel_tit">Observações:</h3> <br>
-        <textarea name="" class="observacoes" rows="10" cols="120"></textarea>
+        <br><br> <br>
+        <textarea name="" class="observacoes" rows="8" cols="120"></textarea>
         <br><br><br>
       </div>
     </div>
@@ -1016,192 +1036,6 @@
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento1}}">
             </input>
           </div><br>
-            <label>Nome dos acompanhantes:</label>
-            {{#compare qntP1 "1"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "2"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "3"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "4"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "5"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "6"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "7"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "8"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "9"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP1 "10"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col2">
@@ -1248,192 +1082,6 @@
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento2}}">
             </input>
           </div><br>
-            <label>Nome dos acompanhantes:</label>
-            {{#compare qntP2 "1"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "2"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "3"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "4"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "5"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "6"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "7"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "8"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "9"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP2 "10"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col3">
@@ -1476,192 +1124,6 @@
               <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento3}}">
             </input>
           </div><br>
-            <label>Nome dos acompanhantes:</label>
-            {{#compare qntP3 "1"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "2"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "3"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "4"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "5"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "6"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "7"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "8"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "9"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
-            {{#compare qntP3 "10"}}
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            <div class="classaH">
-              <input class="form-control textos" placeholder="" >
-            </div>
-            {{/compare}}
           </div>
         </div>
       </div>
@@ -1725,603 +1187,8 @@
                 </div>
               </div>
             </div>
-            <h3 class="hotel_tit">Acompanhantes:</h3>
-            <div class="companion-flex">
-                <div class="col-adt">
-                  {{#compare qntat "1"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "2"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "3"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "4"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "5"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "6"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "7"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "8"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "9"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntat "10"}}
-                  <label for="">Nome dos adultos:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
 
-                </div>
 
-                <div class="col-chd">
-                  {{#compare qntct "1"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "2"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "3"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "4"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "5"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "6"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "7"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "8"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "9"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntct "10"}}
-                  <label for="">Nome das crianças:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                </div>
-
-                <div class="col-inf">
-                  {{#compare qntbt "1"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "2"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "3"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "4"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "5"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "6"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "7"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "8"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "9"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                  {{#compare qntbt "10"}}
-                  <label for="">Nome dos bebês:</label>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  <div class="classaH">
-                    <input class="form-control textos" placeholder="" >
-                  </div>
-                  {{/compare}}
-                </div>
-            </div>
           </div><br>
         </div>
             {{/each}}
@@ -2455,6 +1322,15 @@
         {{/each}}
         </div>
       </div>
+      <br><br><br>
+      <div class="pageH_dinamic_spec">
+          <div class="caixatotal caixatotal--obs break-before obs-print">
+          <h3 class="hotel_tit">Observações:</h3> <br>
+          <textarea name="" class="observacoes" rows="10" cols="100"></textarea>
+          <br><br><br>
+        </div>
+      </div>
+      <br><br><br>
 
   <!-- servicos fim -->
 
