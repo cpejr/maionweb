@@ -72,7 +72,6 @@ router.get('/pageRegistred', function (req, res) {
   });
 });
 
-
 /* GET pageA. */
 router.get('/pageA/:client_id', function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
@@ -155,7 +154,6 @@ router.get('/pageB/:client_id', function(req, res) {
   });
 });
 
-
 /* GET pageC. */
 router.get('/pageC/:budget_id', function(req, res) {
   Budget.getById(req.params.budget_id).then((budget) => {
@@ -205,6 +203,18 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
           Flight.getById(budget.flights).then((flights) => {
+            const test0 = [];
+            const companions0 = [{
+              name: String
+            }];
+            for (var i = 0; i < client.companionFullname.length; i++) {
+              const companions0 = {
+                      name: String
+                    };
+
+              companions0.name = client.companionFullname[i];
+              test0.push(companions0);
+            }
 
             const allFlights = [];
             const infoToReplica = {
@@ -419,7 +429,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
             infoToReplica.ageId3 = age_id3;
             infoToReplica.idTable = id_table;
 
-            res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, allFlights, infoToReplica, flights});
+            res.render('registred/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, allFlights, infoToReplica, flights, test0});
           }).catch((error) => {
             console.log(error);
           });
@@ -438,6 +448,20 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     Budget.getById(req.params.budget_id).then((budget) => {
       Hotel.getById(budget.hotels).then((hotel) => {
+        const test1 = [];
+        const companions0 = [{
+          name: String
+        }];
+        for (var i = 0; i < client.companionFullname.length; i++) {
+          const companions0 = {
+                  name: String
+                };
+
+          companions0.name = client.companionFullname[i];
+          test1.push(companions0);
+        }
+
+
 
         const allHotels = [];
         const hotelsInfoToFunctions = {
@@ -529,7 +553,7 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 
         hotelsInfoToFunctions.hotels = hotels;
 
-        res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, allHotels, hotelsInfoToFunctions});
+        res.render('registred/pageE', { title: 'Geral Page E', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allHotels, hotelsInfoToFunctions, test1});
       }).catch((error) => {
           console.log(error);
           res.redirect('/error');
@@ -545,11 +569,24 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 });
 
 /* GET pageF. */
-
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     Budget.getById(req.params.budget_id).then((budget) => {
       Car.getById(budget.cars).then((car) => {
+        const test2 = [];
+        const companions0 = [{
+          name: String
+        }];
+        for (var i = 0; i < client.companionFullname.length; i++) {
+          const companions0 = {
+                  name: String
+                };
+
+          companions0.name = client.companionFullname[i];
+          test2.push(companions0);
+        }
+
+
 
         const allCars = [];
         const allCarsTraslado = [];
@@ -713,7 +750,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
         carsInfoTofunctions.traslado = traslado;
         carsInfoTofunctions.cars = cars;
 
-        res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado, carsInfoTofunctions});
+        res.render('registred/pageF', { title: 'Geral Page F', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allCars, allCarsTraslado, carsInfoTofunctions, test2});
       }).catch((error) => {
         console.log(error);
         res.redirect('/error');
@@ -728,13 +765,25 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
   });
 });
 
-
 /* GET pageG. */
-
 router.get('/pageG/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     Budget.getById(req.params.budget_id).then((budget) => {
       Safe.getById(budget.safes).then((safe) => {
+        const test3 = [];
+        const companions0 = [{
+          name: String
+        }];
+        for (var i = 0; i < client.companionFullname.length; i++) {
+          const companions0 = {
+                  name: String
+                };
+
+          companions0.name = client.companionFullname[i];
+          test3.push(companions0);
+        }
+
+
 
         const allSafes = [];
         const allTickets = [];
@@ -976,7 +1025,7 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
         safesInfoToFunctions.ticket = ticket;
         safesInfoToFunctions.outros = outros;
 
-        res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allSafes, allOthers, allTickets, safesInfoToFunctions});
+        res.render('registred/pageG', { title: 'Geral Page G', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, client, allSafes, allOthers, allTickets, safesInfoToFunctions, test3});
       }).catch((error) => {
           console.log(error);
           res.redirect('/error');
@@ -992,17 +1041,6 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
 });
 
 /* GET pageH. */
-
-// router.get('/pageH/:client_id/:budget_id', function(req, res) {
-//   Budget.getById(req.params.client_id).then((budget) => {
-//     console.log(budget);
-//     res.render('registred/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget});
-// }).catch((error)=>{
-//     console.log(error);
-//     res.redirect('/error');
-//   });
-// });
-
 router.get('/pageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
@@ -1503,9 +1541,98 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 /*POST pageA*/
 router.post('/pageA/:client_id',(req,res) => {
   const  client  = req.body.client;
-  Client.update(req.params.client_id, client).then(() => {
-    console.log('------');
-    console.log(client);
+  const client_id = req.params.client_id;
+  const sendable_client ={
+    //filhos
+    children: [String],
+    birthDateChildren: [String],
+    childrenPassport: [String],
+    childrenPassportValidation: [String],
+
+    //acompanhantes
+    companionFullname: [String],
+    companionEmail: [String],
+    companionCellphone: [String],
+    companionPassport: [String],
+    companionPassportValidation: [String],
+  };
+
+  // Bloco dos Filhos
+  var i = 0;//Variável pra organizar informação salva dos Filhos
+  var j = 0;//variável pra contar número de blocos de Filhos a serem apagados na página
+  for (var x1 = 0; x1 < client.deleting_chd.length; x1++) {
+    if (client.deleting_chd[x1] == 1) {
+      j++;
+    }
+  }//Checa se é pra apagar tudo que tem na página
+
+  if (client.deleting_chd.length == 1 && client.deleting_chd[i] != 1) {
+    sendable_client.children[i] = client.children;
+    sendable_client.birthDateChildren[i] = client.birthDateChildren;
+    sendable_client.childrenPassport[i] = client.childrenPassport;
+    sendable_client.childrenPassportValidation[i] = client.childrenPassportValidation;
+  }//Trata o caso de ter somente um bloco na página e que não deve ser apagado
+
+  else if(client.deleting_chd.length == j){
+    sendable_client.children[i] = '';
+    sendable_client.birthDateChildren[i] = '';
+    sendable_client.childrenPassport[i] = '';
+    sendable_client.childrenPassportValidation[i] = '';
+  }//Trata o caso de ter que apagar tudo na página
+
+  else {
+    for (var x2 = 0; x2 < client.deleting_chd.length; x2++) {
+      if (client.deleting_chd[x2] != 1) {
+        sendable_client.children[i] = client.children[x2];
+        sendable_client.birthDateChildren[i] = client.birthDateChildren[x2];
+        sendable_client.childrenPassport[i] = client.childrenPassport[x2];
+        sendable_client.childrenPassportValidation[i] = client.childrenPassportValidation[x2];
+        i++;
+      }
+    }
+  }//Trata os demais casos
+
+
+
+  // Bloco dos Acompanhantes
+  var k = 0;//Variável pra organizar informação salva dos Acompanhantes
+  var l = 0;//variável pra contar número de blocos de Acompanhantes a serem apagados na página
+  for (var y1 = 0; y1 < client.deleting_comp.length; y1++) {
+    if (client.deleting_comp[y1] == 1) {
+      l++;
+    }
+  }//Checa se é pra apagar tudo que tem na página
+
+  if (client.deleting_comp.length == 1 && client.deleting_comp[k] != 1) {
+    sendable_client.companionFullname[k] = client.companionFullname;
+    sendable_client.companionEmail[k] = client.companionEmail;
+    sendable_client.companionCellphone[k] = client.companionCellphone;
+    sendable_client.companionPassport[k] = client.companionPassport;
+    sendable_client.companionPassportValidation[k] = client.companionPassportValidation;
+  }//Trata o caso de ter somente um bloco na página e que não deve ser apagado
+
+  else if(client.deleting_comp.length == l){
+    sendable_client.companionFullname[k] = '';
+    sendable_client.companionEmail[k] = '';
+    sendable_client.companionCellphone[k] = '';
+    sendable_client.companionPassport[k] = '';
+    sendable_client.companionPassportValidation[k] = '';
+  }//Trata o caso de ter que apagar tudo na página
+
+  else {
+    for (var y2 = 0; y2 < client.deleting_comp.length; y2++) {
+      if (client.deleting_comp[y2] != 1) {
+        sendable_client.companionFullname[k] = client.companionFullname[y2];
+        sendable_client.companionEmail[k] = client.companionEmail[y2];
+        sendable_client.companionCellphone[k] = client.companionCellphone[y2];
+        sendable_client.companionPassport[k] = client.companionPassport[y2];
+        sendable_client.companionPassportValidation[k] = client.companionPassportValidation[y2];
+        k++;
+      }
+    }
+  }//Trata os demais casos
+
+  Client.update(client_id, sendable_client).then(() => {
     res.redirect(`/registred/pageRegistred`);
   }).catch((error) => {
     console.log(error);

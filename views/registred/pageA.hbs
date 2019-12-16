@@ -133,7 +133,7 @@
   <!-- Cadastro - fim -->
 
 
-  <!-- Família - fim -->
+  <!-- Família - início -->
   <div class="dinamic_spec">
       <h1>Família</h1>
       <div class="container rowclass">
@@ -186,6 +186,11 @@
               </div><br>
             </div>
           </div>
+          <div class="">
+            <label>Apagar?</label>
+            <input type="radio" name="client[deleting_chd] type_chd{{repNum}}" value="1" onclick="return confirm('Deseja mesmo excluir o/a {{children}} ?')">Sim</input>
+            <input type="radio" name="client[deleting_chd] type_chd{{repNum}}" value="0" checked>Não</input>
+          </div>
         {{/each}}
       </div>
     <div id="familypageA">
@@ -224,6 +229,11 @@
               <input type="fullname" name = "client[companionPassportValidation]" value="{{companionPassportValidation}}" class="form-control" id="companionPassportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="10" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
+        </div>
+        <div class="">
+          <label>Apagar?</label>
+          <input type="radio" name="client[deleting_comp] type_comp{{repNum}}" value="1" onclick="return confirm('Deseja mesmo excluir {{companionFullname}} ?')">Sim</input>
+          <input type="radio" name="client[deleting_comp] type_comp{{repNum}}" value="0" checked>Não</input>
         </div>
       </div>
       {{/each}}

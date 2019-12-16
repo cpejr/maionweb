@@ -6619,6 +6619,7 @@ label {
 .box_hotel_midle {
   background-color: #C4694A;
   margin: 20px 0 20px 0;
+  padding: 59.3px 0 20px 0;
   height: 1000px; }
 
 .box_hotel_right {
@@ -6632,12 +6633,13 @@ label {
   background-color: #f3ab85;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  margin: 20px 0 20px 0;
+  margin: 20.3px 0 20.3px 0;
   height: 1000px; }
 
 .box_hotel_midle_selected {
   background-color: #f3ab85;
   margin: 20px 0 20px 0;
+  padding: 59.3px 0 20px 0;
   height: 1000px; }
 
 .box_hotel_right_selected {

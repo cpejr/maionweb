@@ -6,16 +6,20 @@
   <div class="form-group">
     <div class="dinamic_spec">
       <h1> Hotel </h1>
-      <div id="companion_camp">
-        <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly" >
-        <h3> Passageiros </h3><br>
+
+
+      <div>
+        <h6>Responsável da viagem</h6>
+        <input type="text" class="form-control" value="{{client.fullname}}" readonly>
         <br><br>
+        <h6>Acompanhantes</h6>
         {{#each test1}}
-        <table class="">
-          <input value="{{name}}" class="companion--box companion--radius" ></input>
-        </table>
+          <input type="text" class="form-control" value="{{name}}" readonly>
+          <br>
         {{/each}}
       </div>
+
+
     {{#each allHotels}}
       <br><br>
       {{#compare isPrimeiro "1"}}
@@ -136,7 +140,7 @@
                 <div id="companion_camp" >
                   <select placeholder="Selecione" class="form-control" name="hotel[coin]">
                     <option style = "color:red;">{{coin}}</option>
-                    <option>$</option>
+                    <option>USD</option>
                     <option>R$</option>
                     <option>€</option>
                   </select>
@@ -328,7 +332,7 @@
               <div id="companion_camp" >
                 <select placeholder="Selecione" class="form-control" name="hotel[coin]" >
                   <option style = "color:red;">{{coin}}</option>
-                  <option>$</option>
+                  <option>USD</option>
                   <option>R$</option>
                   <option>€</option>
                 </select>

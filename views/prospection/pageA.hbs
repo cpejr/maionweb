@@ -5,6 +5,7 @@
   navbar
 </header>
 <form action="/prospection/pageA" method="post" class="pagesFront" onload="getInfo()">
+  <h1 class="rowclass">{{message}}</h1>r
   <div class="dinamic_spec">
     <h1> Cadastro </h1>
     <div class="container rowclass">
@@ -117,7 +118,7 @@
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="text" name = "client[wedding_anniversary]" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="wedding_anniversary" placeholder="Aniversário de Casamento" onblur='addDashesNascimento(this)' maxlength='8' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="text" name = "client[wedding_anniversary]" class="form-control" id="wedding_anniversary" placeholder="Aniversário de Casamento" onblur='addDashesNascimento(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
             <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
@@ -204,7 +205,7 @@
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
-              <input type="text" name = "client[birthDate]" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" id="birthDateCompanion" placeholder="Data de Nascimento"  onblur='addDashesNascimento(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="text" name = "client[birthDateCompanion]" class="form-control" id="birthDateCompanion" placeholder="Data de Nascimento" onblur='addDashesNascimento(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
               <input type="fullname" name = "client[companionPassport]" class="form-control" id="companionPassport" placeholder="Passaporte">

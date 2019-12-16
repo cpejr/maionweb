@@ -16,7 +16,7 @@
               Dia 1
             </div>
             <div class="col-sm-auto-pageC rowclass">
-              <input type="date" placeholder="dd/mm/aa" name="budget[planDate]" class= "form-control classCinput2">
+              <input type="birth" name="budget[planDate]" class="form-control classCinput2" placeholder="Data do dia" maxlength="10" onblur="addDashesNascimento(this)"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div>
             <div class="col-sm-auto-pageC rowclass">
               <input placeholder="Cidade" name="budget[planCity]" class= "form-control classCinput2">
@@ -158,3 +158,4 @@
 </form>
 
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
+<script type="text/javascript" src="/javascripts/formInputs.js">  </script>
