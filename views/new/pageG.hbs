@@ -7,19 +7,21 @@
   <h1> Serviços </h1>
   <!-- Bloco de seguros - início-->
   <div class="dinamic_spec rowclass">
-      <div class="rowclass">
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nome do responsável:</label>
-          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
-        </div>
-        {{#each test3}}
-        <table class="col-12" id="companion--box">
-          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
-        </table>
-        {{/each}}
-      </div>
-    <div class="autorow">
 
+
+    <div>
+      <h6>Responsável da viagem</h6>
+      <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+      <br><br>
+      <h6>Acompanhantes</h6>
+      {{#each test3}}
+        <input type="text" class="form-control" value="{{name}}" readonly>
+        <br>
+      {{/each}}
+    </div>
+
+
+    <div class="autorow">
       <div class="boxPageG">
         <div class="Selected" id="boxSafe1">
           <div class="autorow rowclass">
@@ -98,7 +100,7 @@
                   <th>
                     <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin] required>
                       <option style="display:none">Moeda:</option>
-                      <option>$</option>
+                      <option>USD</option>
                       <option>R$</option>
                       <option>€</option>
                     </select>
@@ -126,17 +128,20 @@
 
   <!-- Bloco de tickets - início-->
   <div class="dinamic_spec rowclass">
-      <div class="rowclass">
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nome do responsável:</label>
-          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
-        </div>
-        {{#each test3}}
-        <table class="col-12" id="companion--box">
-          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
-        </table>
-        {{/each}}
-      </div>
+
+
+    <div>
+      <h6>Responsável da viagem</h6>
+      <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+      <br><br>
+      <h6>Acompanhantes</h6>
+      {{#each test3}}
+        <input type="text" class="form-control" value="{{name}}" readonly>
+        <br>
+      {{/each}}
+    </div>
+
+
     <div class="autorow">
 
       <div class="boxPageG">
@@ -214,7 +219,7 @@
                   <th>
                     <select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin] required>
                       <option style="display:none">Moeda:</option>
-                      <option>$</option>
+                      <option>USD</option>
                       <option>R$</option>
                       <option>€</option>
                     </select>
@@ -242,17 +247,20 @@
 
   <!-- Bloco de outros - início-->
   <div class="dinamic_spec rowclass">
-      <div class="rowclass">
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nome do responsável:</label>
-          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
-        </div>
-        {{#each test3}}
-        <table class="col-12" id="companion--box">
-          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
-        </table>
-        {{/each}}
-      </div>
+
+
+    <div>
+      <h6>Responsável da viagem</h6>
+      <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+      <br><br>
+      <h6>Acompanhantes</h6>
+      {{#each test3}}
+        <input type="text" class="form-control" value="{{name}}" readonly>
+        <br>
+      {{/each}}
+    </div>
+
+
     <div class="autorow">
 
       <div class="boxPageG">
@@ -330,7 +338,7 @@
                   <th>
                     <select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin] required>
                       <option style="display:none">Moeda:</option>
-                      <option>$</option>
+                      <option>USD</option>
                       <option>R$</option>
                       <option>€</option>
                     </select>

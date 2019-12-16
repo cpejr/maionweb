@@ -87,14 +87,6 @@ const clientSchema = new mongoose.Schema({
   birthDateSpouse: String,
   birthDateCompanion: [String],
 
-
-
-  type: {
-    type: String,
-    enum: ['Admin', 'Funcionario'],
-    default: 'Funcionario'
-  },
-
   register: {
     type: String, // CPF
   },

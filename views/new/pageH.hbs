@@ -1335,13 +1335,19 @@
   <!-- servicos fim -->
 
 </div>
-<div class="botoes_flex">
-  <form class="" action="/new/pageH/{{client_id}}/{{budget_id}}" method="post">
-    <button class="btn-fake btn-fake--cursor" type="submit" onclick="return confirm('Deseja REALMENTE concluir sua compra?')">Finalizar viagem</button>
-  </form>
-  <button class="btn-fake btn-fake--cursor" onClick="location.href='/dashboard'">Sair sem finalizar</button>
+{{#compare budget.finalized "Em andamento"}}
+  <div class="botoes_flex">
+    <form class="" action="/new/pageH/{{client_id}}/{{budget_id}}" method="post">
+      <button class="btn-fake btn-fake--cursor" type="submit" onclick="return confirm('Deseja REALMENTE concluir sua compra?')">Finalizar viagem</button>
+    </form>
+    <button class="btn-fake btn-fake--cursor" onClick="location.href='/registred/PagePersonal/{{budget.client}}'">Sair sem finalizar</button>
+  </div>
 
-</div>
+  {{else}}
+  <div class="">
+    <button class="btn-fake btn-fake--cursor" onClick="location.href='/registred/PagePersonal/{{budget.client}}'">Retornar às viages</button>
+  </div>
+{{/compare}}
 
   <script type="text/javascript" src="/javascripts/images.js">  </script>
   <script type="text/javascript" src="/javascripts/quebraPag.js">  </script>

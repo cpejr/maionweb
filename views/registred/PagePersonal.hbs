@@ -20,7 +20,13 @@
         <tr>
           <th>{{codFile}}</th>
           <th>{{planDate}}</th>
-          <th>{{finalized}}</th>
+          <th>
+            {{#compare finalized "Concluída"}}
+            Finalizado
+            {{else}}
+            Em andamento
+            {{/compare}}
+          </th>
             {{#compare finalized "Em andamento"}}
               <th><button onClick="location.href='/registred/pageC/{{_id}}'" class="fa fa-info btn m-1"></button></th>
             {{else}}

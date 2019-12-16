@@ -7,20 +7,17 @@
   <!-- Bloco Traslado - início -->
   <div class="dinamic_spec">
     <h1> Traslado/carro </h1>
-    <div class="">
-      <br><br><br>
-      <h3> Passageiros </h3>
-      <br>
-      <input class="form-check-input" type="checkbox">
-      <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly">
+
+
+    <div>
+      <h6>Responsável da viagem</h6>
+      <input type="text" class="form-control" value="{{client.fullname}}" readonly>
       <br><br>
+      <h6>Acompanhantes</h6>
       {{#each test2}}
-      <table class="col-12" id="companion--box">
-        <input value="{{name}}" class="companion--box companion--radius" ></input>
-      </table>
+        <input type="text" class="form-control" value="{{name}}" readonly>
+        <br>
       {{/each}}
-      <div id="add_acompanhantesvoo"></div>
-      <br>
     </div>
 
 
@@ -32,9 +29,9 @@
             <i class="fa fa-car" aria-hidden="true"></i>
             <input name="car[to]" type="text" placeholder="Para" class="date start-date" />
             <br><br>
-            <input name="car[dateFrom]" type="date" placeholder="dd/mm/aa" class="date start-date" />
+            <input type="birth" name = "car[dateFrom]" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' onblur='addDashesNascimento(this)'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             <i class="fa fa-calendar"></i>
-            <input name="car[timeFrom]" type="text" placeholder="Horário" class="date start-date" />
+            <input type="text" placeholder="00:00" name="car[timeFrom]" class="date start-date"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" maxlength='6' onblur='addDashesHorario(this)'/>
             <br><br>
           </div>
           <h3>Informações/ Valores</h3><br>
@@ -142,3 +139,4 @@
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
 <script type="text/javascript" src="/javascripts/operations.js">  </script>
+<script type="text/javascript" src="/javascripts/formInputs.js">  </script>

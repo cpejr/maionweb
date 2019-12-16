@@ -6,15 +6,20 @@
 
   <div class="dinamic_spec">
     <h1> Hotel </h1>
-    <div id="companion_camp">
-      <input placeholder="Responsável" value="{{client.fullname}}" readonly="readonly" >
-      <h3> Passageiros </h3><br>
+
+
+    <div>
+      <h6>Responsável da viagem</h6>
+      <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+      <br><br>
+      <h6>Acompanhantes</h6>
       {{#each test1}}
-        <table class="">
-          <input value="{{name}}" class="companion--box companion--radius" ></input>
-        </table>
+        <input type="text" class="form-control" value="{{name}}" readonly>
+        <br>
       {{/each}}
     </div>
+
+
     <div class="row rowclass">
 
       <!-- Coluna 1 início -->

@@ -4,20 +4,22 @@
 </header>
 <form action="/new/pageG/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
     <h1> Serviços </h1>
-    <div class="rowclass">
-      <div class="form-group">
-        <label for="exampleInputPassword1">Nome do responsável:</label>
-        <input type="text" class="form-control" value="{{client.fullname}}" readonly>
-      </div>
-      {{#each test3}}
-      <table class="col-12" id="companion--box">
-        <input value="{{name}}" class="companion--box companion--radius" readonly></input>
-      </table>
-      {{/each}}
-    </div>
+
 
     <!-- Bloco de seguros - início-->
     <div class="dinamic_spec">
+      <div>
+        <h6>Responsável da viagem</h6>
+        <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+        <br><br>
+        <h6>Acompanhantes</h6>
+        {{#each test3}}
+        <input type="text" class="form-control" value="{{name}}" readonly>
+        <br>
+        {{/each}}
+      </div>
+
+
     {{#each allSafes}}
       {{#compare isPrimeiro "1"}}
       <div class="autorow">
@@ -99,7 +101,7 @@
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
                         <option style = "color:red;">{{insuranceCoin}}</option>
-                        <option>$</option>
+                        <option>USD</option>
                         <option>R$</option>
                         <option>€</option>
                       </select>
@@ -200,7 +202,7 @@
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
                         <option style = "color:red;">{{insuranceCoin}}</option>
-                        <option>$</option>
+                        <option>USD</option>
                         <option>R$</option>
                         <option>€</option>
                       </select>
@@ -236,17 +238,20 @@
 
     <!-- Bloco de tickets - início-->
     <div class="dinamic_spec">
-      <div class="rowclass">
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nome do responsável:</label>
-          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
-        </div>
+
+
+      <div>
+        <h6>Responsável da viagem</h6>
+        <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+        <br><br>
+        <h6>Acompanhantes</h6>
         {{#each test3}}
-        <table class="col-12" id="companion--box">
-          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
-        </table>
+          <input type="text" class="form-control" value="{{name}}" readonly>
+          <br>
         {{/each}}
       </div>
+
+
     <h1>Tickets</h1>
     {{#each allTickets}}
       {{#compare isPrimeiro "1"}}
@@ -327,7 +332,7 @@
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin]>
                         <option style = "color:red;">{{ticketsCoin}}</option>
-                        <option>$</option>
+                        <option>USD</option>
                         <option>R$</option>
                         <option>€</option>
                       </select>
@@ -426,7 +431,7 @@
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[ticketsCoin] >
                         <option style = "color:red;">{{ticketsCoin}}</option>
-                        <option>$</option>
+                        <option>USD</option>
                         <option>R$</option>
                         <option>€</option>
                       </select>
@@ -463,17 +468,20 @@
     <!-- Bloco de outros - início-->
     <div class="dinamic_spec">
       <h1>Outros</h1>
-      <div class="rowclass">
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nome do responsável:</label>
-          <input type="text" class="form-control" value="{{client.fullname}}" readonly>
-        </div>
+
+
+      <div>
+        <h6>Responsável da viagem</h6>
+        <input type="text" class="form-control" value="{{client.fullname}}" readonly>
+        <br><br>
+        <h6>Acompanhantes</h6>
         {{#each test3}}
-        <table class="col-12" id="companion--box">
-          <input value="{{name}}" class="companion--box companion--radius" readonly></input>
-        </table>
+          <input type="text" class="form-control" value="{{name}}" readonly>
+          <br>
         {{/each}}
       </div>
+
+
     {{#each allOthers}}
       {{#compare isPrimeiro "1"}}
       <div class="autorow">
@@ -553,7 +561,7 @@
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin]>
                         <option style = "color:red;">{{otherCoin}}</option>
-                        <option>$</option>
+                        <option>USD</option>
                         <option>R$</option>
                         <option>€</option>
                       </select>
@@ -652,7 +660,7 @@
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[otherCoin]>
                         <option style = "color:red;">{{otherCoin}}</option>
-                        <option>$</option>
+                        <option>USD</option>
                         <option>R$</option>
                         <option>€</option>
                       </select>

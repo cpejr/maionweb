@@ -6,6 +6,7 @@ const Hotel = require('../models/hotel');
 const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
+
 /* GET pageA. */
 router.get('/pageA', function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
@@ -15,6 +16,7 @@ router.get('/pageA', function(req, res, next) {
     res.redirect('/error');
   });
 });
+
 /* GET pageB. */
 router.get('/pageB/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -24,6 +26,7 @@ router.get('/pageB/:client_id', function(req, res) {
     res.redirect('/error');
   });
 });
+
 /* GET pageC. */
 router.get('/pageC/:client_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -46,21 +49,14 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
             const companions0 = [{
               name: String
             }];
-
-
-            //console.log(req.session);
-                  for (var i = 0; i < client.companionFullname.length; i++) {
-
-                    const companions0 = {
+            for (var i = 0; i < client.companionFullname.length; i++) {
+              const companions0 = {
                       name: String
                     };
 
-                    companions0.name = client.companionFullname[i];
-                    test0.push(companions0);
-
-                    //console.log(test0[i]);
-
-                  }
+              companions0.name = client.companionFullname[i];
+              test0.push(companions0);
+            }
                     res.render('new/pageD', { title: 'Geral Page D', layout: 'layoutDashboard.hbs',  client_id: req.params.client_id, budget_id: req.params.budget_id, client, budget, companions0, test0});
             }).catch((error) => {
                 //console.log(error);
@@ -71,6 +67,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
           res.redirect('/error');
         });
 });
+
 /* GET pageE. */
 router.get('/pageE/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -105,6 +102,7 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
               res.redirect('/error');
             });
 });
+
 /* GET pageF. */
 router.get('/pageF/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -139,6 +137,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
             res.redirect('/error');
           });
 });
+
 /* GET pageG. */
 router.get('/pageG/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
@@ -175,7 +174,6 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
 });
 
 /* GET pageH. */
-
 router.get('/pageH/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
@@ -3189,19 +3187,16 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 });
 
+
+
 /*POST pageA*/
 router.post('/pageA',(req,res) => {
   const  client  = req.body.client;
   // if (client.email == client.email1) {
     Client.create(client).then((client_id) => {
-      //console.log(client_id);
-      //console.log(client);
+
       res.redirect(`/new/pageB/${client_id}`);
     }).catch((error) => {
-    console.log(error);
-    console.log('------------------------');
-    console.log(error.code);
-    console.log('------------------------');
     if (error.code == '11000') {
       req.flash('danger', 'CPF já cadastrado!');
       console.log('ta entrando no case do CPF');
@@ -3323,7 +3318,6 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   });
 });
 
-
 /*POST pageE*/
 router.post('/pageE/:client_id/:budget_id',(req,res) => {
   const  hotel = req.body.hotel;
@@ -3380,6 +3374,7 @@ router.post('/pageG/:client_id/:budget_id',(req,res) => {
   });
 });
 
+//Post PageH
 router.post('/pageH/:client_id/:budget_id', (req,res) => {
   //console.log('entrou no post');
   const  budget_id = req.params.budget_id;
@@ -3389,9 +3384,26 @@ router.post('/pageH/:client_id/:budget_id', (req,res) => {
   };
   budget.finalized = 'Concluída';
   Budget.update(budget_id, budget).then(() => {
-    res.redirect('/dashboard');
+    // User.getByUid(currentLogged.user.uid).then((userMongo) => {
+    //   if (currentLogged) {
+    //     req.session.userUid = currentLogged.user.uid;
+    //     req.session.email = currentLogged.user.email;
+    //
+    //     if(userMongo.userType == 'Adm'){
+    //       res.redirect('/dashboard');
+    //     }
+    //     else {
+    //       res.redirect('/dashboardCom');
+    //     }
+    //   }
+    //   else {
+    //     console.log('User not found');
+    //     res.redirect('/error');
+    //   }
+    // });
+    res.redirect(`/registred/PagePersonal/${client_id}`);
   }).catch((error) => {
-    //console.log(error);
+    console.log(error);
     res.redirect('error');
   });
 });
