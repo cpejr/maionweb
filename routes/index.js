@@ -5,45 +5,46 @@ const auth = require('./middleware/auth');
 const Client = require ('../models/client');
 const User = require('../models/user');
 var router = express.Router();
+const auth = require('./middleware/auth');
 
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/',/* auth.isAuthenticated,*/ function(req, res) {
   res.render('login', { title: 'Login', layout: 'layout' });
 });
 
 /* GET login page. */
-router.get('/login', (req, res) => {
+router.get('/login',/* auth.isAuthenticated,*/ (req, res) => {
   res.render('login', { title: 'Login', layout: 'layout' });
 });
 
 /* GET dashboard Admin page. */
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard',/* auth.isAuthenticated,*/ (req, res) => {
   res.render('dashboard', { title: 'homeadmin', layout: 'layout' });
 });
 
 /* GET dashboard Comum page. */
-router.get('/dashboardCom', (req, res) => {
+router.get('/dashboardCom',/* auth.isAuthenticated,*/ (req, res) => {
   res.render('dashboardCom', { title: 'home', layout: 'layout' });
 });
 
 /* GET signup page. */
-router.get('/signup', (req, res) => {
+router.get('/signup',/* auth.isAuthenticated,*/ (req, res) => {
   res.render('form', { title: 'signup', layout: 'layout' });
 });
 
 /* GET forgot password page. */
-router.get('/forgot', (req, res) => {
+router.get('/forgot',/* auth.isAuthenticated,*/ (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
 /*Get da cadastro de novo usuario*/
-router.get('/newuser', (req, res)=>{
+router.get('/newuser',/* auth.isAuthenticated,*/ (req, res)=>{
   res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
 });
 
 // GET Logout Request
-router.get('/logout', (req,res) => {
+router.get('/logout',/* auth.isAuthenticated,*/ (req,res) => {
   firebase.auth().signOut().then(() => {
     delete req.session.email;
     delete req.session.userUid;
@@ -134,7 +135,7 @@ router.post('/forgot', (req, res) => {
 
 
 // GET /logout
-router.get('/logout', (req, res, next) => {
+router.get('/logout',/* auth.isAuthenticated,*/ (req, res, next) => {
   firebase.auth().signOut().then(() => {
       delete req.session.fullName;
       //delete req.session.userId;
