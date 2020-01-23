@@ -184,6 +184,35 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                           //console.log(cars);
                           //console.log(flights);
 
+                          const duration = {
+                            firstDay: String,
+                            lastDay: String
+                          };
+
+                          var travelDuration = budget.planDate.length;
+
+                          duration.firstDay = budget.planDate[0];
+                          duration.lastDay = budget.planDate[(travelDuration - 1)];
+
+
+                          //Caso o viagem já esteja finalizada, ela pega os acompanhantes salvos quando ela foi feita, que serão gravados quando finalizar a viagem
+                          const budgetCompanionsToPage = [];
+                          const budgetCompanions = [{
+                            name: String
+                          }];
+
+                          for (var i = 0; i < budget.companions.length; i++) {
+
+                            const budgetCompanions = {
+                              name: String
+                            };
+
+                            budgetCompanions.name = budget.companions[i];
+                            budgetCompanionsToPage.push(budgetCompanions);
+                          }
+                          console.log("========================================");
+                          console.log(budgetCompanionsToPage);
+
 
 
                                         const dias = [];
@@ -2535,6 +2564,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 //console.log(test[i]);
 
                                               }
+                                              console.log("-------------------------");
+                                              console.log(test);
 
 
 
@@ -2783,6 +2814,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                     flightInfo.ravValueAdult_Economic = flights.ravValueAdult_Economic[j];
                                                     flightInfo.totalValueAdult_Economic = flights.totalValueAdult_Economic[j];
                                                     flightInfo.numINF_Economic = flights.numINF_Economic[j];
+                                                    flightInfo.coin = flights.coin[j];
 
                                                     flightInfo.ageId1 = age_id1;//Aqui é pra poder fazer a mudança de valor das id's dos campos
                                                     flightInfo.ageId2 = age_id2;
@@ -2819,7 +2851,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                                 flightInfo.destination = flights.destination[i];
                                                 flightInfo.timeOut = flights.timeOut[i];
                                                 flightInfo.timeIn = flights.timeIn[i];
-                                                flightInfo.coin = flights.coin[i-1];
+
 
                                                 allFlights.push(flightInfo);
                                               }
@@ -3156,7 +3188,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                               }
 
 
-                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, allFlights, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis, dias, dias2, dias3, dias4, dias5, dias6, dias7, dias8, dias9, dias10, dias11, dias12, dias13, dias14, dias15, dias16, dias17, dias18, dias19, dias20, roteiro, allFlights, infoToReplica, t});
+                                        res.render('new/pageH', { title: 'Geral Page H', layout: 'layoutDashboard.hbs', client_id: req.params.client_id,  budget_id: req.params.budget_id, budget, client, ...req.session, companions, test, allFlights, infoTraslado, traslado, infoCarros, carros, infoSeguro, seguro, infoTickets, tickets, infoOutros, outros, hoteis, infoHoteis, dias, dias2, dias3, dias4, dias5, dias6, dias7, dias8, dias9, dias10, dias11, dias12, dias13, dias14, dias15, dias16, dias17, dias18, dias19, dias20, roteiro, allFlights, duration, budgetCompanionsToPage, infoToReplica, t});
                                     }).catch((error)=>{
                                         //console.log(error);
                                         res.redirect('/error');
@@ -3307,6 +3339,9 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
   const budget_id = req.params.budget_id;
   Budget.getById(req.params.budget_id).then((budget) => {
     Flight.update(budget.flights, flight).then(() => {
+      console.log('-----------------Post flight new-------------------');
+      console.log(flight.coin);
+
       res.redirect(`/new/pageE/${client_id}/${budget_id}`);
     }).catch((error) => {
       //console.log(error);
@@ -3380,28 +3415,21 @@ router.post('/pageH/:client_id/:budget_id', (req,res) => {
   const  budget_id = req.params.budget_id;
   const  client_id = req.params.client_id;
   const budget = {
+    companions: [String],
     finalized: String
   };
   budget.finalized = 'Concluída';
-  Budget.update(budget_id, budget).then(() => {
-    // User.getByUid(currentLogged.user.uid).then((userMongo) => {
-    //   if (currentLogged) {
-    //     req.session.userUid = currentLogged.user.uid;
-    //     req.session.email = currentLogged.user.email;
-    //
-    //     if(userMongo.userType == 'Adm'){
-    //       res.redirect('/dashboard');
-    //     }
-    //     else {
-    //       res.redirect('/dashboardCom');
-    //     }
-    //   }
-    //   else {
-    //     console.log('User not found');
-    //     res.redirect('/error');
-    //   }
-    // });
-    res.redirect(`/registred/PagePersonal/${client_id}`);
+  Client.getById(client_id).then((client) => {
+    for (var i = 0; i < client.companionFullname.length; i++) {
+      budget.companions[i] = client.companionFullname[i];
+    }
+    console.log(budget);
+    Budget.update(budget_id, budget).then(() => {
+      res.redirect(`/registred/PagePersonal/${client_id}`);
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('error');
+    });
   }).catch((error) => {
     console.log(error);
     res.redirect('error');

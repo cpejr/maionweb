@@ -113,18 +113,18 @@
             </select>
           </div><br>
           <div class="classa">
-            <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão">
+            <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão" value="{{client.profession}}">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
-            <input type="fullname" name = "client[wedding_anniversary]" class="form-control" id="wedding_anniversary" placeholder="Aniversário de Casamento">
+            <input type="fullname" name = "client[wedding_anniversary]" class="form-control" id="wedding_anniversary" placeholder="Aniversário de Casamento" value="{{client.wedding_anniversary}}">
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
+            <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte" value="{{client.passport}}">
           </div><br>
           <div class="classa">
-            <input type="fullname" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="10" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <input type="fullname" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte" onblur="addDashesPassport(this)" maxlength="10" onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" value="{{client.passportValidation}}">
           </div><br>
         </div>
       </div>

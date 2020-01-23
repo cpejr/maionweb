@@ -291,7 +291,8 @@ $('#add_country').on('click', function() {
 });
 
 $('#decreasing').on('click', function() {
-  if (aflight > 1) {
+  console.log(aflight + "<" + anumVoo);
+  if (aflight > 2) {
     aflight--;
     aadtNum1_FirstClass = aadtNum1_FirstClass - 3;
     aadtNum2_FirstClass = aadtNum2_FirstClass - 3;
@@ -343,6 +344,7 @@ $('#decreasing').on('click', function() {
 });
 
 $('#increasing').on('click', function(){
+  console.log(aflight + "<" + anumVoo);
   if (aflight < anumVoo) {
     aflight++;
     aadtNum1_FirstClass = aadtNum1_FirstClass + 3;
