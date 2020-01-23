@@ -55,6 +55,8 @@ router.get('/PagePersonal/:client_id', function (req, res) {
         numDeViagens++;
       }
     }
+    console.log("----------------------------");
+    console.log(req.session);
     res.render('registred/PagePersonal', { budgets, title: 'Personal', layout: 'layoutDashboard',...req.session, allBudgets, numDeViagens});
   }).catch((error) => {
    console.log(error);
@@ -65,6 +67,8 @@ router.get('/PagePersonal/:client_id', function (req, res) {
 //GET pageRegistred
 router.get('/pageRegistred', function (req, res) {
   Client.getAll().then((clientes)=>{
+    console.log("----------------------------");
+    console.log(req.session);
     res.render('registred/pageRegistred', { clientes, title: 'Cadastrados', layout: 'layoutDashboard',...req.session});
   }).catch((error) => {
    console.log(error);

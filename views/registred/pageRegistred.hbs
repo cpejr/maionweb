@@ -16,7 +16,11 @@
   <div class="dinamic_spec">
     <div class="formInputs">
       <div>
-        <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/Dashboard'"><i class="fa fa-arrow-left"></i>
+        {{#compare userType "Adm"}}
+          <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/Dashboard'"><i class="fa fa-arrow-left"></i>
+          {{else}}
+          <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/DashboardCom'"><i class="fa fa-arrow-left"></i>
+        {{/compare}}
         <h1 class="title_registed"> Cadastrado </h1>
       </div>
       <input placeholder="Busca" class="form-control" id="search" name="search">

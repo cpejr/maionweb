@@ -62,6 +62,7 @@ router.post('/login', (req,res) => {
       if (currentLogged) {
         req.session.userUid = currentLogged.user.uid;
         req.session.email = currentLogged.user.email;
+        req.session.userType = userMongo.userType;
 
         if(userMongo.userType == 'Adm'){
           res.redirect('/dashboard');
