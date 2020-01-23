@@ -72,6 +72,8 @@ const budgetSchema = new mongoose.Schema({
     default: 'Em andamento'
   },
 
+  companions: [String],
+
 }, { timestamps: true, static: false });
 const BudgetModel = mongoose.model('Budget', budgetSchema);
 class Budget {

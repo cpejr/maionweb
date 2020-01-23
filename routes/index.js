@@ -62,6 +62,7 @@ router.post('/login', (req,res) => {
       if (currentLogged) {
         req.session.userUid = currentLogged.user.uid;
         req.session.email = currentLogged.user.email;
+        req.session.userType = userMongo.userType;
 
         if(userMongo.userType == 'Adm'){
           res.redirect('/dashboard');
@@ -117,8 +118,17 @@ router.post('/forgot', (req, res) => {
     res.redirect('/login');
     req.flash('success', 'Email enviado com sucesso!');
   }).catch((error)=>{
-   console.log(error);
-   res.redirect('/error');
+    switch (error.code) {
+       case 'auth/user-not-found':
+         req.flash('danger', 'Email não cadastrado.');
+         break;
+       case 'auth/network-request-failed':
+         req.flash('danger', 'Falha na internet. Verifique sua conexão de rede.');
+         break;
+       default:
+         req.flash('danger', 'Erro indefinido.');
+       }
+   res.redirect('/forgot');
   });
 });
 

@@ -69,6 +69,7 @@ const clientSchema = new mongoose.Schema({
   companionPassportValidation: [String],
 
   //redes sociais
+  funil: String,
   instagram: String,
   facebook: String,
   others: String,
