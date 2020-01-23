@@ -18,7 +18,11 @@
 
         <div class="row px-1 pb-1 pt-1">
           <div class="col-sm-1 px-4 pb-1 pt-6 text-right">
+            {{#compare userType "Adm"}}
             <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/Dashboard'"><i class="fa fa-arrow-left"></i>
+            {{else}}
+            <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/DashboardCom'"><i class="fa fa-arrow-left"></i>
+            {{/compare}}
           </div>
         <div class="col-sm-12 px-3 pb-6 pt-1 text-center">
           <p class="title_registed"> Cadastrado </p>
