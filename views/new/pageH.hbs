@@ -6,31 +6,38 @@
 
 
   <div class="topo">
-
-    <img class="logo" src="/images/logo.png">
-    <div class="acompanhantes">
-      <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: flex-start; margin-right: -72px;">Responsável pela viagem:</label><br>
-      <input readonly="readonly" type="text" placeholder= "" value="{{client.fullname}}" style="font-weight: bold; display:flex; " readonly="readonly"><br>
-      <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: center;">Acompanhantes:</label>
-      {{#each test}}
-      <table class="col-12" id="companion--box">
-        <input value="ο  {{name}}" style="font-weight: bold;  " class="companion--box companion--radius companion--left" readonly></input>
-      </table>
-      {{/each}}
+    <div class="row ">
+      <div class="col rowclass">
+        <img class="logo" src="/images/logo.png">
+      </div>
+      <div class="col-6 rowclass">
+        <div class="acompanhantes">
+          <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: center;">Responsável:</label>
+          <input type="text" class="form-control" value="{{client.fullname}}" readonly><br>
+          <label for="exampleInputPassword1" style="font-weight: 900; font-size: large; display:flex; justify-content: center;">Acompanhantes:</label>
+          {{#compare budget.finalized "Em andamento"}}
+            <br><br>
+            {{#each test}}
+              <input type="text" class="form-control" value="{{name}}" readonly>
+              <br>
+            {{/each}}
+          {{else}}
+            {{#each budgetCompanionsToPage}}
+              <input type="text" class="form-control" value="{{name}}" readonly>
+              <br>
+            {{/each}}
+          {{/compare}}
+        </div>
+      </div>
+      <div class="col rowclass info1_flex">
+          <input type="text" value="Av. do Contorno, 7218" style="text-align:center;"  readonly></input>
+          <input type="text" value="30110-048 - Belo Horizonte" style="text-align:center;" readonly></input>
+          <input type="text" value="www.anistravel.com.br" style="text-align: center;" readonly></input>
+          <input type="text" value="@anis.travel" style="text-align: center;" readonly></input>
+          <input type="text" value="(31)3080-7000" style="text-align: center;" readonly></input>
+          <br><br><br><br>
+      </div>
     </div>
-<div class="info1_flex">
-    <input type="text" class="info1" style="width: 200px; display: flex; text-align:center;" value="Av. do Contorno, 7218" readonly></input>
-    <input type="text" class="info1" value="30110-048 - Belo Horizonte" style="text-align:center;" readonly></input>
-    <input type="text" class="info1" value="www.anistravel.com.br" style="text-align: center;" readonly></input>
-    <input type="text" class="info1" value="@anis.travel" style="text-align: center;" readonly></input>
-    <input type="text" class="info1" value="(31)3080-7000" style="text-align: center;" readonly></input>
-    <br><br><br><br>
-
-
-  </div>
-
-
-
   </div>
 
   <div id="some-radios" class="some">
@@ -123,108 +130,108 @@
   <div class="images-form " id="images-form">
 
       <div class="sul1-imgs hidden-imgs  imgs-print"  id="idsul1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img id="idsul1-imgs" src="/images/AMS1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" class="imgBorder" id="idsul1-imgs" src="/images/AMS1.png">
       </div>
 
       <div class="sul2-imgs hidden-imgs  imgs-print" id="idsul2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AMS2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AMS2.png">
       </div>
 
       <div class="central1-imgs hidden-imgs  imgs-print" id="idcentral1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AC1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AC1.png">
       </div>
 
       <div class="central2-imgs hidden-imgs imgs-print " id="idcentral2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AC2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AC2.png">
       </div>
 
       <div class="norte1-imgs hidden-imgs imgs-print " id="idnorte1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AMN1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AMN1.png">
       </div>
 
       <div class="norte2-imgs hidden-imgs imgs-print " id="idnorte2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AMN2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AMN2.png">
       </div>
 
       <div class="europa1-imgs hidden-imgs imgs-print " id="ideuropa1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/EU1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/EU1.png">
       </div>
 
       <div class="europa2-imgs hidden-imgs imgs-print " id="ideuropa2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/EU2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/EU2.png">
       </div>
 
       <div class="asia1-imgs hidden-imgs  imgs-print" id="idasia1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AS1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AS1.png">
       </div>
 
       <div class="asia2-imgs hidden-imgs  imgs-print" id="idasia2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AS2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AS2.png">
       </div>
 
       <div class="africa1-imgs hidden-imgs  imgs-print" id="idafrica1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AF1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AF1.png">
       </div>
 
       <div class="africa2-imgs hidden-imgs  imgs-print" id="idafrica2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/AF2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/AF2.png">
       </div>
 
       <div class="oceania1-imgs hidden-imgs  imgs-print" id="idoceania1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/OC1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/OC1.png">
       </div>
 
       <div class="oceania2-imgs hidden-imgs  imgs-print" id="idoceania2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/OC2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/OC2.png">
       </div>
 
       <div class="caribe1-imgs hidden-imgs  imgs-print" id="idcaribe1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/CB1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/CB1.png">
       </div>
 
       <div class="caribe2-imgs hidden-imgs  imgs-print" id="idcaribe2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/CB2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/CB2.png">
       </div>
 
       <div class="medio1-imgs hidden-imgs  imgs-print" id="idmedio1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/OM1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/OM1.png">
       </div>
 
       <div class="medio2-imgs hidden-imgs  imgs-print" id="idmedio2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/OM2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/OM2.png">
       </div>
 
       <div class="ilhas1-imgs hidden-imgs  imgs-print" id="idilhas1-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br><br>
-        <img src="/images/IL1.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br><br>
+        <img class="imgBorder" src="/images/IL1.png">
       </div>
 
       <div class="ilhas2-imgs hidden-imgs  imgs-print" id="idilhas2-imgs">
-        <input type="text"  class="textos textos--bold" placeholder="Duração da Viagem" style="margin-bottom: 5px;"></input><br>
-        <img src="/images/IL2.png">
+        <input type="text"  class="textos textos--bold" value="{{duration.firstDay}} - {{duration.lastDay}}" style="margin-bottom: 5px;" readonly> </input><br>
+        <img class="imgBorder" src="/images/IL2.png">
       </div>
     </div>
  <!-- obersevaçoes  -->
     <div class="pageH_dinamic_spec">
-        <div class="caixatotal caixatotal--obs">
+      <div class="caixatotal">
         <br><br> <br>
         <textarea name="" class="observacoes" rows="8" cols="120"></textarea>
         <br><br><br>
@@ -819,7 +826,6 @@
 
     <!-- voos -->
 
-
     {{#each allFlights}}
 
       {{#compare inicio "1"}}
@@ -1085,43 +1091,45 @@
           </div>
         </div>
         <div class="col-sm" id="landing-hotel-col3">
-          <div class="box_hotelH_newright"><br><br><br><br>
+
+
+          <div class="box_hotelH_newright">
             <div class="classaH">
               <label>Nome do Hotel:</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Hotel 3" value="{{hotel_3}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Hotel 1" value="{{hotel_1}}">
             </div><br>
             <div class="classaH">
               <label>Tipo de acomodação:</label>
-              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao3}}">
+              <input readonly="readonly "class="form-control textos" placeholder="" value="{{tipoAcomodacao1}}">
             </div><br>
             <div class="classaH">
-              <labe class="cor">Categoria do Apartamento:</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria3}}">
+              <label>Categoria do Apartaento</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Categoria do Apartamento" value="{{categoria1}}">
             </div><br>
             <div class="classaH">
               <label>Alimentação</label>
-              <input readonly="readonly" class="form-control textos" value="{{comida3}}">
+              <input readonly="readonly" class="form-control textos" value="{{comida1}}">
               </input>
             </div><br>
-            <label>Valor do Apartamento:</label>
             <div class="classaH">
-              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto3}}">
+              <label>Valor do Apartamento</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Valor Apto" value="{{moeda}}{{valorapto1}}">
             </div><br>
             <div class="classaH">
               <label>Número de Diárias</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias3}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Número de diárias" value="{{numeroDiarias1}}">
             </div><br>
             <div class="classaH">
               <label>Número de Apartamentos</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto3}}">
+              <input readonly="readonly "class="form-control textos" placeholder="Número de Apartamentos" value="{{numeroApto1}}">
             </div><br>
             <div class="classaH">
-              <label>Total:</label>
-              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_3}}">
+              <label>Total</label>
+              <input readonly="readonly "class="form-control textos" placeholder="Total" value="{{moeda}}{{total_1}}">
             </div><br>
             <div class="classaH">
-              <label>Periodo de Cancelamento</label>
-              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento3}}">
+              <label>Período de Cancelamento</label>
+              <input readonly="readonly" class="form-control textos" value="{{periodoCancelamento1}}">
             </input>
           </div><br>
           </div>
