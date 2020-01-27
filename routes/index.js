@@ -5,46 +5,45 @@ const auth = require('./middleware/auth');
 const Client = require ('../models/client');
 const User = require('../models/user');
 var router = express.Router();
-const auth = require('./middleware/auth');
 
 
 /* GET home page. */
-router.get('/',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/', function(req, res) {
   res.render('login', { title: 'Login', layout: 'layout' });
 });
 
 /* GET login page. */
-router.get('/login',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/login', (req, res) => {
   res.render('login', { title: 'Login', layout: 'layout' });
 });
 
 /* GET dashboard Admin page. */
-router.get('/dashboard',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/dashboard', (req, res) => {
   res.render('dashboard', { title: 'homeadmin', layout: 'layout' });
 });
 
 /* GET dashboard Comum page. */
-router.get('/dashboardCom',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/dashboardCom', (req, res) => {
   res.render('dashboardCom', { title: 'home', layout: 'layout' });
 });
 
 /* GET signup page. */
-router.get('/signup',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/signup', (req, res) => {
   res.render('form', { title: 'signup', layout: 'layout' });
 });
 
 /* GET forgot password page. */
-router.get('/forgot',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/forgot', (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
 /*Get da cadastro de novo usuario*/
-router.get('/newuser',/* auth.isAuthenticated,*/ (req, res)=>{
+router.get('/newuser', (req, res)=>{
   res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
 });
 
 // GET Logout Request
-router.get('/logout',/* auth.isAuthenticated,*/ (req,res) => {
+router.get('/logout', (req,res) => {
   firebase.auth().signOut().then(() => {
     delete req.session.email;
     delete req.session.userUid;
@@ -63,7 +62,7 @@ router.post('/login', (req,res) => {
       if (currentLogged) {
         req.session.userUid = currentLogged.user.uid;
         req.session.email = currentLogged.user.email;
-        req.session.userType = userMongo.userType;
+        req.session.userType = userMongo.userType; 
 
         if(userMongo.userType == 'Adm'){
           res.redirect('/dashboard');
@@ -135,7 +134,7 @@ router.post('/forgot', (req, res) => {
 
 
 // GET /logout
-router.get('/logout',/* auth.isAuthenticated,*/ (req, res, next) => {
+router.get('/logout', (req, res, next) => {
   firebase.auth().signOut().then(() => {
       delete req.session.fullName;
       //delete req.session.userId;

@@ -6044,7 +6044,7 @@ body {
   font: 14px "Montserrat", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
-  background-color: #c4694a; }
+  background-color: #EDEDED; }
 
 a {
   color: #00B7FF; }
@@ -6245,6 +6245,7 @@ aside {
 .pagesFront {
   background-color: #C4694A;
   padding-top: 6em;
+  min-height: 144Em;
   height: 100%; }
 
 #buttonPages {
@@ -6270,11 +6271,6 @@ label {
   border-radius: 10px;
   color: #323232;
   margin-top: 0.7em; }
-
-.center {
-  margin-left: auto;
-  margin-right: auto;
-  height: 5cm; }
 
 .form-group {
   padding-top: 0;
@@ -6331,7 +6327,6 @@ label {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1em;
   padding: 1em; }
 
 .dinamic_spec_pagec {
@@ -6987,7 +6982,8 @@ label {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  justify-content: space-around; }
+  justify-content: space-around;
+  flex-wrap: nowrap; }
 
 .textos {
   color: black;
@@ -7158,5 +7154,13 @@ label {
 
 .html_config {
   height: 100%; }
+
+.break-after-only {
+  page-break-after: always; }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  height: 5cm; }
 
 /*# sourceMappingURL=style.css.map */
