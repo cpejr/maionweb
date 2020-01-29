@@ -33,15 +33,15 @@
 
 
     <div class="table-responsive">
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover" id="mytable">
         <thead>
           <tr>
-            <th class = "th-name">Nome</th>
-            <th class = "th-type">CPF</th>
-            <th class = "th-type">Alterar dados</th>
-            <th class = "th-type">Alterar características</th>
-            <th class = "th-type">Visualizar files</th>
-            <th class = "th-type">Novo files</th>
+            <th >Nome</th>
+            <th >CPF</th>
+            <th >Alterar dados</th>
+            <th >Alterar características</th>
+            <th >Visualizar files</th>
+            <th >Novo files</th>
           </tr>
         </thead>
         <tbody id="client_table">
@@ -61,7 +61,32 @@
   </div>
 
 </div>
-
+      <div>
+        <button onClick="docCsv()">
+            Exportar dados para arquivo.csv
+      </button>
+          </div>
+      
+<script>
+    function docCsv(){
+        var table = document.getElementById("mytable").innerHTML;
+        var data = table.replace(/<thead>/g, '')
+            .replace(/<\/thead>/g, '')
+            .replace(/<tbody id="client_table">/g, '')
+            .replace(/<\/tbody id="client_table">/g, '')
+            .replace(/<tr>/g, '')
+            .replace(/<\/tr>/g, '\r\n')
+            .replace(/<th>/g, '')
+            .replace(/<\/th>/g, ';')
+            .replace(/\t/g, '')
+            .replace(/\n/g, '');
+        var mylink = document.createElement('a');
+        mylink.download = "csvname.csv";
+        mylink.href = "data:application/csv," + escape(data);
+        mylink.click();
+            
+    }
+</script>
 
 <script>
   $(document).ready(function(){
