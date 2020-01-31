@@ -18,7 +18,7 @@
               Dia {{repNum}}
             </div>
             <div class="col-sm-auto-pageC rowclass">
-              <input type="birth" name="budget[planDate]" value="{{planDate}}" class="form-control classCinput2" placeholder="Data do dia" maxlength="10" onblur="addDashesNascimento(this)"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="date" name="budget[planDate]" value="{{planDate}}" class="form-control classCinput2" placeholder="Data do dia" maxlength="10" >
             </div>
             <div class="col-sm-auto-pageC rowclass">
               <input placeholder="Cidade" name="budget[planCity]" value="{{planCity}}" class= "form-control classCinput2">

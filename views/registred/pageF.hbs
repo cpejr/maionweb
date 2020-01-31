@@ -32,7 +32,7 @@
               <i class="fa fa-car" aria-hidden="true"></i>
               <input name="car[to]" type="text" placeholder="Para" class="date start-date" value="{{to}}">
               <br><br>
-              <input type="birth" name = "car[dateFrom]" value="{{dateFrom}}" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' onblur='addDashesNascimento(this)'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="date" name = "car[dateFrom]" value="{{dateFrom}}" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' >
               <i class="fa fa-calendar"></i>
               <input type="text" placeholder="00:00" name="car[timeFrom]" value="{{timeFrom}}" class="date start-date"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" maxlength='6' onblur='addDashesHorario(this)'/>
 
@@ -101,7 +101,7 @@
               <i class="fa fa-car" aria-hidden="true"></i>
               <input name="car[to]" type="text" placeholder="Para" class="date start-date" value="{{to}}">
               <br><br>
-              <input type="birth" name = "car[dateFrom]" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' onblur='addDashesNascimento(this)'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+              <input type="date" name = "car[dateFrom]" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' >
               <i class="fa fa-calendar"></i>
               <input name="car[timeFrom]" type="text" placeholder="Horário" class="date start-date" value="{{timeFrom}}">
               <br><br>
