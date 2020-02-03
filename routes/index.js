@@ -19,7 +19,8 @@ router.get('/login', (req, res) => {
 
 /* GET dashboard Admin page. */
 router.get('/dashboard', (req, res) => {
-  res.render('dashboard', { title: 'homeadmin', layout: 'layout' });
+    console.log(req.session.userType);
+    res.render('dashboard', { title: 'homeadmin', layout: 'layout', ...req.session});
 });
 
 /* GET dashboard Comum page. */
