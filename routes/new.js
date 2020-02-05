@@ -6,9 +6,10 @@ const Hotel = require('../models/hotel');
 const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
+const auth = require('./middleware/auth');
 
 /* GET pageA. */
-router.get('/pageA', function(req, res, next) {
+router.get('/pageA',/* auth.isAuthenticated,*/ function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
     res.render('new/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
   }).catch((error) => {
@@ -18,7 +19,7 @@ router.get('/pageA', function(req, res, next) {
 });
 
 /* GET pageB. */
-router.get('/pageB/:client_id', function(req, res) {
+router.get('/pageB/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     res.render('new/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
   }).catch((error) => {
@@ -28,7 +29,7 @@ router.get('/pageB/:client_id', function(req, res) {
 });
 
 /* GET pageC. */
-router.get('/pageC/:client_id', function(req, res) {
+router.get('/pageC/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       const numTravel = client.budgets.length;
       var now = new Date;
@@ -42,7 +43,7 @@ router.get('/pageC/:client_id', function(req, res) {
 });
 
 /* GET pageD. */
-router.get('/pageD/:client_id/:budget_id', function(req, res) {
+router.get('/pageD/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
           Budget.getById(req.params.budget_id).then((budget)=>{
             const test0 = [];
@@ -69,7 +70,7 @@ router.get('/pageD/:client_id/:budget_id', function(req, res) {
 });
 
 /* GET pageE. */
-router.get('/pageE/:client_id/:budget_id', function(req, res) {
+router.get('/pageE/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
         const test1 = [];
@@ -104,7 +105,7 @@ router.get('/pageE/:client_id/:budget_id', function(req, res) {
 });
 
 /* GET pageF. */
-router.get('/pageF/:client_id/:budget_id', function(req, res) {
+router.get('/pageF/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
         const test2 = [];
@@ -139,7 +140,7 @@ router.get('/pageF/:client_id/:budget_id', function(req, res) {
 });
 
 /* GET pageG. */
-router.get('/pageG/:client_id/:budget_id', function(req, res) {
+router.get('/pageG/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
         const test3 = [];
@@ -174,7 +175,7 @@ router.get('/pageG/:client_id/:budget_id', function(req, res) {
 });
 
 /* GET pageH. */
-router.get('/pageH/:client_id/:budget_id', function(req, res) {
+router.get('/pageH/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
           Budget.getAssociatedFlightById(req.params.budget_id).then((flights)=>{
@@ -3251,7 +3252,7 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
                                             for (var i = 0; i < cars.from.length; i++) {
                                               if(i<2){
 
-                                              
+
                                                 const traslado = [{
                                                   deT: String,
                                                   moedaT: String,
@@ -3751,8 +3752,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado2.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<6) {
 
                                                 const traslado = [{
@@ -4003,8 +4004,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado3.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<8) {
 
                                                 const traslado = [{
@@ -4255,8 +4256,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado4.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<10) {
 
                                                 const traslado = [{
@@ -4507,8 +4508,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado5.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<12) {
 
                                                 const traslado = [{
@@ -4759,8 +4760,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado6.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<14) {
 
                                                 const traslado = [{
@@ -5011,8 +5012,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado7.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<16) {
 
                                                 const traslado = [{
@@ -5263,8 +5264,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado8.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<18) {
 
                                                 const traslado = [{
@@ -5515,8 +5516,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado9.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<20) {
 
                                                 const traslado = [{
@@ -5767,8 +5768,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado10.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<22) {
 
                                                 const traslado = [{
@@ -6019,8 +6020,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado11.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<24) {
 
                                                 const traslado = [{
@@ -6271,8 +6272,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado12.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<26) {
 
                                                 const traslado = [{
@@ -6523,8 +6524,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado13.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<28) {
 
                                                 const traslado = [{
@@ -6775,8 +6776,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado14.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<30) {
 
                                                 const traslado = [{
@@ -7027,8 +7028,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado15.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<32) {
 
                                                 const traslado = [{
@@ -7279,8 +7280,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado16.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<34) {
 
                                                 const traslado = [{
@@ -7531,8 +7532,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado17.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<36) {
 
                                                 const traslado = [{
@@ -7783,8 +7784,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado18.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<38) {
 
                                                 const traslado = [{
@@ -8035,8 +8036,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado19.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<40) {
 
                                                 const traslado = [{
@@ -8287,8 +8288,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado20.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<42) {
 
                                                 const traslado = [{
@@ -8539,8 +8540,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado21.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<44) {
 
                                                 const traslado = [{
@@ -8791,8 +8792,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado22.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<46) {
 
                                                 const traslado = [{
@@ -9043,8 +9044,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado23.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<48) {
 
                                                 const traslado = [{
@@ -9295,8 +9296,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado24.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<50) {
 
                                                 const traslado = [{
@@ -9547,8 +9548,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado25.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<52) {
 
                                                 const traslado = [{
@@ -9799,8 +9800,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado26.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<54) {
 
                                                 const traslado = [{
@@ -10051,8 +10052,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado27.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<56) {
 
                                                 const traslado = [{
@@ -10303,8 +10304,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado28.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<58) {
 
                                                 const traslado = [{
@@ -10555,8 +10556,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado29.push(traslado);
-                                              
-                                                
+
+
                                               }else if (i<60) {
 
                                                 const traslado = [{
@@ -10807,8 +10808,8 @@ router.get('/pageH/:client_id/:budget_id', function(req, res) {
 
 
                                                 infoTraslado30.push(traslado);
-                                              
-                                                
+
+
                                               }
 
 
