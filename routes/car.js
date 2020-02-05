@@ -2,7 +2,7 @@ const express = require('express');
 const Car = require('../models/car.js');
 
 const router = express.Router();
-const auth = require('./middleware/auth');
+//const auth = require('./middleware/auth');
 
 /**
  * GET Index - Show all Cars
