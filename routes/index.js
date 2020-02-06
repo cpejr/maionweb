@@ -4,7 +4,7 @@ const firebase = require('firebase');
 const auth = require('./middleware/auth');
 const Client = require ('../models/client');
 const User = require('../models/user');
-//const auth = require('./middleware/auth');
+
 var router = express.Router();
 
 
