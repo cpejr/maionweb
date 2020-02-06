@@ -6,7 +6,7 @@ const Hotel = require('../models/hotel');
 const Budget = require('../models/budget');
 const Car = require('../models/car');
 const Safe = require('../models/safe');
-//const auth = require('./middleware/auth');
+const auth = require('./middleware/auth');
 
 // Get Validation PageA
 router.get('/validation',/* auth.isAuthenticated,*/ function(req, res) {
