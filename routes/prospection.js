@@ -8,7 +8,7 @@ const Car = require('../models/car');
 const Safe = require('../models/safe');
 const auth = require('./middleware/auth');
 /* GET pageA. */
-router.get('/pageA',/* auth.isAuthenticated,*/ function(req, res, next) {
+router.get('/pageA', auth.isAuthenticated, function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
     res.render('prospection/pageA', { title: 'Cadastro de cliente', layout: 'layoutDashboard'});
   }).catch((error) => {
@@ -17,7 +17,7 @@ router.get('/pageA',/* auth.isAuthenticated,*/ function(req, res, next) {
   });
 });
 /* GET pageB. */
-router.get('/pageB/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageB/:client_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     res.render('prospection/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
   }).catch((error) => {
@@ -26,7 +26,7 @@ router.get('/pageB/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
   });
 });
 /* GET pageC. */
-router.get('/pageC/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageC/:client_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       const numTravel = client.budgets.length;
       var now = new Date;
@@ -39,7 +39,7 @@ router.get('/pageC/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
   });
 });
 /* GET pageD. */
-router.get('/pageD/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageD/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
           Budget.getById(req.params.budget_id).then((budget)=>{
             const test0 = [];
@@ -72,7 +72,7 @@ router.get('/pageD/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(re
         });
 });
 /* GET pageE. */
-router.get('/pageE/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageE/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
         const test1 = [];
@@ -106,7 +106,7 @@ router.get('/pageE/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(re
             });
 });
 /* GET pageF. */
-router.get('/pageF/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageF/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
         const test2 = [];
@@ -140,7 +140,7 @@ router.get('/pageF/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(re
           });
 });
 /* GET pageG. */
-router.get('/pageG/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageG/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
       Budget.getById(req.params.budget_id).then((budget)=>{
         const test3 = [];
@@ -174,7 +174,7 @@ router.get('/pageG/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(re
                 });
 });
 /* GET pageH. */
-router.get('/pageH/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageH/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
           Budget.getAssociatedFlightById(req.params.budget_id).then((flights)=>{
@@ -952,7 +952,7 @@ router.post('/pageH/:client_id/:budget_id', (req,res) => {
 });
 
 
-router.get('/prospectionpageH/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/prospectionpageH/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
           Budget.getAssociatedFlightById(req.params.budget_id).then((flights)=>{

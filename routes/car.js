@@ -7,7 +7,7 @@ const auth = require('./middleware/auth');
 /**
  * GET Index - Show all Cars
  */
-router.get('/',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/', auth.isAuthenticated, (req, res) => {
   Car.getAll().then((cars) => {
     // res.render('cars/index', { title: 'Cars', cars });
   }).catch((err) => {
@@ -18,7 +18,7 @@ router.get('/',/* auth.isAuthenticated,*/ (req, res) => {
 /**
  * GET New - Show form to create new car
  */
-router.get('/new',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/new', auth.isAuthenticated, (req, res) => {
   res.render('car/new', { title: 'Novo Carro' });
 });
 
@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
 /**
  * GET Show - Show details of a car
  */
-router.get('/:id',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/:id', auth.isAuthenticated, (req, res) => {
   Car.getById(req.params.id).then((car) => {
     if (car) {
       console.log(car);
@@ -59,7 +59,7 @@ router.get('/:id',/* auth.isAuthenticated,*/ (req, res) => {
 /**
  * GET Edit - Show the car edit form
  */
-router.get('/:id/edit',/* auth.isAuthenticated,*/ (req, res) => {
+router.get('/:id/edit', auth.isAuthenticated, (req, res) => {
   Car.getById(req.params.id).then((car) => {
     if (car) {
       console.log(car);
