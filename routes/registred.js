@@ -9,7 +9,7 @@ const Safe = require('../models/safe');
 const auth = require('./middleware/auth');
 
 // Get Validation PageA
-router.get('/validation',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/validation', auth.isAuthenticated, function(req, res) {
   Client.getAll().then((clients) => {
     const cpfs = [];
     for (var i = 0; i < clients.length; i++) {//Popula um vetor com todos os CPF's Existentes registrados
@@ -28,7 +28,7 @@ router.get('/validation',/* auth.isAuthenticated,*/ function(req, res) {
 });
 
 //GET pagePersonal
-router.get('/PagePersonal/:client_id',/* auth.isAuthenticated,*/ function (req, res) {
+router.get('/PagePersonal/:client_id', auth.isAuthenticated, function (req, res) {
   const client_id = req.params.client_id;
   Client.getAllBudgetsById(client_id).then((budgets)=>{
 
@@ -64,7 +64,7 @@ router.get('/PagePersonal/:client_id',/* auth.isAuthenticated,*/ function (req, 
 });
 
 //GET pageRegistred
-router.get('/pageRegistred',/* auth.isAuthenticated,*/ function (req, res) {
+router.get('/pageRegistred', auth.isAuthenticated, function (req, res) {
   Client.getAll().then((clientes)=>{
     res.render('registred/pageRegistred', { clientes, title: 'Cadastrados', layout: 'layoutDashboard',...req.session});
   }).catch((error) => {
@@ -74,7 +74,7 @@ router.get('/pageRegistred',/* auth.isAuthenticated,*/ function (req, res) {
 });
 
 /* GET pageA. */
-router.get('/pageA/:client_id',/* auth.isAuthenticated,*/ function(req, res, next) {
+router.get('/pageA/:client_id', auth.isAuthenticated, function(req, res, next) {
   Client.getById(req.params.client_id).then((client) =>{
 
     const allFamily = [];
@@ -146,7 +146,7 @@ router.get('/pageA/:client_id',/* auth.isAuthenticated,*/ function(req, res, nex
 });
 
 /* GET pageB. */
-router.get('/pageB/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageB/:client_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     console.log(client);
     res.render('registred/pageB', { title: 'Cadastro de cliente', layout: 'layoutDashboard.hbs', client_id: req.params.client_id, client});
@@ -157,7 +157,7 @@ router.get('/pageB/:client_id',/* auth.isAuthenticated,*/ function(req, res) {
 });
 
 /* GET pageC. */
-router.get('/pageC/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageC/:budget_id', auth.isAuthenticated, function(req, res) {
   Budget.getById(req.params.budget_id).then((budget) => {
 
     const allScripts = [];
@@ -201,7 +201,7 @@ router.get('/pageC/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
 });
 
 /* GET pageD. */
-router.get('/pageD/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageD/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
       Client.getById(req.params.client_id).then((client) => {
         Budget.getById(req.params.budget_id).then((budget) => {
           Flight.getById(budget.flights).then((flights) => {
@@ -454,7 +454,7 @@ router.get('/pageD/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(re
 });
 
 /* GET pageE. */
-router.get('/pageE/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageE/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     Budget.getById(req.params.budget_id).then((budget) => {
       Hotel.getById(budget.hotels).then((hotel) => {
@@ -579,7 +579,7 @@ router.get('/pageE/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(re
 });
 
 /* GET pageF. */
-router.get('/pageF/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageF/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     Budget.getById(req.params.budget_id).then((budget) => {
       Car.getById(budget.cars).then((car) => {
@@ -776,7 +776,7 @@ router.get('/pageF/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(re
 });
 
 /* GET pageG. */
-router.get('/pageG/:client_id/:budget_id',/* auth.isAuthenticated,*/ function(req, res) {
+router.get('/pageG/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     Budget.getById(req.params.budget_id).then((budget) => {
       Safe.getById(budget.safes).then((safe) => {
