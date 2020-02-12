@@ -30,7 +30,7 @@ router.get('/dashboardCom', auth.isAuthenticated, (req, res) => {
 });
 
 /* GET signup page. */
-router.get('/signup', auth.isAuthenticated, (req, res) => {
+router.get('/signup', /*auth.isAuthenticated,*/ (req, res) => {
   res.render('form', { title: 'signup', layout: 'layout' });
 });
 
