@@ -40,7 +40,7 @@ router.get('/forgot',  (req, res) => {
 });
 
 /*Get da cadastro de novo usuario*/
-router.get('/newuser', auth.isAuthenticated, (req, res)=>{
+router.get('/newuser', auth.isAuthenticated, auth.isAdmin, (req, res)=>{
   res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
 });
 
