@@ -14,17 +14,17 @@ module.exports = {
     else {
       res.redirect('/login');
     }
-  }
+  },
 
-  // isAdmin: (req, res, next) => {
-  //   const type = req.session.user;
-  //   if(type === 'Admin'){
-  //     next();
-  //   }
-  //   else{
-  //     res.redirect('/login');
-  //   }
-  // }
+  isAdmin: (req, res, next) => {
+    const type = req.session.user;
+    if(type === 'Admin'){
+      next();
+    }
+    else {
+      res.redirect('/dashboardCom');
+    }
+  }
 
 
 };
