@@ -19,7 +19,7 @@ router.get('/login',  (req, res) => {
 });
 
 /* GET dashboard Admin page. */
-router.get('/dashboard', auth.isAuthenticated, (req, res) => {
+router.get('/dashboard',  (req, res) => {
     console.log(req.session.userType);
     res.render('dashboard', { title: 'homeadmin', layout: 'layout', ...req.session});
 });
@@ -39,10 +39,16 @@ router.get('/forgot',  (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
+router.get('/table', auth.isAuthenticated, (req, res)=>{
+  res.render('table',{title: 'Tabela de Clientes', layout: 'layout'});
+});
+
 /*Get da cadastro de novo usuario*/
 router.get('/newuser', auth.isAuthenticated, auth.isAdmin, (req, res)=>{
   res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
 });
+
+
 
 // GET Logout Request
 router.get('/logout', auth.isAuthenticated, (req,res) => {
