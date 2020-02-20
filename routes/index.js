@@ -4,6 +4,11 @@ const firebase = require('firebase');
 const auth = require('./middleware/auth');
 const Client = require ('../models/client');
 const User = require('../models/user');
+const Budget = require('../models/budget');
+const Car = require('../models/car');
+const Flight = require('../models/flight');
+const Hotel = require('../models/hotel');
+const Safe = require('../models/safe');
 
 var router = express.Router();
 
@@ -39,8 +44,58 @@ router.get('/forgot',  (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
-router.get('/table', auth.isAuthenticated, (req, res)=>{
-  res.render('table',{title: 'Tabela de Clientes', layout: 'layout'});
+router.get('/table', (req, res)=>{
+    Client.getAll().then((clientes)=>{
+    const tamClient =clientes.length;
+    
+    console.log(tamClient);
+    for(var i=0; i<tamClient; i++){
+        console.log(clientes[i].budgets);
+        var tamBudget = clientes[i].budgets.length;
+        for(var j=0; j<tamBudget; j++){
+        Budget.getById(clientes[i].budgets[j]).then((budget) =>{
+            const flights = budget.flights;
+            const hotels = budget.hotels;
+            const cars = budget.cars;
+            const safes = budget.safes;
+                Flight.getById(flights).then((flight) =>{
+                    
+             }).catch((error) => {
+                console.log(error);
+                res.redirect('/error');
+            });
+                Hotel.getById(hotels).then((hotel) =>{
+                    
+             }).catch((error) => {
+                console.log(error);
+                res.redirect('/error');
+            });
+                Car.getById(cars).then((car) =>{
+                   
+             }).catch((error) => {
+                console.log(error);
+                res.redirect('/error');
+            });
+                Safe.getById(safes).then((safe) =>{
+                   
+             }).catch((error) => {
+                console.log(error);
+                res.redirect('/error');
+            });    
+                          
+        }).catch((error) => {
+            console.log(error);
+            res.redirect('/error');
+        });
+        
+        }
+    }
+    res.render('table',{clientes, title: 'Tabela de Clientes', layout: 'layout'});
+  }).catch((error) => {
+   console.log(error);
+   res.redirect('/error');
+  });
+  
 });
 
 /*Get da cadastro de novo usuario*/
