@@ -1,0 +1,77 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Script de busca -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<div class="pagesFront">
+  <div class="table-responsive">
+<div id = "tabelainvisivel">
+<!-- <body onload="Mudarestado('tabelainvisivel')"> -->
+      <table class="table table-striped table-hover" id="mytable2">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Telefone</th>
+            <th>Rua</th>
+            <th>email</th>
+            <th>email1</th>
+            <th>maritalStatus</th>
+            <th>Nascimento</th>
+          </tr>
+        </thead>
+        <tbody id="client_table">
+          {{#each clientes}}
+          <tr>
+            <th>{{fullname}}</th>
+            <th>{{register}}</th>
+            <th>{{id}}</th>
+            <th>{{phone}}</th>
+            <th>{{street}}</th>
+            <th>{{email}}</th>
+            <th>{{email1}}</th>
+            <th>{{maritalStatus}}</th>
+            <th>{{birthDate}}</th>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    <!-- </body> -->
+  </div>
+  </div>
+  </div>
+
+      <div>
+        <button onClick="docCsv()">
+            Exportar dados para arquivo.csv
+      </button>
+          </div>
+
+<script>
+  function Mudarestado(divid){
+    document.getElementById(divid).style.display = "none";
+
+  }
+    function docCsv(){
+        var table = document.getElementById("mytable2").innerHTML;
+        var data = table.replace(/<thead>/g, '')
+            .replace(/<\/thead>/g, '')
+            .replace(/<tbody id="client_table">/g, '')
+            .replace(/<\/tbody>/g, '')
+            .replace(/<tr>/g, '')
+            .replace(/<\/tr>/g, '\r\n')
+            .replace(/<th>/g, '')
+            .replace(/<\/th>/g, ';')
+            .replace(/\t/g, '')
+            .replace(/\n/g, '');
+        var mylink = document.createElement('a');
+        mylink.download = "csvname.csv";
+        mylink.href = "data:application/csv," + escape(data);
+        mylink.click();
+    }
+</script>
+
+<script type="text/javascript" src="/javascripts/cad_redir.js">  </script>
