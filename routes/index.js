@@ -19,7 +19,7 @@ router.get('/login',  (req, res) => {
 });
 
 /* GET dashboard Admin page. */
-router.get('/dashboard',  (req, res) => {
+router.get('/dashboard', auth.isAuthenticated, (req, res) => {
     console.log(req.session.userType);
     res.render('dashboard', { title: 'homeadmin', layout: 'layout', ...req.session});
 });

@@ -18,10 +18,11 @@
         <br><br>
         <button type="button" class="btn btn-light  col-md-2 " onclick="location.href='/prospection/pageA'"> <i class="fa fa-phone float-left" aria-hidden="true" ></i>   Prospecção</button>
         <br><br>
-
+        {{#compare userType "Adm"}}
         <button type="button" class="btn btn-light  col-md-2 " onclick="location.href='/newuser'"> <i class="fa fa-user-plus float-left" aria-hidden="true" ></i>   Novo usuário</button>
         <br><br>
-      
+        {{else}}
+        {{/compare}}
         <button type="button" class="btn btn-light  col-md-2 " onclick="location.href='/table'"> <i class="fa fa-sign-out float-left" aria-hidden="true" ></i>   Tabela de Clientes</button>
         <br><br>
         <button type="button" class="btn btn-light  col-md-2 " onclick="location.href='/logout'"> <i class="fa fa-sign-out float-left" aria-hidden="true" ></i>   Sair</button>
