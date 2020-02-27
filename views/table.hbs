@@ -15,12 +15,27 @@
             <th>Nome</th>
             <th>CPF</th>
             <th>RG</th>
-            <th>Telefone</th>
-            <th>Rua</th>
-            <th>email</th>
-            <th>email1</th>
-            <th>maritalStatus</th>
-            <th>Nascimento</th>
+            <th>Telefone Fixo</th>
+            <th>Telefone Celular</th>
+            <th>Endereço</th>
+            <th>Email</th>
+            <th>Estado Civil</th>
+            <th>Data de Nascimento</th>
+            <th>Passaporte</th>
+            <th>Validade do Passaporte</th>
+            <th>Nome do Cônjuge</th>
+            <th>Anivesário de Casamento</th>
+            <th>Profissão do Cônjuge</th>
+            <th>Passaporte do Cônjuge</th>
+            <th>Validade do Passaporte do Cônjuge</th>
+            <th>Nome do Filho</th>
+            <th>Data de Nascimento do Filho</th>
+            <th>Passaporte do Filho</th>
+            <th>Validade do Passaporte do Filho</th>
+
+            <th>Data da Viagem</th>
+
+
           </tr>
         </thead>
         <tbody id="client_table">
@@ -29,14 +44,34 @@
             <th>{{fullname}}</th>
             <th>{{register}}</th>
             <th>{{id}}</th>
-            <th>{{phone}}</th>
+            <th>{{phoneFixed}}</th>
+            <th>{{phoneCell}}</th>
             <th>{{street}}</th>
             <th>{{email}}</th>
-            <th>{{email1}}</th>
             <th>{{maritalStatus}}</th>
             <th>{{birthDate}}</th>
+            <th>{{passport}}</th>
+            <th>{{passportValidation}}</th>
+            <th>{{spouseName}}</th>
+            <th>{{wedding_anniversary}}</th>
+            <th>{{spouseProfession}}</th>
+            <th>{{spousePassport}}</th>
+            <th>{{spousePassportValidation}}</th>
+            <th>{{birthDateChildren}}</th>
+            <th>{{children}}</th>
+            <th>{{childrenPassport}}</th>
+            <th>{{childrenPassportValidation}}</th>
+
+            <th>{{planDate}}</th>
           </tr>
           {{/each}}
+
+          {{#each viagens}}
+          <tr>
+          <th>{{planDate}}</th>
+        </tr>
+        {{/each}}
+
         </tbody>
       </table>
     <!-- </body> -->
