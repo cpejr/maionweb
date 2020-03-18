@@ -44,6 +44,26 @@ router.get('/forgot',  (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
+// Tabela budget
+router.get('/table_budget',  (req, res) => {
+    var cachorro = []; 
+  Client.getAll().then((clients) =>{
+    let cont = 0;
+    clients.forEach((client)=>{
+        Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
+            cachorro.push({dados_client: client , dados_manyBudgets: manyBudgets});
+            console.log(client.fullname);
+            cont ++;
+            if(cont === clients.length){
+                res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: cachorro});
+            }
+        });  
+    });
+      
+  });
+});
+
+
 router.get('/table', (req, res)=>{
     Client.getAll().then((clientes)=>{
     const tamClient =clientes.length;

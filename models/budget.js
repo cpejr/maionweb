@@ -326,6 +326,16 @@ class Budget {
               });
             });
           }
+        
+        static getByIdArray(id_array){
+            return new Promise((resolve, reject)=> {
+                BudgetModel.find({ _id: {$in: id_array} }).then((budgets)=>{
+                    resolve(budgets);   
+                }).catch((err) => {
+                reject(err);
+              });
+            })
+        }
 
 }
 

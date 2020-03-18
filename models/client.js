@@ -342,6 +342,16 @@ class Client {
     });
    }
 
+    static getAllNames(){
+        return new Promise((resolve, reject) => {
+            ClientModel.find({},{fullName: 1}).then((results2)=>{
+                resolve(results2);
+            }).catch((err) => {
+        reject(err);
+         });
+            });
+          }
+
 }
 
 module.exports = Client;
