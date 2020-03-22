@@ -68,8 +68,8 @@ router.get('/table', (req, res)=>{
     Client.getAll().then((clientes)=>{
     const tamClient =clientes.length;
 
-    console.log(tamClient);
-    var viagens;
+    //console.log(tamClient);
+    var viagens = [];
     var voos = [];
     var hoteis;
     var carros;
@@ -80,7 +80,7 @@ router.get('/table', (req, res)=>{
 
         for(var j=0; j<tamBudget; j++){
           Budget.getById(clientes[i].budgets[j]).then((budget)=>{
-            viagens = budget;
+            viagens.push(budget);
             const flights = budget.flights;
             const hotels = budget.hotels;
             const cars = budget.cars;
@@ -118,9 +118,10 @@ router.get('/table', (req, res)=>{
         });
 
         }
-        console.log(viagens);
+
     }
-    res.render('table',{clientes, viagens, title: 'Tabela de Clientes', layout: 'layout'});
+    console.log(viagens);
+    res.render('table',{clientes, viagens, ...req.session,  title: 'Tabela de Clientes', layout: 'layout'});
   }).catch((error) => {
    console.log(error);
    res.redirect('/error');
