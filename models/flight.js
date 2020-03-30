@@ -152,6 +152,16 @@ class Flight {
    });
  }
 
+ static getByIdArray(id_array){
+     return new Promise((resolve, reject)=> {
+         FlightModel.find({ _id: {$in: id_array} }).then((flights)=>{
+             resolve(flights);
+         }).catch((err) => {
+         reject(err);
+       });
+     })
+ }
+
 }
 
 module.exports = Flight;

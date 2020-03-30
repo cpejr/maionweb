@@ -46,20 +46,24 @@ router.get('/forgot',  (req, res) => {
 
 // Tabela budget
 router.get('/table_budget',  (req, res) => {
-    var dadosPuxados = []; 
+    var dadosPuxados = [];
   Client.getAll().then((clients) =>{
     let cont = 0;
     clients.forEach((client)=>{
         Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
-            dadosPuxados.push({dados_client: client , dados_manyBudgets: manyBudgets});
-            console.log(client.fullname);
-            cont ++;
-            if(cont === clients.length){
-                res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-            }
-        });  
+          manyBudgets.forEach((budget) => {
+            Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+              dadosPuxados.push({dados_client: client , dados_manyBudgets: manyBudgets, dados_manyFlights:manyFlights});
+              console.log(client.fullname);
+              cont ++;
+              if(cont === clients.length){
+                  res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+              }
+            });
+          });
+        });
     });
-      
+
   });
 });
 
