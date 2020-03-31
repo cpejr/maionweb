@@ -22,8 +22,6 @@
                 <th>planCountry</th>
                 <th>planFreeField</th>
                 <th>coin</th>
-                <th>tickets</th>
-                <th>others</th>
                 <th>totalValueth</th>
                 <th>payment</th>
                 <th>Companhia</th>
@@ -31,6 +29,10 @@
 
                 <th>Numero do voo</th>
                 <th>Data</th>
+                <th>Origem</th>
+
+                <th>CIdade Hotel</th>
+
 
             </tr>
         </thead>
@@ -109,21 +111,6 @@
 
                 </th>
 
-                <th>
-
-                {{#each dados_manyBudgets}}
-                {{tickets}}
-                {{/each}}
-
-                </th>
-
-                <th>
-
-                {{#each dados_manyBudgets}}
-                {{others}}
-                {{/each}}
-
-                </th>
 
                 <th>
 
@@ -171,6 +158,21 @@
                 {{/each}}
 
 
+                </th>
+                <th>
+
+
+                {{#each dados_manyFlights}}
+                {{from}}
+                {{/each}}
+                </th>
+
+                <th>
+
+
+                {{#each dados_manyHotels}}
+                {{city}}
+                {{/each}}
                 </th>
 
             </tr>

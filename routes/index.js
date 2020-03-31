@@ -53,15 +53,27 @@ router.get('/table_budget',  (req, res) => {
         Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
           manyBudgets.forEach((budget) => {
             Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-              dadosPuxados.push({dados_client: client , dados_manyBudgets: manyBudgets, dados_manyFlights:manyFlights});
-              console.log(client.fullname);
-              cont ++;
-              if(cont === clients.length){
-                  res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-              }
+              manyFlights.forEach((flight)=>{
+
+                Hotel.getByIdArray(budget.hotels).then((manyHotels)=>{
+                  dadosPuxados.push({dados_client: client , dados_manyBudgets: manyBudgets, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels});
+                });
+                console.log(client.fullname);
+                cont ++;
+                if(cont === clients.length){
+                    res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+                }
+
+
+              });
+
+
+
             });
-          });
+
+
         });
+      });
     });
 
   });

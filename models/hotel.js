@@ -117,6 +117,16 @@ class Hotel {
    });
  }
 
+ static getByIdArray(id_array){
+     return new Promise((resolve, reject)=> {
+         HotelSchema.find({ _id: {$in: id_array} }).then((hotels)=>{
+             resolve(hotels);
+         }).catch((err) => {
+         reject(err);
+       });
+     })
+ }
+
 }
 
 module.exports = Hotel;
