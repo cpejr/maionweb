@@ -47,56 +47,60 @@ router.get('/forgot',  (req, res) => {
 // Tabela budget
 router.get('/table_budget',  (req, res) => {
     var dadosPuxados = [];
-    // Budget.getAll().then((budgets)=>{
-    //   let cont = 0;
-    //   budgets.forEach((budget)=>{
-    //     dadosPuxados.push({dados_budgets: budget});
-    //     Client.getByIdArray(budgets.client).then((cliente)=>{
-    //       dadosPuxados.push({dados_client: cliente});
-    //     });
-    //     Flight.getByIdArray(budgets.flights).then((manyFlights)=>{
-    //       dadosPuxados.push({dados_manyFlights:manyFlights});
-    //       console.log(client.fullname);
-    //
-    //     });
-    //
-    //     Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-    //       dadosPuxados.push({dados_manyHotels:manyHotels});
-    //       cont ++;
-    //       if(cont === clients.length){
-    //         console.log(dadosPuxados);
-    //           res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-    //       }
-    //     });
-    //
-    //   });
-    // });
-
-
-
-  Client.getAll().then((clients) =>{
-    let cont = 0;
-    clients.forEach((client)=>{
-        Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
-          manyBudgets.forEach((budget) => {
-            Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-              dadosPuxados.push({dados_client: client , dados_manyBudgets: manyBudgets, dados_manyFlights:manyFlights});
-              console.log(client.fullname);
-
-            });
+    Budget.getAll().then((budgets)=>{
+      let cont = 0;
+      budgets.forEach((budget)=>{
+        Client.getByIdArray(budget.client).then((cliente)=>{
+          Flight.getByIdArray(budget.flights).then((manyFlights)=>{
             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-              dadosPuxados.push({dados_manyHotels:manyHotels});
-              cont ++;
-              if(cont === clients.length){
-                console.log(dadosPuxados);
-                  res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-              }
+              Car.getByIdArray(budget.cars).then((manyCars)=>{
+                Safe.getByIdArray(budget.safes).then((manySafes)=>{
+                  dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                  cont ++;
+                  if(cont === budgets.length){
+                      res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+                  }
+                });
+              });
             });
           });
+
+
+
         });
+
+
+      });
     });
 
-  });
+
+
+  // Client.getAll().then((clients) =>{
+  //   let contClient = 0;
+  //   clients.forEach((client)=>{
+  //       Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
+  //         let contBudget = 0;
+  //         manyBudgets.forEach((budget) => {
+  //           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+  //             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+  //               Car.getByIdArray(budget.cars).then((manyCars)=>{
+  //                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
+  //                   dadosPuxados.push({dados_client: client , dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+  //                   contBudget ++;
+  //                   if(contBudget === budget.length){
+  //                       contClient ++;
+  //                   }
+  //                 });
+  //               });
+  //             });
+  //           });
+  //           if(contClient === clients.length){
+  //               res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+  //           }
+  //         });
+  //       });
+  //   });
+  // });
 });
 
 

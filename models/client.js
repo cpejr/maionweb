@@ -352,6 +352,16 @@ class Client {
             });
           }
 
+          static getByIdArray(id_array){
+              return new Promise((resolve, reject)=> {
+                  ClientModel.find({ _id: {$in: id_array} }).then((clients)=>{
+                      resolve(clients);
+                  }).catch((err) => {
+                  reject(err);
+                });
+              })
+          }
+
 }
 
 module.exports = Client;
