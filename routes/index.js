@@ -104,73 +104,103 @@ router.get('/table_budget',  (req, res) => {
 });
 
 
-router.get('/table', (req, res)=>{
-    Client.getAll().then((clientes)=>{
-    const tamClient =clientes.length;
-
-    console.log(tamClient);
-    var viagens;
-    var voos = [];
-    var hoteis;
-    var carros;
-    var seguros;
-    for(var i=0; i<tamClient; i++){
-        console.log(clientes[i].budgets.length);
-        var tamBudget = clientes[i].budgets.length;
-
-        for(var j=0; j<tamBudget; j++){
-          Budget.getById(clientes[i].budgets[j]).then((budget)=>{
-            viagens = budget;
-            const flights = budget.flights;
-            const hotels = budget.hotels;
-            const cars = budget.cars;
-            const safes = budget.safes;
-            Flight.getById(flights).then((flight) =>{
-                  voos.push(flight);
-
-
-             }).catch((error) => {
-                console.log(error);
-                res.redirect('/error');
+router.get('/table',  (req, res) => {
+    var dadosPuxados = [];
+    Budget.getAll().then((budgets)=>{
+      let cont = 0;
+      for(let i = 0; i < budgets.length; i++){
+        Client.getByIdArray(budgets[i].client).then((cliente)=>{
+          Flight.getByIdArray(budgets[i].flights).then((manyFlights)=>{
+            Hotel.getByIdArray(budgets[i].hotels).then((manyHotels) =>{
+              Car.getByIdArray(budgets[i].cars).then((manyCars)=>{
+                Safe.getByIdArray(budgets[i].safes).then((manySafes)=>{
+                  dadosPuxados.push({dados_manyBudgets: budgets[i], dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                  cont ++;
+                  if(cont === budgets.length){
+                      res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+                  }
+                });
+              });
             });
-                Hotel.getById(hotels).then((hotel) =>{
+          });
 
-             }).catch((error) => {
-                console.log(error);
-                res.redirect('/error');
-            });
-                Car.getById(cars).then((car) =>{
 
-             }).catch((error) => {
-                console.log(error);
-                res.redirect('/error');
-            });
-                Safe.getById(safes).then((safe) =>{
 
-             }).catch((error) => {
-                console.log(error);
-                res.redirect('/error');
-            });
-
-        }).catch((error) => {
-            console.log(error);
-            res.redirect('/error');
         });
 
-        }
-        console.log(viagens);
-    }
-    res.render('table',{clientes, viagens, title: 'Tabela de Clientes', layout: 'layout'});
-  }).catch((error) => {
-   console.log(error);
-   res.redirect('/error');
-  });
 
+      }
+    });
 });
 
+
+// router.get('/table', (req, res)=>{
+//     Client.getAll().then((clientes)=>{
+//     const tamClient =clientes.length;
+//
+//     console.log(tamClient);
+//     var viagens;
+//     var voos = [];
+//     var hoteis;
+//     var carros;
+//     var seguros;
+//     for(var i=0; i<tamClient; i++){
+//         console.log(clientes[i].budgets.length);
+//         var tamBudget = clientes[i].budgets.length;
+//
+//         for(var j=0; j<tamBudget; j++){
+//           Budget.getById(clientes[i].budgets[j]).then((budget)=>{
+//             viagens = budget;
+//             const flights = budget.flights;
+//             const hotels = budget.hotels;
+//             const cars = budget.cars;
+//             const safes = budget.safes;
+//             Flight.getById(flights).then((flight) =>{
+//                   voos.push(flight);
+//
+//
+//              }).catch((error) => {
+//                 console.log(error);
+//                 res.redirect('/error');
+//             });
+//                 Hotel.getById(hotels).then((hotel) =>{
+//
+//              }).catch((error) => {
+//                 console.log(error);
+//                 res.redirect('/error');
+//             });
+//                 Car.getById(cars).then((car) =>{
+//
+//              }).catch((error) => {
+//                 console.log(error);
+//                 res.redirect('/error');
+//             });
+//                 Safe.getById(safes).then((safe) =>{
+//
+//              }).catch((error) => {
+//                 console.log(error);
+//                 res.redirect('/error');
+//             });
+//
+//         }).catch((error) => {
+//             console.log(error);
+//             res.redirect('/error');
+//         });
+//
+//         }
+//         console.log(viagens);
+//     }
+//     res.render('table',{clientes, viagens, title: 'Tabela de Clientes', layout: 'layout'});
+//   }).catch((error) => {
+//    console.log(error);
+//    res.redirect('/error');
+//   });
+//
+// });
+//
 /*Get da cadastro de novo usuario*/
 router.get('/newuser', auth.isAuthenticated, auth.isAdmin, (req, res)=>{
-  res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
+ res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
 });
 
 

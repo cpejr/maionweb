@@ -31,10 +31,113 @@
                 <th>Data do voo</th>
                 <th>Origem do voo</th>
                 <th>Destino do voo</th>
+                <th>Horário de Saída do voo</th>
+                <th>Horário de Chegada do voo</th>
 
-                <th>Cidade Hotel</th>
-                <th>acomodaçao1</th>
-                <th>acomodaçao2</th>
+                <th>Tarifa ADT Primeira Classe</th>
+                <th>Embarque ADT Primeira Classe</th>
+                <th>Emissão ADT Primeira Classe</th>
+                <th>Total ADT Primeira Classe</th>
+                <th>Número de passagens ADT Primeira Classe</th>
+
+                <th>Tarifa ADT Executivo</th>
+                <th>Embarque ADT Executivo</th>
+                <th>Emissão ADT Executivo</th>
+                <th>Total ADT Executivo</th>
+                <th>Número de passagens ADT Executivo</th>
+
+                <th>Tarifa ADT Econômico</th>
+                <th>Embarque ADT Econômico</th>
+                <th>Emissão ADT Econômico</th>
+                <th>Total ADT Econômico</th>
+                <th>Número de passagens ADT Econômico</th>
+
+                <th>Tarifa CHD Primeira Classe</th>
+                <th>Embarque CHD Primeira Classe</th>
+                <th>Emissão CHD Primeira Classe</th>
+                <th>Total CHD Primeira Classe</th>
+                <th>Número de passagens CHD Primeira Classe</th>
+
+                <th>Tarifa CHD Executivo</th>
+                <th>Embarque CHD Executivo</th>
+                <th>Emissão CHD Executivo</th>
+                <th>Total CHD Executivo</th>
+                <th>Número de passagens CHD Executivo</th>
+
+                <th>Tarifa CHD Econômico</th>
+                <th>Embarque CHD Econômico</th>
+                <th>Emissão CHD Econômico</th>
+                <th>Total CHD Econômico</th>
+                <th>Número de passagens CHD Econômico</th>
+
+                <th>Tarifa INF Primeira Classe</th>
+                <th>Embarque INF Primeira Classe</th>
+                <th>Emissão INF Primeira Classe</th>
+                <th>Total INF Primeira Classe</th>
+                <th>Número de passagens INF Primeira Classe</th>
+
+                <th>Tarifa INF Executivo</th>
+                <th>Embarque INF Executivo</th>
+                <th>Emissão INF Executivo</th>
+                <th>Total INF Executivo</th>
+                <th>Número de passagens INF Executivo</th>
+
+                <th>Tarifa INF Econômico</th>
+                <th>Embarque INF Econômico</th>
+                <th>Emissão INF Econômico</th>
+                <th>Total INF Econômico</th>
+                <th>Número de passagens INF Econômico</th>
+
+
+
+
+
+
+
+                <th>Cidade 1 Hotel</th>
+                <th>Moeda Hotel</th>
+
+                <th>Tipo da Acomodação 1</th>
+                <th>Hotel 1</th>
+                <th>Número de pessoas 1</th>
+                <th>Categoria Apartamento 1</th>
+                <th>Regime de Alimentação 1</th>
+                <th>Valor do Apartamento 1</th>
+                <th>Número de Diárias 1</th>
+                <th>Número de Apartamentos 1</th>
+                <th>Total Hotel 1</th>
+                <th>Prazo 1</th>
+
+
+                <th>Tipo da Acomodação 2</th>
+                <th>Hotel 2</th>
+                <th>Número de pessoas 2</th>
+                <th>Categoria Apartamento 2</th>
+                <th>Regime de Alimentação 2</th>
+                <th>Valor do Apartamento 2</th>
+                <th>Número de Diárias 2</th>
+                <th>Número de Apartamentos 2</th>
+                <th>Total Hotel 2</th>
+                <th>Prazo 2</th>
+
+
+
+
+                <th>Tipo da Acomodação 3</th>
+                <th>Hotel 3</th>
+                <th>Número de pessoas 3</th>
+                <th>Categoria Apartamento 3</th>
+                <th>Regime de Alimentação 3</th>
+                <th>Valor do Apartamento 3</th>
+                <th>Número de Diárias 3</th>
+                <th>Número de Apartamentos 3</th>
+                <th>Total Hotel 3</th>
+                <th>Prazo 3</th>
+
+
+
+
+
 
                 <th>Origem Carro</th>
 
@@ -150,10 +253,30 @@
                 </th>
 
                 <th>
+                {{#each dados_manyFlights}}
+                {{timeOut}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{timeIn}}
+                {{/each}}
+                </th>
+
+                <th>
                 {{#each dados_manyHotels}}
                 {{city}}
                 {{/each}}
                 </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{coin}}
+                {{/each}}
+                </th>
+
+                <!-- Hotel1 -->
 
                 <th>
                 {{#each dados_manyHotels}}
@@ -163,7 +286,179 @@
 
                 <th>
                 {{#each dados_manyHotels}}
+                {{hotel1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{qntd1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{category1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{food1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{valueApt1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{numberDaily1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{numberApt1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{total1}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{cancellationPeriod}}
+                {{/each}}
+                </th>
+
+                <!-- Hotel2 -->
+
+                <th>
+                {{#each dados_manyHotels}}
                 {{acomodationType2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{hotel2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{qntd2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{category2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{food2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{valueApt2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{numberDaily2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{numberApt2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{total2}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{cancellationPeriod2}}
+                {{/each}}
+                </th>
+
+                <!-- Hotel3 -->
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{acomodationType3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{hotel3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{qntd3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{category3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{food3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{valueApt3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{numberDaily3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{numberApt3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{total3}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyHotels}}
+                {{cancellationPeriod3}}
                 {{/each}}
                 </th>
 
