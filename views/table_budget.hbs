@@ -13,7 +13,10 @@
         <thead>
             <tr>
 
+<!-- Cliente____________________________________________________________________ -->
                 <th>Nome</th>
+
+<!-- Viagens____________________________________________________________________ -->
                 <th>Responsável</th>
                 <th>Companhia</th>
                 <th>codFile</th>
@@ -27,6 +30,7 @@
                 <th>Companhia</th>
                 <th>Finalizado</th>
 
+<!-- Voos_______________________________________________________________________ -->
                 <th>Numero do voo</th>
                 <th>Data do voo</th>
                 <th>Origem do voo</th>
@@ -88,12 +92,7 @@
                 <th>Total INF Econômico</th>
                 <th>Número de passagens INF Econômico</th>
 
-
-
-
-
-
-
+<!-- Hotéis_____________________________________________________________________ -->
                 <th>Cidade 1 Hotel</th>
                 <th>Moeda Hotel</th>
 
@@ -108,7 +107,6 @@
                 <th>Total Hotel 1</th>
                 <th>Prazo 1</th>
 
-
                 <th>Tipo da Acomodação 2</th>
                 <th>Hotel 2</th>
                 <th>Número de pessoas 2</th>
@@ -119,9 +117,6 @@
                 <th>Número de Apartamentos 2</th>
                 <th>Total Hotel 2</th>
                 <th>Prazo 2</th>
-
-
-
 
                 <th>Tipo da Acomodação 3</th>
                 <th>Hotel 3</th>
@@ -134,13 +129,10 @@
                 <th>Total Hotel 3</th>
                 <th>Prazo 3</th>
 
-
-
-
-
-
+<!-- Transporte_________________________________________________________________ -->
                 <th>Origem Carro</th>
 
+<!-- Seguro_____________________________________________________________________ -->
                 <th>Nome da Seguradora</th>
 
 
@@ -149,13 +141,15 @@
         <tbody id="client_table">
           {{#each information}}
             <tr>
+
+<!-- Cliente____________________________________________________________________ -->
               <th>
               {{#each dados_client}}
               {{fullname}}
               {{/each}}
               </th>
 
-
+<!-- Viagens____________________________________________________________________ -->
                 <th>
                 {{#each dados_manyBudgets}}
                 {{responsable}}
@@ -228,6 +222,7 @@
                 {{/each}}
                 </th>
 
+<!-- Voos_______________________________________________________________________ -->
                 <th>
                 {{#each dados_manyFlights}}
                 {{flightNum}}
@@ -264,6 +259,286 @@
                 {{/each}}
                 </th>
 
+                <!-- Adultos Primeira Classe -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueAdult_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueAdult_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueAdult_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueAdult_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numADT_FirstClass}}
+                {{/each}}
+                </th>
+
+                <!-- Adultos Classe Executiva -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueAdult_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueAdult_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueAdult_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueAdult_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numADT_Executive}}
+                {{/each}}
+                </th>
+
+                <!-- Adultos Classe Econômica -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueAdult_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueAdult_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueAdult_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueAdult_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numADT_Economic}}
+                {{/each}}
+                </th>
+
+                <!-- CHD Primeira Classe -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueCHD_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueCHD_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueCHD_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueCHD_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numCHD_FirstClass}}
+                {{/each}}
+                </th>
+
+                <!-- CHD Classe Executiva -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueCHD_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueCHD_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueCHD_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueCHD_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numCHD_Executive}}
+                {{/each}}
+                </th>
+
+                <!-- CHD Classe Econômica -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueCHD_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueCHD_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueCHD_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueCHD_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numCHD_Economic}}
+                {{/each}}
+                </th>
+
+                <!-- Adultos Primeira Classe -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueInf_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueInf_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueInf_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueInf_FirstClass}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numINF_FirstClass}}
+                {{/each}}
+                </th>
+
+                <!-- Adultos Classe Executiva -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueInf_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueInf_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueInf_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueInf_Executive}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numINF_Executive}}
+                {{/each}}
+                </th>
+
+                <!-- Adultos Classe Econômica -->
+                <th>
+                {{#each dados_manyFlights}}
+                {{tariffValueInf_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{taxValueInf_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{ravValueInf_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{totalValueInf_Economic}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyFlights}}
+                {{numINF_Economic}}
+                {{/each}}
+                </th>
+
+<!-- Hotéis_____________________________________________________________________ -->
                 <th>
                 {{#each dados_manyHotels}}
                 {{city}}
@@ -462,12 +737,14 @@
                 {{/each}}
                 </th>
 
+<!-- Transporte_________________________________________________________________ -->
                 <th>
                 {{#each dados_manyCars}}
                 {{from}}
                 {{/each}}
                 </th>
 
+<!-- Seguro_____________________________________________________________________ -->
                 <th>
                 {{#each dados_manySafes}}
                 {{insuranceName}}
