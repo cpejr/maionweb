@@ -15,6 +15,7 @@
 
 <!-- Cliente____________________________________________________________________ -->
                 <th>Nome</th>
+                <th>CPF</th>
 
 <!-- Viagens____________________________________________________________________ -->
                 <th>Responsável</th>
@@ -131,23 +132,80 @@
 
 <!-- Transporte_________________________________________________________________ -->
                 <th>Origem Carro</th>
+                <th>Destino Carro</th>
+                <th>Data Carro</th>
+                <th>Hora Carro</th>
+                <th>Valor por ADT</th>
+                <th>Valor por CHD</th>
+                <th>Valor por INF</th>
+                <th>Número de ADT</th>
+                <th>Número de CHD</th>
+                <th>Número de INF</th>
+                <th>Moeda</th>
+                <th>Total translado</th>
+
+                <th>Categoria Carro</th>
+                <th>Cidade de retirada</th>
+                <th>Cidade de devolução</th>
+                <th>Valor Carro</th>
+                <th>Cidade</th>
+                <th>Características</th>
+                <th>Seguros</th>
+                <th>Outros</th>
+                <th>Moeda</th>
 
 <!-- Seguro_____________________________________________________________________ -->
-                <th>Nome da Seguradora</th>
+                <th>Suguro</th>
+                <th>Cobertura</th>
+                <th>Valor por ADT</th>
+                <th>Número de ADT</th>
+                <th>Valor por CHD</th>
+                <th>Número de CHD</th>
+                <th>Valor por INF</th>
+                <th>Número de INF</th>
+                <th>Moeda</th>
+                <th>Total seguro</th>
 
+                <th>Ticket</th>
+                <th>Valor por ADT</th>
+                <th>Número de ADT</th>
+                <th>Valor por CHD</th>
+                <th>Número de CHD</th>
+                <th>Valor por INF</th>
+                <th>Número de INF</th>
+                <th>Moeda</th>
+                <th>Total ticket</th>
+
+                <th>Outro item</th>
+                <th>Valor por ADT</th>
+                <th>Número de ADT</th>
+                <th>Valor por CHD</th>
+                <th>Número de CHD</th>
+                <th>Valor por INF</th>
+                <th>Número de INF</th>
+                <th>Moeda</th>
+                <th>Total outro item</th>
 
             </tr>
         </thead>
+
+
         <tbody id="client_table">
           {{#each information}}
             <tr>
 
 <!-- Cliente____________________________________________________________________ -->
-              <th>
-              {{#each dados_client}}
-              {{fullname}}
-              {{/each}}
-              </th>
+                <th>
+                {{#each dados_client}}
+                {{fullname}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_client}}
+                {{register}}
+                {{/each}}
+                </th>
 
 <!-- Viagens____________________________________________________________________ -->
                 <th>
@@ -744,12 +802,298 @@
                 {{/each}}
                 </th>
 
+                <th>
+                {{#each dados_manyCars}}
+                {{to}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{dateFrom}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{timeFrom}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{valueADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{valueCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{valueINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{numADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{numCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{numINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{coinT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{totalTranslado}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{typeCar}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{withdrawal}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{delivery}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{totalCar}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{city}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{shift}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{safe}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{others}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manyCars}}
+                {{coinC}}
+                {{/each}}
+                </th>
+
 <!-- Seguro_____________________________________________________________________ -->
                 <th>
                 {{#each dados_manySafes}}
                 {{insuranceName}}
                 {{/each}}
                 </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{insuranceCoverage}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{insuranceADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{SafenumADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{insuranceCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{SafenumCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{insuranceINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{SafenumINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{insuranceCoin}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{insuranceTOT}}
+                {{/each}}
+                </th>
+
+                <!-- Tickets-->
+                <th>
+                {{#each dados_manySafes}}
+                {{ticketsName}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{ticketsADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{TicketnumADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{ticketsCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{TicketnumCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{ticketsINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{TicketnumINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{ticketsCoin}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{ticketsTOT}}
+                {{/each}}
+                </th>
+
+                <!-- Outros -->
+                <th>
+                {{#each dados_manySafes}}
+                {{otherName}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{otherADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{OthernumADT}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{otherCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{OthernumCHD}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{otherINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{OthernumINF}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{otherCoin}}
+                {{/each}}
+                </th>
+
+                <th>
+                {{#each dados_manySafes}}
+                {{otherTOT}}
+                {{/each}}
+                </th>
+
+
 
             </tr>
 
