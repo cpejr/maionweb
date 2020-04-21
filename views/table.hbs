@@ -12,6 +12,7 @@
       <table class="table table-striped table-hover" id="mytable2">
         <thead>
           <tr>
+
             <!-- Dados pessoais -->
             <th>Nome</th>
             <th>CPF</th>
@@ -25,21 +26,36 @@
             <th>Data de Nascimento</th>
             <th>Passaporte</th>
             <th>Validade do Passaporte</th>
+            <th>Profissão</th>
+
             <!-- Dados do Cônjuge -->
             <th>Nome do Cônjuge</th>
+            <th>Data de Nascimento do Cônjuge</th>
+            <th>Email do Cônjuge</th>
+            <th>Telefone fixo do Cônjuge</th>
             <th>Anivesário de Casamento</th>
             <th>Profissão do Cônjuge</th>
             <th>Passaporte do Cônjuge</th>
             <th>Validade do Passaporte do Cônjuge</th>
+
             <!-- Dados do Filho -->
             <th>Nome do Filho</th>
             <th>Data de Nascimento do Filho</th>
             <th>Passaporte do Filho</th>
             <th>Validade do Passaporte do Filho</th>
 
+            <!-- Dados do Acompanhante -->
+            <th>Nome do Acompanhante</th>
+            <th>Data de Nascimento do Acompanhante</th>
+            <th>Celular do Acompanhante</th>
+            <th>Email do Acompanhante</th>
+            <th>Passaporte do Acompanhante</th>
+            <th>Validade do Passaporte do Acompanhante</th>
+
             <!-- Redes sociais -->
             <th>Instagram</th>
             <th>Facebook</th>
+
             <!-- Necessidades -->
             <th>Necessidade de Status</th>
             <th>Necessidade de Conhecimento</th>
@@ -56,6 +72,7 @@
             <th>Perfil Comida</th>
             <th>Perfil Vinhos </th>
             <th>Outro Perfil</th>
+
             <!-- Hotel -->
             <th>Hotel Conteporâneo</th>
             <th>Hotel Clássico</th>
@@ -64,6 +81,18 @@
             <th>Hotel Andar Alto</th>
             <th>Hotel Andar Baixo</th>
             <th>Outro Hotel</th>
+
+            <!-- Resorts -->
+            <th>Adepto à Resorts Sim</th>
+            <th>Adepto à Resorts Não</th>
+            <th>Adepto à Resorts Talvez</th>
+            <!-- Budget Mínimo -->
+            <th>Budget Mínimo</th>
+
+            <!-- Classe do Avião -->
+            <th>Classe do Avião</th>
+            <th>Assento de preferência</th>
+
             <!-- Esporte -->
             <th>Corrida</th>
             <th>Bike</th>
@@ -75,6 +104,7 @@
             <th>Golf</th>
             <th>Tênis</th>
             <th>Outro Esporte</th>
+
             <!-- Gastronomia -->
             <th>Comida Italiana</th>
             <th>Comida Japonesa</th>
@@ -86,88 +116,33 @@
             <th>Carne</th>
             <th>Outra Dieta</th>
 
+            <!-- Fumante -->
+            <th>Fumante Sim</th>
+            <th>Fumante Não</th>
 
-            <th>Necessidade de status</th>
-            
-            <!--Page b-->
-            <th>Necessidade de conhecimento</th>
-            <th>Necessidade de novas experiências</th>
-            <th>Necessidade de Diversão</th>
-            <th>Necessidade de Bem-estar</th>
-            <th>Necessidade de Exclusividade</th>
-            <th>Outra Necessidade ?</th>
-              
-<!--              ok-->
-              
-            <th>Perfil de Esporte</th>
-            <th>Perfil de Refinado</th>
-            <th>Perfil de Simples</th>
-            <th>Perfil de Cult</th>
-            <th>Perfil de Comida</th>
-            <th>Perfil de Vinhos</th>
-            <th>Outro perfil ?</th>
-              
-<!--              ok-->
-              
-            <th>hotéis contemporâneos</th>
-            <th>hotéis clássicos</th>
-            <th>hotéis boutique</th>
-            <th>hotéis Simples</th>
-            <th>hotéis Andar alto</th>
-            <th>hotéis Andar Baixo</th>
-            <th>Outros tipos de hotéis ?</th>
-              
-<!--              ok-->
-              
-            <th>Adepto à Resorts Sim</th>
-            <th>Adepto à Resorts Não</th>
-            <th>Adepto à Resorts Talvez</th>
-            <th>Budget Mínimo</th>
-            <th>Classe do avião</th> 
-            <th>Posição no avião</th>
-            <th>Esporte Corrida</th>
-            <th>Esporte Bike</th>
-            <th>Esporte Natação</th>
-            <th>Esporte Corrida de carro</th>
-            <th>Esporte Musculação</th>
-            <th>Esporte Pesca</th>
-            <th>Esporte Mergulho</th>
-            <th>Esporte Golf</th>
-            <th>Esporte Tênis</th>
-            <th>Qual Esporte ?</th>
-            <th>Gastronomia Italiana</th>
-            <th>Gastronomia Japonesa</th>
-            <th>Gastronomia Mediterranêa</th>
-            <th>Gastronomia indiana</th>
-            <th>Gastronomia Asiática</th>
-            <th>Gastronomia Francesa</th>
-            <th>Gastronomia Frutos do mar</th>
-            <th>Gastronomia Carnes</th>
-            <th>Outra gastronomia ?</th>
-            <th>Fumantes sim</th>
-            <th>Fumantes não</th>
-            <th>Alergia não</th>
-            <th>Alergia não</th>
-            <th>Qual alergia ?</th>
-            <th>Dificuldade de locomoção sim</th>
-            <th>Dificuldade de locomoção não</th>
-            <th>Qual dificuldade de locomoção ?</th>
-            <th>Restrinção alimentar sim</th>
-            <th>Restrinção alimentar sim</th>
+            <!-- Alergia -->
+            <th>Alergia Sim</th>
+            <th>Alergia Não</th>
+            <th>Qual alergia?</th>
+
+            <!-- Dificuldade de Locomoção -->
+            <th>Dificuldade de Locomoção Sim</th>
+            <th>Dificuldade de Locomoção Não</th>
+            <th>Qual dificuldade?</th>
+
+            <!-- Restrição Alimentar -->
+            <th>Restrição Alimentar Sim</th>
+            <th>Restrição Alimentar Não</th>
             <th>Vegano</th>
             <th>Vegetariano</th>
-            <th>Qual comida ?</th>
-            <th>Filhos</th>
-            <th>Data de aniversário</th>
-            <th>Número do passaporte</th>
-            <th>Validade do passaporte</th>
-            
+            <th>Qual restrição?</th>
 
           </tr>
         </thead>
         <tbody id="client_table">
-          {{#each clientes}}
+          {{#each clients}}
           <tr>
+
             <!-- Dados pessoais -->
             <th>{{fullname}}</th>
             <th>{{register}}</th>
@@ -181,31 +156,45 @@
             <th>{{birthDate}}</th>
             <th>{{passport}}</th>
             <th>{{passportValidation}}</th>
+            <th>{{profession}}</th>
+
             <!-- Dados do Cônjuge -->
             <th>{{spouseName}}</th>
+            <th>{{birthDateSpouse}}</th>
+            <th>{{spouseEmail}}</th>
+            <th>{{phoneFamily}}</th>
             <th>{{wedding_anniversary}}</th>
             <th>{{spouseProfession}}</th>
             <th>{{spousePassport}}</th>
             <th>{{spousePassportValidation}}</th>
+
             <!-- Dados do Filho -->
             <th>{{children}}</th>
             <th>{{birthDateChildren}}</th>
             <th>{{childrenPassport}}</th>
+            <th>{{childrenPassportValidation}}</th>
+
+            <!-- Dados do Acompanhante -->
+            <th>{{companionFullname}}</th>
+            <th>{{birthDateCompanion}}</th>
+            <th>{{companionCellphone}}</th>
+            <th>{{companionEmail}}</th>
+            <th>{{companionPassport}}</th>
+            <th>{{companionPassportValidation}}</th>
 
             <!-- Redes sociais -->
             <th>{{instagram}}</th>
             <th>{{facebook}}</th>
-           
-              <!-- Necessidades -->
 
+            <!-- Necessidades -->
             <th>{{profile_Status}}</th>
             <th>{{profile_Conhecimento}}</th>
             <th>{{profile_NovasExperiencias}}</th>
             <th>{{profile_Diversao}}</th>
             <th>{{profile_BemEstar}}</th>
-
             <th>{{profile_Exclusividade}}</th>
             <th>{{profile_OtherNeed}}</th>
+
             <!-- Perfil -->
             <th>{{profile_Esporte}}</th>
             <th>{{profile_Refinado}}</th>
@@ -214,18 +203,8 @@
             <th>{{profile_Comida}}</th>
             <th>{{profile_Vinhos}}</th>
             <th>{{profile_OtherType}}</th>
+
             <!-- Hotel -->
-
-            <th>{{profile_Exclusividade}}</th> 
-            <th>{{profile_OtherNeed}}</th>
-            <th>{{profile_Esporte}}</th>
-            <th>{{profile_Refinado}}</th>
-            <th>{{profile_Simples}}</th>
-            <th>{{profile_Cult}}</th> 
-            <th>{{profile_Comida}}</th>
-            <th>{{profile_Vinhos}}</th>
-            <th>{{profile_OtherType}}</th>
-
             <th>{{profile_Contemporaneo}}</th>
             <th>{{profile_Classico}}</th>
             <th>{{profile_Boutique}}</th>
@@ -234,15 +213,19 @@
             <th>{{profile_AndarBaixo}}</th>
             <th>{{profile_OtherHotel}}</th>
 
-            <!-- Esporte -->
-
+            <!-- Resort -->
             <th>{{profile_ResortSim}}</th>
             <th>{{profile_ResortNao}}</th>
             <th>{{profile_ResortTalvez}}</th>
+
+            <!-- Budget Mínimo -->
             <th>{{average_Budget}}</th>
+
+            <!-- Classe do Avião -->
             <th>{{plane_class}}</th>
             <th>{{plane_seat_pref}}</th>
 
+            <!-- Esporte -->
             <th>{{profile_Corrida}}</th>
             <th>{{profile_Bike}}</th>
             <th>{{profile_Natação}}</th>
@@ -254,8 +237,7 @@
             <th>{{profile_Tênis}}</th>
             <th>{{profile_OtherSports}}</th>
 
-            <!-- Comida -->
-
+            <!-- Gastronomia -->
             <th>{{profile_Italiana}}</th>
             <th>{{profile_Japonesa}}</th>
             <th>{{profile_Mediterrânea}}</th>
@@ -266,35 +248,26 @@
             <th>{{profile_Carnes}}</th>
             <th>{{profile_OtherDiet}}</th>
 
+            <!-- Fumante -->
             <th>{{profile_SmokeSim}}</th>
             <th>{{profile_SmokeNão}}</th>
+
+            <!-- Alergia -->
             <th>{{profile_AllergySim}}</th>
             <th>{{profile_AllergyNão}}</th>
             <th>{{profile_WhichAllergy}}</th>
+
+            <!-- Dificuldade de Locomoção -->
             <th>{{profile_DisableSim}}</th>
             <th>{{profile_DisableNão}}</th>
             <th>{{profile_WhichDisable}}</th>
+
+            <!-- Restrição Alimentar -->
             <th>{{profile_FoodSim}}</th>
             <th>{{profile_FoodNão}}</th>
             <th>{{profile_FoodVegano}}</th>
             <th>{{profile_FoodVegetariano}}</th>
             <th>{{profile_WhichFood}}</th>
-              
-              <!--Teste-->
-              
-            <th>{{children}}</th>
-            <th>{{birthDateChildren}}</th>
-            <th>{{childrenPassport}}</th>
-            <th>{{childrenPassportValidation}}</th>
-              
-              
-              
-              
-              
-                        
-
-              
-
 
           </tr>
           {{/each}}
@@ -304,7 +277,7 @@
     <!-- </body> -->
   </div>
   </div>
-    
+
     <div>
         <button onClick="docCsv()">
             Exportar dados para arquivo.csv
@@ -312,7 +285,7 @@
           </div>
   </div>
 
-      
+
 
 <script>
   function Mudarestado(divid){

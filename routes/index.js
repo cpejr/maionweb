@@ -198,6 +198,15 @@ router.get('/table',  (req, res) => {
 //
 // });
 //
+
+/*Get da tabela de clientes*/
+router.get('/tabelaclientes', (req, res)=>{
+Client.getAll().then((clients)=>{
+  res.render('table',{clients, title: 'Tabela de Clientes', layout: 'layout'});
+})
+
+});
+
 /*Get da cadastro de novo usuario*/
 router.get('/newuser', auth.isAuthenticated, auth.isAdmin, (req, res)=>{
  res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
