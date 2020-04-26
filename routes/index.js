@@ -105,7 +105,7 @@ router.get('/table_budget',  (req, res) => {
 
 
 router.get('/table',  (req, res) => {
-    var dadosPuxados = [];
+    let dadosPuxados = [];
     Budget.getAll().then((budgets)=>{
       let cont = 0;
       for(let i = 0; i < budgets.length; i++){
@@ -117,20 +117,47 @@ router.get('/table',  (req, res) => {
                   dadosPuxados.push({dados_manyBudgets: budgets[i], dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
                   cont ++;
                   if(cont === budgets.length){
-                      res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+                    Client.getAll().then((clientes)=>{
+                      res.render('table', { clientes, title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+                    }).catch((error) => {
+                        console.log(error);
+                        res.redirect('/error');
+                    });
+                    
                   }
+
+                }).catch((error) => {
+                    console.log(error);
+                    res.redirect('/error');
                 });
+
+              }).catch((error) => {
+                  console.log(error);
+                  res.redirect('/error');
               });
+
+            }).catch((error) => {
+                console.log(error);
+                res.redirect('/error');
             });
+
+          }).catch((error) => {
+              console.log(error);
+              res.redirect('/error');
           });
 
-
-
+        }).catch((error) => {
+            console.log(error);
+            res.redirect('/error');
         });
 
-
       }
+
+    }).catch((error) => {
+        console.log(error);
+        res.redirect('/error');
     });
+
 });
 
 
@@ -200,12 +227,12 @@ router.get('/table',  (req, res) => {
 //
 
 /*Get da tabela de clientes*/
-router.get('/tabelaclientes', (req, res)=>{
-Client.getAll().then((clients)=>{
-  res.render('table',{clients, title: 'Tabela de Clientes', layout: 'layout'});
-})
-
-});
+// router.get('/tabelaclientes', (req, res)=>{
+// Client.getAll().then((clients)=>{
+//   res.render('table',{clients, title: 'Tabela de Clientes', layout: 'layout'});
+// })
+//
+// });
 
 /*Get da cadastro de novo usuario*/
 router.get('/newuser', auth.isAuthenticated, auth.isAdmin, (req, res)=>{
