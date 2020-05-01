@@ -7,8 +7,9 @@
 
 <div class="pagesFront">
   <div class="table-responsive">
+    Este botão gera um arquivo com duas tabelas: uma com os dados e o perfil do cliente e outra com os dados de todas as viagens cadastradas.
 <div id = "tabelainvisivel">
-<!-- <body onload="Mudarestado('tabelainvisivel')"> -->
+ <body onload="Mudarestado('tabelainvisivel')">
       <table class="table table-striped table-hover" id="tabelaClientes">
         <thead>
           <tr>
@@ -245,7 +246,7 @@
         </tbody>
       </table>
     <!-- </body> -->
-  </div>
+
 
   <div>
     <!-- <body onload="Mudarestado('tabelainvisivel')"> -->
@@ -430,8 +431,8 @@
           <tr>
 
 <!-- Cliente____________________________________________________________________ -->
-              <td>{{#each dados_client}}{{fullname}}{{/each}}</td>
-              <td>{{#each dados_client}}{{register}}{{/each}}</td>
+              <th>{{#each dados_client}}{{fullname}}{{/each}}</th>
+              <th>{{#each dados_client}}{{register}}{{/each}}</th>
 
 <!-- Viagens____________________________________________________________________ -->
               <th>{{#each dados_manyBudgets}}{{codFile}}{{/each}}</th>
@@ -609,6 +610,8 @@
 
       </tbody>
     </table>
+  </body>
+  </div>
 </div>
 
   </div>
