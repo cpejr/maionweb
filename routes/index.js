@@ -44,63 +44,161 @@ router.get('/forgot',  (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
+// // Tabela budget
+// router.get('/table_budget',  (req, res) => {
+//     var dadosPuxados = [];
+//     Budget.getAll().then((budgets)=>{
+//       let cont = 0;
+//       budgets.forEach((budget)=>{
+//         Client.getByIdArray(budget.client).then((cliente)=>{
+//           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+//             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+//               Car.getByIdArray(budget.cars).then((manyCars)=>{
+//                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
+//                   dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+//                   cont ++;
+//                   if(cont === budgets.length){
+//                       res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+//                   }
+//                 });
+//               });
+//             });
+//           });
+//
+//
+//
+//         });
+//
+//
+//       });
+//     });
+//
+//
+//
+//   // Client.getAll().then((clients) =>{
+//   //   let contClient = 0;
+//   //   clients.forEach((client)=>{
+//   //       Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
+//   //         let contBudget = 0;
+//   //         manyBudgets.forEach((budget) => {
+//   //           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+//   //             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+//   //               Car.getByIdArray(budget.cars).then((manyCars)=>{
+//   //                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
+//   //                   dadosPuxados.push({dados_client: client , dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+//   //                   contBudget ++;
+//   //                   if(contBudget === budget.length){
+//   //                       contClient ++;
+//   //                   }
+//   //                 });
+//   //               });
+//   //             });
+//   //           });
+//   //           if(contClient === clients.length){
+//   //               res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+//   //           }
+//   //         });
+//   //       });
+//   //   });
+//   // });
+// });
+
 // Tabela budget
-router.get('/table_budget',  (req, res) => {
+router.get('/table2',  (req, res) => {
     var dadosPuxados = [];
-    Budget.getAll().then((budgets)=>{
-      let cont = 0;
-      budgets.forEach((budget)=>{
-        Client.getByIdArray(budget.client).then((cliente)=>{
-          Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-            Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-              Car.getByIdArray(budget.cars).then((manyCars)=>{
-                Safe.getByIdArray(budget.safes).then((manySafes)=>{
-                  dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-                  cont ++;
-                  if(cont === budgets.length){
-                      res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-                  }
+    // Budget.getAll().then((budgets)=>{
+    //   let cont = 0;
+    //   budgets.forEach((budget)=>{
+    //     Client.getByIdArray(budget.client).then((cliente)=>{
+    //       Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+    //         Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+    //           Car.getByIdArray(budget.cars).then((manyCars)=>{
+    //             Safe.getByIdArray(budget.safes).then((manySafes)=>{
+    //               dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+    //               cont ++;
+    //               if(cont === budgets.length){
+    //                   res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+    //               }
+    //             });
+    //           });
+    //         });
+    //       });
+    //
+    //
+    //
+    //     });
+    //
+    //
+    //   });
+    // });
+
+
+
+  Client.getAll().then((clients) =>{
+    let contClient = 0;
+
+    clients.forEach((client)=>{
+        Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
+          let contBudget = 0;
+          let viagens = [];
+          manyBudgets.forEach((budget) => {
+            Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+              Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+                Car.getByIdArray(budget.cars).then((manyCars)=>{
+                  Safe.getByIdArray(budget.safes).then((manySafes)=>{
+                    viagens.push({dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    contBudget ++;
+                     //   console.log("qtas viagens ");
+                     // console.log(manyBudgets.length);
+                    //   console.log("cont viagens ");
+                    //  console.log(contBudget);
+                    //  console.log("----");
+                    if(contBudget == manyBudgets.length){
+                        contClient ++;
+                        //console.log(clients.length);
+                        //console.log("entrou");
+
+                        dadosPuxados.push({dados_client: client , dados_Budgets: viagens});
+
+                    }
+
+                     //console.log("cont clientes ");
+                     //console.log(contClient);
+                    if(contClient === clients.length - 1){
+                      // console.log("-----");
+                      // console.log(clients.length);
+                      //console.log(dadosPuxados);
+                        res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+                    }
+
+                  }).catch((error) => {
+                      console.log(error);
+                      res.redirect('/error');
+                  });
+                }).catch((error) => {
+                    console.log(error);
+                    res.redirect('/error');
                 });
+              }).catch((error) => {
+                  console.log(error);
+                  res.redirect('/error');
               });
+            }).catch((error) => {
+                console.log(error);
+                res.redirect('/error');
             });
+
           });
-
-
-
+        }).catch((error) => {
+            console.log(error);
+            res.redirect('/error');
         });
 
-
-      });
     });
-
-
-
-  // Client.getAll().then((clients) =>{
-  //   let contClient = 0;
-  //   clients.forEach((client)=>{
-  //       Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
-  //         let contBudget = 0;
-  //         manyBudgets.forEach((budget) => {
-  //           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-  //             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-  //               Car.getByIdArray(budget.cars).then((manyCars)=>{
-  //                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
-  //                   dadosPuxados.push({dados_client: client , dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-  //                   contBudget ++;
-  //                   if(contBudget === budget.length){
-  //                       contClient ++;
-  //                   }
-  //                 });
-  //               });
-  //             });
-  //           });
-  //           if(contClient === clients.length){
-  //               res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-  //           }
-  //         });
-  //       });
-  //   });
-  // });
+  }).catch((error) => {
+      console.log(error);
+      res.redirect('/error');
+  });
 });
 
 
@@ -123,7 +221,7 @@ router.get('/table',  (req, res) => {
                         console.log(error);
                         res.redirect('/error');
                     });
-                    
+
                   }
 
                 }).catch((error) => {
