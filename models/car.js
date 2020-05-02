@@ -107,6 +107,16 @@ class Car {
    });
  }
 
+ static getByIdArray(id_array){
+     return new Promise((resolve, reject)=> {
+         CarSchema.find({ _id: {$in: id_array} }).then((cars)=>{
+             resolve(cars);
+         }).catch((err) => {
+         reject(err);
+       });
+     })
+ }
+
 }
 
 module.exports = Car;

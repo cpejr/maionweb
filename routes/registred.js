@@ -1635,15 +1635,27 @@ router.post('/pageD/:client_id/:budget_id',(req,res) => {
     }//Checa se é pra apagar tudo que tem na página
 
     if (flight.deleting.length == 1 && flight.deleting[j] != 1) {
-      for (var x4 = 0; x4 < flight.escalas.length; x4++) {//1 voo pode ter mias de uma escala, então, para pegar todas as escalas, passamos por esse loop de x4
-        sendable_flights.escalas[x4] = escalas[x4];
-        sendable_flights.flightNum[x4] = flightNum[x4];
-        sendable_flights.dateFlight[x4] = dateFlight[x4];
-        sendable_flights.from[x4] = from[x4];
-        sendable_flights.destination[x4] = destination[x4];
-        sendable_flights.timeOut[x4] = timeOut[x4];
-        sendable_flights.timeIn[x4] = timeIn[x4];
-        sendable_flights.coin[x4] = coin[x4];
+      if(flight.escalas.length != 1){
+        for (var x4 = 0; x4 < flight.escalas.length; x4++) {//1 voo pode ter mias de uma escala, então, para pegar todas as escalas, passamos por esse loop de x4
+          sendable_flights.escalas[x4] = escalas[x4];
+          sendable_flights.flightNum[x4] = flightNum[x4];
+          sendable_flights.dateFlight[x4] = dateFlight[x4];
+          sendable_flights.from[x4] = from[x4];
+          sendable_flights.destination[x4] = destination[x4];
+          sendable_flights.timeOut[x4] = timeOut[x4];
+          sendable_flights.timeIn[x4] = timeIn[x4];
+          sendable_flights.coin[x4] = coin[x4];
+        }
+      }
+      else{
+        sendable_flights.escalas[j] = escalas;
+          sendable_flights.flightNum[j] = flightNum;
+          sendable_flights.dateFlight[j] = dateFlight;
+          sendable_flights.from[j] = from;
+          sendable_flights.destination[j] = destination;
+          sendable_flights.timeOut[j] = timeOut;
+          sendable_flights.timeIn[j] = timeIn;
+          sendable_flights.coin[j]= coin;
       }
 
       // Primeira classe

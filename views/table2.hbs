@@ -1,0 +1,654 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- Script de busca -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<div class="pagesFront">
+  <div class="table-responsive">
+    Este botão gera uma única tabela com todos os dados.
+<div id = "tabelainvisivel">
+ <body onload="Mudarestado('tabelainvisivel')">
+      <table class="table table-striped table-hover" id="tabelaClientes">
+        <thead>
+          <tr>
+
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Telefone Fixo</th>
+            <th>Telefone Celular</th>
+            <th>Endereço</th>
+            <th>Bairro</th>
+            <th>Email</th>
+            <th>Data de Nascimento</th>
+            <th>Passaporte</th>
+            <th>Validade do Passaporte</th>
+            <th>Profissão</th>
+            <th>Estado Civil</th>
+
+            <th>Nome do Cônjuge</th>
+            <th>Anivesário de Casamento</th>
+            <th>Data de Nascimento do Cônjuge</th>
+            <th>Email do Cônjuge</th>
+            <th>Telefone fixo do Cônjuge</th>
+            <th>Profissão do Cônjuge</th>
+            <th>Passaporte do Cônjuge</th>
+            <th>Validade do Passaporte do Cônjuge</th>
+
+            <th>Nome do Filho</th>
+            <th>Data de Nascimento do Filho</th>
+            <th>Passaporte do Filho</th>
+            <th>Validade do Passaporte do Filho</th>
+
+            <th>Nome do Acompanhante</th>
+            <th>Data de Nascimento do Acompanhante</th>
+            <th>Celular do Acompanhante</th>
+            <th>Email do Acompanhante</th>
+            <th>Passaporte do Acompanhante</th>
+            <th>Validade do Passaporte do Acompanhante</th>
+
+            <th>Instagram</th>
+            <th>Facebook</th>
+            <th>Outra</th>
+
+            <th>Necessidade de Status</th>
+            <th>Necessidade de Conhecimento</th>
+            <th>Necessidade de Novas Experiências</th>
+            <th>Necessidade de Diversão</th>
+            <th>Necessidade de Bem-Estar</th>
+            <th>Necessidade de Exclusividade</th>
+            <th>Outra Necessidade</th>
+
+            <th>Perfil Esporte</th>
+            <th>Perfil Refinado</th>
+            <th>Perfil Simples</th>
+            <th>Perfil Cult</th>
+            <th>Perfil Comida</th>
+            <th>Perfil Vinhos </th>
+            <th>Outro Perfil</th>
+
+            <th>Hotel Conteporâneo</th>
+            <th>Hotel Clássico</th>
+            <th>Hotel Boutique</th>
+            <th>Hotel Simples</th>
+            <th>Hotel Andar Alto</th>
+            <th>Hotel Andar Baixo</th>
+            <th>Outro Hotel</th>
+
+            <th>Adepto à Resorts Sim</th>
+            <th>Adepto à Resorts Não</th>
+            <th>Adepto à Resorts Talvez</th>
+
+            <th>Budget Mínimo</th>
+
+            <th>Classe do Avião</th>
+            <th>Assento de preferência</th>
+
+            <th>Corrida</th>
+            <th>Bike</th>
+            <th>Natação</th>
+            <th>Corrida de Carro</th>
+            <th>Musculação</th>
+            <th>Pesca</th>
+            <th>Mergulho</th>
+            <th>Golf</th>
+            <th>Tênis</th>
+            <th>Outro Esporte</th>
+
+            <th>Comida Italiana</th>
+            <th>Comida Japonesa</th>
+            <th>Comida Mediterrânea</th>
+            <th>Comida Indiana</th>
+            <th>Comida Asiática</th>
+            <th>Comida Francesa</th>
+            <th>Frutos-do-Mar</th>
+            <th>Carne</th>
+            <th>Outra Dieta</th>
+
+            <th>Fumante Sim</th>
+            <th>Fumante Não</th>
+
+            <th>Alergia Sim</th>
+            <th>Alergia Não</th>
+            <th>Qual alergia?</th>
+
+            <th>Dificuldade de Locomoção Sim</th>
+            <th>Dificuldade de Locomoção Não</th>
+            <th>Qual dificuldade?</th>
+
+            <th>Restrição Alimentar Sim</th>
+            <th>Restrição Alimentar Não</th>
+            <th>Vegano</th>
+            <th>Vegetariano</th>
+            <th>Qual restrição?</th>
+
+
+            <!-- Viagens____________________________________________________________________ -->
+                          <th>Código da viagem</th>
+                          <th>Data</th>
+                          <th>Cidade</th>
+                          <th>País</th>
+                          <th>Observações sobre a viagem</th>
+                          <th>Moeda</th>
+                          <th>Valor total</th>
+                          <th>Pagamento</th>
+                          <th>Companhia</th>
+                          <th>Estado da viagem</th>
+            <!-- Voos_______________________________________________________________________ -->
+                          <th>Numero do voo</th>
+                          <th>Data do voo</th>
+                          <th>Origem do voo</th>
+                          <th>Destino do voo</th>
+                          <th>Horário de Saída do voo</th>
+                          <th>Horário de Chegada do voo</th>
+
+                          <th>Tarifa ADT Primeira Classe</th>
+                          <th>Embarque ADT Primeira Classe</th>
+                          <th>Emissão ADT Primeira Classe</th>
+                          <th>Total ADT Primeira Classe</th>
+                          <th>Número de passagens ADT Primeira Classe</th>
+
+                          <th>Tarifa ADT Executivo</th>
+                          <th>Embarque ADT Executivo</th>
+                          <th>Emissão ADT Executivo</th>
+                          <th>Total ADT Executivo</th>
+                          <th>Número de passagens ADT Executivo</th>
+
+                          <th>Tarifa ADT Econômico</th>
+                          <th>Embarque ADT Econômico</th>
+                          <th>Emissão ADT Econômico</th>
+                          <th>Total ADT Econômico</th>
+                          <th>Número de passagens ADT Econômico</th>
+
+                          <th>Tarifa CHD Primeira Classe</th>
+                          <th>Embarque CHD Primeira Classe</th>
+                          <th>Emissão CHD Primeira Classe</th>
+                          <th>Total CHD Primeira Classe</th>
+                          <th>Número de passagens CHD Primeira Classe</th>
+
+                          <th>Tarifa CHD Executivo</th>
+                          <th>Embarque CHD Executivo</th>
+                          <th>Emissão CHD Executivo</th>
+                          <th>Total CHD Executivo</th>
+                          <th>Número de passagens CHD Executivo</th>
+
+                          <th>Tarifa CHD Econômico</th>
+                          <th>Embarque CHD Econômico</th>
+                          <th>Emissão CHD Econômico</th>
+                          <th>Total CHD Econômico</th>
+                          <th>Número de passagens CHD Econômico</th>
+
+                          <th>Tarifa INF Primeira Classe</th>
+                          <th>Embarque INF Primeira Classe</th>
+                          <th>Emissão INF Primeira Classe</th>
+                          <th>Total INF Primeira Classe</th>
+                          <th>Número de passagens INF Primeira Classe</th>
+
+                          <th>Tarifa INF Executivo</th>
+                          <th>Embarque INF Executivo</th>
+                          <th>Emissão INF Executivo</th>
+                          <th>Total INF Executivo</th>
+                          <th>Número de passagens INF Executivo</th>
+
+                          <th>Tarifa INF Econômico</th>
+                          <th>Embarque INF Econômico</th>
+                          <th>Emissão INF Econômico</th>
+                          <th>Total INF Econômico</th>
+                          <th>Número de passagens INF Econômico</th>
+            <!-- Hotéis_____________________________________________________________________ -->
+                          <th>Cidade 1 Hotel</th>
+                          <th>Moeda Hotel</th>
+
+                          <th>Tipo da Acomodação 1</th>
+                          <th>Hotel 1</th>
+                          <th>Número de pessoas 1</th>
+                          <th>Categoria Apartamento 1</th>
+                          <th>Regime de Alimentação 1</th>
+                          <th>Valor do Apartamento 1</th>
+                          <th>Número de Diárias 1</th>
+                          <th>Número de Apartamentos 1</th>
+                          <th>Total Hotel 1</th>
+                          <th>Prazo 1</th>
+
+                          <th>Tipo da Acomodação 2</th>
+                          <th>Hotel 2</th>
+                          <th>Número de pessoas 2</th>
+                          <th>Categoria Apartamento 2</th>
+                          <th>Regime de Alimentação 2</th>
+                          <th>Valor do Apartamento 2</th>
+                          <th>Número de Diárias 2</th>
+                          <th>Número de Apartamentos 2</th>
+                          <th>Total Hotel 2</th>
+                          <th>Prazo 2</th>
+
+                          <th>Tipo da Acomodação 3</th>
+                          <th>Hotel 3</th>
+                          <th>Número de pessoas 3</th>
+                          <th>Categoria Apartamento 3</th>
+                          <th>Regime de Alimentação 3</th>
+                          <th>Valor do Apartamento 3</th>
+                          <th>Número de Diárias 3</th>
+                          <th>Número de Apartamentos 3</th>
+                          <th>Total Hotel 3</th>
+                          <th>Prazo 3</th>
+
+            <!-- Transporte_________________________________________________________________ -->
+                          <th>Origem Transporte</th>
+                          <th>Destino Transporte</th>
+                          <th>Data Transporte</th>
+                          <th>Hora Transporte</th>
+                          <th>Valor Transporte por ADT</th>
+                          <th>Número de ADT</th>
+                          <th>Valor Transporte por CHD</th>
+                          <th>Número de CHD</th>
+                          <th>Valor Transporte por INF</th>
+                          <th>Número de INF</th>
+                          <th>Moeda</th>
+                          <th>Total translado</th>
+
+                          <th>Categoria Automóvel</th>
+                          <th>Cidade de retirada</th>
+                          <th>Cidade de devolução</th>
+                          <th>Valor Automóvel</th>
+                          <th>Cidade</th>
+                          <th>Características</th>
+                          <th>Seguros</th>
+                          <th>Outros</th>
+                          <th>Moeda</th>
+            <!-- Seguro_____________________________________________________________________ -->
+                          <th>Suguro</th>
+                          <th>Cobertura</th>
+                          <th>Valor por ADT</th>
+                          <th>Número de ADT</th>
+                          <th>Valor por CHD</th>
+                          <th>Número de CHD</th>
+                          <th>Valor por INF</th>
+                          <th>Número de INF</th>
+                          <th>Moeda</th>
+                          <th>Total seguro</th>
+
+                          <th>Ticket</th>
+                          <th>Valor por ADT</th>
+                          <th>Número de ADT</th>
+                          <th>Valor por CHD</th>
+                          <th>Número de CHD</th>
+                          <th>Valor por INF</th>
+                          <th>Número de INF</th>
+                          <th>Moeda</th>
+                          <th>Total ticket</th>
+
+                          <th>Outro item</th>
+                          <th>Valor por ADT</th>
+                          <th>Número de ADT</th>
+                          <th>Valor por CHD</th>
+                          <th>Número de CHD</th>
+                          <th>Valor por INF</th>
+                          <th>Número de INF</th>
+                          <th>Moeda</th>
+                          <th>Total outro item</th>
+
+          </tr>
+        </thead>
+        <tbody id="client_table">
+          {{#each information}}
+          <tr>
+
+            <th>{{#each dados_client}}{{fullname}}{{/each}}</th>
+            <th>{{#each dados_client}}{{register}}{{/each}}</th>
+            <th>{{#each dados_client}}{{id}}{{/each}}</th>
+            <th>{{#each dados_client}}{{phone}}{{/each}}</th>
+            <th>{{#each dados_client}}{{cellphone}}{{/each}}</th>
+            <th>{{#each dados_client}}{{street}}{{/each}}</th>
+            <th>{{#each dados_client}}{{neighbourhood}}{{/each}}</th>
+            <th>{{#each dados_client}}{{email}}{{/each}}</th>
+            <th>{{#each dados_client}}{{birthDate}}{{/each}}</th>
+            <th>{{#each dados_client}}{{passport}}{{/each}}</th>
+            <th>{{#each dados_client}}{{passportValidation}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profession}}{{/each}}</th>
+            <th>{{#each dados_client}}{{maritalStatus}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{spouseName}}{{/each}}</th>
+            <th>{{#each dados_client}}{{wedding_anniversary}}{{/each}}</th>
+            <th>{{#each dados_client}}{{birthDateSpouse}}{{/each}}</th>
+            <th>{{#each dados_client}}{{spouseEmail}}{{/each}}</th>
+            <th>{{#each dados_client}}{{phoneFamily}}{{/each}}</th>
+            <th>{{#each dados_client}}{{spouseProfession}}{{/each}}</th>
+            <th>{{#each dados_client}}{{spousePassport}}{{/each}}</th>
+            <th>{{#each dados_client}}{{spousePassportValidation}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{children}}{{/each}}</th>
+            <th>{{#each dados_client}}{{birthDateChildren}}{{/each}}</th>
+            <th>{{#each dados_client}}{{childrenPassport}}{{/each}}</th>
+            <th>{{#each dados_client}}{{childrenPassportValidation}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{companionFullname}}{{/each}}</th>
+            <th>{{#each dados_client}}{{birthDateCompanion}}{{/each}}</th>
+            <th>{{#each dados_client}}{{companionCellphone}}{{/each}}</th>
+            <th>{{#each dados_client}}{{companionEmail}}{{/each}}</th>
+            <th>{{#each dados_client}}{{companionPassport}}{{/each}}</th>
+            <th>{{#each dados_client}}{{companionPassportValidation}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{instagram}}{{/each}}</th>
+            <th>{{#each dados_client}}{{facebook}}{{/each}}</th>
+            <th>{{#each dados_client}}{{others}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_Status}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Conhecimento}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_NovasExperiencias}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Diversao}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_BemEstar}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Exclusividade}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_OtherNeed}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_Esporte}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Refinado}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Simples}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Cult}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Comida}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Vinhos}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_OtherType}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_Contemporaneo}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Classico}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Boutique}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_HotelSimples}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_AndarAlto}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_AndarBaixo}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_OtherHotel}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_ResortSim}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_ResortNao}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_ResortTalvez}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{average_Budget}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{plane_class}}{{/each}}</th>
+            <th>{{#each dados_client}}{{plane_seat_pref}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_Corrida}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Bike}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Natação}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_CoriidaCarro}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Musculação}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Pesca}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Mergulho}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Golf}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Tênis}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_OtherSports}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_Italiana}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Japonesa}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Mediterrânea}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Indiana}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Asiática}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Francesa}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_FrutosDoMar}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_Carnes}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_OtherDiet}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_SmokeSim}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_SmokeNão}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_AllergySim}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_AllergyNão}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_WhichAllergy}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_DisableSim}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_DisableNão}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_WhichDisable}}{{/each}}</th>
+
+            <th>{{#each dados_client}}{{profile_FoodSim}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_FoodNão}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_FoodVegano}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_FoodVegetariano}}{{/each}}</th>
+            <th>{{#each dados_client}}{{profile_WhichFood}}{{/each}}</th>
+
+
+
+
+            <!-- Viagens____________________________________________________________________ -->
+                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{codFile}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planDate}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planCity}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planCountry}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planFreeField}}{{/each}}<br>{{/each}}</th>
+            <!-- ATENÇÃO____________________________________________________________________ -->
+                          <th>{{#each dados_manyBudgets}}{{coin}}{{/each}}</th>
+                          <th>{{#each dados_manyBudgets}}{{totalValue}}{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{payment}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_manyBudgets}}{{companions}}{{/each}}</th>
+                          <th>{{#each dados_manyBudgets}}{{finalized}}{{/each}}</th>
+
+            <!-- Voos_______________________________________________________________________ -->
+                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{flightNum}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{dateFlight}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{from}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{destination}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{timeOut}}{{/each}}<br>{{/each}}</th>
+                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{timeIn}}{{/each}}<br>{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueAdult_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueAdult_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueAdult_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueAdult_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numADT_FirstClass}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueAdult_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueAdult_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueAdult_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueAdult_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numADT_Executive}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueAdult_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueAdult_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueAdult_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueAdult_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numADT_Economic}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueCHD_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueCHD_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueCHD_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueCHD_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numCHD_FirstClass}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueCHD_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueCHD_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueCHD_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueCHD_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numCHD_Executive}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueCHD_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueCHD_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueCHD_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueCHD_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numCHD_Economic}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueInf_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueInf_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueInf_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueInf_FirstClass}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numINF_FirstClass}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueInf_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueInf_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueInf_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueInf_Executive}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numINF_Executive}}{{/each}}</th>
+
+                          <th>{{#each dados_manyFlights}}{{tariffValueInf_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{taxValueInf_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{ravValueInf_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{totalValueInf_Economic}}{{/each}}</th>
+                          <th>{{#each dados_manyFlights}}{{numINF_Economic}}{{/each}}</th>
+
+            <!-- Hotéis_____________________________________________________________________ -->
+                          <th>{{#each dados_manyHotels}}{{city}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{coin}}{{/each}}</th>
+
+                          <th>{{#each dados_manyHotels}}{{acomodationType1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{hotel1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{qntd1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{category1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{food1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{valueApt1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{numberDaily1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{numberApt1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{total1}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{cancellationPeriod}}{{/each}}</th>
+
+                          <th>{{#each dados_manyHotels}}{{acomodationType2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{hotel2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{qntd2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{category2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{food2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{valueApt2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{numberDaily2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{numberApt2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{total2}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{cancellationPeriod2}}{{/each}}</th>
+
+                          <th>{{#each dados_manyHotels}}{{acomodationType3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{hotel3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{qntd3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{category3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{food3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{valueApt3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{numberDaily3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{numberApt3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{total3}}{{/each}}</th>
+                          <th>{{#each dados_manyHotels}}{{cancellationPeriod3}}{{/each}}</th>
+
+            <!-- Transporte_________________________________________________________________ -->
+                          <th>{{#each dados_manyCars}}{{from}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{to}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{dateFrom}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{timeFrom}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{valueADT}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{numADT}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{valueCHD}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{numCHD}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{valueINF}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{numINF}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{coinT}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{totalTranslado}}{{/each}}</th>
+
+                          <th>{{#each dados_manyCars}}{{typeCar}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{withdrawal}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{delivery}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{totalCar}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{city}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{shift}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{safe}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{others}}{{/each}}</th>
+                          <th>{{#each dados_manyCars}}{{coinC}}{{/each}}</th>
+
+            <!-- Seguro_____________________________________________________________________ -->
+                          <th>{{#each dados_manySafes}}{{insuranceName}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{insuranceCoverage}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{insuranceADT}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{SafenumADT}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{insuranceCHD}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{SafenumCHD}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{insuranceINF}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{SafenumINF}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{insuranceCoin}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{insuranceTOT}}{{/each}}</th>
+
+                          <th>{{#each dados_manySafes}}{{ticketsName}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{ticketsADT}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{TicketnumADT}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{ticketsCHD}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{TicketnumCHD}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{ticketsINF}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{TicketnumINF}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{ticketsCoin}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{ticketsTOT}}{{/each}}</th>
+
+                          <th>{{#each dados_manySafes}}{{otherName}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{otherADT}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{OthernumADT}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{otherCHD}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{OthernumCHD}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{otherINF}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{OthernumINF}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{otherCoin}}{{/each}}</th>
+                          <th>{{#each dados_manySafes}}{{otherTOT}}{{/each}}</th>
+
+
+          </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+     </body>
+  </div>
+
+
+
+  </div>
+
+    <div>
+        <button onClick="docCsv(['tabelaClientes'], 'tabela')">
+            Exportar dados para arquivo.csv
+      </button>
+          </div>
+  </div>
+<script>
+function tratarData (data) {
+  console.log(data);
+  return 'oi';
+
+}
+
+</script>
+
+
+<script>
+  function Mudarestado(divid){
+    document.getElementById(divid).style.display = "none";
+
+  }
+    function docCsv(id,fileName){
+        //let id = ["tabelaClientes", "tabelaViagens"];
+        let table = [];
+
+        let data = [];
+        for(let i = 0; i < id.length; i++){
+          table[i] = document.getElementById(id[i]);
+          data[i]= table[i].outerHTML.replace(/ /g, '%20');
+            // .replace(/<\/thead>/g, '')
+            // .replace(/<tbody id="client_table">/g, '')
+            // .replace(/<tbody id="budget_table">/g, '')
+            // .replace(/<!-- Cliente____________________________________________________________________ -->/g,'')
+            // .replace(/<!-- Viagens____________________________________________________________________ -->/g, '')
+            // .replace(/<!-- Voos_______________________________________________________________________ -->/g, '')
+            // .replace(/<!-- Hotéis_____________________________________________________________________ -->/g, '')
+            // .replace(/<!-- Transporte_________________________________________________________________ -->/g, '')
+            // .replace(/<!-- Seguro_____________________________________________________________________ -->/g, '')
+            // .replace(/<\/tbody>/g, '')
+            // .replace(/<tr>/g, '')
+            // .replace(/<\/tr>/g, '\r\n')
+            // .replace(/<th>/g, '')
+            // .replace(/<\/th>/g, ';')
+            // .replace(/\t/g, '')
+            // .replace(/\n/g, '');
+        }
+        fileName = fileName + '.xls';
+        let meta = '<meta http-equiv="content-type" content="text/html; charset=UTF-8" />';
+        let mylink = document.createElement('a');
+        document.body.appendChild(mylink);
+
+          // let blob = new Blob(['\ufeff', data], {
+          //   type: 'application/vnd.ms-excel'});
+          // navigator.msSaveOrOpenBlob( blob, fileName);
+
+          mylink.download = fileName;
+          mylink.href = "data:application/vnd.ms-excel," + meta + data;
+          mylink.click();
+
+    }
+</script>
+
+<script type="text/javascript" src="/javascripts/cad_redir.js">  </script>

@@ -114,6 +114,16 @@ class Safe {
    });
  }
 
+ static getByIdArray(id_array){
+     return new Promise((resolve, reject)=> {
+         SafeSchema.find({ _id: {$in: id_array} }).then((safes)=>{
+             resolve(safes);
+         }).catch((err) => {
+         reject(err);
+       });
+     })
+ }
+
 }
 
 module.exports = Safe;
