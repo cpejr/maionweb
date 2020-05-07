@@ -9,7 +9,7 @@
   <div class="table-responsive">
     Este botão gera uma única tabela com todos os dados.
 <div id = "tabelainvisivel">
- <body onload="Mudarestado('tabelainvisivel')">
+ <!-- <body onload="Mudarestado('tabelainvisivel')"> -->
       <table class="table table-striped table-hover" id="tabelaClientes">
         <thead>
           <tr>
@@ -295,19 +295,19 @@
           {{#each information}}
           <tr>
 
-            <th>{{#each dados_client}}{{fullname}}{{/each}}</th>
-            <th>{{#each dados_client}}{{register}}{{/each}}</th>
-            <th>{{#each dados_client}}{{id}}{{/each}}</th>
-            <th>{{#each dados_client}}{{phone}}{{/each}}</th>
-            <th>{{#each dados_client}}{{cellphone}}{{/each}}</th>
-            <th>{{#each dados_client}}{{street}}{{/each}}</th>
-            <th>{{#each dados_client}}{{neighbourhood}}{{/each}}</th>
-            <th>{{#each dados_client}}{{email}}{{/each}}</th>
-            <th>{{#each dados_client}}{{birthDate}}{{/each}}</th>
-            <th>{{#each dados_client}}{{passport}}{{/each}}</th>
-            <th>{{#each dados_client}}{{passportValidation}}{{/each}}</th>
-            <th>{{#each dados_client}}{{profession}}{{/each}}</th>
-            <th>{{#each dados_client}}{{maritalStatus}}{{/each}}</th>
+            <td>{{#each dados_client}}{{fullname}}{{/each}}</td>
+            <td>{{#each dados_client}}{{register}}{{/each}}</td>
+            <td>{{#each dados_client}}{{id}}{{/each}}</td>
+            <td>{{#each dados_client}}{{phone}}{{/each}}</td>
+            <td>{{#each dados_client}}{{cellphone}}{{/each}}</td>
+            <td>{{#each dados_client}}{{street}}{{/each}}</td>
+            <td>{{#each dados_client}}{{neighbourhood}}{{/each}}</td>
+            <td>{{#each dados_client}}{{email}}{{/each}}</td>
+            <td>{{#each dados_client}}{{birthDate}}{{/each}}</td>
+            <td>{{#each dados_client}}{{passport}}{{/each}}</td>
+            <td>{{#each dados_client}}{{passportValidation}}{{/each}}</td>
+            <td>{{#each dados_client}}{{profession}}{{/each}}</td>
+            <td>{{#each dados_client}}{{maritalStatus}}{{/each}}</td>
 
             <th>{{#each dados_client}}{{spouseName}}{{/each}}</th>
             <th>{{#each dados_client}}{{wedding_anniversary}}{{/each}}</th>
@@ -409,94 +409,94 @@
 
 
             <!-- Viagens____________________________________________________________________ -->
-                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{codFile}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planDate}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planCity}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planCountry}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planFreeField}}{{/each}}<br>{{/each}}</th>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{codFile}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planDate}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planCity}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planCountry}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{planFreeField}}{{/each}}<br>{{/each}}</td>
             <!-- ATENÇÃO____________________________________________________________________ -->
-                          <th>{{#each dados_manyBudgets}}{{coin}}{{/each}}</th>
-                          <th>{{#each dados_manyBudgets}}{{totalValue}}{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{payment}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_manyBudgets}}{{companions}}{{/each}}</th>
-                          <th>{{#each dados_manyBudgets}}{{finalized}}{{/each}}</th>
+                          <td>{{#each dados_manyBudgets}}{{coin}}{{/each}}</td>
+                          <td>{{#each dados_manyBudgets}}{{totalValue}}{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyBudgets}}{{payment}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_manyBudgets}}{{companions}}{{/each}}</td>
+                          <td>{{#each dados_manyBudgets}}{{finalized}}{{/each}}</td>
 
             <!-- Voos_______________________________________________________________________ -->
-                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{flightNum}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{dateFlight}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{from}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{destination}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{timeOut}}{{/each}}<br>{{/each}}</th>
-                          <th>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{timeIn}}{{/each}}<br>{{/each}}</th>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{flightNum}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{dateFlight}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{from}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{destination}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{timeOut}}{{/each}}<br>{{/each}}</td>
+                          <td>{{#each dados_Budgets}}{{#each dados_manyFlights}}{{timeIn}}{{/each}}<br>{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueAdult_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueAdult_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueAdult_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueAdult_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numADT_FirstClass}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueAdult_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueAdult_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueAdult_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueAdult_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numADT_FirstClass}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueAdult_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueAdult_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueAdult_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueAdult_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numADT_Executive}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueAdult_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueAdult_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueAdult_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueAdult_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numADT_Executive}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueAdult_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueAdult_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueAdult_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueAdult_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numADT_Economic}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueAdult_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueAdult_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueAdult_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueAdult_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numADT_Economic}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueCHD_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueCHD_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueCHD_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueCHD_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numCHD_FirstClass}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueCHD_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueCHD_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueCHD_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueCHD_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numCHD_FirstClass}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueCHD_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueCHD_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueCHD_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueCHD_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numCHD_Executive}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueCHD_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueCHD_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueCHD_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueCHD_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numCHD_Executive}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueCHD_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueCHD_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueCHD_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueCHD_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numCHD_Economic}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueCHD_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueCHD_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueCHD_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueCHD_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numCHD_Economic}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueInf_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueInf_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueInf_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueInf_FirstClass}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numINF_FirstClass}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueInf_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueInf_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueInf_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueInf_FirstClass}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numINF_FirstClass}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueInf_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueInf_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueInf_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueInf_Executive}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numINF_Executive}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueInf_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueInf_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueInf_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueInf_Executive}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numINF_Executive}}{{/each}}</td>
 
-                          <th>{{#each dados_manyFlights}}{{tariffValueInf_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{taxValueInf_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{ravValueInf_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{totalValueInf_Economic}}{{/each}}</th>
-                          <th>{{#each dados_manyFlights}}{{numINF_Economic}}{{/each}}</th>
+                          <td>{{#each dados_manyFlights}}{{tariffValueInf_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{taxValueInf_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{ravValueInf_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{totalValueInf_Economic}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}{{numINF_Economic}}{{/each}}</td>
 
             <!-- Hotéis_____________________________________________________________________ -->
-                          <th>{{#each dados_manyHotels}}{{city}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{coin}}{{/each}}</th>
+                          <td>{{#each dados_manyHotels}}{{city}}{{/each}}</th>
+                          <td>{{#each dados_manyHotels}}{{coin}}{{/each}}</th>
 
-                          <th>{{#each dados_manyHotels}}{{acomodationType1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{hotel1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{qntd1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{category1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{food1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{valueApt1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{numberDaily1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{numberApt1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{total1}}{{/each}}</th>
-                          <th>{{#each dados_manyHotels}}{{cancellationPeriod}}{{/each}}</th>
+                          <td>{{#each dados_manyHotels}}{{acomodationType1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{hotel1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{qntd1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{category1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{food1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{valueApt1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{numberDaily1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{numberApt1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{total1}}{{/each}}</td>
+                          <td>{{#each dados_manyHotels}}{{cancellationPeriod}}{{/each}}</td>
 
                           <th>{{#each dados_manyHotels}}{{acomodationType2}}{{/each}}</th>
                           <th>{{#each dados_manyHotels}}{{hotel2}}{{/each}}</th>
@@ -582,7 +582,7 @@
 
         </tbody>
       </table>
-     </body>
+     <!-- </body> -->
   </div>
 
 

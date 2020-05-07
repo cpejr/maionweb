@@ -136,8 +136,12 @@ router.get('/table2',  (req, res) => {
 
   Client.getAll().then((clients) =>{
     let contClient = 0;
-
     clients.forEach((client)=>{
+      if(!client.budgets.length){
+        contClient ++;
+        dadosPuxados.push({dados_client: client , dados_Budgets: []});
+      }
+      else{
         Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
           let contBudget = 0;
           let viagens = [];
@@ -148,57 +152,40 @@ router.get('/table2',  (req, res) => {
                   Safe.getByIdArray(budget.safes).then((manySafes)=>{
                     viagens.push({dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
                     contBudget ++;
-                     //   console.log("qtas viagens ");
-                     // console.log(manyBudgets.length);
-                    //   console.log("cont viagens ");
-                    //  console.log(contBudget);
-                    //  console.log("----");
                     if(contBudget == manyBudgets.length){
-                        contClient ++;
-                        //console.log(clients.length);
-                        //console.log("entrou");
-
-                        dadosPuxados.push({dados_client: client , dados_Budgets: viagens});
-
+                      contClient ++;
+                      dadosPuxados.push({dados_client: client , dados_Budgets: viagens});
                     }
-
-                     //console.log("cont clientes ");
-                     //console.log(contClient);
-                    if(contClient === clients.length - 1){
-                      // console.log("-----");
-                      // console.log(clients.length);
-                      //console.log(dadosPuxados);
-                        res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+                    if(contClient === clients.length){
+                      res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
                     }
-
                   }).catch((error) => {
-                      console.log(error);
-                      res.redirect('/error');
-                  });
-                }).catch((error) => {
                     console.log(error);
                     res.redirect('/error');
-                });
-              }).catch((error) => {
+                    });
+                }).catch((error) => {
                   console.log(error);
                   res.redirect('/error');
-              });
-            }).catch((error) => {
+                  });
+              }).catch((error) => {
                 console.log(error);
                 res.redirect('/error');
-            });
-
+                });
+            }).catch((error) => {
+              console.log(error);
+              res.redirect('/error');
+              });
           });
         }).catch((error) => {
-            console.log(error);
-            res.redirect('/error');
-        });
-
+          console.log(error);
+          res.redirect('/error');
+          });
+      }
     });
   }).catch((error) => {
-      console.log(error);
-      res.redirect('/error');
-  });
+    console.log(error);
+    res.redirect('/error');
+    });
 });
 
 
