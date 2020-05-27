@@ -106,123 +106,160 @@ router.get('/forgot',  (req, res) => {
 // Tabela budget
 router.get('/table2',  (req, res) => {
     let dadosPuxados = [];
-    // Budget.getAll().then((budgets)=>{
-    //   let cont = 0;
-    //   budgets.forEach((budget)=>{
-    //     Client.getByIdArray(budget.client).then((cliente)=>{
-    //       Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-    //         Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-    //           Car.getByIdArray(budget.cars).then((manyCars)=>{
-    //             Safe.getByIdArray(budget.safes).then((manySafes)=>{
-    //               dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-    //               cont ++;
-    //               if(cont === budgets.length){
-    //                   res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-    //               }
-    //             });
-    //           });
-    //         });
-    //       });
-    //
-    //
-    //
-    //     });
-    //
-    //
-    //   });
-    // });
-
-
-
-  Client.getAll().then((clients) =>{
-    const tratarDataVetor = (vetorData) =>{
-      if(vetorData[0] && vetorData[0].length === 10 ){
-        for(let i = 0; i < vetorData.length; i ++){
-          const date = ' '+ vetorData[i][8]+vetorData[i][9]+'/'+vetorData[i][5]+vetorData[i][6]+'/'+vetorData[i][0]+vetorData[i][1]+vetorData[i][2]+vetorData[i][3];
-          vetorData[i] = date;
+    Budget.getAll().then((budgets)=>{
+        const tratarDataVetor = (vetorData) =>{
+          if(vetorData[0] && vetorData[0].length === 10 ){
+            for(let i = 0; i < vetorData.length; i ++){
+              const date = ' '+ vetorData[i][8]+vetorData[i][9]+'/'+vetorData[i][5]+vetorData[i][6]+'/'+vetorData[i][0]+vetorData[i][1]+vetorData[i][2]+vetorData[i][3];
+              vetorData[i] = date;
+            }
+          }
+          return vetorData;
         }
-      }
-      return vetorData;
-    }
-    const tratarData = (vetorData) =>{
-      if(vetorData && vetorData.length === 10 ){
-          const date = ' '+ vetorData[8]+vetorData[9]+'/'+vetorData[5]+vetorData[6]+'/'+vetorData[0]+vetorData[1]+vetorData[2]+vetorData[3];
-          vetorData = date;
-      }
-      return vetorData;
-    }
+        const tratarData = (vetorData) =>{
+          if(vetorData && vetorData.length === 10 ){
+              const date = ' '+ vetorData[8]+vetorData[9]+'/'+vetorData[5]+vetorData[6]+'/'+vetorData[0]+vetorData[1]+vetorData[2]+vetorData[3];
+              vetorData = date;
+          }
+          return vetorData;
+        }
 
+      let cont = 0;
+      budgets.forEach((budget)=>{
 
-    let contClient = 0;
-    clients.forEach((client)=>{
+        budget.planDate = tratarDataVetor(budget.planDate);
 
-      client.birthDate = tratarData(client.birthDate);
-      client.passportValidation = tratarData(client.passportValidation);
-      client.wedding_anniversary = tratarData(client.wedding_anniversary);
-      client.birthDateSpouse = tratarData(client.birthDateSpouse);
-      client.spousePassportValidation = tratarData(client.spousePassportValidation);
-      client.birthDateChildren = tratarDataVetor(client.birthDateChildren);
-      client.childrenPassportValidation = tratarDataVetor(client.childrenPassportValidation);
-      client.birthDateCompanion = tratarDataVetor(client.birthDateCompanion);
-      client.companionPassportValidation = tratarDataVetor(client.companionPassportValidation);
+        Client.getByIdArray(budget.client).then((cliente)=>{
 
-      if(!client.budgets.length){
-        contClient ++;
-        dadosPuxados.push({dados_client: client , dados_Budgets: []});
-      }
-      else{
-        Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
-          let contBudget = 0;
-          let viagens = [];
-          manyBudgets.forEach((budget) => {
-            budget.planDate = tratarDataVetor(budget.planDate);
-            Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-              manyFlights[0].dateFlight = tratarDataVetor(manyFlights[0].dateFlight);
+          cliente[0].birthDate = tratarData(cliente[0].birthDate);
+          cliente[0].passportValidation = tratarData(cliente[0].passportValidation);
+          cliente[0].wedding_anniversary = tratarData(cliente[0].wedding_anniversary);
+          cliente[0].birthDateSpouse = tratarData(cliente[0].birthDateSpouse);
+          cliente[0].spousePassportValidation = tratarData(cliente[0].spousePassportValidation);
+          cliente[0].birthDateChildren = tratarDataVetor(cliente[0].birthDateChildren);
+          cliente[0].childrenPassportValidation = tratarDataVetor(cliente[0].childrenPassportValidation);
+          cliente[0].birthDateCompanion = tratarDataVetor(cliente[0].birthDateCompanion);
+          cliente[0].companionPassportValidation = tratarDataVetor(cliente[0].companionPassportValidation);
 
-              Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+          Flight.getByIdArray(budget.flights).then((manyFlights)=>{
 
-                Car.getByIdArray(budget.cars).then((manyCars)=>{
-                  manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
+            manyFlights[0].dateFlight = tratarDataVetor(manyFlights[0].dateFlight);
 
-                  Safe.getByIdArray(budget.safes).then((manySafes)=>{
+            Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+              Car.getByIdArray(budget.cars).then((manyCars)=>{
 
+                manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
 
-                    viagens.push({dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-                    contBudget ++;
-                    if(contBudget == manyBudgets.length){
-                      contClient ++;
-                      dadosPuxados.push({dados_client: client , dados_Budgets: viagens});
-                    }
-                    if(contClient === clients.length){
+                Safe.getByIdArray(budget.safes).then((manySafes)=>{
+                  dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                  cont ++;
+                  if(cont === budgets.length){
                       res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-                    }
-                  }).catch((error) => {
-                    console.log(error);
-                    res.redirect('/error');
-                    });
-                }).catch((error) => {
-                  console.log(error);
-                  res.redirect('/error');
-                  });
-              }).catch((error) => {
-                console.log(error);
-                res.redirect('/error');
+                  }
                 });
-            }).catch((error) => {
-              console.log(error);
-              res.redirect('/error');
               });
+            });
           });
-        }).catch((error) => {
-          console.log(error);
-          res.redirect('/error');
-          });
-      }
+
+
+
+        });
+
+
+      });
     });
-  }).catch((error) => {
-    console.log(error);
-    res.redirect('/error');
-    });
+
+
+
+  // Client.getAll().then((clients) =>{
+  //   const tratarDataVetor = (vetorData) =>{
+  //     if(vetorData[0] && vetorData[0].length === 10 ){
+  //       for(let i = 0; i < vetorData.length; i ++){
+  //         const date = ' '+ vetorData[i][8]+vetorData[i][9]+'/'+vetorData[i][5]+vetorData[i][6]+'/'+vetorData[i][0]+vetorData[i][1]+vetorData[i][2]+vetorData[i][3];
+  //         vetorData[i] = date;
+  //       }
+  //     }
+  //     return vetorData;
+  //   }
+  //   const tratarData = (vetorData) =>{
+  //     if(vetorData && vetorData.length === 10 ){
+  //         const date = ' '+ vetorData[8]+vetorData[9]+'/'+vetorData[5]+vetorData[6]+'/'+vetorData[0]+vetorData[1]+vetorData[2]+vetorData[3];
+  //         vetorData = date;
+  //     }
+  //     return vetorData;
+  //   }
+  //
+  //
+  //   let contClient = 0;
+  //   clients.forEach((client)=>{
+  //
+  //     client.birthDate = tratarData(client.birthDate);
+  //     client.passportValidation = tratarData(client.passportValidation);
+  //     client.wedding_anniversary = tratarData(client.wedding_anniversary);
+  //     client.birthDateSpouse = tratarData(client.birthDateSpouse);
+  //     client.spousePassportValidation = tratarData(client.spousePassportValidation);
+  //     client.birthDateChildren = tratarDataVetor(client.birthDateChildren);
+  //     client.childrenPassportValidation = tratarDataVetor(client.childrenPassportValidation);
+  //     client.birthDateCompanion = tratarDataVetor(client.birthDateCompanion);
+  //     client.companionPassportValidation = tratarDataVetor(client.companionPassportValidation);
+  //
+  //     if(!client.budgets.length){
+  //       contClient ++;
+  //       dadosPuxados.push({dados_client: client , dados_Budgets: []});
+  //     }
+  //     else{
+  //       Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
+  //         let contBudget = 0;
+  //         let viagens = [];
+  //         manyBudgets.forEach((budget) => {
+  //           budget.planDate = tratarDataVetor(budget.planDate);
+  //           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+  //             manyFlights[0].dateFlight = tratarDataVetor(manyFlights[0].dateFlight);
+  //
+  //             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+  //
+  //               Car.getByIdArray(budget.cars).then((manyCars)=>{
+  //                 manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
+  //
+  //                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
+  //
+  //
+  //                   viagens.push({dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+  //                   contBudget ++;
+  //                   if(contBudget == manyBudgets.length){
+  //                     contClient ++;
+  //                     dadosPuxados.push({dados_client: client , dados_Budgets: viagens});
+  //                   }
+  //                   if(contClient === clients.length){
+  //                     res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
+  //                   }
+  //                 }).catch((error) => {
+  //                   console.log(error);
+  //                   res.redirect('/error');
+  //                   });
+  //               }).catch((error) => {
+  //                 console.log(error);
+  //                 res.redirect('/error');
+  //                 });
+  //             }).catch((error) => {
+  //               console.log(error);
+  //               res.redirect('/error');
+  //               });
+  //           }).catch((error) => {
+  //             console.log(error);
+  //             res.redirect('/error');
+  //             });
+  //         });
+  //       }).catch((error) => {
+  //         console.log(error);
+  //         res.redirect('/error');
+  //         });
+  //     }
+  //   });
+  // }).catch((error) => {
+  //   console.log(error);
+  //   res.redirect('/error');
+  //   });
 });
 
 
