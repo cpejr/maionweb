@@ -104,11 +104,15 @@ router.get('/forgot',  (req, res) => {
 // });
 
 // Tabela budget
-router.get('/table2',  (req, res) => {
+router.post('/table2',  (req, res) => {
+    let year1 = req.body.info.yearMin;
+    let year2 = req.body.info.yearMax;
+    let register = req.body.info.register;
+
     let dadosPuxados = [];
     Budget.getAll().then((budgets)=>{
         const tratarDataVetor = (vetorData) =>{
-          if(vetorData[0] && vetorData[0].length === 10 ){
+          if(vetorData[0] && vetorData[0].length === 10){
             for(let i = 0; i < vetorData.length; i ++){
               const date = ' '+ vetorData[i][8]+vetorData[i][9]+'/'+vetorData[i][5]+vetorData[i][6]+'/'+vetorData[i][0]+vetorData[i][1]+vetorData[i][2]+vetorData[i][3];
               vetorData[i] = date;
@@ -116,21 +120,30 @@ router.get('/table2',  (req, res) => {
           }
           return vetorData;
         }
-        const tratarData = (vetorData) =>{
-          if(vetorData && vetorData.length === 10 ){
-              const date = ' '+ vetorData[8]+vetorData[9]+'/'+vetorData[5]+vetorData[6]+'/'+vetorData[0]+vetorData[1]+vetorData[2]+vetorData[3];
-              vetorData = date;
+        const tratarData = (data) =>{
+          if(data && data.length === 10){
+              const newData = ' '+ data[8]+data[9]+'/'+data[5]+data[6]+'/'+data[0]+data[1]+data[2]+data[3];
+              data = newData;
           }
-          return vetorData;
+          return data;
+        }
+        const getAno = (data) =>{
+          if(data && data.length === 10){
+            const ano = data[0]+data[1]+data[2]+data[3];
+            const anoInt = parseInt(ano);
+            return anoInt;
+          }
+          else{
+            return undefined;
+          }
         }
 
       let cont = 0;
       budgets.forEach((budget)=>{
-
+        const ano = getAno(budget.planDate[0]);
         budget.planDate = tratarDataVetor(budget.planDate);
 
         Client.getByIdArray(budget.client).then((cliente)=>{
-
           cliente[0].birthDate = tratarData(cliente[0].birthDate);
           cliente[0].passportValidation = tratarData(cliente[0].passportValidation);
           cliente[0].wedding_anniversary = tratarData(cliente[0].wedding_anniversary);
@@ -151,7 +164,10 @@ router.get('/table2',  (req, res) => {
                 manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
 
                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
-                  dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+
+                  if((ano && ano >= year1 && ano <= year2) && ((register && cliente[0].register === register) || !register)){
+                    dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                  }
                   cont ++;
                   if(cont === budgets.length){
                       res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
@@ -161,7 +177,7 @@ router.get('/table2',  (req, res) => {
             });
           });
 
-
+//}
 
         });
 
@@ -260,6 +276,10 @@ router.get('/table2',  (req, res) => {
   //   console.log(error);
   //   res.redirect('/error');
   //   });
+});
+
+router.get('/tableGenerator', (req, res)=>{
+ res.render('tableGenerator',{title: 'Gerar Tabela', layout: 'layout'});
 });
 
 
