@@ -164,9 +164,29 @@ router.post('/table2',  (req, res) => {
                 manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
 
                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
-
-                  if((ano && ano >= year1 && ano <= year2) && ((register && cliente[0].register === register) || !register)){
-                    dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                  if(year1 && year2){
+                    if((ano && ano >= year1 && ano <= year2) && ((register && cliente[0].register === register) || !register)){
+                      console.log("entrou1");
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
+                  }
+                  else if(year1 && !year2){
+                    if((ano && ano >= year1) && ((register && cliente[0].register === register) || !register)){
+console.log("entrou2");
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
+                  }
+                  else if(!year1 && year2){
+                    if((ano && ano <= year2) && ((register && cliente[0].register === register) || !register)){
+                      console.log("entrou3");
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
+                  }
+                  else if(!year1 && !year2){
+                    if((register && cliente[0].register === register) || !register){
+                      console.log("entrou4");
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
                   }
                   cont ++;
                   if(cont === budgets.length){

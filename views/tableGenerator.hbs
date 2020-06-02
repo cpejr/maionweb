@@ -1,97 +1,110 @@
 
 <div class="pagesFront">
+  <div class="dinamic_spec">
+    <div class="formInputs">
+    <div class="col-sm-1 px-6 pb-1 pt-6 text-right">
+      {{#compare userType "Adm"}}
+        <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/Dashboard'"><i class="fa fa-arrow-left"></i>
+      {{else}}
+        <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/DashboardCom'"><i class="fa fa-arrow-left"></i>
+      {{/compare}}
+    </div>
 
-  <div class="col-sm-1 px-4 pb-1 pt-6 text-right">
-    {{#compare userType "Adm"}}
-      <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/Dashboard'"><i class="fa fa-arrow-left"></i>
-    {{else}}
-      <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href='/DashboardCom'"><i class="fa fa-arrow-left"></i>
-    {{/compare}}
+      <p class="title_registed"> Gerar tabela </p>
+
+    </div>
+
+
+        <form class="pt-0" action="/table2" method="post" id="filter" >
+          <div class="style">
+
+
+          De:
+          <input
+            type="number"
+            placeholder="aaaa"
+            name="info[yearMin]"
+            id="yearMin"
+            class="form-control"
+            maxlength='4'
+          />
+          <br><br>
+          a:
+          <input
+            type="number"
+            placeholder="aaaa"
+            name="info[yearMax]"
+            id="yearMax"
+            class="form-control"
+            maxlength='4'
+          />
+          <br><br>
+          CPF do cliente (somente números)
+          <input
+            type="register"
+            placeholder="CPF"
+            onblur='addDashesCPF(this)'
+            name="info[register]"
+            id="register"
+            class="form-control"
+            maxlength='11'
+          />
+          <br><br>
+          <button
+            type="button"
+            class="btn btn-light  col-md-2 "
+            onclick="validation()"
+          >
+            <i class="fa fa-user-plus float-left" aria-hidden="true" ></i>
+            Baixar tabela
+          </button>
+        </div>
+
+        </form>
   </div>
-
-  <div class="col-sm-12 px-3 pb-6 pt-1 text-center">
-    <p class="title_registed"> Gerar tabela </p>
-  </div>
-
-
-      <form action="/table2" method="post" id="filter" >
-        <div class="row">
-          <div class="center">
-
-        De:
-        <input type="number" placeholder="yyyy" name="info[yearMin]" id="yearMin" class="form-control" maxlength='4'  />
-        a:
-        <input type="number" placeholder="aaaa" name="info[yearMax]" id="yearMax" class="form-control" maxlength='4'  />
-        CPF do cliente
-        <input type="register" placeholder="CPF" name="info[register]" id="register" class="form-control" maxlength='14'  />
-      </div>
-      </div>
-        <button
-          type="button"
-          class="btn btn-light  col-md-2 "
-          onclick="validation()"
-        >
-          <i class="fa fa-user-plus float-left" aria-hidden="true" ></i>
-          Baixar tabela
-        </button>
-
-      </form>
-
 </div>
 
 <script>
 
-function yearValidation(year){
-  if((year < 1000) || (year > 10000)){
-    alert('Digite um ano válido.');
-    //return true;
-  }
-
-}
-
-function defaultValue(){
-  console.log(document.getElementById('yearMin').value)
-  let now = new Date;
-  if(!document.getElementById('yearMin').value){
-    document.getElementById("yearMin").defaultValue = now.getFullYear();
-  }
-  if(!document.getElementById('yearMax').value){
-    document.getElementById("yearMax").defaultValue = now.getFullYear();
-  }
-  if(!document.getElementById('register').value){
-    document.getElementById("register").defaultValue = null;
-  }
-}
-
-
-
-
   function validation (){
-    defaultValue();
-    year1 = document.getElementById('yearMin').value;
-    year2 = document.getElementById('yearMax').value;
+    //defaultValue();
+    year1 = Number(document.getElementById('yearMin').value);
+    year2 = Number(document.getElementById('yearMax').value);
     register = document.getElementById('register').value;
 
-    if(year1 > year2){
-      alert('Digite um período válido.');
-      //return true;
+    if(year1 && year2){
+      if(((year1 < 1000) || (year1 > 10000)) || ((year2 < 1000) || (year2 > 10000))){
+        alert('Digite um ano válido.');
+      }
+      else if(year1 > year2){
+        alert('Digite um período válido.');
+      }
+      else{
+        document.getElementById("filter").submit();
+      }
     }
-    else if(((year1 < 1000) || (year1 > 10000)) || ((year2 < 1000) || (year2 > 10000))){
-      alert('Digite um ano válido.');
-      //return true;
-    }
+    //else if(register)
+
+
+
     else{
-      //console.log(document.getElementById('yearMin').value);
-      //console.log(document.getElementById('yearMax').value);
-      //console.log(document.getElementById('register').value);
       document.getElementById("filter").submit();
     }
 
   }
+  const style = {
+      margin-top: '-20px',
+      margin-left: '60px'
+      display: "flex",
+      flex-direction: "row",
+      width:"40%",
+      align-itens: "center"
+      justify-content: "center"
+  }
+
 </script>
 
-const style ={
 
-}
 
 <script type="text/javascript" src="/javascripts/cad_redir.js">  </script>
+<script type="text/javascript" src="/javascripts/formInputs.js">  </script>

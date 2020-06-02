@@ -52,33 +52,33 @@
             <th>Facebook</th>
             <th>Outra</th>
 
-            <th>Necessidade de Status</th>
-            <th>Necessidade de Conhecimento</th>
+            <th>Necessidades</th>
+            <!-- <th>Necessidade de Conhecimento</th>
             <th>Necessidade de Novas Experiências</th>
             <th>Necessidade de Diversão</th>
             <th>Necessidade de Bem-Estar</th>
             <th>Necessidade de Exclusividade</th>
-            <th>Outra Necessidade</th>
+            <th>Outra Necessidade</th> -->
 
-            <th>Perfil Esporte</th>
-            <th>Perfil Refinado</th>
+            <th>Perfil</th>
+            <!-- <th>Perfil Refinado</th>
             <th>Perfil Simples</th>
             <th>Perfil Cult</th>
             <th>Perfil Comida</th>
             <th>Perfil Vinhos </th>
-            <th>Outro Perfil</th>
+            <th>Outro Perfil</th> -->
 
-            <th>Hotel Conteporâneo</th>
-            <th>Hotel Clássico</th>
+            <th>Hotel</th>
+            <!-- <th>Hotel Clássico</th>
             <th>Hotel Boutique</th>
             <th>Hotel Simples</th>
             <th>Hotel Andar Alto</th>
             <th>Hotel Andar Baixo</th>
-            <th>Outro Hotel</th>
+            <th>Outro Hotel</th> -->
 
-            <th>Adepto à Resorts Sim</th>
-            <th>Adepto à Resorts Não</th>
-            <th>Adepto à Resorts Talvez</th>
+            <th>Adepto à Resorts</th>
+            <!-- <th>Adepto à Resorts Não</th>
+            <th>Adepto à Resorts Talvez</th> -->
 
             <th>Budget Mínimo</th>
 
@@ -106,22 +106,23 @@
             <th>Carne</th>
             <th>Outra Dieta</th>
 
-            <th>Fumante Sim</th>
-            <th>Fumante Não</th>
+            <th>Fumante</th>
+            <!-- <th>Fumante Não</th> -->
 
-            <th>Alergia Sim</th>
-            <th>Alergia Não</th>
+            <th>Alergia</th>
+            <!-- <th>Alergia Não</th> -->
             <th>Qual alergia?</th>
 
-            <th>Dificuldade de Locomoção Sim</th>
-            <th>Dificuldade de Locomoção Não</th>
+            <th>Dificuldade de Locomoção</th>
+            <!-- <th>Dificuldade de Locomoção Não</th> -->
             <th>Qual dificuldade?</th>
 
-            <th>Restrição Alimentar Sim</th>
-            <th>Restrição Alimentar Não</th>
+            <th>Restrição Alimentar</th>
+            <!-- <th>Restrição Alimentar Não</th> -->
+            <th>Qual restrição?</th>
             <th>Vegano</th>
             <th>Vegetariano</th>
-            <th>Qual restrição?</th>
+
 
 
             <!-- Viagens____________________________________________________________________ -->
@@ -333,33 +334,84 @@
             <td>{{#each dados_client}}{{facebook}}{{/each}}</td>
             <td>{{#each dados_client}}{{others}}{{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_Status}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Conhecimento}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_NovasExperiencias}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Diversao}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_BemEstar}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Exclusividade}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_OtherNeed}}{{/each}}</td>
+            <td>{{#each dados_client}}
+              {{#compare profile_Status "Status"}}
+              {{profile_Status}}
+              {{/compare}}
+              {{#compare profile_Conhecimento "Conhecimento"}}
+              {{profile_Conhecimento}}
+              {{/compare}}
+              {{#compare profile_NovasExperiencias "NovasExperiencias"}}
+              {{profile_NovasExperiencias}},
+              {{/compare}}
+              {{#compare profile_Diversao "Diversão"}}
+              {{profile_Diversao}}
+              {{/compare}}
+              {{#compare profile_BemEstar "BemEstar"}}
+              {{profile_BemEstar}}
+              {{/compare}}
+              {{#compare profile_Exclusividade "Exclusividade"}}
+              {{profile_Exclusividade}}
+              {{/compare}}
+              {{profile_OtherNeed}}
+            {{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_Esporte}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Refinado}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Simples}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Cult}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Comida}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Vinhos}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_OtherType}}{{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_Contemporaneo}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Classico}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Boutique}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_HotelSimples}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_AndarAlto}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_AndarBaixo}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_OtherHotel}}{{/each}}</td>
+            <td>{{#each dados_client}}
+              {{#compare profile_Esporte "Esporte"}}
+              {{profile_Esporte}}
+              {{/compare}}
+              {{#compare profile_Refinado "Refinado"}}
+              {{profile_Refinado}}
+              {{/compare}}
+              {{#compare profile_Simples "Simples"}}
+              {{profile_Simples}}
+              {{/compare}}
+              {{#compare profile_Cult "Cult"}}
+              {{profile_Cult}}
+              {{/compare}}
+              {{#compare profile_Comida "Comida"}}
+              {{profile_Comida}}
+              {{/compare}}
+              {{#compare profile_Vinhos "Vinhos"}}
+              {{profile_Vinhos}}
+              {{/compare}}
+              {{profile_OtherType}}
+            {{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_ResortSim}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_ResortNao}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_ResortTalvez}}{{/each}}</td>
+            <td>{{#each dados_client}}
+              {{#compare profile_Contemporaneo "Contemporâneo"}}
+              {{profile_Contemporaneo}}
+              {{/compare}}
+              {{#compare profile_Classico "Clássico"}}
+              {{profile_Classico}}
+              {{/compare}}
+              {{#compare profile_Boutique "Boutique"}}
+              {{profile_Boutique}}
+              {{/compare}}
+              {{#compare profile_HotelSimples "Simples"}}
+              {{profile_HotelSimples}}
+              {{/compare}}
+              {{#compare profile_AndarAlto "AndarAlto"}}
+              {{profile_AndarAlto}}
+              {{/compare}}
+              {{#compare profile_AndarBaixo "AndarBaixo"}}
+              {{profile_AndarBaixo}}
+              {{/compare}}
+              {{profile_OtherHotel}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_ResortSim "Sim"}}
+              Sim
+              {{else}}{{#compare profile_ResortNao "Não"}}
+              Não
+              {{else}}{{#compare profile_ResortTalvez "Talvez"}}
+              Talvez
+              {{else}}
+              -
+              {{/compare}}{{/compare}}{{/compare}}
+            {{/each}}</td>
 
             <td>{{#each dados_client}}{{average_Budget}}{{/each}}</td>
 
@@ -387,23 +439,84 @@
             <td>{{#each dados_client}}{{profile_Carnes}}{{/each}}</td>
             <td>{{#each dados_client}}{{profile_OtherDiet}}{{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_SmokeSim}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_SmokeNão}}{{/each}}</td>
+            <td>{{#each dados_client}}
+              {{#compare profile_SmokeSim "Sim"}}
+              {{profile_SmokeSim}}
+              {{else}}{{#compare profile_SmokeNão "Não"}}
+              {{profile_SmokeNão}}
+              {{else}}
+              -
+              {{/compare}}{{/compare}}
+            {{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_AllergySim}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_AllergyNão}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_WhichAllergy}}{{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_DisableSim}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_DisableNão}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_WhichDisable}}{{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_FoodSim}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_FoodNão}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_FoodVegano}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_FoodVegetariano}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_WhichFood}}{{/each}}</td>
+            <td>{{#each dados_client}}
+              {{#compare profile_AllergySim "Sim"}}
+              {{profile_AllergySim}}
+              {{else}}{{#compare profile_AllergyNão "Não"}}
+              {{profile_AllergyNão}}
+              {{else}}
+              -
+              {{/compare}}{{/compare}}
+            {{/each}}</td>
 
+            <td>{{#each dados_client}}
+              {{#compare profile_AllergySim "Sim"}}
+              {{profile_WhichAllergy}}
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_DisableSim "Sim"}}
+              {{profile_DisableSim}}
+              {{else}}
+              {{profile_DisableNão}}
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_DisableSim "Sim"}}
+              {{profile_WhichDisable}}
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_FoodSim "Sim"}}
+              {{profile_FoodSim}}
+              {{else}}
+              {{profile_FoodNão}}
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_FoodSim "Sim"}}
+              {{profile_WhichFood}}
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_FoodVegano "Vegano"}}
+              Sim
+              {{else}}
+              Não
+              {{/compare}}
+            {{/each}}</td>
+
+
+            <td>{{#each dados_client}}
+              {{#compare profile_FoodVegetariano "Vegetariano"}}
+              Sim
+              {{else}}
+              Não
+              {{/compare}}
+            {{/each}}</td>
 
 
 
@@ -589,9 +702,9 @@
   </div>
 
     <div>
-        <!-- <button onClick="docCsv(['tabelaClientes'], 'tabela')">
+        <button onClick="docCsv(['tabelaClientes'], 'tabela')">
             Exportar dados para arquivo.csv
-      </button> -->
+      </button>
           </div>
   </div>
 
