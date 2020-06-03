@@ -26,12 +26,12 @@
           <div>
             <h3> Traslado 1</h3><br>
             <input name="car[from]" type="text" placeholder="De" class="date start-date" />
-            <i class="fa fa-car" aria-hidden="true"></i>
+            <i class="fa fa-car" aria-hidden="true" style="margin-right: 4px; margin-left: 4px"></i>
             <input name="car[to]" type="text" placeholder="Para" class="date start-date" />
             <br><br>
             <input type="date" name = "car[dateFrom]" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' >
             <i class="fa fa-calendar"></i>
-            <input type="text" placeholder="00:00" name="car[timeFrom]" class="date start-date"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" maxlength='6' onblur='addDashesHorario(this)'/>
+            <input type="time" placeholder="00:00" name="car[timeFrom]" class="date start-date" style="width:200px"/>
             <br><br>
           </div>
           <h3>Informações/ Valores</h3><br>

@@ -41,8 +41,8 @@
             <th colspan="1"><input type="date" placeholder="dd/mm/aaaa" name="flight[dateFlight]" class="form-control" maxlength='10'  /></th>
             <th colspan="4"><input type="text" placeholder="De" name="flight[from]" class="form-control"/></th>
             <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" class="form-control"/></th>
-            <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/></th>
-            <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/></th>
+            <th colspan="2"><input type="time" placeholder="00:00" name="flight[timeOut]" class="form-control"/></th>
+            <th colspan="2"><input type="time" placeholder="00:00" name="flight[timeIn]" class="form-control"/></th>
             <input type="number" name="flight[escalas]" value="0" class="invDiv">
           </tr>
         </tbody>

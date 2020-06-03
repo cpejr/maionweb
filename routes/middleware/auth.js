@@ -17,8 +17,8 @@ module.exports = {
   },
 
   isAdmin: (req, res, next) => {
-    const type = req.session.user;
-    if(type === 'Admin'){
+    const type = req.session.userType;
+    if(type === 'Adm'){
       next();
     }
     else {
