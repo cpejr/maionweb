@@ -52,29 +52,29 @@
             <th>Facebook</th>
             <th>Outra</th>
 
-            <th>Necessidades</th>
-            <!-- <th>Necessidade de Conhecimento</th>
+            <th>Necessidade de Status</th>
+            <th>Necessidade de Conhecimento</th>
             <th>Necessidade de Novas Experiências</th>
             <th>Necessidade de Diversão</th>
             <th>Necessidade de Bem-Estar</th>
             <th>Necessidade de Exclusividade</th>
-            <th>Outra Necessidade</th> -->
+            <th>Outra Necessidade</th>
 
-            <th>Perfil</th>
-            <!-- <th>Perfil Refinado</th>
+            <th>Perfil Esporte</th>
+            <th>Perfil Refinado</th>
             <th>Perfil Simples</th>
             <th>Perfil Cult</th>
             <th>Perfil Comida</th>
             <th>Perfil Vinhos </th>
-            <th>Outro Perfil</th> -->
+            <th>Outro Perfil</th>
 
-            <th>Hotel</th>
-            <!-- <th>Hotel Clássico</th>
+            <th>Hotel Contemporâneo</th>
+            <th>Hotel Clássico</th>
             <th>Hotel Boutique</th>
             <th>Hotel Simples</th>
             <th>Hotel Andar Alto</th>
             <th>Hotel Andar Baixo</th>
-            <th>Outro Hotel</th> -->
+            <th>Outro Hotel</th>
 
             <th>Adepto à Resorts</th>
             <!-- <th>Adepto à Resorts Não</th>
@@ -336,69 +336,178 @@
 
             <td>{{#each dados_client}}
               {{#compare profile_Status "Status"}}
-              {{profile_Status}}
+              Status
+              {{else}}
+              -
               {{/compare}}
-              {{#compare profile_Conhecimento "Conhecimento"}}
-              {{profile_Conhecimento}}
-              {{/compare}}
-              {{#compare profile_NovasExperiencias "NovasExperiencias"}}
-              {{profile_NovasExperiencias}},
-              {{/compare}}
-              {{#compare profile_Diversao "Diversão"}}
-              {{profile_Diversao}}
-              {{/compare}}
-              {{#compare profile_BemEstar "BemEstar"}}
-              {{profile_BemEstar}}
-              {{/compare}}
-              {{#compare profile_Exclusividade "Exclusividade"}}
-              {{profile_Exclusividade}}
-              {{/compare}}
-              {{profile_OtherNeed}}
             {{/each}}</td>
 
+            <td>{{#each dados_client}}
+              {{#compare profile_Conhecimento "Conhecimento"}}
+              Conhecimento
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_NovasExperiencias "NovasExperiências"}}
+              Novas Experiências
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Diversao "Diversão"}}
+              Diversão
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_BemEstar "BemEstar"}}
+              Bem Estar
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Exclusividade "Exclusividade"}}
+              Exclusividade
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_OtherNeed ""}}
+              -
+              {{else}}
+              {{profile_OtherNeed}}
+              {{/compare}}
+            {{/each}}</td>
 
             <td>{{#each dados_client}}
               {{#compare profile_Esporte "Esporte"}}
-              {{profile_Esporte}}
+              Esporte
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_Refinado "Refinado"}}
-              {{profile_Refinado}}
+              Refinado
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_Simples "Simples"}}
-              {{profile_Simples}}
+              Simples
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_Cult "Cult"}}
-              {{profile_Cult}}
+              Cult
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_Comida "Comida"}}
-              {{profile_Comida}}
+              Comida
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_Vinhos "Vinhos"}}
-              {{profile_Vinhos}}
+              Vinhos
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_OtherType ""}}
+              -
+              {{else}}
               {{profile_OtherType}}
+              {{/compare}}
             {{/each}}</td>
 
             <td>{{#each dados_client}}
               {{#compare profile_Contemporaneo "Contemporâneo"}}
-              {{profile_Contemporaneo}}
+              Contemporâneo
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_Classico "Clássico"}}
-              {{profile_Classico}}
+              Clássico
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_Boutique "Boutique"}}
-              {{profile_Boutique}}
+              Boutique
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_HotelSimples "Simples"}}
-              {{profile_HotelSimples}}
+              Simples
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_HotelSimples "Simples"}}
+              Simples
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_AndarAlto "AndarAlto"}}
-              {{profile_AndarAlto}}
+              Andar Alto
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
               {{#compare profile_AndarBaixo "AndarBaixo"}}
-              {{profile_AndarBaixo}}
+              Andar Baixo
+              {{else}}
+              -
               {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_OtherHotel ""}}
+              -
+              {{else}}
               {{profile_OtherHotel}}
+              {{/compare}}
             {{/each}}</td>
 
             <td>{{#each dados_client}}

@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <div class="pagesFront">
   <div class="dinamic_spec">
@@ -15,50 +17,52 @@
     </div>
 
 
-        <form class="pt-0" action="/table2" method="post" id="filter" >
-          <div class="style">
+        <form class="pt-0" action="/table" method="post" id="filter" >
+          <div style="justify-content: center; display: flex; flex-direction: column; align-items: center">
 
-
-          De:
+            <label style="font-size: 17px">De:</label>
           <input
             type="number"
             placeholder="aaaa"
             name="info[yearMin]"
             id="yearMin"
             class="form-control"
-            maxlength='4'
+            style= "width:20%;"
           />
           <br><br>
-          a:
+          <label style="font-size: 17px">A:</label>
           <input
             type="number"
             placeholder="aaaa"
             name="info[yearMax]"
             id="yearMax"
             class="form-control"
-            maxlength='4'
+            style= "width:20%;"
           />
           <br><br>
-          CPF do cliente (somente números)
+          <label style="font-size: 17px">CPF do cliente (somente números)</label>
           <input
-            type="register"
+            type="text"
             placeholder="CPF"
             onblur='addDashesCPF(this)'
             name="info[register]"
             id="register"
             class="form-control"
             maxlength='11'
+            style= "width:20%;"
           />
           <br><br>
           <button
             type="button"
-            class="btn btn-light  col-md-2 "
+            class="btn btn-light"
             onclick="validation()"
+            style= "width:20%;"
           >
-            <i class="fa fa-user-plus float-left" aria-hidden="true" ></i>
+            <i class="fas fa-download float-left"></i>
             Baixar tabela
           </button>
         </div>
+
 
         </form>
   </div>
@@ -83,24 +87,12 @@
         document.getElementById("filter").submit();
       }
     }
-    //else if(register)
-
-
-
     else{
       document.getElementById("filter").submit();
     }
 
   }
-  const style = {
-      margin-top: '-20px',
-      margin-left: '60px'
-      display: "flex",
-      flex-direction: "row",
-      width:"40%",
-      align-itens: "center"
-      justify-content: "center"
-  }
+
 
 </script>
 
