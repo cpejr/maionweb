@@ -579,7 +579,7 @@ router.get('/pageE/:client_id/:budget_id', auth.isAuthenticated, function(req, r
 });
 
 /* GET pageF. */
-router.get('/pageF/:client_id/:budget_id', auth.isAuthenticated, function(req, res) {
+router.get('/pageF/:client_id/:budget_id', function(req, res) {
   Client.getById(req.params.client_id).then((client) => {
     Budget.getById(req.params.budget_id).then((budget) => {
       Car.getById(budget.cars).then((car) => {

@@ -53,8 +53,9 @@ router.post('/table',  (req, res) => {
     let dadosPuxados = [];
     Budget.getAll().then((budgets)=>{
         const tratarDataVetor = (vetorData) =>{
-          if(vetorData[0] && vetorData[0].length === 10){
+          
             for(let i = 0; i < vetorData.length; i ++){
+              if(vetorData[i] && vetorData[i].length === 10){
               const date = ' '+ vetorData[i][8]+vetorData[i][9]+'/'+vetorData[i][5]+vetorData[i][6]+'/'+vetorData[i][0]+vetorData[i][1]+vetorData[i][2]+vetorData[i][3];
               vetorData[i] = date;
             }
