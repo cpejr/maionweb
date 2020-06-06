@@ -77,8 +77,6 @@
             <th>Outro Hotel</th>
 
             <th>Adepto à Resorts</th>
-            <!-- <th>Adepto à Resorts Não</th>
-            <th>Adepto à Resorts Talvez</th> -->
 
             <th>Budget Mínimo</th>
 
@@ -107,18 +105,14 @@
             <th>Outra Dieta</th>
 
             <th>Fumante</th>
-            <!-- <th>Fumante Não</th> -->
 
             <th>Alergia</th>
-            <!-- <th>Alergia Não</th> -->
             <th>Qual alergia?</th>
 
             <th>Dificuldade de Locomoção</th>
-            <!-- <th>Dificuldade de Locomoção Não</th> -->
             <th>Qual dificuldade?</th>
 
             <th>Restrição Alimentar</th>
-            <!-- <th>Restrição Alimentar Não</th> -->
             <th>Qual restrição?</th>
             <th>Vegano</th>
             <th>Vegetariano</th>
@@ -519,26 +513,157 @@
             <td>{{#each dados_client}}{{plane_class}}{{/each}}</td>
             <td>{{#each dados_client}}{{plane_seat_pref}}{{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_Corrida}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Bike}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Natação}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_CoriidaCarro}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Musculação}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Pesca}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Mergulho}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Golf}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Tênis}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_OtherSports}}{{/each}}</td>
+            <td>{{#each dados_client}}
+              {{#compare profile_Corrida "Corrida"}}
+              Corrida
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
 
-            <td>{{#each dados_client}}{{profile_Italiana}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Japonesa}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Mediterrânea}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Indiana}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Asiática}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Francesa}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_FrutosDoMar}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_Carnes}}{{/each}}</td>
-            <td>{{#each dados_client}}{{profile_OtherDiet}}{{/each}}</td>
+            <td>{{#each dados_client}}
+              {{#compare profile_Bike "Bike"}}
+              Bike
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Natação "Natação"}}
+              Natação
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_CoriidaCarro "CorridaCarro"}}
+              Corrida de carro
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Musculação "Musculação"}}
+              Musculação
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Pesca "Pesca"}}
+              Pesca
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Mergulho "Mergulho"}}
+              Mergulho
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Golf "Golf"}}
+              Golf
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Tênis "Tênis"}}
+              Tênis
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_OtherSports ""}}
+              -
+              {{else}}
+              {{profile_OtherSports}}
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Italiana "Italiana"}}
+              Italiana
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Japonesa "Japonesa"}}
+              Japonesa
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Mediterrânea "Mediterranea"}}
+              Mediterrânea
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Indiana "Indiana"}}
+              Indiana
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Asiática "Asiática"}}
+              Asiática
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Francesa "Francesa"}}
+              Francesa
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_FrutosDoMar "FrutosDoMar"}}
+              Frutos do mar
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_Carnes "Carnes"}}
+              Carnes
+              {{else}}
+              -
+              {{/compare}}
+            {{/each}}</td>
+
+            <td>{{#each dados_client}}
+              {{#compare profile_OtherDiet ""}}
+              -
+              {{else}}
+              {{profile_OtherDiet}}
+              {{/compare}}
+            {{/each}}</td>
 
             <td>{{#each dados_client}}
               {{#compare profile_SmokeSim "Sim"}}
@@ -549,8 +674,6 @@
               -
               {{/compare}}{{/compare}}
             {{/each}}</td>
-
-
 
             <td>{{#each dados_client}}
               {{#compare profile_AllergySim "Sim"}}
@@ -745,7 +868,7 @@
                           <td>{{#each dados_manyCars}}{{valueINF}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{numINF}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{coinT}}{{/each}}</td>
-                          <td>{{#each dados_manyCars}}{{totalTranslado}}{{/each}}</td>
+                          <td>{{#each dados_manyCars}}{{coinT}}{{totalTranslado}}{{/each}}</td>
 
                           <td>{{#each dados_manyCars}}{{typeCar}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{withdrawal}}{{/each}}</td>
@@ -801,12 +924,6 @@
 
 
   </div>
-
-    <div>
-        <button onClick="docCsv(['tabelaClientes'], 'tabela')">
-            Exportar dados para arquivo.csv
-      </button>
-          </div>
   </div>
 
 

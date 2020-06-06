@@ -24,18 +24,42 @@
     {{#each allCarsTraslado}}
     <div class="dinamic_spec">
       {{#compare isPrimeiro "1"}}
+
         <div class="rowclass autorow">
           <div class="boxPageF boxPageF_Selected" id="box{{repNum}}">
             <div>
               <h3> Traslado {{repNum}}</h3><br>
-              <input name="car[from]" type="text" placeholder="De" class="date start-date" value="{{from}}">
-              <i class="fa fa-car" aria-hidden="true" style="margin-right: 4px; margin-left: 4px"></i>
-              <input name="car[to]" type="text" placeholder="Para" class="date start-date" value="{{to}}">
-              <br><br>
-              <input type="date" name = "car[dateFrom]" value="{{dateFrom}}" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' >
-              <i class="fa fa-calendar"></i>
-              <input type="time" placeholder="00:00" name="car[timeFrom]" value="{{timeFrom}}" class="date start-date" style="width:200px"/>
-
+              <table class="rowclass autorow">
+              <thead>
+              <tr>
+                <th colspan="2"><label>De:</label></th>
+                <th colspan="2"><label style="margin-left:17%">Para:</label></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th colspan="2"><input name="car[from]" type="text" placeholder="De" class="date start-date" value="{{from}}"></th>
+                  <th><i class="fa fa-car" aria-hidden="true" style="margin-right: 4px; margin-left: 4px"></i></th>
+                <th colspan="2"><input name="car[to]" type="text" placeholder="Para" class="date start-date" value="{{to}}"></th>
+              </tr>
+              </tbody>
+            </table>
+            <br>
+              <table class="rowclass autorow">
+              <thead>
+              <tr>
+                <th colspan="2"><label>Data do traslado:</label></th>
+                <th colspan="2"><label style="margin-left:17%">Horário:</label></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th colspan="2"><input type="date" name = "car[dateFrom]" value="{{dateFrom}}" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' ></th>
+                <th><i class="fa fa-calendar"></i></th>
+                <th colspan="2"><input type="time" placeholder="00:00" name="car[timeFrom]" value="{{timeFrom}}" class="date start-date" style="width:200px"/></th>
+              </tr>
+              </tbody>
+              </table>
               <br><br>
             </div>
             <h3>Informações/ Valores</h3><br>
@@ -64,23 +88,28 @@
                     <th colspan="2"><input name="car[numCHD]" onblur="calcTraslado()" id="numCHD{{repNum}}" class="form-control" placeholder="numCHD" value="{{numCHD}}"></th>
                     <th colspan="2"><input name="car[numINF]" onblur="calcTraslado()" id="numINF{{repNum}}" class="form-control" placeholder="numINF" value="{{numINF}}"></th>
                   </tr>
-                  <tr>
-                    <th colspan="3">
-                      <br>
-                      <div class="rowclass autorow">
-                        <select placeholder="Selecione" class="form-control" name="car[coinT]" >
-                          <option style = "color:red;">{{coinT}}</option>
-                          <option>USD</option>
-                          <option>R$</option>
-                          <option>€</option>
-                        </select>
-                      </div>
-                    </th>
-                    <th colspan="3">
-                      <br>
-                      <input name="car[totalTranslado]" onblur="calcTraslado()" id="totalTranslado{{repNum}}" class="form-control" placeholder="Total" value="{{totalTranslado}}">
-                    </th>
-                  </tr>
+                </tbody>
+              </table>
+              <div class="rowclass autorow">
+                <table class="rowclass autorow">
+                <thead>
+                <tr>
+                  <th colspan="2"><label>Moeda</label></th>
+                  <th colspan="2"><label>Total</label></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th colspan="2" style="width:50%">
+                    <select placeholder="Selecione" class="form-control" name="car[coinT]">
+                      <option style = "color:red;">{{coinT}}</option>
+                      <option>USD</option>
+                      <option>R$</option>
+                      <option>€</option>
+                    </select>
+                  </th>
+                  <th colspan="2"><input name="car[totalTranslado]" onblur="calcTraslado()" id="totalTranslado{{repNum}}" class="form-control" placeholder="Total" value="{{totalTranslado}}"></th>
+                </tr>
                 </tbody>
               </table>
               <br>
@@ -97,13 +126,37 @@
           <div class="boxPageF" id="box{{repNum}}">
             <div>
               <h3> Traslado {{repNum}}</h3><br>
-              <input name="car[from]" type="text" placeholder="De" class="date start-date" value="{{from}}">
-              <i class="fa fa-car" aria-hidden="true" style="margin-right: 4px; margin-left: 4px"></i>
-              <input name="car[to]" type="text" placeholder="Para" class="date start-date" value="{{to}}">
-              <br><br>
-              <input type="date" name = "car[dateFrom]" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' >
-              <i class="fa fa-calendar"></i>
-              <input name="car[timeFrom]" type="time" placeholder="00:00" class="date start-date" value="{{timeFrom}}" style="width:200px">
+              <table class="rowclass autorow">
+              <thead>
+              <tr>
+                <th colspan="2"><label>De:</label></th>
+                <th colspan="2"><label style="margin-left:17%">Para:</label></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th colspan="2"><input name="car[from]" type="text" placeholder="De" class="date start-date" value="{{from}}"></th>
+                  <th><i class="fa fa-car" aria-hidden="true" style="margin-right: 4px; margin-left: 4px"></i></th>
+                <th colspan="2"><input name="car[to]" type="text" placeholder="Para" class="date start-date" value="{{to}}"></th>
+              </tr>
+              </tbody>
+            </table>
+            <br>
+              <table class="rowclass autorow">
+              <thead>
+              <tr>
+                <th colspan="2"><label>Data do traslado:</label></th>
+                <th colspan="2"><label style="margin-left:17%">Horário:</label></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th colspan="2"><input type="date" name = "car[dateFrom]" value="{{dateFrom}}" class="date start-date" id="dateFrom" placeholder="Data do traslado" maxlength='10' ></th>
+                <th><i class="fa fa-calendar"></i></th>
+                <th colspan="2"><input type="time" placeholder="00:00" name="car[timeFrom]" value="{{timeFrom}}" class="date start-date" style="width:200px"/></th>
+              </tr>
+              </tbody>
+              </table>
               <br><br>
             </div>
             <h3>Informações/ Valores</h3><br>
@@ -132,23 +185,28 @@
                     <th colspan="2"><input name="car[numCHD]" onblur="calcTraslado()" id="numCHD{{repNum}}" class="form-control" placeholder="numCHD" value="{{numCHD}}"></th>
                     <th colspan="2"><input name="car[numINF]" onblur="calcTraslado()" id="numINF{{repNum}}" class="form-control" placeholder="numINF" value="{{numINF}}"></th>
                   </tr>
-                  <tr>
-                    <th colspan="3">
-                      <br>
-                      <div class="rowclass autorow">
-                        <select placeholder="Selecione" class="form-control" name="car[coinT]" >
-                          <option style = "color:red;">{{coinT}}</option>
-                          <option>USD</option>
-                          <option>R$</option>
-                          <option>€</option>
-                        </select>
-                      </div>
-                    </th>
-                    <th colspan="3">
-                      <br>
-                      <input name="car[totalTranslado]" onblur="calcTraslado()" id="totalTranslado{{repNum}}" class="form-control" placeholder="Total" value="{{totalTranslado}}">
-                    </th>
-                  </tr>
+                </tbody>
+              </table>
+              <div class="rowclass autorow">
+                <table class="rowclass autorow">
+                <thead>
+                <tr>
+                  <th colspan="2"><label>Moeda</label></th>
+                  <th colspan="2"><label>Total</label></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th colspan="2" style="width:50%">
+                    <select placeholder="Selecione" class="form-control" name="car[coinT]">
+                      <option style = "color:red;">{{coinT}}</option>
+                      <option>USD</option>
+                      <option>R$</option>
+                      <option>€</option>
+                    </select>
+                  </th>
+                  <th colspan="2"><input name="car[totalTranslado]" onblur="calcTraslado()" id="totalTranslado{{repNum}}" class="form-control" placeholder="Total" value="{{totalTranslado}}"></th>
+                </tr>
                 </tbody>
               </table>
               <br>
@@ -179,30 +237,39 @@
           <div class="boxCarsPageF">
             <br><br><h3> Carros {{repNum}} </h3><br>
             <div class="classa">
+              <label style="margin-left: -90%">Categoria</label>
               <input class="form-control" placeholder="Categoria" name="car[typeCar]" value="{{typeCar}}">
             </div><br>
             <div class="classa">
-              <input class="form-control" placeholder="Cidade de Retirada" name="car[withdrawal]" value="{{withdrawal}}">
+              <label style="margin-left: -82%">Local de Retirada</label>
+              <input class="form-control" placeholder="Local de Retirada" name="car[withdrawal]" value="{{withdrawal}}">
             </div><br>
             <div class="classa">
-              <input class="form-control" placeholder="Cidade de Devolução" name="car[delivery]" value="{{delivery}}">
+              <label style="margin-left: -80%">Local de Devolução</label>
+              <input class="form-control" placeholder="Local de Devolução" name="car[delivery]" value="{{delivery}}">
             </div><br>
             <div class="classa">
+              <label style="margin-left: -84%">Valor do carro {{repNum}}</label>
               <input class="form-control" placeholder="Valor carro {{repNum}}" name="car[totalCar]" value="{{totalCar}}">
             </div><br>
             <div class="classa">
+              <label style="margin-left: -92%">Cidade</label>
               <input class="form-control" placeholder="Cidade" name="car[city]" value="{{city}}">
             </div><br>
             <div class="classa">
+              <label style="margin-left: -85%">Características</label>
               <input class="form-control" placeholder="Características" name="car[shift]" value="{{shift}}">
             </div><br>
             <div class="classa">
+              <label style="margin-left: -91%">Seguros</label>
               <input class="form-control" placeholder="Seguros" name="car[safe]" value="{{safe}}">
             </div><br>
             <div class="classa">
+              <label style="margin-left: -92%">Outros</label>
               <input class="form-control" placeholder="Outros" name="car[others]" value="{{others}}">
             </div><br>
             <div class="classa">
+              <label style="margin-left: -92%">Moeda</label>
               <select placeholder="Selecione" class="form-control" name="car[coinC]">
                 <option style = "color:red;">{{coinC}}</option>
                 <option>USD</option>
