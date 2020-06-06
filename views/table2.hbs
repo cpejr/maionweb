@@ -125,18 +125,19 @@
                           <th>Cidade</th>
                           <th>País</th>
                           <th>Observações sobre a viagem</th>
-                          <th>Moeda</th>
+                          <!-- <th>Moeda</th>
                           <th>Valor total</th>
-                          <th>Pagamento</th>
+                          <th>Pagamento</th> -->
                           <th>Companhia</th>
                           <th>Estado da viagem</th>
             <!-- Voos_______________________________________________________________________ -->
-                          <th>Numero do voo</th>
+                          <th>Número do voo</th>
                           <th>Data do voo</th>
                           <th>Origem do voo</th>
                           <th>Destino do voo</th>
                           <th>Horário de Saída do voo</th>
                           <th>Horário de Chegada do voo</th>
+                          <th>Moeda Voo</th>
 
                           <th>Tarifa ADT Primeira Classe</th>
                           <th>Embarque ADT Primeira Classe</th>
@@ -229,28 +230,28 @@
                           <th>Prazo 3</th>
 
             <!-- Transporte_________________________________________________________________ -->
-                          <th>Origem Transporte</th>
-                          <th>Destino Transporte</th>
-                          <th>Data Transporte</th>
-                          <th>Hora Transporte</th>
-                          <th>Valor Transporte por ADT</th>
+                          <th>Origem Traslado</th>
+                          <th>Destino Traslado</th>
+                          <th>Data Traslado</th>
+                          <th>Hora Traslado</th>
+                          <th>Valor Traslado por ADT</th>
                           <th>Número de ADT</th>
-                          <th>Valor Transporte por CHD</th>
+                          <th>Valor Traslado por CHD</th>
                           <th>Número de CHD</th>
-                          <th>Valor Transporte por INF</th>
+                          <th>Valor Traslado por INF</th>
                           <th>Número de INF</th>
-                          <th>Moeda</th>
-                          <th>Total translado</th>
+                          <th>Moeda Traslado</th>
+                          <th>Total Traslado</th>
 
-                          <th>Categoria Automóvel</th>
+                          <th>Categoria Carro</th>
                           <th>Cidade de retirada</th>
                           <th>Cidade de devolução</th>
-                          <th>Valor Automóvel</th>
+                          <th>Valor Carro</th>
                           <th>Cidade</th>
                           <th>Características</th>
                           <th>Seguros</th>
                           <th>Outros</th>
-                          <th>Moeda</th>
+                          <th>Moeda Carro</th>
             <!-- Seguro_____________________________________________________________________ -->
                           <th>Suguro</th>
                           <th>Cobertura</th>
@@ -260,8 +261,8 @@
                           <th>Número de CHD</th>
                           <th>Valor por INF</th>
                           <th>Número de INF</th>
-                          <th>Moeda</th>
-                          <th>Total seguro</th>
+                          <th>Moeda Seguro</th>
+                          <th>Total Seguro</th>
 
                           <th>Ticket</th>
                           <th>Valor por ADT</th>
@@ -270,8 +271,8 @@
                           <th>Número de CHD</th>
                           <th>Valor por INF</th>
                           <th>Número de INF</th>
-                          <th>Moeda</th>
-                          <th>Total ticket</th>
+                          <th>Moeda Ticket</th>
+                          <th>Total Ticket</th>
 
                           <th>Outro item</th>
                           <th>Valor por ADT</th>
@@ -280,7 +281,7 @@
                           <th>Número de CHD</th>
                           <th>Valor por INF</th>
                           <th>Número de INF</th>
-                          <th>Moeda</th>
+                          <th>Moeda outro item</th>
                           <th>Total outro item</th>
 
           </tr>
@@ -750,10 +751,9 @@
                           <td>{{#each dados_manyBudgets}}{{planCity}}{{/each}}</td>
                           <td>{{#each dados_manyBudgets}}{{planCountry}}{{/each}}</td>
                           <td>{{#each dados_manyBudgets}}{{planFreeField}}{{/each}}</td>
-            <!-- ATENÇÃO____________________________________________________________________ -->
-                          <td>{{#each dados_manyBudgets}}{{coin}}{{/each}}</td>
+                          <!-- <td>{{#each dados_manyBudgets}}{{coin}}{{/each}}</td>
                           <td>{{#each dados_manyBudgets}}{{totalValue}}{{/each}}</td>
-                          <td>{{#each dados_manyBudgets}}{{payment}}{{/each}}</td>
+                          <td>{{#each dados_manyBudgets}}{{payment}}{{/each}}</td> -->
                           <td>{{#each dados_manyBudgets}}{{companions}}{{/each}}</td>
                           <td>{{#each dados_manyBudgets}}{{finalized}}{{/each}}</td>
 
@@ -764,6 +764,15 @@
                           <td>{{#each dados_manyFlights}}{{destination}}{{/each}}</td>
                           <td>{{#each dados_manyFlights}}{{timeOut}}{{/each}}</td>
                           <td>{{#each dados_manyFlights}}{{timeIn}}{{/each}}</td>
+                          <td>{{#each dados_manyFlights}}
+                            {{#compare coin "Selecione qual moeda:"}}
+                            -
+                            {{else}}{{#compare coin ""}}
+                            -
+                            {{else}}
+                            {{coin}}
+                            {{/compare}}{{/compare}}
+                          {{/each}}</td>
 
                           <td>{{#each dados_manyFlights}}{{tariffValueAdult_FirstClass}}{{/each}}</td>
                           <td>{{#each dados_manyFlights}}{{taxValueAdult_FirstClass}}{{/each}}</td>
@@ -819,9 +828,18 @@
                           <td>{{#each dados_manyFlights}}{{totalValueInf_Economic}}{{/each}}</td>
                           <td>{{#each dados_manyFlights}}{{numINF_Economic}}{{/each}}</td>
 
+
             <!-- Hotéis_____________________________________________________________________ -->
                           <td>{{#each dados_manyHotels}}{{city}}{{/each}}</th>
-                          <td>{{#each dados_manyHotels}}{{coin}}{{/each}}</th>
+                          <td>{{#each dados_manyHotels}}
+                            {{#compare coin "Selecione qual moeda:"}}
+                            -
+                            {{else}}{{#compare coin ""}}
+                            -
+                            {{else}}
+                            {{coin}}
+                            {{/compare}}{{/compare}}
+                          {{/each}}</th>
 
                           <td>{{#each dados_manyHotels}}{{acomodationType1}}{{/each}}</td>
                           <td>{{#each dados_manyHotels}}{{hotel1}}{{/each}}</td>
@@ -867,8 +885,16 @@
                           <td>{{#each dados_manyCars}}{{numCHD}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{valueINF}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{numINF}}{{/each}}</td>
-                          <td>{{#each dados_manyCars}}{{coinT}}{{/each}}</td>
-                          <td>{{#each dados_manyCars}}{{coinT}}{{totalTranslado}}{{/each}}</td>
+                          <td>{{#each dados_manyCars}}
+                            {{#compare coinT "Moeda:"}}
+                            -
+                            {{else}}{{#compare coinT "Moeda"}}
+                            -
+                            {{else}}
+                            {{coinT}}
+                            {{/compare}}{{/compare}}
+                          {{/each}}</td>
+                          <td>{{#each dados_manyCars}}{{totalTranslado}}{{/each}}</td>
 
                           <td>{{#each dados_manyCars}}{{typeCar}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{withdrawal}}{{/each}}</td>
@@ -878,7 +904,15 @@
                           <td>{{#each dados_manyCars}}{{shift}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{safe}}{{/each}}</td>
                           <td>{{#each dados_manyCars}}{{others}}{{/each}}</td>
-                          <td>{{#each dados_manyCars}}{{coinC}}{{/each}}</td>
+                          <td>{{#each dados_manyCars}}
+                            {{#compare coinC "Moeda:"}}
+                            -
+                            {{else}}{{#compare coinC "Moeda"}}
+                            -
+                            {{else}}
+                            {{coinC}}
+                          {{/compare}}{{/compare}}
+                          {{/each}}</td>
 
             <!-- Seguro_____________________________________________________________________ -->
                           <td>{{#each dados_manySafes}}{{insuranceName}}{{/each}}</td>
@@ -889,7 +923,15 @@
                           <td>{{#each dados_manySafes}}{{SafenumCHD}}{{/each}}</td>
                           <td>{{#each dados_manySafes}}{{insuranceINF}}{{/each}}</td>
                           <td>{{#each dados_manySafes}}{{SafenumINF}}{{/each}}</td>
-                          <td>{{#each dados_manySafes}}{{insuranceCoin}}{{/each}}</td>
+                          <td>{{#each dados_manySafes}}
+                            {{#compare insuranceCoin "Moeda:"}}
+                            -
+                            {{else}}{{#compare insuranceCoin "Moeda"}}
+                            -
+                            {{else}}
+                            {{insuranceCoin}}
+                            {{/compare}}{{/compare}}
+                          {{/each}}</td>
                           <td>{{#each dados_manySafes}}{{insuranceTOT}}{{/each}}</td>
 
                           <td>{{#each dados_manySafes}}{{ticketsName}}{{/each}}</td>
@@ -899,7 +941,15 @@
                           <td>{{#each dados_manySafes}}{{TicketnumCHD}}{{/each}}</td>
                           <td>{{#each dados_manySafes}}{{ticketsINF}}{{/each}}</td>
                           <td>{{#each dados_manySafes}}{{TicketnumINF}}{{/each}}</td>
-                          <td>{{#each dados_manySafes}}{{ticketsCoin}}{{/each}}</td>
+                          <td>{{#each dados_manySafes}}
+                            {{#compare ticketsCoin "Moeda:"}}
+                            -
+                            {{else}}{{#compare ticketsCoin "Moeda"}}
+                            -
+                            {{else}}
+                            {{ticketsCoin}}
+                            {{/compare}}{{/compare}}
+                          {{/each}}</td>
                           <td>{{#each dados_manySafes}}{{ticketsTOT}}{{/each}}</td>
 
                           <td>{{#each dados_manySafes}}{{otherName}}{{/each}}</td>
@@ -909,7 +959,15 @@
                           <td>{{#each dados_manySafes}}{{OthernumCHD}}{{/each}}</td>
                           <td>{{#each dados_manySafes}}{{otherINF}}{{/each}}</td>
                           <td>{{#each dados_manySafes}}{{OthernumINF}}{{/each}}</td>
-                          <td>{{#each dados_manySafes}}{{otherCoin}}{{/each}}</td>
+                          <td>{{#each dados_manySafes}}
+                            {{#compare otherCoin "Moeda:"}}
+                            -
+                            {{else}}{{#compare otherCoin "Moeda"}}
+                            -
+                            {{else}}
+                            {{otherCoin}}
+                            {{/compare}}{{/compare}}
+                          {{/each}}</td>
                           <td>{{#each dados_manySafes}}{{otherTOT}}{{/each}}</td>
 
 
