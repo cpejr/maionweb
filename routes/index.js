@@ -44,7 +44,7 @@ router.get('/forgot',  (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
-// Tabela budget
+// Tabela
 router.post('/table',  (req, res) => {
     let year1 = req.body.info.yearMin;
     let year2 = req.body.info.yearMax;
@@ -53,7 +53,6 @@ router.post('/table',  (req, res) => {
     let dadosPuxados = [];
     Budget.getAll().then((budgets)=>{
         const tratarDataVetor = (vetorData) =>{
-
             for(let i = 0; i < vetorData.length; i ++){
               if(vetorData[i] && vetorData[i].length === 10){
               const date = ' '+ vetorData[i][8]+vetorData[i][9]+'/'+vetorData[i][5]+vetorData[i][6]+'/'+vetorData[i][0]+vetorData[i][1]+vetorData[i][2]+vetorData[i][3];
@@ -79,6 +78,15 @@ router.post('/table',  (req, res) => {
             return undefined;
           }
         }
+        const tratarMoeda = (moeda) =>{
+          for(let i = 0; i < moeda.length; i ++){
+            if(!moeda[i] || moeda[i] === 'Moeda' || moeda[i] === 'Moeda:' || moeda[i] === 'Selecione qual moeda' || moeda[i] === 'Selecione qual moeda:'){
+              const coin = '-';
+              moeda[i] = coin;
+          }
+        }
+        return moeda;
+        }
 
       let cont = 0;
       budgets.forEach((budget)=>{
@@ -99,13 +107,25 @@ router.post('/table',  (req, res) => {
           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
 
             manyFlights[0].dateFlight = tratarDataVetor(manyFlights[0].dateFlight);
+            manyFlights[0].coin = tratarMoeda(manyFlights[0].coin);
 
             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+
+              manyHotels[0].coin = tratarMoeda(manyHotels[0].coin);
+
               Car.getByIdArray(budget.cars).then((manyCars)=>{
 
                 manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
+                manyCars[0].coinT = tratarMoeda(manyCars[0].coinT);
+                manyCars[0].coinC = tratarMoeda(manyCars[0].coinC);
+
 
                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
+
+                  manySafes[0].insuranceCoin = tratarMoeda(manySafes[0].insuranceCoin);
+                  manySafes[0].ticketsCoin = tratarMoeda(manySafes[0].ticketsCoin);
+                  manySafes[0].otherCoin = tratarMoeda(manySafes[0].otherCoin);
+
                   if(year1 && year2){
                     if((ano && ano >= year1 && ano <= year2) && ((register && cliente[0].register === register) || !register)){
                       dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
