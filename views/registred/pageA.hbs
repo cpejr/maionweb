@@ -12,32 +12,41 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Nome completo</label>
             <input type="fullname" name = "client[fullname]" value="{{client.fullname}}" class="form-control" id="fullname" placeholder="Nome Completo" required>
           </div><br>
           <div class="classa">
+            <label>Email</label>
             <input type="email" name = "client[email]" value="{{client.email}}" class="form-control" id="email" placeholder="Email" required>
           </div><br>
           <div class="classa">
+            <label>Confirmação email</label>
             <input type="email" name = "client[email1]" value="{{client.email1}}" class="form-control" id="email_confirmation" placeholder="Confirme seu email" required>
           </div><br>
           <div class="classa">
+            <label>CPF</label>
             <input type="register" name = "client[register]" value="{{client.register}}" class="form-control" id="register" placeholder="CPF" onblur='addDashesCPF(this)' maxlength='14'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>RG</label>
             <input type="id" name = "client[id]" value="{{client.id}}" class="form-control" id="id" placeholder="RG" required>
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Data de nascimento</label>
             <input type="date" name = "client[birthDate]" value="{{client.birthDate}}" class="form-control" id="birthDate" placeholder="Data de Nascimento" maxlength="10" >
           </div><br>
           <div class="classa">
+            <label>Telefone fixo</label>
             <input type="phone" name = "client[phone]" value="{{client.phone}}" class="form-control" id="phone" placeholder="Telefone Fixo" onblur='addDashesFixo(this)' maxlength='13' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Celular principal</label>
             <input type="cellphone" name = "client[cellphone]" value="{{client.cellphone}}" class="form-control" id="cellphone" placeholder="Celular" onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Celular</label>
             <input type="cellphone1" name = "client[cellphone1]" value="{{client.cellphone1}}" class="form-control" id="cellphone1" placeholder="Celular" onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
         </div>
@@ -47,25 +56,31 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Rua</label>
             <input type="fullname" name = "client[street]" value="{{client.street}}" class="form-control" id="street" placeholder="Rua/ Av./ etc">
           </div><br>
           <div class="classa">
+            <label>Bairro</label>
             <input type="fullname" name = "client[neighbourhood]" value="{{client.neighbourhood}}" class="form-control" id="neighbourhood" placeholder="Bairro">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Complemento</label>
             <input type="fullname" name = "client[complement]" value="{{client.complement}}" class="form-control" id="complement" placeholder="Complemento">
           </div><br>
           <div class="classa">
+            <label>Cidade</label>
             <input type="fullname" name = "client[city]" value="{{client.city}}" class="form-control" id="city" placeholder="Cidade">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>CEP</label>
             <input type="fullname" name = "client[zipcode]" value="{{client.zipcode}}" class="form-control" id="zipcode" placeholder="CEP" onblur='addDashesCep(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Estado</label>
             <select name="client[state]" class="form-control">
               <option style = "color:red;">{{client.state}}</option>
               <option>AC</option>
@@ -104,6 +119,7 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Estado civil</label>
             <select name="client[maritalStatus]" class="form-control">
               <option style = "color:red;">{{client.maritalStatus}}</option>
               <option>Casado</option>
@@ -119,6 +135,7 @@
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Passaporte</label>
             <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte" value="{{client.passport}}">
           </div><br>
           <label for="">Validade do passaporte</label>
@@ -126,6 +143,7 @@
             <input type="date" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte"  value="{{client.passportValidation}}">
           </div><br>
           <div class="classa">
+            <label>Profissão</label>
             <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão" value="{{client.profession}}">
           </div><br>
         </div>
@@ -142,6 +160,7 @@
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Nome do/a conjuge</label>
               <input type="spouseName" name = "client[spouseName]" value="{{client.spouseName}}" class="form-control" id="spouseName" placeholder="Cônjuge">
             </div><br>
             <label for="">Data de nascimento</label>
@@ -149,14 +168,17 @@
               <input type="date" name = "client[birthDateSpouse]" value="{{client.birthDateSpouse}}" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento" maxlength="10" >
             </div><br>
             <div class="classa">
+              <label>Email do/a conjuge</label>
               <input type="email" name = "client[spouseEmail]" value="{{client.spouseEmail}}" class="form-control" id="email" placeholder="Email">
             </div><br>
             <div class="classa">
+              <label>Celular do/a conjuge</label>
               <input type="phoneFamily" name = "client[phoneFamily]" value="{{client.phoneFamily}}" class="form-control" id="phoneFamily" placeholder="Telefone Fixo" onblur='addDashesFixo(this)' maxlength='13' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Passaporte do/a conjuge</label>
               <input type="fullname" name = "client[spousePassport]" value="{{client.spousePassport}}" class="form-control" id="spousePassport" placeholder="Passaporte">
             </div><br>
             <label for="">Validade do passaporte</label>
@@ -164,6 +186,7 @@
               <input type="date" name = "client[spousePassportValidation]" value="{{client.spousePassportValidation}}" class="form-control" id="spousePassportValidation" placeholder="Validade Passaporte" >
             </div><br>
             <div class="classa">
+              <label>Profissão do/a conjuge</label>
               <input type="profession2" name = "client[spouseProfession]" value="{{client.spouseProfession}}" class="form-control" id="profession2" placeholder="Profissão">
             </div><br>
           </div>
@@ -174,6 +197,7 @@
           <div class="row rowclass">
             <div class="col-sm pageA-padding">
               <div class="classa">
+                <label>Nome do/a filho/a</label>
                 <input type="sondaughter" name = "client[children]" value="{{children}}" class="form-control" id="children" placeholder="Filho/a">
               </div><br>
               <label for="">Data de nascimento</label>
@@ -184,6 +208,7 @@
 
             <div class="col-sm pageA-padding">
               <div class="classa">
+                <label>Passaporte do/a filho/a</label>
                 <input type="fullname" name = "client[childrenPassport]" value="{{childrenPassport}}" class="form-control" id="childrenPassport" placeholder="Passaporte">
               </div><br>
               <label for="">Validade do passaporte</label>
@@ -215,9 +240,11 @@
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Nome do/a acompanhante</label>
               <input type="fullname" name = "client[companionFullname]" value="{{companionFullname}}" class="form-control" id="companionFullname" placeholder="Nome Completo">
             </div><br>
             <div class="classa">
+              <label>Email do/a acompanhante</label>
               <input type="fullname" name = "client[companionEmail]" value="{{companionEmail}}" class="form-control" id="companionEmail" placeholder="Email">
             </div><br>
             <label for="">Data de nascimento</label>
@@ -227,9 +254,11 @@
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Celular do/a acompanhante</label>
               <input type="fullname" name = "client[companionCellphone]" value="{{companionCellphone}}" class="form-control" id="companionCellphone" placeholder="Celular" onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
+              <label>Passaporte do/a acompanhante</label>
               <input type="fullname" name = "client[companionPassport]" value="{{companionPassport}}" class="form-control" id="companionPassport" placeholder="Passaporte">
             </div><br>
             <label for="">Validade do passaporte</label>
@@ -258,6 +287,7 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Funil de vendas</label>
             <select name="client[funil]" class="form-control">
               <option style = "color:red;">{{client.funil}}</option>
               <option>Instagram</option>
@@ -269,14 +299,17 @@
             </select>
           </div>
           <div class="classa">
+            <label>Usuário facebook</label>
             <input type="facebook" name = "client[facebook]" value="{{client.facebook}}" class="form-control" id="facebook" placeholder="Facebook">
           </div>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>@ Instagram</label>
             <input type="instagram" name = "client[instagram]" value="{{client.instagram}}" class="form-control" id="instagram" placeholder="Instagram">
           </div>
           <div class="classa">
+            <label>Outros</label>
             <input type="others" name = "client[others]" value="{{client.others}}" class="form-control" id="others" placeholder="Outros">
           </div>
         </div>
