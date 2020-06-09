@@ -20,6 +20,7 @@
             <th>Telefone Celular</th>
             <th>Endereço</th>
             <th>Bairro</th>
+            <th>Estado</th>
             <th>Email</th>
             <th>Data de Nascimento</th>
             <th>Passaporte</th>
@@ -50,7 +51,8 @@
 
             <th>Instagram</th>
             <th>Facebook</th>
-            <th>Outra</th>
+            <th>Outros</th>
+            <th>Funil de vendas</th>
 
             <th>Necessidade de Status</th>
             <th>Necessidade de Conhecimento</th>
@@ -297,6 +299,7 @@
             <td>{{#each dados_client}}{{cellphone}}{{/each}}</td>
             <td>{{#each dados_client}}{{street}}{{/each}}</td>
             <td>{{#each dados_client}}{{neighbourhood}}{{/each}}</td>
+            <td>{{#each dados_client}}{{state}}{{/each}}</td>
             <td>{{#each dados_client}}{{email}}{{/each}}</td>
             <td>{{#each dados_client}}{{birthDate}}{{/each}}</td>
             <td>{{#each dados_client}}{{passport}}{{/each}}</td>
@@ -328,6 +331,7 @@
             <td>{{#each dados_client}}{{instagram}}{{/each}}</td>
             <td>{{#each dados_client}}{{facebook}}{{/each}}</td>
             <td>{{#each dados_client}}{{others}}{{/each}}</td>
+            <td>{{#each dados_client}}{{funil}}{{/each}}</td>
 
             <td>{{#each dados_client}}
               {{#compare profile_Status "Status"}}
@@ -697,9 +701,11 @@
             <td>{{#each dados_client}}
               {{#compare profile_DisableSim "Sim"}}
               {{profile_DisableSim}}
-              {{else}}
+              {{else}}{{#compare profile_DisableSim "Não"}}
               {{profile_DisableNão}}
-              {{/compare}}
+              {{else}}
+              -
+              {{/compare}}{{/compare}}
             {{/each}}</td>
 
             <td>{{#each dados_client}}
@@ -713,9 +719,11 @@
             <td>{{#each dados_client}}
               {{#compare profile_FoodSim "Sim"}}
               {{profile_FoodSim}}
-              {{else}}
+              {{else}}{{#compare profile_FoodSim "Não"}}
               {{profile_FoodNão}}
-              {{/compare}}
+              {{else}}
+              -
+              {{/compare}}{{/compare}}
             {{/each}}</td>
 
             <td>{{#each dados_client}}
