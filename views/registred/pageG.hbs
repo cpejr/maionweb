@@ -100,10 +100,23 @@
                   <tr>
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
-                        <option style = "color:red;">{{insuranceCoin}}</option>
-                        <option>USD</option>
-                        <option>R$</option>
-                        <option>€</option>
+                        {{#compare insuranceCoin "USD"}}
+                          <option selected >USD</option>
+                          <option>R$</option>
+                          <option>€</option>
+                        {{else}}{{#compare insuranceCoin "R$"}}
+                          <option >USD</option>
+                          <option selected>R$</option>
+                          <option>€</option>
+                      {{else}}{{#compare insuranceCoin "€"}}
+                          <option >USD</option>
+                          <option>R$</option>
+                          <option selected>€</option>
+                      {{else}}
+                          <option>USD</option>
+                          <option selected>R$</option>
+                          <option>€</option>
+                      {{/compare}}{{/compare}}{{/compare}}
                       </select>
                     </th>
                     <th>
@@ -201,10 +214,23 @@
                   <tr>
                     <th>
                       <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
-                        <option style = "color:red;">{{insuranceCoin}}</option>
-                        <option>USD</option>
-                        <option>R$</option>
-                        <option>€</option>
+                        {{#compare insuranceCoin "USD"}}
+                          <option selected >USD</option>
+                          <option>R$</option>
+                          <option>€</option>
+                        {{else}}{{#compare insuranceCoin "R$"}}
+                          <option >USD</option>
+                          <option selected>R$</option>
+                          <option>€</option>
+                      {{else}}{{#compare insuranceCoin "€"}}
+                          <option >USD</option>
+                          <option>R$</option>
+                          <option selected>€</option>
+                      {{else}}
+                          <option>USD</option>
+                          <option selected>R$</option>
+                          <option>€</option>
+                      {{/compare}}{{/compare}}{{/compare}}
                       </select>
                     </th>
                     <th>

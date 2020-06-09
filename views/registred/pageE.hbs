@@ -48,15 +48,60 @@
                 <div class="classa">
                   <label>Tipo da Pensão</label>
                   <select placeholder="Selecione" class="form-control" name="hotel[food1]">
-                    <option style = "color:red;">{{food1}}</option>
-                    <option>Com Café da Manhã</option>
-                    <option>Sem Café da Manhã</option>
-                    <option>Pensão Completa</option>
-                    <option>Outros</option>
+                    {{#compare food1 "Com Café da Manhã"}}
+                      <option selected>Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food1 "Sem Café da Manhã"}}
+                      <option >Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food1 "Pensão Completa"}}
+                      <option >Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option selected>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food1 "Outro"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option selected>Outro</option>
+                    {{else}}{{#compare food1 "Meia Pensão"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option selected>All inclusive</option>
+                      <option >Outro</option>
+                    {{else}}{{#compare food1 "All inclusive"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option selected>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>All inclusive</option>
+                      <option >Meia Pensão</option>
+                      <option >Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div><br>
                 <div class="classa">
-                  <label>Valor apto.</label>
+                  <label>Valor apto:</label>
                   <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" id="vApto1{{numHotels}}" onblur="calcHotel()" value="{{valueApt1}}">
                 </div><br>
                 <div class="classa">
@@ -73,11 +118,25 @@
                 </div><br>
                 <div class="classa">
                   <label>Prazo de Cancelamento</label>
+                  
                   <select class="form-control" name="hotel[cancellationPeriod]">
-                    <option style = "color:red;">{{cancellationPeriod}}</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
+                    {{#compare cancellationPeriod "Sem prazo"}}
+                      <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod "Com prazo"}}
+                      <option>Sem prazo</option>
+                      <option selected>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod "Outro"}}
+                      <option>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option selected>Outro</option>
+                    {{else}}
+                     <option>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div>
               </div>
@@ -113,11 +172,56 @@
                 <div class="classa">
                   <label>Tipo de Pensão</label>
                   <select placeholder="Selecione" class="form-control" name="hotel[food2]">
-                    <option style = "color:red;">{{food2}}</option>
-                    <option>Com Café da Manhã</option>
-                    <option>Sem Café da Manhã</option>
-                    <option>Pensão Completa</option>
-                    <option>Outros</option>
+                    {{#compare food2 "Com Café da Manhã"}}
+                      <option selected>Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food2 "Sem Café da Manhã"}}
+                      <option >Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food2 "Pensão Completa"}}
+                      <option >Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option selected>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food2 "Outro"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option selected>Outro</option>
+                    {{else}}{{#compare food3 "Meia Pensão"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option selected>All inclusive</option>
+                      <option >Outro</option>
+                    {{else}}{{#compare food2 "All inclusive"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option selected>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>All inclusive</option>
+                      <option >Meia Pensão</option>
+                      <option >Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div><br>
                 <div class="classa">
@@ -139,32 +243,45 @@
                 <div class="classa">
                   <label>Prazo de Cancelamento</label>
                   <select class="form-control" name="hotel[cancellationPeriod2]">
-                    <option style = "color:red;">{{cancellationPeriod2}}</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
+                    {{#compare cancellationPeriod2 "Sem prazo"}}
+                      <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod2 "Com prazo"}}
+                      <option>Sem prazo</option>
+                      <option selected>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod2 "Outro"}}
+                      <option>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option selected>Outro</option>
+                    {{else}}
+                     <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div>
                 <div id="companion_camp" >
                   <label style="margin-top: 20px;">Moeda utilizada:</label>
                   <select placeholder="Selecione" class="form-control" name="hotel[coin]">
-        {{#compare coin "USD"}}
-            <option selected >USD</option>
-            <option>R$</option>
-            <option>€</option>
-            {{else}}{{#compare coin "R$"}}
-            <option >USD</option>
-            <option selected>R$</option>
-            <option>€</option>
-            {{else}}{{#compare coin "€"}}
-            <option >USD</option>
-            <option>R$</option>
-            <option selected>€</option>
-            {{else}}
-            <option>USD</option>
-            <option selected>R$</option>
-            <option>€</option>
-            {{/compare}}{{/compare}}{{/compare}}
+                    {{#compare coin "USD"}}
+                      <option selected >USD</option>
+                      <option>R$</option>
+                      <option>€</option>
+                    {{else}}{{#compare coin "R$"}}
+                      <option >USD</option>
+                      <option selected>R$</option>
+                      <option>€</option>
+                    {{else}}{{#compare coin "€"}}
+                      <option >USD</option>
+                      <option>R$</option>
+                      <option selected>€</option>
+                    {{else}}
+                    <option>USD</option>
+                    <option selected>R$</option>
+                    <option>€</option>
+                    {{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div>
                 <br><br>
@@ -203,11 +320,56 @@
                 <div class="classa">
                   <label>Tipo  de Pensão</label>
                   <select placeholder="Selecione" class="form-control" name="hotel[food3]">
-                    <option style = "color:red;">{{food3}}</option>
-                    <option>Com Café da Manhã</option>
-                    <option>Sem Café da Manhã</option>
-                    <option>Pensão Completa</option>
-                    <option>Outros</option>
+                    {{#compare food3 "Com Café da Manhã"}}
+                      <option selected>Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food3 "Sem Café da Manhã"}}
+                      <option >Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food3 "Pensão Completa"}}
+                      <option >Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option selected>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food3 "Outro"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option selected>Outro</option>
+                    {{else}}{{#compare food3 "Meia Pensão"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option selected>All inclusive</option>
+                      <option >Outro</option>
+                    {{else}}{{#compare food3 "All inclusive"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option selected>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>All inclusive</option>
+                      <option >Meia Pensão</option>
+                      <option >Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div><br>
                 <div class="classa">
@@ -229,10 +391,23 @@
                 <div class="classa">
                   <label>Prazo de Cancelamento</label>
                   <select class="form-control" name="hotel[cancellationPeriod3]">
-                    <option style = "color:red;">{{cancellationPeriod3}}</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
+                    {{#compare cancellationPeriod3 "Sem prazo"}}
+                      <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod3 "Com prazo"}}
+                      <option>Sem prazo</option>
+                      <option selected>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod3 "Outro"}}
+                      <option>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option selected>Outro</option>
+                    {{else}}
+                     <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div>
               </div>
@@ -268,11 +443,56 @@
                 <div class="classa">
                   <label>Tipo da Pensão</label>
                   <select placeholder="Selecione" class="form-control" name="hotel[food1]">
-                    <option style = "color:red;">{{food1}}</option>
-                    <option>Com Café da Manhã</option>
-                    <option>Sem Café da Manhã</option>
-                    <option>Pensão Completa</option>
-                    <option>Outros</option>
+                    {{#compare food1 "Com Café da Manhã"}}
+                      <option selected>Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food1 "Sem Café da Manhã"}}
+                      <option >Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food1 "Pensão Completa"}}
+                      <option >Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option selected>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food1 "Outro"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option selected>Outro</option>
+                    {{else}}{{#compare food1 "Meia Pensão"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option selected>All inclusive</option>
+                      <option >Outro</option>
+                    {{else}}{{#compare food1 "All inclusive"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option selected>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>All inclusive</option>
+                      <option >Meia Pensão</option>
+                      <option >Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div><br>
                 <div class="classa">
@@ -294,10 +514,23 @@
                 <div class="classa">
                   <label>Prazo de Cancelamento</label>
                   <select class="form-control" name="hotel[cancellationPeriod]">
-                    <option style = "color:red;">{{cancellationPeriod}}</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
+                    {{#compare cancellationPeriod "Sem prazo"}}
+                      <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod "Com prazo"}}
+                      <option>Sem prazo</option>
+                      <option selected>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod "Outro"}}
+                      <option>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option selected>Outro</option>
+                    {{else}}
+                     <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div>
               </div>
@@ -333,11 +566,56 @@
                 <div class="classa">
                   <label>Tipo de Pensão</label>
                   <select placeholder="Selecione" class="form-control" name="hotel[food2]">
-                    <option style = "color:red;">{{food2}}</option>
-                    <option>Com Café da Manhã</option>
-                    <option>Sem Café da Manhã</option>
-                    <option>Pensão Completa</option>
-                    <option>Outros</option>
+                    {{#compare food2 "Com Café da Manhã"}}
+                      <option selected>Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food2 "Sem Café da Manhã"}}
+                      <option >Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food2 "Pensão Completa"}}
+                      <option >Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option selected>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food3 "Outro"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option selected>Outro</option>
+                    {{else}}{{#compare food2 "Meia Pensão"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option selected>All inclusive</option>
+                      <option >Outro</option>
+                    {{else}}{{#compare food2 "All inclusive"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option selected>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>All inclusive</option>
+                      <option >Meia Pensão</option>
+                      <option >Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div><br>
                 <div class="classa">
@@ -359,19 +637,45 @@
                 <div class="classa">
                   <label>Prazo de Cancelamento</label>
                   <select class="form-control" name="hotel[cancellationPeriod2]">
-                    <option style = "color:red;">{{cancellationPeriod2}}</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
+                    {{#compare cancellationPeriod2 "Sem prazo"}}
+                      <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod2 "Com prazo"}}
+                      <option>Sem prazo</option>
+                      <option selected>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod2 "Outro"}}
+                      <option>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option selected>Outro</option>
+                    {{else}}
+                     <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}    
                   </select>
                 </div>
                 <div id="companion_camp" >
                   <label style="margin-top: 15px;">Moeda utilizada:</label>
                   <select placeholder="Selecione" class="form-control" name="hotel[coin]">
-                    <option style = "color:red;">{{coin}}</option>
-                    <option>USD</option>
+                    {{#compare coin "USD"}}
+                      <option selected >USD</option>
+                      <option>R$</option>
+                      <option>€</option>
+                   {{else}}{{#compare coin "R$"}}
+                      <option >USD</option>
+                      <option selected>R$</option>
+                      <option>€</option>
+                  {{else}}{{#compare coin "€"}}
+                    <option >USD</option>
                     <option>R$</option>
+                    <option selected>€</option>
+                  {{else}}
+                    <option>USD</option>
+                    <option selected>R$</option>
                     <option>€</option>
+                  {{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div>
                 <br><br>
@@ -409,12 +713,56 @@
                 </div><br>
                 <div class="classa">
                   <label>Tipo  de Pensão</label>
-                  <select placeholder="Selecione" class="form-control" name="hotel[food3]">
-                    <option style = "color:red;">{{food3}}</option>
-                    <option>Com Café da Manhã</option>
-                    <option>Sem Café da Manhã</option>
-                    <option>Pensão Completa</option>
-                    <option>Outros</option>
+                    {{#compare food3 "Com Café da Manhã"}}
+                      <option selected>Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food3 "Sem Café da Manhã"}}
+                      <option >Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food3 "Pensão Completa"}}
+                      <option >Com Café da Manhã</option>
+                      <option>Sem Café da Manhã</option>
+                      <option selected>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare food3 "Outro"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option selected>Outro</option>
+                    {{else}}{{#compare food3 "Meia Pensão"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>Meia Pensão</option>
+                      <option selected>All inclusive</option>
+                      <option >Outro</option>
+                    {{else}}{{#compare food3 "All inclusive"}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option selected>Meia Pensão</option>
+                      <option>All inclusive</option>
+                      <option>Outro</option>
+                    {{else}}
+                      <option>Com Café da Manhã</option>
+                      <option selected>Sem Café da Manhã</option>
+                      <option>Pensão Completa</option>
+                      <option>All inclusive</option>
+                      <option >Meia Pensão</option>
+                      <option >Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div><br>
                 <div class="classa">
@@ -436,10 +784,23 @@
                 <div class="classa">
                   <label>Prazo de Cancelamento</label>
                   <select class="form-control" name="hotel[cancellationPeriod3]">
-                    <option style = "color:red;">{{cancellationPeriod3}}</option>
-                    <option>Sem prazo</option>
-                    <option>Com prazo</option>
-                    <option>Outro</option>
+                    {{#compare cancellationPeriod3 "Sem prazo"}}
+                      <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod3 "Com prazo"}}
+                      <option>Sem prazo</option>
+                      <option selected>Com prazo</option>
+                      <option>Outro</option>
+                    {{else}}{{#compare cancellationPeriod3 "Outro"}}
+                      <option>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option selected>Outro</option>
+                    {{else}}
+                     <option selected>Sem prazo</option>
+                      <option>Com prazo</option>
+                      <option>Outro</option>
+                    {{/compare}}{{/compare}}{{/compare}}
                   </select>
                 </div>
               </div>
