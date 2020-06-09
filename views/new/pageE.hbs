@@ -9,10 +9,10 @@
 
 
     <div>
-      <h6>Responsável da viagem</h6>
+      <label>Responsável da viagem</label>
       <input type="text" class="form-control" value="{{client.fullname}}" readonly>
       <br><br>
-      <h6>Acompanhantes</h6>
+      <label>Acompanhantes</label>
       {{#each test1}}
         <input type="text" class="form-control" value="{{name}}" readonly>
         <br>
@@ -28,18 +28,22 @@
             <br><br><br><br><br><br><br>
             <div class="classa">
             <div class="classa">
+              <label>Hotel 1</label>
               <input class="form-control" placeholder="Hotel 1" name="hotel[hotel1]" >
             </div><br>
             <div class="classa">
               <label>Número de pessoas</label>
               <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd1]" value="0">
             </div><br>
+            <label>Tipo de acomodação</label>
             <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType1]" >
           </div><br>
             <div class="classa">
+              <label>Categoria do Apartamento"</label>
               <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category1]" >
             </div><br>
             <div class="classa">
+              <label>Regime de Alimentação</label>
               <select placeholder="Selecione" class="form-control" name=hotel[food1] >
                 <option style="display:none">Regime de Alimentação</option>
                 <option>Com Café da Manhã</option>
@@ -51,7 +55,7 @@
               </select>
             </div><br>
             <div class="classa">
-              <label>Valor apto.</label>
+              <label>Valor apto:</label>
               <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt1]" id="vApto11" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
@@ -67,6 +71,7 @@
               <input class="form-control" placeholder="Total" name="hotel[total1]" id="vTotal11" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
+              <label>Prazo de Cancelamento</label>
               <select class="form-control" name="hotel[cancellationPeriod]" >
                 <option style="display:none">Prazo de Cancelamento</option>
                 <option>Sem prazo de cancelamento</option>
@@ -81,14 +86,15 @@
 
 
       <!-- Coluna 2 início -->
-      <div class="col-sm-4" id="landing-hotel-col2">
-        <div class="box_hotel_midle box_hotel_midle_selected" id="col-middle1">
-          <div class="rowclass">
+      <div class="col-sm-4" id="landing-hotel-col2" >
+        <div class="box_hotel_midle box_hotel_midle_selected" id="col-middle1" >
+          <div class="rowclass marginEcolumNP">
             <h1>Cidade 1</h1>
             <div class="classa">
               <input class="form-control" placeholder="Cidade 1" name="hotel[city]" >
             </div><br>
             <div class="classa">
+              <label>Hotel 2</label>
               <input class="form-control" placeholder="Hotel 2" name="hotel[hotel2]" >
             </div><br>
             <div class="classa">
@@ -96,12 +102,15 @@
               <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd2]" value="0">
             </div><br>
             <div class="classa">
+              <label>Tipo de acomodação</label>
               <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType2]" >
             </div><br>
             <div class="classa">
+              <label>Categoria do Apartamento</label>
               <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category2]" >
             </div><br>
             <div class="classa">
+              <label>Selecione</label>
               <select placeholder="Selecione" class="form-control" name=hotel[food2] >
                 <option style="display:none">Regime de Alimentação</option>
                 <option>Com Café da Manhã</option>
@@ -113,7 +122,7 @@
               </select>
             </div><br>
             <div class="classa">
-              <label>Valor apto.</label>
+              <label>Valor apto:</label>
               <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt2]" id="vApto21" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
@@ -129,6 +138,7 @@
               <input class="form-control" placeholder="Total" name="hotel[total2]" id="vTotal21" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
+              <label>Prazo de Cancelamento</label>
               <select class="form-control" name="hotel[cancellationPeriod2]" >
                 <option style="display:none">Prazo de Cancelamento</option>
                 <option>Sem prazo de cancelamento</option>
@@ -136,7 +146,7 @@
                 <option>Outro</option>
               </select>
             </div>
-            <label>Moeda utilizada:</label>
+            <label style="margin-top: 20px;">Moeda utilizada:</label>
             <div id="companion_camp" >
               <select placeholder="Selecione" class="form-control" name=hotel[coin] >
                 <option style="display:none">Selecione qual moeda:</option>
@@ -154,9 +164,10 @@
       <!-- Coluna 3 início -->
       <div class="col-sm-4" id="landing-hotel-col3">
         <div class="box_hotel_right box_hotel_right_selected" id="col-right1">
-          <div class="rowclass">
+          <div class="rowclass marginEcolum">
             <br><br><br><br><br><br><br>
             <div class="classa">
+              <label>Hotel 3</label>
               <input class="form-control" placeholder="Hotel 3" name="hotel[hotel3]" >
             </div><br>
             <div class="classa">
@@ -164,12 +175,15 @@
               <input class="form-control" placeholder="N. de Pessoas" name="hotel[qntd3]" value="0">
             </div><br>
             <div class="classa">
+              <label>Tipo de acomodação</label>
               <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType3]" >
             </div><br>
             <div class="classa">
+              <label>Categoria do Apartamento</label>
               <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category3]" >
             </div><br>
             <div class="classa">
+              <label>Regime de Alimentação</label>
               <select placeholder="Selecione" class="form-control" name=hotel[food3] >
                 <option style="display:none">Regime de Alimentação</option>
                 <option>Com Café da Manhã</option>
@@ -181,7 +195,7 @@
               </select>
             </div><br>
             <div class="classa">
-              <label>Valor apto.</label>
+              <label>Valor apto:</label>
               <input class="form-control" placeholder="Valor Apto" name="hotel[valueApt3]" id="vApto31" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
@@ -197,6 +211,7 @@
               <input class="form-control" placeholder="Total" name="hotel[total3]" id="vTotal31" onblur="calcHotel()" value="0">
             </div><br>
             <div class="classa">
+              <label>Prazo de Cancelamento</label>
               <select class="form-control" name="hotel[cancellationPeriod3]" >
                 <option style="display:none">Prazo de Cancelamento</option>
                 <option>Sem prazo de cancelamento</option>
@@ -214,7 +229,7 @@
     <button type="button" class="add_buttons" id="add-hotel">+Hoteis/Cidades</button>
     <button type="button" class="add_buttons" id="nxt_hotel">Próximo hotel/cidade</button>
   </div>
-<button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
+<button type="submit" class="btn btn-primary" id="buttonPages" style="margin-top: 10px; margin-bottom:10px">Próximo</button>
 
 </form>
 <script type="text/javascript" src="/javascripts/replica.js">  </script>
