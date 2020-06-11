@@ -78,72 +78,105 @@ router.post('/table',  (req, res) => {
             return undefined;
           }
         }
-        const tratarMoeda = (moeda) =>{
-          if(!moeda.length){
-            moeda = '-';
-          }
-          else {
-            for(let i = 0; i < moeda.length; i ++){
-              if(!moeda[i] || moeda[i] === 'Moeda' || moeda[i] === 'Moeda:' || moeda[i] === 'Selecione qual moeda' || moeda[i] === 'Selecione qual moeda:'){
-                moeda[i] = '-';
-            }
-          }
-        }
-        return moeda;
-        }
-        const tratarRegimeAlimentacao = (regimeAlimentacao) =>{
-          for(let i = 0; i < regimeAlimentacao.length; i ++){
-            if(!regimeAlimentacao[i] || regimeAlimentacao[i] === 'Regime de Alimentação'){
-              regimeAlimentacao[i] = '-';
-            }
-          }
-          return regimeAlimentacao;
-        }
-        const tratarPrazoCancelamento = (prazoCancelamento) =>{
-          for(let i = 0; i < prazoCancelamento.length; i ++){
-            if(!prazoCancelamento[i] || prazoCancelamento[i] === 'Prazo de Cancelamento'){
-              prazoCancelamento[i] = '-';
-            }
-          }
-          return prazoCancelamento;
-        }
-        const tratarSelectPageA = (valor) =>{
-          if(!valor || valor === 'Selecione: Estado Civil' || valor === 'Selecione: Estado' || valor === 'Selecione: Funil Vendas'){
-            valor = '-';
-          }
-          return valor;
-        }
         const tratarValorVazio = (valor) =>{
           if(!valor){
             valor = '-';
           }
-          return valor;
-        }
-        const tratarValorVazioVetor = (vetor) =>{
-          if(!vetor.length){
-            vetor = '-';
+          else if(!valor.length){
+            valor = '-';
+          }
+          else if(valor === 'Selecione: Estado Civil' || valor === 'Selecione: Estado' || valor === 'Selecione: Funil Vendas'
+          || valor === 'Selecione: Budget Mínimo' || valor === 'Classe Avião:' || valor === 'Preferêcia Assento:'){
+            valor = '-';
           }
           else {
-            for(let i = 0; i < vetor.length; i ++){
-              if(!vetor[i]){
-                vetor[i] = '-';
-              }
+            for(let i = 0; i < valor.length; i ++){
+              if(!valor[i] || valor[i] === 'Moeda' || valor[i] === 'Moeda:' || valor[i] === 'Selecione qual moeda'
+              || valor[i] === 'Selecione qual moeda:' || valor[i] === 'Regime de Alimentação' || valor[i] === 'Prazo de Cancelamento'){
+
+                valor[i] = '-';
             }
           }
-          return vetor;
+        }
+        return valor;
         }
 
       let cont = 0;
+      if(!year1 || !year2 || (!year1 && !year2)){
+        Client.getAll().then((clients)=>{
+            clients.forEach((cliente) => {
+            if(cliente.budgets.length === 0 && ((register && cliente.register === register) || !register)){
+
+              cliente.birthDate = tratarData(cliente.birthDate);
+              cliente.passportValidation = tratarData(cliente.passportValidation);
+              cliente.wedding_anniversary = tratarData(cliente.wedding_anniversary);
+              cliente.birthDateSpouse = tratarData(cliente.birthDateSpouse);
+              cliente.spousePassportValidation = tratarData(cliente.spousePassportValidation);
+              cliente.birthDateChildren = tratarDataVetor(cliente.birthDateChildren);
+              cliente.childrenPassportValidation = tratarDataVetor(cliente.childrenPassportValidation);
+              cliente.birthDateCompanion = tratarDataVetor(cliente.birthDateCompanion);
+              cliente.companionPassportValidation = tratarDataVetor(cliente.companionPassportValidation);
+
+              cliente.maritalStatus = tratarValorVazio(cliente.maritalStatus);
+              cliente.state = tratarValorVazio(cliente.state);
+              cliente.funil = tratarValorVazio(cliente.funil);
+              cliente.average_Budget = tratarValorVazio(cliente.average_Budget);
+              cliente.plane_class = tratarValorVazio(cliente.plane_class);
+              cliente.plane_seat_pref = tratarValorVazio(cliente.plane_seat_pref);
+              cliente.id = tratarValorVazio(cliente.id);
+              cliente.phone = tratarValorVazio(cliente.phone);
+              cliente.street = tratarValorVazio(cliente.street);
+              cliente.neighbourhood = tratarValorVazio(cliente.neighbourhood);
+              cliente.passport = tratarValorVazio(cliente.passport);
+              cliente.neighbourhood = tratarValorVazio(cliente.neighbourhood);
+              cliente.passportValidation = tratarValorVazio(cliente.passportValidation);
+              cliente.profession = tratarValorVazio(cliente.profession);
+              cliente.maritalStatus = tratarValorVazio(cliente.maritalStatus);
+              cliente.spouseName = tratarValorVazio(cliente.spouseName);
+              cliente.wedding_anniversary = tratarValorVazio(cliente.wedding_anniversary);
+              cliente.birthDateSpouse = tratarValorVazio(cliente.birthDateSpouse);
+              cliente.spouseEmail = tratarValorVazio(cliente.spouseEmail);
+              cliente.phoneFamily = tratarValorVazio(cliente.phoneFamily);
+              cliente.spouseProfession = tratarValorVazio(cliente.spouseProfession);
+              cliente.spousePassport = tratarValorVazio(cliente.spousePassport);
+              cliente.spousePassportValidation = tratarValorVazio(cliente.spousePassportValidation);
+              cliente.children = tratarValorVazio(cliente.children);
+              cliente.birthDateChildren = tratarValorVazio(cliente.birthDateChildren);
+              cliente.childrenPassport = tratarValorVazio(cliente.childrenPassport);
+              cliente.childrenPassportValidation = tratarValorVazio(cliente.childrenPassportValidation);
+              cliente.companionFullname = tratarValorVazio(cliente.companionFullname);
+              cliente.birthDateCompanion = tratarValorVazio(cliente.birthDateCompanion);
+              cliente.companionCellphone = tratarValorVazio(cliente.companionCellphone);
+              cliente.companionEmail = tratarValorVazio(cliente.companionEmail);
+              cliente.companionPassport = tratarValorVazio(cliente.companionPassport);
+              cliente.companionPassportValidation = tratarValorVazio(cliente.companionPassportValidation);
+              cliente.instagram = tratarValorVazio(cliente.instagram);
+              cliente.facebook = tratarValorVazio(cliente.facebook);
+              cliente.others = tratarValorVazio(cliente.others);
+              cliente.profile_OtherNeed = tratarValorVazio(cliente.profile_OtherNeed);
+              cliente.profile_OtherType = tratarValorVazio(cliente.profile_OtherType);
+              cliente.profile_OtherHotel = tratarValorVazio(cliente.profile_OtherHotel);
+              cliente.profile_OtherSports = tratarValorVazio(cliente.profile_OtherSports);
+              cliente.profile_OtherDiet = tratarValorVazio(cliente.profile_OtherDiet);
+
+              dadosPuxados.push({dados_client: [cliente]});
+            }
+          });
+        })
+      }
       budgets.forEach((budget)=>{
         const ano = getAno(budget.planDate[0]);
         budget.planDate = tratarDataVetor(budget.planDate);
 
-        budget.planDate = tratarValorVazioVetor(budget.planDate);
-        budget.planCity = tratarValorVazioVetor(budget.planCity);
-        budget.planCountry = tratarValorVazioVetor(budget.planCountry);
-        budget.planFreeField = tratarValorVazioVetor(budget.planFreeField);
+        budget.planDate = tratarValorVazio(budget.planDate);
+        budget.planCity = tratarValorVazio(budget.planCity);
+        budget.planCountry = tratarValorVazio(budget.planCountry);
+        budget.planFreeField = tratarValorVazio(budget.planFreeField);
 
         Client.getByIdArray(budget.client).then((cliente)=>{
+
+          if((register && cliente[0].register === register) || !register){
+
           cliente[0].birthDate = tratarData(cliente[0].birthDate);
           cliente[0].passportValidation = tratarData(cliente[0].passportValidation);
           cliente[0].wedding_anniversary = tratarData(cliente[0].wedding_anniversary);
@@ -153,10 +186,13 @@ router.post('/table',  (req, res) => {
           cliente[0].childrenPassportValidation = tratarDataVetor(cliente[0].childrenPassportValidation);
           cliente[0].birthDateCompanion = tratarDataVetor(cliente[0].birthDateCompanion);
           cliente[0].companionPassportValidation = tratarDataVetor(cliente[0].companionPassportValidation);
-          cliente[0].maritalStatus = tratarSelectPageA(cliente[0].maritalStatus);
-          cliente[0].state = tratarSelectPageA(cliente[0].state);
-          cliente[0].funil = tratarSelectPageA(cliente[0].funil);
 
+          cliente[0].maritalStatus = tratarValorVazio(cliente[0].maritalStatus);
+          cliente[0].state = tratarValorVazio(cliente[0].state);
+          cliente[0].funil = tratarValorVazio(cliente[0].funil);
+          cliente[0].average_Budget = tratarValorVazio(cliente[0].average_Budget);
+          cliente[0].plane_class = tratarValorVazio(cliente[0].plane_class);
+          cliente[0].plane_seat_pref = tratarValorVazio(cliente[0].plane_seat_pref);
           cliente[0].id = tratarValorVazio(cliente[0].id);
           cliente[0].phone = tratarValorVazio(cliente[0].phone);
           cliente[0].street = tratarValorVazio(cliente[0].street);
@@ -174,89 +210,89 @@ router.post('/table',  (req, res) => {
           cliente[0].spouseProfession = tratarValorVazio(cliente[0].spouseProfession);
           cliente[0].spousePassport = tratarValorVazio(cliente[0].spousePassport);
           cliente[0].spousePassportValidation = tratarValorVazio(cliente[0].spousePassportValidation);
-          cliente[0].children = tratarValorVazioVetor(cliente[0].children);
-          cliente[0].birthDateChildren = tratarValorVazioVetor(cliente[0].birthDateChildren);
-          cliente[0].childrenPassport = tratarValorVazioVetor(cliente[0].childrenPassport);
-          cliente[0].childrenPassportValidation = tratarValorVazioVetor(cliente[0].childrenPassportValidation);
-          cliente[0].companionFullname = tratarValorVazioVetor(cliente[0].companionFullname);
-          cliente[0].birthDateCompanion = tratarValorVazioVetor(cliente[0].birthDateCompanion);
-          cliente[0].companionCellphone = tratarValorVazioVetor(cliente[0].companionCellphone);
-          cliente[0].companionEmail = tratarValorVazioVetor(cliente[0].companionEmail);
-          cliente[0].companionPassport = tratarValorVazioVetor(cliente[0].companionPassport);
-          cliente[0].companionPassportValidation = tratarValorVazioVetor(cliente[0].companionPassportValidation);
+          cliente[0].children = tratarValorVazio(cliente[0].children);
+          cliente[0].birthDateChildren = tratarValorVazio(cliente[0].birthDateChildren);
+          cliente[0].childrenPassport = tratarValorVazio(cliente[0].childrenPassport);
+          cliente[0].childrenPassportValidation = tratarValorVazio(cliente[0].childrenPassportValidation);
+          cliente[0].companionFullname = tratarValorVazio(cliente[0].companionFullname);
+          cliente[0].birthDateCompanion = tratarValorVazio(cliente[0].birthDateCompanion);
+          cliente[0].companionCellphone = tratarValorVazio(cliente[0].companionCellphone);
+          cliente[0].companionEmail = tratarValorVazio(cliente[0].companionEmail);
+          cliente[0].companionPassport = tratarValorVazio(cliente[0].companionPassport);
+          cliente[0].companionPassportValidation = tratarValorVazio(cliente[0].companionPassportValidation);
           cliente[0].instagram = tratarValorVazio(cliente[0].instagram);
           cliente[0].facebook = tratarValorVazio(cliente[0].facebook);
           cliente[0].others = tratarValorVazio(cliente[0].others);
-          cliente[0].funil = tratarValorVazio(cliente[0].funil);
-          cliente[0].average_Budget = tratarValorVazio(cliente[0].average_Budget);
-          cliente[0].plane_class = tratarValorVazio(cliente[0].plane_class);
-          cliente[0].plane_seat_pref = tratarValorVazio(cliente[0].plane_seat_pref);
+          cliente[0].profile_OtherNeed = tratarValorVazio(cliente[0].profile_OtherNeed);
+          cliente[0].profile_OtherType = tratarValorVazio(cliente[0].profile_OtherType);
+          cliente[0].profile_OtherHotel = tratarValorVazio(cliente[0].profile_OtherHotel);
+          cliente[0].profile_OtherSports = tratarValorVazio(cliente[0].profile_OtherSports);
+          cliente[0].profile_OtherDiet = tratarValorVazio(cliente[0].profile_OtherDiet);
 
+        }
 
           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
 
             manyFlights[0].dateFlight = tratarDataVetor(manyFlights[0].dateFlight);
-            manyFlights[0].coin = tratarMoeda(manyFlights[0].coin);
 
-            manyFlights[0].flightNum = tratarValorVazioVetor(manyFlights[0].flightNum);
-            manyFlights[0].dateFlight = tratarValorVazioVetor(manyFlights[0].dateFlight);
-            manyFlights[0].from = tratarValorVazioVetor(manyFlights[0].from);
-            manyFlights[0].destination = tratarValorVazioVetor(manyFlights[0].destination);
-            manyFlights[0].timeOut = tratarValorVazioVetor(manyFlights[0].timeOut);
-            manyFlights[0].timeIn = tratarValorVazioVetor(manyFlights[0].timeIn);
+            manyFlights[0].coin = tratarValorVazio(manyFlights[0].coin);
+            manyFlights[0].flightNum = tratarValorVazio(manyFlights[0].flightNum);
+            manyFlights[0].dateFlight = tratarValorVazio(manyFlights[0].dateFlight);
+            manyFlights[0].from = tratarValorVazio(manyFlights[0].from);
+            manyFlights[0].destination = tratarValorVazio(manyFlights[0].destination);
+            manyFlights[0].timeOut = tratarValorVazio(manyFlights[0].timeOut);
+            manyFlights[0].timeIn = tratarValorVazio(manyFlights[0].timeIn);
 
 
             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
 
-              manyHotels[0].coin = tratarMoeda(manyHotels[0].coin);
-              manyHotels[0].cancellationPeriod = tratarPrazoCancelamento(manyHotels[0].cancellationPeriod);
-              manyHotels[0].cancellationPeriod2 = tratarPrazoCancelamento(manyHotels[0].cancellationPeriod2);
-              manyHotels[0].cancellationPeriod3 = tratarPrazoCancelamento(manyHotels[0].cancellationPeriod3);
-              manyHotels[0].food1 = tratarRegimeAlimentacao(manyHotels[0].food1);
-              manyHotels[0].food2 = tratarRegimeAlimentacao(manyHotels[0].food2);
-              manyHotels[0].food3 = tratarRegimeAlimentacao(manyHotels[0].food3);
-
-              manyHotels[0].city = tratarValorVazioVetor(manyHotels[0].city);
-              manyHotels[0].acomodationType1 = tratarValorVazioVetor(manyHotels[0].acomodationType1);
-              manyHotels[0].hotel1 = tratarValorVazioVetor(manyHotels[0].hotel1);
-              manyHotels[0].category1 = tratarValorVazioVetor(manyHotels[0].category1);
-              manyHotels[0].acomodationType2 = tratarValorVazioVetor(manyHotels[0].acomodationType2);
-              manyHotels[0].hotel2 = tratarValorVazioVetor(manyHotels[0].hotel2);
-              manyHotels[0].category2 = tratarValorVazioVetor(manyHotels[0].category2);
-              manyHotels[0].acomodationType3 = tratarValorVazioVetor(manyHotels[0].acomodationType3);
-              manyHotels[0].hotel3 = tratarValorVazioVetor(manyHotels[0].hotel3);
-              manyHotels[0].category3 = tratarValorVazioVetor(manyHotels[0].category3);
+              manyHotels[0].coin = tratarValorVazio(manyHotels[0].coin);
+              manyHotels[0].cancellationPeriod = tratarValorVazio(manyHotels[0].cancellationPeriod);
+              manyHotels[0].cancellationPeriod2 = tratarValorVazio(manyHotels[0].cancellationPeriod2);
+              manyHotels[0].cancellationPeriod3 = tratarValorVazio(manyHotels[0].cancellationPeriod3);
+              manyHotels[0].food1 = tratarValorVazio(manyHotels[0].food1);
+              manyHotels[0].food2 = tratarValorVazio(manyHotels[0].food2);
+              manyHotels[0].food3 = tratarValorVazio(manyHotels[0].food3);
+              manyHotels[0].city = tratarValorVazio(manyHotels[0].city);
+              manyHotels[0].acomodationType1 = tratarValorVazio(manyHotels[0].acomodationType1);
+              manyHotels[0].hotel1 = tratarValorVazio(manyHotels[0].hotel1);
+              manyHotels[0].category1 = tratarValorVazio(manyHotels[0].category1);
+              manyHotels[0].acomodationType2 = tratarValorVazio(manyHotels[0].acomodationType2);
+              manyHotels[0].hotel2 = tratarValorVazio(manyHotels[0].hotel2);
+              manyHotels[0].category2 = tratarValorVazio(manyHotels[0].category2);
+              manyHotels[0].acomodationType3 = tratarValorVazio(manyHotels[0].acomodationType3);
+              manyHotels[0].hotel3 = tratarValorVazio(manyHotels[0].hotel3);
+              manyHotels[0].category3 = tratarValorVazio(manyHotels[0].category3);
 
               Car.getByIdArray(budget.cars).then((manyCars)=>{
 
                 manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
-                manyCars[0].coinT = tratarMoeda(manyCars[0].coinT);
-                manyCars[0].coinC = tratarMoeda(manyCars[0].coinC);
 
-                manyCars[0].from = tratarValorVazioVetor(manyCars[0].from);
-                manyCars[0].to = tratarValorVazioVetor(manyCars[0].to);
-                manyCars[0].dateFrom = tratarValorVazioVetor(manyCars[0].dateFrom);
-                manyCars[0].timeFrom = tratarValorVazioVetor(manyCars[0].timeFrom);
-                manyCars[0].typeCar = tratarValorVazioVetor(manyCars[0].typeCar);
-                manyCars[0].withdrawal = tratarValorVazioVetor(manyCars[0].withdrawal);
-                manyCars[0].delivery = tratarValorVazioVetor(manyCars[0].delivery);
-                manyCars[0].totalCar = tratarValorVazioVetor(manyCars[0].totalCar);
-                manyCars[0].city = tratarValorVazioVetor(manyCars[0].city);
-                manyCars[0].shift = tratarValorVazioVetor(manyCars[0].shift);
-                manyCars[0].safe = tratarValorVazioVetor(manyCars[0].safe);
-                manyCars[0].others = tratarValorVazioVetor(manyCars[0].others);
+                manyCars[0].coinT = tratarValorVazio(manyCars[0].coinT);
+                manyCars[0].coinC = tratarValorVazio(manyCars[0].coinC);
+                manyCars[0].from = tratarValorVazio(manyCars[0].from);
+                manyCars[0].to = tratarValorVazio(manyCars[0].to);
+                manyCars[0].dateFrom = tratarValorVazio(manyCars[0].dateFrom);
+                manyCars[0].timeFrom = tratarValorVazio(manyCars[0].timeFrom);
+                manyCars[0].typeCar = tratarValorVazio(manyCars[0].typeCar);
+                manyCars[0].withdrawal = tratarValorVazio(manyCars[0].withdrawal);
+                manyCars[0].delivery = tratarValorVazio(manyCars[0].delivery);
+                manyCars[0].totalCar = tratarValorVazio(manyCars[0].totalCar);
+                manyCars[0].city = tratarValorVazio(manyCars[0].city);
+                manyCars[0].shift = tratarValorVazio(manyCars[0].shift);
+                manyCars[0].safe = tratarValorVazio(manyCars[0].safe);
+                manyCars[0].others = tratarValorVazio(manyCars[0].others);
 
 
                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
 
-                  manySafes[0].insuranceCoin = tratarMoeda(manySafes[0].insuranceCoin);
-                  manySafes[0].ticketsCoin = tratarMoeda(manySafes[0].ticketsCoin);
-                  manySafes[0].otherCoin = tratarMoeda(manySafes[0].otherCoin);
-
-                  manySafes[0].insuranceName = tratarValorVazioVetor(manySafes[0].insuranceName);
-                  manySafes[0].insuranceCoverage = tratarValorVazioVetor(manySafes[0].insuranceCoverage);
-                  manySafes[0].ticketsName = tratarValorVazioVetor(manySafes[0].ticketsName);
-                  manySafes[0].otherName = tratarValorVazioVetor(manySafes[0].otherName);
+                  manySafes[0].insuranceCoin = tratarValorVazio(manySafes[0].insuranceCoin);
+                  manySafes[0].ticketsCoin = tratarValorVazio(manySafes[0].ticketsCoin);
+                  manySafes[0].otherCoin = tratarValorVazio(manySafes[0].otherCoin);
+                  manySafes[0].insuranceName = tratarValorVazio(manySafes[0].insuranceName);
+                  manySafes[0].insuranceCoverage = tratarValorVazio(manySafes[0].insuranceCoverage);
+                  manySafes[0].ticketsName = tratarValorVazio(manySafes[0].ticketsName);
+                  manySafes[0].otherName = tratarValorVazio(manySafes[0].otherName);
 
 
                   if(year1 && year2){
