@@ -71,26 +71,29 @@
 <script>
 
   function validation (){
-    //defaultValue();
+
     year1 = Number(document.getElementById('yearMin').value);
     year2 = Number(document.getElementById('yearMax').value);
     register = document.getElementById('register').value;
-
-    if(year1 && year2){
-      if(((year1 < 1000) || (year1 > 10000)) || ((year2 < 1000) || (year2 > 10000))){
-        alert('Digite um ano válido.');
-      }
-      else if(year1 > year2){
-        alert('Digite um período válido.');
+    if((register && register.length === 14) || !register){
+      if(year1 && year2){
+        if(((year1 < 1000) || (year1 > 10000)) || ((year2 < 1000) || (year2 > 10000))){
+          alert('Digite um ano válido.');
+        }
+        else if(year1 > year2){
+          alert('Digite um período válido.');
+        }
+        else{
+          document.getElementById("filter").submit();
+        }
       }
       else{
         document.getElementById("filter").submit();
       }
     }
-    else{
-      document.getElementById("filter").submit();
+    else {
+      alert('Digite um CPF válido.');
     }
-
   }
 
 

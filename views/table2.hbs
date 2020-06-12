@@ -930,7 +930,7 @@
       </table>
      </body>
   </div>
-
+  <button onclick="docCsv(['tabelaClientes'], 'tabela')">Download</button>
 
 
   </div>
@@ -985,7 +985,7 @@ function tableGenerator(divId, id, filename){
           mylink.download = fileName;
           mylink.href = "data:application/vnd.ms-excel," + meta + data;
           mylink.click();
-          redirect();
+          //redirect();
     }
 
     function redirect(){
