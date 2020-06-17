@@ -20,6 +20,7 @@
             <th>Telefone Celular</th>
             <th>Endereço</th>
             <th>Bairro</th>
+            <th>Estado</th>
             <th>Email</th>
             <th>Data de Nascimento</th>
             <th>Passaporte</th>
@@ -50,7 +51,8 @@
 
             <th>Instagram</th>
             <th>Facebook</th>
-            <th>Outra</th>
+            <th>Outros</th>
+            <th>Funil de vendas</th>
 
             <th>Necessidade de Status</th>
             <th>Necessidade de Conhecimento</th>
@@ -205,7 +207,7 @@
                           <th>Número de Diárias 1</th>
                           <th>Número de Apartamentos 1</th>
                           <th>Total Hotel 1</th>
-                          <th>Prazo 1</th>
+                          <th>Prazo de Cancelamento 1</th>
 
                           <th>Tipo da Acomodação 2</th>
                           <th>Hotel 2</th>
@@ -216,7 +218,7 @@
                           <th>Número de Diárias 2</th>
                           <th>Número de Apartamentos 2</th>
                           <th>Total Hotel 2</th>
-                          <th>Prazo 2</th>
+                          <th>Prazo de Cancelamento 2</th>
 
                           <th>Tipo da Acomodação 3</th>
                           <th>Hotel 3</th>
@@ -227,7 +229,7 @@
                           <th>Número de Diárias 3</th>
                           <th>Número de Apartamentos 3</th>
                           <th>Total Hotel 3</th>
-                          <th>Prazo 3</th>
+                          <th>Prazo de Cancelamento 3</th>
 
             <!-- Transporte_________________________________________________________________ -->
                           <th>Origem Traslado</th>
@@ -297,6 +299,7 @@
             <td>{{#each dados_client}}{{cellphone}}{{/each}}</td>
             <td>{{#each dados_client}}{{street}}{{/each}}</td>
             <td>{{#each dados_client}}{{neighbourhood}}{{/each}}</td>
+            <td>{{#each dados_client}}{{state}}{{/each}}</td>
             <td>{{#each dados_client}}{{email}}{{/each}}</td>
             <td>{{#each dados_client}}{{birthDate}}{{/each}}</td>
             <td>{{#each dados_client}}{{passport}}{{/each}}</td>
@@ -328,6 +331,7 @@
             <td>{{#each dados_client}}{{instagram}}{{/each}}</td>
             <td>{{#each dados_client}}{{facebook}}{{/each}}</td>
             <td>{{#each dados_client}}{{others}}{{/each}}</td>
+            <td>{{#each dados_client}}{{funil}}{{/each}}</td>
 
             <td>{{#each dados_client}}
               {{#compare profile_Status "Status"}}
@@ -697,9 +701,11 @@
             <td>{{#each dados_client}}
               {{#compare profile_DisableSim "Sim"}}
               {{profile_DisableSim}}
-              {{else}}
+              {{else}}{{#compare profile_DisableSim "Não"}}
               {{profile_DisableNão}}
-              {{/compare}}
+              {{else}}
+              -
+              {{/compare}}{{/compare}}
             {{/each}}</td>
 
             <td>{{#each dados_client}}
@@ -713,9 +719,11 @@
             <td>{{#each dados_client}}
               {{#compare profile_FoodSim "Sim"}}
               {{profile_FoodSim}}
-              {{else}}
+              {{else}}{{#compare profile_FoodSim "Não"}}
               {{profile_FoodNão}}
-              {{/compare}}
+              {{else}}
+              -
+              {{/compare}}{{/compare}}
             {{/each}}</td>
 
             <td>{{#each dados_client}}
@@ -922,7 +930,7 @@
       </table>
      </body>
   </div>
-
+  <button onclick="docCsv(['tabelaClientes'], 'tabela')">Download</button>
 
 
   </div>
@@ -977,7 +985,7 @@ function tableGenerator(divId, id, filename){
           mylink.download = fileName;
           mylink.href = "data:application/vnd.ms-excel," + meta + data;
           mylink.click();
-          redirect();
+          //redirect();
     }
 
     function redirect(){

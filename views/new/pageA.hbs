@@ -24,8 +24,8 @@
             <input type="email" name = "client[email1]" class="form-control" id="email_confirmation" placeholder="Confirme seu email">
           </div><br>
           <div class="classa">
-            <label>CPF</label>
-            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='14'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
+            <label>CPF (somente números)</label>
+            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='11'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
           <div class="classa">
             <label>RG</label>
