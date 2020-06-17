@@ -12,32 +12,41 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Nome completo</label>
             <input type="fullname" name = "client[fullname]" class="form-control" id="fullname" required placeholder="Nome Completo" onblur="addDashes(this)">
           </div><br>
           <div class="classa">
+            <label>Email</label>
             <input type="email" name = "client[email]" class="form-control" id="email" placeholder="Email" required>
           </div><br>
           <div class="classa">
+            <label>Confirmação email</label>
             <input type="email" name = "client[email1]" class="form-control" id="email_confirmation" placeholder="Confirme seu email">
           </div><br>
           <div class="classa">
-            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='14'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
+            <label>CPF (somente números)</label>
+            <input type="register" name = "client[register]" class="form-control" id="register" placeholder="CPF"  onblur='addDashesCPF(this)' maxlength='11'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
           <div class="classa">
+            <label>RG</label>
             <input type="id" name = "client[id]" class="form-control" id="id" placeholder="RG">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Data de nascimento</label>
             <input type="date" name = "client[birthDate]" class="form-control" id="birthDate" placeholder="Data de Nascimento" maxlength='10' required>
           </div><br>
           <div class="classa">
+            <label>Telefone fixo</label>
             <input type="phone" name = "client[phone]" class="form-control" id="phone" placeholder="Telefone Fixo"  onblur='addDashesFixo(this)' maxlength='13' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Celular principal</label>
             <input type="cellphone" name = "client[cellphone]" class="form-control" id="cellphone" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
           <div class="classa">
+            <label>Celular</label>
             <input type="cellphone1" name = "client[cellphone1]" class="form-control" id="cellphone1" placeholder="Celular"  onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
           </div><br>
         </div>
@@ -47,25 +56,31 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Rua</label>
             <input type="fullname" name = "client[street]" class="form-control" id="street" placeholder="Rua/ Av./ etc">
           </div><br>
           <div class="classa">
+            <label>Bairro</label>
             <input type="fullname" name = "client[neighbourhood]" class="form-control" id="neighbourhood" placeholder="Bairro">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Complemento</label>
             <input type="fullname" name = "client[complement]" class="form-control" id="complement" placeholder="Complemento">
           </div><br>
           <div class="classa">
+            <label>Cidade</label>
             <input type="fullname" name = "client[city]" class="form-control" id="city" placeholder="Cidade">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>CEP</label>
             <input type="fullname" name = "client[zipcode]" class="form-control" id="zipcode" placeholder="CEP" onblur='addDashesCep(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Estado</label>
             <select name="client[state]" class="form-control" required>
               <option style="display:none">Selecione: Estado</option>
               <option>AC</option>
@@ -74,7 +89,7 @@
               <option>AM</option>
               <option>BA</option>
               <option>CE</option>
-              <option>DF</option>
+              <option selected>DF</option>
               <option>ES</option>
               <option>GO</option>
               <option>MA</option>
@@ -104,10 +119,11 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Estado civil</label>
             <select name="client[maritalStatus]" class="form-control">
               <option style="display:none">Selecione: Estado Civil</option>
               <option>Casado</option>
-              <option>Solteiro</option>
+              <option selected>Solteiro</option>
               <option>Viuvo</option>
               <option>Noivo</option>
             </select>
@@ -119,6 +135,7 @@
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Passaporte</label>
             <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte">
           </div><br>
           <label for="">Validade do passaporte</label>
@@ -126,6 +143,7 @@
             <input type="date" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte" >
           </div><br>
           <div class="classa">
+            <label>Profissão</label>
             <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão">
           </div><br>
         </div>
@@ -139,6 +157,7 @@
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Nome do/a conjuge</label>
               <input type="spouseName" name = "client[spouseName]" class="form-control" id="spouseName" placeholder="Cônjuge">
             </div><br>
             <label for="">Data de nascimento</label>
@@ -146,14 +165,17 @@
               <input type="date" name = "client[birthDateSpouse]" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento"  >
             </div><br>
             <div class="classa">
+              <label>Email do/a conjuge</label>
               <input type="email" name = "client[spouseEmail]" class="form-control" id="email" placeholder="Email">
             </div><br>
             <div class="classa">
+              <label>Celular do/a conjuge</label>
               <input type="phoneFamily" name = "client[phoneFamily]" class="form-control" id="phoneFamily" placeholder="Telefone Fixo"  onblur='addDashesFixo(this)' maxlength='13' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Passaporte do/a conjuge</label>
               <input type="fullname" name = "client[spousePassport]" class="form-control" id="spousePassport" placeholder="Passaporte">
             </div><br>
             <label for="">Validade do passaporte</label>
@@ -161,6 +183,7 @@
               <input type="date" name = "client[spousePassportValidation]" class="form-control" id="spousePassportValidation" placeholder="Validade Passaporte" >
             </div><br>
             <div class="classa">
+              <label>Profissão do/a conjuge</label>
               <input type="profession2" name = "client[spouseProfession]" class="form-control" id="profession2" placeholder="Profissão">
             </div><br>
           </div>
@@ -170,6 +193,7 @@
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Nome do/a filho/a</label>
               <input type="sondaughter" name = "client[children]" class="form-control" id="children" placeholder="Filho/a">
             </div><br>
             <label for="">Data de nascimento</label>
@@ -180,6 +204,7 @@
 
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Passaporte do/a filho/a</label>
               <input type="fullname" name = "client[childrenPassport]" class="form-control" id="childrenPassport" placeholder="Passaporte">
             </div><br>
             <label for="">Validade do passaporte</label>
@@ -200,9 +225,11 @@
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Nome do/a acompanhante</label>
               <input type="fullname" name = "client[companionFullname]" class="form-control" id="companionFullname" placeholder="Nome Completo">
             </div><br>
             <div class="classa">
+              <label>Email do/a acompanhante</label>
               <input type="fullname" name = "client[companionEmail]" class="form-control" id="companionEmail" placeholder="Email">
             </div><br>
             <label for="">Data de nascimento</label>
@@ -212,9 +239,11 @@
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Celular do/a acompanhante</label>
               <input type="fullname" name = "client[companionCellphone]" class="form-control" id="companionCellphone" placeholder="Celular" onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
+              <label>Passaporte do/a acompanhante</label>
               <input type="fullname" name = "client[companionPassport]" class="form-control" id="companionPassport" placeholder="Passaporte">
             </div><br>
             <label for="">Validade do passaporte</label>
@@ -233,10 +262,11 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label class="marginRedeSocial">Funil de vendas</label>
             <select name="client[funil]" class="form-control">
               <option style="display:none">Selecione: Funil Vendas</option>
               <option>Instagram</option>
-              <option>Facebook</option>
+              <option selected>Facebook</option>
               <option>Email</option>
               <option>Google</option>
               <option>Indicação</option>
@@ -244,14 +274,17 @@
             </select>
           </div>
           <div class="classa">
+            <label class="marginRedeSocial">Usuário facebook</label>
             <input type="facebook" name = "client[facebook]" class="form-control" id="facebook" placeholder="Facebook">
           </div>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label class="marginRedeSocial">@ Instagram</label>
             <input type="instagram" name = "client[instagram]" class="form-control" id="instagram" placeholder="Instagram">
           </div>
           <div class="classa">
+            <label> class="marginRedeSocial"Outros</label>
             <input type="others" name = "client[others]" class="form-control" id="others" placeholder="Outros">
           </div>
         </div>

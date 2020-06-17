@@ -44,300 +44,301 @@ router.get('/forgot',  (req, res) => {
   res.render('forgot', { title: 'Esqueci minha senha', layout: 'layout' });
 });
 
-// // Tabela budget
-// router.get('/table_budget',  (req, res) => {
-//     var dadosPuxados = [];
-//     Budget.getAll().then((budgets)=>{
-//       let cont = 0;
-//       budgets.forEach((budget)=>{
-//         Client.getByIdArray(budget.client).then((cliente)=>{
-//           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-//             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-//               Car.getByIdArray(budget.cars).then((manyCars)=>{
-//                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
-//                   dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-//                   cont ++;
-//                   if(cont === budgets.length){
-//                       res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-//                   }
-//                 });
-//               });
-//             });
-//           });
-//
-//
-//
-//         });
-//
-//
-//       });
-//     });
-//
-//
-//
-//   // Client.getAll().then((clients) =>{
-//   //   let contClient = 0;
-//   //   clients.forEach((client)=>{
-//   //       Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
-//   //         let contBudget = 0;
-//   //         manyBudgets.forEach((budget) => {
-//   //           Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-//   //             Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-//   //               Car.getByIdArray(budget.cars).then((manyCars)=>{
-//   //                 Safe.getByIdArray(budget.safes).then((manySafes)=>{
-//   //                   dadosPuxados.push({dados_client: client , dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-//   //                   contBudget ++;
-//   //                   if(contBudget === budget.length){
-//   //                       contClient ++;
-//   //                   }
-//   //                 });
-//   //               });
-//   //             });
-//   //           });
-//   //           if(contClient === clients.length){
-//   //               res.render('table_budget', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-//   //           }
-//   //         });
-//   //       });
-//   //   });
-//   // });
-// });
+// Tabela
+router.post('/table',  (req, res) => {
+    let year1 = req.body.info.yearMin;
+    let year2 = req.body.info.yearMax;
+    let register = req.body.info.register;
 
-// Tabela budget
-router.get('/table2',  (req, res) => {
-    var dadosPuxados = [];
-    // Budget.getAll().then((budgets)=>{
-    //   let cont = 0;
-    //   budgets.forEach((budget)=>{
-    //     Client.getByIdArray(budget.client).then((cliente)=>{
-    //       Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-    //         Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-    //           Car.getByIdArray(budget.cars).then((manyCars)=>{
-    //             Safe.getByIdArray(budget.safes).then((manySafes)=>{
-    //               dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-    //               cont ++;
-    //               if(cont === budgets.length){
-    //                   res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-    //               }
-    //             });
-    //           });
-    //         });
-    //       });
-    //
-    //
-    //
-    //     });
-    //
-    //
-    //   });
-    // });
-
-
-
-  Client.getAll().then((clients) =>{
-    let contClient = 0;
-
-    clients.forEach((client)=>{
-        Budget.getByIdArray(client.budgets).then((manyBudgets)=>{
-          let contBudget = 0;
-          let viagens = [];
-          manyBudgets.forEach((budget) => {
-            Flight.getByIdArray(budget.flights).then((manyFlights)=>{
-              Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
-                Car.getByIdArray(budget.cars).then((manyCars)=>{
-                  Safe.getByIdArray(budget.safes).then((manySafes)=>{
-                    viagens.push({dados_manyBudgets: budget, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
-                    contBudget ++;
-                     //   console.log("qtas viagens ");
-                     // console.log(manyBudgets.length);
-                    //   console.log("cont viagens ");
-                    //  console.log(contBudget);
-                    //  console.log("----");
-                    if(contBudget == manyBudgets.length){
-                        contClient ++;
-                        //console.log(clients.length);
-                        //console.log("entrou");
-
-                        dadosPuxados.push({dados_client: client , dados_Budgets: viagens});
-
-                    }
-
-                     //console.log("cont clientes ");
-                     //console.log(contClient);
-                    if(contClient === clients.length - 1){
-                      // console.log("-----");
-                      // console.log(clients.length);
-                      //console.log(dadosPuxados);
-                        res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-                    }
-
-                  }).catch((error) => {
-                      console.log(error);
-                      res.redirect('/error');
-                  });
-                }).catch((error) => {
-                    console.log(error);
-                    res.redirect('/error');
-                });
-              }).catch((error) => {
-                  console.log(error);
-                  res.redirect('/error');
-              });
-            }).catch((error) => {
-                console.log(error);
-                res.redirect('/error');
-            });
-
-          });
-        }).catch((error) => {
-            console.log(error);
-            res.redirect('/error');
-        });
-
-    });
-  }).catch((error) => {
-      console.log(error);
-      res.redirect('/error');
-  });
-});
-
-
-router.get('/table',  (req, res) => {
     let dadosPuxados = [];
     Budget.getAll().then((budgets)=>{
+        const tratarDataVetor = (vetorData) =>{
+            for(let i = 0; i < vetorData.length; i ++){
+              if(vetorData[i] && vetorData[i].length === 10){
+              const date = ' '+ vetorData[i][8]+vetorData[i][9]+'/'+vetorData[i][5]+vetorData[i][6]+'/'+vetorData[i][0]+vetorData[i][1]+vetorData[i][2]+vetorData[i][3];
+              vetorData[i] = date;
+            }
+          }
+          return vetorData;
+        }
+        const tratarData = (data) =>{
+          if(data && data.length === 10){
+              const newData = ' '+ data[8]+data[9]+'/'+data[5]+data[6]+'/'+data[0]+data[1]+data[2]+data[3];
+              data = newData;
+          }
+          return data;
+        }
+        const getAno = (data) =>{
+          if(data && data.length === 10){
+            const ano = data[0]+data[1]+data[2]+data[3];
+            const anoInt = parseInt(ano);
+            return anoInt;
+          }
+          else{
+            return undefined;
+          }
+        }
+        const tratarValorVazio = (valor) =>{
+          if(!valor){
+            valor = '-';
+          }
+          else if(!valor.length){
+            valor = '-';
+          }
+          else if(valor === 'Selecione: Estado Civil' || valor === 'Selecione: Estado' || valor === 'Selecione: Funil Vendas'
+          || valor === 'Selecione: Budget Mínimo' || valor === 'Classe Avião:' || valor === 'Preferêcia Assento:'){
+            valor = '-';
+          }
+          else {
+            for(let i = 0; i < valor.length; i ++){
+              if(!valor[i] || valor[i] === 'Moeda' || valor[i] === 'Moeda:' || valor[i] === 'Selecione qual moeda'
+              || valor[i] === 'Selecione qual moeda:' || valor[i] === 'Regime de Alimentação' || valor[i] === 'Prazo de Cancelamento'){
+
+                valor[i] = '-';
+            }
+          }
+        }
+        return valor;
+        }
+
       let cont = 0;
-      for(let i = 0; i < budgets.length; i++){
-        Client.getByIdArray(budgets[i].client).then((cliente)=>{
-          Flight.getByIdArray(budgets[i].flights).then((manyFlights)=>{
-            Hotel.getByIdArray(budgets[i].hotels).then((manyHotels) =>{
-              Car.getByIdArray(budgets[i].cars).then((manyCars)=>{
-                Safe.getByIdArray(budgets[i].safes).then((manySafes)=>{
-                  dadosPuxados.push({dados_manyBudgets: budgets[i], dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+      if(!year1 || !year2 || (!year1 && !year2)){
+        Client.getAll().then((clients)=>{
+            clients.forEach((cliente) => {
+            if(cliente.budgets.length === 0 && ((register && cliente.register === register) || !register)){
+
+              cliente.birthDate = tratarData(cliente.birthDate);
+              cliente.passportValidation = tratarData(cliente.passportValidation);
+              cliente.wedding_anniversary = tratarData(cliente.wedding_anniversary);
+              cliente.birthDateSpouse = tratarData(cliente.birthDateSpouse);
+              cliente.spousePassportValidation = tratarData(cliente.spousePassportValidation);
+              cliente.birthDateChildren = tratarDataVetor(cliente.birthDateChildren);
+              cliente.childrenPassportValidation = tratarDataVetor(cliente.childrenPassportValidation);
+              cliente.birthDateCompanion = tratarDataVetor(cliente.birthDateCompanion);
+              cliente.companionPassportValidation = tratarDataVetor(cliente.companionPassportValidation);
+
+              cliente.maritalStatus = tratarValorVazio(cliente.maritalStatus);
+              cliente.state = tratarValorVazio(cliente.state);
+              cliente.funil = tratarValorVazio(cliente.funil);
+              cliente.average_Budget = tratarValorVazio(cliente.average_Budget);
+              cliente.plane_class = tratarValorVazio(cliente.plane_class);
+              cliente.plane_seat_pref = tratarValorVazio(cliente.plane_seat_pref);
+              cliente.id = tratarValorVazio(cliente.id);
+              cliente.phone = tratarValorVazio(cliente.phone);
+              cliente.street = tratarValorVazio(cliente.street);
+              cliente.neighbourhood = tratarValorVazio(cliente.neighbourhood);
+              cliente.passport = tratarValorVazio(cliente.passport);
+              cliente.neighbourhood = tratarValorVazio(cliente.neighbourhood);
+              cliente.passportValidation = tratarValorVazio(cliente.passportValidation);
+              cliente.profession = tratarValorVazio(cliente.profession);
+              cliente.maritalStatus = tratarValorVazio(cliente.maritalStatus);
+              cliente.spouseName = tratarValorVazio(cliente.spouseName);
+              cliente.wedding_anniversary = tratarValorVazio(cliente.wedding_anniversary);
+              cliente.birthDateSpouse = tratarValorVazio(cliente.birthDateSpouse);
+              cliente.spouseEmail = tratarValorVazio(cliente.spouseEmail);
+              cliente.phoneFamily = tratarValorVazio(cliente.phoneFamily);
+              cliente.spouseProfession = tratarValorVazio(cliente.spouseProfession);
+              cliente.spousePassport = tratarValorVazio(cliente.spousePassport);
+              cliente.spousePassportValidation = tratarValorVazio(cliente.spousePassportValidation);
+              cliente.children = tratarValorVazio(cliente.children);
+              cliente.birthDateChildren = tratarValorVazio(cliente.birthDateChildren);
+              cliente.childrenPassport = tratarValorVazio(cliente.childrenPassport);
+              cliente.childrenPassportValidation = tratarValorVazio(cliente.childrenPassportValidation);
+              cliente.companionFullname = tratarValorVazio(cliente.companionFullname);
+              cliente.birthDateCompanion = tratarValorVazio(cliente.birthDateCompanion);
+              cliente.companionCellphone = tratarValorVazio(cliente.companionCellphone);
+              cliente.companionEmail = tratarValorVazio(cliente.companionEmail);
+              cliente.companionPassport = tratarValorVazio(cliente.companionPassport);
+              cliente.companionPassportValidation = tratarValorVazio(cliente.companionPassportValidation);
+              cliente.instagram = tratarValorVazio(cliente.instagram);
+              cliente.facebook = tratarValorVazio(cliente.facebook);
+              cliente.others = tratarValorVazio(cliente.others);
+              cliente.profile_OtherNeed = tratarValorVazio(cliente.profile_OtherNeed);
+              cliente.profile_OtherType = tratarValorVazio(cliente.profile_OtherType);
+              cliente.profile_OtherHotel = tratarValorVazio(cliente.profile_OtherHotel);
+              cliente.profile_OtherSports = tratarValorVazio(cliente.profile_OtherSports);
+              cliente.profile_OtherDiet = tratarValorVazio(cliente.profile_OtherDiet);
+
+              dadosPuxados.push({dados_client: [cliente]});
+            }
+          });
+        })
+      }
+      budgets.forEach((budget)=>{
+        const ano = getAno(budget.planDate[0]);
+        budget.planDate = tratarDataVetor(budget.planDate);
+
+        budget.planDate = tratarValorVazio(budget.planDate);
+        budget.planCity = tratarValorVazio(budget.planCity);
+        budget.planCountry = tratarValorVazio(budget.planCountry);
+        budget.planFreeField = tratarValorVazio(budget.planFreeField);
+
+        Client.getByIdArray(budget.client).then((cliente)=>{
+
+          if((register && cliente[0].register === register) || !register){
+
+          cliente[0].birthDate = tratarData(cliente[0].birthDate);
+          cliente[0].passportValidation = tratarData(cliente[0].passportValidation);
+          cliente[0].wedding_anniversary = tratarData(cliente[0].wedding_anniversary);
+          cliente[0].birthDateSpouse = tratarData(cliente[0].birthDateSpouse);
+          cliente[0].spousePassportValidation = tratarData(cliente[0].spousePassportValidation);
+          cliente[0].birthDateChildren = tratarDataVetor(cliente[0].birthDateChildren);
+          cliente[0].childrenPassportValidation = tratarDataVetor(cliente[0].childrenPassportValidation);
+          cliente[0].birthDateCompanion = tratarDataVetor(cliente[0].birthDateCompanion);
+          cliente[0].companionPassportValidation = tratarDataVetor(cliente[0].companionPassportValidation);
+
+          cliente[0].maritalStatus = tratarValorVazio(cliente[0].maritalStatus);
+          cliente[0].state = tratarValorVazio(cliente[0].state);
+          cliente[0].funil = tratarValorVazio(cliente[0].funil);
+          cliente[0].average_Budget = tratarValorVazio(cliente[0].average_Budget);
+          cliente[0].plane_class = tratarValorVazio(cliente[0].plane_class);
+          cliente[0].plane_seat_pref = tratarValorVazio(cliente[0].plane_seat_pref);
+          cliente[0].id = tratarValorVazio(cliente[0].id);
+          cliente[0].phone = tratarValorVazio(cliente[0].phone);
+          cliente[0].street = tratarValorVazio(cliente[0].street);
+          cliente[0].neighbourhood = tratarValorVazio(cliente[0].neighbourhood);
+          cliente[0].passport = tratarValorVazio(cliente[0].passport);
+          cliente[0].neighbourhood = tratarValorVazio(cliente[0].neighbourhood);
+          cliente[0].passportValidation = tratarValorVazio(cliente[0].passportValidation);
+          cliente[0].profession = tratarValorVazio(cliente[0].profession);
+          cliente[0].maritalStatus = tratarValorVazio(cliente[0].maritalStatus);
+          cliente[0].spouseName = tratarValorVazio(cliente[0].spouseName);
+          cliente[0].wedding_anniversary = tratarValorVazio(cliente[0].wedding_anniversary);
+          cliente[0].birthDateSpouse = tratarValorVazio(cliente[0].birthDateSpouse);
+          cliente[0].spouseEmail = tratarValorVazio(cliente[0].spouseEmail);
+          cliente[0].phoneFamily = tratarValorVazio(cliente[0].phoneFamily);
+          cliente[0].spouseProfession = tratarValorVazio(cliente[0].spouseProfession);
+          cliente[0].spousePassport = tratarValorVazio(cliente[0].spousePassport);
+          cliente[0].spousePassportValidation = tratarValorVazio(cliente[0].spousePassportValidation);
+          cliente[0].children = tratarValorVazio(cliente[0].children);
+          cliente[0].birthDateChildren = tratarValorVazio(cliente[0].birthDateChildren);
+          cliente[0].childrenPassport = tratarValorVazio(cliente[0].childrenPassport);
+          cliente[0].childrenPassportValidation = tratarValorVazio(cliente[0].childrenPassportValidation);
+          cliente[0].companionFullname = tratarValorVazio(cliente[0].companionFullname);
+          cliente[0].birthDateCompanion = tratarValorVazio(cliente[0].birthDateCompanion);
+          cliente[0].companionCellphone = tratarValorVazio(cliente[0].companionCellphone);
+          cliente[0].companionEmail = tratarValorVazio(cliente[0].companionEmail);
+          cliente[0].companionPassport = tratarValorVazio(cliente[0].companionPassport);
+          cliente[0].companionPassportValidation = tratarValorVazio(cliente[0].companionPassportValidation);
+          cliente[0].instagram = tratarValorVazio(cliente[0].instagram);
+          cliente[0].facebook = tratarValorVazio(cliente[0].facebook);
+          cliente[0].others = tratarValorVazio(cliente[0].others);
+          cliente[0].profile_OtherNeed = tratarValorVazio(cliente[0].profile_OtherNeed);
+          cliente[0].profile_OtherType = tratarValorVazio(cliente[0].profile_OtherType);
+          cliente[0].profile_OtherHotel = tratarValorVazio(cliente[0].profile_OtherHotel);
+          cliente[0].profile_OtherSports = tratarValorVazio(cliente[0].profile_OtherSports);
+          cliente[0].profile_OtherDiet = tratarValorVazio(cliente[0].profile_OtherDiet);
+
+        }
+
+          Flight.getByIdArray(budget.flights).then((manyFlights)=>{
+
+            manyFlights[0].dateFlight = tratarDataVetor(manyFlights[0].dateFlight);
+
+            manyFlights[0].coin = tratarValorVazio(manyFlights[0].coin);
+            manyFlights[0].flightNum = tratarValorVazio(manyFlights[0].flightNum);
+            manyFlights[0].dateFlight = tratarValorVazio(manyFlights[0].dateFlight);
+            manyFlights[0].from = tratarValorVazio(manyFlights[0].from);
+            manyFlights[0].destination = tratarValorVazio(manyFlights[0].destination);
+            manyFlights[0].timeOut = tratarValorVazio(manyFlights[0].timeOut);
+            manyFlights[0].timeIn = tratarValorVazio(manyFlights[0].timeIn);
+
+
+            Hotel.getByIdArray(budget.hotels).then((manyHotels) =>{
+
+              manyHotels[0].coin = tratarValorVazio(manyHotels[0].coin);
+              manyHotels[0].cancellationPeriod = tratarValorVazio(manyHotels[0].cancellationPeriod);
+              manyHotels[0].cancellationPeriod2 = tratarValorVazio(manyHotels[0].cancellationPeriod2);
+              manyHotels[0].cancellationPeriod3 = tratarValorVazio(manyHotels[0].cancellationPeriod3);
+              manyHotels[0].food1 = tratarValorVazio(manyHotels[0].food1);
+              manyHotels[0].food2 = tratarValorVazio(manyHotels[0].food2);
+              manyHotels[0].food3 = tratarValorVazio(manyHotels[0].food3);
+              manyHotels[0].city = tratarValorVazio(manyHotels[0].city);
+              manyHotels[0].acomodationType1 = tratarValorVazio(manyHotels[0].acomodationType1);
+              manyHotels[0].hotel1 = tratarValorVazio(manyHotels[0].hotel1);
+              manyHotels[0].category1 = tratarValorVazio(manyHotels[0].category1);
+              manyHotels[0].acomodationType2 = tratarValorVazio(manyHotels[0].acomodationType2);
+              manyHotels[0].hotel2 = tratarValorVazio(manyHotels[0].hotel2);
+              manyHotels[0].category2 = tratarValorVazio(manyHotels[0].category2);
+              manyHotels[0].acomodationType3 = tratarValorVazio(manyHotels[0].acomodationType3);
+              manyHotels[0].hotel3 = tratarValorVazio(manyHotels[0].hotel3);
+              manyHotels[0].category3 = tratarValorVazio(manyHotels[0].category3);
+
+              Car.getByIdArray(budget.cars).then((manyCars)=>{
+
+                manyCars[0].dateFrom = tratarDataVetor(manyCars[0].dateFrom);
+
+                manyCars[0].coinT = tratarValorVazio(manyCars[0].coinT);
+                manyCars[0].coinC = tratarValorVazio(manyCars[0].coinC);
+                manyCars[0].from = tratarValorVazio(manyCars[0].from);
+                manyCars[0].to = tratarValorVazio(manyCars[0].to);
+                manyCars[0].dateFrom = tratarValorVazio(manyCars[0].dateFrom);
+                manyCars[0].timeFrom = tratarValorVazio(manyCars[0].timeFrom);
+                manyCars[0].typeCar = tratarValorVazio(manyCars[0].typeCar);
+                manyCars[0].withdrawal = tratarValorVazio(manyCars[0].withdrawal);
+                manyCars[0].delivery = tratarValorVazio(manyCars[0].delivery);
+                manyCars[0].totalCar = tratarValorVazio(manyCars[0].totalCar);
+                manyCars[0].city = tratarValorVazio(manyCars[0].city);
+                manyCars[0].shift = tratarValorVazio(manyCars[0].shift);
+                manyCars[0].safe = tratarValorVazio(manyCars[0].safe);
+                manyCars[0].others = tratarValorVazio(manyCars[0].others);
+
+
+                Safe.getByIdArray(budget.safes).then((manySafes)=>{
+
+                  manySafes[0].insuranceCoin = tratarValorVazio(manySafes[0].insuranceCoin);
+                  manySafes[0].ticketsCoin = tratarValorVazio(manySafes[0].ticketsCoin);
+                  manySafes[0].otherCoin = tratarValorVazio(manySafes[0].otherCoin);
+                  manySafes[0].insuranceName = tratarValorVazio(manySafes[0].insuranceName);
+                  manySafes[0].insuranceCoverage = tratarValorVazio(manySafes[0].insuranceCoverage);
+                  manySafes[0].ticketsName = tratarValorVazio(manySafes[0].ticketsName);
+                  manySafes[0].otherName = tratarValorVazio(manySafes[0].otherName);
+
+
+                  if(year1 && year2){
+                    if((ano && ano >= year1 && ano <= year2) && ((register && cliente[0].register === register) || !register)){
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
+                  }
+                  else if(year1 && !year2){
+                    if((ano && ano >= year1) && ((register && cliente[0].register === register) || !register)){
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
+                  }
+                  else if(!year1 && year2){
+                    if((ano && ano <= year2) && ((register && cliente[0].register === register) || !register)){
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
+                  }
+                  else if(!year1 && !year2){
+                    if((register && cliente[0].register === register) || !register){
+                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                    }
+                  }
                   cont ++;
                   if(cont === budgets.length){
-                    Client.getAll().then((clientes)=>{
-                      res.render('table', { clientes, title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
-                    }).catch((error) => {
-                        console.log(error);
-                        res.redirect('/error');
-                    });
-
+                      res.render('table2', { title: 'Tabela de viagens', layout: 'layout', information: dadosPuxados});
                   }
-
-                }).catch((error) => {
-                    console.log(error);
-                    res.redirect('/error');
                 });
-
-              }).catch((error) => {
-                  console.log(error);
-                  res.redirect('/error');
               });
-
-            }).catch((error) => {
-                console.log(error);
-                res.redirect('/error');
             });
-
-          }).catch((error) => {
-              console.log(error);
-              res.redirect('/error');
           });
 
-        }).catch((error) => {
-            console.log(error);
-            res.redirect('/error');
         });
 
-      }
 
-    }).catch((error) => {
-        console.log(error);
-        res.redirect('/error');
+      });
     });
-
 });
 
-
-// router.get('/table', (req, res)=>{
-//     Client.getAll().then((clientes)=>{
-//     const tamClient =clientes.length;
-//
-//     console.log(tamClient);
-//     var viagens;
-//     var voos = [];
-//     var hoteis;
-//     var carros;
-//     var seguros;
-//     for(var i=0; i<tamClient; i++){
-//         console.log(clientes[i].budgets.length);
-//         var tamBudget = clientes[i].budgets.length;
-//
-//         for(var j=0; j<tamBudget; j++){
-//           Budget.getById(clientes[i].budgets[j]).then((budget)=>{
-//             viagens = budget;
-//             const flights = budget.flights;
-//             const hotels = budget.hotels;
-//             const cars = budget.cars;
-//             const safes = budget.safes;
-//             Flight.getById(flights).then((flight) =>{
-//                   voos.push(flight);
-//
-//
-//              }).catch((error) => {
-//                 console.log(error);
-//                 res.redirect('/error');
-//             });
-//                 Hotel.getById(hotels).then((hotel) =>{
-//
-//              }).catch((error) => {
-//                 console.log(error);
-//                 res.redirect('/error');
-//             });
-//                 Car.getById(cars).then((car) =>{
-//
-//              }).catch((error) => {
-//                 console.log(error);
-//                 res.redirect('/error');
-//             });
-//                 Safe.getById(safes).then((safe) =>{
-//
-//              }).catch((error) => {
-//                 console.log(error);
-//                 res.redirect('/error');
-//             });
-//
-//         }).catch((error) => {
-//             console.log(error);
-//             res.redirect('/error');
-//         });
-//
-//         }
-//         console.log(viagens);
-//     }
-//     res.render('table',{clientes, viagens, title: 'Tabela de Clientes', layout: 'layout'});
-//   }).catch((error) => {
-//    console.log(error);
-//    res.redirect('/error');
-//   });
-//
-// });
-//
-
-/*Get da tabela de clientes*/
-// router.get('/tabelaclientes', (req, res)=>{
-// Client.getAll().then((clients)=>{
-//   res.render('table',{clients, title: 'Tabela de Clientes', layout: 'layout'});
-// })
-//
-// });
+router.get('/tableGenerator', auth.isAuthenticated, (req, res)=>{
+ res.render('tableGenerator',{title: 'Gerar Tabela', layout: 'layout', ...req.session});
+});
 
 /*Get da cadastro de novo usuario*/
 router.get('/newuser', auth.isAuthenticated, auth.isAdmin, (req, res)=>{
  res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
 });
-
-
 
 // GET Logout Request
 router.get('/logout', auth.isAuthenticated, (req,res) => {

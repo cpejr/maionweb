@@ -12,12 +12,17 @@ $("#validation").click(async function(){
 
   var const1 = 1;
   var const2 = 1;
+  var const3 = 1;
 
   if(email != email_confirmation){
     alert('Emails diferentes');
     const2 = 0;
   }
 
+  if(cpf_from_user.length !== 14 ){
+      alert('CPF inválido');
+      const3 = 0;
+    }
 
   let cpfs = await $.get('/registred/validation');
   console.log(cpfs);
@@ -29,7 +34,7 @@ $("#validation").click(async function(){
       }
     }
 
-  if (const2 == 1 && const1 == 1) {
+  if (const2 == 1 && const1 == 1 && const3 == 1 ) {
     alert('Dados conferidos e corretos!')
     $("#post_button").removeClass("invDiv");
     $('#validation').addClass("invDiv");

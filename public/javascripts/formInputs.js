@@ -17,8 +17,9 @@ function addDashesCel(f) //adicionar parenteses e barra em celular
 function addDashesCPF(f) //adicionar pontos no cpf
 {
     f.value = f.value.replace(/\D/g, '');
-
-    f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f.value.slice(9,11);
+    if(f.value.length === 11){
+      f.value = f.value.slice(0,3)+"."+f.value.slice(3,6)+"."+f.value.slice(6,9)+"-"+f.value.slice(9,11);
+    }
 }
 
 

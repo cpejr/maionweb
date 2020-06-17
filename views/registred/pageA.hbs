@@ -12,32 +12,41 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Nome completo</label>
             <input type="fullname" name = "client[fullname]" value="{{client.fullname}}" class="form-control" id="fullname" placeholder="Nome Completo" required>
           </div><br>
           <div class="classa">
+            <label>Email</label>
             <input type="email" name = "client[email]" value="{{client.email}}" class="form-control" id="email" placeholder="Email" required>
           </div><br>
           <div class="classa">
+            <label>Confirmação email</label>
             <input type="email" name = "client[email1]" value="{{client.email1}}" class="form-control" id="email_confirmation" placeholder="Confirme seu email" required>
           </div><br>
           <div class="classa">
-            <input type="register" name = "client[register]" value="{{client.register}}" class="form-control" id="register" placeholder="CPF" onblur='addDashesCPF(this)' maxlength='14'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
+            <label>CPF (somente números)</label>
+            <input type="register" name = "client[register]" value="{{client.register}}" class="form-control" id="register" placeholder="CPF" onblur='addDashesCPF(this)' maxlength='11'  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>RG</label>
             <input type="id" name = "client[id]" value="{{client.id}}" class="form-control" id="id" placeholder="RG" required>
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Data de nascimento</label>
             <input type="date" name = "client[birthDate]" value="{{client.birthDate}}" class="form-control" id="birthDate" placeholder="Data de Nascimento" maxlength="10" >
           </div><br>
           <div class="classa">
+            <label>Telefone fixo</label>
             <input type="phone" name = "client[phone]" value="{{client.phone}}" class="form-control" id="phone" placeholder="Telefone Fixo" onblur='addDashesFixo(this)' maxlength='13' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Celular principal</label>
             <input type="cellphone" name = "client[cellphone]" value="{{client.cellphone}}" class="form-control" id="cellphone" placeholder="Celular" onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Celular</label>
             <input type="cellphone1" name = "client[cellphone1]" value="{{client.cellphone1}}" class="form-control" id="cellphone1" placeholder="Celular" onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
         </div>
@@ -47,28 +56,34 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Rua</label>
             <input type="fullname" name = "client[street]" value="{{client.street}}" class="form-control" id="street" placeholder="Rua/ Av./ etc">
           </div><br>
           <div class="classa">
+            <label>Bairro</label>
             <input type="fullname" name = "client[neighbourhood]" value="{{client.neighbourhood}}" class="form-control" id="neighbourhood" placeholder="Bairro">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Complemento</label>
             <input type="fullname" name = "client[complement]" value="{{client.complement}}" class="form-control" id="complement" placeholder="Complemento">
           </div><br>
           <div class="classa">
+            <label>Cidade</label>
             <input type="fullname" name = "client[city]" value="{{client.city}}" class="form-control" id="city" placeholder="Cidade">
           </div><br>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>CEP</label>
             <input type="fullname" name = "client[zipcode]" value="{{client.zipcode}}" class="form-control" id="zipcode" placeholder="CEP" onblur='addDashesCep(this)' maxlength='10' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
           </div><br>
           <div class="classa">
+            <label>Estado</label>
             <select name="client[state]" class="form-control">
-              <option style = "color:red;">{{client.state}}</option>
-              <option>AC</option>
+            {{#compare client.state "AC"}}
+              <option selected>AC</option>
               <option>AL</option>
               <option>AP</option>
               <option>AM</option>
@@ -95,6 +110,791 @@
               <option>SP</option>
               <option>SE</option>
               <option>TO</option>
+            {{else}}{{#compare client.state "AL"}}
+              <option>AC</option>
+              <option selected>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "AP"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option selected>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "AP"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option selected>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "AM"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option selected>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "BA"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option selected>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "CE"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option selected>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "DF"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option selected>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "ES"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option selected>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "GO"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option selected>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "MA"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option selected>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "MT"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option selected>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "MS"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option selected>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "MG"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option selected>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "PA"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option selected>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "PB"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option selected>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "PR"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option selected>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "PE"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option selected>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{else}}{{#compare client.state "PI"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option selected>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "RJ"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option selected>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "RN"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option selected>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "RS"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option selected>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "RO"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option selected>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "RR"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option selected>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "SC"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option selected>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "SP"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option selected>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "SE"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option selected>SE</option>
+              <option>TO</option>
+           {{else}}{{#compare client.state "TO"}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option selected>TO</option>
+            {{else}}
+              <option>AC</option>
+              <option>AL</option>
+              <option>AP</option>
+              <option>AM</option>
+              <option>BA</option>
+              <option>CE</option>
+              <option selected>DF</option>
+              <option>ES</option>
+              <option>GO</option>
+              <option>MA</option>
+              <option>MT</option>
+              <option>MS</option>
+              <option>MG</option>
+              <option>PA</option>
+              <option>PB</option>
+              <option>PR</option>
+              <option>PE</option>
+              <option>PI</option>
+              <option>RJ</option>
+              <option>RN</option>
+              <option>RS</option>
+              <option>RO</option>
+              <option>RR</option>
+              <option>SC</option>
+              <option>SP</option>
+              <option>SE</option>
+              <option>TO</option>
+            {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
             </select>
           </div><br>
         </div>
@@ -104,12 +904,35 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Estado civil</label>
+
             <select name="client[maritalStatus]" class="form-control">
-              <option style = "color:red;">{{client.maritalStatus}}</option>
-              <option>Casado</option>
-              <option>Solteiro</option>
-              <option>Viuvo</option>
-              <option>Noivo</option>
+              {{#compare client.maritalStatus "Casado"}}
+                <option selected>Casado</option>
+                <option>Solteiro</option>
+                <option>Viuvo</option>
+                <option>Noivo</option>
+              {{else}}{{#compare client.maritalStatus "Solteiro"}}
+                <option>Casado</option>
+                <option selected>Solteiro</option>
+                <option>Viuvo</option>
+                <option>Noivo</option>
+              {{else}}{{#compare client.maritalStatus "Viuvo"}}
+                <option>Casado</option>
+                <option>Solteiro</option>
+                <option selected>Viuvo</option>
+                <option>Noivo</option>
+              {{else}}{{#compare client.maritalStatus "Noivo"}}
+                <option>Casado</option>
+                <option>Solteiro</option>
+                <option>Viuvo</option>
+                <option selected>Noivo</option>
+              {{else}}
+                <option>Casado</option>
+                <option selected>Solteiro</option>
+                <option>Viuvo</option>
+                <option>Noivo</option>
+              {{/compare}}{{/compare}}{{/compare}}{{/compare}}
             </select>
           </div><br>
           <label for="">Aniversário de casamento</label>
@@ -119,6 +942,7 @@
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label>Passaporte</label>
             <input type="fullname" name = "client[passport]" class="form-control" id="passport" placeholder="Passaporte" value="{{client.passport}}">
           </div><br>
           <label for="">Validade do passaporte</label>
@@ -126,6 +950,7 @@
             <input type="date" name = "client[passportValidation]" class="form-control" id="passportValidation" placeholder="Validade Passaporte"  value="{{client.passportValidation}}">
           </div><br>
           <div class="classa">
+            <label>Profissão</label>
             <input type="profession" name = "client[profession]" class="form-control" id="profession" placeholder="Profissão" value="{{client.profession}}">
           </div><br>
         </div>
@@ -142,6 +967,7 @@
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Nome do/a conjuge</label>
               <input type="spouseName" name = "client[spouseName]" value="{{client.spouseName}}" class="form-control" id="spouseName" placeholder="Cônjuge">
             </div><br>
             <label for="">Data de nascimento</label>
@@ -149,14 +975,17 @@
               <input type="date" name = "client[birthDateSpouse]" value="{{client.birthDateSpouse}}" class="form-control" id="birthDateSpouse" placeholder="Data de Nascimento" maxlength="10" >
             </div><br>
             <div class="classa">
+              <label>Email do/a conjuge</label>
               <input type="email" name = "client[spouseEmail]" value="{{client.spouseEmail}}" class="form-control" id="email" placeholder="Email">
             </div><br>
             <div class="classa">
+              <label>Celular do/a conjuge</label>
               <input type="phoneFamily" name = "client[phoneFamily]" value="{{client.phoneFamily}}" class="form-control" id="phoneFamily" placeholder="Telefone Fixo" onblur='addDashesFixo(this)' maxlength='13' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Passaporte do/a conjuge</label>
               <input type="fullname" name = "client[spousePassport]" value="{{client.spousePassport}}" class="form-control" id="spousePassport" placeholder="Passaporte">
             </div><br>
             <label for="">Validade do passaporte</label>
@@ -164,6 +993,7 @@
               <input type="date" name = "client[spousePassportValidation]" value="{{client.spousePassportValidation}}" class="form-control" id="spousePassportValidation" placeholder="Validade Passaporte" >
             </div><br>
             <div class="classa">
+              <label>Profissão do/a conjuge</label>
               <input type="profession2" name = "client[spouseProfession]" value="{{client.spouseProfession}}" class="form-control" id="profession2" placeholder="Profissão">
             </div><br>
           </div>
@@ -174,6 +1004,7 @@
           <div class="row rowclass">
             <div class="col-sm pageA-padding">
               <div class="classa">
+                <label>Nome do/a filho/a</label>
                 <input type="sondaughter" name = "client[children]" value="{{children}}" class="form-control" id="children" placeholder="Filho/a">
               </div><br>
               <label for="">Data de nascimento</label>
@@ -184,6 +1015,7 @@
 
             <div class="col-sm pageA-padding">
               <div class="classa">
+                <label>Passaporte do/a filho/a</label>
                 <input type="fullname" name = "client[childrenPassport]" value="{{childrenPassport}}" class="form-control" id="childrenPassport" placeholder="Passaporte">
               </div><br>
               <label for="">Validade do passaporte</label>
@@ -215,9 +1047,11 @@
         <div class="row rowclass">
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Nome do/a acompanhante</label>
               <input type="fullname" name = "client[companionFullname]" value="{{companionFullname}}" class="form-control" id="companionFullname" placeholder="Nome Completo">
             </div><br>
             <div class="classa">
+              <label>Email do/a acompanhante</label>
               <input type="fullname" name = "client[companionEmail]" value="{{companionEmail}}" class="form-control" id="companionEmail" placeholder="Email">
             </div><br>
             <label for="">Data de nascimento</label>
@@ -227,9 +1061,11 @@
           </div>
           <div class="col-sm pageA-padding">
             <div class="classa">
+              <label>Celular do/a acompanhante</label>
               <input type="fullname" name = "client[companionCellphone]" value="{{companionCellphone}}" class="form-control" id="companionCellphone" placeholder="Celular" onblur='addDashesCel(this)' maxlength='14' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));">
             </div><br>
             <div class="classa">
+              <label>Passaporte do/a acompanhante</label>
               <input type="fullname" name = "client[companionPassport]" value="{{companionPassport}}" class="form-control" id="companionPassport" placeholder="Passaporte">
             </div><br>
             <label for="">Validade do passaporte</label>
@@ -258,25 +1094,72 @@
       <div class="row rowclass">
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label class="marginRedeSocial">Funil de vendas</label>
             <select name="client[funil]" class="form-control">
-              <option style = "color:red;">{{client.funil}}</option>
-              <option>Instagram</option>
+            {{#compare client.funil "Instagram"}}
+              <option selected>Instagram</option>
               <option>Facebook</option>
               <option>Email</option>
               <option>Google</option>
               <option>Indicação</option>
               <option>Outros</option>
+            {{else}}{{#compare client.funil "Facebook"}}
+              <option>Instagram</option>
+              <option selected>Facebook</option>
+              <option>Email</option>
+              <option>Google</option>
+              <option>Indicação</option>
+              <option>Outros</option>
+           {{else}}{{#compare client.funil "Email"}}
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option selected>Email</option>
+              <option>Google</option>
+              <option>Indicação</option>
+              <option>Outros</option>
+            {{else}}{{#compare client.funil "Google"}}
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option selected>Google</option>
+              <option>Indicação</option>
+              <option>Outros</option>
+            {{else}}{{#compare client.funil "Indicação"}}
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>Google</option>
+              <option selected>Indicação</option>
+              <option>Outros</option>
+            {{else}}{{#compare client.funil "Outros"}}
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>Email</option>
+              <option>Google</option>
+              <option>Indicação</option>
+              <option selected>Outros</option>
+            {{else}}
+              <option>Instagram</option>
+              <option selected>Facebook</option>
+              <option>Email</option>
+              <option>Google</option>
+              <option>Indicação</option>
+              <option>Outros</option>
+            {{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}{{/compare}}
             </select>
           </div>
           <div class="classa">
+            <label class="marginRedeSocial">Usuário facebook</label>
             <input type="facebook" name = "client[facebook]" value="{{client.facebook}}" class="form-control" id="facebook" placeholder="Facebook">
           </div>
         </div>
         <div class="col-sm pageA-padding">
           <div class="classa">
+            <label class="marginRedeSocial">@ Instagram</label>
             <input type="instagram" name = "client[instagram]" value="{{client.instagram}}" class="form-control" id="instagram" placeholder="Instagram">
           </div>
           <div class="classa">
+            <label class="marginRedeSocial">Outros</label>
             <input type="others" name = "client[others]" value="{{client.others}}" class="form-control" id="others" placeholder="Outros">
           </div>
         </div>

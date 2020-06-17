@@ -59,12 +59,12 @@
 
     {{#compare escala "0"}}
       <tr>
-        <th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control"/></th>
+        <th colspan="1"><input type="text" placeholder="Num Voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control"/></th>
         <th colspan="1"><input type="date" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFlight}}" class="form-control" maxlength='10'  /></th>
         <th colspan="4"><input type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control"/></th>
         <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"  onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" maxlength='6' onblur='addDashesHorario(this)'/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/>
+        <th colspan="2"><input type="time" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"/></th>
+        <th colspan="2"><input type="time" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"/>
         <input type="number" name="flight[escalas]" value="0" class="invDiv">
         </th>
       </tr>
@@ -72,12 +72,12 @@
       {{else}}
 
       <tr>
-        <th colspan="1"><input type="text" placeholder="Num voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control"/></th>
+        <th colspan="1"><input type="text" placeholder="Número Voo" name="flight[flightNum]" value="{{flightNum}}" class="form-control"/></th>
         <th colspan="1"><input type="date" placeholder="dd/mm/aaaa" name="flight[dateFlight]" value="{{dateFlight}}" class="form-control" maxlength='10' /></th>
         <th colspan="4"><input type="text" placeholder="De" name="flight[from]" value="{{from}}" class="form-control"/></th>
         <th colspan="4"><input type="text" placeholder="Para" name="flight[destination]" value="{{destination}}" class="form-control"/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control" maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/></th>
-        <th colspan="2"><input type="text" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control"  maxlength='6' onkeypress="return /\d/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" onblur='addDashesHorario(this)'/>
+        <th colspan="2"><input type="time" placeholder="00:00" name="flight[timeOut]" value="{{timeOut}}" class="form-control"/></th>
+        <th colspan="2"><input type="time" placeholder="00:00" name="flight[timeIn]" value="{{timeIn}}" class="form-control" />
         <input type="number" name="flight[escalas]" value="1" class="invDiv">
         </th>
       </tr>
@@ -237,11 +237,25 @@
               </tr>
             </table>
           </div>
-          <select placeholder="Selecione" class="form-control" name=flight[coin] >
-            <option style = "color:red;">{{coin}}</option>
-            <option>USD</option>
+          <label>Selecione qual moeda:</label>
+          <select  class="form-control"  name=flight[coin] >
+            {{#compare coin "USD"}}
+            <option selected >USD</option>
             <option>R$</option>
             <option>€</option>
+            {{else}}{{#compare coin "R$"}}
+            <option >USD</option>
+            <option selected>R$</option>
+            <option>€</option>
+            {{else}}{{#compare coin "€"}}
+            <option >USD</option>
+            <option>R$</option>
+            <option selected>€</option>
+            {{else}}
+            <option>USD</option>
+            <option selected>R$</option>
+            <option>€</option>
+            {{/compare}}{{/compare}}{{/compare}}
           </select>
         </div>
         <br>
@@ -274,7 +288,7 @@
       </div>
     <br><br><br>
   </div>
-  <button type="submit" class="btn btn-primary" id="buttonPages" >Próximo</button>
+  <button type="submit" class="btn btn-primary" id="buttonPages" style="margin-top: 10px; margin-bottom: 10px">Próximo</button>
 </form>
 <script type="text/javascript" src="/javascripts/replicaPageDRegistred.js">  </script>
 <script type="text/javascript" src="/javascripts/operationsPageDRegistred.js">  </script>
