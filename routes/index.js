@@ -46,7 +46,9 @@ router.get('/forgot',  (req, res) => {
 
 // Tabela
 router.post('/table',  (req, res) => {
+    let month1 = req.body.info.monthMin;
     let year1 = req.body.info.yearMin;
+    let month2 = req.body.info.monthMax;
     let year2 = req.body.info.yearMax;
     let register = req.body.info.register;
 
@@ -67,6 +69,16 @@ router.post('/table',  (req, res) => {
               data = newData;
           }
           return data;
+        }
+        const getMes = (data) =>{
+          if(data && data.length === 10){
+            const mes = data[5]+data[6];
+            const mesInt = parseInt(mes);
+            return mesInt;
+          }
+          else{
+            return undefined;
+          }
         }
         const getAno = (data) =>{
           if(data && data.length === 10){
@@ -102,7 +114,7 @@ router.post('/table',  (req, res) => {
         }
 
       let cont = 0;
-      if(!year1 || !year2 || (!year1 && !year2)){
+      if(!year1 && !year2){
         Client.getAll().then((clients)=>{
             clients.forEach((cliente) => {
             if(cliente.budgets.length === 0 && ((register && cliente.register === register) || !register)){
@@ -165,9 +177,10 @@ router.post('/table',  (req, res) => {
         })
       }
       budgets.forEach((budget)=>{
+        const mes = getMes(budget.planDate[0]);
         const ano = getAno(budget.planDate[0]);
-        budget.planDate = tratarDataVetor(budget.planDate);
 
+        budget.planDate = tratarDataVetor(budget.planDate);
         budget.planDate = tratarValorVazio(budget.planDate);
         budget.planCity = tratarValorVazio(budget.planCity);
         budget.planCountry = tratarValorVazio(budget.planCountry);
@@ -297,17 +310,24 @@ router.post('/table',  (req, res) => {
 
                   if(year1 && year2){
                     if((ano && ano >= year1 && ano <= year2) && ((register && cliente[0].register === register) || !register)){
-                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                      if((year1 === year2 && mes >= month1 && mes <= month2)
+                        || (year1 !== year2 && ((ano == year1 && mes >= month1) || (ano == year2 && mes <= month2) || (ano != year1 && ano != year2)))){
+                        dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                      }
                     }
                   }
                   else if(year1 && !year2){
                     if((ano && ano >= year1) && ((register && cliente[0].register === register) || !register)){
-                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                      if((ano == year1 && mes >= month1) || ano != year1){
+                        dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                      }
                     }
                   }
                   else if(!year1 && year2){
                     if((ano && ano <= year2) && ((register && cliente[0].register === register) || !register)){
-                      dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                      if((ano == year2 && mes <= month2) || ano != year2){
+                        dadosPuxados.push({dados_manyBudgets: budget, dados_client: cliente, dados_manyFlights:manyFlights, dados_manyHotels:manyHotels, dados_manyCars: manyCars, dados_manySafes: manySafes});
+                      }
                     }
                   }
                   else if(!year1 && !year2){
