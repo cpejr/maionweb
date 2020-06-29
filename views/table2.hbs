@@ -930,9 +930,6 @@
       </table>
      </body>
   </div>
-  <button onclick="docCsv(['tabelaClientes'], 'tabela')">Download</button>
-
-
   </div>
   </div>
 
@@ -940,8 +937,8 @@
 
 <script>
 function tableGenerator(divId, id, filename){
-  //Mudarestado(divId);
-  //docCsv(id, filename);
+  Mudarestado(divId);
+  docCsv(id, filename);
 }
 
   function Mudarestado(divid){
@@ -949,43 +946,22 @@ function tableGenerator(divId, id, filename){
 
   }
     function docCsv(id,fileName){
-        //let id = ["tabelaClientes", "tabelaViagens"];
         let table = [];
-
         let data = [];
+
         for(let i = 0; i < id.length; i++){
           table[i] = document.getElementById(id[i]);
           data[i]= table[i].outerHTML.replace(/ /g, '%20');
-            // .replace(/<\/thead>/g, '')
-            // .replace(/<tbody id="client_table">/g, '')
-            // .replace(/<tbody id="budget_table">/g, '')
-            // .replace(/<!-- Cliente____________________________________________________________________ -->/g,'')
-            // .replace(/<!-- Viagens____________________________________________________________________ -->/g, '')
-            // .replace(/<!-- Voos_______________________________________________________________________ -->/g, '')
-            // .replace(/<!-- Hotéis_____________________________________________________________________ -->/g, '')
-            // .replace(/<!-- Transporte_________________________________________________________________ -->/g, '')
-            // .replace(/<!-- Seguro_____________________________________________________________________ -->/g, '')
-            // .replace(/<\/tbody>/g, '')
-            // .replace(/<tr>/g, '')
-            // .replace(/<\/tr>/g, '\r\n')
-            // .replace(/<th>/g, '')
-            // .replace(/<\/th>/g, ';')
-            // .replace(/\t/g, '')
-            // .replace(/\n/g, '');
         }
+
         fileName = fileName + '.xls';
         let meta = '<meta http-equiv="content-type" content="text/html; charset=UTF-8" />';
         let mylink = document.createElement('a');
         document.body.appendChild(mylink);
-
-          // let blob = new Blob(['\ufeff', data], {
-          //   type: 'application/vnd.ms-excel'});
-          // navigator.msSaveOrOpenBlob( blob, fileName);
-
-          mylink.download = fileName;
-          mylink.href = "data:application/vnd.ms-excel," + meta + data;
-          mylink.click();
-          //redirect();
+        mylink.download = fileName;
+        mylink.href = "data:application/vnd.ms-excel," + meta + data;
+        mylink.click();
+        redirect();
     }
 
     function redirect(){
