@@ -47,9 +47,9 @@
         {{/each}}
       </tbody>
     </table>
-    <button type="button" class="btn btn-primary" id="buttonPages" name="button" onClick="location.href='/registred/PageRegistred'">Retornar para pagina cadastrados</button>
+    <button type="button" class="btn btn-primary" id="buttonPages" name="button" onClick="location.href='/registred/PageRegistred'">Retornar para página cadastrados</button>
     {{#compare userType "Adm"}}
-      <button type="button" class="btn btn-primary" id="buttonPages" name="button" onClick="location.href='/Dashboard'">Retornar para pagina principal</button>
+      <button type="button" class="btn btn-primary" id="buttonPages" name="button" onClick="location.href='/Dashboard'">Retornar para página principal</button>
       {{else}}
       <button type="button" class="btn btn-primary" id="buttonPages" name="button" onClick="location.href='/DashboardCom'">Retornar para pagina principal</button>
     {{/compare}}

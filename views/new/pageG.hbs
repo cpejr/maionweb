@@ -28,11 +28,13 @@
             <h1 id="titleG" for="exampleInputPassword1">Seguro 1:</h1>
           </div>
           <div class="form-group">
-            <input name="safe[insuranceName]" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
-          </div>
-          <div class="form-group">
-            <input name="safe[insuranceCoverage]" type="text" placeholder= "Cobertura do seguro" class="form-control">
-          </div>
+              <h6 style="float: left;">Nome do seguro</h6>
+              <input name="safe[insuranceName]" value="{{insuranceName}}" type="text" placeholder= "Qual seguro será utilizado?" class="form-control">
+            </div>
+            <div class="form-group">
+              <h6 style="float: left;">Cobertura do seguro</h6>
+              <input style="margin-bottom:30px;" name="safe[insuranceCoverage]" value="{{insuranceCoverage}}" type="text" placeholder= "Cobertura do seguro" class="form-control">
+            </div>
 
           <div class="rowclass autorow">
             <div class="form-group">
@@ -98,12 +100,25 @@
               <tbody>
                 <tr>
                   <th>
-                    <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin] required>
-                      <option style="display:none">Moeda:</option>
-                      <option>USD</option>
-                      <option>R$</option>
-                      <option>€</option>
-                    </select>
+                      <select placeholder="Selecione" class="form-control form-control--width" name=safe[insuranceCoin]>
+                        {{#compare insuranceCoin "USD"}}
+                          <option selected >USD</option>
+                          <option>R$</option>
+                          <option>€</option>
+                        {{else}}{{#compare insuranceCoin "R$"}}
+                          <option >USD</option>
+                          <option selected>R$</option>
+                          <option>€</option>
+                      {{else}}{{#compare insuranceCoin "€"}}
+                          <option >USD</option>
+                          <option>R$</option>
+                          <option selected>€</option>
+                      {{else}}
+                          <option>USD</option>
+                          <option selected>R$</option>
+                          <option>€</option>
+                      {{/compare}}{{/compare}}{{/compare}}
+                      </select>
                   </th>
                   <th>
                     <input name="safe[insuranceTOT]" type="text" id="total1" onblur="calcSafe()" class="form-control form-control--width" placeholder="Valor" value="0">

@@ -5,10 +5,12 @@
 <form action="/new/pageE/{{client_id}}/{{budget_id}}" method="post" class="pagesFront">
 
   <div class="dinamic_spec">
-    <h1> Hotel </h1>
+    
 
 
-    <div>
+    <div style="padding-bottom: 0px; height: 300px;">
+      <h1> Hotel </h1>
+      <div>
       <label>Responsável da viagem</label>
       <input type="text" class="form-control" value="{{client.fullname}}" readonly>
       <br><br>
@@ -17,6 +19,7 @@
         <input type="text" class="form-control" value="{{name}}" readonly>
         <br>
       {{/each}}
+      </div>
     </div>
 
 
@@ -39,7 +42,7 @@
             <input class="form-control" placeholder="Tipo de acomodação" name="hotel[acomodationType1]" >
           </div><br>
             <div class="classa">
-              <label>Categoria do Apartamento"</label>
+              <label>Categoria do Apartamento</label>
               <input class="form-control" placeholder="Categoria do Apartamento" name="hotel[category1]" >
             </div><br>
             <div class="classa">
