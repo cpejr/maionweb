@@ -19,27 +19,52 @@
 
         <form class="pt-0" action="/table" method="post" id="filter" >
           <div style="justify-content: center; display: flex; flex-direction: column; align-items: center">
+            <div  style="justify-content: center; display: flex; flex-direction: row; align-items: center; padding: 5px">
+              <label style="font-size: 17px; width:28.7px;">De:</label>
+                <input
+                  type="number"
+                  placeholder="Mês"
+                  name="info[monthMin]"
+                  id="monthMin"
+                  class="form-control"
+                  max="12" min="0"
+                  style= "width:33%; margin: 0% 1% 0% 5% "
+                />
+                <input
+                  type="number"
+                  placeholder="Ano"
+                  name="info[yearMin]"
+                  id="yearMin"
+                  class="form-control"
+                  max="9999" min="1000"
+                  style= "width:36%; margin: 0% 0% 0% 1% "
+                />
+            </div>
+          <div  style="justify-content: center; display: flex; flex-direction: row; align-items: center; padding: 5px">
+        <label style="font-size: 17px; width:28.7px;">A:  </label>
 
-            <label style="font-size: 17px">De:</label>
-          <input
-            type="number"
-            placeholder="aaaa"
-            name="info[yearMin]"
-            id="yearMin"
-            class="form-control"
-            style= "width:20%;"
-          />
-          <br><br>
-          <label style="font-size: 17px">A:</label>
-          <input
-            type="number"
-            placeholder="aaaa"
-            name="info[yearMax]"
-            id="yearMax"
-            class="form-control"
-            style= "width:20%;"
-          />
-          <br><br>
+        <input
+        type="number"
+        placeholder="Mês"
+        name="info[monthMax]"
+        id="monthMax"
+        class="form-control"
+        max="12" min="0"
+        style= "width:33%; margin: 0% 1% 0% 5% "
+      />
+      <input
+      type="number"
+      placeholder="Ano"
+      name="info[yearMax]"
+      id="yearMax"
+      class="form-control"
+      max="9999" min="1000"
+      style= "width:36%; margin: 0% 0% 0% 1% "
+    />
+
+
+    </div>
+<br>
           <label style="font-size: 17px">CPF do cliente (somente números)</label>
           <input
             type="text"
@@ -70,25 +95,54 @@
 
 <script>
 
+  function validationMonthYear(month, year){
+    if(month && !year){
+      alert('É necessário digitar um ano.');
+      return false;
+    }
+    else if(!month && year){
+      alert('É necessário digitar um mês.');
+      return false;
+    }
+    else if(!month && !year){
+      return true;
+    }
+    else if(month && year){
+      if(month > 12){
+        alert('Digite um mês válido.');
+        return false;
+      }
+      if((year < 1000) || (year > 10000)){
+        alert('Digite um ano válido.');
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+  }
+
+
   function validation (){
 
+    month1 = Number(document.getElementById('monthMin').value);
     year1 = Number(document.getElementById('yearMin').value);
+    month2 = Number(document.getElementById('monthMax').value);
     year2 = Number(document.getElementById('yearMax').value);
     register = document.getElementById('register').value;
     if((register && register.length === 14) || !register){
-      if(year1 && year2){
-        if(((year1 < 1000) || (year1 > 10000)) || ((year2 < 1000) || (year2 > 10000))){
-          alert('Digite um ano válido.');
-        }
-        else if(year1 > year2){
-          alert('Digite um período válido.');
+      if(validationMonthYear(month1, year1) && validationMonthYear(month2, year2)){
+        if(year1 && year2){
+          if(year1 > year2){
+            alert('Digite um período válido.');
+          }
+          else{
+            document.getElementById("filter").submit();
+          }
         }
         else{
           document.getElementById("filter").submit();
         }
-      }
-      else{
-        document.getElementById("filter").submit();
       }
     }
     else {
