@@ -6240,7 +6240,8 @@ aside {
   width: 200px; }
 
 .marginPageC {
-  margin-left: 100px; }
+  margin-left: 100px;
+  margin-top: 30px; }
 
 .pagesFront {
   background-color: #C4694A;
@@ -6336,7 +6337,8 @@ label {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
-  padding: 1em; }
+  padding: 1em;
+  height: 300px; }
 
 .parent {
   background-color: #C4694A;
