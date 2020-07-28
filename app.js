@@ -24,7 +24,6 @@ const homeadminRouter = require('./routes/homeadmin');
 
 const app = express();
 
-
 /**
  *  Database setup
  */
