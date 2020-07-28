@@ -26,7 +26,7 @@ const app = express();
 
 var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
  
-app.use(redirectToHTTPS([/localhost:(\d{4})/]);
+app.use(redirectToHTTPS([/localhost:(\d{4})/]));
 
 /**
  *  Database setup
