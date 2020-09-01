@@ -356,7 +356,7 @@ router.get('/tableGenerator', auth.isAuthenticated, (req, res)=>{
 });
 
 /*Get da cadastro de novo usuario*/
-router.get('/newuser', auth.isAuthenticated, auth.isAdmin, (req, res)=>{
+router.get('/newuser', /*auth.isAuthenticated, auth.isAdmin,*/ (req, res)=>{
  res.render('novocadastro',{title: 'Cadastro de novo usuário', layout: 'layout'});
 });
 
